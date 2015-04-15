@@ -29,4 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php ActiveForm::end(); ?>
         </div>
     </div>
+
+    <hr>
+    <p><?= Yii::t('app', "Or login using another service:") ?></p>
+
+    <div class="row">
+        <?= yii\authclient\widgets\AuthChoice::widget([
+            'baseAuthUrl' => ['site/auth'],
+            'popupMode' => true,
+        ]) ?>
+    </div>
 </div>
