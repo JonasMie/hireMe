@@ -48,13 +48,13 @@ return [
                 ],
                 'twitter' => [
                     'class' => 'yii\authclient\clients\Twitter',
-                    'consumerKey' => 'twitter_consumer_key',
-                    'consumerSecret' => 'twitter_consumer_secret',
+                    'consumerKey' => '8ULtNfLiZJrvl5TanxDUkMEAg',
+                    'consumerSecret' => '2bnacVzOy4s5UgLXX72ApvAqZnkMEj32GfGhQFq5hRmYsJ0cyi',
                 ],
                 'linkedin' => [
                     'class' => 'yii\authclient\clients\LinkedIn',
-                    'clientId' => 'linkedin_client_id',
-                    'clientSecret' => 'linkedin_client_secret',
+                    'clientId' => '75g3owrkn1hj8d',
+                    'clientSecret' => 'SJDPnnOxD9e1qsUi',
                 ],
                 'xing' => [
                     'class' => 'frontend\customAuth\Xing',
