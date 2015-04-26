@@ -179,6 +179,13 @@ class SiteController extends Controller
                                 $email = $attributes['email'];
                             }
                             break;
+                        case("Twitter"):
+                            $firstName = $attributes['name'];
+                            break;
+                        case("LinkedIn"):
+                            $firstName = $attributes['first-name'];
+                            $lastName = $attributes['last-name'];
+                            $email = $attributes['email-address'];
                     }
 
                     $user = new User([
