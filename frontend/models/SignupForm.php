@@ -1,6 +1,7 @@
 <?php
 namespace frontend\models;
 
+use app\models\Company;
 use common\models\User;
 use yii\base\Model;
 use Yii;
@@ -14,7 +15,15 @@ class SignupForm extends Model
     public $lastName;
     public $email;
     public $password;
-
+    public $checkCompanySignup;
+    public $companyName;
+    public $companyAddress;
+    public $companyAddressStreet;
+    public $companyAddressNumber;
+    public $companyAddressZIP;
+    public $companyAddressCity;
+    public $companySector;
+    public $companyEmployees;
     /**
      * @inheritdoc
      */
@@ -23,7 +32,6 @@ class SignupForm extends Model
         return [
             ['firstName', 'filter', 'filter' => 'trim'],
             ['firstName', 'required'],
-//          ['firstName', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This firstName has already been taken.'],
             ['firstName', 'string', 'min' => 2, 'max' => 255],
 
             ['lastName', 'filter', 'filter' => 'trim'],
@@ -37,6 +45,16 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            // TODO: Error-message -> Label ausgeben
+            [['companyName', 'companyAddress', 'companyAddressStreet', 'companyAddressNumber', 'companyAddressZIP', 'companyAddressCity', 'companySector', 'companyEmployees'], 'required', 'when' => function ($model){
+                return $model->checkCompanySignup == true;
+            }, 'whenClient' => 'function(attribute,value){
+                    return $("#checkCompanySignup").prop("checked");
+                }'
+            ],
+            ['companyAddressZIP', 'integer', 'max'=> 99998, 'min'=> 01001],
+            ['checkCompanySignup', 'boolean'],
         ];
     }
 
@@ -53,6 +71,27 @@ class SignupForm extends Model
             $user->lastName = $this->lastName;
             $user->email = $this->email;
             $user->setPassword($this->password);
+
+            if($this->checkCompanySignup):
+                $company = Company::findByName($this->companyName);
+
+                if (!$company):
+                    $company = new Company();
+                    $company->name = $this->companyName;
+                    $company->street= $this->companyAddressStreet;
+                    $company->houseno = $this->companyAddressNumber;
+                    $company->zip = $this->companyAddressZIP;
+                    $company->city = $this->companyAddressCity;
+                    $company->sector = $this->companySector;
+                    $company->employeeAmountCat = $this->companyEmployees;
+
+                    $company->save();
+
+                endif;
+
+                $user->is_recruiter = 1;
+                $user->company_id= $company->id;
+            endif;
             $user->generateAuthKey();
             if ($user->save()) {
                 return $user;

@@ -23,6 +23,7 @@ class m150415_133817_create_auth_table extends Migration
 
     public function down()
     {
+
         $this->dropTable('{{%auth}}');
     }
     
