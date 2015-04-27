@@ -105,7 +105,7 @@ body > div.wrap > div.container {
   margin-top: -70px;
 }
 /* line 17, ../sass/_header.scss */
-#header div.container .navbar-header .navbar-brand img {
+#header div.container .navbar-header .navbar-brand img#navbar-logo {
   width: 150px;
   height: 58px;
 }
