@@ -129,6 +129,23 @@ class User extends ActiveRecord implements IdentityInterface
         return $timestamp + $expire >= time();
     }
 
+     /**
+     * Finds out if user is recruiter
+     *
+     * @param string $id to identify user
+     * @return boolean
+     */
+     public function isUserRecruiter($id) {
+
+
+       $thisUser = findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+
+       if ($thisUser->isRecruiter == 0) {
+           return false;
+       }
+       return true;
+     }
+
     /**
      * @inheritdoc
      */
