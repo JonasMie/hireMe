@@ -92,89 +92,170 @@ body > div.wrap > div.container {
   font-family: 'PT Sans', sans-serif;
   font-size: 14px;
 }
-/* line 6, ../sass/_header.scss */
+@media (max-width: 991px) {
+  /* line 1, ../sass/_header.scss */
+  #header {
+    height: 60px;
+    background: none;
+    border: none;
+  }
+}
+/* line 11, ../sass/_header.scss */
 #header div.container {
   margin-top: 70px;
   width: 100%;
   padding-left: 0px;
 }
-/* line 11, ../sass/_header.scss */
+/* line 16, ../sass/_header.scss */
 #header div.container .navbar-header {
   background-color: #5dca88;
   padding: 40px 0px;
   margin-top: -70px;
 }
-/* line 17, ../sass/_header.scss */
-#header div.container .navbar-header .navbar-brand img#navbar-logo {
+/* line 22, ../sass/_header.scss */
+#header div.container .navbar-header a.navbar-brand img#navbar-logo {
   width: 150px;
   height: 58px;
 }
-/* line 24, ../sass/_header.scss */
+/* line 28, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav {
   float: none !important;
 }
-/* line 27, ../sass/_header.scss */
+/* line 31, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li:nth-child(1) {
   margin-left: 35px;
 }
-/* line 31, ../sass/_header.scss */
+/* line 35, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li {
   margin-right: 15px;
   padding: 0px 20px 0px 20px;
   color: #5d6461;
   border-radius: 30px;
 }
-/* line 37, ../sass/_header.scss */
+/* line 40, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li:hover {
   background: rgba(93, 202, 136, 0.5);
 }
-/* line 39, ../sass/_header.scss */
+/* line 42, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li:hover a {
   color: #fff;
 }
-/* line 44, ../sass/_header.scss */
+/* line 46, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li a {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* line 50, ../sass/_header.scss */
+/* line 52, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li.active {
   background-color: #5dca88;
 }
-/* line 52, ../sass/_header.scss */
+/* line 54, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li.active a {
   background: none;
 }
 @media (max-width: 991px) {
-  /* line 60, ../sass/_header.scss */
-  #header .navbar-header {
+  /* line 62, ../sass/_header.scss */
+  #header div.container {
+    margin: 0;
+    padding: 0;
+  }
+  /* line 66, ../sass/_header.scss */
+  #header div.container .navbar-header {
     float: none;
+    background: none;
+    padding: 0;
+    margin: 0;
   }
-  /* line 63, ../sass/_header.scss */
-  #header .navbar-header .navbar-toggle {
+  /* line 72, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle {
     display: block;
+    background-color: #5dca88;
+    border-radius: 22px;
+    height: 42px;
+    float: none !important;
+    margin: 15px 0px 0px 15px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
   }
-  /* line 68, ../sass/_header.scss */
-  #header #header-collapse {
+  /* line 89, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar {
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+  }
+  /* line 96, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(2) {
+    position: absolute;
+    top: 13px;
+  }
+  /* line 100, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(3) {
+    margin-top: 0px;
+  }
+  /* line 103, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(4) {
+    position: absolute;
+    top: 23px;
+  }
+  /* line 107, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:active {
+    transition: 0;
+  }
+  /* line 111, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(2) {
+    top: 11px;
+  }
+  /* line 114, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(4) {
+    top: 25px;
+  }
+  /* line 120, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(2) {
+    width: 12.22222px;
+    transform: rotate3d(0, 0, 1, -40deg);
+    top: 16px;
+    left: 9px;
+  }
+  /* line 126, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(4) {
+    width: 12.22222px;
+    transform: rotate3d(0, 0, 1, 40deg);
+    top: 20px;
+    left: 9px;
+  }
+  /* line 136, ../sass/_header.scss */
+  #header div.container .navbar-header a.navbar-brand img#navbar-logo {
+    display: none;
+  }
+  /* line 141, ../sass/_header.scss */
+  #header div.container #header-collapse {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  /* line 73, ../sass/_header.scss */
-  #header .navbar-collapse.collapse {
-    display: none !important;
-  }
-  /* line 77, ../sass/_header.scss */
-  #header .navbar-nav {
+  /* line 145, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right {
     float: none !important;
-    margin: 7.5px -15px;
+    float: none !important;
+    margin-top: 7.5px;
   }
-  /* line 81, ../sass/_header.scss */
-  #header .navbar-nav li {
+  /* line 150, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li {
     float: none;
   }
-  /* line 84, ../sass/_header.scss */
-  #header .navbar-nav li a {
+  /* line 153, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li a {
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+  /* line 160, ../sass/_header.scss */
+  #header div.container .navbar-collapse.collapse {
+    display: none !important;
+  }
+  /* line 163, ../sass/_header.scss */
+  #header div.container .collapse.in {
+    display: block !important;
   }
 }
