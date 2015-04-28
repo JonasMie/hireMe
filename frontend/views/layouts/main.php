@@ -81,5 +81,21 @@ CustomAppAsset::register($this);
 
 <?php $this->endBody() ?>
 </body>
+
+<script>
+
+    var hamburgerClickedClass = false;
+
+    $('#header .navbar-header .navbar-toggle').click(function(){
+        if (!hamburgerClickedClass) {
+            $(this).addClass('clicked');
+        } else {
+            $(this).removeClass('clicked');
+        }
+        hamburgerClickedClass = !hamburgerClickedClass;
+    });
+
+</script>
+
 </html>
 <?php $this->endPage() ?>
