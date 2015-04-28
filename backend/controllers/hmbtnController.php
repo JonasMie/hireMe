@@ -3,6 +3,7 @@ namespace backend\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use common\models\ApplyBtn;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
@@ -13,7 +14,7 @@ use yii\filters\VerbFilter;
 class hmbtnController extends Controller
 {
 
-    // REQUEST FOR ACTION http://hireme.mi.hdm-stuttgart.de/index.php?r=cookie/getCookie
+    // Request: http://localhost/B20/backend/web/hmbtn/access-cookie
     public function actionAccessCookie() {
     $cookies = Yii::$app->request->cookies;
 
@@ -24,9 +25,15 @@ class hmbtnController extends Controller
         }
     }
 
-    public function actionGenerateBtn($company,$recruiter) {
+    // Request: http://localhost/B20/backend/web/hmbtn/generate-btn
+    public function actionGenerateBtn() {
 
-        
+         $button = new ApplyBtn([
+                        'company_id' => "1",
+                        'recruiter_id' => "2"
+                    ]);
+        //return $button.toString();
+        return "Klappt";
 
     }
 }
