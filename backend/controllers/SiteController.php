@@ -55,6 +55,12 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $cookies = Yii::$app->response->cookies;
+                    $userID = Yii::$app->user->getId();
+                    $cookies->add(new \yii\web\Cookie([
+                        'name' => '_usr',
+                        'value' => $userID,
+                    ]));
         return $this->render('index');
     }
 
