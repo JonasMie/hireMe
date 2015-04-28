@@ -11,11 +11,12 @@ use yii\web\IdentityInterface;
  * ApplyBtn model
  *
  * @property integer $id
- * @property string $company_id
- * @property string $recruiter_id
+ * @property integer $company_id
+ * @property integer $recruiter_id
+ * @property integer $status
  */
 
-class ApplyBtn extends ActiveRecord implements IdentityInterface
+class ApplyBtn extends ActiveRecord
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;

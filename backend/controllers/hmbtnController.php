@@ -28,12 +28,14 @@ class hmbtnController extends Controller
     // Request: http://localhost/B20/backend/web/hmbtn/generate-btn
     public function actionGenerateBtn() {
 
-         $button = new ApplyBtn([
-                        'company_id' => "1",
-                        'recruiter_id' => "2"
+        $button = new ApplyBtn([
+                        'company_id' => "2",
+                        'recruiter_id' => "1"
                     ]);
-        //return $button.toString();
-        return "Klappt";
+      
+        $button->save();
+        return $button->company_id;
+        //return "Klappt";
 
     }
 }
