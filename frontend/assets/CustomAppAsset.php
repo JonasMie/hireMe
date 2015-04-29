@@ -14,5 +14,10 @@ class CustomAppAsset extends AssetBundle
         'css/stylesheets/style.css',
         'http://fonts.googleapis.com/css?family=PT+Sans'
     ];
+    public $js = [
+        'js/customScript.js',
+    ];
 
 }
+
+
