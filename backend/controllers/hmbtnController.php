@@ -28,13 +28,17 @@ class hmbtnController extends Controller
     // Request: http://localhost/B20/backend/web/hmbtn/generate-btn
     public function actionGenerateBtn() {
 
+        $company_id = Yii::$app->company->getId();
+        $recruiter_id = Yii::$app->user->getId();
         $button = new ApplyBtn([
-                        'company_id' => "2",
-                        'recruiter_id' => "1"
+                        'company_id' => $company_id,
+                        'recruiter_id' => $recruiter_id
                     ]);
+        
       
         $button->save();
-        return $button->company_id;
+        return '<iframe src="http://hireme.mi.hdm-stuttgart.de/" width="100" height="50" id="hireMeFrame" frameBorder="0" name="id_0001">
+        </iframe>';
         //return "Klappt";
 
     }
