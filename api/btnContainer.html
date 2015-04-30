@@ -1,0 +1,36 @@
+<html>
+
+<head>
+	<title>
+		
+
+	</title>
+
+</head>
+
+	<body>
+
+		<script src="../backend/web/assets/c2a4850/jquery.min.js"></script>
+
+		<button id="bButton">HIRE ME!</button>
+
+		<script type="text/javascript">
+
+			$( "#bButton" ).click(function() {
+					$.get( "accessCookie.php", function( cookie ) {
+							alert(cookie);
+  							 $.post("http://localhost/B20/backend/web/hmbtn/btn-clicked", 
+  							 	{user: cookie,jobAd_Id : window.name}, 
+  							 	function(result){
+       								 console.log(result);
+   							 });
+					});
+			});
+
+		</script>
+
+
+
+
+	</body>
+</html>

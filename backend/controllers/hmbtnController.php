@@ -13,6 +13,7 @@ use yii\filters\VerbFilter;
  */
 class hmbtnController extends Controller
 {
+   // public function getActionParams() {return array_merge($_Get, $_POST);}
 
     // Request: http://localhost/B20/backend/web/hmbtn/access-cookie
     public function actionAccessCookie() {
@@ -28,18 +29,31 @@ class hmbtnController extends Controller
     // Request: http://localhost/B20/backend/web/hmbtn/generate-btn
     public function actionGenerateBtn() {
 
-        $company_id = Yii::$app->company->getId();
-        $recruiter_id = Yii::$app->user->getId();
+        //$company_id = Yii::$app->company->getId();
+        //$recruiter_id = Yii::$app->user->getId();
+        //$jobAd_id = Yii::$app->jobAd->getId();
         $button = new ApplyBtn([
-                        'company_id' => $company_id,
-                        'recruiter_id' => $recruiter_id
+                        'company_id' => "1",
+                        'recruiter_id' => "2"
                     ]);
-        
+
       
         $button->save();
-        return '<iframe src="http://hireme.mi.hdm-stuttgart.de/" width="100" height="50" id="hireMeFrame" frameBorder="0" name="id_0001">
+
+        Yii::$app->response->content = '<iframe src="http://localhost/B20/api/btnContainer.html" width="600" height="50" frameBorder="0" name="jobID">
         </iframe>';
-        //return "Klappt";
+
 
     }
+
+    public function actionBtnClicked() {
+
+        $request = Yii::$app->request;
+     //   return http_redirect("http:localhost/");
+        $user = $request->get('user');   
+        $jobAd_id = $request->get('jobAd_Id');
+      Yii::$app->response->content = 'asdasd';
+
+    }
+
 }
