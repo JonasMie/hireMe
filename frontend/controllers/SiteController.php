@@ -160,9 +160,38 @@ class SiteController extends Controller
                     ]);
                 } else {
                     $password = Yii::$app->security->generateRandomString(6);
+                    $firstName = $lastName = $email = '';
+                    error_log(print_r($attributes,1));
+                    switch ($client->getTitle()){
+                        case("Google"):
+                            $firstName = $attributes['name']['givenName'];
+                            $lastName = $attributes['name']['familyName'];
+                            $email = $attributes['emails'][0]['value'];
+                            break;
+                        case("Facebook"):
+                            $firstName = $attributes['first_name'];
+                            $lastName = $attributes['last_name'];
+                            $email = $attributes['email'];
+                            break;
+                        case("GitHub"):
+                            $firstName = $attributes['login'];
+                            if(isset($attributes['email'])) {
+                                $email = $attributes['email'];
+                            }
+                            break;
+                        case("Twitter"):
+                            $firstName = $attributes['name'];
+                            break;
+                        case("LinkedIn"):
+                            $firstName = $attributes['first-name'];
+                            $lastName = $attributes['last-name'];
+                            $email = $attributes['email-address'];
+                    }
+
                     $user = new User([
-                        'firstName' => $attributes['login'],    // TODO: check attributes for name/login
-                        'email' => $attributes['email'],
+                        'firstName' => $firstName,
+                        'lastName' => $lastName,
+                        'email' => $email,
                         'password' => $password
                     ]);
                     $user->generateAuthKey();

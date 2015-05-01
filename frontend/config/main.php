@@ -28,6 +28,45 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'clientId' => '751087841674690',
+                    'clientSecret' => 'eb48650a55ff164e5ff6bb123738c4b9',
+                ],
+                'google' => [
+                    'class' => 'yii\authclient\clients\GoogleOAuth',
+                    'clientId' => '58721707988-v5app0rim8mk4pqan11dq8hh95nvph2o.apps.googleusercontent.com',
+                    'clientSecret' => 'sNlR14tzduh9Z1n9SXyYodKZ'
+                ],
+                'github' => [
+                    'class' => 'yii\authclient\clients\GitHub',
+                    'clientId' => '3e128b840ff4613e0af4',
+                    'clientSecret' => '94c1823503f80cb2738ff19434d2c5eddcd95871'
+                ],
+                'twitter' => [
+                    'class' => 'yii\authclient\clients\Twitter',
+                    'consumerKey' => '8ULtNfLiZJrvl5TanxDUkMEAg',
+                    'consumerSecret' => '2bnacVzOy4s5UgLXX72ApvAqZnkMEj32GfGhQFq5hRmYsJ0cyi',
+                ],
+                'linkedin' => [
+                    'class' => 'yii\authclient\clients\LinkedIn',
+                    'clientId' => '75g3owrkn1hj8d',
+                    'clientSecret' => 'SJDPnnOxD9e1qsUi',
+                ],
+                'xing' => [
+                    'class' => 'frontend\customAuth\Xing',
+                    'consumerKey' => '18cdca9317c098c0803e',
+                    'consumerSecret' => '9722ecc7f213cd8553c59b9131cd3f5cb2812dc7'
+                 ]
+            ],
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
     ],
     'params' => $params,
 ];
