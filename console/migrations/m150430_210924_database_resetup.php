@@ -134,9 +134,9 @@ class m150430_210924_database_resetup extends Migration
               `sent` TINYINT(1) NOT NULL DEFAULT 0,
               `read` TINYINT(1) NOT NULL DEFAULT 0,
               `archived` TINYINT(1) NOT NULL DEFAULT 0,
-              `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-              `updated_at` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-              PRIMARY KEY (`id`),
+              `created_at` TIMESTAMP NOT NULL DEFAULT NOW(),"
+              //`updated_at` TIMESTAMP NOT NULL DEFAULT 0 ON UPDATE NOW(),
+              ."PRIMARY KEY (`id`),
               INDEX `user_rel_id` (`user_id` ASC),
               INDEX `application_company_rel_id` (`company_id` ASC),
               INDEX `application_ad_rel_id` (`jobAd_id` ASC),
@@ -181,120 +181,98 @@ class m150430_210924_database_resetup extends Migration
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`saved_applications`
         //            -- -----------------------------------------------------
-        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`saved_applications` ;
-
-            CREATE TABLE IF NOT EXISTS `hireMe`.`saved_applications` (
-              `id` INT NOT NULL,
-              `application_id` INT NULL,
-              PRIMARY KEY (`id`),
-              INDEX `application_ref_idx` (`application_id` ASC),
-              CONSTRAINT `application_ref`
-                FOREIGN KEY (`application_id`)
-                REFERENCES `hireMe`.`application` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION)
-              ENGINE = InnoDB;")->execute();
+//        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`saved_applications` ;
+//
+//            CREATE TABLE IF NOT EXISTS `hireMe`.`saved_applications` (
+//              `id` INT NOT NULL,
+//              `application_id` INT NULL,
+//              PRIMARY KEY (`id`),
+//              INDEX `application_ref_idx` (`application_id` ASC),
+//              CONSTRAINT `application_ref`
+//                FOREIGN KEY (`application_id`)
+//                REFERENCES `hireMe`.`application` (`id`)
+//                ON DELETE NO ACTION
+//                ON UPDATE NO ACTION)
+//              ENGINE = InnoDB;")->execute();
 
 
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`resume`
         //            -- -----------------------------------------------------
-        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`resume` ;
-
-            CREATE TABLE IF NOT EXISTS `hireMe`.`resume` (
-              `id` INT NOT NULL,
-              `user_id` INT NOT NULL,
-              `period_begin` DATE NOT NULL,
-              `period_end` DATE NOT NULL,
-              `period_head` VARCHAR(60) NOT NULL,
-              `period_body` VARCHAR(100) NOT NULL,
-              PRIMARY KEY (`id`, `user_id`),
-              INDEX `user_ref_idx` (`user_id` ASC),
-              CONSTRAINT `user_ref`
-                FOREIGN KEY (`user_id`)
-                REFERENCES `hireMe`.`user` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION)
-              ENGINE = InnoDB;")->execute();
+//        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`resume` ;
+//
+//            CREATE TABLE IF NOT EXISTS `hireMe`.`resume` (
+//              `id` INT NOT NULL,
+//              `user_id` INT NOT NULL,
+//              `period_begin` DATE NOT NULL,
+//              `period_end` DATE NOT NULL,
+//              `period_head` VARCHAR(60) NOT NULL,
+//              `period_body` VARCHAR(100) NOT NULL,
+//              PRIMARY KEY (`id`, `user_id`),
+//              INDEX `user_ref_idx` (`user_id` ASC),
+//              CONSTRAINT `user_ref`
+//                FOREIGN KEY (`user_id`)
+//                REFERENCES `hireMe`.`user` (`id`)
+//                ON DELETE NO ACTION
+//                ON UPDATE NO ACTION)
+//              ENGINE = InnoDB;")->execute();
 
 
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`resume_skills`
         //            -- -----------------------------------------------------
-        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`resume_skills` ;
-
-            CREATE TABLE IF NOT EXISTS `hireMe`.`resume_skills` (
-              `id` INT NOT NULL,
-              `resume_id` INT NOT NULL,
-              `skill` VARCHAR(50) NOT NULL,
-              PRIMARY KEY (`id`, `resume_id`),
-              INDEX `resume_ref_idx` (`resume_id` ASC),
-              CONSTRAINT `resume_ref`
-                FOREIGN KEY (`resume_id`)
-                REFERENCES `hireMe`.`resume` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION)
-              ENGINE = InnoDB;")->execute();
+//        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`resume_skills` ;
+//
+//            CREATE TABLE IF NOT EXISTS `hireMe`.`resume_skills` (
+//              `id` INT NOT NULL,
+//              `resume_id` INT NOT NULL,
+//              `skill` VARCHAR(50) NOT NULL,
+//              PRIMARY KEY (`id`, `resume_id`),
+//              INDEX `resume_ref_idx` (`resume_id` ASC),
+//              CONSTRAINT `resume_ref`
+//                FOREIGN KEY (`resume_id`)
+//                REFERENCES `hireMe`.`resume` (`id`)
+//                ON DELETE NO ACTION
+//                ON UPDATE NO ACTION)
+//              ENGINE = InnoDB;")->execute();
 
 
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`enclosures`
         //            -- -----------------------------------------------------
-        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`enclosures` ;
-
-            CREATE TABLE IF NOT EXISTS `hireMe`.`enclosures` (
-              `id` INT NOT NULL,
-              `user_id` INT NOT NULL,
-              `file_id` INT NOT NULL,
-              PRIMARY KEY (`id`, `user_id`, `file_id`),
-              INDEX `user_ref_idx` (`user_id` ASC),
-              CONSTRAINT `user_ref`
-                FOREIGN KEY (`user_id`)
-                REFERENCES `hireMe`.`user` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION)
-              ENGINE = InnoDB;")->execute();
+//        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`enclosures` ;
+//
+//            CREATE TABLE IF NOT EXISTS `hireMe`.`enclosures` (
+//              `id` INT NOT NULL,
+//              `user_id` INT NOT NULL,
+//              `file_id` INT NOT NULL,
+//              PRIMARY KEY (`id`, `user_id`, `file_id`),
+//              INDEX `user_ref_idx` (`user_id` ASC),
+//              CONSTRAINT `user_ref`
+//                FOREIGN KEY (`user_id`)
+//                REFERENCES `hireMe`.`user` (`id`)
+//                ON DELETE NO ACTION
+//                ON UPDATE NO ACTION)
+//              ENGINE = InnoDB;")->execute();
 
 
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`reports`
         //            -- -----------------------------------------------------
-        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`reports` ;
-
-            CREATE TABLE IF NOT EXISTS `hireMe`.`reports` (
-              `id` INT NOT NULL,
-              `user_id` INT NOT NULL,
-              `file_id` INT NOT NULL,
-              PRIMARY KEY (`id`, `user_id`, `file_id`),
-              INDEX `user_ref_idx` (`user_id` ASC),
-              CONSTRAINT `user_ref`
-                FOREIGN KEY (`user_id`)
-                REFERENCES `hireMe`.`user` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION)
-              ENGINE = InnoDB;")->execute();
-
-        //-- -----------------------------------------------------
-        //-- Table `hireMe`.`favourites`
-        //            -- -----------------------------------------------------
-        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`favourites` ;
-
-            CREATE TABLE IF NOT EXISTS `hireMe`.`favourites` (
-              `id` INT NOT NULL,
-              `job_ad_id` INT NOT NULL,
-              `user_id` INT NOT NULL,
-              PRIMARY KEY (`id`),
-              CONSTRAINT `favourites_jobAd_ref`
-                FOREIGN KEY (`job_ad_id`)
-                REFERENCES `hireMe`.`job_ad` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION,
-              CONSTRAINT `favourites_user_ref`
-                FOREIGN KEY (`user_id`)
-                REFERENCES `hireMe`.`user` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION)
-              ENGINE = InnoDB;")->execute();
+//        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`reports` ;
+//
+//            CREATE TABLE IF NOT EXISTS `hireMe`.`reports` (
+//              `id` INT NOT NULL,
+//              `user_id` INT NOT NULL,
+//              `file_id` INT NOT NULL,
+//              PRIMARY KEY (`id`, `user_id`, `file_id`),
+//              INDEX `user_ref_idx` (`user_id` ASC),
+//              CONSTRAINT `user_ref`
+//                FOREIGN KEY (`user_id`)
+//                REFERENCES `hireMe`.`user` (`id`)
+//                ON DELETE NO ACTION
+//                ON UPDATE NO ACTION)
+//              ENGINE = InnoDB;")->execute();
 
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`favourites`
@@ -323,30 +301,30 @@ class m150430_210924_database_resetup extends Migration
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`recruiter`
         //            -- -----------------------------------------------------
-        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`recruiter` ;
-
-            CREATE TABLE IF NOT EXISTS `hireMe`.`recruiter` (
-              `id` INT NOT NULL,
-              `company_id` INT NOT NULL,
-              `firstname` VARCHAR(45) NOT NULL,
-              `lastname` VARCHAR(45) NOT NULL,
-              `birthday` DATE NULL,
-              `email` VARCHAR(45) NOT NULL,
-              `password` VARCHAR(45) NOT NULL,
-              `admin` TINYINT(1) NULL DEFAULT 0,
-              PRIMARY KEY (`id`, `company_id`),
-              INDEX `company_ref_idx` (`company_id` ASC),
-              CONSTRAINT `company_ref`
-                FOREIGN KEY (`company_id`)
-                REFERENCES `hireMe`.`company` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION,
-              CONSTRAINT `recruiter_ref`
-                FOREIGN KEY (`id`)
-                REFERENCES `hireMe`.`user` (`id`)
-                ON DELETE NO ACTION
-                ON UPDATE NO ACTION)
-            ENGINE = InnoDB;")->execute();
+//        $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`recruiter` ;
+//
+//            CREATE TABLE IF NOT EXISTS `hireMe`.`recruiter` (
+//              `id` INT NOT NULL,
+//              `company_id` INT NOT NULL,
+//              `firstname` VARCHAR(45) NOT NULL,
+//              `lastname` VARCHAR(45) NOT NULL,
+//              `birthday` DATE NULL,
+//              `email` VARCHAR(45) NOT NULL,
+//              `password` VARCHAR(45) NOT NULL,
+//              `admin` TINYINT(1) NULL DEFAULT 0,
+//              PRIMARY KEY (`id`, `company_id`),
+//              INDEX `company_ref_idx` (`company_id` ASC),
+//              CONSTRAINT `company_ref`
+//                FOREIGN KEY (`company_id`)
+//                REFERENCES `hireMe`.`company` (`id`)
+//                ON DELETE NO ACTION
+//                ON UPDATE NO ACTION,
+//              CONSTRAINT `recruiter_ref`
+//                FOREIGN KEY (`id`)
+//                REFERENCES `hireMe`.`user` (`id`)
+//                ON DELETE NO ACTION
+//                ON UPDATE NO ACTION)
+//            ENGINE = InnoDB;")->execute();
 
         //-- -----------------------------------------------------
         //-- Table `hireMe`.`auth`
@@ -379,7 +357,7 @@ class m150430_210924_database_resetup extends Migration
               `content` MEDIUMTEXT NOT NULL,
               `sender_id` INT(11) NOT NULL,
               `receiver_id` INT(11) NOT NULL,
-              `sent_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+              `sent_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
               `deleted` TINYINT(1) NOT NULL DEFAULT 0,
               `read` TINYINT(1) NOT NULL DEFAULT 0,
               PRIMARY KEY (`id`),
