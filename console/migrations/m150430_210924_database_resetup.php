@@ -66,7 +66,7 @@ class m150430_210924_database_resetup extends Migration
               `firstName` VARCHAR(255) NOT NULL,
               `lastName` VARCHAR(255) NOT NULL,
               `auth_key` VARCHAR(32) NOT NULL,
-              `password_hash` VARCHAR(255) NOT NULL,
+              `password_hash` VARCHAR(45) NOT NULL,
               `password_reset_token` VARCHAR(255) NULL,
               `email` VARCHAR(255) NOT NULL,
               `status` SMALLINT(6) NULL DEFAULT 10,
@@ -77,7 +77,7 @@ class m150430_210924_database_resetup extends Migration
               `birthday` DATE NULL DEFAULT NULL,
               `applications_id` INT NOT NULL,
               `position` VARCHAR(45) NULL,
-              PRIMARY KEY (`id`),
+              PRIMARY KEY (`id`, `applications_id`),
               INDEX `user_company_rel_idx` (`company_id` ASC),
               CONSTRAINT `user_company_rel`
                 FOREIGN KEY (`company_id`)
