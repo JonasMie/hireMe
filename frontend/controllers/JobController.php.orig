@@ -1,0 +1,241 @@
+<?php
+
+<<<<<<< HEAD
+namespace frontend\controllers;
+
+use Yii;
+use frontend\models\Job;
+use frontend\models\Analytics;
+use frontend\models\Application;
+use common\models\User;
+use frontend\models\JobSearch;
+=======
+namespace frontend\Controllers;
+
+use Yii;
+use app\models\Job;
+use app\models\JobSearch;
+>>>>>>> User Dashboard + Messaging + Favourites
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
+
+/**
+<<<<<<< HEAD
+ * JobController implements the CRUD actions for Job model.
+ */
+class JobController extends Controller
+{
+
+=======
+ * JobAdController implements the CRUD actions for JobAd model.
+ */
+class JobController extends Controller
+{
+>>>>>>> User Dashboard + Messaging + Favourites
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['post'],
+                ],
+            ],
+        ];
+    }
+
+    /**
+<<<<<<< HEAD
+     * Lists all Job models.
+=======
+     * Lists all JobAd models.
+>>>>>>> User Dashboard + Messaging + Favourites
+     * @return mixed
+     */
+    public function actionIndex()
+    {
+<<<<<<< HEAD
+        $searchModel = new JobSearch();
+=======
+        $searchModel = new JobAdSearch();
+>>>>>>> User Dashboard + Messaging + Favourites
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+<<<<<<< HEAD
+     * Displays a single Job model.
+=======
+     * Displays a single JobAd model.
+>>>>>>> User Dashboard + Messaging + Favourites
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+<<<<<<< HEAD
+    public function actionApply($id,$user) {
+
+        $app = new Application();
+        $job = Job::findOne($id);
+
+        $apps = Application::find()->orderBy('id')->all();
+            if (count($apps) == 0) {
+                $app->id = 0;
+            }
+            else {
+                $highestID = $apps[count($apps)-1];
+                $app->id = $highestID->id+1;
+            }
+        $app->user_id = $user;
+        $app->company_id = $job->company_id;
+        $app->job_id = $id;
+        $app->state = "Gespeichert";
+        $app->save();
+        return $this->render('applied');
+    }
+
+    /**
+     * Creates a new Job model.
+=======
+    /**
+     * Creates a new JobAd model.
+>>>>>>> User Dashboard + Messaging + Favourites
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Job();
+<<<<<<< HEAD
+        $thisUser = Yii::$app->getUser();
+        $model->contact_id = $thisUser->id;
+        $getUser = User::findOne($thisUser->id);
+        $model->company_id = $getUser->company_id;
+        Yii::trace('User ID: ' .Yii::$app->user->getId());
+        Yii::trace('Comp ID: ' .$getUser->company_id);
+
+        $jobs = Job::find()->orderBy('id')->all();
+            if (count($jobs) == 0) {
+                $model->id = 0;
+            }
+            else {
+                $highestID = $jobs[count($jobs)-1];
+                $model->id = $highestID->id+1;
+            }
+=======
+
+>>>>>>> User Dashboard + Messaging + Favourites
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+<<<<<<< HEAD
+    public function actionGenerateBtn($id) {
+
+        $thisUser = Yii::$app->getUser();
+        $getUser = User::findOne($thisUser->id);
+
+        $model = $this->findModel($id);
+
+        $html = '<xmp><iframe src="http://frontend/job/iframe" width="100" height="50" id="hireMeFrame" frameBorder="0" name="'.$model->id.'">
+        </iframe></xmp>';
+
+        return $this->render('btnview', [
+         'iframe' => $html,
+        ]);
+  
+    }   
+
+    public function actionIframe() {
+
+        $cookie = Yii::$app->request->cookies['usr_']->value;
+
+         return $this->renderPartial('iframe',[
+            'userID' => $cookie,
+            ]);
+    }
+
+    /**
+     * Updates an existing Job model.
+=======
+    /**
+     * Updates an existing JobAd model.
+>>>>>>> User Dashboard + Messaging + Favourites
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+<<<<<<< HEAD
+
+=======
+>>>>>>> User Dashboard + Messaging + Favourites
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+<<<<<<< HEAD
+     * Deletes an existing Job model.
+=======
+     * Deletes an existing JobAd model.
+>>>>>>> User Dashboard + Messaging + Favourites
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
+    }
+
+    /**
+<<<<<<< HEAD
+     * Finds the Job model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Job the loaded model
+=======
+     * Finds the JobAd model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return JobAd the loaded model
+>>>>>>> User Dashboard + Messaging + Favourites
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = Job::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+}
