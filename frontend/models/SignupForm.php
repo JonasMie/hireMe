@@ -83,7 +83,7 @@ class SignupForm extends Model
                     $company->zip = $this->companyAddressZIP;
                     $company->city = $this->companyAddressCity;
                     $company->sector = $this->companySector;
-                    $company->employeeAmountCat = $this->companyEmployees;
+                    $company->employeeAmount = $this->companyEmployees;
 
                     $company->save();
 
