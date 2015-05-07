@@ -29,14 +29,7 @@ class UserController extends Controller
 
     public function actionIndex()
     {
-        $messages = new MessageSearch();
-        $messageDataProvider = $messages->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId()]]);
-        $favourites = new FavouritesSearch();
-        $favouritesDataProvider = $favourites->search(['FavouritesSearch' => ['user_id' => Yii::$app->user->identity->getId()]]);
-        return $this->render('index', [
-            'messageDP' => $messageDataProvider,
-            'favouritesDP' => $favouritesDataProvider,
-        ]);
+
     }
 
 }

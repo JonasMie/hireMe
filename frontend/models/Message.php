@@ -82,4 +82,9 @@ class Message extends ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'receiver_id']);
     }
+
+    public function belongsToUser($userId, $messageId)
+    {
+        return $this->findOne(['id' => $messageId, 'receiver_id' => $userId]);
+    }
 }

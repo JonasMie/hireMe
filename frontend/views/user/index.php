@@ -1,6 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 use yii\grid\GridView;
+use yii\helpers\Html;
 use yii\widgets\ListView;
 
 
@@ -18,19 +19,19 @@ use yii\widgets\ListView;
             'label'=> 'Von',
             'format' => 'raw',
             'value' => function($data){
-                return \yii\helpers\Html::a($data->sender->firstName ." " .$data->sender->lastName, 'user/'.$data->sender->id);
+                return \yii\helpers\Html::a($data->sender->firstName ." " .$data->sender->lastName, 'user?id='.$data->sender->id);
             }
         ],
         [
             'label'=> 'Betreff',
             'format' => 'raw',
             'value' => function($data){
-                return \yii\helpers\Html::a($data->subject, '../message/view/' .$data->id);
+                return Html::a($data->read?$data->subject:Html::tag('b',$data->subject), 'message/view?id=' .$data->id);
             }
         ],
         'sent_at:datetime:Datum/Uhrzeit'
     ],
-    'caption' => 'Nachrichten'
+    'caption' => Html::a('./message','Nachrichten')
 ]); ?>
 
 <?=GridView::widget([

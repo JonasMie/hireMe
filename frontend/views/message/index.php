@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Message'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Neue Nachricht verfassen'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -24,16 +24,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'subject',
-            'content:ntext',
-            'sender_id',
-            'receiver_id',
-            // 'sent_at',
-            // 'deleted',
-            // 'read',
-
+            ['class' => 'yii\grid\CheckboxColumn'],
+            [
+                'label' => 'Betreff',
+                'format' => 'raw',
+                'value' => function($data){
+                    return Html::a($data->read?$data->subject:Html::tag('b',$data->subject), 'message/view?id=' .$data->id);
+                }
+            ],
+            [
+                'label' => 'Nachricht',
+                'format' => 'raw',
+                'value' => function($data){
+                    return Html::a($data->read?$data->content:Html::tag('b',$data->content), 'message/view?id=' .$data->id);
+                }
+            ],
+            [
+                'label' => 'Von',
+                'format' => 'raw',
+                'value' => function($data){
+                    return Html::a($data->sender->firstName ." " .$data->sender->lastName, '../user?id='.$data->sender->id);
+                }
+            ],
+            'sent_at:datetime:Gesendet',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
