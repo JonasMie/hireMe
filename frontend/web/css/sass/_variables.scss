@@ -1,0 +1,24 @@
+// Basic colors
+
+$black: rgb(45,49,47);
+
+$green: rgb(93,202,136);
+$green50: rgba(93,202,136,0.5);
+$green20: rgba(93,202,136,0.2);
+
+
+$grey:  rgb(93,100,97 );
+
+// Basic fonts
+
+@mixin font-standard {
+  font-family: 'PT Sans', sans-serif;
+}
+
+@mixin font-header {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+}
+
+
+
