@@ -22,6 +22,7 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property bool is_recruiter
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -217,5 +218,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function isRecruiter()
+    {
+        return $this->is_recruiter;
     }
 }

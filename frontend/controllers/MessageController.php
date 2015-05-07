@@ -5,6 +5,7 @@ namespace frontend\Controllers;
 use Yii;
 use app\models\Message;
 use frontend\models\MessageSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -17,10 +18,23 @@ class MessageController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['view', 'index'],
+                'rules' => [
+                    [
+                        'actions' => ['view'],
+                        'allow' => true,
+                        'matchCallback' => function(){
+                            $messageModel = new Message();
+                            return $messageModel->belongsToUser(Yii::$app->user->identity->getId(),Yii::$app->request->get()['id']);
+                        }
+                    ],
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@']
+                    ]
                 ],
             ],
         ];
@@ -33,7 +47,7 @@ class MessageController extends Controller
     public function actionIndex()
     {
         $searchModel = new MessageSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId()]]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
