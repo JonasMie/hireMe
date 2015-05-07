@@ -269,13 +269,14 @@ body > div.wrap > div.container {
   #header div.container #header-collapse ul.navbar-right li {
     float: none;
     margin-left: 15px;
+    margin-bottom: 10px;
   }
-  /* line 168, ../sass/_header.scss */
+  /* line 169, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  /* line 176, ../sass/_header.scss */
+  /* line 177, ../sass/_header.scss */
   #header div.container #header-collapse.slidedout {
     max-height: none;
     top: 0px;
@@ -288,7 +289,7 @@ body > div.wrap > div.container {
     margin: 0;
     visibility: visible !important;
   }
-  /* line 189, ../sass/_header.scss */
+  /* line 190, ../sass/_header.scss */
   #header div.container #header-collapse:not(.slidedout) {
     width: 0;
     max-height: none;
@@ -297,12 +298,12 @@ body > div.wrap > div.container {
   }
 }
 
-/* line 199, ../sass/_header.scss */
+/* line 200, ../sass/_header.scss */
 body.overflowx {
   overflow-x: hidden;
 }
 
-/* line 203, ../sass/_header.scss */
+/* line 204, ../sass/_header.scss */
 .wrap > .container {
   width: 100%;
   position: relative;
@@ -310,7 +311,7 @@ body.overflowx {
   transition: 0.3s;
 }
 
-/* line 210, ../sass/_header.scss */
+/* line 211, ../sass/_header.scss */
 .wrap > .container.out {
   left: 150px;
   padding-right: 150px;
