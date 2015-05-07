@@ -1,0 +1,318 @@
+/* line 5, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/_mainStylings.scss */
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 1, ../sass/_demohelper.scss */
+body > div.wrap > div.container {
+  padding-top: 130px;
+}
+@media (max-width: 991px) {
+  /* line 1, ../sass/_demohelper.scss */
+  body > div.wrap > div.container {
+    padding-top: 20px;
+  }
+}
+
+/* line 1, ../sass/_header.scss */
+#header {
+  height: 130px;
+  background: #2d312f;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+}
+@media (max-width: 991px) {
+  /* line 1, ../sass/_header.scss */
+  #header {
+    height: 60px;
+    background: none;
+    border: none;
+  }
+}
+/* line 11, ../sass/_header.scss */
+#header div.container {
+  margin-top: 70px;
+  width: 100%;
+  padding-left: 0px;
+}
+/* line 16, ../sass/_header.scss */
+#header div.container .navbar-header {
+  background-color: #5dca88;
+  padding: 40px 0px;
+  margin-top: -70px;
+}
+/* line 22, ../sass/_header.scss */
+#header div.container .navbar-header a.navbar-brand img#navbar-logo {
+  width: 150px;
+  height: 58px;
+}
+/* line 28, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav {
+  float: none !important;
+}
+/* line 31, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li:nth-child(1) {
+  margin-left: 35px;
+}
+@media (max-width: 991px) {
+  /* line 31, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-nav li:nth-child(1) {
+    margin-left: 15px;
+  }
+}
+/* line 38, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li {
+  margin-right: 15px;
+  padding: 0px 20px 0px 20px;
+  color: #5d6461;
+  border-radius: 30px;
+}
+/* line 43, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li:hover {
+  background: rgba(93, 202, 136, 0.5);
+}
+/* line 45, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li:hover a {
+  color: #fff;
+}
+/* line 49, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 55, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li.active {
+  background-color: #5dca88;
+}
+/* line 57, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li.active a {
+  background: none;
+}
+@media (max-width: 991px) {
+  /* line 65, ../sass/_header.scss */
+  #header div.container {
+    margin: 0;
+    padding: 0;
+  }
+  /* line 69, ../sass/_header.scss */
+  #header div.container .navbar-header {
+    float: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+  /* line 75, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle {
+    display: block;
+    background-color: #5dca88;
+    border-radius: 22px;
+    height: 42px;
+    float: none !important;
+    margin: 15px 0px 0px 15px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+  }
+  /* line 94, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar {
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+  }
+  /* line 101, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(2) {
+    position: absolute;
+    top: 13px;
+  }
+  /* line 105, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(3) {
+    margin-top: 0px;
+  }
+  /* line 108, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(4) {
+    position: absolute;
+    top: 23px;
+  }
+  /* line 112, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:active {
+    transition: 0s;
+  }
+  /* line 116, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(2) {
+    top: 11px;
+  }
+  /* line 119, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(4) {
+    top: 25px;
+  }
+  /* line 124, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked {
+    left: 113px;
+  }
+  /* line 127, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(2) {
+    width: 12.22222px;
+    transform: rotate3d(0, 0, 1, -40deg);
+    top: 16px;
+    left: 9px;
+  }
+  /* line 133, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(4) {
+    width: 12.22222px;
+    transform: rotate3d(0, 0, 1, 40deg);
+    top: 20px;
+    left: 9px;
+  }
+  /* line 143, ../sass/_header.scss */
+  #header div.container .navbar-header a.navbar-brand img#navbar-logo {
+    display: none;
+  }
+  /* line 148, ../sass/_header.scss */
+  #header div.container #header-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background-color: #2d312f;
+    -webkit-transition: width .3s;
+    -moz-transition: width 0.4s;
+    -ms-transition: width 0.4s;
+    -o-transition: width 0.4s;
+    transition: width .3s;
+  }
+  /* line 158, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right {
+    float: none !important;
+    float: none !important;
+    margin-top: 70px;
+    margin-right: 0px;
+  }
+  /* line 164, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li {
+    float: none;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+  /* line 169, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  /* line 177, ../sass/_header.scss */
+  #header div.container #header-collapse.slidedout {
+    max-height: none;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    position: fixed;
+    overflow: hidden;
+    display: block !important;
+    margin: 0;
+    visibility: visible !important;
+  }
+  /* line 190, ../sass/_header.scss */
+  #header div.container #header-collapse:not(.slidedout) {
+    width: 0;
+    max-height: none;
+    visibility: hidden !important;
+    display: block !important;
+  }
+}
+
+/* line 200, ../sass/_header.scss */
+body.overflowx {
+  overflow-x: hidden;
+}
+
+/* line 204, ../sass/_header.scss */
+.wrap > .container {
+  width: 100%;
+  position: relative;
+  left: 0;
+  transition: 0.3s;
+}
+
+/* line 211, ../sass/_header.scss */
+.wrap > .container.out {
+  left: 150px;
+  padding-right: 150px;
+}
