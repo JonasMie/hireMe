@@ -19,12 +19,12 @@ use yii\widgets\ListView;
     <h1>Dashboard</h1>
 
     <h2>Benachrichtigungen</h2>
-        <p><?=42 //TODO: Applications?> neue Bewerbungen</p>
-        <p><?=$messageDP->getCount()?> neue Nachrichten</p>
+        <p><?=Html::a(42 .' neue Bewerbungen', "./bewerbungen"); //TODO: Applications?></p>
+        <p><?=Html::a($messageDP->getCount() ." neue Nachrichten", "./messages");?></p>
 
     <h2>Stellenanzeigen</h2>
-        <p><?=$jobDP->getCount()?> Stellenanzeigen</p>
-        <p><?=42 //TODO: Applications?> Bewerbungen</p>
+        <p><?=Html::a($jobDP->getCount(). " Stellenanzeigen", './jobs')?></p>
+        <p><?=Html::a("42 Bewerbungen", "./bewerbungen"); //TODO: Applications?></p>
 
     <h2>Neueste Bewerbungen</h2>
 

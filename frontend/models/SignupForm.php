@@ -66,9 +66,42 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
+            $count = User::find()->where(['firstName' => $this->firstName, 'lastName' => $this->lastName])->count();
+
             $user = new User();
             $user->firstName = $this->firstName;
             $user->lastName = $this->lastName;
+            $user->fullName = $this->firstName ." " .$this->lastName;
+
+            switch ($count){
+                case 0:
+                    $user->username = $this->lastName;
+                    break;
+                case 1:
+                    $user->username = $this->firstName .'-' .$this->lastName;
+                    break;
+                case 2:
+                    $user->username = $this->firstName .'.' .$this->lastName;
+                    break;
+                case 3:
+                    $user->username = $this->lastName .'-' .$this->firstName;
+                    break;
+                case 4:
+                    $user->username = $this->lastName .'.' .$this->firstName;
+                    break;
+                case 5:
+                    $user->username = $this->firstName .$this->lastName;
+                    break;
+                case 6:
+                    $user->username = $this->lastName .$this->firstName;
+                    break;
+                case 7:
+                    $user->username = substr($this->firstName,0,1) .$this->lastName;
+                    break;
+                default:
+                    $user->username = $this->firstName .$this->lastName .($count-7);
+            }
+
             $user->email = $this->email;
             $user->setPassword($this->password);
 

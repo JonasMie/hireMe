@@ -11,6 +11,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use app\models\Auth;
 use yii\base\InvalidParamException;
+use yii\db\Query;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -261,5 +262,10 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionUserSearch($q=null)
+    {
+        return User::getAutocompleteUser($q);
     }
 }
