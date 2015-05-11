@@ -27,9 +27,11 @@ class UserController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex($un=null)
     {
-
+        if(isset($un)){
+            print_r($un);
+        }
     }
 
 }

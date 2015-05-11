@@ -5,7 +5,10 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\db\Query;
+use yii\helpers\Json;
 use yii\web\IdentityInterface;
+use yii\web\Response;
 
 /**
  * User model
@@ -13,6 +16,8 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $firstName
  * @property string $lastName
+ * @property string $fullName
+ * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -77,12 +82,13 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * Finds user by username
      *
-     * @param string $username
+     * @param string $firstName
+     * @param string $lastName
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByUsername($firstName, $lastName)
     {
-        return static::findOne(['firstName' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['firstName' => $firstName, 'lastName' => $lastName, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -223,5 +229,26 @@ class User extends ActiveRecord implements IdentityInterface
     public function isRecruiter()
     {
         return $this->is_recruiter;
+    }
+
+    public static function getAutocompleteUser($q)
+    {
+        $query = new Query;
+
+        $query->select('id, fullName')
+            ->from('user')
+            ->where('fullName LIKE "%' . $q .'%" AND id != ' .Yii::$app->user->identity->getId())
+            ->orderBy('fullName');
+        $command = $query->createCommand();
+        $data = $command->queryAll();
+        $out = [];
+        foreach ($data as $d) {
+            $out[] = ['id' => $d['id'],'value' => $d['fullName']];
+        }
+        return Json::encode($out);
+
+//        Yii::$app->response->format = Response::FORMAT_JSON;
+//        return User::find()->
+//            where('fullName LIKE %' .$query .'%');
     }
 }

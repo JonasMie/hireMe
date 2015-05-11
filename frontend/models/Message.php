@@ -52,13 +52,13 @@ class Message extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'subject' => 'Subject',
-            'content' => 'Content',
+            'subject' => 'Betreff',
+            'content' => 'Nachricht',
             'sender_id' => 'Sender ID',
             'receiver_id' => 'Receiver ID',
-            'sent_at' => 'Sent At',
-            'deleted' => 'Deleted',
-            'read' => 'Read',
+            'sent_at' => 'Gesendet',
+            'deleted' => 'Gelöscht',
+            'read' => 'Gelesen',
         ];
     }
 
