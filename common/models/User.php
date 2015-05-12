@@ -18,6 +18,7 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $auth_key
  * @property integer $status
+ * @property integer $company_id
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
@@ -154,6 +155,9 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->getPrimaryKey();
     }
 
+    public function getCompanyId() {
+        return $this->company_id;
+    }
     /**
      * @inheritdoc
      */

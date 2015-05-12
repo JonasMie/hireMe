@@ -8,7 +8,10 @@ use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
+use app\models\CreateJobForm;
 use frontend\models\ContactForm;
+use app\models\Job;
+use app\models\Company;
 use app\models\Auth;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -72,9 +75,20 @@ class SiteController extends Controller
         ];
     }
 
+
+
     public function actionIndex()
     {
+
+        $cookies = Yii::$app->response->cookies;
+        $cookies->add(new \yii\web\Cookie([
+                'name' => 'usr_',
+                'value' => Yii::$app->user->getId(),
+             //   'domain' => 'http://frontend/'
+          
+        ]));
         return $this->render('index');
+
     }
 
     public function actionLogin()
@@ -92,6 +106,7 @@ class SiteController extends Controller
             ]);
         }
     }
+
 
     public function actionLogout()
     {

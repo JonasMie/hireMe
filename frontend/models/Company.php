@@ -55,7 +55,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
             'zip' => 'Zip',
             'city' => 'City',
             'sector' => 'Sector',
-            'employeeAmount' => 'Employee Amount Cat',
+            'employeeAmount' => 'Employee Amount',
         ];
     }
 
@@ -101,6 +101,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public function getId()
     {
         // TODO: Implement getId() method.
+        return $this->getPrimaryKey();
     }
 
     /**

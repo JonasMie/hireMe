@@ -75,6 +75,7 @@ class SignupForm extends Model
             if($this->checkCompanySignup):
                 $company = Company::findByName($this->companyName);
 
+
                 if (!$company):
                     $company = new Company();
                     $company->name = $this->companyName;
