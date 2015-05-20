@@ -40,7 +40,7 @@ class Application extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'user_id', 'company_id', 'job_id', 'state'], 'required'],
-            [['id', 'user_id', 'company_id', 'job_id', 'score', 'sent', 'read', 'archived'], 'integer'],
+            [['id', 'user_id', 'company_id', 'job_id', 'score', 'sent', 'read', 'archived','btn_id'], 'integer'],
             [['state'], 'string'],
             [['created_at'], 'safe']
         ];
@@ -62,6 +62,7 @@ class Application extends \yii\db\ActiveRecord
             'read' => 'Read',
             'archived' => 'Archived',
             'created_at' => 'Created At',
+            'btn_id' => 'Button ID'
         ];
     }
 

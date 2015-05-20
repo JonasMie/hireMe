@@ -11,6 +11,8 @@ use frontend\models\JobSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\widgets\ListView;
+use yii\data\ActiveDataProvider;
 
 /**
  * JobController implements the CRUD actions for Job model.
@@ -50,6 +52,7 @@ class JobController extends Controller
      * @param integer $id
      * @return mixed
      */
+
     public function actionView($id)
     {
         return $this->render('view', [
@@ -57,6 +60,19 @@ class JobController extends Controller
         ]);
     }
 
+    public function actionMyJobs($companyId) {
+
+        $dataProvider = new ActiveDataProvider([
+        'query' => Job::find(['company_id' => $companyId]),
+        'pagination' => [
+            'pageSize' => 20,],
+        ]);
+
+       return $this->render('_myjobs', [
+            'provider' => $dataProvider,
+        ]);
+
+    }
     public function actionApply($id,$user) {
 
         $app = new Application();
