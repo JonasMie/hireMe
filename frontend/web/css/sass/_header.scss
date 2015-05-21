@@ -1,7 +1,13 @@
 #header {
-  height: 130px;
-  background: $black;
+  background: #ffffff;
+  border: none;
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  user-select: none;
+
+
   @include font-header();
+
   @media (max-width: 991px) {
     height: 60px;
     background: none;
@@ -9,58 +15,76 @@
   }
 
   div.container {
-    margin-top: 70px;
+    margin-top: 20px;
     width: 100%;
     padding-left: 0px;
 
     .navbar-header {
-      background-color: $green;
       padding: 40px 0px;
       margin-top: -70px;
 
       a.navbar-brand {
+        padding: 25px 15px 0px 50px;
         img#navbar-logo {
-          width: 150px;
-          height: 58px;
+          width: 126px;
+          height: 26px;
         }
       }
     }
     #header-collapse ul.navbar-nav {
-      float: none !important;
 
-      li:nth-child(1) {
-        margin-left: 35px;
-        @media (max-width: 991px) {
-          margin-left: 15px;
-        }
-      }
 
-      li {
-        margin-right: 15px;
+      > li {
         padding: 0px 20px 0px 20px;
         color: $grey;
-        border-radius: 30px;
-        &:hover {
-          background: $green50;
-          a {
-            color: #fff;
-          }
-        }
         a {
-          padding-top: 10px;
-          padding-bottom: 10px;
+          padding: 0;
+        }
+        > ul {
+          border-radius: 0px;
+          min-width: 1px;
+          top: 40px;
+          li {
+            display: inline-block;
+            float: left;
+            padding: 0px 20px 10px 20px;
+            &:nth-child(1){
+              padding-top: 10px !important;
+            }
+            a {
+              color: $greyFont;
+              &:hover {
+                background: none;
+                color: $green;
+              }
+            }
+          }
         }
       }
 
-      li.active {
-        background-color: $green;
+      > li.active {
         a {
           background: none;
+          color: $green;
+        }
+      }
+
+      > li.open {
+        background-image: url("/images/caret.png");
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        height: 40px;
+        > a {
+          background: none;
+          &:focus, &:hover {
+            color: $green !important;
+            background: none;
+          }
         }
       }
     }
   }
-  @media (max-width: 991px) {
+  @media (max-width: 991px) {  // BEGIN MOBILE STYLING
 
     div.container {
       margin: 0;
@@ -122,7 +146,7 @@
           }
         }
         button.navbar-toggle.clicked {
-          left: 113px;
+          left: 163px;
 
           .icon-bar:nth-of-type(2){
             width: $hamburger-button-size/1.8;
@@ -149,11 +173,11 @@
         border-top: 1px solid transparent;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
         background-color: #2d312f;
-        -webkit-transition: width .3s;
+        -webkit-transition: width .4s;
         -moz-transition: width 0.4s;
         -ms-transition: width 0.4s;
         -o-transition: width 0.4s;
-        transition: width .3s;
+        transition: width .4s;
 
         ul.navbar-right {
           float: none !important;
@@ -165,10 +189,57 @@
             float: none;
             margin-left: 15px;
             margin-bottom: 10px;
+            clear: both;
 
             a {
               padding-top: 10px;
               padding-bottom: 10px;
+            }
+          }
+
+          li.open {
+            a.dropdown-toggle {
+              background: none;
+              &:focus, &:hover {
+                color: $greyFont !important;
+                background: none;
+              }
+            }
+            ul#w1 {
+              display: block !important;
+            }
+          }
+
+          li.dropdown {
+            ul#w1 {
+              background: none;
+              border: none;
+              box-shadow: none;
+              position: static;
+              left: auto;
+              top: auto;
+              background-color: #000000;
+              border-radius: 0px;
+              padding-bottom: 8px;
+              width: 200px;
+              margin-left: -35px;
+              li {
+                display: inline-block;
+                float: left;
+                margin-left: 15px;
+                padding: 0px 30px 0px 10px;
+                a {
+                  color: $greyFont;
+                  &:hover, &:focus {
+                    background: none !important;
+                    color: $greyFont;
+                  }
+                }
+              }
+              li:nth-child(1) {
+                margin-left: 15px;
+                margin-top: 10px;
+              }
             }
           }
         }
@@ -179,7 +250,7 @@
         top:0px;
         bottom:0;
         left:0;
-        width:150px;
+        width:200px;
         position:fixed;
         overflow:hidden;
         display: block !important;
@@ -197,6 +268,8 @@
   }
 }
 
+
+// Styling for the animations on mobile screens
 body.overflowx {
   overflow-x: hidden;
 }
@@ -209,8 +282,19 @@ body.overflowx {
 }
 
 .wrap > .container.out{
-  left:150px;
-  padding-right: 150px;
+  left:1px;
+  padding-right: -1px;
+}
+// END Styling for the animations on mobile screens
+
+// Overwrite for stupid Bootstrap styling
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: $greyFont;
 }
 
-
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: $greyFont;
+}

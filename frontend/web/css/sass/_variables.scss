@@ -6,8 +6,12 @@ $green: rgb(93,202,136);
 $green50: rgba(93,202,136,0.5);
 $green20: rgba(93,202,136,0.2);
 
+$grey:  rgb(93,100,97);
 
-$grey:  rgb(93,100,97 );
+$greyBG: #edf0f0;
+
+$greyFont:  rgb(157,157,157);
+
 
 // Basic fonts
 
@@ -17,7 +21,7 @@ $grey:  rgb(93,100,97 );
 
 @mixin font-header {
   font-family: 'PT Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 
