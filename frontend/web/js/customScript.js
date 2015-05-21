@@ -28,3 +28,16 @@ $('#header .navbar-header .navbar-toggle').click(function(){
 });
 
 /** END Animation for Hamburger Icon on Mobile View */
+
+
+/** Helper function for the header dropdown **/
+$('.dropdown').on('show.bs.dropdown', function () {
+    $(this).find('.dropdown-menu').first().stop(false, false).slideDown(200);
+});
+
+$('.dropdown').on('hide.bs.dropdown', function () {
+    $(this).addClass('open', true);
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    $(this).removeClass('open');
+});
+/** END Helper function for the header dropdown **/

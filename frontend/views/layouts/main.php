@@ -44,6 +44,17 @@ CustomAppAsset::register($this);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
+
+        [
+            'label' => 'Dropdown',
+            'items' => [
+                ['label' => 'Dropdown A', 'url' => '#'],
+                ['label' => 'Dropdown B', 'url' => '#'],
+                ['label' => 'Dropdown C', 'url' => '#'],
+            ],
+        ],
+
+
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
