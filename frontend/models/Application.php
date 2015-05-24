@@ -52,6 +52,7 @@ class Application extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+<<<<<<< HEAD
             'id' => 'ID',
             'user_id' => 'User ID',
             'company_id' => 'Company ID',
@@ -62,6 +63,18 @@ class Application extends \yii\db\ActiveRecord
             'read' => 'Read',
             'archived' => 'Archived',
             'created_at' => 'Created At',
+=======
+            'id' => Yii::t('app', 'ID'),
+            'user_id' => Yii::t('app', 'User ID'),
+            'company_id' => Yii::t('app', 'Company ID'),
+            'job_id' => Yii::t('app', 'Job ID'),
+            'score' => Yii::t('app', 'Score'),
+            'state' => Yii::t('app', 'State'),
+            'sent' => Yii::t('app', 'Sent'),
+            'read' => Yii::t('app', 'Read'),
+            'archived' => Yii::t('app', 'Archived'),
+            'created_at' => Yii::t('app', 'Created At'),
+>>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
         ];
     }
 

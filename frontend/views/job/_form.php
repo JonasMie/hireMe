@@ -12,6 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+<<<<<<< HEAD
+=======
+    <?= $form->field($model, 'id')->textInput() ?>
+
+>>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
     <?= $form->field($model, 'description')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'job_begin')->textInput() ?>
@@ -30,10 +35,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
+<<<<<<< HEAD
     <?= $form->field($model, 'title')->textInput(['maxlength' => 100]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+=======
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+>>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
     </div>
 
     <?php ActiveForm::end(); ?>
