@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\Controllers;
+namespace app\Controllers;
 
 use Yii;
 use app\models\Job;
@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * JobAdController implements the CRUD actions for JobAd model.
+ * JobController implements the CRUD actions for Job model.
  */
 class JobController extends Controller
 {
@@ -27,12 +27,12 @@ class JobController extends Controller
     }
 
     /**
-     * Lists all JobAd models.
+     * Lists all Job models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new JobAdSearch();
+        $searchModel = new JobSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class JobController extends Controller
     }
 
     /**
-     * Displays a single JobAd model.
+     * Displays a single Job model.
      * @param integer $id
      * @return mixed
      */
@@ -54,7 +54,7 @@ class JobController extends Controller
     }
 
     /**
-     * Creates a new JobAd model.
+     * Creates a new Job model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -72,7 +72,7 @@ class JobController extends Controller
     }
 
     /**
-     * Updates an existing JobAd model.
+     * Updates an existing Job model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +91,7 @@ class JobController extends Controller
     }
 
     /**
-     * Deletes an existing JobAd model.
+     * Deletes an existing Job model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,10 +104,10 @@ class JobController extends Controller
     }
 
     /**
-     * Finds the JobAd model based on its primary key value.
+     * Finds the Job model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return JobAd the loaded model
+     * @return Job the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)

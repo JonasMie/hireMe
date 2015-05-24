@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Job;
+use app\models\Cover;
 
 /**
- * JobSearch represents the model behind the search form about `app\models\Job`.
+ * CoverSearch represents the model behind the search form about `app\models\Cover`.
  */
-class JobSearch extends Job
+class CoverSearch extends Cover
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class JobSearch extends Job
     public function rules()
     {
         return [
-            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
-            [['description', 'job_begin', 'job_end', 'zip', 'created_at', 'updated_at', 'city'], 'safe'],
+            [['id', 'attachment_id'], 'integer'],
+            [['title', 'created_at'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class JobSearch extends Job
      */
     public function search($params)
     {
-        $query = Job::find();
+        $query = Cover::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,21 +57,11 @@ class JobSearch extends Job
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'job_begin' => $this->job_begin,
-            'job_end' => $this->job_end,
-            'sector' => $this->sector,
-            'company_id' => $this->company_id,
-            'active' => $this->active,
+            'attachment_id' => $this->attachment_id,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'type' => $this->type,
-            'time' => $this->time,
-            'allocated' => $this->allocated,
         ]);
 
-        $query->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'zip', $this->zip])
-            ->andFilterWhere(['like', 'city', $this->city]);
+        $query->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;
     }

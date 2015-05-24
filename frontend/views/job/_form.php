@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\JobAd */
+/* @var $model app\models\Job */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="job-ad-form">
+<div class="job-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -23,8 +23,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'zip')->textInput(['maxlength' => 10]) ?>
 
     <?= $form->field($model, 'sector')->textInput() ?>
-
-    <?= $form->field($model, 'contact_id')->textInput() ?>
 
     <?= $form->field($model, 'company_id')->textInput() ?>
 

@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Job;
+use frontend\models\Company;
 
 /**
- * JobSearch represents the model behind the search form about `app\models\Job`.
+ * CompanySearch represents the model behind the search form about `frontend\models\Company`.
  */
-class JobSearch extends Job
+class CompanySearch extends Company
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class JobSearch extends Job
     public function rules()
     {
         return [
-            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
-            [['description', 'job_begin', 'job_end', 'zip', 'created_at', 'updated_at', 'city'], 'safe'],
+            [['id', 'sector', 'employeeAmount'], 'integer'],
+            [['name', 'street', 'houseno', 'zip', 'city'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class JobSearch extends Job
      */
     public function search($params)
     {
-        $query = Job::find();
+        $query = Company::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,19 +57,13 @@ class JobSearch extends Job
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'job_begin' => $this->job_begin,
-            'job_end' => $this->job_end,
             'sector' => $this->sector,
-            'company_id' => $this->company_id,
-            'active' => $this->active,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'type' => $this->type,
-            'time' => $this->time,
-            'allocated' => $this->allocated,
+            'employeeAmount' => $this->employeeAmount,
         ]);
 
-        $query->andFilterWhere(['like', 'description', $this->description])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'street', $this->street])
+            ->andFilterWhere(['like', 'houseno', $this->houseno])
             ->andFilterWhere(['like', 'zip', $this->zip])
             ->andFilterWhere(['like', 'city', $this->city]);
 

@@ -6,33 +6,29 @@ use yii\widgets\ListView;
 
 
 ?>
-<h1>Dein Profil</h1>
+<h1><?=  /*$user->fullName*/ $user->firstName ." " .$user->lastName   //TODO: use fullName ?></h1>
 
+<?= Html::img("https://www.mi.hdm-stuttgart.de/mib/studium/intern/studienanfaenger/mib_ws1213/Krug_Thomas.jpg", [   // TODO: image
+    'height' => '150px',
+    'width' => '150px'
+]); ?>
 
-<?//=GridView::widget([
-//    'dataProvider' => $messageDP,
-//    'columns' => [
-//        [
-//            'class' => 'yii\grid\CheckboxColumn',
-//        ],
-//        [
-//            'label'=> 'Von',
-//            'format' => 'raw',
-//            'value' => function($data){
-//                return \yii\helpers\Html::a($data->sender->firstName ." " .$data->sender->lastName, 'user?id='.$data->sender->id);
-//            }
-//        ],
-//        [
-//            'label'=> 'Betreff',
-//            'format' => 'raw',
-//            'value' => function($data){
-//                return Html::a($data->read?$data->subject:Html::tag('b',$data->subject), 'message/view?id=' .$data->id);
-//            }
-//        ],
-//        'sent_at:datetime:Datum/Uhrzeit'
-//    ],
-//    'caption' => Html::a('./message','Nachrichten')
-//]); ?>
+<?= Html::button('Rekrutieren'); // TODO: Funktionalität ?>
+
+<?
+
+    if($user->getId() == Yii::$app->user->identity->getId()){
+        foreach ($resumeJob as $job) {
+            if (isset($job->current) && $job->current) {
+                echo "<p>Aktuell</p>";
+                echo Html::a($job->type, 'search/?type=' . $job->type, ['class' => 'test']); // TODO: check URL
+                echo Html::a($job->company->name, 'company/?id=' . $job->company->id);   // TODO: review URL
+            } else {
+
+            }
+        }
+    }
+
 
 
 

@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\models\JobContactsSearch */
+/* @var $searchModel app\models\CoverSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Job Contacts');
+$this->title = Yii::t('app', 'Covers');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="job-contacts-index">
+<div class="cover-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Job Contacts'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Cover'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,8 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'job_id',
-            'contact_id',
+            'title',
+            'attachment_id',
+            'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

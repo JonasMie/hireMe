@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Von',
                 'format' => 'raw',
                 'value' => function($data){
-                    return Html::a($data->sender->firstName ." " .$data->sender->lastName, '../user?id='.$data->sender->id);
+                    return Html::a($data->sender->firstName ." " .$data->sender->lastName, '../user/'.$data->sender->username);
                 }
             ],
             'sent_at:datetime:Gesendet',
