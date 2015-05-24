@@ -1,29 +1,19 @@
 <?php
 
-<<<<<<< HEAD
 namespace frontend\models;
-=======
 namespace app\models;
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-<<<<<<< HEAD
 use frontend\models\Job;
 
 /**
-<<<<<<< HEAD
  * JobSearch represents the model behind the search form about `frontend\models\Job`.
-=======
  * JobSearch represents the model behind the search form about `app\models\Job`.
->>>>>>> Complete generated files (views, models & controllers) and minor changes
-=======
-use app\models\Job;
 
 /**
  * JobSearch represents the model behind the search form about `app\models\Job`.
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
  */
 class JobSearch extends Job
 {
@@ -33,18 +23,8 @@ class JobSearch extends Job
     public function rules()
     {
         return [
-<<<<<<< HEAD
-<<<<<<< HEAD
-            [['id', 'sector', 'contact_id', 'company_id', 'active'], 'integer'],
-            [['description', 'job_begin', 'job_end', 'zip', 'created_at', 'updated_at', 'title'], 'safe'],
-=======
             [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
             [['description', 'job_begin', 'job_end', 'zip', 'created_at', 'updated_at', 'city'], 'safe'],
->>>>>>> Complete generated files (views, models & controllers) and minor changes
-=======
-            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
-            [['description', 'job_begin', 'job_end', 'zip', 'created_at', 'updated_at', 'city'], 'safe'],
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
         ];
     }
 
@@ -96,13 +76,9 @@ class JobSearch extends Job
 
         $query->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'zip', $this->zip])
-<<<<<<< HEAD
-            ->andFilterWhere(['like', 'title', $this->title]);
-            ->andFilterWhere(['like', 'city', $this->city]);
-=======
+            ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'city', $this->city]);
 
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
         return $dataProvider;
     }
 }
