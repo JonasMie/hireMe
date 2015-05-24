@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\JobSearch */
+/* @var $model app\models\CompanySearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="job-search">
+<div class="company-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,31 +17,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'description') ?>
+    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'job_begin') ?>
+    <?= $form->field($model, 'street') ?>
 
-    <?= $form->field($model, 'job_end') ?>
+    <?= $form->field($model, 'houseno') ?>
 
     <?= $form->field($model, 'zip') ?>
 
-    <?php // echo $form->field($model, 'sector') ?>
-
-    <?php // echo $form->field($model, 'company_id') ?>
-
-    <?php // echo $form->field($model, 'active') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
-
-    <?php // echo $form->field($model, 'type') ?>
-
     <?php // echo $form->field($model, 'city') ?>
 
-    <?php // echo $form->field($model, 'time') ?>
+    <?php // echo $form->field($model, 'sector') ?>
 
-    <?php // echo $form->field($model, 'allocated') ?>
+    <?php // echo $form->field($model, 'employeeAmount') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

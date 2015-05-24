@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
                 'limit' => 10,
             ],
         ],
-        'pluginEvents' => [
+        'pluginEvents' => [     // Typeahead search with bloodhound suggestion
             "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
         ]
 

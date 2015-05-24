@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace frontend\controllers;
+=======
+namespace app\Controllers;
+>>>>>>> Complete generated files (views, models & controllers) and minor changes
 
 use Yii;
 use frontend\models\Job;

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\JobContacts */
+/* @var $model app\models\Cover */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Job Contacts'), 'url' => ['index']];
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Covers'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="job-contacts-view">
+<div class="cover-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,8 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'job_id',
-            'contact_id',
+            'title',
+            'attachment_id',
+            'created_at',
         ],
     ]) ?>
 

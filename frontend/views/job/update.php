@@ -3,12 +3,23 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
+<<<<<<< HEAD
 /* @var $model frontend\models\Job */
 
 $this->title = 'Update Job: ' . ' ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Jobs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
+=======
+/* @var $model app\models\Job */
+
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'Job',
+]) . ' ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Jobs'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+>>>>>>> Complete generated files (views, models & controllers) and minor changes
 ?>
 <div class="job-update">
 

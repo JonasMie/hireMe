@@ -40,7 +40,7 @@ use yii\widgets\ListView;
                 'label'  => 'Von',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, 'user?id=' . $data->sender->id);
+                    return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, 'user/' . $data->sender->username);
                 }
             ],
             [
