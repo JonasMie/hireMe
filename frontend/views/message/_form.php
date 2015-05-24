@@ -1,6 +1,8 @@
 <?php
 
+use kartik\typeahead\Typeahead;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -16,20 +18,38 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'sender_id')->textInput() ?>
+    <?= Typeahead::widget([
+        'name' => 'receiver_name',
+        'dataset' => [
+            [
+                'remote' => Url::to(['site/user-search'.'?q=%QUERY']),
+                'limit' => 10,
+            ],
+        ],
+        'pluginEvents' => [     // Typeahead search with bloodhound suggestion
+            "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
+        ]
 
-    <?= $form->field($model, 'receiver_id')->textInput() ?>
+    ])?>
 
-    <?= $form->field($model, 'sent_at')->textInput() ?>
+    <!--?= $form->field($model, 'receiver_id')->widget(Typeahead::className(), [
+        'dataset' => [
+            [
+                'remote' => Url::to(['site/user-search'.'?q=%QUERY']),
+                'limit' => 10,
+            ],
+        ],
+        'pluginEvents' => [
+            "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
+        ]
 
-    <?= $form->field($model, 'deleted')->textInput() ?>
+    ])->label('Empfänger')->textInput()  ?-->
 
-    <?= $form->field($model, 'read')->textInput() ?>
+    <?= Html::activeHiddenInput($model, 'receiver_id') // TODO: check if exists ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Create'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
-
     <?php ActiveForm::end(); ?>
 
 </div>

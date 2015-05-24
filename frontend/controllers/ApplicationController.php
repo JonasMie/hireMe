@@ -1,23 +1,19 @@
 <?php
 
-namespace frontend\controllers;
+namespace app\Controllers;
 
 use Yii;
-use frontend\models\Job;
-use frontend\models\Analytics;
 use frontend\models\Application;
-use common\models\User;
-use frontend\models\JobSearch;
+use app\models\ApplicationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * JobController implements the CRUD actions for Job model.
+ * ApplicationController implements the CRUD actions for Application model.
  */
-class JobController extends Controller
+class ApplicationController extends Controller
 {
-
     public function behaviors()
     {
         return [
@@ -31,12 +27,12 @@ class JobController extends Controller
     }
 
     /**
-     * Lists all Job models.
+     * Lists all Application models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new JobSearch();
+        $searchModel = new ApplicationSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +42,7 @@ class JobController extends Controller
     }
 
     /**
-     * Displays a single Job model.
+     * Displays a single Application model.
      * @param integer $id
      * @return mixed
      */
@@ -57,50 +53,15 @@ class JobController extends Controller
         ]);
     }
 
-    public function actionApply($id,$user) {
-
-        $app = new Application();
-        $job = Job::findOne($id);
-
-        $apps = Application::find()->orderBy('id')->all();
-            if (count($apps) == 0) {
-                $app->id = 0;
-            }
-            else {
-                $highestID = $apps[count($apps)-1];
-                $app->id = $highestID->id+1;
-            }
-        $app->user_id = $user;
-        $app->company_id = $job->company_id;
-        $app->job_id = $id;
-        $app->state = "Gespeichert";
-        $app->save();
-        return $this->render('applied');
-    }
-
     /**
-     * Creates a new Job model.
+     * Creates a new Application model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Job();
-        $thisUser = Yii::$app->getUser();
-        $model->contact_id = $thisUser->id;
-        $getUser = User::findOne($thisUser->id);
-        $model->company_id = $getUser->company_id;
-        Yii::trace('User ID: ' .Yii::$app->user->getId());
-        Yii::trace('Comp ID: ' .$getUser->company_id);
+        $model = new Application();
 
-        $jobs = Job::find()->orderBy('id')->all();
-            if (count($jobs) == 0) {
-                $model->id = 0;
-            }
-            else {
-                $highestID = $jobs[count($jobs)-1];
-                $model->id = $highestID->id+1;
-            }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -110,38 +71,12 @@ class JobController extends Controller
         }
     }
 
-    public function actionGenerateBtn($id) {
-
-        $thisUser = Yii::$app->getUser();
-        $getUser = User::findOne($thisUser->id);
-
-        $model = $this->findModel($id);
-
-        $html = '<xmp><iframe src="http://frontend/job/iframe" width="100" height="50" id="hireMeFrame" frameBorder="0" name="'.$model->id.'">
-        </iframe></xmp>';
-
-        return $this->render('btnview', [
-         'iframe' => $html,
-        ]);
-  
-    }   
-
-    public function actionIframe() {
-
-        $cookie = Yii::$app->request->cookies['usr_']->value;
-
-         return $this->renderPartial('iframe',[
-            'userID' => $cookie,
-            ]);
-    }
-
     /**
-     * Updates an existing Job model.
+     * Updates an existing Application model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
-
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -156,7 +91,7 @@ class JobController extends Controller
     }
 
     /**
-     * Deletes an existing Job model.
+     * Deletes an existing Application model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -169,15 +104,15 @@ class JobController extends Controller
     }
 
     /**
-     * Finds the Job model based on its primary key value.
+     * Finds the Application model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Job the loaded model
+     * @return Application the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Job::findOne($id)) !== null) {
+        if (($model = Application::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

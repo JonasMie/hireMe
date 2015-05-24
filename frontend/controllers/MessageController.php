@@ -2,9 +2,11 @@
 
 namespace frontend\Controllers;
 
+use common\models\User;
 use Yii;
 use app\models\Message;
 use frontend\models\MessageSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -17,6 +19,25 @@ class MessageController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['view', 'index'],
+                'rules' => [
+                    [
+                        'actions' => ['view'],
+                        'allow' => true,
+                        'matchCallback' => function(){
+                            $messageModel = new Message();
+                            return $messageModel->belongsToUser(Yii::$app->user->identity->getId(),Yii::$app->request->get()['id']);
+                        }
+                    ],
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@']
+                    ]
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -33,7 +54,7 @@ class MessageController extends Controller
     public function actionIndex()
     {
         $searchModel = new MessageSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId()]]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -61,9 +82,10 @@ class MessageController extends Controller
     public function actionCreate()
     {
         $model = new Message();
+        $model->sender_id = Yii::$app->user->identity->getId();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['./message']); //, 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

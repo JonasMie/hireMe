@@ -52,13 +52,13 @@ class Message extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'subject' => 'Subject',
-            'content' => 'Content',
+            'subject' => 'Betreff',
+            'content' => 'Nachricht',
             'sender_id' => 'Sender ID',
             'receiver_id' => 'Receiver ID',
-            'sent_at' => 'Sent At',
-            'deleted' => 'Deleted',
-            'read' => 'Read',
+            'sent_at' => 'Gesendet',
+            'deleted' => 'Gelöscht',
+            'read' => 'Gelesen',
         ];
     }
 
@@ -81,5 +81,10 @@ class Message extends ActiveRecord
     public function getReceiver()
     {
         return $this->hasOne(User::className(), ['id' => 'receiver_id']);
+    }
+
+    public function belongsToUser($userId, $messageId)
+    {
+        return $this->findOne(['id' => $messageId, 'receiver_id' => $userId]);
     }
 }

@@ -44,13 +44,13 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect firstName or password.');
+                $this->addError($attribute, 'Incorrect email or password.');
             }
         }
     }
 
     /**
-     * Logs in a user using the provided firstName and password.
+     * Logs in a user using the provided email and password.
      *
      * @return boolean whether the user is logged in successfully
      */
@@ -64,7 +64,7 @@ class LoginForm extends Model
     }
 
     /**
-     * Finds user by [[firstName]]
+     * Finds user by [[email]]
      *
      * @return User|null
      */

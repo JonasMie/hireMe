@@ -3,8 +3,13 @@
 namespace frontend\controllers;
 
 use app\models\FavouritesSearch;
+use app\models\ResumeJob;
+use app\models\ResumeSchool;
+use common\models\User;
 use frontend\models\MessageSearch;
+use frontend\models\Resume;
 use Yii;
+use yii\base\UserException;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
@@ -27,16 +32,27 @@ class UserController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex($un=null)
     {
-        $messages = new MessageSearch();
-        $messageDataProvider = $messages->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId()]]);
-        $favourites = new FavouritesSearch();
-        $favouritesDataProvider = $favourites->search(['FavouritesSearch' => ['user_id' => Yii::$app->user->identity->getId()]]);
-        return $this->render('index', [
-            'messageDP' => $messageDataProvider,
-            'favouritesDP' => $favouritesDataProvider,
-        ]);
+        if($un!==null && $un!=Yii::$app->user->identity->username){
+            $user = User::findByUsername($un);
+            if($user===null){
+                throw new UserException();      // TODO: throw error
+            } else {
+                return $this->render('index', [
+                    'user' => $user
+                ]);
+            }
+        } else {
+            $jobResume =  ResumeJob::find()->where(['user_id' => Yii::$app->user->identity->getId()])->orderBy('current', 'end')->all();
+            $schoolResume =  ResumeSchool::find()->where(['user_id' => Yii::$app->user->identity->getId()])->orderBy('current', 'end')->all();
+            return $this->render('index', [
+                'resumeJob' => $jobResume,
+                'resumeSchool' => $schoolResume,
+                'user' => Yii::$app->user->identity,
+            ]);
+        }
+
     }
 
 }

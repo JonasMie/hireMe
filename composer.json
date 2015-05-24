@@ -18,7 +18,8 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "yiisoft/yii2-authclient": "*"
+        "yiisoft/yii2-authclient": "*",
+        "kartik-v/yii2-widget-typeahead": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

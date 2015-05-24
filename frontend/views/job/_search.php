@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\JobSearch */
+/* @var $model app\models\JobSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -27,8 +27,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'sector') ?>
 
-    <?php // echo $form->field($model, 'contact_id') ?>
-
     <?php // echo $form->field($model, 'company_id') ?>
 
     <?php // echo $form->field($model, 'active') ?>
@@ -37,11 +35,17 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'updated_at') ?>
 
-    <?php // echo $form->field($model, 'title') ?>
+    <?php // echo $form->field($model, 'type') ?>
+
+    <?php // echo $form->field($model, 'city') ?>
+
+    <?php // echo $form->field($model, 'time') ?>
+
+    <?php // echo $form->field($model, 'allocated') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
