@@ -93,10 +93,13 @@ body > div.wrap > div.container {
 
 /* line 1, ../sass/_header.scss */
 #header {
-  height: 130px;
-  background: #2d312f;
+  background: #ffffff;
+  border: none;
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  user-select: none;
   font-family: 'PT Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 @media (max-width: 991px) {
   /* line 1, ../sass/_header.scss */
@@ -106,79 +109,95 @@ body > div.wrap > div.container {
     border: none;
   }
 }
-/* line 11, ../sass/_header.scss */
+/* line 17, ../sass/_header.scss */
 #header div.container {
-  margin-top: 70px;
+  margin-top: 20px;
   width: 100%;
   padding-left: 0px;
 }
-/* line 16, ../sass/_header.scss */
+/* line 22, ../sass/_header.scss */
 #header div.container .navbar-header {
-  background-color: #5dca88;
   padding: 40px 0px;
   margin-top: -70px;
 }
-/* line 22, ../sass/_header.scss */
-#header div.container .navbar-header a.navbar-brand img#navbar-logo {
-  width: 150px;
-  height: 58px;
+/* line 26, ../sass/_header.scss */
+#header div.container .navbar-header a.navbar-brand {
+  padding: 25px 15px 0px 50px;
 }
 /* line 28, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav {
-  float: none !important;
+#header div.container .navbar-header a.navbar-brand img#navbar-logo {
+  width: 126px;
+  height: 26px;
 }
-/* line 31, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav li:nth-child(1) {
-  margin-left: 35px;
-}
-@media (max-width: 991px) {
-  /* line 31, ../sass/_header.scss */
-  #header div.container #header-collapse ul.navbar-nav li:nth-child(1) {
-    margin-left: 15px;
-  }
-}
-/* line 38, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav li {
-  margin-right: 15px;
+/* line 37, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li {
   padding: 0px 20px 0px 20px;
   color: #5d6461;
-  border-radius: 30px;
+}
+/* line 40, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li a {
+  padding: 0;
 }
 /* line 43, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav li:hover {
-  background: rgba(93, 202, 136, 0.5);
+#header div.container #header-collapse ul.navbar-nav > li > ul {
+  border-radius: 0px;
+  min-width: 1px;
+  top: 40px;
 }
-/* line 45, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav li:hover a {
-  color: #fff;
+/* line 47, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li {
+  display: inline-block;
+  float: left;
+  padding: 0px 20px 10px 20px;
 }
-/* line 49, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav li a {
-  padding-top: 10px;
-  padding-bottom: 10px;
+/* line 51, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li:nth-child(1) {
+  padding-top: 10px !important;
 }
-/* line 55, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav li.active {
-  background-color: #5dca88;
+/* line 54, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li a {
+  color: #9d9d9d;
 }
-/* line 57, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav li.active a {
+/* line 56, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li a:hover {
+  background: none;
+  color: #5dca88;
+}
+/* line 66, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.active a {
+  background: none;
+  color: #5dca88;
+}
+/* line 72, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.open {
+  background-image: url("/images/caret.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 40px;
+}
+/* line 77, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.open > a {
+  background: none;
+}
+/* line 79, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.open > a:focus, #header div.container #header-collapse ul.navbar-nav > li.open > a:hover {
+  color: #5dca88 !important;
   background: none;
 }
 @media (max-width: 991px) {
-  /* line 65, ../sass/_header.scss */
+  /* line 89, ../sass/_header.scss */
   #header div.container {
     margin: 0;
     padding: 0;
   }
-  /* line 69, ../sass/_header.scss */
+  /* line 93, ../sass/_header.scss */
   #header div.container .navbar-header {
     float: none;
     background: none;
     padding: 0;
     margin: 0;
   }
-  /* line 75, ../sass/_header.scss */
+  /* line 99, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle {
     display: block;
     background-color: #5dca88;
@@ -191,7 +210,7 @@ body > div.wrap > div.container {
     user-select: none;
     z-index: 1;
   }
-  /* line 94, ../sass/_header.scss */
+  /* line 118, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar {
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
@@ -199,97 +218,146 @@ body > div.wrap > div.container {
     -o-transition: 0.3s;
     transition: 0.3s;
   }
-  /* line 101, ../sass/_header.scss */
+  /* line 125, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(2) {
     position: absolute;
     top: 13px;
   }
-  /* line 105, ../sass/_header.scss */
+  /* line 129, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(3) {
     margin-top: 0px;
   }
-  /* line 108, ../sass/_header.scss */
+  /* line 132, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(4) {
     position: absolute;
     top: 23px;
   }
-  /* line 112, ../sass/_header.scss */
+  /* line 136, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:active {
     transition: 0s;
   }
-  /* line 116, ../sass/_header.scss */
+  /* line 140, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(2) {
     top: 11px;
   }
-  /* line 119, ../sass/_header.scss */
+  /* line 143, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(4) {
     top: 25px;
   }
-  /* line 124, ../sass/_header.scss */
+  /* line 148, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked {
-    left: 113px;
+    left: 163px;
   }
-  /* line 127, ../sass/_header.scss */
+  /* line 151, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(2) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, -40deg);
     top: 16px;
     left: 9px;
   }
-  /* line 133, ../sass/_header.scss */
+  /* line 157, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(4) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, 40deg);
     top: 20px;
     left: 9px;
   }
-  /* line 143, ../sass/_header.scss */
+  /* line 167, ../sass/_header.scss */
   #header div.container .navbar-header a.navbar-brand img#navbar-logo {
     display: none;
   }
-  /* line 148, ../sass/_header.scss */
+  /* line 172, ../sass/_header.scss */
   #header div.container #header-collapse {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     background-color: #2d312f;
-    -webkit-transition: width .3s;
+    -webkit-transition: width .4s;
     -moz-transition: width 0.4s;
     -ms-transition: width 0.4s;
     -o-transition: width 0.4s;
-    transition: width .3s;
+    transition: width .4s;
   }
-  /* line 158, ../sass/_header.scss */
+  /* line 182, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right {
     float: none !important;
     float: none !important;
     margin-top: 70px;
     margin-right: 0px;
   }
-  /* line 164, ../sass/_header.scss */
+  /* line 188, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li {
     float: none;
     margin-left: 15px;
     margin-bottom: 10px;
+    clear: both;
   }
-  /* line 169, ../sass/_header.scss */
+  /* line 194, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  /* line 177, ../sass/_header.scss */
+  /* line 201, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle {
+    background: none;
+  }
+  /* line 203, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:focus, #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:hover {
+    color: #9d9d9d !important;
+    background: none;
+  }
+  /* line 208, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open ul#w1 {
+    display: block !important;
+  }
+  /* line 214, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 {
+    background: none;
+    border: none;
+    box-shadow: none;
+    position: static;
+    left: auto;
+    top: auto;
+    background-color: #000000;
+    border-radius: 0px;
+    padding-bottom: 8px;
+    width: 200px;
+    margin-left: -35px;
+  }
+  /* line 226, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li {
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    padding: 0px 30px 0px 10px;
+  }
+  /* line 231, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a {
+    color: #9d9d9d;
+  }
+  /* line 233, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:hover, #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:focus {
+    background: none !important;
+    color: #9d9d9d;
+  }
+  /* line 239, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li:nth-child(1) {
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+  /* line 248, ../sass/_header.scss */
   #header div.container #header-collapse.slidedout {
     max-height: none;
     top: 0px;
     bottom: 0;
     left: 0;
-    width: 150px;
+    width: 200px;
     position: fixed;
     overflow: hidden;
     display: block !important;
     margin: 0;
     visibility: visible !important;
   }
-  /* line 190, ../sass/_header.scss */
+  /* line 261, ../sass/_header.scss */
   #header div.container #header-collapse:not(.slidedout) {
     width: 0;
     max-height: none;
@@ -298,12 +366,12 @@ body > div.wrap > div.container {
   }
 }
 
-/* line 200, ../sass/_header.scss */
+/* line 273, ../sass/_header.scss */
 body.overflowx {
   overflow-x: hidden;
 }
 
-/* line 204, ../sass/_header.scss */
+/* line 277, ../sass/_header.scss */
 .wrap > .container {
   width: 100%;
   position: relative;
@@ -311,8 +379,25 @@ body.overflowx {
   transition: 0.3s;
 }
 
-/* line 211, ../sass/_header.scss */
+/* line 284, ../sass/_header.scss */
 .wrap > .container.out {
-  left: 150px;
-  padding-right: 150px;
+  left: 1px;
+  padding-right: -1px;
+}
+
+/* line 292, ../sass/_header.scss */
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #9d9d9d;
+}
+
+/* line 297, ../sass/_header.scss */
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #9d9d9d;
+}
+
+/* line 1, ../sass/_basicTemplate.scss */
+body {
+  background-color: #edf0f0;
 }
