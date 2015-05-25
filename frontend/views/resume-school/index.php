@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'current',
             // 'schoolname',
             // 'report_id',
+            // 'graduation',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

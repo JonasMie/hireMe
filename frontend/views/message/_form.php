@@ -18,7 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= Typeahead::widget([
+    <?=
+    // TODO: set receiver if $rec!== null
+    Typeahead::widget([
         'name' => 'receiver_name',
         'dataset' => [
             [

@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'current',
             'schoolname',
             'report_id',
+            'graduation',
         ],
     ]) ?>
 

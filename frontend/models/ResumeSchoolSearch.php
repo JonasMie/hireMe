@@ -19,7 +19,7 @@ class ResumeSchoolSearch extends ResumeSchool
     {
         return [
             [['id', 'user_id', 'current', 'report_id'], 'integer'],
-            [['begin', 'end', 'schoolname'], 'safe'],
+            [['begin', 'end', 'schoolname', 'graduation'], 'safe'],
         ];
     }
 
@@ -64,7 +64,8 @@ class ResumeSchoolSearch extends ResumeSchool
             'report_id' => $this->report_id,
         ]);
 
-        $query->andFilterWhere(['like', 'schoolname', $this->schoolname]);
+        $query->andFilterWhere(['like', 'schoolname', $this->schoolname])
+            ->andFilterWhere(['like', 'graduation', $this->graduation]);
 
         return $dataProvider;
     }

@@ -18,9 +18,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'end')->textInput() ?>
 
+    <?= $form->field($model, 'current')->textInput() ?>
+
     <?= $form->field($model, 'schoolname')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'report_id')->textInput() ?>
+
+    <?= $form->field($model, 'graduation')->textInput(['maxlength' => 255]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
