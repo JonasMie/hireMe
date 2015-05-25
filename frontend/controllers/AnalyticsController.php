@@ -46,6 +46,17 @@ class AnalyticsController extends Controller
 
  }
 
+    public function getConversionRateForBtn($id) {
+
+        $btn = ApplyBtn::findOne($id);
+        $btnApplies = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1,])
+        ->orderBy('id')
+        ->all();
+        $rate =  (count($btnApplies)/$btn->clickCount)*100;
+        return $rate;
+    }
+
     public function actionDetail($id) {
 
         $analytics = new Analytics();
@@ -54,13 +65,27 @@ class AnalyticsController extends Controller
         $viewCount = $viewClickData[0];
         $clickCount = $viewClickData[1];
         $conversionRate = (count($applier)/$clickCount)*100;
+        $job = Job::findOne($id);
+        $jobName = $job->title;
+
+    
+
+
+        $dataProvider = new ActiveDataProvider([
+        'query' => ApplyBtn::find(['job_id' => $id]),
+        'pagination' => [
+            'pageSize' => 20,],
+        ]);
+
 
          return $this->render('detail', [
+            'jobTitle' =>  $jobName,
             'applyCount' => count($applier),
             'viewCount' =>  $viewCount,
             'clickCount' => $clickCount,
             'interestRate' => ($clickCount/$viewCount)*100,
             'conversionRate' => $conversionRate,
+            'provider' => $dataProvider,
         ]);
        
 

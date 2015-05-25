@@ -111,7 +111,6 @@ class JobController extends Controller
         $btn = ApplyBtn::find()
         ->where(['key' => $btnKey])
         ->one();
-
         $btn->viewCount = $btn->viewCount+1;
         $btn->save();
     }

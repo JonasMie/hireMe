@@ -41,6 +41,17 @@ class Analytics extends \yii\base\Model
         return $applications;
 
     }
+
+    public function getAppliesForBtn($id) {
+
+         $applications = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1,])
+        ->orderBy('id')
+        ->all();
+
+        return $applications;
+
+    }
     //Overview
     public function getHired($id) {
 
@@ -50,6 +61,15 @@ class Analytics extends \yii\base\Model
         ->all();
 
         return $hired;
+    }
+
+    public function getBtnsForJob($id) {
+
+        $btns = Application::find()
+        ->where(['job_id' => $id])
+        ->orderBy('id')
+        ->all();
+        return $btns;
     }
 
     //Overview
