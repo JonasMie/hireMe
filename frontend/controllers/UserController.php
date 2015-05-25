@@ -20,12 +20,17 @@ class UserController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only'  => ['index'],
+                'only'  => ['index', 'settings'],
                 'rules' => [
                     [
                         'actions' => ['index'],
                         'allow'   => true,  // TODO: set allow to false
                         'roles'   => ['@'], // TODO: set roles to '?'
+                    ],
+                    [
+                        'actions' => ['settings'],
+                        'allow' => true,
+                        'roles' => ['@'],
                     ],
                 ]
             ]
@@ -54,5 +59,8 @@ class UserController extends Controller
         }
 
     }
-
+    public function actionSettings()
+    {
+        return $this->render('settings');
+    }
 }
