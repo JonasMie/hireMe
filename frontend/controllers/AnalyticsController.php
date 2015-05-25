@@ -5,7 +5,6 @@ namespace frontend\controllers;
 use Yii;
 use frontend\models\Analytics;
 use common\models\User;
-use frontend\models\Job;
 use frontend\models\JobSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -13,6 +12,7 @@ use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
 use frontend\models\ApplyBtn;
 use frontend\models\Application;
+use app\models\Job;
 
 class AnalyticsController extends Controller
 {
