@@ -55,11 +55,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
             'zip' => 'Zip',
             'city' => 'City',
             'sector' => 'Sector',
-<<<<<<< HEAD
             'employeeAmount' => 'Employee Amount',
-=======
-            'employeeAmount' => 'Employee Amount Cat',
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
         ];
     }
 
