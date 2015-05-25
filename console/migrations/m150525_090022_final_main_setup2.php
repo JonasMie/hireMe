@@ -7,7 +7,7 @@ class m150525_090022_final_main_setup2 extends Migration
 {
     public function up()
     {
-        $this->addColumn('resume_scool', 'graduation', Schema::TYPE_STRING .' not null');
+        $this->addColumn('resume_school', 'graduation', Schema::TYPE_STRING .' not null');
 
     }
 
