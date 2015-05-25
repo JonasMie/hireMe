@@ -99,6 +99,10 @@ class Job extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Company::className(), ['id' => 'company_id']);
     }
+    
+    public function getJobsByCompanyId($company) {
+        return $this->hasMany(Application::className(), ['company_id' => $company]);
+    }
 
     /**
      * @return \yii\db\ActiveQuery
