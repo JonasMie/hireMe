@@ -1,6 +1,13 @@
 <?php
 namespace common\models;
 
+use app\models\Company;
+use app\models\Favourites;
+use app\models\Message;
+use app\models\ResumeJob;
+use app\models\ResumeSchool;
+use app\models\File;
+use frontend\models\JobContacts;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -13,21 +20,31 @@ use yii\web\Response;
 /**
  * User model
  *
- * @property integer $id
- * @property string $firstName
- * @property string $lastName
- * @property string $fullName
- * @property string $username
- * @property string $password_hash
- * @property string $password_reset_token
- * @property string $email
- * @property string $auth_key
- * @property integer $status
- * @property integer $company_id
- * @property integer $created_at
- * @property integer $updated_at
- * @property string $password write-only password
- * @property bool is_recruiter
+ * @property integer        $id
+ * @property string         $firstName
+ * @property string         $lastName
+ * @property string         $fullName
+ * @property string         $username
+ * @property string         $password_hash
+ * @property string         $password_reset_token
+ * @property string         $email
+ * @property string         $auth_key
+ * @property integer        $status
+ * @property integer        $company_id
+ * @property integer        $created_at
+ * @property integer        $updated_at
+ * @property string         $password write-only password
+ * @property bool           $is_recruiter
+ * @property integer        $visibility
+ * @property string         $birthday
+ * @property string         $position
+ * @property Favourites[]   $favourites
+ * @property JobContacts[]  $jobContacts
+ * @property Message[]      $messages
+ * @property ResumeJob[]    $resumeJobs
+ * @property ResumeSchool[] $resumeSchools
+ * @property File           $picture
+ * @property Company        $company
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -60,7 +77,42 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['firstName', 'lastName', 'auth_key', 'email', 'created_at', 'updated_at', 'fullName', 'visibility'], 'required'],
+            [['status', 'is_recruiter', 'company_id', 'created_at', 'updated_at', 'picture', 'visibility'], 'integer'],
+            [['birthday'], 'safe'],
+            [['firstName', 'lastName', 'password_hash', 'password_reset_token', 'email', 'username', 'fullName'], 'string', 'max' => 255],
+            [['auth_key'], 'string', 'max' => 32],
+            [['position'], 'string', 'max' => 45],
+            [['username'], 'unique']
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id'                   => Yii::t('app', 'ID'),
+            'firstName'            => Yii::t('app', 'First Name'),
+            'lastName'             => Yii::t('app', 'Last Name'),
+            'auth_key'             => Yii::t('app', 'Auth Key'),
+            'password_hash'        => Yii::t('app', 'Password Hash'),
+            'password_reset_token' => Yii::t('app', 'Password Reset Token'),
+            'email'                => Yii::t('app', 'Email'),
+            'status'               => Yii::t('app', 'Status'),
+            'is_recruiter'         => Yii::t('app', 'Is Recruiter'),
+            'company_id'           => Yii::t('app', 'Company ID'),
+            'created_at'           => Yii::t('app', 'Created At'),
+            'updated_at'           => Yii::t('app', 'Updated At'),
+            'birthday'             => Yii::t('app', 'Birthday'),
+            'position'             => Yii::t('app', 'Position'),
+            'username'             => Yii::t('app', 'Username'),
+            'fullName'             => Yii::t('app', 'Full Name'),
+            'picture'              => Yii::t('app', 'Picture'),
+            'visibility'           => Yii::t('app', 'Visibility'),
+        ];
+
     }
 
     /**
@@ -83,6 +135,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Finds user by username
      *
      * @param string $un username
+     *
      * @return static|null
      */
     public static function findByUsername($un)
@@ -94,6 +147,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Finds user by email
      *
      * @param string $email
+     *
      * @return static|null
      */
     public static function findByEmail($email)
@@ -105,6 +159,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Finds user by password reset token
      *
      * @param string $token password reset token
+     *
      * @return static|null
      */
     public static function findByPasswordResetToken($token)
@@ -115,7 +170,7 @@ class User extends ActiveRecord implements IdentityInterface
 
         return static::findOne([
             'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
+            'status'               => self::STATUS_ACTIVE,
         ]);
     }
 
@@ -123,6 +178,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Finds out if password reset token is valid
      *
      * @param string $token password reset token
+     *
      * @return boolean
      */
     public static function isPasswordResetTokenValid($token)
@@ -132,26 +188,28 @@ class User extends ActiveRecord implements IdentityInterface
         }
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         $parts = explode('_', $token);
-        $timestamp = (int) end($parts);
+        $timestamp = (int)end($parts);
         return $timestamp + $expire >= time();
     }
 
-     /**
+    /**
      * Finds out if user is recruiter
      *
      * @param string $id to identify user
+     *
      * @return boolean
      */
-     public function isUserRecruiter($id) {
+    public function isUserRecruiter($id)
+    {
 
 
-       $thisUser = findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        $thisUser = findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
 
-       if ($thisUser->isRecruiter == 0) {
-           return false;
-       }
-       return true;
-     }
+        if ($thisUser->isRecruiter == 0) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * @inheritdoc
@@ -161,9 +219,11 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->getPrimaryKey();
     }
 
-    public function getCompanyId() {
+    public function getCompanyId()
+    {
         return $this->company_id;
     }
+
     /**
      * @inheritdoc
      */
@@ -184,6 +244,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Validates password
      *
      * @param string $password password to validate
+     *
      * @return boolean if password provided is valid for current user
      */
     public function validatePassword($password)
@@ -236,18 +297,49 @@ class User extends ActiveRecord implements IdentityInterface
 
         $query->select('id, fullName')
             ->from('user')
-            ->where('fullName LIKE "%' . $q .'%" AND id != ' .Yii::$app->user->identity->getId())
+            ->where('fullName LIKE "%' . $q . '%" AND id != ' . Yii::$app->user->identity->getId())
             ->orderBy('fullName');
         $command = $query->createCommand();
         $data = $command->queryAll();
         $out = [];
         foreach ($data as $d) {
-            $out[] = ['id' => $d['id'],'value' => $d['fullName']];
+            $out[] = ['id' => $d['id'], 'value' => $d['fullName']];
         }
         return Json::encode($out);
+    }
 
-//        Yii::$app->response->format = Response::FORMAT_JSON;
-//        return User::find()->
-//            where('fullName LIKE %' .$query .'%');
+    public function getFavourites()
+    {
+        return $this->hasMany(Favourites::className(), ['user_id' => 'id']);
+    }
+
+    public function getJobContacts()
+    {
+        return $this->hasMany(JobContacts::className(), ['contact_id' => 'id']);
+    }
+
+    public function getMessages()
+    {
+        return $this->hasMany(Message::className(), ['sender_id' => 'id']);
+    }
+
+    public function getResumeJobs()
+    {
+        return $this->hasMany(ResumeJob::className(), ['user_id' => 'id']);
+    }
+
+    public function getResumeSchools()
+    {
+        return $this->hasMany(ResumeSchool::className(), ['user_id' => 'id']);
+    }
+
+    public function getPicture()
+    {
+        return $this->hasOne(File::className(), ['id' => 'picture']);
+    }
+
+    public function getCompany()
+    {
+        return $this->hasOne(Company::className(), ['id' => 'company_id']);
     }
 }
