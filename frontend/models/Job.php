@@ -2,7 +2,6 @@
 
 
 namespace frontend\models;
-namespace app\models;
 
 use Yii;
 
@@ -98,6 +97,10 @@ class Job extends \yii\db\ActiveRecord
     public function getCompany()
     {
         return $this->hasOne(Company::className(), ['id' => 'company_id']);
+    }
+    
+    public function getJobsByCompanyId($company) {
+        return $this->hasMany(Application::className(), ['company_id' => $company]);
     }
 
     /**
