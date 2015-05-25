@@ -15,7 +15,7 @@ use yii\web\IdentityInterface;
  * @property string $zip
  * @property string $city
  * @property integer $sector
- * @property integer $employeeAmountCat
+ * @property integer $employeeAmount
  *
  * @property User[] $users
  */
@@ -35,8 +35,8 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['name', 'street', 'houseno', 'zip', 'city', 'sector', 'employeeAmountCat'], 'required'],
-            [['sector', 'employeeAmountCat'], 'integer'],
+            [['name', 'street', 'houseno', 'zip', 'city', 'sector', 'employeeAmount'], 'required'],
+            [['sector', 'employeeAmount'], 'integer'],
             [['name', 'street', 'houseno', 'city'], 'string', 'max' => 255],
             [['zip'], 'string', 'max' => 10]
         ];
@@ -55,7 +55,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
             'zip' => 'Zip',
             'city' => 'City',
             'sector' => 'Sector',
-            'employeeAmountCat' => 'Employee Amount Cat',
+            'employeeAmount' => 'Employee Amount',
         ];
     }
 
@@ -101,6 +101,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public function getId()
     {
         // TODO: Implement getId() method.
+        return $this->getPrimaryKey();
     }
 
     /**

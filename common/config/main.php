@@ -8,6 +8,9 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'rules' => [
+                'user/<un:\w+>' =>'user',
+            ]
         ],
 
     ],

@@ -6,6 +6,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
+use backend\models\Job;
 
 /**
  * Site controller
@@ -53,10 +54,28 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionCreateJobForm()
+{
+    $model = new backend\models\CreateJobForm();
+
+    if ($model->load(Yii::$app->request->post())) {
+        if ($model->validate()) {
+            // form inputs are valid, do something here
+            return;
+        }
+    }
+
+    return $this->render('CreateJobForm', [
+        'model' => $model,
+    ]);
+}
+
+
     public function actionIndex()
     {
         return $this->render('index');
     }
+
 
     public function actionLogin()
     {
