@@ -14,6 +14,7 @@ use Yii;
  * @property integer $clickCount
  * @property integer $viewCount
  *
+ * @property Application[] $applications
  * @property Job $job
  */
 class ApplyBtn extends \yii\db\ActiveRecord
@@ -33,7 +34,7 @@ class ApplyBtn extends \yii\db\ActiveRecord
     {
         return [
             [['job_id'], 'required'],
-            [['job_id', 'clickCount','viewCount'], 'integer'],
+            [['job_id', 'clickCount', 'viewCount'], 'integer'],
             [['key', 'site'], 'string']
         ];
     }
@@ -49,8 +50,16 @@ class ApplyBtn extends \yii\db\ActiveRecord
             'key' => 'Key',
             'site' => 'Site',
             'clickCount' => 'Click Count',
-            'viewCount' => 'View Count'
+            'viewCount' => 'View Count',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getApplications()
+    {
+        return $this->hasMany(Application::className(), ['btn_id' => 'id']);
     }
 
     /**

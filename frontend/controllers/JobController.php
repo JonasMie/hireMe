@@ -8,6 +8,7 @@ use frontend\models\Analytics;
 use frontend\models\Application;
 use common\models\User;
 use frontend\models\JobSearch;
+use frontend\models\ApplyBtn;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -73,10 +74,10 @@ class JobController extends Controller
         ]);
 
     }
-    public function actionApply($id,$user) {
+
+    public function actionApply($key,$user) {
 
         $app = new Application();
-        $job = Job::findOne($id);
 
         $apps = Application::find()->orderBy('id')->all();
             if (count($apps) == 0) {
@@ -86,15 +87,47 @@ class JobController extends Controller
                 $highestID = $apps[count($apps)-1];
                 $app->id = $highestID->id+1;
             }
+    
+
+      $thisBtn = ApplyBtn::find()
+        ->where(['key' => $key])
+        ->one();
+        
+
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: ".$job->id);
         $app->user_id = $user;
         $app->company_id = $job->company_id;
-        $app->job_id = $id;
+        $app->job_id = $job->id;
         $app->state = "Gespeichert";
+        $app->btn_id = $thisBtn->id;
         $app->save();
         return $this->render('applied');
     }
 
-    /**
+    // count views
+    public function actionViewUp($btnKey) {
+
+        $btn = ApplyBtn::find()
+        ->where(['key' => $btnKey])
+        ->one();
+
+        $btn->viewCount = $btn->viewCount+1;
+        $btn->save();
+    }
+
+    //count clicks
+    public function actionClickUp($btnKey) {
+        
+        $btn = ApplyBtn::find()
+        ->where(['key' => $btnKey])
+        ->one();
+
+        $btn->clickCount = $btn->clickCount+1;
+        $btn->save();
+
+    }
+     /**
      * Creates a new Job model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -126,18 +159,54 @@ class JobController extends Controller
         }
     }
 
-    public function actionGenerateBtn($id) {
+    private function keyGeneration($keyBase) {
+
+       $key = md5(uniqid($keyBase, true));
+
+       $btns = ApplyBtn::find()->orderBy('id')->all();
+        for ($i=0; $i < count($btns); $i++) { 
+        
+            if ($key == $btns[$i]->key ) {
+                $this->$keyGeneration($keyBase);
+            }
+            
+        }
+
+        return $key;
+    }
+
+    public function actionGenerateBtn($id,$site) {
 
         $thisUser = Yii::$app->getUser();
         $getUser = User::findOne($thisUser->id);
 
         $model = $this->findModel($id);
 
-        $html = '<xmp><iframe src="http://frontend/job/iframe" width="100" height="50" id="hireMeFrame" frameBorder="0" name="'.$model->id.'">
-        </iframe></xmp>';
+        $btnId;
+
+         $btns = ApplyBtn::find()->orderBy('id')->all();
+            if (count($btns) == 0) {
+                $btnId = 0;
+            }
+            else {
+
+                $highestID = $btns[count($btns)-1];
+                $btnId = $highestID->id+1;
+            }
+        $keyBase = $model->id.'_'.$btnId;
+        $key = $this->keyGeneration($keyBase);
+
+        $btn = new ApplyBtn();
+        $btn->id = $btnId;
+        $btn->job_id = $id;
+        $btn->key = $key;
+        $btn->site = $site;
+        $btn->clickCount = 0;
+        $btn->viewCount = 0;
+        $btn->save();
 
         return $this->render('btnview', [
-         'iframe' => $html,
+         'iframe' => $key,
         ]);
   
     }   
