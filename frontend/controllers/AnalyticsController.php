@@ -6,13 +6,13 @@ use Yii;
 use frontend\models\Analytics;
 use common\models\User;
 use frontend\models\JobSearch;
+use frontend\models\Job;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
 use frontend\models\ApplyBtn;
 use frontend\models\Application;
-use app\models\Job;
 
 class AnalyticsController extends Controller
 {

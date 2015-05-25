@@ -2,7 +2,6 @@
 
 
 namespace frontend\models;
-namespace app\models;
 
 use Yii;
 
