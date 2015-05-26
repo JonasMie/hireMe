@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use frontend\controllers\AnalyticsController;
+use frontend\models\Analytics;
 
 ?>
 
@@ -13,7 +14,9 @@ use frontend\controllers\AnalyticsController;
 <h4>Clicks:</h4>
 <?= $model->clickCount?>
 <h4>Interest Rate:</h4>
-<?= $model->viewCount/$model->clickCount*100 ?> %
-<h4>Conversion Rate:</h4>
-<?= AnalyticsController::getConversionRateForBtn($model->id) ?> %
+<?= $model->clickCount/$model->viewCount*100 ?> %
+<h4>Application Rate:</h4>
+<?= AnalyticsController::getApplicationRateForBtn($model->id) ?> %
+<h4>Interview Rate:</h4>
+<?= AnalyticsController::getInterviewRateForBtn($model->id) ?> %
 </div>

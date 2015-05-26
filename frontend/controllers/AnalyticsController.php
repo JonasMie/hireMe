@@ -28,25 +28,37 @@ class AnalyticsController extends Controller
          $viewClickData =  $analytics->getAllViewsAndClicks($id);
          $viewCount = $viewClickData[0];
          $clickCount = $viewClickData[1];
-         $conversionRate = (count($applier)/$clickCount)*100;
-
+         $applicationRate = (count($applier)/$clickCount)*100;
+         $conversionRate = count($hired)/count($applier);
     	 $clicks = [];
          $applications = [];
 
+
+        $dataProvider = new ActiveDataProvider([
+        'query' => Job::find(['company_id' => $id]),
+        'pagination' => [
+            'pageSize' => 20,],
+        ]);
+
          return $this->render('index', [
+            'id' => $id,
             'applyCount' => count($applier),
             'hiredCount' => count($hired),
             'jobCount' =>   count($jobs),
             'viewCount' =>  $viewCount,
             'clickCount' => $clickCount,
+            'applicationRate' => $applicationRate,
+            'interviewRate' => $analytics->getInterviewRate($id),
             'interestRate' => ($clickCount/$viewCount)*100,
             'conversionRate' => $conversionRate,
+            'companyName' =>  $analytics->getCompany($id),
+            'provider' => $dataProvider,
         ]);
 
 
  }
 
-    public function getConversionRateForBtn($id) {
+    public function getApplicationRateForBtn($id) {
 
         $btn = ApplyBtn::findOne($id);
         $btnApplies = Application::find()
@@ -57,6 +69,24 @@ class AnalyticsController extends Controller
         return $rate;
     }
 
+    public function getInterviewRateForBtn($id) {
+        
+        $btn = ApplyBtn::findOne($id);
+        $applies = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1])
+        ->orderBy('id')
+        ->all();
+
+        $interviews = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
+        ->orderBy('id')
+        ->all();
+        $rate =  (count($interviews)/count($applies))*100;
+        return $rate;
+
+    }
+
+
     public function actionDetail($id) {
 
         $analytics = new Analytics();
@@ -64,13 +94,11 @@ class AnalyticsController extends Controller
         $viewClickData =  $analytics->getAllViewsAndClicksForJob($id);
         $viewCount = $viewClickData[0];
         $clickCount = $viewClickData[1];
-        $conversionRate = (count($applier)/$clickCount)*100;
+        $applicationRate = (count($applier)/$clickCount)*100;
         $job = Job::findOne($id);
         $jobName = $job->title;
 
     
-
-
         $dataProvider = new ActiveDataProvider([
         'query' => ApplyBtn::find(['job_id' => $id]),
         'pagination' => [
@@ -84,7 +112,8 @@ class AnalyticsController extends Controller
             'viewCount' =>  $viewCount,
             'clickCount' => $clickCount,
             'interestRate' => ($clickCount/$viewCount)*100,
-            'conversionRate' => $conversionRate,
+            'applicationRate' => $applicationRate,
+            'interviewRate' => $analytics->getInterviewRateForJob($id),
             'provider' => $dataProvider,
         ]);
        

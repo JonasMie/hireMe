@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
 use yii\web\IdentityInterface;
@@ -16,7 +16,7 @@ use yii\web\IdentityInterface;
  * @property string $city
  * @property integer $sector
  * @property integer $employeeAmount
- *
+ *  
  * @property User[] $users
  */
 class Company extends \yii\db\ActiveRecord implements IdentityInterface

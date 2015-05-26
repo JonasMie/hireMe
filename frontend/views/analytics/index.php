@@ -6,14 +6,14 @@ use yii\widgets\ListView;
 
 
 
-$this->title = "Analytics: Overview";
-$this->params['breadcrumbs'][] = ['label' => 'Analytics', 'url' => ['index']];
+$this->title = "Analytics: Overview für";
+$this->params['breadcrumbs'][] = ['label' => 'Analytics', 'url' => ['index?id='.$id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="myjobs">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?> <?= $companyName ?></h1>
 
     <p>
 
@@ -23,9 +23,25 @@ $this->params['breadcrumbs'][] = $this->title;
     ---------------------------------------------------------------
     <h2><?= $clickCount  ?> Klicks bei <?= $viewCount ?> Views</h2>
     <h5>Interest Rate somit bei: <?= $interestRate ?> %</h5>
-    <h2><?= $conversionRate ?>% Conversion Rate (Bewerbungen/Click)
+    <h2><?= $applyCount ?> Applications bei <?= $clickCount ?> Klicks</h2>
+    <h5>Application Rate somit bei: <?= $applicationRate ?> %</h5>
+    <h2>Interview Rate liegt bei: <?= $interviewRate ?> %</h2>
+    <h2>Conversion Rate liegt bei: <?= $conversionRate ?> %</h2>
     </p>
+    <h1>-------------------------------------------------------------------------------</h1>
 
+     <?=
+    ListView::widget([
+        'dataProvider' => $provider,
+        'itemView' =>function($model) {
+            return $this->render('jobDetail',[
+                'model' => $model,
+            ]); 
+        }
+        ]);
+
+
+    ?>
 
 
 </div>

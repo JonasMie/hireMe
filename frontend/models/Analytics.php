@@ -30,6 +30,38 @@ class Analytics extends \yii\base\Model
         return $applications;
 
     }
+
+    public function getInterviewRate($id) {
+
+        $applier = $this->getApplier($id);
+
+        $inteviewer = Application::find()
+        ->where(['company_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
+        ->orderBy('id')
+        ->all();
+        $rate =count($inteviewer)/count($applier)*100; 
+        return $rate;
+    } 
+    public function getInterviewRateForJob($id) {
+
+        $applier = $this->getAppliesForJob($id);
+
+        $inteviewer = Application::find()
+        ->where(['job_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
+        ->orderBy('id')
+        ->all();
+        $rate =count($inteviewer)/count($applier)*100; 
+        return $rate;
+
+    }
+
+    public function getCompany($id) {
+
+        $company = Company::findOne($id);
+
+        return $company->name;
+
+    }
     //Detail
     public function getAppliesForJob($id) {
 
