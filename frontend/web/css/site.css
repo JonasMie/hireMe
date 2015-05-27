@@ -89,3 +89,12 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+#hoverInfo {
+
+width:300px;
+height:100px;
+background: #fdf7f7;
+
+}
+
