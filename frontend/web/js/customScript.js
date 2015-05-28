@@ -31,13 +31,11 @@ $('#header .navbar-header .navbar-toggle').click(function(){
 
 
 /** Helper function for the header dropdown **/
-$('.dropdown').on('show.bs.dropdown', function () {
-    $(this).find('.dropdown-menu').first().stop(false, false).slideDown(200);
-});
+    $('.dropdown').on('show.bs.dropdown', function () {
+            $(this).find('.dropdown-menu').first().stop(false, false).slideDown(200);
+    });
 
-$('.dropdown').on('hide.bs.dropdown', function () {
-    $(this).addClass('open', true);
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
-    $(this).removeClass('open');
-});
+    $('.dropdown').on('hide.bs.dropdown', function () {
+            $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    });
 /** END Helper function for the header dropdown **/

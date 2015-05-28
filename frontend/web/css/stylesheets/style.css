@@ -138,66 +138,74 @@ body > div.wrap > div.container {
 #header div.container #header-collapse ul.navbar-nav > li a {
   padding: 0;
 }
-/* line 43, ../sass/_header.scss */
+/* line 42, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li a:hover {
+  color: #5dca88;
+}
+/* line 46, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul {
   border-radius: 0px;
   min-width: 1px;
   top: 40px;
 }
-/* line 47, ../sass/_header.scss */
+/* line 50, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul li {
   display: inline-block;
   float: left;
   padding: 0px 20px 10px 20px;
 }
-/* line 51, ../sass/_header.scss */
+/* line 54, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul li:nth-child(1) {
   padding-top: 10px !important;
 }
-/* line 54, ../sass/_header.scss */
+/* line 57, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul li a {
   color: #9d9d9d;
 }
-/* line 56, ../sass/_header.scss */
+/* line 59, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul li a:hover {
   background: none;
   color: #5dca88;
 }
-/* line 66, ../sass/_header.scss */
+/* line 68, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li.dropdown {
+  margin-right: -10px;
+}
+/* line 73, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li.active a {
   background: none;
   color: #5dca88;
 }
-/* line 72, ../sass/_header.scss */
+/* line 79, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li.open {
   background-image: url("/images/caret.png");
   background-position: center bottom;
   background-repeat: no-repeat;
   height: 40px;
 }
-/* line 77, ../sass/_header.scss */
+/* line 84, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li.open > a {
   background: none;
 }
-/* line 79, ../sass/_header.scss */
+/* line 86, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li.open > a:focus, #header div.container #header-collapse ul.navbar-nav > li.open > a:hover {
   color: #5dca88 !important;
   background: none;
 }
 @media (max-width: 991px) {
-  /* line 89, ../sass/_header.scss */
+  /* line 96, ../sass/_header.scss */
   #header div.container {
     margin: 0;
     padding: 0;
   }
-  /* line 93, ../sass/_header.scss */
+  /* line 100, ../sass/_header.scss */
   #header div.container .navbar-header {
     float: none;
     background: none;
     padding: 0;
     margin: 0;
   }
-  /* line 99, ../sass/_header.scss */
+  /* line 106, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle {
     display: block;
     background-color: #5dca88;
@@ -210,7 +218,7 @@ body > div.wrap > div.container {
     user-select: none;
     z-index: 1;
   }
-  /* line 118, ../sass/_header.scss */
+  /* line 125, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar {
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
@@ -218,133 +226,142 @@ body > div.wrap > div.container {
     -o-transition: 0.3s;
     transition: 0.3s;
   }
-  /* line 125, ../sass/_header.scss */
+  /* line 132, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(2) {
     position: absolute;
     top: 13px;
   }
-  /* line 129, ../sass/_header.scss */
+  /* line 136, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(3) {
     margin-top: 0px;
   }
-  /* line 132, ../sass/_header.scss */
+  /* line 139, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(4) {
     position: absolute;
     top: 23px;
   }
-  /* line 136, ../sass/_header.scss */
+  /* line 143, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:active {
     transition: 0s;
   }
-  /* line 140, ../sass/_header.scss */
+  /* line 147, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(2) {
     top: 11px;
   }
-  /* line 143, ../sass/_header.scss */
+  /* line 150, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(4) {
     top: 25px;
   }
-  /* line 148, ../sass/_header.scss */
+  /* line 155, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked {
     left: 163px;
   }
-  /* line 151, ../sass/_header.scss */
+  /* line 158, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(2) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, -40deg);
     top: 16px;
     left: 9px;
   }
-  /* line 157, ../sass/_header.scss */
+  /* line 164, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(4) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, 40deg);
     top: 20px;
     left: 9px;
   }
-  /* line 167, ../sass/_header.scss */
+  /* line 174, ../sass/_header.scss */
   #header div.container .navbar-header a.navbar-brand img#navbar-logo {
     display: none;
   }
-  /* line 172, ../sass/_header.scss */
+  /* line 179, ../sass/_header.scss */
   #header div.container #header-collapse {
-    border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    background-color: #2d312f;
+    border-right: 1px solid #9d9d9d;
+    background-color: #ffffff;
     -webkit-transition: width .4s;
     -moz-transition: width 0.4s;
     -ms-transition: width 0.4s;
     -o-transition: width 0.4s;
     transition: width .4s;
   }
-  /* line 182, ../sass/_header.scss */
+  /* line 188, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right {
     float: none !important;
     float: none !important;
     margin-top: 70px;
     margin-right: 0px;
   }
-  /* line 188, ../sass/_header.scss */
+  /* line 194, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li {
     float: none;
     margin-left: 15px;
     margin-bottom: 10px;
     clear: both;
   }
-  /* line 194, ../sass/_header.scss */
+  /* line 200, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  /* line 201, ../sass/_header.scss */
+  /* line 203, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li a:hover {
+    color: #5dca88;
+  }
+  /* line 209, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open {
+    background-image: none;
+  }
+  /* line 211, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle {
     background: none;
   }
-  /* line 203, ../sass/_header.scss */
+  /* line 213, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:focus, #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:hover {
-    color: #9d9d9d !important;
+    color: #5dca88 !important;
     background: none;
   }
-  /* line 208, ../sass/_header.scss */
+  /* line 218, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.open ul#w1 {
     display: block !important;
   }
-  /* line 214, ../sass/_header.scss */
+  /* line 224, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 {
     background: none;
     border: none;
+    border-right: 1px solid #9d9d9d;
     box-shadow: none;
     position: static;
     left: auto;
     top: auto;
-    background-color: #000000;
+    background-color: #edf0f0;
     border-radius: 0px;
     padding-bottom: 8px;
     width: 200px;
     margin-left: -35px;
+    float: left;
   }
-  /* line 226, ../sass/_header.scss */
+  /* line 238, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li {
     display: inline-block;
     float: left;
-    margin-left: 15px;
+    margin: 10px 0px 0px 45px;
     padding: 0px 30px 0px 10px;
   }
-  /* line 231, ../sass/_header.scss */
+  /* line 243, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a {
     color: #9d9d9d;
   }
-  /* line 233, ../sass/_header.scss */
+  /* line 245, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:hover, #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:focus {
     background: none !important;
-    color: #9d9d9d;
+    color: #5dca88;
   }
-  /* line 239, ../sass/_header.scss */
+  /* line 251, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li:nth-child(1) {
-    margin-left: 15px;
-    margin-top: 10px;
+    margin-left: 45px;
+    margin-top: 0px;
   }
-  /* line 248, ../sass/_header.scss */
+  /* line 260, ../sass/_header.scss */
   #header div.container #header-collapse.slidedout {
     max-height: none;
     top: 0px;
@@ -357,7 +374,7 @@ body > div.wrap > div.container {
     margin: 0;
     visibility: visible !important;
   }
-  /* line 261, ../sass/_header.scss */
+  /* line 273, ../sass/_header.scss */
   #header div.container #header-collapse:not(.slidedout) {
     width: 0;
     max-height: none;
@@ -366,12 +383,12 @@ body > div.wrap > div.container {
   }
 }
 
-/* line 273, ../sass/_header.scss */
+/* line 285, ../sass/_header.scss */
 body.overflowx {
   overflow-x: hidden;
 }
 
-/* line 277, ../sass/_header.scss */
+/* line 289, ../sass/_header.scss */
 .wrap > .container {
   width: 100%;
   position: relative;
@@ -379,19 +396,19 @@ body.overflowx {
   transition: 0.3s;
 }
 
-/* line 284, ../sass/_header.scss */
+/* line 296, ../sass/_header.scss */
 .wrap > .container.out {
   left: 1px;
   padding-right: -1px;
 }
 
-/* line 292, ../sass/_header.scss */
+/* line 304, ../sass/_header.scss */
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #9d9d9d;
 }
 
-/* line 297, ../sass/_header.scss */
+/* line 309, ../sass/_header.scss */
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #9d9d9d;
