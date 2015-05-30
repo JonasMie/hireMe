@@ -7,7 +7,9 @@ use frontend\assets\SignupAsset;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
+/* @var $loginModel \common\models\LoginForm */
+/* @var $signupModel frontend\models\SignupForm */
+
 
 // Include JS //
 $this->registerJsFile("https://apis.google.com/js/platform.js", array('async'=>'', 'defer'=>''));//, 'position'=>'POS_BEGIN'));
@@ -30,9 +32,9 @@ SignupAsset::register($this);
 			<h1><?= Html::encode($this->title) ?></h1>
 		
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <?= $form->field($model, 'email', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('E-Mail')]])->label(false); ?>
-                <?= $form->field($model, 'password', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                <?= $form->field($loginModel, 'email', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('E-Mail')]])->label(false); ?>
+                <?= $form->field($loginModel, 'password', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
+                <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
 				
                 <div class="form-group">
                     <?= Html::submitButton('Login', ['class' => 'btn btn-success login-button', 'name' => 'login-button']) ?>
@@ -50,7 +52,46 @@ SignupAsset::register($this);
 		<div class="col-sm-4 col-sm-offset-2 login-field">
 		
 			<h2>SignUp Formular</h2>
-		
+
+
+            <?// Signup Form //?>
+
+            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+            <?= $form->field($signupModel, 'firstName')->label('Vorname')?>
+            <?= $form->field($signupModel, 'lastName')->label('Nachname') ?>
+            <?= $form->field($signupModel, 'email') ?>
+            <?= $form->field($signupModel, 'password')->passwordInput() ?>
+
+            <br>
+            <?= $form->field($signupModel, 'checkCompanySignup')->checkbox(array('id'=>'checkCompanySignup'))->label('Als Recruiter registrieren') ?>
+
+
+            <!-- Additional Information for recruiter signups -->
+
+
+            <div class="companySetup" style="display: none">    <? //STYLE: display in css?>
+                <?= $form->field($signupModel, 'companyName')->label('Name des Unternehmens')?>
+                <?= $form->field($signupModel, 'companyAddress')->label('Anschrift des Unternehmens') ?>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <?= $form->field($signupModel, 'companyAddressStreet', array('inputOptions'=>['placeholder'=>'Straße']))->label(false) ?>
+                    </div>
+                    <div class="col-lg-3">
+                        <?= $form->field($signupModel, 'companyAddressNumber', array('inputOptions'=>['placeholder'=>'Nr.']))->label(false)?>
+                    </div>
+                </div>
+                <?= $form->field($signupModel, 'companyAddressZIP', array('inputOptions'=>['placeholder'=>'PLZ']))->label(false) ?>
+                <?= $form->field($signupModel, 'companyAddressCity', array('inputOptions'=>['placeholder'=>'Ort']))->label(false) ?>
+
+                <?= $form->field($signupModel, 'companySector')->dropDownList($sectors, ['prompt'=>'Branche wählen' /*, "0"=>['disabled' => true]*/ ])->label('Branche') ?>  <? //TODO: Make Prompt disabled?>
+                <?= $form->field($signupModel, 'companyEmployees')->dropDownList($employeeAmount, ['prompt'=>'Anzahl der Beschäftigten' ])->label('Anzahl der Mitarbeiter') ?>
+            </div>
+
+
+            <div class="form-group">
+                <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+            </div>
+            <?php ActiveForm::end(); ?>
 		</div>
 		
     </div>
@@ -67,9 +108,9 @@ SignupAsset::register($this);
 	?>
 
 	<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-		<?= $form->field($model, 'email') ?>
-		<?= $form->field($model, 'password')->passwordInput() ?>
-		<?= $form->field($model, 'rememberMe')->checkbox() ?>
+		<?= $form->field($loginModel, 'email') ?>
+		<?= $form->field($loginModel, 'password')->passwordInput() ?>
+		<?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
 		<div style="color:#999;margin:1em 0">
 			If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
 		</div>

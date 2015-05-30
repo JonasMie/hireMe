@@ -98,12 +98,21 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        $signupModel = new SignupForm();
+        $loginModel = new LoginForm();
+        if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
             return $this->goBack();
-        } else {
+        } else if($signupModel->load(Yii::$app->request->post())) {
+            if ($user = $signupModel->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+        else {
             return $this->render('login', [
-                'model' => $model,
+                'loginModel' => $loginModel,
+                'signupModel' => $signupModel
             ]);
         }
     }
