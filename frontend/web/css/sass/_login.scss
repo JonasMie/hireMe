@@ -1,0 +1,25 @@
+.site-login{
+
+	.login-field{
+		text-align: center;
+	}
+	
+	.login-button{
+		padding: 10px 60px;
+	}
+
+	#login-form{
+		input{
+			background: transparent;
+			border-width: 0px 0px 1px 0px;
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			border-radius: 0px;
+		}
+	}
+	
+	.auth-clients{
+		overflow:inherit;
+	}
+
+}
