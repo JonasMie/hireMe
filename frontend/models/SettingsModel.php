@@ -7,7 +7,7 @@
  * Project: hireMe
  */
 
-namespace app\models;
+namespace frontend\models;
 
 use common\models\User;
 use Yii;

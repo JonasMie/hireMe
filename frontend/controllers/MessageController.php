@@ -3,8 +3,8 @@
 namespace frontend\Controllers;
 
 use common\models\User;
+use frontend\models\Message;
 use Yii;
-use app\models\Message;
 use frontend\models\MessageSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
