@@ -32,8 +32,8 @@ SignupAsset::register($this);
 			<h1><?= Html::encode($this->title) ?></h1>
 		
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <?= $form->field($loginModel, 'email', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('E-Mail')]])->label(false); ?>
-                <?= $form->field($loginModel, 'password', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
+                <?= $form->field($loginModel, 'email', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('E-Mail')]])->label(false); ?>
+                <?= $form->field($loginModel, 'password', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
                 <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
 
 				
@@ -57,10 +57,10 @@ SignupAsset::register($this);
             <?// Signup Form //?>
 
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-            <?= $form->field($signupModel, 'firstName',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Vorname')]])->label(false); ?>
-            <?= $form->field($signupModel, 'lastName',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Nachname')]])->label(false); ?>
-            <?= $form->field($signupModel, 'email',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('E-Mail')]])->label(false); ?>
-            <?= $form->field($signupModel, 'password',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Passwort')]])->label(false)->passwordInput() ?>
+            <?= $form->field($signupModel, 'firstName',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $signupModel->getAttributeLabel('Vorname')]])->label(false); ?>
+            <?= $form->field($signupModel, 'lastName',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $signupModel->getAttributeLabel('Nachname')]])->label(false); ?>
+            <?= $form->field($signupModel, 'email',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $signupModel->getAttributeLabel('E-Mail')]])->label(false); ?>
+            <?= $form->field($signupModel, 'password',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $signupModel->getAttributeLabel('Passwort')]])->label(false)->passwordInput() ?>
 
             <br>
             <?= $form->field($signupModel, 'checkCompanySignup')->checkbox(array('id'=>'checkCompanySignup'))->label('Als Recruiter registrieren') ?>
@@ -70,8 +70,8 @@ SignupAsset::register($this);
 
 
             <div class="companySetup" style="display: none">    <? //STYLE: display in css?>
-                <?= $form->field($signupModel, 'companyName',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Name des Unternehmens')]])->label(false); ?>
-                <?= $form->field($signupModel, 'companyAddress',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Anschrift des Unternehmens')]])->label(false); ?>
+                <?= $form->field($signupModel, 'companyName',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $signupModel->getAttributeLabel('Name des Unternehmens')]])->label(false); ?>
+                <?= $form->field($signupModel, 'companyAddress',['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $signupModel->getAttributeLabel('Anschrift des Unternehmens')]])->label(false); ?>
                 <div class="row">
                     <div class="col-lg-9">
                         <?= $form->field($signupModel, 'companyAddressStreet', array('inputOptions'=>['placeholder'=>'Straße']))->label(false) ?>

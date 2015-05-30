@@ -104,6 +104,7 @@ class SiteController extends Controller
             return $this->goBack();
         } else if($signupModel->load(Yii::$app->request->post())) {
             if ($user = $signupModel->signup()) {
+                error_log('in');
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
