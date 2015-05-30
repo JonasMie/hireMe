@@ -4,6 +4,8 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\ListView;
 
+$this->title = "Profil";
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
     <h1><?= /*$user->fullName*/
