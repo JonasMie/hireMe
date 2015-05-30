@@ -66,8 +66,21 @@ margin-bottom:10px;
 }
 
 
+// Forms
+
+.form-control{
+background: transparent;
+border-width: 0px 0px 1px 0px;
+box-shadow: none;
+-webkit-box-shadow: none;
+border-radius: 0px;
+}
+
+
 // Buttons
 
 .btn{
 border-radius: 0;
 }
+
+
