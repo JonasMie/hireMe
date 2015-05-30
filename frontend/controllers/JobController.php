@@ -75,7 +75,13 @@ class JobController extends Controller
 
     }
 
-    public function actionApply($key,$user) {
+    public function actionApply($key,$user,$case) {
+
+        if ($case == 0) {
+ 
+        }
+
+        else {
 
         $app = new Application();
 
@@ -103,6 +109,9 @@ class JobController extends Controller
         $app->btn_id = $thisBtn->id;
         $app->save();
         return $this->render('applied');
+
+        }
+
     }
 
     // count views
@@ -210,13 +219,20 @@ class JobController extends Controller
   
     }   
 
-    public function actionIframe() {
+    public function actionViewCount() {
+
+
+         return $this->renderPartial('viewCountIFrame');
+    }
+
+    public function actionButtonPopup() {
 
         $cookie = Yii::$app->request->cookies['usr_']->value;
 
-         return $this->renderPartial('iframe',[
+         return $this->renderPartial('buttonPopup',[
             'userID' => $cookie,
             ]);
+
     }
 
     /**

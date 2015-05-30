@@ -2,12 +2,10 @@
 
 namespace frontend\controllers;
 
-use app\models\FavouritesSearch;
-use app\models\ResumeJob;
-use app\models\ResumeSchool;
+use frontend\models\ResumeJob;
+use frontend\models\ResumeSchool;
+use frontend\models\SettingsModel;
 use common\models\User;
-use frontend\models\MessageSearch;
-use frontend\models\Resume;
 use Yii;
 use yii\base\UserException;
 use yii\filters\AccessControl;
@@ -20,12 +18,17 @@ class UserController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only'  => ['index'],
+                'only'  => ['index', 'settings'],
                 'rules' => [
                     [
                         'actions' => ['index'],
                         'allow'   => true,  // TODO: set allow to false
                         'roles'   => ['@'], // TODO: set roles to '?'
+                    ],
+                    [
+                        'actions' => ['settings'],
+                        'allow' => true,
+                        'roles' => ['@'],
                     ],
                 ]
             ]
@@ -54,5 +57,27 @@ class UserController extends Controller
         }
 
     }
+    public function actionSettings()
+    {
+        $model = new SettingsModel();
 
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->update()) {
+                return $this->render('settings', [
+                    'model' => $model,
+                    'success' => true,
+                ]);
+            } else {
+                return $this->render('settings', [
+                    'model' => $model,
+                    'success' => false,
+                ]);
+            }
+        }
+        $model->visibility = Yii::$app->user->identity->visibility;
+        $model->email = Yii::$app->user->identity->email;
+        return $this->render('settings', [
+            'model' => $model,
+        ]);
+    }
 }

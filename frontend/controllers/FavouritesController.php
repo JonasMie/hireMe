@@ -3,7 +3,7 @@
 namespace frontend\Controllers;
 
 use Yii;
-use app\models\Favourites;
+use frontend\models\Favourites;
 use app\models\FavouritesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

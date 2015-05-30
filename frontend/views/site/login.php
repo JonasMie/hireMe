@@ -32,9 +32,10 @@ SignupAsset::register($this);
 			<h1><?= Html::encode($this->title) ?></h1>
 		
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <?= $form->field($loginModel, 'email', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('E-Mail')]])->label(false); ?>
-                <?= $form->field($loginModel, 'password', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $loginModel->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
+                <?= $form->field($loginModel, 'email', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('E-Mail')]])->label(false); ?>
+                <?= $form->field($loginModel, 'password', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
                 <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
+
 				
                 <div class="form-group">
                     <?= Html::submitButton('Login', ['class' => 'btn btn-success login-button', 'name' => 'login-button']) ?>
@@ -52,7 +53,6 @@ SignupAsset::register($this);
 		<div class="col-sm-4 col-sm-offset-2 login-field">
 		
 			<h2>SignUp Formular</h2>
-
 
             <?// Signup Form //?>
 
@@ -92,6 +92,7 @@ SignupAsset::register($this);
                 <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
+
 		</div>
 		
     </div>
@@ -108,9 +109,11 @@ SignupAsset::register($this);
 	?>
 
 	<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+
 		<?= $form->field($loginModel, 'email') ?>
 		<?= $form->field($loginModel, 'password')->passwordInput() ?>
 		<?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
+
 		<div style="color:#999;margin:1em 0">
 			If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
 		</div>

@@ -9,6 +9,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'user/settings' => 'user/settings',
                 'user/<un:\w+>' =>'user',
             ]
         ],

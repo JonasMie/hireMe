@@ -16,7 +16,5 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= $iframe ?>
     </p>
-
-    
-
+  
 </div>
