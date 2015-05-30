@@ -310,3 +310,12 @@ body.overflowx {
 .navbar-inverse .navbar-nav > li > a:focus {
   color: $greyFont;
 }
+
+// END Overwrite for stupid Bootstrap styling
+
+// Fix for Container which overlaps Content
+@media (max-width: 991px) {
+  #header > div.container {
+    height: 1px;
+  }
+}
