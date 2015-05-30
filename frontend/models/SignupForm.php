@@ -41,14 +41,14 @@ class SignupForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Diese Email-Adresse wird bereits verwendet.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
             // TODO: Error-message -> Label ausgeben
             [['companyName', 'companyAddress', 'companyAddressStreet', 'companyAddressNumber', 'companyAddressZIP', 'companyAddressCity', 'companySector', 'companyEmployees'], 'required', 'when' => function ($model){
-                return $model->checkCompanySignup == true;
+                return $model->checkCompanySignup === true;
             }, 'whenClient' => 'function(attribute,value){
                     return $("#checkCompanySignup").prop("checked");
                 }'
