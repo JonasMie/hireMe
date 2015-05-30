@@ -15,14 +15,59 @@ $greyFont:  rgb(157,157,157);
 
 // Basic fonts
 
+$fontbase: 16px;
+
 @mixin font-standard {
   font-family: 'PT Sans', sans-serif;
 }
 
 @mixin font-header {
   font-family: 'PT Sans', sans-serif;
-  font-size: 16px;
+  font-size: $fontbase;
 }
 
 
+// Headings
 
+h1, .h1{
+font-size: $fontbase * 1.8;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h2, .h2{
+font-size: $fontbase * 1.6;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h3, .h4{
+font-size: $fontbase * 1.4;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h4, .h4{
+font-size: $fontbase * 1.2;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h5, .h5{
+font-size: $fontbase;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h6, .h6{
+font-size: $fontbase * 0.8;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+
+// Buttons
+
+.btn{
+border-radius: 0;
+}
