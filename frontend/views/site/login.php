@@ -29,9 +29,9 @@ SignupAsset::register($this);
         <div class="col-sm-4 col-sm-offset-1 login-field">
 			<h1><?= Html::encode($this->title) ?></h1>
 		
-            <?php $form = ActiveForm::begin(['id' => 'login-form','layout' => 'horizontal']); ?>
-                <?= $form->field($model, 'email', ['template' => '{label} <div class="row"><div class="">{input}{error}{hint}</div></div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('E-Mail')]])->label(false); ?>
-                <?= $form->field($model, 'password', ['template' => '{label} <div class="row"><div class="">{input}{error}{hint}</div></div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
+            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                <?= $form->field($model, 'email', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('E-Mail')]])->label(false); ?>
+                <?= $form->field($model, 'password', ['template' => '{label} <div>{input}{error}{hint}</div>','inputOptions' => ['placeholder' => $model->getAttributeLabel('Passwort')]])->passwordInput()->label(false); ?>
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
 				
                 <div class="form-group">
