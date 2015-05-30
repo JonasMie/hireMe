@@ -1,0 +1,497 @@
+/* line 5, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 32, ../sass/_variables.scss */
+h1, .h1 {
+  font-size: 28.8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 38, ../sass/_variables.scss */
+h2, .h2 {
+  font-size: 25.6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 44, ../sass/_variables.scss */
+h3, .h4 {
+  font-size: 22.4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 50, ../sass/_variables.scss */
+h4, .h4 {
+  font-size: 19.2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 56, ../sass/_variables.scss */
+h5, .h5 {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 62, ../sass/_variables.scss */
+h6, .h6 {
+  font-size: 12.8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 71, ../sass/_variables.scss */
+input.form-control {
+  background: transparent;
+  border-width: 0px 0px 1px 0px;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-radius: 0px;
+}
+
+/* line 84, ../sass/_variables.scss */
+.btn {
+  border-radius: 0;
+}
+
+/* line 1, ../sass/_mainStylings.scss */
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 1, ../sass/_demohelper.scss */
+body > div.wrap > div.container {
+  padding-top: 130px;
+}
+@media (max-width: 991px) {
+  /* line 1, ../sass/_demohelper.scss */
+  body > div.wrap > div.container {
+    padding-top: 20px;
+  }
+}
+
+/* line 1, ../sass/_header.scss */
+#header {
+  background: #ffffff;
+  border: none;
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  user-select: none;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+}
+@media (max-width: 991px) {
+  /* line 1, ../sass/_header.scss */
+  #header {
+    height: 60px;
+    background: none;
+    border: none;
+  }
+}
+/* line 17, ../sass/_header.scss */
+#header div.container {
+  margin-top: 20px;
+  width: 100%;
+  padding-left: 0px;
+}
+/* line 22, ../sass/_header.scss */
+#header div.container .navbar-header {
+  padding: 40px 0px;
+  margin-top: -70px;
+}
+/* line 26, ../sass/_header.scss */
+#header div.container .navbar-header a.navbar-brand {
+  padding: 25px 15px 0px 50px;
+}
+/* line 28, ../sass/_header.scss */
+#header div.container .navbar-header a.navbar-brand img#navbar-logo {
+  width: 126px;
+  height: 26px;
+}
+/* line 37, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li {
+  padding: 0px 20px 0px 20px;
+  color: #5d6461;
+}
+/* line 40, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li a {
+  padding: 0;
+}
+/* line 42, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li a:hover {
+  color: #5dca88;
+}
+/* line 46, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul {
+  border-radius: 0px;
+  min-width: 1px;
+  top: 40px;
+}
+/* line 50, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li {
+  display: inline-block;
+  float: left;
+  padding: 0px 20px 10px 20px;
+}
+/* line 54, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li:nth-child(1) {
+  padding-top: 10px !important;
+}
+/* line 57, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li a {
+  color: #9d9d9d;
+}
+/* line 59, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li > ul li a:hover {
+  background: none;
+  color: #5dca88;
+}
+/* line 68, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav li.dropdown {
+  margin-right: -10px;
+}
+/* line 73, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.active a {
+  background: none;
+  color: #5dca88;
+}
+/* line 79, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.open {
+  background-image: url("/images/caret.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 40px;
+}
+/* line 84, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.open > a {
+  background: none;
+}
+/* line 86, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.open > a:focus, #header div.container #header-collapse ul.navbar-nav > li.open > a:hover {
+  color: #5dca88 !important;
+  background: none;
+}
+@media (max-width: 991px) {
+  /* line 96, ../sass/_header.scss */
+  #header div.container {
+    margin: 0;
+    padding: 0;
+  }
+  /* line 100, ../sass/_header.scss */
+  #header div.container .navbar-header {
+    float: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+  /* line 106, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle {
+    display: block;
+    background-color: #5dca88;
+    border-radius: 22px;
+    height: 42px;
+    float: none !important;
+    margin: 15px 0px 0px 15px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+  }
+  /* line 125, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar {
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+  }
+  /* line 132, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(2) {
+    position: absolute;
+    top: 13px;
+  }
+  /* line 136, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(3) {
+    margin-top: 0px;
+  }
+  /* line 139, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(4) {
+    position: absolute;
+    top: 23px;
+  }
+  /* line 143, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:active {
+    transition: 0s;
+  }
+  /* line 147, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(2) {
+    top: 11px;
+  }
+  /* line 150, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(4) {
+    top: 25px;
+  }
+  /* line 155, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked {
+    left: 163px;
+  }
+  /* line 158, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(2) {
+    width: 12.22222px;
+    transform: rotate3d(0, 0, 1, -40deg);
+    top: 16px;
+    left: 9px;
+  }
+  /* line 164, ../sass/_header.scss */
+  #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(4) {
+    width: 12.22222px;
+    transform: rotate3d(0, 0, 1, 40deg);
+    top: 20px;
+    left: 9px;
+  }
+  /* line 174, ../sass/_header.scss */
+  #header div.container .navbar-header a.navbar-brand img#navbar-logo {
+    display: none;
+  }
+  /* line 179, ../sass/_header.scss */
+  #header div.container #header-collapse {
+    border-right: 1px solid #9d9d9d;
+    background-color: #ffffff;
+    -webkit-transition: width .4s;
+    -moz-transition: width 0.4s;
+    -ms-transition: width 0.4s;
+    -o-transition: width 0.4s;
+    transition: width .4s;
+  }
+  /* line 188, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right {
+    float: none !important;
+    float: none !important;
+    margin-top: 70px;
+    margin-right: 0px;
+  }
+  /* line 194, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li {
+    float: none;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    clear: both;
+  }
+  /* line 200, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  /* line 203, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li a:hover {
+    color: #5dca88;
+  }
+  /* line 209, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open {
+    background-image: none;
+  }
+  /* line 211, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle {
+    background: none;
+  }
+  /* line 213, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:focus, #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:hover {
+    color: #5dca88 !important;
+    background: none;
+  }
+  /* line 218, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.open ul#w1 {
+    display: block !important;
+  }
+  /* line 224, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 {
+    background: none;
+    border: none;
+    border-right: 1px solid #9d9d9d;
+    box-shadow: none;
+    position: static;
+    left: auto;
+    top: auto;
+    background-color: #edf0f0;
+    border-radius: 0px;
+    padding-bottom: 8px;
+    width: 200px;
+    margin-left: -35px;
+    float: left;
+  }
+  /* line 238, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li {
+    display: inline-block;
+    float: left;
+    margin: 10px 0px 0px 45px;
+    padding: 0px 30px 0px 10px;
+  }
+  /* line 243, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a {
+    color: #9d9d9d;
+  }
+  /* line 245, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:hover, #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:focus {
+    background: none !important;
+    color: #5dca88;
+  }
+  /* line 251, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li:nth-child(1) {
+    margin-left: 45px;
+    margin-top: 0px;
+  }
+  /* line 260, ../sass/_header.scss */
+  #header div.container #header-collapse.slidedout {
+    max-height: none;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    position: fixed;
+    overflow: hidden;
+    display: block !important;
+    margin: 0;
+    visibility: visible !important;
+  }
+  /* line 273, ../sass/_header.scss */
+  #header div.container #header-collapse:not(.slidedout) {
+    width: 0;
+    max-height: none;
+    visibility: hidden !important;
+    display: block !important;
+  }
+}
+
+/* line 285, ../sass/_header.scss */
+body.overflowx {
+  overflow-x: hidden;
+}
+
+/* line 289, ../sass/_header.scss */
+.wrap > .container {
+  width: 100%;
+  position: relative;
+  left: 0;
+  transition: 0.3s;
+}
+
+/* line 296, ../sass/_header.scss */
+.wrap > .container.out {
+  left: 1px;
+  padding-right: -1px;
+}
+
+/* line 304, ../sass/_header.scss */
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #9d9d9d;
+}
+
+/* line 309, ../sass/_header.scss */
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #9d9d9d;
+}
+
+/* line 1, ../sass/_basicTemplate.scss */
+body {
+  background-color: #edf0f0;
+}
+
+/* line 3, ../sass/_login.scss */
+.site-login .login-field {
+  text-align: center;
+}
+/* line 7, ../sass/_login.scss */
+.site-login .login-button {
+  padding: 10px 60px;
+}
+/* line 12, ../sass/_login.scss */
+.site-login #login-form input {
+  background: transparent;
+  border-width: 0px 0px 1px 0px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-radius: 0px;
+}
+/* line 21, ../sass/_login.scss */
+.site-login .auth-clients {
+  overflow: inherit;
+}

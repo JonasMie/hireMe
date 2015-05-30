@@ -1,0 +1,88 @@
+// Basic colors
+
+$black: rgb(45,49,47);
+
+$green: rgb(93,202,136);
+$green50: rgba(93,202,136,0.5);
+$green20: rgba(93,202,136,0.2);
+
+$grey:  rgb(93,100,97);
+
+$greyBG: #edf0f0;
+
+$greyFont:  rgb(157,157,157);
+
+
+// Basic fonts
+
+$fontbase: 16px;
+
+@mixin font-standard {
+  font-family: 'PT Sans', sans-serif;
+}
+
+@mixin font-header {
+  font-family: 'PT Sans', sans-serif;
+  font-size: $fontbase;
+}
+
+
+// Headings
+
+h1, .h1{
+font-size: $fontbase * 1.8;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h2, .h2{
+font-size: $fontbase * 1.6;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h3, .h4{
+font-size: $fontbase * 1.4;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h4, .h4{
+font-size: $fontbase * 1.2;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h5, .h5{
+font-size: $fontbase;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+h6, .h6{
+font-size: $fontbase * 0.8;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+
+// Forms
+
+input.form-control{
+background: transparent;
+border-width: 0px 0px 1px 0px;
+box-shadow: none!important;
+-webkit-box-shadow: none!important;
+border-radius: 0px;
+}
+
+
+
+
+// Buttons
+
+.btn{
+border-radius: 0;
+}
+
+

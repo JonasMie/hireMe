@@ -131,7 +131,6 @@ class SignupForm extends Model
                 return $user;
             }
         }
-
         return null;
     }
 }

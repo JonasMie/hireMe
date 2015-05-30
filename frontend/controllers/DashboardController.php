@@ -2,8 +2,8 @@
 
 namespace frontend\Controllers;
 
-use app\models\FavouritesSearch;
-use app\models\JobSearch;
+use frontend\models\FavouritesSearch;
+use frontend\models\JobSearch;
 use frontend\models\JobContactsSearch;
 use frontend\models\MessageSearch;
 use Yii;

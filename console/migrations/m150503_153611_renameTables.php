@@ -7,7 +7,7 @@ class m150503_153611_renameTables extends Migration
 {
     public function up()
     {
-        $this->dropColumn('user', 'applications_id');
+//        $this->dropColumn('user', 'applications_id');
         $this->alterColumn('user', 'password_hash', Schema::TYPE_STRING);
         $this->renameTable('job_ad', 'job');
 
