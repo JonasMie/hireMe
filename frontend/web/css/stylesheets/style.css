@@ -106,15 +106,15 @@ h6, .h6 {
 }
 
 /* line 71, ../sass/_variables.scss */
-.form-control {
+input.form-control {
   background: transparent;
   border-width: 0px 0px 1px 0px;
-  box-shadow: none;
-  -webkit-box-shadow: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
   border-radius: 0px;
 }
 
-/* line 82, ../sass/_variables.scss */
+/* line 84, ../sass/_variables.scss */
 .btn {
   border-radius: 0;
 }
