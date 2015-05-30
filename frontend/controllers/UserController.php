@@ -2,13 +2,10 @@
 
 namespace frontend\controllers;
 
-use app\models\FavouritesSearch;
-use app\models\ResumeJob;
-use app\models\ResumeSchool;
-use app\models\SettingsModel;
+use frontend\models\ResumeJob;
+use frontend\models\ResumeSchool;
+use frontend\models\SettingsModel;
 use common\models\User;
-use frontend\models\MessageSearch;
-use frontend\models\Resume;
 use Yii;
 use yii\base\UserException;
 use yii\filters\AccessControl;
