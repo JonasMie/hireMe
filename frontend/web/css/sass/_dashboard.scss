@@ -1,0 +1,50 @@
+div.container {
+  div.row {
+    div.dashboard-tile {
+      height: 130px;
+      padding: 0pc 1%;
+
+      div.subtile {
+        height: 130px;
+        width: 50%;
+        float: left;
+        clear: right;
+        div.tile-value {
+          text-align: center;
+          a {
+            color: #fff;
+            font-size: 17px;
+          }
+        }
+        div.tile-value.tile-number {
+          padding: 25px 0px 5px 0px;
+          a {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+
+    div.col-lg-3.tile-green{
+
+      div.subtile-left {
+        background-color: $green;
+      }
+
+      div.subtile-right {
+        background-color: $green50;
+      }
+    }
+
+    div.col-lg-3.tile-black{
+
+      div.subtile-left {
+        background-color: $black;
+      }
+
+      div.subtile-right {
+        background-color: $blackLighter;
+      }
+    }
+  }
+}

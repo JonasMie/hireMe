@@ -63,49 +63,49 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 31, ../sass/_variables.scss */
+/* line 32, ../sass/_variables.scss */
 h1, .h1 {
   font-size: 28.8px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 37, ../sass/_variables.scss */
+/* line 38, ../sass/_variables.scss */
 h2, .h2 {
   font-size: 25.6px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 43, ../sass/_variables.scss */
+/* line 44, ../sass/_variables.scss */
 h3, .h4 {
   font-size: 22.4px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 49, ../sass/_variables.scss */
+/* line 50, ../sass/_variables.scss */
 h4, .h4 {
   font-size: 19.2px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 55, ../sass/_variables.scss */
+/* line 56, ../sass/_variables.scss */
 h5, .h5 {
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 61, ../sass/_variables.scss */
+/* line 62, ../sass/_variables.scss */
 h6, .h6 {
   font-size: 12.8px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 70, ../sass/_variables.scss */
+/* line 71, ../sass/_variables.scss */
 input.form-control {
   background: transparent;
   border-width: 0px 0px 1px 0px;
@@ -114,7 +114,7 @@ input.form-control {
   border-radius: 0px;
 }
 
-/* line 83, ../sass/_variables.scss */
+/* line 84, ../sass/_variables.scss */
 .btn {
   border-radius: 0;
 }
@@ -136,15 +136,50 @@ body {
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 1, ../sass/_demohelper.scss */
-body > div.wrap > div.container {
-  padding-top: 130px;
+/* line 3, ../sass/_dashboard.scss */
+div.container div.row div.dashboard-tile {
+  height: 130px;
+  padding: 0pc 1%;
 }
-@media (max-width: 991px) {
-  /* line 1, ../sass/_demohelper.scss */
-  body > div.wrap > div.container {
-    padding-top: 20px;
-  }
+/* line 7, ../sass/_dashboard.scss */
+div.container div.row div.dashboard-tile div.subtile {
+  height: 130px;
+  width: 50%;
+  float: left;
+  clear: right;
+}
+/* line 12, ../sass/_dashboard.scss */
+div.container div.row div.dashboard-tile div.subtile div.tile-value {
+  text-align: center;
+}
+/* line 14, ../sass/_dashboard.scss */
+div.container div.row div.dashboard-tile div.subtile div.tile-value a {
+  color: #fff;
+  font-size: 17px;
+}
+/* line 19, ../sass/_dashboard.scss */
+div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number {
+  padding: 25px 0px 5px 0px;
+}
+/* line 21, ../sass/_dashboard.scss */
+div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number a {
+  font-size: 30px;
+}
+/* line 30, ../sass/_dashboard.scss */
+div.container div.row div.col-lg-3.tile-green div.subtile-left {
+  background-color: #5dca88;
+}
+/* line 34, ../sass/_dashboard.scss */
+div.container div.row div.col-lg-3.tile-green div.subtile-right {
+  background-color: rgba(93, 202, 136, 0.5);
+}
+/* line 41, ../sass/_dashboard.scss */
+div.container div.row div.col-lg-3.tile-black div.subtile-left {
+  background-color: #2d312f;
+}
+/* line 45, ../sass/_dashboard.scss */
+div.container div.row div.col-lg-3.tile-black div.subtile-right {
+  background-color: #5b6562;
 }
 
 /* line 1, ../sass/_header.scss */

@@ -12,19 +12,66 @@ use yii\widgets\ListView;
 
 
 ?>
-    <h1>Dashboard</h1>
+    <h1>Willkommen</h1>
 
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
-    <h1>Dashboard</h1>
+    <div class="row">
+        <div class="col-lg-3 dashboard-tile dashboard-tile-1 tile-green">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <?=Html::a(42, "./bewerbungen"); //TODO: Applications?>
+                </div>
+                <div class="tile-value tile-string">
+                    <?=Html::a('neue Bewerbungen', "./bewerbungen"); //TODO: Applications?>
+                </div>
+            </div>
+            <div class="subtile subtile-right">
 
-    <h2>Benachrichtigungen</h2>
-        <p><?=Html::a(42 .' neue Bewerbungen', "./bewerbungen"); //TODO: Applications?></p>
-        <p><?=Html::a($messageDP->getCount() ." neue Nachrichten", "./messages");?></p>
+            </div>
+        </div>
+        <div class="col-lg-3 dashboard-tile dashboard-tile-2 tile-black">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <?=Html::a($messageDP->getCount(), "./messages");?>
+                </div>
+                <div class="tile-value tile-string">
+                    <?=Html::a("neue Nachrichten", "./messages");?>
+                </div>
+            </div>
+            <div class="subtile subtile-right">
 
-    <h2>Stellenanzeigen</h2>
-        <p><?=Html::a($jobDP->getCount(). " Stellenanzeigen", './jobs')?></p>
-        <p><?=Html::a("42 Bewerbungen", "./bewerbungen"); //TODO: Applications?></p>
+            </div>
+        </div>
+        <div class="col-lg-3 dashboard-tile dashboard-tile-3 tile-green">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <?=Html::a($jobDP->getCount(), './jobs')?>
+                </div>
+                <div class="tile-value tile-string">
+                    <?=Html::a("Stellenanzeigen", './jobs')?>
+                </div>
+            </div>
+            <div class="subtile subtile-right">
+
+            </div>
+        </div>
+        <div class="col-lg-3 dashboard-tile dashboard-tile-4 tile-black">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <?=Html::a(42, "./bewerbungen"); //TODO: Applications?>
+                </div>
+                <div class="tile-value tile-string">
+                    <?=Html::a('Bewerbungen insgesamt', "./bewerbungen"); //TODO: Applications?>
+                </div>
+            </div>
+            <div class="subtile subtile-right">
+
+            </div>
+        </div>
+    </div>
+
+
 
     <h2>Neueste Bewerbungen</h2>
 
