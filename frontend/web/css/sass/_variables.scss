@@ -18,11 +18,10 @@ $greyFont:  rgb(157,157,157);
 $fontbase: 16px;
 
 @mixin font-standard {
-  font-family: 'PT Sans', sans-serif;
-}
+  font-family: 'Roboto', sans-serif;}
 
 @mixin font-header {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: $fontbase;
 }
 

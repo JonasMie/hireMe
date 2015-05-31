@@ -63,49 +63,49 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 32, ../sass/_variables.scss */
+/* line 31, ../sass/_variables.scss */
 h1, .h1 {
   font-size: 28.8px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 38, ../sass/_variables.scss */
+/* line 37, ../sass/_variables.scss */
 h2, .h2 {
   font-size: 25.6px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 44, ../sass/_variables.scss */
+/* line 43, ../sass/_variables.scss */
 h3, .h4 {
   font-size: 22.4px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 50, ../sass/_variables.scss */
+/* line 49, ../sass/_variables.scss */
 h4, .h4 {
   font-size: 19.2px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 56, ../sass/_variables.scss */
+/* line 55, ../sass/_variables.scss */
 h5, .h5 {
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 62, ../sass/_variables.scss */
+/* line 61, ../sass/_variables.scss */
 h6, .h6 {
   font-size: 12.8px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 71, ../sass/_variables.scss */
+/* line 70, ../sass/_variables.scss */
 input.form-control {
   background: transparent;
   border-width: 0px 0px 1px 0px;
@@ -114,14 +114,14 @@ input.form-control {
   border-radius: 0px;
 }
 
-/* line 84, ../sass/_variables.scss */
+/* line 83, ../sass/_variables.scss */
 .btn {
   border-radius: 0;
 }
 
 /* line 1, ../sass/_mainStylings.scss */
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Welcome to Compass. Use this file to write IE specific override styles.
@@ -154,7 +154,7 @@ body > div.wrap > div.container {
   height: 60px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   user-select: none;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
 @media (max-width: 991px) {
