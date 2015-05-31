@@ -12,7 +12,7 @@ class CustomAppAsset extends AssetBundle
 {
     public $css = [
         'css/stylesheets/style.css',
-        'http://fonts.googleapis.com/css?family=PT+Sans'
+        'http://fonts.googleapis.com/css?family=Roboto'
     ];
     public $js = [
         'js/customScript.js',
