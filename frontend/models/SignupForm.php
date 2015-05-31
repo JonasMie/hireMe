@@ -135,7 +135,6 @@ class SignupForm extends Model
                 return $user;
             }
         }
-        print_r($this->getErrors());
         return null;
     }
 }
