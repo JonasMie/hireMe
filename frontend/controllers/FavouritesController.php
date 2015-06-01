@@ -2,6 +2,7 @@
 
 namespace frontend\Controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Favourites;
 use app\models\FavouritesSearch;
@@ -23,6 +24,9 @@ class FavouritesController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 

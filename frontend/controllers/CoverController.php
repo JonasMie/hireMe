@@ -2,6 +2,7 @@
 
 namespace app\Controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use app\models\Cover;
 use app\models\CoverSearch;
@@ -23,6 +24,9 @@ class CoverController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 

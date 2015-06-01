@@ -2,6 +2,7 @@
 
 namespace app\Controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use app\models\ResumeSchool;
 use app\models\ResumeSchoolSearch;
@@ -23,6 +24,9 @@ class ResumeSchoolController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 
