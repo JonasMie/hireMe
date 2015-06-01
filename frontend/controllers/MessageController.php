@@ -2,6 +2,7 @@
 
 namespace frontend\Controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use common\models\User;
 use frontend\models\Message;
 use Yii;
@@ -44,6 +45,9 @@ class MessageController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 
