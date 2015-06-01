@@ -2,7 +2,6 @@
 
 namespace frontend\Controllers;
 
-use common\behaviours\BodyClassBehaviour;
 use frontend\models\FavouritesSearch;
 use frontend\models\JobSearch;
 use frontend\models\JobContactsSearch;
@@ -26,9 +25,6 @@ class DashboardController extends \yii\web\Controller
                         'roles'   => ['@'], // TODO: set roles to '?'
                     ],
                 ]
-            ],
-            'bodyClasses' => [
-                'class' => BodyClassBehaviour::className()
             ]
         ];
     }

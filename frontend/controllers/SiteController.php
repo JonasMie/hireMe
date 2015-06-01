@@ -2,7 +2,6 @@
 namespace frontend\controllers;
 
 
-use common\behaviours\BodyClassBehaviour;
 use common\models\User;
 use Yii;
 use common\models\LoginForm;
@@ -54,9 +53,6 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
-            'bodyClasses' => [
-                'class' => BodyClassBehaviour::className()
-            ]
         ];
     }
 
@@ -84,6 +80,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+
         $cookies = Yii::$app->response->cookies;
         $cookies->add(new \yii\web\Cookie([
                 'name' => 'usr_',

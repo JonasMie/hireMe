@@ -2,7 +2,6 @@
 
 namespace frontend\controllers;
 
-use common\behaviours\BodyClassBehaviour;
 use frontend\models\ResumeJob;
 use frontend\models\ResumeSchool;
 use frontend\models\SettingsModel;
@@ -32,9 +31,6 @@ class UserController extends Controller
                         'roles' => ['@'],
                     ],
                 ]
-            ],
-            'bodyClasses' => [
-                'class' => BodyClassBehaviour::className()
             ]
         ];
     }

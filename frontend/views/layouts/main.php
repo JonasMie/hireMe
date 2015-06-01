@@ -29,7 +29,7 @@ CustomAppAsset::register($this);
 
     <?php $this->head() ?>
 </head>
-<body class='<?= Yii::$app->controller->getBodyClasses() ?>'>
+<body>
 <?php $this->beginBody() ?>
 <div class="wrap">
     <?php

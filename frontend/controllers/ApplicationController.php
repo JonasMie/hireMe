@@ -2,7 +2,6 @@
 
 namespace frontend\Controllers;
 
-use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Application;
 use app\models\ApplicationSearch;
@@ -24,9 +23,6 @@ class ApplicationController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            'bodyClasses' => [
-                'class' => BodyClassBehaviour::className()
-            ]
         ];
     }
 
