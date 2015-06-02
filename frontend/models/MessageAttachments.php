@@ -63,4 +63,18 @@ class MessageAttachments extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Message::className(), ['id' => 'message_id']);
     }
+
+    public function addFile($name, $extension, $size, $title)
+    {
+        $file = new File();
+        $file->path = $name;
+        $file->extension = $extension;
+        $file->size = $size;
+        $file->title = $title;
+        if($file->save()){
+            $this->file_id = $file->primaryKey;
+            return $this->save();
+        }
+        return false;
+    }
 }

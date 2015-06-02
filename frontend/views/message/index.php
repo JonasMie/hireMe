@@ -29,14 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Betreff',
                 'format' => 'raw',
                 'value' => function($data){
-                    return Html::a($data->read?$data->subject:Html::tag('b',$data->subject), 'message/view?id=' .$data->id);
+                    return Html::a($data->read?$data->subject:Html::tag('b',$data->subject), '/message/view?id=' .$data->id);
                 }
             ],
             [
                 'label' => 'Nachricht',
                 'format' => 'raw',
                 'value' => function($data){
-                    return Html::a($data->read?$data->content:Html::tag('b',$data->content), 'message/view?id=' .$data->id);
+                    return Html::a($data->read?$data->content:Html::tag('b',$data->content), '/message/view?id=' .$data->id);
                 }
             ],
             [

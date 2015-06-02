@@ -91,10 +91,12 @@ class MessageController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $attachment->uploadedFile = UploadedFile::getInstance($attachment, 'file');
             if($attachment->uploadedFile && $attachment->validate()){
-                $filename = uniqid("ma_");
-                $attachment->file_id = $filename;
+                $filename = "/" .uniqid("ma_");
+                $extension = $attachment->uploadedFile->extension;
+                $size = $attachment->uploadedFile->size;
+                $title = $attachment->uploadedFile->baseName;
                 $attachment->message_id = $model->primaryKey;
-                if(!$attachment->uploadedFile->saveAs(Yii::getAlias('@app') .'/uploads/messattachments/' . $filename . '.' . $attachment->uploadedFile->extension) && !$attachment->save()){
+                if(!$attachment->addFile($filename,$extension, $size, $title) || !$attachment->uploadedFile->saveAs(Yii::getAlias('@app') .'/uploads/messattachments/' . $filename . '.' . $attachment->uploadedFile->extension)){
 
                     return $this->render('create', [
                         'model' => $model,
