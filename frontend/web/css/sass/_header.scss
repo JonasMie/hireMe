@@ -1,10 +1,8 @@
 #header {
-  background: #ffffff;
+  background: $black;
   border: none;
   height: 60px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   user-select: none;
-
 
   @include font-header();
 
@@ -43,10 +41,12 @@
             color: $green;
           }
         }
-        > ul {
+        > ul.dropdown-menu {
           border-radius: 0px;
           min-width: 1px;
           top: 40px;
+          background-color: $black;
+          border: none;
           li {
             display: inline-block;
             float: left;
@@ -177,8 +177,7 @@
         }
       }
       #header-collapse {
-        border-right: 1px solid $greyFont ;
-        background-color: #ffffff;
+        background-color: $black;
         -webkit-transition: width .4s;
         -moz-transition: width 0.4s;
         -ms-transition: width 0.4s;
@@ -224,12 +223,11 @@
             ul#w1 {
               background: none;
               border: none;
-              border-right: 1px solid $greyFont ;
               box-shadow: none;
               position: static;
               left: auto;
               top: auto;
-              background-color: $greyBG;
+              background-color: $blackLighter;
               border-radius: 0px;
               padding-bottom: 8px;
               width: 200px;
@@ -241,7 +239,7 @@
                 margin: 10px 0px 0px 45px;
                 padding: 0px 30px 0px 10px;
                 a {
-                  color: $greyFont;
+                  color: #fff;
                   &:hover, &:focus {
                     background: none !important;
                     color: $green;
@@ -317,5 +315,24 @@ body.overflowx {
 @media (max-width: 991px) {
   #header > div.container {
     height: 1px;
+  }
+}
+
+li.dropdown {
+  a {
+    b.caret {
+      border-bottom: 4px solid transparent;
+      border-top: 4px solid transparent;
+      border-left: 4px solid $greyFont;
+    }
+  }
+}
+li.dropdown.open {
+  a {
+    b.caret {
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid $greyFont;
+    }
   }
 }

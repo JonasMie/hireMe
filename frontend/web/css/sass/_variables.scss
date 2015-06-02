@@ -19,11 +19,14 @@ $greyFont:  rgb(157,157,157);
 $fontbase: 16px;
 
 @mixin font-standard {
-  font-family: 'Roboto', sans-serif;}
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
 
 @mixin font-header {
   font-family: 'Roboto', sans-serif;
   font-size: $fontbase;
+  font-weight: 300;
 }
 
 

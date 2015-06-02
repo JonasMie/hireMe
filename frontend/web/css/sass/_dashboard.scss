@@ -17,15 +17,20 @@ div.container {
           }
         }
         div.tile-value.tile-number {
-          padding: 25px 0px 5px 0px;
+          padding: 25px 0px 2px 0px;
           a {
             font-size: 30px;
           }
         }
+        div.tile-value.tile-string {
+          padding: 0 5%;
+          line-height: 18px;
+        }
+
       }
     }
 
-    div.col-lg-3.tile-green{
+    div.col-lg-3.tile-green {
 
       div.subtile-left {
         background-color: $green;
@@ -36,7 +41,7 @@ div.container {
       }
     }
 
-    div.col-lg-3.tile-black{
+    div.col-lg-3.tile-black {
 
       div.subtile-left {
         background-color: $black;
@@ -46,5 +51,74 @@ div.container {
         background-color: $blackLighter;
       }
     }
+
+    div.dashboard-tile-1 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-neue-bewerbungen.png");
+        background-size: 55% auto;
+        @media (max-width: 991px) {
+          background-size: 40% auto;
+        }
+        @media (max-width: 767px) {
+          background-size: 80px auto;
+        }
+      }
+    }
+    div.dashboard-tile-2 {
+      @media (max-width: 767px) {
+        margin-top: 20px;
+      }
+      div.subtile-right {
+        background-image: url("/images/dashboard-nachrichten.png");;
+        background-size: 50% auto;
+        @media (max-width: 991px) {
+          background-size: 45% auto;
+        }
+        @media (max-width: 767px) {
+          background-size: 90px auto;
+        }
+      }
+    }
+    div.dashboard-tile-3 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-stellenanzeigen.png");
+        background-size: 35% auto;
+        @media (max-width: 991px) {
+          background-size: 25% auto;
+        }
+        @media (max-width: 767px) {
+          background-size: 50px auto;
+        }
+      }
+    }
+    div.dashboard-tile-4 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-bewerbungen.png");
+        background-size: 55% auto;
+      }
+      @media (max-width: 767px) {
+        background-size: 110px auto;
+      }
+    }
+
+    div.dashboard-tile {
+      div.subtile-right {
+        background-position: center;
+        background-repeat: no-repeat
+      }
+    }
+
+    div.dashboard-tile-3, div.dashboard-tile-4 {
+      @media (max-width: 991px) {
+        margin-top: 20px;
+      }
+    }
   }
 }
+
+
+
+
+
+
+
