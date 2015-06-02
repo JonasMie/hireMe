@@ -63,49 +63,49 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 31, ../sass/_variables.scss */
+/* line 33, ../sass/_variables.scss */
 h1, .h1 {
   font-size: 28.8px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 37, ../sass/_variables.scss */
+/* line 39, ../sass/_variables.scss */
 h2, .h2 {
   font-size: 25.6px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 43, ../sass/_variables.scss */
+/* line 45, ../sass/_variables.scss */
 h3, .h4 {
   font-size: 22.4px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 49, ../sass/_variables.scss */
+/* line 51, ../sass/_variables.scss */
 h4, .h4 {
   font-size: 19.2px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 55, ../sass/_variables.scss */
+/* line 57, ../sass/_variables.scss */
 h5, .h5 {
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 61, ../sass/_variables.scss */
+/* line 63, ../sass/_variables.scss */
 h6, .h6 {
   font-size: 12.8px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 70, ../sass/_variables.scss */
+/* line 72, ../sass/_variables.scss */
 input.form-control {
   background: transparent;
   border-width: 0px 0px 1px 0px;
@@ -114,7 +114,7 @@ input.form-control {
   border-radius: 0px;
 }
 
-/* line 83, ../sass/_variables.scss */
+/* line 85, ../sass/_variables.scss */
 .btn {
   border-radius: 0;
 }
@@ -122,6 +122,7 @@ input.form-control {
 /* line 1, ../sass/_mainStylings.scss */
 body {
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 /* Welcome to Compass. Use this file to write IE specific override styles.
@@ -145,6 +146,27 @@ body > div.wrap > div.container {
   body > div.wrap > div.container {
     padding-top: 20px;
   }
+}
+
+/* line 1, ../sass/_footer.scss */
+footer.footer {
+  background-color: #2d312f;
+  color: #9d9d9d;
+  border: none;
+}
+/* line 5, ../sass/_footer.scss */
+footer.footer p.pull-right {
+  margin-top: -2px;
+}
+@media (max-width: 345px) {
+  /* line 5, ../sass/_footer.scss */
+  footer.footer p.pull-right {
+    display: none;
+  }
+}
+/* line 10, ../sass/_footer.scss */
+footer.footer p.pull-right span.glyphicon-heart {
+  color: #5dca88;
 }
 
 /* line 1, ../sass/_header.scss */
