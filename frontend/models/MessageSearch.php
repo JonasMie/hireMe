@@ -5,7 +5,6 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Message;
 
 /**
  * MessageSearch represents the model behind the search form about `app\models\Message`.
@@ -13,6 +12,9 @@ use frontend\models\Message;
 class MessageSearch extends Message
 {
 
+    /**
+     * @var
+     */
     public $senderName;
 
     /**
@@ -39,17 +41,17 @@ class MessageSearch extends Message
      * Creates data provider instance with search query applied
      *
      * @param array $params
+     * @param boolean $or
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $or = true)
     {
         $query = Message::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
         $dataProvider->setSort([
             'attributes' => [
                 'id',
@@ -70,18 +72,21 @@ class MessageSearch extends Message
             $query->joinWith(['sender']);
             return $dataProvider;
         }
+        if($or){
+//            $query->where()
+        } else {
+            $query->andFilterWhere([
+                'id'          => $this->id,
+                'sender_id'   => $this->sender_id,
+                'receiver_id' => $this->receiver_id,
+                'sent_at'     => $this->sent_at,
+                'deleted'     => $this->deleted,
+                'read'        => $this->read,
+            ]);
 
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'sender_id' => $this->sender_id,
-            'receiver_id' => $this->receiver_id,
-            'sent_at' => $this->sent_at,
-            'deleted' => $this->deleted,
-            'read' => $this->read,
-        ]);
-
-        $query->andFilterWhere(['like', 'subject', $this->subject])
-            ->andFilterWhere(['like', 'content', $this->content]);
+            $query->andFilterWhere(['like', 'subject', $this->subject])
+                ->andFilterWhere(['like', 'content', $this->content]);
+        }
 
 //        $query->joinWith(['sender' => function($q){
 //            $q->where('sender.lastName LIKE "%' .

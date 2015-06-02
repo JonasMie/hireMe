@@ -20,6 +20,8 @@ use yii\db\ActiveRecord;
  *
  * @property User $sender
  * @property User $receiver
+ *
+ * @property MessageAttachments[] $messageAttachments
  */
 class Message extends ActiveRecord
 {
@@ -86,5 +88,13 @@ class Message extends ActiveRecord
     public function belongsToUser($userId, $messageId)
     {
         return $this->findOne(['id' => $messageId, 'receiver_id' => $userId]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMessageAttachments()
+    {
+        return $this->hasMany(MessageAttachments::className(), ['message_id' => 'id']);
     }
 }

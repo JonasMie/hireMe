@@ -5,12 +5,14 @@ namespace frontend\Controllers;
 use common\behaviours\BodyClassBehaviour;
 use common\models\User;
 use frontend\models\Message;
+use frontend\models\MessageAttachments;
 use Yii;
 use frontend\models\MessageSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * MessageController implements the CRUD actions for Message model.
@@ -58,7 +60,7 @@ class MessageController extends Controller
     public function actionIndex()
     {
         $searchModel = new MessageSearch();
-        $dataProvider = $searchModel->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId()]]);
+        $dataProvider = $searchModel->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId(), 'sender_id' =>Yii::$app->user->identity->getId()]],true);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -88,12 +90,31 @@ class MessageController extends Controller
         $model = new Message();
         $model->sender_id = Yii::$app->user->identity->getId();
 
+        $attachment = new MessageAttachments(); // TODO: set message id
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['./message']); //, 'id' => $model->id]);
+            $attachment->uploadedFile = UploadedFile::getInstance($attachment, 'file');
+            if($attachment->uploadedFile && $attachment->validate()){
+                $filename = "/" .uniqid("ma_");
+                $extension = $attachment->uploadedFile->extension;
+                $size = $attachment->uploadedFile->size;
+                $title = $attachment->uploadedFile->baseName;
+                $attachment->message_id = $model->primaryKey;
+                if(!$attachment->addFile($filename,$extension, $size, $title) || !$attachment->uploadedFile->saveAs(Yii::getAlias('@app') .'/uploads/messattachments/' . $filename . '.' . $attachment->uploadedFile->extension)){
+
+                    return $this->render('create', [
+                        'model' => $model,
+                        'rec' => $rec,
+                        'attachment' => $attachment
+                    ]);
+                }
+            }
+            return $this->redirect(['./message']);
         } else {
             return $this->render('create', [
                 'model' => $model,
                 'rec' => $rec,
+                'attachment' => $attachment
             ]);
         }
     }

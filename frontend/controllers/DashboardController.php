@@ -4,7 +4,6 @@ namespace frontend\Controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use frontend\models\FavouritesSearch;
-use frontend\models\JobSearch;
 use frontend\models\JobContactsSearch;
 use frontend\models\MessageSearch;
 use Yii;
