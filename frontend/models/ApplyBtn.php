@@ -54,6 +54,12 @@ class ApplyBtn extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getInterestRate() {
+
+        if ($this->viewCount == 0) return 0;
+        else return ($this->clickCount/$this->viewCount)*100;
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */

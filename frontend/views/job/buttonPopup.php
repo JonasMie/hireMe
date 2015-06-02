@@ -25,13 +25,17 @@ $this->params['breadcrumbs'][] = $this->title;
 			var user;
 			var jobAd;
 
-
 			$( document ).ready(function() {
 
 
 		$("#hireNow").on('click' ,function()  { 
-   		
+
 			user = document.getElementById("us").innerHTML;
+   		
+   			if (user == "NA") {
+   				alert("not available+ "+user);
+   			}
+
 			httpReq("http://frontend/job/click-up?btnKey="+window.name);
 			var url = "http://frontend/job/apply?key="+window.name+"&user="+user+"&case=1";
 			window.open(url,'_blank');
@@ -51,8 +55,6 @@ $this->params['breadcrumbs'][] = $this->title;
 			
 
 		</script>
-
-
 <h2>BEWERBEN</h2>
 <p>askjdhasjkdbbasjdbjkasbdbsjakdbkasbdasbjdjasbkdbasbdbasbdasdb</p>
 
