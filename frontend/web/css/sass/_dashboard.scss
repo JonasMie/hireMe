@@ -1,5 +1,6 @@
 div.container {
   div.row {
+    margin-top: 20px;
     div.dashboard-tile {
       height: 130px;
       padding: 0pc 1%;
@@ -9,11 +10,17 @@ div.container {
         width: 50%;
         float: left;
         clear: right;
+        &:hover {
+          cursor: pointer;
+        }
         div.tile-value {
           text-align: center;
           a {
             color: #fff;
             font-size: 17px;
+            &:hover {
+              text-decoration: none;
+            }
           }
         }
         div.tile-value.tile-number {

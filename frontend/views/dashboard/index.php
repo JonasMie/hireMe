@@ -17,7 +17,7 @@ use yii\widgets\ListView;
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-1 tile-green">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-1 tile-green"  onclick="window.location='./bewerbungen';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a(42, "./bewerbungen"); //TODO: Applications?>
@@ -30,7 +30,7 @@ use yii\widgets\ListView;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-2 tile-black">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-2 tile-black"  onclick="window.location='./messages';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a($messageDP->getCount(), "./messages");?>
@@ -43,7 +43,7 @@ use yii\widgets\ListView;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-3 tile-green">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-3 tile-green"  onclick="window.location='./jobs';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a($jobDP->getCount(), './jobs')?>
@@ -56,7 +56,7 @@ use yii\widgets\ListView;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-4 tile-black">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-4 tile-black"  onclick="window.location='./bewerbungen';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a(42, "./bewerbungen"); //TODO: Applications?>
