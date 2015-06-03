@@ -26,20 +26,23 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             ['class' => 'yii\grid\CheckboxColumn'],
             [
+                'attribute' => 'subject',
                 'label' => 'Betreff',
                 'format' => 'raw',
                 'value' => function($data){
-                    return Html::a($data->read?$data->subject:Html::tag('b',$data->subject), '/message/view?id=' .$data->id);
+                    return Html::a($data->subject, '/message/view?id=' .$data->id, ['class'=>$data->read?"read":""]);  // STYLE: wenn klasse 'read' => bold
                 }
             ],
             [
+                'attribute' => 'content',
                 'label' => 'Nachricht',
                 'format' => 'raw',
                 'value' => function($data){
-                    return Html::a($data->read?$data->content:Html::tag('b',$data->content), '/message/view?id=' .$data->id);
+                    return Html::a($data->content, '/message/view?id=' .$data->id, ['class'=>$data->read?"read":""]);
                 }
             ],
             [
+                'attribute' => 'senderName',
                 'label' => 'Von',
                 'format' => 'raw',
                 'value' => function($data){

@@ -4,11 +4,16 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Message */
+/* @var $model frontend\models\Message */
 
 $this->title = $model->subject;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Messages'), 'url' => ['./message']];
 $this->params['breadcrumbs'][] = $this->title;
+
+if($model->receiver_id === Yii::$app->user->getId()){
+    $model->read=1;
+    $model->save();
+}
 ?>
 <div class="message-view">
 
@@ -22,19 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                 'method'  => 'post',
             ],
-        ])      // TODO: Antworten   ?>
+        ])      // TODO: Antworten    ?>
 
 
     </p>
 
     <?
-    $attributes = ['subject:text:Betreff',
-        'content:ntext:Nachricht',
+    $attributes = [
+        'subject:text:Betreff',
+        'content:html:Nachricht',
         [
             'label'     => 'Von',
             'format'    => 'raw',
             'attribute' => function ($data) {
-                return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, '../user?id=' . $data->sender->id);
+                return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
             }
         ],
         'sent_at:datetime:Gesendet'];
@@ -52,10 +58,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     break;
                 case "pdf":
                     array_push($attributes, [
-                        'label' => 'Anhänge',
-                        'attribute'    => function() use ($attachment){
-                           return Html::a($attachment->file->title, Yii::$app->basePath . $attachment->file->path . "." . $attachment->file->extension);
-},
+                        'label'     => 'Anhänge',
+                        'attribute' => function () use ($attachment) {
+                            return Html::a($attachment->file->title, Yii::$app->basePath . $attachment->file->path . "." . $attachment->file->extension);
+                        },
                         'format'    => 'raw'
                     ]);
             }

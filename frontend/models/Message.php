@@ -87,7 +87,7 @@ class Message extends ActiveRecord
 
     public function belongsToUser($userId, $messageId)
     {
-        return $this->findOne(['id' => $messageId, 'receiver_id' => $userId]);
+        return $this->find()->where(['id' => $messageId, 'receiver_id' => $userId])->orWhere(['id' => $messageId, 'sender_id' => $userId])->one();
     }
 
     /**

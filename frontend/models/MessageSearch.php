@@ -40,12 +40,12 @@ class MessageSearch extends Message
     /**
      * Creates data provider instance with search query applied
      *
-     * @param array $params
+     * @param array   $params
      * @param boolean $or
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $or = true)
+    public function search($params, $or = false)
     {
         $query = Message::find();
 
@@ -53,14 +53,25 @@ class MessageSearch extends Message
             'query' => $query,
         ]);
         $dataProvider->setSort([
-            'attributes' => [
-                'id',
-                'sent_at',
-//                'senderName' => [                            // TODO: Fix order by sender
-//                    'asc' => ['user.lastName' => SORT_ASC],
-//                    'desc' => ['user.lastName' => SORT_DESC],
-//                    'label' => 'Von'
-//                ]
+            'attributes' =>
+                [
+                    'sent_at'    => [
+                        'asc'     => ['sent_at' => SORT_ASC],
+                        'desc'    => ['sent_at' => SORT_DESC],
+                        'label'   => 'Gesendet',
+                        'default' => SORT_DESC
+                    ],
+                    'subject'    => [
+                        'asc'  => ['subject' => SORT_ASC],
+                        'desc' => ['subject' => SORT_DESC]
+                    ],
+                    'senderName' => [                            // TODO: Fix order by sender
+                        'asc'  => ['user.lastName' => SORT_ASC],
+                        'desc' => ['user.lastName' => SORT_DESC],
+                    ],
+                ],
+            'defaultOrder' => [
+                'sent_at'=> SORT_DESC
             ]
         ]);
 
@@ -72,26 +83,24 @@ class MessageSearch extends Message
             $query->joinWith(['sender']);
             return $dataProvider;
         }
-        if($or){
-//            $query->where()
-        } else {
-            $query->andFilterWhere([
-                'id'          => $this->id,
-                'sender_id'   => $this->sender_id,
-                'receiver_id' => $this->receiver_id,
-                'sent_at'     => $this->sent_at,
-                'deleted'     => $this->deleted,
-                'read'        => $this->read,
-            ]);
 
-            $query->andFilterWhere(['like', 'subject', $this->subject])
-                ->andFilterWhere(['like', 'content', $this->content]);
-        }
+        $query->andWhere(
+            ['or', ['receiver_id' => Yii::$app->user->identity->getId()], ['sender_id' => Yii::$app->user->identity->getId()]]
+        );
+        $query->andFilterWhere([
+            'sent_at' => $this->sent_at,
+            'deleted' => $this->deleted,
+            'read'    => $this->read,
+        ]);
 
-//        $query->joinWith(['sender' => function($q){
-//            $q->where('sender.lastName LIKE "%' .
-//            $this->senderName .'%"');
-//        }]);
+        $query->andFilterWhere(['like', 'subject', $this->subject])
+            ->andFilterWhere(['like', 'content', $this->content]);
+
+        $query->joinWith(['sender' => function ($q) {
+            $q->where('user.fullName LIKE "%' .
+                $this->senderName . '%"');
+        }]);
+
         return $dataProvider;
     }
 }
