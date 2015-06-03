@@ -26,7 +26,7 @@ use frontend\assets\CustomAppAsset;
     });
 </script>
 
-    <!--
+
     <h1>Willkommen</h1>
 
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
@@ -85,7 +85,7 @@ use frontend\assets\CustomAppAsset;
             </div>
         </div>
     </div>
--->
+
 
     <h2>Neueste Bewerbungen</h2>
 
