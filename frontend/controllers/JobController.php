@@ -149,9 +149,12 @@ class JobController extends Controller
         $model = new Job();
         $thisUser = Yii::$app->getUser();
         $getUser = User::findOne($thisUser->id);
-        $model->company_id = $getUser->company_id;
         Yii::trace('User ID: ' .Yii::$app->user->getId());
+        if ($getUser->is_recruiter ==1) {
+        $model->company_id = $getUser->company_id;            
         Yii::trace('Comp ID: ' .$getUser->company_id);
+        }
+       
 
         $jobs = Job::find()->orderBy('id')->all();
             if (count($jobs) == 0) {
