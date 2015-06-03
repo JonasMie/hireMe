@@ -30,7 +30,7 @@
           height: 26px;
         }
         @media(max-width: 991px) {
-          display: none;
+          display: none; // Bugfix
         }
       }
     }
