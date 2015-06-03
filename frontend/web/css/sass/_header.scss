@@ -29,6 +29,9 @@
           width: 126px;
           height: 26px;
         }
+        @media(max-width: 991px) {
+          display: none; // Bugfix
+        }
       }
     }
     #header-collapse ul.navbar-nav {
