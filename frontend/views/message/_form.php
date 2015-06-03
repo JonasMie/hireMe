@@ -9,11 +9,12 @@ use yii\widgets\ActiveForm;
 /* @var $model frontend\models\Message */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $attachment frontend\models\MessageAttachments */
+/* @var $receiver null|common\models\User */
 ?>
 
 <div class="message-form">
 
-    <?php $form = ActiveForm::begin(['options'=> ['enctype'=> 'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'subject')->textInput(['maxlength' => 255]) ?>
 
@@ -23,18 +24,18 @@ use yii\widgets\ActiveForm;
     <?=
     // TODO: set receiver if $rec!== null
     Typeahead::widget([
-        'name' => 'receiver_name',
-        'dataset' => [
+        'name'         => 'receiver_name',
+        'dataset'      => [
             [
-                'remote' => Url::to(['site/user-search'.'?q=%QUERY']),
-                'limit' => 10,
+                'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
+                'limit'  => 10,
             ],
         ],
         'pluginEvents' => [     // Typeahead search with bloodhound suggestion
             "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
         ]
 
-    ])?>
+    ]) ?>
 
     <!--?= $form->field($model, 'receiver_id')->widget(Typeahead::className(), [
         'dataset' => [
@@ -49,7 +50,7 @@ use yii\widgets\ActiveForm;
 
     ])->label('Empfänger')->textInput()  ?-->
 
-    <?= Html::activeHiddenInput($model, 'receiver_id') // TODO: check if exists ?>
+    <?= Html::activeHiddenInput($model, 'receiver_id') // TODO: check if exists  ?>
 
     <?= $form->field($attachment, 'file')->fileInput()->label('Anhang hinzufügen'); ?>
 
@@ -59,3 +60,8 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<script>
+    // TODO: verschönern
+    document.getElementById('w1').value = "<?=$receiver->fullName?>";
+</script>

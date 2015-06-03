@@ -9,6 +9,8 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Messages');
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
 <div class="message-index">
 
@@ -21,37 +23,54 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
+        'filterModel'  => $searchModel,
+        'columns'      => [
             ['class' => 'yii\grid\SerialColumn'],
-            ['class' => 'yii\grid\CheckboxColumn'],
+            [
+                'class'         => 'yii\grid\CheckboxColumn',
+                'filterOptions' => function () {
+                    echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
+                }
+            ],
             [
                 'attribute' => 'subject',
-                'label' => 'Betreff',
-                'format' => 'raw',
-                'value' => function($data){
-                    return Html::a($data->subject, '/message/view?id=' .$data->id, ['class'=>$data->read?"read":""]);  // STYLE: wenn klasse 'read' => bold
-                }
+                'label'     => 'Betreff',
+                'format'    => 'raw',
+                'value'     => function ($data) {
+                    return Html::a($data->subject, '/message/view?id=' . $data->id, ['class' => $data->read ? "read" : ""]);  // STYLE: wenn klasse 'read' => bold
+                },
+                'options'   => ['width' => '20%']     // STYLE: entweder definiere spaltenbreite hier oder in css
             ],
-            [
-                'attribute' => 'content',
-                'label' => 'Nachricht',
-                'format' => 'raw',
-                'value' => function($data){
-                    return Html::a($data->content, '/message/view?id=' .$data->id, ['class'=>$data->read?"read":""]);
-                }
-            ],
+//            TODO: check if content needed in overview? if so, use ellipsis to shorten content --jonas
+//            [
+//                'attribute' => 'content',
+//                'label' => 'Nachricht',
+//                'format' => 'raw',
+//                'value' => function($data){
+//                    return Html::a($data->content, '/message/view?id=' .$data->id, ['class'=>$data->read?"read":""]);
+//                }
+//            ],
             [
                 'attribute' => 'senderName',
-                'label' => 'Von',
-                'format' => 'raw',
-                'value' => function($data){
-                    return Html::a($data->sender->firstName ." " .$data->sender->lastName, '../user/'.$data->sender->username);
+                'label'     => 'Von/An',
+                'format'    => 'raw',
+                'value'     => function ($data) {
+                    if (Yii::$app->user->getId() === $data->sender_id) {
+                        return Html::a($data->receiver->firstName . " " . $data->receiver->lastName, '../user/' . $data->receiver->username);
+                    } else if (Yii::$app->user->getId() === $data->receiver_id) {
+                        return Html::a($data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
+                    }
                 }
             ],
             'sent_at:datetime:Gesendet',
-            ['class' => 'yii\grid\ActionColumn'],
+
+//            TODO: check if action column needed (rather not) --jonas
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}{delete}'
+            ],
         ],
     ]); ?>
+
 
 </div>
