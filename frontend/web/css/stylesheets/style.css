@@ -539,7 +539,7 @@ div.container div.row div.dashboard-tile div.subtile-right {
   /* line 138, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(2) {
     position: absolute;
-    top: 13px;
+    top: 11px;
   }
   /* line 142, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(3) {
@@ -556,7 +556,7 @@ div.container div.row div.dashboard-tile div.subtile-right {
   }
   /* line 153, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(2) {
-    top: 11px;
+    top: 9px;
   }
   /* line 156, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(4) {
@@ -570,14 +570,14 @@ div.container div.row div.dashboard-tile div.subtile-right {
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(2) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, -40deg);
-    top: 16px;
+    top: 15px;
     left: 9px;
   }
   /* line 170, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(4) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, 40deg);
-    top: 20px;
+    top: 19px;
     left: 9px;
   }
   /* line 180, ../sass/_header.scss */
