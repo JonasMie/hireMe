@@ -223,23 +223,14 @@ class JobController extends Controller
 
 
          return $this->renderPartial('viewCountIFrame');
-    }       
+    }
 
     public function actionButtonPopup() {
 
+        $cookie = Yii::$app->request->cookies['usr_']->value;
 
-        if (($cookie = Yii::$app->request->cookies->get('usr_')) !== null) {
-            $user = Yii::$app->request->cookies['usr_']->value;
-        }
-        else {
-            $user = "NA";
-
-        }
-       // if ($cookie==null) {
-        //    $cookie = "NA";
-       // }
          return $this->renderPartial('buttonPopup',[
-            'userID' => $user,
+            'userID' => $cookie,
             ]);
 
     }

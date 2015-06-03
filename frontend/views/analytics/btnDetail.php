@@ -14,7 +14,7 @@ use frontend\models\Analytics;
 <h4>Clicks:</h4>
 <?= $model->clickCount?>
 <h4>Interest Rate:</h4>
-<?= $model->getInterestRate() ?> %
+<?= $model->clickCount/$model->viewCount*100 ?> %
 <h4>Application Rate:</h4>
 <?= AnalyticsController::getApplicationRateForBtn($model->id) ?> %
 <h4>Interview Rate:</h4>
