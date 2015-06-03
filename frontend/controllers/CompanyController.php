@@ -2,6 +2,7 @@
 
 namespace app\Controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Company;
 use app\models\CompanySearch;
@@ -23,6 +24,9 @@ class CompanyController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 

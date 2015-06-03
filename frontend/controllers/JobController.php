@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Job;
 use frontend\models\Analytics;
@@ -30,6 +31,9 @@ class JobController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 

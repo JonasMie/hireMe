@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Analytics;
 use common\models\User;
@@ -16,6 +17,15 @@ use frontend\models\Application;
 
 class AnalyticsController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
+        ];
+    }
     public function actionIndex($id)
     {
     	 $analytics = new Analytics();

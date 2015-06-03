@@ -2,6 +2,7 @@
 
 namespace app\Controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\JobContacts;
 use frontend\models\JobContactsSearch;
@@ -23,6 +24,9 @@ class JobContactController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 
