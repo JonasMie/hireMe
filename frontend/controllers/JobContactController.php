@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Controllers;
+namespace frontend\Controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use Yii;

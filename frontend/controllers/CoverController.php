@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Controllers;
+namespace frontend\Controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use Yii;
-use app\models\Cover;
-use app\models\CoverSearch;
+use frontend\models\Cover;
+use frontend\models\CoverSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Controllers;
+namespace frontend\Controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use Yii;
-use app\models\ResumeSchool;
-use app\models\ResumeSchoolSearch;
+use frontend\models\ResumeSchool;
+use frontend\models\ResumeSchoolSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

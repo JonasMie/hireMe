@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Controllers;
+namespace frontend\Controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Company;
-use app\models\CompanySearch;
+use frontend\models\CompanySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

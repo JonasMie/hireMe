@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Controllers;
+namespace frontend\Controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use Yii;
-use app\models\ResumeJob;
-use app\models\ResumeJobSearch;
+use frontend\models\ResumeJob;
+use frontend\models\ResumeJobSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
