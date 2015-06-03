@@ -140,146 +140,244 @@ body {
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 2, ../sass/_dashboard.scss */
+/* line 3, ../sass/_dashboard.scss */
 div.container div.row {
   margin-top: 20px;
 }
-/* line 4, ../sass/_dashboard.scss */
+/* line 5, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile {
   height: 130px;
   padding: 0pc 1%;
 }
-/* line 8, ../sass/_dashboard.scss */
+/* line 9, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile {
   height: 130px;
   width: 50%;
   float: left;
   clear: right;
 }
-/* line 13, ../sass/_dashboard.scss */
+/* line 14, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile:hover {
   cursor: pointer;
 }
-/* line 16, ../sass/_dashboard.scss */
+/* line 17, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile div.tile-value {
   text-align: center;
 }
-/* line 18, ../sass/_dashboard.scss */
+/* line 19, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile div.tile-value a {
   color: #fff;
   font-size: 17px;
 }
-/* line 21, ../sass/_dashboard.scss */
+/* line 22, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile div.tile-value a:hover {
   text-decoration: none;
 }
-/* line 26, ../sass/_dashboard.scss */
+/* line 27, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number {
   padding: 25px 0px 2px 0px;
 }
-/* line 28, ../sass/_dashboard.scss */
+/* line 29, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number a {
   font-size: 30px;
 }
-/* line 32, ../sass/_dashboard.scss */
+/* line 33, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-string {
   padding: 0 5%;
   line-height: 18px;
 }
-/* line 42, ../sass/_dashboard.scss */
+/* line 43, ../sass/_dashboard.scss */
 div.container div.row div.col-lg-3.tile-green div.subtile-left {
   background-color: #5dca88;
 }
-/* line 46, ../sass/_dashboard.scss */
+/* line 47, ../sass/_dashboard.scss */
 div.container div.row div.col-lg-3.tile-green div.subtile-right {
   background-color: rgba(93, 202, 136, 0.5);
 }
-/* line 53, ../sass/_dashboard.scss */
+/* line 54, ../sass/_dashboard.scss */
 div.container div.row div.col-lg-3.tile-black div.subtile-left {
   background-color: #2d312f;
 }
-/* line 57, ../sass/_dashboard.scss */
+/* line 58, ../sass/_dashboard.scss */
 div.container div.row div.col-lg-3.tile-black div.subtile-right {
-  background-color: #5b6562;
+  background-color: #5d6461;
 }
-/* line 63, ../sass/_dashboard.scss */
+/* line 64, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile-1 div.subtile-right {
   background-image: url("/images/dashboard-neue-bewerbungen.png");
   background-size: 55% auto;
 }
 @media (max-width: 991px) {
-  /* line 63, ../sass/_dashboard.scss */
+  /* line 64, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-1 div.subtile-right {
     background-size: 40% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 63, ../sass/_dashboard.scss */
+  /* line 64, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-1 div.subtile-right {
     background-size: 80px auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 74, ../sass/_dashboard.scss */
+  /* line 75, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-2 {
     margin-top: 20px;
   }
 }
-/* line 78, ../sass/_dashboard.scss */
+/* line 79, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile-2 div.subtile-right {
   background-image: url("/images/dashboard-nachrichten.png");
   background-size: 50% auto;
 }
 @media (max-width: 991px) {
-  /* line 78, ../sass/_dashboard.scss */
+  /* line 79, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-2 div.subtile-right {
     background-size: 45% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 78, ../sass/_dashboard.scss */
+  /* line 79, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-2 div.subtile-right {
     background-size: 90px auto;
   }
 }
-/* line 90, ../sass/_dashboard.scss */
+/* line 91, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile-3 div.subtile-right {
   background-image: url("/images/dashboard-stellenanzeigen.png");
   background-size: 35% auto;
 }
 @media (max-width: 991px) {
-  /* line 90, ../sass/_dashboard.scss */
+  /* line 91, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-3 div.subtile-right {
     background-size: 25% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 90, ../sass/_dashboard.scss */
+  /* line 91, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-3 div.subtile-right {
     background-size: 50px auto;
   }
 }
-/* line 102, ../sass/_dashboard.scss */
+/* line 103, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile-4 div.subtile-right {
   background-image: url("/images/dashboard-bewerbungen.png");
   background-size: 55% auto;
 }
 @media (max-width: 767px) {
-  /* line 101, ../sass/_dashboard.scss */
+  /* line 102, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-4 {
     background-size: 110px auto;
   }
 }
-/* line 112, ../sass/_dashboard.scss */
+/* line 113, ../sass/_dashboard.scss */
 div.container div.row div.dashboard-tile div.subtile-right {
   background-position: center;
   background-repeat: no-repeat;
 }
 @media (max-width: 991px) {
-  /* line 118, ../sass/_dashboard.scss */
+  /* line 119, ../sass/_dashboard.scss */
   div.container div.row div.dashboard-tile-3, div.container div.row div.dashboard-tile-4 {
     margin-top: 20px;
   }
+}
+
+/* line 130, ../sass/_dashboard.scss */
+.table-hover > tbody > tr:hover {
+  background-color: rgba(93, 202, 136, 0.2);
+}
+
+/* line 134, ../sass/_dashboard.scss */
+#NewestApplicationsTable {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  margin-top: 20px;
+  color: #9d9d9d;
+  border: 1px solid #dddddd;
+}
+/* line 145, ../sass/_dashboard.scss */
+#NewestApplicationsTable thead tr th {
+  border-bottom: 1px solid #dddddd;
+}
+@media (max-width: 511px) {
+  /* line 147, ../sass/_dashboard.scss */
+  #NewestApplicationsTable thead tr th:nth-of-type(2) {
+    text-align: right;
+  }
+}
+/* line 152, ../sass/_dashboard.scss */
+#NewestApplicationsTable thead tr th:nth-of-type(4), #NewestApplicationsTable thead tr th:nth-of-type(5) {
+  text-align: right;
+}
+/* line 162, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td {
+  vertical-align: middle;
+  height: 72px;
+  border: none;
+}
+/* line 166, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td img {
+  width: 50px;
+  height: auto;
+  border-radius: 25px;
+  cursor: pointer;
+}
+/* line 172, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td span.glyphicon-eye-open {
+  cursor: pointer;
+}
+/* line 176, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td[data-title="Picture"] {
+  width: 10%;
+}
+/* line 179, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td[data-title="Name"] {
+  width: 30%;
+}
+@media (max-width: 511px) {
+  /* line 179, ../sass/_dashboard.scss */
+  #NewestApplicationsTable tbody tr td[data-title="Name"] {
+    text-align: right;
+  }
+}
+/* line 185, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td[data-title="Ad"] {
+  width: 34%;
+}
+/* line 188, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td[data-title="Date"] {
+  width: 16%;
+  text-align: right;
+}
+/* line 192, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td[data-title="Edit"] {
+  width: 10%;
+  text-align: right;
+}
+/* line 196, ../sass/_dashboard.scss */
+#NewestApplicationsTable tbody tr td[data-title="data-toggle"] {
+  text-align: center;
+}
+
+/* line 204, ../sass/_dashboard.scss */
+.footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e258";
+}
+
+/* line 208, ../sass/_dashboard.scss */
+.footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e259";
+}
+
+/* line 212, ../sass/_dashboard.scss */
+.footable .footable-row-detail .footable-row-detail-row {
+  display: table-row;
+}
+/* line 214, ../sass/_dashboard.scss */
+.footable .footable-row-detail .footable-row-detail-row .footable-row-detail-name, .footable .footable-row-detail .footable-row-detail-row .footable-row-detail-value {
+  display: table-cell;
 }
 
 /* line 1, ../sass/_header.scss */
@@ -524,7 +622,7 @@ div.container div.row div.dashboard-tile div.subtile-right {
     position: static;
     left: auto;
     top: auto;
-    background-color: #5b6562;
+    background-color: #5d6461;
     border-radius: 0px;
     padding-bottom: 8px;
     width: 200px;

@@ -16,6 +16,7 @@ class CustomAppAsset extends AssetBundle
     ];
     public $js = [
         'js/customScript.js',
+        'js/footable.js'
     ];
 
 }

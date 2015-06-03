@@ -1,3 +1,4 @@
+// TILES
 div.container {
   div.row {
     margin-top: 20px;
@@ -55,7 +56,7 @@ div.container {
       }
 
       div.subtile-right {
-        background-color: $blackLighter;
+        background-color: $grey;
       }
     }
 
@@ -122,10 +123,100 @@ div.container {
     }
   }
 }
+// END TILES
 
+// Newest Applications Table
 
+.table-hover > tbody > tr:hover {
+  background-color: $green20;
+}
 
+#NewestApplicationsTable {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+  -moz-box-shadow:    0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+  box-shadow:         0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
 
+  margin-top: 20px;
+  color: $greyFont;
+  border: 1px solid $borderGrey;
+
+  thead {
+    tr{
+      th{
+        border-bottom: 1px solid $borderGrey;
+        &:nth-of-type(2){
+          @media (max-width: 511px) {
+            text-align: right;
+          }
+        }
+        &:nth-of-type(4),&:nth-of-type(5){
+          text-align: right;
+        }
+      }
+
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+        height: 72px;
+        border: none;
+        img {
+          width: 50px;
+          height: auto;
+          border-radius: 25px;
+          cursor: pointer;
+        }
+        span.glyphicon-eye-open {
+          cursor: pointer;
+        }
+      }
+      td[data-title="Picture"] {
+        width: 10%;
+      }
+      td[data-title="Name"] {
+        width: 30%;
+        @media (max-width: 511px) {
+          text-align: right;
+        }
+      }
+      td[data-title="Ad"] {
+        width: 34%;
+      }
+      td[data-title="Date"] {
+        width: 16%;
+        text-align: right;
+      }
+      td[data-title="Edit"] {
+        width: 10%;
+        text-align: right;
+      }
+      td[data-title="data-toggle"] {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Footable specific styling
+.footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e258";
+}
+.footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content:"\e259";
+}
+
+.footable .footable-row-detail .footable-row-detail-row {
+  display: table-row;
+  .footable-row-detail-name, .footable-row-detail-value {
+    display: table-cell;
+  }
+}
+
+// END Newest Applications Table
 
 
 

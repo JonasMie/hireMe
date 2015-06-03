@@ -39,3 +39,4 @@ $('#header .navbar-header .navbar-toggle').click(function(){
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
     });
 /** END Helper function for the header dropdown **/
+
