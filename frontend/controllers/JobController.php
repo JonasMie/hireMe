@@ -148,7 +148,6 @@ class JobController extends Controller
     {
         $model = new Job();
         $thisUser = Yii::$app->getUser();
-        $model->contact_id = $thisUser->id;
         $getUser = User::findOne($thisUser->id);
         $model->company_id = $getUser->company_id;
         Yii::trace('User ID: ' .Yii::$app->user->getId());

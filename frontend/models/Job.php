@@ -1,11 +1,11 @@
 <?php
 
-
 namespace frontend\models;
 
 use Yii;
 
- /* This is the model class for table "job".
+/**
+ * This is the model class for table "job".
  *
  * @property integer $id
  * @property string $description
@@ -13,20 +13,21 @@ use Yii;
  * @property string $job_end
  * @property string $zip
  * @property integer $sector
- * @property integer $contact_id
  * @property integer $company_id
  * @property integer $active
  * @property string $created_at
  * @property string $updated_at
  * @property string $title
+ * @property integer $type
+ * @property string $city
+ * @property integer $time
+ * @property integer $allocated
  *
  * @property Application[] $applications
+ * @property ApplyBtn[] $applyBtns
  * @property Favourites[] $favourites
  * @property Company $company
- * @property User $contact
- *
- * @property User $contact
- * @property Company $company
+ * @property JobContacts[] $jobContacts
  */
 class Job extends \yii\db\ActiveRecord
 {
@@ -44,13 +45,13 @@ class Job extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'description', 'zip', 'sector', 'contact_id', 'company_id', 'active'], 'required'],
-            [['id', 'sector', 'contact_id', 'company_id', 'active'], 'integer'],
+            [['id', 'description', 'zip', 'sector', 'company_id', 'active', 'type', 'city', 'time'], 'required'],
+            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
             [['job_begin', 'job_end', 'created_at', 'updated_at'], 'safe'],
-            [['description'], 'string', 'max' => 255],
-            [['title'], 'string', 'max' => 100],
+            [['description', 'city'], 'string', 'max' => 255],
             [['zip'], 'string', 'max' => 10],
-            ['id', 'unique']
+            [['title'], 'string', 'max' => 100],
+            [['id'], 'unique']
         ];
     }
 
@@ -60,18 +61,21 @@ class Job extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'description' => Yii::t('app', 'Description'),
-            'title' => Yii::t('app', 'Title'),
-            'job_begin' => Yii::t('app', 'Job Begin'),
-            'job_end' => Yii::t('app', 'Job End'),
-            'zip' => Yii::t('app', 'Zip'),
-            'sector' => Yii::t('app', 'Sector'),
-            'contact_id' => Yii::t('app', 'Contact ID'),
-            'company_id' => Yii::t('app', 'Company ID'),
-            'active' => Yii::t('app', 'Active'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'description' => 'Description',
+            'job_begin' => 'Job Begin',
+            'job_end' => 'Job End',
+            'zip' => 'Zip',
+            'sector' => 'Sector',
+            'company_id' => 'Company ID',
+            'active' => 'Active',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'title' => 'Title',
+            'type' => 'Type',
+            'city' => 'City',
+            'time' => 'Time',
+            'allocated' => 'Allocated',
         ];
     }
 
@@ -81,6 +85,14 @@ class Job extends \yii\db\ActiveRecord
     public function getApplications()
     {
         return $this->hasMany(Application::className(), ['job_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getApplyBtns()
+    {
+        return $this->hasMany(ApplyBtn::className(), ['job_id' => 'id']);
     }
 
     /**
@@ -98,16 +110,12 @@ class Job extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Company::className(), ['id' => 'company_id']);
     }
-    
-    public function getJobsByCompanyId($company) {
-        return $this->hasMany(Application::className(), ['company_id' => $company]);
-    }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getContact()
+    public function getJobContacts()
     {
-        return $this->hasOne(User::className(), ['id' => 'contact_id']);
+        return $this->hasMany(JobContacts::className(), ['job_id' => 'id']);
     }
 }

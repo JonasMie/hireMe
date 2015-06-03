@@ -38,10 +38,13 @@ class AnalyticsController extends Controller
          $viewClickData =  $analytics->getAllViewsAndClicks($id);
          $viewCount = $viewClickData[0];
          $clickCount = $viewClickData[1];
-         $applicationRate = (count($applier)/$clickCount)*100;
+         if ($clickCount == 0) {$applicationRate = 0;}
+         else { $applicationRate = (count($applier)/$clickCount)*100;}
          $conversionRate = count($hired)/count($applier);
     	 $clicks = [];
          $applications = [];
+         if ($viewCount == 0) {$interestRate = 0;}
+         else {$interestRate = ($clickCount/$viewCount)*100;}
 
 
         $dataProvider = new ActiveDataProvider([
@@ -59,7 +62,7 @@ class AnalyticsController extends Controller
             'clickCount' => $clickCount,
             'applicationRate' => $applicationRate,
             'interviewRate' => $analytics->getInterviewRate($id),
-            'interestRate' => ($clickCount/$viewCount)*100,
+            'interestRate' => $interestRate,
             'conversionRate' => $conversionRate,
             'companyName' =>  $analytics->getCompany($id),
             'provider' => $dataProvider,
@@ -75,7 +78,8 @@ class AnalyticsController extends Controller
         ->where(['btn_id' => $id, 'sent' => 1,])
         ->orderBy('id')
         ->all();
-        $rate =  (count($btnApplies)/$btn->clickCount)*100;
+        if ($btn->clickCount == 0) $rate = 0;
+        else $rate =  (count($btnApplies)/$btn->clickCount)*100;
         return $rate;
     }
 
@@ -104,9 +108,12 @@ class AnalyticsController extends Controller
         $viewClickData =  $analytics->getAllViewsAndClicksForJob($id);
         $viewCount = $viewClickData[0];
         $clickCount = $viewClickData[1];
-        $applicationRate = (count($applier)/$clickCount)*100;
+        if ($clickCount == 0) {$applicationRate = 0;}
+        else { $applicationRate = (count($applier)/$clickCount)*100;}        
         $job = Job::findOne($id);
         $jobName = $job->title;
+        if ($viewCount == 0) {$interestRate = 0;}
+        else {$interestRate = ($clickCount/$viewCount)*100;}
 
     
         $dataProvider = new ActiveDataProvider([
@@ -117,11 +124,12 @@ class AnalyticsController extends Controller
 
 
          return $this->render('detail', [
+            'id' => $job->company_id,
             'jobTitle' =>  $jobName,
             'applyCount' => count($applier),
             'viewCount' =>  $viewCount,
             'clickCount' => $clickCount,
-            'interestRate' => ($clickCount/$viewCount)*100,
+            'interestRate' => $interestRate,
             'applicationRate' => $applicationRate,
             'interviewRate' => $analytics->getInterviewRateForJob($id),
             'provider' => $dataProvider,
