@@ -32,7 +32,7 @@ use frontend\assets\CustomAppAsset;
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-1 tile-green"  onclick="window.location='./bewerbungen';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"  onclick="window.location='./bewerbungen';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a(42, "./bewerbungen"); //TODO: Applications?>
@@ -45,7 +45,7 @@ use frontend\assets\CustomAppAsset;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-2 tile-black"  onclick="window.location='./messages';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-2 tile-black"  onclick="window.location='./messages';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a($messageDP->getCount(), "./messages");?>
@@ -58,7 +58,7 @@ use frontend\assets\CustomAppAsset;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-3 tile-green"  onclick="window.location='./jobs';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-3 tile-green"  onclick="window.location='./jobs';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a($jobDP->getCount(), './jobs')?>
@@ -71,7 +71,7 @@ use frontend\assets\CustomAppAsset;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dashboard-tile dashboard-tile-4 tile-black"  onclick="window.location='./bewerbungen';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-4 tile-black"  onclick="window.location='./bewerbungen';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?=Html::a(42, "./bewerbungen"); //TODO: Applications?>
@@ -108,7 +108,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Tom Krug</td>
                     <td data-title="Ad">Facility Manager</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
                 <tr>
@@ -116,7 +116,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Stefan Humm</td>
                     <td data-title="Ad">Hostess</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
                 <tr>
@@ -124,7 +124,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Chris Lang</td>
                     <td data-title="Ad">Hostess</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
                 <tr>
@@ -132,7 +132,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Moritz Hofmann</td>
                     <td data-title="Ad">Facility Manager</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
                 <tr>
@@ -140,7 +140,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Cornelius Specht</td>
                     <td data-title="Ad">Taxi-Fahrer</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
                 <tr>
@@ -148,7 +148,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Michael Gerrrrrrrulllis</td>
                     <td data-title="Ad">MMBler</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
                 <tr>
@@ -156,7 +156,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Aaron Pollvogt</td>
                     <td data-title="Ad">Backend Entwickler</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
                 <tr>
@@ -164,7 +164,7 @@ use frontend\assets\CustomAppAsset;
                     <td data-title="Name">Simön Ströbel</td>
                     <td data-title="Ad">Sparfuchs</td>
                     <td data-title="Date"><?= date('d'.'.'.'m'.'.'.'y') ?></td>
-                    <td data-title="Edit"><span class="glyphicon glyphicon-eye-open"></span></td>
+                    <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
                     <td data-title="data-toggle"></td>
                 </tr>
 
