@@ -13,6 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  		<script type="http://frontend/assets/8acf542a/js/jquery.min.js"></script>
 		 <p id="us" class="hidden" style="visibility: hidden;"><?= $userID ?></p>
 		<script type="text/javascript">
 		
@@ -27,14 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
 			$( document ).ready(function() {
 
-
-		$("#hireNow").on('click' ,function()  { 
-
-			user = document.getElementById("us").innerHTML;
+				user = document.getElementById("us").innerHTML;
    		
    			if (user == "NA") {
    				alert("not available+ "+user);
    			}
+
+
+		$("#hireNow").on('click' ,function()  { 
+
+			
 
 			httpReq("http://frontend/job/click-up?btnKey="+window.name);
 			var url = "http://frontend/job/apply?key="+window.name+"&user="+user+"&case=1";
