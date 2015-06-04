@@ -11,8 +11,7 @@ use frontend\models\Job;
 /**
  * JobSearch represents the model behind the search form about `frontend\models\Job`.
  * JobSearch represents the model behind the search form about `app\models\Job`.
-
-/**
+ *
  * JobSearch represents the model behind the search form about `app\models\Job`.
  */
 class JobSearch extends Job

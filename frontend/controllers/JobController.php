@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Job;
+use frontend\models\Company;
 use frontend\models\Analytics;
 use frontend\models\Application;
 use common\models\User;
@@ -73,7 +74,11 @@ class JobController extends Controller
             'pageSize' => 20,],
         ]);
 
+        $comp = Company::getNameById($companyId);
+
+
        return $this->render('_myjobs', [
+            'companyName' => $comp->name,
             'provider' => $dataProvider,
         ]);
 

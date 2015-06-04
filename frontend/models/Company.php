@@ -103,7 +103,6 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
         // TODO: Implement getId() method.
         return $this->getPrimaryKey();
     }
-
     /**
      * Returns a key that can be used to check the validity of a given identity ID.
      *
@@ -116,6 +115,11 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
      * @return string a key that is used to check the validity of a given identity ID.
      * @see validateAuthKey()
      */
+    public static function getNameById($id) {
+
+        return static::findOne(['id' => $id]);
+    }
+
     public function getAuthKey()
     {
         // TODO: Implement getAuthKey() method.
@@ -134,7 +138,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         // TODO: Implement validateAuthKey() method.
-}
+    }
 
     /**
      * Finds an identity by the given token.

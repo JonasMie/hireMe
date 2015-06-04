@@ -7,7 +7,7 @@ use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
 
-$this->title = "Meine Jobs";
+$this->title = "Ausgeschriebene Jobs von " .$companyName;
 $this->params['breadcrumbs'][] = ['label' => 'Jobs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
