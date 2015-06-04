@@ -458,9 +458,9 @@ class MyJobsGridView extends BaseListView
         /* @var $column Column */
         foreach ($this->columns as $column) {
             $applier = array_values($this->applierArray);
-            $model->title = $model->title."Bewerber: ".$this->applierArray[$index];
+            $model->title = $model->title.", Bewerber: ".$this->applierArray[$index];
             $cells[] = $column->renderDataCell($model, $key, $index);
-            Yii::trace("Key: ".$column->value);
+            Yii::trace($column);
         }
         if ($this->rowOptions instanceof Closure) {
             $options = call_user_func($this->rowOptions, $model, $key, $index, $this);
@@ -481,9 +481,11 @@ class MyJobsGridView extends BaseListView
             $this->guessColumns();
         }
         foreach ($this->columns as $i => $column) {
+  
             if (is_string($column)) {
                 $column = $this->createDataColumn($column);
-            } else {
+            }
+             else {
                 $column = Yii::createObject(array_merge([
                     'class' => $this->dataColumnClass ? : DataColumn::className(),
                     'grid' => $this,
@@ -493,6 +495,7 @@ class MyJobsGridView extends BaseListView
                 unset($this->columns[$i]);
                 continue;
             }
+        
             $this->columns[$i] = $column;
         }
     }
