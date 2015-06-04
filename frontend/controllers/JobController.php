@@ -164,9 +164,12 @@ class JobController extends Controller
                 $highestID = $jobs[count($jobs)-1];
                 $model->id = $highestID->id+1;
             }
+        $model->time = 0;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        Yii::trace("kjashd");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+
             return $this->render('create', [
                 'model' => $model,
             ]);

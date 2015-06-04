@@ -31,6 +31,8 @@ use Yii;
  */
 class Job extends \yii\db\ActiveRecord
 {
+
+    
     /**
      * @inheritdoc
      */
