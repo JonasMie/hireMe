@@ -39,7 +39,8 @@ class Analytics extends \yii\base\Model
         ->where(['company_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
         ->orderBy('id')
         ->all();
-        $rate =count($inteviewer)/count($applier)*100; 
+        if (count($applier)==0) $rate = 0;
+        else $rate = count($inteviewer)/count($applier)*100; 
         return $rate;
     } 
     public function getInterviewRateForJob($id) {
@@ -50,7 +51,8 @@ class Analytics extends \yii\base\Model
         ->where(['job_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
         ->orderBy('id')
         ->all();
-        $rate =count($inteviewer)/count($applier)*100; 
+        if (count($applier)==0) $rate = 0;
+        else $rate = count($inteviewer)/count($applier)*100; 
         return $rate;
 
     }
