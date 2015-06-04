@@ -68,17 +68,31 @@ class JobController extends Controller
 
     public function actionMyJobs($companyId) {
 
+         $comp = Company::getNameById($companyId);
+        
+        // For displaying applier data
+        $analytics = new Analytics();
+        $allJobs = $analytics->getJobs($companyId);
+        Yii::trace("Jobs: ".count($allJobs));
+        $applierArray = [];
+
+        for ($i=0; $i <count($allJobs) ; $i++) { 
+            $jobApplier = count($analytics->getAppliesForJob($allJobs[$i]->id));
+            Yii::trace("Applier: ".$jobApplier);
+            $applierArray[$i] = $jobApplier;
+        }
+
+
         $dataProvider = new ActiveDataProvider([
         'query' => Job::find(['company_id' => $companyId]),
         'pagination' => [
-            'pageSize' => 20,],
+            'pageSize' => 20,]
         ]);
-
-        $comp = Company::getNameById($companyId);
 
 
        return $this->render('_myjobs', [
-            'companyName' => $comp->name,
+            'companyName' => $comp,
+            'applierArray' => $applierArray,
             'provider' => $dataProvider,
         ]);
 

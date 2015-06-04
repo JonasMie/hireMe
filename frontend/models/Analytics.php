@@ -71,7 +71,7 @@ class Analytics extends \yii\base\Model
         ->where(['job_id' => $id, 'sent' => 1,])
         ->orderBy('id')
         ->all();
-
+        Yii::trace("Applier for ".Job::findOne($id)->title.": ".count($applications));
         return $applications;
 
     }

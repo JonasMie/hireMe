@@ -3,11 +3,13 @@
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\widgets\ListView;
+use yii\grid\GridView;
+use frontend\models\MyJobsGridView;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
 
-$this->title = "Ausgeschriebene Jobs von " .$companyName;
+$this->title = "Stellenanzeigen von " .$companyName;
 $this->params['breadcrumbs'][] = ['label' => 'Jobs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -17,12 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
     <?=
-    ListView::widget([
+    MyJobsGridView::widget([
     	'dataProvider' => $provider,
-    	'itemView' => function($model) {
-    		return $model->description;
-            
-    	}
+        'applierArray' => $applierArray,
+        'columns' => [
+        'title',
+        'job_begin',
+        ],
     	]);
 
 

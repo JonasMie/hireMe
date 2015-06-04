@@ -117,7 +117,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function getNameById($id) {
 
-        return static::findOne(['id' => $id]);
+        return static::findOne(['id' => $id])->name;
     }
 
     public function getAuthKey()
