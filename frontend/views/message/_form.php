@@ -50,7 +50,7 @@ use yii\widgets\ActiveForm;
 
     ])->label('Empfänger')->textInput()  ?-->
 
-    <?= Html::activeHiddenInput($model, 'receiver_id') // TODO: check if exists  ?>
+    <?= Html::activeHiddenInput($model, 'receiver_id') // TODO: check if exists    ?>
 
     <?= $form->field($attachment, 'file')->fileInput()->label('Anhang hinzufügen'); ?>
 
@@ -63,5 +63,7 @@ use yii\widgets\ActiveForm;
 
 <script>
     // TODO: verschönern
-    document.getElementById('w1').value = "<?=$receiver->fullName?>";
+    <? if (isset($receiver)){ ?>
+        document.getElementById('w1').value = "<?=$receiver->fullName?>";
+    <? } ?>
 </script>

@@ -78,8 +78,13 @@ class MessageController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $reply = new Message();
+        $attachment = new MessageAttachments();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model'      => $model,
+            'reply'      => $reply,
+            'attachment' => $attachment
         ]);
     }
 
@@ -90,11 +95,15 @@ class MessageController extends Controller
      */
     public function actionCreate($rec = null)
     {
+        // TODO: check if reply
         $model = new Message();
+        $attachment = new MessageAttachments(); // TODO: set message id
+
         $model->sender_id = Yii::$app->user->identity->getId();
         $receiver = User::findIdentity($rec);
-        $model->receiver_id = $receiver->id;
-        $attachment = new MessageAttachments(); // TODO: set message id
+        if (isset($rec)) {
+            $model->receiver_id = $receiver->id;
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $attachment->uploadedFile = UploadedFile::getInstance($attachment, 'file');
@@ -108,7 +117,7 @@ class MessageController extends Controller
 
                     return $this->render('create', [
                         'model'      => $model,
-                        'rec'        => $receiver,
+                        'rec'        => $receiver,      // TODO: remove receiver, use $model->receiver_id instead
                         'attachment' => $attachment
                     ]);
                 }
@@ -154,8 +163,10 @@ class MessageController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+//        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $model->deleted = 1;
+        $model->save();
         return $this->redirect(['index']);
     }
 

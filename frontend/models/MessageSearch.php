@@ -17,6 +17,12 @@ class MessageSearch extends Message
      */
     public $senderName;
 
+    public function attributes()
+    {
+        // add related fields to searchable attributes
+        return array_merge(parent::attributes(), ['senderName']);
+    }
+
     /**
      * @inheritdoc
      */
@@ -53,7 +59,7 @@ class MessageSearch extends Message
             'query' => $query,
         ]);
         $dataProvider->setSort([
-            'attributes' =>
+            'attributes'   =>
                 [
                     'sent_at'    => [
                         'asc'     => ['sent_at' => SORT_ASC],
@@ -66,12 +72,13 @@ class MessageSearch extends Message
                         'desc' => ['subject' => SORT_DESC]
                     ],
                     'senderName' => [                            // TODO: Fix order by sender
-                        'asc'  => ['user.lastName' => SORT_ASC],
-                        'desc' => ['user.lastName' => SORT_DESC],
+                        'asc'  => ['lastName' => SORT_ASC],
+                        'desc' => ['lastName' => SORT_DESC],
+                        'label' => ['senderName']
                     ],
                 ],
             'defaultOrder' => [
-                'sent_at'=> SORT_DESC
+                'sent_at' => SORT_DESC
             ]
         ]);
 
@@ -85,7 +92,7 @@ class MessageSearch extends Message
         }
 
         $query->andWhere(
-            ['or', ['receiver_id' => Yii::$app->user->identity->getId()], ['sender_id' => Yii::$app->user->identity->getId()]]
+            ['or', '`receiver_id` = ' .Yii::$app->user->identity->getId() .' AND `deleted` = 0', ['sender_id' => Yii::$app->user->identity->getId()]]
         );
         $query->andFilterWhere([
             'sent_at' => $this->sent_at,
@@ -96,11 +103,17 @@ class MessageSearch extends Message
         $query->andFilterWhere(['like', 'subject', $this->subject])
             ->andFilterWhere(['like', 'content', $this->content]);
 
-        $query->joinWith(['sender' => function ($q) {
-            $q->where('user.fullName LIKE "%' .
-                $this->senderName . '%"');
-        }]);
+        if (isset($this->senderName)) {
+            $query->join('RIGHT JOIN', 'user', '(user.id = message.receiver_id OR user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
+//            $query->joinWith(['receiver' => function ($q) {
+//                $q->from('user receiver')->onCondition('receiver.fullName LIKE "%' . $this->senderName . '%"');
+//            }], true, 'right JOIN');
+//
+//            $query->joinWith(['sender' => function ($q) {
+//                $q->from('user sender')->onCondition('sender.fullName LIKE "%' . $this->senderName . '%"');
+//            }], true, 'left JOIN');
 
+        }
         return $dataProvider;
     }
 }
