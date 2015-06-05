@@ -16,8 +16,14 @@ class CustomAppAsset extends AssetBundle
     ];
     public $js = [
         'js/customScript.js',
-        'js/footable.js'
+        'js/footable.js',
+        'js/signup.js'
+
     ];
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
+
 
 }
 

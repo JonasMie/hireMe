@@ -16,16 +16,16 @@ use frontend\assets\CustomAppAsset;
 ?>
 
 <!-- Initializing Foo Tables -->
-<script type="text/javascript">
-    $(function () {
+<?    $this->registerJS(
+    "$(function () {
         $('.footable').footable({
             breakpoints: {
                 xsmall: 736 /* Somehow Footable misses the screen wdtdh by 31 Pixels */
             }
         });
-    });
-</script>
+    });");
 
+?>
 
     <h1>Willkommen</h1>
 
