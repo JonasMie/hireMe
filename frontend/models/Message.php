@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property string $sent_at
  * @property integer $deleted
  * @property integer $read
+ * @property integer $flow
  *
  * @property User $sender
  * @property User $receiver
@@ -41,7 +42,7 @@ class Message extends ActiveRecord
         return [
             [['subject', 'content', 'sender_id', 'receiver_id'], 'required'],
             [['content'], 'string'],
-            [['sender_id', 'receiver_id', 'deleted', 'read'], 'integer'],
+            [['sender_id', 'receiver_id', 'deleted', 'read', 'flow'], 'integer'],
             [['sent_at'], 'safe'],
             [['subject'], 'string', 'max' => 255]
         ];
@@ -61,6 +62,7 @@ class Message extends ActiveRecord
             'sent_at' => 'Gesendet',
             'deleted' => 'Gelöscht',
             'read' => 'Gelesen',
+            'flow' => 'Flow'
         ];
     }
 
@@ -87,7 +89,7 @@ class Message extends ActiveRecord
 
     public function belongsToUser($userId, $messageId)
     {
-        return $this->findOne(['id' => $messageId, 'receiver_id' => $userId]);
+        return $this->find()->where(['id' => $messageId, 'receiver_id' => $userId])->orWhere(['id' => $messageId, 'sender_id' => $userId])->one();
     }
 
     /**
@@ -97,4 +99,12 @@ class Message extends ActiveRecord
     {
         return $this->hasMany(MessageAttachments::className(), ['message_id' => 'id']);
     }
+
+//    /**
+//     * @return \yii\db\ActiveQuery
+//     */
+//    public function getPrev()
+//    {
+//        return $this->hasOne(Message::className(), ['id' => 'prev']);
+//    }
 }
