@@ -24,9 +24,8 @@ use frontend\models\Analytics;
         <p><?=Html::a($messageDP->getCount() ." neue Nachrichten", "./messages");?></p>
 
     <h2>Stellenanzeigen</h2>
-        <p><?=Html::a(count(Analytics::getJobs(Yii::$app->user->identity->getCompanyId())). " Stellenanzeigen", './job/my-jobs?companyId='.Yii::$app->user->identity->getCompanyId())?></p>
+        <p><?=Html::a(count(Analytics::getJobs(Yii::$app->user->identity->getCompanyId())). " Stellenanzeigen", './job/')?></p>
         <p><?=Html::a(Analytics::getUnreadJobs(Yii::$app->user->identity->getCompanyId())." neue Bewerbungen", "./bewerbungen"); //TODO: Applications?></p>
-
     <h2>Neueste Bewerbungen</h2>
 
 <? else: ?>

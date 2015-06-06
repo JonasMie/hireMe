@@ -43,15 +43,39 @@ class JobController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
-        $searchModel = new JobSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    {   
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        if (Yii::$app->user->identity->isRecruiter()) {
+        
+        $companyId = Yii::$app->user->identity->getCompanyId();
+        Yii::trace("Company ID: ".$companyId);
+        // For displaying applier data
+        $analytics = new Analytics();
+        $allJobs = $analytics->getJobs($companyId);
+    
+        $jobs = new JobSearch();            
+        $dataProvider = $jobs->search(['JobSearch' =>['company_id' => $companyId]]);
+
+       return $this->render('index', [
+            'indiTitle' => "Stellenanzeigen von ".Company::getNameById($companyId),
+            'id' => $companyId,
+            'provider' => $dataProvider,
         ]);
-    }
+
+     } 
+
+     else {
+
+        $jobs = new JobSearch();            
+        $dataProvider = $jobs->search(['JobSearch']);
+
+       return $this->render('index', [
+            'indiTitle' => "Nur für dich, ".Yii::$app->user->identity->getName()." <3",
+            'provider' => $dataProvider,
+        ]);
+
+        } 
+     }
 
     /**
      * Displays a single Job model.
@@ -64,48 +88,6 @@ class JobController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
-
-    public function actionMyJobs($companyId) {
-
-         $comp = Company::getNameById($companyId);
-        
-        // For displaying applier data
-        $analytics = new Analytics();
-        $allJobs = $analytics->getJobs($companyId);
-        Yii::trace("Jobs: ".count($allJobs));
-        $applierArray = [];
-
-        for ($i=0; $i <count($allJobs) ; $i++) { 
-            $jobApplier = count($analytics->getAppliesForJob($allJobs[$i]->id));
-            Yii::trace("Applier: ".$jobApplier);
-            $applierArray[$i] = $jobApplier;
-        }
-
-        
-        $query = Job::find()->where(['company_id' => $companyId])->orderBy('id');
-
-
-        $dataProvider = new ActiveDataProvider([
-        'query' => $query,
-        'pagination' => [
-            'pageSize' => 20,],
-        'sort' => [
-
-        'defaultOrder' => [
-            'job_begin' => SORT_ASC, 
-        ]
-        ],
-        ]);
-
-        Yii::trace("Applicartion arrtay at 0: ".$applierArray[0]);
-       return $this->render('_myjobs', [
-            'companyName' => $comp,
-            'id' => $companyId,
-            'applier' => $applierArray,
-            'provider' => $dataProvider,
-        ]);
-
     }
 
     public function actionApply($key,$user,$case) {
