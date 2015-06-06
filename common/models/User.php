@@ -1,12 +1,12 @@
 <?php
 namespace common\models;
 
-use app\models\Company;
-use app\models\Favourites;
-use app\models\Message;
-use app\models\ResumeJob;
-use app\models\ResumeSchool;
-use app\models\File;
+use frontend\models\Company;
+use frontend\models\Favourites;
+use frontend\models\Message;
+use frontend\models\ResumeJob;
+use frontend\models\ResumeSchool;
+use frontend\models\File;
 use frontend\models\JobContacts;
 use Yii;
 use yii\base\NotSupportedException;

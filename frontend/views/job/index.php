@@ -10,7 +10,7 @@ use yii\grid\GridView;
 
 $this->title = 'Jobs';
 
-/* @var $searchModel app\models\JobSearch */
+/* @var $searchModel frontend\models\JobSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Jobs');

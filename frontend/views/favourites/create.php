@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Favourites */
+/* @var $model frontend\models\Favourites */
 
 $this->title = Yii::t('app', 'Create Favourites');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Favourites'), 'url' => ['index']];

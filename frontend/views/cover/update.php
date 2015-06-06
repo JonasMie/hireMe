@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Cover */
+/* @var $model frontend\models\Cover */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Cover',

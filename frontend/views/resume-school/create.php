@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\ResumeSchool */
+/* @var $model frontend\models\ResumeSchool */
 
 $this->title = Yii::t('app', 'Create Resume School');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Resume Schools'), 'url' => ['index']];

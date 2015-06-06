@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = 'Update';
 =======
 =======
 >>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
-/* @var $model app\models\Job */
+/* @var $model frontend\models\Job */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Job',

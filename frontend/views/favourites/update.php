@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Favourites */
+/* @var $model frontend\models\Favourites */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Favourites',

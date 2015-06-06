@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 
 
 /**
- * FavouritesSearch represents the model behind the search form about `app\models\Favourites`.
+ * FavouritesSearch represents the model behind the search form about `frontend\models\Favourites`.
  */
 class FavouritesSearch extends Favourites
 {

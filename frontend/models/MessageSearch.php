@@ -7,7 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * MessageSearch represents the model behind the search form about `app\models\Message`.
+ * MessageSearch represents the model behind the search form about `frontend\models\Message`.
  */
 class MessageSearch extends Message
 {

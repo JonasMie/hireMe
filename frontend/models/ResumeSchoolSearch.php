@@ -5,10 +5,10 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\ResumeSchool;
+use frontend\models\ResumeSchool;
 
 /**
- * ResumeSchoolSearch represents the model behind the search form about `app\models\ResumeSchool`.
+ * ResumeSchoolSearch represents the model behind the search form about `frontend\models\ResumeSchool`.
  */
 class ResumeSchoolSearch extends ResumeSchool
 {

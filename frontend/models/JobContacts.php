@@ -2,7 +2,7 @@
 
 namespace frontend\models;
 
-use app\models\Job;
+use frontend\models\Job;
 use common\models\User;
 use Yii;
 use yii\db\ActiveRecord;

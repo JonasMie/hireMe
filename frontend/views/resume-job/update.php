@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\ResumeJob */
+/* @var $model frontend\models\ResumeJob */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Resume Job',
