@@ -3,7 +3,6 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\authclient\widgets\AuthChoice;
 use yii\bootstrap\Modal;
-use frontend\assets\SignupAsset;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
