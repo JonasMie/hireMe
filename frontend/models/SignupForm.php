@@ -24,6 +24,8 @@ class SignupForm extends Model
     public $companyAddressCity;
     public $companySector;
     public $companyEmployees;
+    public $visibility;
+
     /**
      * @inheritdoc
      */
@@ -45,6 +47,8 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            ['visibility', 'default', 'value' => 0],
 
             // TODO: Error-message -> Label ausgeben
             [['companyName', 'companyAddress', 'companyAddressStreet', 'companyAddressNumber', 'companyAddressZIP', 'companyAddressCity', 'companySector', 'companyEmployees'], 'required', 'when' => function ($model){
