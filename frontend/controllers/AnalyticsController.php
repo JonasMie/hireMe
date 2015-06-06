@@ -47,7 +47,7 @@ class AnalyticsController extends Controller
          else {$interestRate = ($clickCount/$viewCount)*100;}
 
 
-        $dataProvider = new ActiveDataProvider([
+        $jobProvider = new ActiveDataProvider([
         'query' => Job::find(['company_id' => $id]),
         'pagination' => [
             'pageSize' => 20,],
@@ -65,7 +65,7 @@ class AnalyticsController extends Controller
             'interestRate' => $interestRate,
             'conversionRate' => $conversionRate,
             'companyName' =>  $analytics->getCompany($id),
-            'provider' => $dataProvider,
+            'provider' => $jobProvider,
         ]);
 
 
@@ -116,13 +116,14 @@ class AnalyticsController extends Controller
         if ($viewCount == 0) {$interestRate = 0;}
         else {$interestRate = ($clickCount/$viewCount)*100;}
 
-    
-        $dataProvider = new ActiveDataProvider([
+        Yii::trace(count(Analytics::getBtnsForJob($id)));
+
+        $btnProvider = null;
+        $btnProvider = new ActiveDataProvider([
         'query' => ApplyBtn::find(['job_id' => $id]),
         'pagination' => [
             'pageSize' => 20,],
         ]);
-
 
          return $this->render('detail', [
             'id' => $job->company_id,
@@ -133,7 +134,7 @@ class AnalyticsController extends Controller
             'interestRate' => $interestRate,
             'applicationRate' => $applicationRate,
             'interviewRate' => $analytics->getInterviewRateForJob($id),
-            'provider' => $dataProvider,
+            'provider' => $btnProvider,
         ]);
        
 

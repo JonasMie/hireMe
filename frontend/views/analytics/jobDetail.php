@@ -6,7 +6,6 @@ use frontend\controllers\AnalyticsController;
 ?>
 
 <div class="btnDetail">
-<h4>Alle Stellenanzeigen::</h4> 
 <?= $model->title ?>
 <h4>Beschreibung:</h4>
 <?= $model->description ?>

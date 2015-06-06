@@ -111,7 +111,7 @@ class Analytics extends \yii\base\Model
 
     public function getBtnsForJob($id) {
 
-        $btns = Application::find()
+        $btns = ApplyBtn::find()
         ->where(['job_id' => $id])
         ->orderBy('id')
         ->all();

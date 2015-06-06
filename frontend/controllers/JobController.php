@@ -17,6 +17,7 @@ use yii\filters\VerbFilter;
 use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
+use frontend\models\JobCreateForm;
 /**
  * JobController implements the CRUD actions for Job model.
  */
@@ -157,34 +158,22 @@ class JobController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Job();
-        $thisUser = Yii::$app->getUser();
-        $getUser = User::findOne($thisUser->id);
-        Yii::trace('User ID: ' .Yii::$app->user->getId());
-        if ($getUser->is_recruiter ==1) {
-        $model->company_id = $getUser->company_id;            
-        Yii::trace('Comp ID: ' .$getUser->company_id);
+       $model = new JobCreateForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->create() == true) {
+                Yii::trace("called index");
+                $this->redirect('index');
+            }
+             
+        }
+        else {
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+
         }
        
-
-        $jobs = Job::find()->orderBy('id')->all();
-            if (count($jobs) == 0) {
-                $model->id = 0;
-            }
-            else {
-                $highestID = $jobs[count($jobs)-1];
-                $model->id = $highestID->id+1;
-            }
-        $model->time = 0;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        Yii::trace("kjashd");
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
     }
 
     private function keyGeneration($keyBase) {
