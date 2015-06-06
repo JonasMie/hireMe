@@ -68,7 +68,7 @@ class ApplicationSearch extends Application
         ]);
 
         $query->andFilterWhere(['like', 'state', $this->state]);
-
+        $query->andFilterWhere([Yii::$app->user->identity->company_id => $this->company_id]);
         return $dataProvider;
     }
 }

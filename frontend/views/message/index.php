@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => function ($data) {
                     return Html::a($data->subject, '/message/view?id=' . $data->id, ['class' => $data->read ? "read" : ""]);  // STYLE: wenn klasse 'read' => bold
                 },
-                'options'   => ['width' => '20%']     // STYLE: entweder definiere spaltenbreite hier oder in css
+                'headerOptions' => ['test'=>'foo', 'data-foo'=>'bar']     // STYLE: edit headerOptions
             ],
 //            TODO: check if content needed in overview? if so, use ellipsis to shorten content --jonas
 //            [
@@ -60,7 +60,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     } else if (Yii::$app->user->getId() === $data->receiver_id) {
                         return Html::a($data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
                     }
-                }
+                },
+                'headerOptions' => ['data-sender'=>'homo']
             ],
             'sent_at:datetime:Gesendet',
 
