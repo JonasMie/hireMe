@@ -20,6 +20,18 @@ class Analytics extends \yii\base\Model
 
     }
 
+    public function getUnreadJobs($id) {
+
+        $jobs = Application::find()
+        ->where(['company_id' => $id , 'read' => 0])
+        ->orderBy('id')
+        ->all();
+
+        return count($jobs);
+
+
+    }
+
     //Overview
     public function getApplier($id) {
 

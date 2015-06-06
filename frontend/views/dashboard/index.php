@@ -9,6 +9,7 @@
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\ListView;
+use frontend\models\Analytics;
 
 
 ?>
@@ -23,8 +24,8 @@ use yii\widgets\ListView;
         <p><?=Html::a($messageDP->getCount() ." neue Nachrichten", "./messages");?></p>
 
     <h2>Stellenanzeigen</h2>
-        <p><?=Html::a($jobDP->getCount(). " Stellenanzeigen", './jobs')?></p>
-        <p><?=Html::a("42 Bewerbungen", "./bewerbungen"); //TODO: Applications?></p>
+        <p><?=Html::a(count(Analytics::getJobs(Yii::$app->user->identity->getCompanyId())). " Stellenanzeigen", './job/my-jobs?companyId='.Yii::$app->user->identity->getCompanyId())?></p>
+        <p><?=Html::a(Analytics::getUnreadJobs(Yii::$app->user->identity->getCompanyId())." neue Bewerbungen", "./bewerbungen"); //TODO: Applications?></p>
 
     <h2>Neueste Bewerbungen</h2>
 

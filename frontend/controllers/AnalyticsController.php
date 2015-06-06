@@ -95,7 +95,8 @@ class AnalyticsController extends Controller
         ->where(['btn_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
         ->orderBy('id')
         ->all();
-        $rate =  (count($interviews)/count($applies))*100;
+        if (count($applies) == 0) { $rate = 0;}
+        else $rate =  (count($interviews)/count($applies))*100;
         return $rate;
 
     }

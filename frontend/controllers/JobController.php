@@ -16,7 +16,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
-
+use yii\db\Query;
 /**
  * JobController implements the CRUD actions for Job model.
  */
@@ -82,17 +82,27 @@ class JobController extends Controller
             $applierArray[$i] = $jobApplier;
         }
 
+        
+        $query = Job::find()->where(['company_id' => $companyId])->orderBy('id');
+
 
         $dataProvider = new ActiveDataProvider([
-        'query' => Job::find(['company_id' => $companyId]),
+        'query' => $query,
         'pagination' => [
-            'pageSize' => 20,]
+            'pageSize' => 20,],
+        'sort' => [
+
+        'defaultOrder' => [
+            'job_begin' => SORT_ASC, 
+        ]
+        ],
         ]);
 
-
+        Yii::trace("Applicartion arrtay at 0: ".$applierArray[0]);
        return $this->render('_myjobs', [
             'companyName' => $comp,
-            'applierArray' => $applierArray,
+            'id' => $companyId,
+            'applier' => $applierArray,
             'provider' => $dataProvider,
         ]);
 
@@ -255,7 +265,8 @@ class JobController extends Controller
 
     public function actionButtonPopup() {
 
-        $cookie = Yii::$app->request->cookies['usr_']->value;
+
+        $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
 
          return $this->renderPartial('buttonPopup',[
             'userID' => $cookie,
