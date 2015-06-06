@@ -199,16 +199,8 @@ class User extends ActiveRecord implements IdentityInterface
      *
      * @return boolean
      */
-    public function isUserRecruiter($id)
-    {
-
-
-        $thisUser = findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
-
-        if ($thisUser->isRecruiter == 0) {
-            return false;
-        }
-        return true;
+    public function getName() {
+        return $this->firstName;
     }
 
     /**

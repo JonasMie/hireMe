@@ -34,6 +34,7 @@ class ApplicationController extends Controller
      * Lists all Application models.
      * @return mixed
      */
+    
     public function actionIndex()
     {
         $searchModel = new ApplicationSearch();

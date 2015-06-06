@@ -16,7 +16,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
-
+use yii\db\Query;
+use frontend\models\JobCreateForm;
 /**
  * JobController implements the CRUD actions for Job model.
  */
@@ -43,15 +44,39 @@ class JobController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
-        $searchModel = new JobSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    {   
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        if (Yii::$app->user->identity->isRecruiter()) {
+        
+        $companyId = Yii::$app->user->identity->getCompanyId();
+        Yii::trace("Company ID: ".$companyId);
+        // For displaying applier data
+        $analytics = new Analytics();
+        $allJobs = $analytics->getJobs($companyId);
+    
+        $jobs = new JobSearch();            
+        $dataProvider = $jobs->search(['JobSearch' =>['company_id' => $companyId]]);
+
+       return $this->render('index', [
+            'indiTitle' => "Stellenanzeigen von ".Company::getNameById($companyId),
+            'id' => $companyId,
+            'provider' => $dataProvider,
         ]);
-    }
+
+     } 
+
+     else {
+
+        $jobs = new JobSearch();            
+        $dataProvider = $jobs->search(['JobSearch']);
+
+       return $this->render('index', [
+            'indiTitle' => "Nur für dich, ".Yii::$app->user->identity->getName()." <3",
+            'provider' => $dataProvider,
+        ]);
+
+        } 
+     }
 
     /**
      * Displays a single Job model.
@@ -64,38 +89,6 @@ class JobController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
-
-    public function actionMyJobs($companyId) {
-
-         $comp = Company::getNameById($companyId);
-        
-        // For displaying applier data
-        $analytics = new Analytics();
-        $allJobs = $analytics->getJobs($companyId);
-        Yii::trace("Jobs: ".count($allJobs));
-        $applierArray = [];
-
-        for ($i=0; $i <count($allJobs) ; $i++) { 
-            $jobApplier = count($analytics->getAppliesForJob($allJobs[$i]->id));
-            Yii::trace("Applier: ".$jobApplier);
-            $applierArray[$i] = $jobApplier;
-        }
-
-
-        $dataProvider = new ActiveDataProvider([
-        'query' => Job::find(['company_id' => $companyId]),
-        'pagination' => [
-            'pageSize' => 20,]
-        ]);
-
-
-       return $this->render('_myjobs', [
-            'companyName' => $comp,
-            'applierArray' => $applierArray,
-            'provider' => $dataProvider,
-        ]);
-
     }
 
     public function actionApply($key,$user,$case) {
@@ -165,34 +158,22 @@ class JobController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Job();
-        $thisUser = Yii::$app->getUser();
-        $getUser = User::findOne($thisUser->id);
-        Yii::trace('User ID: ' .Yii::$app->user->getId());
-        if ($getUser->is_recruiter ==1) {
-        $model->company_id = $getUser->company_id;            
-        Yii::trace('Comp ID: ' .$getUser->company_id);
+       $model = new JobCreateForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->create() == true) {
+                Yii::trace("called index");
+                $this->redirect('index');
+            }
+             
+        }
+        else {
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+
         }
        
-
-        $jobs = Job::find()->orderBy('id')->all();
-            if (count($jobs) == 0) {
-                $model->id = 0;
-            }
-            else {
-                $highestID = $jobs[count($jobs)-1];
-                $model->id = $highestID->id+1;
-            }
-        $model->time = 0;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        Yii::trace("kjashd");
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
     }
 
     private function keyGeneration($keyBase) {
@@ -255,7 +236,8 @@ class JobController extends Controller
 
     public function actionButtonPopup() {
 
-        $cookie = Yii::$app->request->cookies['usr_']->value;
+
+        $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
 
          return $this->renderPartial('buttonPopup',[
             'userID' => $cookie,

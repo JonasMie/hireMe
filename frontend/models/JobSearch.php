@@ -7,6 +7,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\Job;
+use frontend\models\Application;
 
 /**
  * JobSearch represents the model behind the search form about `frontend\models\Job`.
@@ -46,9 +47,24 @@ class JobSearch extends Job
     public function search($params)
     {
         $query = Job::find();
+      //  $query->join("INNER JOIN",'application', $on = '', $params = ['job.id' => 'application.job_id']);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+        ]);
+
+        $dataProvider->setSort([
+            'attributes' => [
+                'id',
+                'title',
+                'job_begin',
+
+//                'senderName' => [                            // TODO: Fix order by sender
+//                    'asc' => ['user.lastName' => SORT_ASC],
+//                    'desc' => ['user.lastName' => SORT_DESC],
+//                    'label' => 'Von'
+//                ]
+            ]
         ]);
 
         $this->load($params);
