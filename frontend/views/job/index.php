@@ -1,59 +1,73 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
+use yii\widgets\ListView;
 use yii\grid\GridView;
+use frontend\models\analytics;
+use frontend\models\MyJobsGridView;
 
 /* @var $this yii\web\View */
+/* @var $model frontend\models\Job */
 
-/* @var $searchModel frontend\models\JobSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Jobs';
-
-/* @var $searchModel frontend\models\JobSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = Yii::t('app', 'Jobs');
-
+$this->title = $indiTitle;
+$this->params['breadcrumbs'][] = ['label' => 'Jobs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="job-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<div class="_myjobs">
 
+    <h1><?= Html::encode($this->title) ?></h1>   
     <p>
 
-        <?= Html::a('Create Job', ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::a(Yii::t('app', 'Create Job'), ['create'], ['class' => 'btn btn-success']) ?>
+<? if (Yii::$app->user->identity->isRecruiter()): ?>
 
-    </p>
+ <?= GridView::widget([
+        'dataProvider' => $provider,
+        'columns'      => [
+         [
+                'label'  => '  ',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::checkbox("checkbox",false);
+                }
+            ],    
+                'title:text:Titel',
+                'job_begin:text:Job beginnt',   
+            [
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'description',
-            'job_begin',
-            'job_end',
-            'zip',
-            // 'sector',
-            // 'company_id',
-            // 'active',
-            // 'created_at',
-            // 'updated_at',
-            // 'title',
-            // 'type',
-            // 'city',
-            // 'time:datetime',
-            // 'allocated',
-
-            ['class' => 'yii\grid\ActionColumn'],
+                'label'  => 'Info',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id)." - ".\yii\helpers\Html::a("Bearbeiten","/job/update?id=".$data->id);
+                }
+            ],
+           
         ],
-    ]); ?>
+        'caption'  => Html::decode("<a href='http://frontend/job/create'><button>Neue Stellenanzeige</button></a>")
+    ]); ?>  
 
+    
+
+<? else: ?>
+
+<?= GridView::widget([
+        'dataProvider' => $provider,
+        'columns'      => [
+
+                'title:text:Titel',
+                'job_begin:text:Job beginnt',  
+             [
+                'label'  => 'Mehr',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::a("Will ich!","/job/view?id=".$data->id);
+                }
+            ],    
+        ],
+    ]); ?>  
+    
+    </p>
+<? endif; ?>
 </div>
