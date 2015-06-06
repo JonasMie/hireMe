@@ -118,6 +118,45 @@ class Analytics extends \yii\base\Model
         return $btns;
     }
 
+     public function getInterestRateForBtn($id) {
+
+        $btn = ApplyBtn::findOne($id);
+        if ($btn->clickCount == 0) $rate = 0;
+        else $rate =  (count($btn->viewCount)/$btn->clickCount)*10;
+        return $rate;
+
+    }
+
+       public function getApplicationRateForBtn($id) {
+
+        $btn = ApplyBtn::findOne($id);
+        $btnApplies = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1,])
+        ->orderBy('id')
+        ->all();
+        if ($btn->clickCount == 0) $rate = 0;
+        else $rate =  (count($btnApplies)/$btn->clickCount)*100;
+        return $rate;
+    }
+
+      public function getInterviewRateForBtn($id) {
+        
+        $btn = ApplyBtn::findOne($id);
+        $applies = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1])
+        ->orderBy('id')
+        ->all();
+
+        $interviews = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
+        ->orderBy('id')
+        ->all();
+        if (count($applies) == 0) { $rate = 0;}
+        else $rate =  (count($interviews)/count($applies))*100;
+        return $rate;
+
+    }
+
     //Overview
     public function getAllViewsAndClicks($id) {
 
