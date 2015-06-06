@@ -1,10 +1,8 @@
 #header {
-  background: #ffffff;
+  background: $black;
   border: none;
   height: 60px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   user-select: none;
-
 
   @include font-header();
 
@@ -46,10 +44,12 @@
             color: $green;
           }
         }
-        > ul {
+        > ul.dropdown-menu {
           border-radius: 0px;
           min-width: 1px;
           top: 40px;
+          background-color: $black;
+          border: none;
           li {
             display: inline-block;
             float: left;
@@ -117,6 +117,12 @@
           cursor: pointer;
           user-select: none;
           z-index: 1;
+
+          border: 1px solid #fff;
+          -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+          -moz-box-shadow:    0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+          box-shadow:         0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+
         }
 
         //Styling of Hamburger Icon animation
@@ -134,7 +140,7 @@
           }
           .icon-bar:nth-of-type(2){
             position: absolute;
-            top: 13px;
+            top: 11px;
           }
           .icon-bar:nth-of-type(3){
             margin-top: 0px;
@@ -148,7 +154,7 @@
           }
           &:hover {
             .icon-bar:nth-of-type(2) {
-              top: 11px;
+              top: 9px;
             }
             .icon-bar:nth-of-type(4) {
               top: 25px;
@@ -161,13 +167,13 @@
           .icon-bar:nth-of-type(2){
             width: $hamburger-button-size/1.8;
             transform: rotate3d(0,0,1,-40deg);
-            top: 16px;
+            top: 15px;
             left: 9px;
           }
           .icon-bar:nth-of-type(4) {
             width: $hamburger-button-size/1.8;
             transform: rotate3d(0,0,1,40deg);
-            top: 20px;
+            top: 19px;
             left:9px;
           }
         }
@@ -180,8 +186,7 @@
         }
       }
       #header-collapse {
-        border-right: 1px solid $greyFont ;
-        background-color: #ffffff;
+        background-color: $black;
         -webkit-transition: width .4s;
         -moz-transition: width 0.4s;
         -ms-transition: width 0.4s;
@@ -227,12 +232,11 @@
             ul#w1 {
               background: none;
               border: none;
-              border-right: 1px solid $greyFont ;
               box-shadow: none;
               position: static;
               left: auto;
               top: auto;
-              background-color: $greyBG;
+              background-color: $grey;
               border-radius: 0px;
               padding-bottom: 8px;
               width: 200px;
@@ -244,7 +248,7 @@
                 margin: 10px 0px 0px 45px;
                 padding: 0px 30px 0px 10px;
                 a {
-                  color: $greyFont;
+                  color: #fff;
                   &:hover, &:focus {
                     background: none !important;
                     color: $green;
@@ -320,5 +324,24 @@ body.overflowx {
 @media (max-width: 991px) {
   #header > div.container {
     height: 1px;
+  }
+}
+
+li.dropdown {
+  a {
+    b.caret {
+      border-bottom: 4px solid transparent;
+      border-top: 4px solid transparent;
+      border-left: 4px solid $greyFont;
+    }
+  }
+}
+li.dropdown.open {
+  a {
+    b.caret {
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid $greyFont;
+    }
   }
 }

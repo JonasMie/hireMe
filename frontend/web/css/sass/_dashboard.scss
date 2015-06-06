@@ -1,0 +1,249 @@
+// TILES
+div.container {
+  div.row {
+    margin-top: 20px;
+    div.dashboard-tile {
+      height: 130px;
+      padding: 0px 1%;
+      @media (max-width: 511px) {
+        width: 100%;
+      }
+
+
+      div.subtile {
+        height: 130px;
+        width: 50%;
+        float: left;
+        clear: right;
+        &:hover {
+          cursor: pointer;
+        }
+        div.tile-value {
+          text-align: center;
+          a {
+            color: #fff;
+            font-size: 17px;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        div.tile-value.tile-number {
+          padding: 25px 0px 2px 0px;
+          a {
+            font-size: 30px;
+          }
+        }
+        div.tile-value.tile-string {
+          padding: 0 5%;
+          line-height: 18px;
+        }
+
+      }
+    }
+
+    div.col-lg-3.tile-green {
+
+      div.subtile-left {
+        background-color: $green;
+      }
+
+      div.subtile-right {
+        background-color: $green50;
+      }
+    }
+
+    div.col-lg-3.tile-black {
+
+      div.subtile-left {
+        background-color: $black;
+      }
+
+      div.subtile-right {
+        background-color: $grey;
+      }
+    }
+
+    div.dashboard-tile-1 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-neue-bewerbungen.png");
+        background-size: 55% auto;
+        @media (max-width: 991px) {
+          background-size: 40% auto;
+        }
+        @media (max-width: 767px) {
+          background-size: 80px auto;
+        }
+      }
+    }
+    div.dashboard-tile-2 {
+      @media (max-width: 511px) {
+        margin-top: 20px;
+      }
+      div.subtile-right {
+        background-image: url("/images/dashboard-nachrichten.png");;
+        background-size: 50% auto;
+        @media (max-width: 991px) {
+          background-size: 45% auto;
+        }
+        @media (max-width: 767px) {
+          background-size: 90px auto;
+        }
+      }
+    }
+    div.dashboard-tile-3 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-stellenanzeigen.png");
+        background-size: 35% auto;
+        @media (max-width: 991px) {
+          background-size: 25% auto;
+        }
+        @media (max-width: 767px) {
+          background-size: 50px auto;
+        }
+      }
+    }
+    div.dashboard-tile-4 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-bewerbungen.png");
+        background-size: 55% auto;
+        @media (max-width: 767px) {
+          background-size: 110px auto;
+        }
+      }
+    }
+
+    div.dashboard-tile {
+      div.subtile-right {
+        background-position: center;
+        background-repeat: no-repeat
+      }
+    }
+
+    div.dashboard-tile-3, div.dashboard-tile-4 {
+      @media (max-width: 991px) {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+// END TILES
+
+// Newest Applications Table
+
+.table-hover > tbody > tr:hover {
+  background-color: $green20;
+}
+
+#NewestApplicationsTable {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+  -moz-box-shadow:    0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+  box-shadow:         0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+
+  margin-top: 20px;
+  color: $greyFont;
+  border: 1px solid $borderGrey;
+
+  thead {
+    tr{
+      th{
+        border-bottom: 1px solid $borderGrey;
+        &:nth-of-type(4),&:nth-of-type(5){
+          text-align: right;
+        }
+      }
+
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+        height: 72px;
+        border: none;
+        img {
+          width: 50px;
+          height: auto;
+          border-radius: 25px;
+          cursor: pointer;
+        }
+        span.glyphicon-eye-open {
+          cursor: pointer;
+          &:hover {
+            color: $green;
+          }
+          
+        }
+      }
+      td[data-title="Picture"] {
+        width: 10%;
+      }
+      td[data-title="Name"] {
+        width: 30%;
+      }
+      td[data-title="Ad"] {
+        width: 34%;
+      }
+      td[data-title="Date"] {
+        width: 16%;
+        text-align: right;
+      }
+      td[data-title="View"] {
+        width: 10%;
+        text-align: right;
+      }
+      td[data-title="data-toggle"] {
+        text-align: right;
+        width: 5%;
+      }
+    }
+  }
+}
+
+// Footable specific styling
+
+// Accordion Chewrons
+.footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle {
+
+  &:before {
+  cursor: pointer;
+  font-family: 'Glyphicons Halflings';
+  content: "\e258";
+  }
+  &:hover {
+    color: $green;
+  }
+}
+
+.footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content:"\e259";
+}
+// END Accordion Chevrons
+
+
+.footable .footable-row-detail {
+
+  .footable-row-detail-inner {
+
+    border-bottom: 1px solid $borderGrey;
+    padding-bottom: 10px;
+
+    .footable-row-detail-row {
+      display: block;
+
+      .footable-row-detail-name {
+        display: inline;
+        color: $green;
+      }
+      .footable-row-detail-value {
+        display: inline;
+        float: right;
+      }
+    }
+  }
+}
+// END Newest Applications Table
+
+
+

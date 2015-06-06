@@ -25,7 +25,11 @@ CustomAppAsset::register($this);
     <!-- Hard Coded. Remove this in Application.php
     <link rel="stylesheet" href="/css/stylesheets/style.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/footable.js"></script>
+    <script src="/js/customScript.js"></script>
     -->
+
 
     <?php $this->head() ?>
 </head>
