@@ -26,8 +26,9 @@ class AnalyticsController extends Controller
             ]
         ];
     }
-    public function actionIndex($id)
+    public function actionIndex()
     {
+         $id = Yii::$app->user->identity->company_id;
     	 $analytics = new Analytics();
     	 $jobs = $analytics->getJobs($id);
          $applier = $analytics->getApplier($id);

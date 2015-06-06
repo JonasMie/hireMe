@@ -130,6 +130,34 @@ class JobController extends Controller
 
     }
 
+    public function actionApplyIntern($id) { // expected job id
+
+        $user = Yii::$app->user->identity;
+
+        $job = Job::findOne($id);
+
+        $app = new Application();
+
+        $apps = Application::find()->orderBy('id')->all();
+            if (count($apps) == 0) {
+                $app->id = 0;
+            }
+            else {
+                $highestID = $apps[count($apps)-1];
+                $app->id = $highestID->id+1;
+            }
+
+        $app->user_id = $user->id;
+        $app->company_id = $job->company_id;
+        $app->job_id = $id;
+        $app->state = "Gespeichert";
+        if($app->save()) {
+        return $this->render('applied');
+        }
+
+
+    }
+
     // count views
     public function actionViewUp($btnKey) {
 
