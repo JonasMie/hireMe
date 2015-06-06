@@ -19,7 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 // SignUp //
 include Yii::getAlias('@helper/companySignup.php');
-SignupAsset::register($this);
 
 ?>
 <div class="site-login">
