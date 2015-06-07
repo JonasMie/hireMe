@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use common\models\User;
 use Yii;
 
 /**
@@ -52,17 +53,6 @@ class Application extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-
-            'id' => 'ID',
-            'user_id' => 'User ID',
-            'company_id' => 'Company ID',
-            'job_id' => 'Job ID',
-            'score' => 'Score',
-            'state' => 'State',
-            'sent' => 'Sent',
-            'read' => 'Read',
-            'archived' => 'Archived',
-            'created_at' => 'Created At',
 
             'id' => Yii::t('app', 'ID'),
             'user_id' => Yii::t('app', 'User ID'),
@@ -127,7 +117,7 @@ class Application extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getApplicationDatas()
+    public function getApplicationData()
     {
         return $this->hasMany(ApplicationData::className(), ['application_id' => 'id']);
     }
