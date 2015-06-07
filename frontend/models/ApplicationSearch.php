@@ -39,12 +39,26 @@ class ApplicationSearch extends Application
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $jobContact = false)
     {
         $query = Application::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+        ]);
+
+        $dataProvider->setSort([
+            'attributes' => [
+                'created_at' => [
+                    'asc'     => ['created_at' => SORT_ASC],
+                    'desc'    => ['created_at' => SORT_DESC],
+                    'label'   => 'Beworben am',
+                    'default' => SORT_DESC
+                ]
+            ],
+            'defaultOrder' => [
+                'created_at' => SORT_DESC
+            ]
         ]);
 
         $this->load($params);
@@ -56,19 +70,22 @@ class ApplicationSearch extends Application
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'user_id' => $this->user_id,
+            'id'         => $this->id,
+            'user_id'    => $this->user_id,
             'company_id' => $this->company_id,
-            'job_id' => $this->job_id,
-            'score' => $this->score,
-            'sent' => $this->sent,
-            'read' => $this->read,
-            'archived' => $this->archived,
+            'job_id'     => $this->job_id,
+            'score'      => $this->score,
+            'sent'       => $this->sent,
+            'read'       => $this->read,
+            'archived'   => $this->archived,
             'created_at' => $this->created_at,
         ]);
 
         $query->andFilterWhere(['like', 'state', $this->state]);
-        $query->andFilterWhere([Yii::$app->user->identity->company_id => $this->company_id]);
+
+        if ($jobContact) {
+            $query->join('INNER JOIN', 'job_contacts', 'job_contacts.job_id = application.job_id AND job_contacts.contact_id = ' . Yii::$app->user->getId());
+        }
         return $dataProvider;
     }
 }

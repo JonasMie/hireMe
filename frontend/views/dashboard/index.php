@@ -4,12 +4,13 @@
  * @var $messageDP yii\data\ActiveDataProvider
  * @var $favouritesDP yii\data\ActiveDataProvider
  * @var $jobDP yii\data\ActiveDataProvider
+ * @var $applicationProvider yii\data\ActiveDataProvider
+ * @var $newApplications Integer
+ * @var $totalApplications Integer
  */
 
 use yii\grid\GridView;
 use yii\helpers\Html;
-use yii\widgets\ListView;
-use frontend\assets\CustomAppAsset;
 
 
 ?>
@@ -35,10 +36,10 @@ use frontend\assets\CustomAppAsset;
              onclick="window.location='./bewerbungen';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a(42, "./bewerbungen"); //TODO: Applications       ?>
+                    <?= Html::a($newApplications, "/bewerbungen"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a('neue Bewerbungen', "./bewerbungen"); //TODO: Applications       ?>
+                    <?= Html::a('neue Bewerbungen', "/bewerbungen"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -46,13 +47,13 @@ use frontend\assets\CustomAppAsset;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-2 tile-black"
-             onclick="window.location='./messages';">
+             onclick="window.location='/message';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($messageDP->getCount(), "./messages"); ?>
+                    <?= Html::a($messages, "/message"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a("neue Nachrichten", "./messages"); ?>
+                    <?= Html::a("neue Nachrichten", "/message"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -63,10 +64,10 @@ use frontend\assets\CustomAppAsset;
              onclick="window.location='./jobs';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($jobDP->getCount(), './jobs') ?>
+                    <?= Html::a($jobs, '/jobs') ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a("Stellenanzeigen", './jobs') ?>
+                    <?= Html::a("Stellenanzeigen", '/jobs') ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -77,10 +78,10 @@ use frontend\assets\CustomAppAsset;
              onclick="window.location='./bewerbungen';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a(42, "./bewerbungen"); //TODO: Applications       ?>
+                    <?= Html::a($totalApplications, "/bewerbungen"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a('Bewerbungen insgesamt', "./bewerbungen"); //TODO: Applications       ?>
+                    <?= Html::a('Bewerbungen insgesamt', "/bewerbungen"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -93,49 +94,53 @@ use frontend\assets\CustomAppAsset;
     <h2>Neueste Bewerbungen</h2>
 
     <?= GridView::widget([
-        'dataProvider' => $dataProvider,
+        'dataProvider' => $applicationProvider,
         'filterModel'  => $searchModel,
         'tableOptions' => [
-            'class'=> 'table table-hover footable toggle-arrow',
-            'id' => 'NewestApplicationsTable',
+            'class' => 'table table-hover footable toggle-arrow',
+            'id'    => 'NewestApplicationsTable',
         ],
         'columns'      => [
-//            [
-//
-//            ],
             [
-                'attribute' => 'user',
-                'label'     => 'Name',
-                'format'    => 'raw',
-                'value'     => function ($data) {
+                'attribute'      => 'picture',
+                'format'         => 'raw',
+                'value'          => function () {
+                    return '<img src="/images/tmp/user/1.jpg">';
+                },
+                'contentOptions' => ['data-title' => 'Picture'],
+                'label'          => false
+            ],
+            [
+                'attribute'      => 'user',
+                'label'          => 'Name',
+                'format'         => 'raw',
+                'value'          => function ($data) {
                     return Html::a($data->user->fullName, '../user/' . $data->user->username);
                 },
-                'contentOptions' => ['data-title'=> 'Name'],
+                'contentOptions' => ['data-title' => 'Name'],
             ],
             [
-                'attribute'     => 'job',
-                'label'         => 'Stelle',
-                'format'        => 'raw',
-                'value'         => function ($data) {
+                'attribute'      => 'job',
+                'label'          => 'Stelle',
+                'format'         => 'raw',
+                'value'          => function ($data) {
                     return Html::a($data->job->title, '../job/' . $data->job->title);
                 },
-                'headerOptions' => ['data-hide' => 'phone'],
-                'contentOptions'=> ['data-title'=> 'Ad'],
+                'headerOptions'  => ['data-hide' => 'phone'],
+                'contentOptions' => ['data-title' => 'Ad'],
             ],
             [
-                'attribute'     => 'created_at',
-                'label'         => 'Beworben am',
-                'value'         => function ($data) {
-                    return Yii::$app->formatter->asDatetime($data->created_at, "php:d.m.Y");
-                },
-                'headerOptions' => ['data-hide' => 'xsmall,phone'],
-                'contentOptions'=> ['data-title'=> 'Date']
+                'attribute'      => 'created_at',
+                'label'          => 'Beworben am',
+                'format'         => ['date', 'php:d.m.Y'],
+                'headerOptions'  => ['data-hide' => 'xsmall,phone'],
+                'contentOptions' => ['data-title' => 'Date']
             ],
             [
-                'class'         => 'yii\grid\ActionColumn',
-                'template'      => '{view}',
-                'headerOptions' => ['data-toggle' => 'true'],
-                'contentOptions'=> ['data-title' => 'View'],
+                'class'          => 'yii\grid\ActionColumn',
+                'template'       => '{view}',
+                'headerOptions'  => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'View'],
             ]
 
         ]
