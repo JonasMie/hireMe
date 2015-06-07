@@ -25,7 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
     </div>
 <?
-echo "<div>";
 if ($user->getId() == Yii::$app->user->identity->getId()) {
     if (!empty($resumeJob)) {
         foreach ($resumeJob as $job) {
@@ -48,6 +47,8 @@ if ($user->getId() == Yii::$app->user->identity->getId()) {
             echo $job->end?Yii::$app->formatter->asDate($job->end, "MMMM y"):"heute";
             echo "</span></div></div>";
         }
+    } else {
+        echo Html::button(Html::a('Füge deine bisherigen Arbeitsstellen hinzu', '/resume/create'));
     }
     if (!empty($resumeSchool)) {
         echo "<h2>Bildung</h2>";
@@ -56,8 +57,10 @@ if ($user->getId() == Yii::$app->user->identity->getId()) {
             echo "<br>";
             echo "<p>" . $school->graduation . "</p>";
         }
+    }else {
+        echo Html::button(Html::a('Füge Details deiner schulischen Bildung hinzu', '/resume/create'));
     }
-    echo "</div>";
+
 }
 
 
