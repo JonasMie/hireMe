@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use frontend\models\Application;
+use frontend\controllers\ApplicationController;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\ApplicationSearch */
@@ -12,32 +14,30 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="application-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+     <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Application'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+         <h1><?= Html::encode("Eingegangene Bewerbungen") ?></h1>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'user_id',
-            'company_id',
-            'job_id',
-            'score',
-            // 'state',
-            // 'sent',
-            // 'read',
-            // 'archived',
-            // 'created_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
+  <?= GridView::widget([
+        'dataProvider' => $provider,
+        'columns'      => [
+         [
+                'label'  => 'Stellenanzeige',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return ApplicationController::getJobTitle($data->job_id);
+                }
+            ],    
+        [
+                'label'  => 'Bewerber',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return ApplicationController::getApplierName($data->user_id);
+                }
+            ],    
         ],
-    ]); ?>
+    ]); ?>  
+
+      <? endif; ?>
 
 </div>

@@ -12,10 +12,12 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="application-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2>Neue Bewerbung auf die Stellenanzeige: <?= $job->title ?></h2>
+    <h3>Deine Qualifikationen:</h3>
+    <div id="data">
+    <?= Yii::$app->controller->renderPartial("uploadSection", ['model' =>$model, 'provider' => $provider]) ?>
+	</div>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+	<?= Html::a(Html::button("Bewerbung senden")) ?>
 
 </div>

@@ -33,13 +33,13 @@ use yii\helpers\Html;
 
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"
-             onclick="window.location='./bewerbungen';">
+             onclick="window.location='./application';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($newApplications, "/bewerbungen"); ?>
+                    <?= Html::a(count($newApplications), "/application"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a('neue Bewerbungen', "/bewerbungen"); ?>
+                    <?= Html::a('neue Bewerbungen', "/application"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -61,13 +61,13 @@ use yii\helpers\Html;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-3 tile-green"
-             onclick="window.location='./jobs';">
+             onclick="window.location='./job';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($jobs, '/jobs') ?>
+                    <?= Html::a(count($jobs), '/job') ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a("Stellenanzeigen", '/jobs') ?>
+                    <?= Html::a("Stellenanzeigen", '/job') ?>
                 </div>
             </div>
             <div class="subtile subtile-right">

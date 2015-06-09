@@ -18,6 +18,7 @@ use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
 use frontend\models\JobCreateForm;
+use frontend\controllers\ApplicationController;
 /**
  * JobController implements the CRUD actions for Job model.
  */
@@ -134,9 +135,9 @@ class JobController extends Controller
 
         $user = Yii::$app->user->identity;
 
-        $job = Job::findOne($id);
-
         $app = new Application();
+
+        $job = Job::findOne($id);
 
         $apps = Application::find()->orderBy('id')->all();
             if (count($apps) == 0) {
@@ -151,12 +152,15 @@ class JobController extends Controller
         $app->company_id = $job->company_id;
         $app->job_id = $id;
         $app->state = "Gespeichert";
-        if($app->save()) {
-        return $this->render('applied');
-        }
+        $app->sent = 0;
+        $app->read = 0;
+        $app->archived = 0;  
+        $app->save();
 
+        $this->redirect(["./application/add-data?id=".$app->id]);
 
     }
+
 
     // count views
     public function actionViewUp($btnKey) {

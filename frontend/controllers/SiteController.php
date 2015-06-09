@@ -91,7 +91,7 @@ class SiteController extends Controller
              //   'domain' => 'http://frontend/'
           
         ]));
-        return $this->render('index');
+        return $this->redirect(["./dashboard"]);
 
     }
 
