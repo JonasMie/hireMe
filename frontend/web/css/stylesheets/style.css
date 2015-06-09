@@ -542,8 +542,9 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background-color: #ffffff;
+  /* HighDPI support */
 }
-/* line 6, ../sass/_basicTemplate.scss */
+/* line 7, ../sass/_basicTemplate.scss */
 body table.hireMeTable {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
@@ -553,54 +554,75 @@ body table.hireMeTable {
   border: 1px solid #dddddd;
   width: 100%;
 }
-/* line 18, ../sass/_basicTemplate.scss */
+/* line 19, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th {
   border-bottom: 1px solid #dddddd;
   padding: 8px;
   text-align: left;
 }
-/* line 23, ../sass/_basicTemplate.scss */
+/* line 24, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a {
   color: #9d9d9d;
   text-decoration: none;
 }
-/* line 26, ../sass/_basicTemplate.scss */
+/* line 27, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a:hover {
   color: #5dca88;
 }
-/* line 31, ../sass/_basicTemplate.scss */
+/* line 32, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.asc::after {
   content: "\e093";
 }
-/* line 36, ../sass/_basicTemplate.scss */
+/* line 37, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.desc::after {
   content: "\e094";
 }
-/* line 49, ../sass/_basicTemplate.scss */
+/* line 50, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr:hover {
   background-color: rgba(93, 202, 136, 0.2) !important;
 }
-/* line 53, ../sass/_basicTemplate.scss */
+/* line 54, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td {
   vertical-align: middle;
   height: 72px;
   border: none;
   padding: 8px;
 }
-/* line 59, ../sass/_basicTemplate.scss */
+/* line 60, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a {
   color: #9d9d9d;
   text-decoration: none;
 }
-/* line 62, ../sass/_basicTemplate.scss */
+/* line 63, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a:hover {
   color: #5dca88;
 }
-
-/* iCheck plugin Flat skin, green
------------------------------------ */
-/* line 81, ../sass/_basicTemplate.scss */
-.icheckbox_flat-green {
+/* line 76, ../sass/_basicTemplate.scss */
+body ul.pagination li a {
+  border-color: #dddddd;
+  color: #5dca88;
+}
+/* line 79, ../sass/_basicTemplate.scss */
+body ul.pagination li a:hover {
+  background-color: rgba(93, 202, 136, 0.2);
+  color: #9d9d9d;
+}
+/* line 86, ../sass/_basicTemplate.scss */
+body ul.pagination li.active a, body ul.pagination li.active a:hover {
+  background-color: #5dca88;
+  border-color: #dddddd;
+  color: #fff;
+}
+/* line 93, ../sass/_basicTemplate.scss */
+body ul.pagination li.disabled a {
+  color: #9d9d9d;
+}
+/* line 96, ../sass/_basicTemplate.scss */
+body ul.pagination li.disabled span {
+  color: #9d9d9d;
+}
+/* line 109, ../sass/_basicTemplate.scss */
+body .icheckbox_flat-green {
   display: inline-block;
   *display: inline;
   vertical-align: middle;
@@ -608,63 +630,33 @@ body table.hireMeTable tbody tr td a:hover {
   padding: 0;
   width: 20px;
   height: 20px;
-  background: url(green.png) no-repeat;
+  background: url(/images/icheck/green.png) no-repeat;
   border: none;
   cursor: pointer;
-}
-
-/* line 94, ../sass/_basicTemplate.scss */
-.icheckbox_flat-green {
   background-position: 0 0;
 }
-
-/* line 97, ../sass/_basicTemplate.scss */
-.icheckbox_flat-green.checked {
+/* line 123, ../sass/_basicTemplate.scss */
+body .icheckbox_flat-green.checked {
   background-position: -22px 0;
 }
-
-/* line 100, ../sass/_basicTemplate.scss */
-.icheckbox_flat-green.disabled {
+/* line 126, ../sass/_basicTemplate.scss */
+body .icheckbox_flat-green.disabled {
   background-position: -44px 0;
   cursor: default;
 }
-
-/* line 104, ../sass/_basicTemplate.scss */
-.icheckbox_flat-green.checked.disabled {
+/* line 130, ../sass/_basicTemplate.scss */
+body .icheckbox_flat-green.checked.disabled {
   background-position: -66px 0;
 }
-
-/* line 108, ../sass/_basicTemplate.scss */
-.iradio_flat-green {
-  background-position: -88px 0;
-}
-
-/* line 111, ../sass/_basicTemplate.scss */
-.iradio_flat-green.checked {
-  background-position: -110px 0;
-}
-
-/* line 114, ../sass/_basicTemplate.scss */
-.iradio_flat-green.disabled {
-  background-position: -132px 0;
-  cursor: default;
-}
-
-/* line 118, ../sass/_basicTemplate.scss */
-.iradio_flat-green.checked.disabled {
-  background-position: -154px 0;
-}
-
-/* HiDPI support */
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-  /* line 124, ../sass/_basicTemplate.scss */
-  .icheckbox_flat-green,
-  .iradio_flat-green {
-    background-image: url(green@2x.png);
+  /* line 136, ../sass/_basicTemplate.scss */
+  body .icheckbox_flat-green {
+    background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
+
 /* line 3, ../sass/_login.scss */
 .site-login .login-field {
   text-align: center;
