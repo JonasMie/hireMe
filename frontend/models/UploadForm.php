@@ -23,7 +23,9 @@ class UploadForm extends Model
     {
         return [
            [['file'], 'file'],
+           ['file','required'],
            ['title', 'string'],
+           ['title', 'required'],
 
         ];
     }

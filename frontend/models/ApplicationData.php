@@ -33,7 +33,6 @@ class ApplicationData extends \yii\db\ActiveRecord
             [['id', 'application_id', 'file_id'], 'required'],
             [['id', 'application_id'], 'integer'],
             [['created_at'], 'safe'],
-            [['file_id'], 'string', 'max' => 45]
         ];
     }
 

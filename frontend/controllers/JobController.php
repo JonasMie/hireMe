@@ -133,7 +133,31 @@ class JobController extends Controller
 
     public function actionApplyIntern($id) { // expected job id
 
-        $this->redirect(["./application/create?jobId=".$id]);
+        $user = Yii::$app->user->identity;
+
+        $app = new Application();
+
+        $job = Job::findOne($id);
+
+        $apps = Application::find()->orderBy('id')->all();
+            if (count($apps) == 0) {
+                $app->id = 0;
+            }
+            else {
+                $highestID = $apps[count($apps)-1];
+                $app->id = $highestID->id+1;
+            }
+
+        $app->user_id = $user->id;
+        $app->company_id = $job->company_id;
+        $app->job_id = $id;
+        $app->state = "Gespeichert";
+        $app->sent = 0;
+        $app->read = 0;
+        $app->archived = 0;  
+        $app->save();
+
+        $this->redirect(["./application/add-data?id=".$app->id]);
 
     }
 

@@ -14,9 +14,6 @@ use yii\widgets\ActiveForm;
 
     <h3>Deine Qualifikationen:</h3>
 
-    <?= $form->field($model, 'file')->fileInput(['multiple' => false]) ?>
-    <?= $form->field($model, 'title')->input("Titel:") ?>
-
     <div class="form-group">
         <?= Html::submitButton("Erstellen") ?>
     </div>

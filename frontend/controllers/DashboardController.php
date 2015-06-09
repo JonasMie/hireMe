@@ -61,6 +61,11 @@ class DashboardController extends \yii\web\Controller
             $totalApplications = $applicationsProto->count();
             $newApplications = $applicationsProto->andWhere(['read'=>0])->count();
 
+            $newApplications = count(Application::find()
+            ->where(['company_id' => Yii::$app->user->identity->company_id , 'read' => 0])
+            ->orderBy('id')
+            ->all());
+
             return $this->render('index', [
                 'messages' => $messages,
                 'searchModel' => $searchModel,
