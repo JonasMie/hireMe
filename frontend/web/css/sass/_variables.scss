@@ -81,5 +81,8 @@ input.form-control{
   box-shadow: none!important;
   -webkit-box-shadow: none!important;
   border-radius: 0px;
+  &:focus {
+    border-color: $green;
+  }
 }
 

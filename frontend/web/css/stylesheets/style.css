@@ -116,6 +116,10 @@ input.form-control {
   -webkit-box-shadow: none !important;
   border-radius: 0px;
 }
+/* line 84, ../sass/_variables.scss */
+input.form-control:focus {
+  border-color: #5dca88;
+}
 
 /* Welcome to Compass. Use this file to write IE specific override styles.
  * Import this file using the following HTML or equivalent:
