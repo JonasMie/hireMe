@@ -147,7 +147,7 @@ use yii\helpers\Html;
     ]);
     ?>
 
-    <table id="NewestApplicationsTable" class="table table-hover footable toggle-arrow">
+    <table id="NewestApplicationsTable" class="table table-hover footable toggle-arrow hireMeTable">
         <thead>
         <tr>
             <th></th>
