@@ -1,8 +1,130 @@
 body {
   @include font-standard();
   background-color: #ffffff;
+
+  // BASIC TABLE STYLING
+  table.hireMeTable {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+    -moz-box-shadow:    0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+    box-shadow:         0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+
+    margin-top: 20px;
+    color: $greyFont;
+    border: 1px solid $borderGrey;
+    width: 100%;
+
+    thead {
+      tr{
+        th{
+          border-bottom: 1px solid $borderGrey;
+          padding: 8px;
+          text-align: left;
+
+          a {
+            color: $greyFont;
+            text-decoration: none;
+            &:hover {
+              color: $green;
+            }
+          }
+          a.asc {
+            &::after {
+              content:"\e093";
+            }
+          }
+          a.desc {
+            &::after {
+              content:"\e094";
+            }
+          }
+
+
+        }
+      }
+    }
+
+    tbody {
+      tr {
+
+        &:hover {
+          background-color: $green20 !important;
+        }
+
+        td {
+          vertical-align: middle;
+          height: 72px;
+          border: none;
+          padding: 8px;
+
+          a {
+            color: $greyFont;
+            text-decoration: none;
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  } // END BASIC TABLE STYLING
+
+  // CHECKBOX STYLING
+
+
 }
 
 
 
 
+/* iCheck plugin Flat skin, green
+----------------------------------- */
+.icheckbox_flat-green {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background: url(green.png) no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.icheckbox_flat-green {
+  background-position: 0 0;
+}
+.icheckbox_flat-green.checked {
+  background-position: -22px 0;
+}
+.icheckbox_flat-green.disabled {
+  background-position: -44px 0;
+  cursor: default;
+}
+.icheckbox_flat-green.checked.disabled {
+  background-position: -66px 0;
+}
+
+.iradio_flat-green {
+  background-position: -88px 0;
+}
+.iradio_flat-green.checked {
+  background-position: -110px 0;
+}
+.iradio_flat-green.disabled {
+  background-position: -132px 0;
+  cursor: default;
+}
+.iradio_flat-green.checked.disabled {
+  background-position: -154px 0;
+}
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+  .icheckbox_flat-green,
+  .iradio_flat-green {
+    background-image: url(green@2x.png);
+    -webkit-background-size: 176px 22px;
+    background-size: 176px 22px;
+  }
+}

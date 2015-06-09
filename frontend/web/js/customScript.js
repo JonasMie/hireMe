@@ -6,6 +6,12 @@ $(document).ready(function(){
 
     $('#header .navbar-toggle').removeAttr('data-target');
 
+    /** INITIALIZING ICHECK **/
+    $('input').iCheck({
+        checkboxClass: 'icheckbox_flat-green',
+        radioClass: 'iradio_flat'
+    });
+
 });
 
 
@@ -26,7 +32,6 @@ $('#header .navbar-header .navbar-toggle').click(function(){
     }
     hamburgerClickedClass = !hamburgerClickedClass;
 });
-
 /** END Animation for Hamburger Icon on Mobile View */
 
 
@@ -95,4 +100,7 @@ var data = [
 var ctx = document.getElementById("DashboardChart").getContext("2d");
 var myNewChart = new Chart(ctx).Doughnut(data);
 /** END Demo**/
+
+
+
 

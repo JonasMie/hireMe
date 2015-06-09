@@ -25,10 +25,10 @@ $this->title = Yii::t('app', 'Messages');
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel'  => $searchModel,
+        'tableOptions' => ['class' => 'hireMeTable'],
         'columns'      => [
-            ['class' => 'yii\grid\SerialColumn'],
             [
-                'class'         => 'yii\grid\CheckboxColumn',
+                    'class'         => 'yii\grid\CheckboxColumn',
                 'filterOptions' => function () {
                     echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
                 }
