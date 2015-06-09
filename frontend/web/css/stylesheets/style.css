@@ -133,6 +133,11 @@ input.form-control {
 }
 
 /* line 102, ../sass/_variables.scss */
+.ripple {
+  position: relative;
+}
+
+/* line 106, ../sass/_variables.scss */
 svg {
   position: absolute;
   top: 0;
@@ -141,9 +146,9 @@ svg {
   height: 100%;
 }
 
-/* line 110, ../sass/_variables.scss */
+/* line 114, ../sass/_variables.scss */
 circle {
-  fill: red;
+  fill: rgba(255, 255, 255, 0.1);
 }
 
 /* Welcome to Compass. Use this file to write IE specific override styles.

@@ -99,6 +99,10 @@ input.form-control{
 
 // Touch Ripple
 
+.ripple {
+  position: relative;
+}
+
 svg {
   position: absolute;
   top: 0;
@@ -108,5 +112,5 @@ svg {
 }
 
 circle {
-  fill: rgba(255,0,0,1);
+  fill: rgba(255,255,255,0.1);
 }

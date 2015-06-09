@@ -42,7 +42,6 @@ $('#header .navbar-header .navbar-toggle').click(function(){
 
 
 /** Touch Ripple Function **/
-
 $(".ripple").on("click", function(e){
 
     e.preventDefault();
@@ -64,15 +63,17 @@ $(".ripple").on("click", function(e){
             "r" : $(box).outerWidth()
         },
         {
-            easing: "easeOutQuad",
+            easing: "linear",
             duration: 400,
             step : function(val){
                 c.attr("r", val);
+            },
+            complete: function() {
+                location.href = $(box).attr('href');
             }
         }
     );
 });
-
 /** END Touch Ripple Function **/
 
 

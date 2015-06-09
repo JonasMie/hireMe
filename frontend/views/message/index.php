@@ -15,7 +15,6 @@ $this->title = Yii::t('app', 'Messages');
 
     <h1>Posteingang</h1>
 
-    <div class="ripple" style="width: 300px; height: 300px; background-color: #000"></div>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
