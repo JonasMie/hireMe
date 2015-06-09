@@ -61,13 +61,13 @@ use yii\helpers\Html;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-3 tile-green"
-             onclick="window.location='./jobs';">
+             onclick="window.location='./job';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($jobs, '/jobs') ?>
+                    <?= Html::a(count($jobs), '/job') ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a("Stellenanzeigen", '/jobs') ?>
+                    <?= Html::a("Stellenanzeigen", '/job') ?>
                 </div>
             </div>
             <div class="subtile subtile-right">

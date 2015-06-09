@@ -12,8 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="application-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    <h2>Neue Bewerbung auf die Stellenanzeige: <?= $job->title ?></h2>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
