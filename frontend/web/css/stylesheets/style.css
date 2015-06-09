@@ -163,256 +163,6 @@ circle {
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 4, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row {
-  margin-top: 20px;
-}
-/* line 6, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile {
-  height: 130px;
-  padding: 0px 1%;
-}
-@media (max-width: 511px) {
-  /* line 6, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile {
-    width: 100%;
-  }
-}
-/* line 14, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile {
-  height: 130px;
-  width: 50%;
-  float: left;
-  clear: right;
-}
-/* line 19, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile:hover {
-  cursor: pointer;
-}
-/* line 22, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value {
-  text-align: center;
-}
-/* line 24, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value a {
-  color: #fff;
-  font-size: 17px;
-}
-/* line 27, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value a:hover {
-  text-decoration: none;
-}
-/* line 32, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number {
-  padding: 25px 0px 2px 0px;
-}
-/* line 34, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number a {
-  font-size: 30px;
-}
-/* line 38, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-string {
-  padding: 0 5%;
-  line-height: 18px;
-}
-/* line 48, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.col-lg-3.tile-green div.subtile-left {
-  background-color: #5dca88;
-}
-/* line 52, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.col-lg-3.tile-green div.subtile-right {
-  background-color: rgba(93, 202, 136, 0.5);
-}
-/* line 59, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.col-lg-3.tile-black div.subtile-left {
-  background-color: #2d312f;
-}
-/* line 63, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.col-lg-3.tile-black div.subtile-right {
-  background-color: #5d6461;
-}
-/* line 69, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
-  background-image: url("/images/dashboard-neue-bewerbungen.png");
-  background-size: 55% auto;
-}
-@media (max-width: 991px) {
-  /* line 69, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
-    background-size: 40% auto;
-  }
-}
-@media (max-width: 767px) {
-  /* line 69, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
-    background-size: 80px auto;
-  }
-}
-@media (max-width: 511px) {
-  /* line 80, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-2 {
-    margin-top: 20px;
-  }
-}
-/* line 84, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
-  background-image: url("/images/dashboard-nachrichten.png");
-  background-size: 50% auto;
-}
-@media (max-width: 991px) {
-  /* line 84, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
-    background-size: 45% auto;
-  }
-}
-@media (max-width: 767px) {
-  /* line 84, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
-    background-size: 90px auto;
-  }
-}
-/* line 96, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
-  background-image: url("/images/dashboard-stellenanzeigen.png");
-  background-size: 35% auto;
-}
-@media (max-width: 991px) {
-  /* line 96, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
-    background-size: 25% auto;
-  }
-}
-@media (max-width: 767px) {
-  /* line 96, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
-    background-size: 50px auto;
-  }
-}
-/* line 108, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
-  background-image: url("/images/dashboard-bewerbungen.png");
-  background-size: 55% auto;
-}
-@media (max-width: 767px) {
-  /* line 108, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
-    background-size: 110px auto;
-  }
-}
-/* line 118, ../sass/_dashboard.scss */
-body.controller-dashboard div.container div.row div.dashboard-tile div.subtile-right {
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@media (max-width: 991px) {
-  /* line 124, ../sass/_dashboard.scss */
-  body.controller-dashboard div.container div.row div.dashboard-tile-3, body.controller-dashboard div.container div.row div.dashboard-tile-4 {
-    margin-top: 20px;
-  }
-}
-/* line 135, ../sass/_dashboard.scss */
-body.controller-dashboard .table-hover > tbody > tr:hover {
-  background-color: rgba(93, 202, 136, 0.2);
-}
-/* line 139, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable {
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
-  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
-  margin-top: 20px;
-  color: #9d9d9d;
-  border: 1px solid #dddddd;
-}
-/* line 150, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable thead tr th {
-  border-bottom: 1px solid #dddddd;
-}
-/* line 152, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(4), body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(5) {
-  text-align: right;
-}
-/* line 162, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td {
-  vertical-align: middle;
-  height: 72px;
-  border: none;
-}
-/* line 166, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td img {
-  width: 50px;
-  height: auto;
-  border-radius: 25px;
-  cursor: pointer;
-}
-/* line 172, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open {
-  cursor: pointer;
-}
-/* line 174, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open:hover {
-  color: #5dca88;
-}
-/* line 180, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Picture"] {
-  width: 10%;
-}
-/* line 183, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Name"] {
-  width: 30%;
-}
-/* line 186, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Ad"] {
-  width: 34%;
-}
-/* line 189, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Date"] {
-  width: 16%;
-  text-align: right;
-}
-/* line 193, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="View"] {
-  width: 10%;
-  text-align: right;
-}
-/* line 197, ../sass/_dashboard.scss */
-body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="data-toggle"] {
-  text-align: right;
-  width: 5%;
-}
-/* line 210, ../sass/_dashboard.scss */
-body.controller-dashboard .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
-  cursor: pointer;
-  font-family: 'Glyphicons Halflings';
-  content: "\e258";
-}
-/* line 215, ../sass/_dashboard.scss */
-body.controller-dashboard .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:hover {
-  color: #5dca88;
-}
-/* line 220, ../sass/_dashboard.scss */
-body.controller-dashboard .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
-  content: "\e259";
-}
-/* line 228, ../sass/_dashboard.scss */
-body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner {
-  border-bottom: 1px solid #dddddd;
-  padding-bottom: 10px;
-}
-/* line 233, ../sass/_dashboard.scss */
-body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row {
-  display: block;
-}
-/* line 236, ../sass/_dashboard.scss */
-body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-name {
-  display: inline;
-  color: #5dca88;
-}
-/* line 240, ../sass/_dashboard.scss */
-body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-value {
-  display: inline;
-  float: right;
-}
-
 /* line 1, ../sass/_footer.scss */
 footer.footer {
   background-color: #2d312f;
@@ -813,4 +563,254 @@ body {
 /* line 21, ../sass/_login.scss */
 .site-login .auth-clients {
   overflow: inherit;
+}
+
+/* line 4, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row {
+  margin-top: 20px;
+}
+/* line 6, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile {
+  height: 130px;
+  padding: 0px 1%;
+}
+@media (max-width: 511px) {
+  /* line 6, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile {
+    width: 100%;
+  }
+}
+/* line 14, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile {
+  height: 130px;
+  width: 50%;
+  float: left;
+  clear: right;
+}
+/* line 19, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile:hover {
+  cursor: pointer;
+}
+/* line 22, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value {
+  text-align: center;
+}
+/* line 24, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value a {
+  color: #fff;
+  font-size: 17px;
+}
+/* line 27, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value a:hover {
+  text-decoration: none;
+}
+/* line 32, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number {
+  padding: 25px 0px 2px 0px;
+}
+/* line 34, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number a {
+  font-size: 30px;
+}
+/* line 38, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-string {
+  padding: 0 5%;
+  line-height: 18px;
+}
+/* line 48, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.col-lg-3.tile-green div.subtile-left {
+  background-color: #5dca88;
+}
+/* line 52, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.col-lg-3.tile-green div.subtile-right {
+  background-color: rgba(93, 202, 136, 0.5);
+}
+/* line 59, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.col-lg-3.tile-black div.subtile-left {
+  background-color: #2d312f;
+}
+/* line 63, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.col-lg-3.tile-black div.subtile-right {
+  background-color: #5d6461;
+}
+/* line 69, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
+  background-image: url("/images/dashboard-neue-bewerbungen.png");
+  background-size: 55% auto;
+}
+@media (max-width: 991px) {
+  /* line 69, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
+    background-size: 40% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 69, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
+    background-size: 80px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 80, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-2 {
+    margin-top: 20px;
+  }
+}
+/* line 84, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
+  background-image: url("/images/dashboard-nachrichten.png");
+  background-size: 50% auto;
+}
+@media (max-width: 991px) {
+  /* line 84, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
+    background-size: 45% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 84, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
+    background-size: 90px auto;
+  }
+}
+/* line 96, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
+  background-image: url("/images/dashboard-stellenanzeigen.png");
+  background-size: 35% auto;
+}
+@media (max-width: 991px) {
+  /* line 96, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 96, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+/* line 108, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
+  background-image: url("/images/dashboard-bewerbungen.png");
+  background-size: 55% auto;
+}
+@media (max-width: 767px) {
+  /* line 108, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
+    background-size: 110px auto;
+  }
+}
+/* line 118, ../sass/_dashboard.scss */
+body.controller-dashboard div.container div.row div.dashboard-tile div.subtile-right {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 991px) {
+  /* line 124, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-3, body.controller-dashboard div.container div.row div.dashboard-tile-4 {
+    margin-top: 20px;
+  }
+}
+/* line 135, ../sass/_dashboard.scss */
+body.controller-dashboard .table-hover > tbody > tr:hover {
+  background-color: rgba(93, 202, 136, 0.2);
+}
+/* line 139, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  margin-top: 20px;
+  color: #9d9d9d;
+  border: 1px solid #dddddd;
+}
+/* line 150, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable thead tr th {
+  border-bottom: 1px solid #dddddd;
+}
+/* line 152, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(4), body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(5) {
+  text-align: right;
+}
+/* line 162, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td {
+  vertical-align: middle;
+  height: 72px;
+  border: none;
+}
+/* line 166, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td img {
+  width: 50px;
+  height: auto;
+  border-radius: 25px;
+  cursor: pointer;
+}
+/* line 172, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open {
+  cursor: pointer;
+}
+/* line 174, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open:hover {
+  color: #5dca88;
+}
+/* line 180, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Picture"] {
+  width: 10%;
+}
+/* line 183, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Name"] {
+  width: 30%;
+}
+/* line 186, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Ad"] {
+  width: 34%;
+}
+/* line 189, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Date"] {
+  width: 16%;
+  text-align: right;
+}
+/* line 193, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="View"] {
+  width: 10%;
+  text-align: right;
+}
+/* line 197, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="data-toggle"] {
+  text-align: right;
+  width: 5%;
+}
+/* line 210, ../sass/_dashboard.scss */
+body.controller-dashboard .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
+  cursor: pointer;
+  font-family: 'Glyphicons Halflings';
+  content: "\e258";
+}
+/* line 215, ../sass/_dashboard.scss */
+body.controller-dashboard .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:hover {
+  color: #5dca88;
+}
+/* line 220, ../sass/_dashboard.scss */
+body.controller-dashboard .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e259";
+}
+/* line 228, ../sass/_dashboard.scss */
+body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner {
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 10px;
+}
+/* line 233, ../sass/_dashboard.scss */
+body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row {
+  display: block;
+}
+/* line 236, ../sass/_dashboard.scss */
+body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-name {
+  display: inline;
+  color: #5dca88;
+}
+/* line 240, ../sass/_dashboard.scss */
+body.controller-dashboard .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-value {
+  display: inline;
+  float: right;
 }
