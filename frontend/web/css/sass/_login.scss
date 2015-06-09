@@ -7,6 +7,10 @@
 	.login-button{
 		padding: 10px 60px;
 	}
+	
+	input {
+		color: #fff;
+	}
 
 	#login-form{
 		input{
@@ -20,6 +24,40 @@
 	
 	.auth-clients{
 		overflow:inherit;
+		min-height: 100px;
+	}
+	
+	$placeholderColor: #fff;
+	
+	::-webkit-input-placeholder {
+	   color: $placeholderColor;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: $placeholderColor;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: $placeholderColor;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: $placeholderColor;  
+	}
+
+}
+
+.action-login {
+
+	.wrap {
+	background: url('../../images/loginBG2.jpg') center top no-repeat;
+	background-size: cover;
+	color: #fff;
+	
+	h1, h2 {
+		color: #fff;
+	}
+	
 	}
 
 }
