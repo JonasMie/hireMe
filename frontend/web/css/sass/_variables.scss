@@ -21,6 +21,7 @@ $fontbase: 16px;
 @mixin font-standard {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  color: $greyFont;
 }
 
 @mixin font-header {
@@ -82,35 +83,3 @@ input.form-control{
   border-radius: 0px;
 }
 
-// Buttons
-
-.btn{
-  border-radius: 0;
-  border: none;
-  -webkit-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
-  box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
-}
-
-.btn.btn-success {
-  background-color: $green;
-  color: #fff;
-}
-
-// Touch Ripple
-
-.ripple {
-  position: relative;
-}
-
-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-circle {
-  fill: rgba(255,255,255,0.1);
-}

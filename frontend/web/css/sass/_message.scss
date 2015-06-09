@@ -3,7 +3,20 @@ body.controller-message {
   .btn-newMessage {
     float: right;
     clear: left;
+  }
 
+  .btn-newMessageSecond {
+    float: right;
+    clear: left;
+    margin-top: -57px;
+  }
+
+  div.summary {
+    margin-top: 30px;
+  }
+
+  table#inboxTable {
+    margin-top: 10px;
   }
 
 

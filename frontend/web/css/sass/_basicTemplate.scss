@@ -1,6 +1,45 @@
 body {
+
   @include font-standard();
   background-color: #ffffff;
+
+  a {
+    &:focus {
+      outline: none !important; //Removes the dotted line around each Anchor when clicking on it
+    }
+  }
+
+  // Buttons
+  .btn{
+    border-radius: 0;
+    border: none;
+    -webkit-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
+    box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
+    &:focus {
+      outline: none !important; //Removes the dotted line around each Button when clicking on it
+    }
+  }
+  .btn.btn-success {
+    background-color: $green;
+    color: #fff;
+  } // END Buttons
+
+
+  // Touch Ripple
+  .ripple {
+    position: relative;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    circle {
+      fill: rgba(255, 255, 255, 0.1);
+    }
+  } //End Touch Ripple
 
 
   // BASIC TABLE STYLING

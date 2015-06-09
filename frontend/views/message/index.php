@@ -25,7 +25,7 @@ $this->title = Yii::t('app', 'Messages');
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel'  => $searchModel,
-        'tableOptions' => ['class' => 'hireMeTable'],
+        'tableOptions' => ['class' => 'hireMeTable', 'id' => 'inboxTable'],
         'columns'      => [
             [
                     'class'         => 'yii\grid\CheckboxColumn',
@@ -73,6 +73,11 @@ $this->title = Yii::t('app', 'Messages');
             ],
         ],
     ]); ?>
+
+
+    <p>
+        <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Neue Nachricht'), ['create'], ['class' => 'btn btn-success ripple btn-newMessage btn-newMessageSecond']) ?>
+    </p>
 
 
 </div>
