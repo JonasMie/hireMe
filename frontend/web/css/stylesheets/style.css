@@ -122,6 +122,11 @@ input.form-control {
   border-radius: 0;
 }
 
+/* line 97, ../sass/_variables.scss */
+a {
+  transition: all 0.2s ease-in-out;
+}
+
 /* Welcome to Compass. Use this file to write IE specific override styles.
  * Import this file using the following HTML or equivalent:
  * <!--[if IE]>
