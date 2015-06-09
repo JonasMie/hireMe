@@ -36,41 +36,77 @@ CustomAppAsset::register($this);
 <body class='<?= Yii::$app->controller->getBodyClasses() ?>'>
 <?php $this->beginBody() ?>
 <div class="wrap">
+	
     <?php
     NavBar::begin([
-        'brandLabel' => '<img id="navbar-logo" src="/images/testlogo.png"/>',
+        'brandLabel' => '<img id="navbar-logo" src="/images/hireMe-Web.png"/>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
             'id' => 'header'
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-
-        [
-            'label' => 'Dropdown',
-            'items' => [
-                ['label' => 'Dropdown A', 'url' => '#'],
-                ['label' => 'Dropdown B', 'url' => '#'],
-                ['label' => 'Dropdown C', 'url' => '#'],
-            ],
-        ],
-
-
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
 	
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = [
-            'label' => 'Logout (' . Yii::$app->user->identity->firstName . ')',
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
-        ];
+	/* Guest menu */
+	
+	if (Yii::$app->user->isGuest) {
+        $menuItems = [
+		['label' => 'Home', 'url' => ['/site/index']],
+		['label' => 'About', 'url' => ['/site/about']],
+		['label' => 'Login', 'url' => ['/site/login']],
+		];
+    }
+	
+	/* Recruiter menu */
+	
+	elseif (Yii::$app->user->identity->isRecruiter()){
+		$menuItems = [
+			['label' => 'Dashboard', 'url' => ['/dashboard']],
+			['label' => 'Stellenanzeigen', 'url' => ['/job']],
+			['label' => 'Bewerbungen', 'url' => ['#']],
+			['label' => 'Nachrichten', 'url' => ['/message']],
+			['label' => 'Analytics', 'url' => ['/analytics']],
+
+			[
+				'label' => Yii::$app->user->identity->firstName,
+				'items' => [
+					['label' => 'Als Bewerber nutzen', 'url' => '#'],
+					['label' => 'Einstellungen', 'url' => '/user/settings'],
+					[
+						'label' => 'Logout',
+						'url' => ['/site/logout'],
+						'linkOptions' => ['data-method' => 'post']
+					],
+				],
+			],
+		];
+	}
+	
+	/* Applicant menu */
+	
+    else {
+        $menuItems = [
+			['label' => 'Dashboard', 'url' => ['/dashboard']],
+			['label' => 'Favoriten', 'url' => ['/favourites']],
+			['label' => 'Bewerbungen', 'url' => ['/application']],
+			['label' => 'Nachrichten', 'url' => ['/message']],
+			['label' => 'Lebenslauf', 'url' => ['/resume']],
+			['label' => 'Anlagen', 'url' => ['#']],
+
+			[
+				'label' => Yii::$app->user->identity->firstName,
+				'items' => [
+					['label' => 'Profil ansehen', 'url' => ['/user']],
+					['label' => 'Einstellungen', 'url' => '/user/settings'],
+					['label' => 'Als Recruiter nutzen', 'url' => '#'],
+					[
+						'label' => 'Logout',
+						'url' => ['/site/logout'],
+						'linkOptions' => ['data-method' => 'post']
+					],
+				],
+			],
+		];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
@@ -90,7 +126,7 @@ CustomAppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; HireMe <?= date('Y') ?></p>
+        <p class="pull-left">&copy; hireMe <?= date('Y') ?></p>
         <p class="pull-right">
             Made with <span class="glyphicon glyphicon-heart"></span> in Stuttgart
 
