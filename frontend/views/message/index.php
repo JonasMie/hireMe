@@ -8,22 +8,24 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Messages');
-$this->params['breadcrumbs'][] = $this->title;
 
 
 ?>
 <div class="message-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Posteingang</h1>
+
+    <div class="ripple" style="width: 300px; height: 300px; background-color: #000"></div>
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Neue Nachricht verfassen'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Neue Nachricht'), ['create'], ['class' => 'btn btn-success ripple']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel'  => $searchModel,
+        //'filterModel'  => $searchModel,
         'columns'      => [
             ['class' => 'yii\grid\SerialColumn'],
             [

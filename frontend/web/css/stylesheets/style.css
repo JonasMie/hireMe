@@ -117,9 +117,33 @@ input.form-control {
   border-radius: 0px;
 }
 
-/* line 90, ../sass/_variables.scss */
+/* line 87, ../sass/_variables.scss */
 .btn {
   border-radius: 0;
+  border: none;
+  -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* line 95, ../sass/_variables.scss */
+.btn.btn-success {
+  background-color: #5dca88;
+  color: #fff;
+}
+
+/* line 102, ../sass/_variables.scss */
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 110, ../sass/_variables.scss */
+circle {
+  fill: red;
 }
 
 /* Welcome to Compass. Use this file to write IE specific override styles.
