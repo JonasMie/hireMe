@@ -115,14 +115,15 @@ input.form-control {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   border-radius: 0px;
+  font-size: 16px;
 }
 
-/* line 90, ../sass/_variables.scss */
+/* line 91, ../sass/_variables.scss */
 .btn {
   border-radius: 0;
 }
 
-/* line 97, ../sass/_variables.scss */
+/* line 98, ../sass/_variables.scss */
 a {
   transition: color 0.2s ease-in-out;
 }

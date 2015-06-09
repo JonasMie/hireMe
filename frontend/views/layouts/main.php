@@ -63,7 +63,7 @@ CustomAppAsset::register($this);
 		$menuItems = [
 			['label' => 'Dashboard', 'url' => ['/dashboard']],
 			['label' => 'Stellenanzeigen', 'url' => ['/job']],
-			['label' => 'Bewerbungen', 'url' => ['#']],
+			['label' => 'Bewerbungen', 'url' => ['/application']],
 			['label' => 'Nachrichten', 'url' => ['/message']],
 			['label' => 'Analytics', 'url' => ['/analytics']],
 
