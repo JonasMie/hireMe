@@ -13,6 +13,8 @@ namespace frontend\controllers;
 use common\behaviours\BodyClassBehaviour;
 use frontend\helper\Setup;
 use frontend\models\Company;
+use frontend\models\File;
+use frontend\models\MessageAttachments;
 use frontend\models\ResumeJob;
 use frontend\models\ResumeJobSearch;
 use frontend\models\ResumeSchool;
@@ -24,6 +26,7 @@ use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\helpers\Url;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 
 class ResumeController extends Controller
 {
@@ -53,13 +56,24 @@ class ResumeController extends Controller
      */
     public function actionIndex()
     {
-        if ( Yii::$app->request->post() ) {
+        if (Yii::$app->request->post()) {
+            $model = null;
+            $resumeType = null;
             $post = Yii::$app->request->post();
             if (isset($post['ResumeJob'])) {
+                $resumeType = 1;
                 $model = ResumeJob::findOne($post['ResumeJob']['id']);
-                if(isset($model->company_id)){
-                    $company = Company::findByName($model->company_id);
-                    if($company==null){
+                if (isset($post['ResumeJob']['company_id'])) {
+                    $company = Company::findByName($post['ResumeJob']['company_id']);
+                }
+            } else if (isset($post['ResumeSchool'])) {
+                $resumeType = 2;
+                $model = ResumeSchool::findOne($post['ResumeSchool']['id']);
+            }
+
+            if ($model->load($post)) {
+                if ($resumeType == 1) {
+                    if ($company == null) {
                         $newCompany = new Company();
                         $newCompany->name = $model->company_id;
                         $newCompany->save();
@@ -68,41 +82,45 @@ class ResumeController extends Controller
                         $model->company_id = $company->id;
                     }
                 }
-            } else if (isset($post['ResumeSchool'])) {
-                $model = ResumeSchool::findOne($post['ResumeSchool']['id']);
-            }
+                $report_id = $this->upload($model);
+                if ($report_id) {
+                    $model->report_id = $report_id;
+                } else if($report_id==false && $report_id!==null) {
+                    $jobDataProvider = new ActiveDataProvider(['query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),]);
 
-            if ($model->load($post) && $model->save()) {
-                $jobDataProvider = new ActiveDataProvider([
-                    'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
-                ]);
+                    $schoolDataProvider = new ActiveDataProvider(['query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),]);
 
-                $schoolDataProvider = new ActiveDataProvider([
-                    'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
-                ]);
+                    return $this->render('index', ['jobDataProvider'    => $jobDataProvider,
+                                                   'schoolDataProvider' => $schoolDataProvider]);
+                }
+                if ($model->save()) {
 
-                return $this->render('index', [
-                    'jobDataProvider'    => $jobDataProvider,
-                    'schoolDataProvider' => $schoolDataProvider
-                ]);
+                    $jobDataProvider = new ActiveDataProvider([
+                        'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
+                    ]);
+
+                    $schoolDataProvider = new ActiveDataProvider([
+                        'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
+                    ]);
+
+                    return $this->render('index', [
+                        'jobDataProvider'    => $jobDataProvider,
+                        'schoolDataProvider' => $schoolDataProvider
+                    ]);
+                }
             }
         } else {
-            $jobDataProvider = new ActiveDataProvider([
-                'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
-            ]);
+            $jobDataProvider = new ActiveDataProvider(['query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),]);
 
-            $schoolDataProvider = new ActiveDataProvider([
-                'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
-            ]);
+            $schoolDataProvider = new ActiveDataProvider(['query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),]);
 
-            return $this->render('index', [
-                'jobDataProvider'    => $jobDataProvider,
-                'schoolDataProvider' => $schoolDataProvider
-            ]);
+            return $this->render('index', ['jobDataProvider'    => $jobDataProvider,
+                                           'schoolDataProvider' => $schoolDataProvider]);
         }
     }
 
-    public function actionCreate($type)
+    public
+    function actionCreate($type)
     {
         $model = null;
         if ($type == "job") {
@@ -115,9 +133,9 @@ class ResumeController extends Controller
 
         $model->user_id = Yii::$app->user->getId();
         if ($model->load(Yii::$app->request->post())) {
-            if(isset($model->company_id)){
+            if (isset($model->company_id)) {
                 $company = Company::findByName($model->company_id);
-                if($company==null){
+                if ($company == null) {
                     $newCompany = new Company();
                     $newCompany->name = $model->company_id;
                     $newCompany->save();
@@ -125,6 +143,14 @@ class ResumeController extends Controller
                 } else {
                     $model->company_id = $company->id;
                 }
+            }
+            $report_id = $this->upload($model);
+            if ($report_id) {
+                $model->report_id = $report_id;
+            } else {
+                return $this->render($type . 'ResumeCreate', [
+                    'model' => $model,
+                ]);
             }
             if ($model->save()) {
                 return $this->redirect(['/resume']);
@@ -146,7 +172,8 @@ class ResumeController extends Controller
      *
      * @return mixed
      */
-    public function actionUpdate()
+    public
+    function actionUpdate()
     {
 
 //
@@ -159,7 +186,8 @@ class ResumeController extends Controller
 //        }
     }
 
-    public function actionDelete()
+    public
+    function actionDelete()
     {
         $post = Yii::$app->request->post();
         if (Yii::$app->request->isAjax && isset($post['type'])) {
@@ -188,5 +216,21 @@ class ResumeController extends Controller
             return;
         }
         throw new InvalidCallException("You are not allowed to do this operation. Contact the administrator.");
+    }
+
+    private function upload($model)
+    {
+        $report = new File();
+        $model->report_id = UploadedFile::getInstance($model, 'report_id');
+        if ($model->report_id && $model->validate()) {
+            $report->path = "/" . uniqid("report_");
+            $report->extension = $model->report_id->extension;
+            $report->size = $model->report_id->size;
+            $report->title = $model->report_id->baseName;
+            if ($report->save() && $model->report_id->saveAs(Yii::getAlias('@webroot') . '/uploads/reports/' . $report->path . '.' . $report->extension)) {
+                return $report->id;
+            }
+            return false;
+        }
     }
 }

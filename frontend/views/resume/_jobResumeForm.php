@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
 <div class="resume-job-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
     <?
     echo '<label class="control-label">Beschäftigungszeit</label>';
     echo DatePicker::widget([
@@ -35,7 +35,7 @@ use yii\widgets\ActiveForm;
     ?>
 
     <?= $form->field($model, 'company_id')->textInput()->widget(Typeahead::classname(), [
-//        'options' => ['placeholder' => 'Filter as you type ...'],
+//        'options' => ['placeholder' => 'xyz'],
         'pluginOptions' => ['highlight' => true],
         'dataset'       => [
             [
@@ -47,10 +47,11 @@ use yii\widgets\ActiveForm;
     ]) ?>
 
     <?= $form->field($model, 'type')->textInput(['maxlength' => 255])->label('Beruf') ?>
+    <?= $form->field($model, 'description')->textarea([])->label('Beschreibung'); ?>
 
     <? //= $form->field($model, 'current')->checkbox()->label('Aktuell') ?>
 
-    <?= $form->field($model, 'report_id')->textInput() ?>
+    <?= $form->field($model, 'report_id')->fileInput()?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

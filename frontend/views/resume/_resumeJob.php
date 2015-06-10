@@ -14,13 +14,16 @@ use yii\helpers\Url;
 
 
 $attributes = [
-    'type:text:Beschreibung',
     [
-        'attribute' => 'company_id',
-        'label'  => 'Arbeitgeber',
-        'format' => 'raw',
-        'value'  =>  Html::a($model->company->name, '/company'),
-        'type' => DetailView::INPUT_TYPEAHEAD,
+        'attribute' => 'description',
+        'type'      => 'textArea',
+        'label'     => 'Beschreibung'],
+    [
+        'attribute'     => 'company_id',
+        'label'         => 'Arbeitgeber',
+        'format'        => 'raw',
+        'value'         => Html::a($model->company->name, '/company'),
+        'type'          => DetailView::INPUT_TYPEAHEAD,
         'widgetOptions' => [
             'pluginOptions' => ['highlight' => true],
             'dataset'       => [
@@ -30,7 +33,7 @@ $attributes = [
                 ],
 
             ],
-            'options' => ['id'=>'typeahed-'.$model->id]
+            'options'       => ['id' => 'typeahead-' . $model->id, 'value' => $model->company->name]
         ]
     ],
     [
@@ -39,9 +42,9 @@ $attributes = [
         'format'        => ['date', 'php:d.m.Y'],
         'type'          => DetailView::INPUT_WIDGET,
         'widgetOptions' => [
-            'class' => DateControl::classname(),
-            'type'  => DateControl::FORMAT_DATE,
-            'options' => ['id'=>'date-begin-'.$model->id]
+            'class'   => DateControl::classname(),
+            'type'    => DateControl::FORMAT_DATE,
+            'options' => ['id' => 'job-date-begin-' . $model->id]
         ]
     ],
     [
@@ -50,38 +53,39 @@ $attributes = [
         'attribute'     => 'end',
         'type'          => DetailView::INPUT_WIDGET,
         'widgetOptions' => [
-            'class' => DateControl::classname(),
-            'type'  => DateControl::FORMAT_DATE,
-            'options' => ['id'=>'date-end-'.$model->id]
+            'class'   => DateControl::classname(),
+            'type'    => DateControl::FORMAT_DATE,
+            'options' => ['id' => 'job-date-end-' . $model->id]
         ]
     ],
+    [    // TODO: add possibility to remove file
+        'label'     => 'Anhänge',
+        'attribute' => 'report_id',
+        'value'     => $model->report ? Html::a($model->report->title . "." . $model->report->extension, "/uploads/reports" . $model->report->path . "." . $model->report->extension, ['target' => '_blank']) : null,
+        'format'    => 'raw',
+        'type'      => DetailView::INPUT_FILE,
+    ],
     [
-        'attribute' => 'id',
-        'format'=> 'raw',
-        'value' => Html::activeHiddenInput($model, 'id'),
-        'rowOptions'=>['style'=>'display:none'],
-        'type'      => DetailView::INPUT_HIDDEN
+        'attribute'  => 'id',
+        'format'     => 'raw',
+        'value'      => Html::activeHiddenInput($model, 'id'),
+        'rowOptions' => ['style' => 'display:none'],
+        'type'       => DetailView::INPUT_HIDDEN
     ],
 ];
-//if (!empty($model->report)) {
-//    array_push($attributes, [
-//        'label'     => 'Anhänge',
-//        'attribute' => function () use ($model) {
-//            return Html::a($model->report->title . "." . $model->report->extension, "/uploads/messattachments" . $model->report->path . "." . $model->report->extension);
-//        },
-//        'format'    => 'raw'
-//    ]);
-//}
 
 echo DetailView::widget([
-    'model'         => $model,
-    'attributes'    => $attributes,
-    'panel'         => [
+    'model'          => $model,
+    'attributes'     => $attributes,
+    'panel'          => [
         'heading' => $model->type,
         'type'    => DetailView::TYPE_DEFAULT      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
     ],
-    'deleteOptions' => [
+    'deleteOptions'  => [
         'params' => ['id' => $model->id, 'type' => 'job'],
         'url'    => ['delete'],
     ],
+    'hideIfEmpty'    => true,
+    'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
+    'enableEditMode' => $edit,
 ]);

@@ -39,9 +39,10 @@ class ResumeJob extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'company_id', 'type'], 'required'],
-            [['user_id', 'current', 'report_id'], 'integer'],
+            [['user_id', 'current',], 'integer'],
             [['begin', 'end'], 'safe'],
-            [['type'], 'string', 'max' => 255]
+            [['type', 'description'], 'string', 'max' => 255],
+            ['report_id', 'file', 'extensions' => ['pdf']]
         ];
     }
 
@@ -57,6 +58,7 @@ class ResumeJob extends \yii\db\ActiveRecord
             'end'        => Yii::t('app', 'Ende'),
             'company_id' => Yii::t('app', 'Unternehmen'),
             'type'       => Yii::t('app', 'Beruf'),
+            'description' => Yii::t('app', 'Beschreibung'),
             'current'    => Yii::t('app', 'Aktuell'),
             'report_id'  => Yii::t('app', 'Anlage'),
         ];

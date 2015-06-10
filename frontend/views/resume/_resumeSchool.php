@@ -24,7 +24,8 @@ $attributes = [
         'type'=>DetailView::INPUT_WIDGET,
         'widgetOptions'=>[
             'class'=>DateControl::classname(),
-            'type'=>DateControl::FORMAT_DATE
+            'type'=>DateControl::FORMAT_DATE,
+            'options' => ['id' => 'school-date-begin-' . $model->id]
         ]
     ],
     [
@@ -34,8 +35,16 @@ $attributes = [
         'type'=>DetailView::INPUT_WIDGET,
         'widgetOptions'=>[
             'class'=>DateControl::classname(),
-            'type'=>DateControl::FORMAT_DATE
+            'type'=>DateControl::FORMAT_DATE,
+            'options' => ['id' => 'school-date-end-' . $model->id]
         ]
+    ],
+    [
+        'label'     => 'Anhänge',
+        'attribute' => 'report_id',
+        'value' =>     $model->report? Html::a($model->report->title . "." . $model->report->extension, "/uploads/reports" . $model->report->path . "." . $model->report->extension,['target'=>'_blank']):null,
+        'format'    => 'raw',
+        'type' => DetailView::INPUT_FILE,
     ],
     [
         'attribute' => 'id',
@@ -45,20 +54,6 @@ $attributes = [
         'type'      => DetailView::INPUT_HIDDEN
     ],
 ];
-if (!empty($model->report)) {
-    array_push($attributes, [
-        'label'  => 'Anhänge',
-        'value'  => Html::a($model->report->title . "." . $model->report->extension, "/uploads/messattachments" . $model->report->path . "." . $model->report->extension),
-        'format' => 'raw'
-    ]);
-}
-
-//array_push($attributes, [
-//    'attribute' => '',
-//    'label' => 'Aktionen',
-//    'class'    => 'yii\grid\ActionColumn',
-//    'template' => '{update}{delete}'
-//]);
 
 echo DetailView::widget([
     'model'      => $model,
@@ -71,5 +66,7 @@ echo DetailView::widget([
         'params' => ['id' => $model->id, 'type' => 'school'],
         'url'=>['delete'],
     ],
+    'hideIfEmpty' => true,
+    'formOptions' => ['options' =>['enctype' => 'multipart/form-data']],
     'enableEditMode' => $edit,
 ]);

@@ -21,7 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'schoolDataProvider' => $schoolDataProvider,
         'edit' => true,
         'label' => 'Eintrag hinzufügen',
-
+        'url1' => ['create', 'type'=>'job'],
+        'url2' => ['create', 'type'=>'school'],
     ])
     ?>
 

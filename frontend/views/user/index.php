@@ -33,7 +33,8 @@ if ($user->getId() == Yii::$app->user->identity->getId()) {
         'schoolDataProvider' => $schoolDataProvider,
         'edit' => false,
         'label' => 'Bearbeiten',
-        'url' =>['/resume'],
+        'url1' =>['/resume'],
+        'url2' =>['/resume'],
     ]);
 }
 

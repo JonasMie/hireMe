@@ -14,7 +14,7 @@ use yii\helpers\Html;
 
 <div class="resume-school-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
     <?
     echo '<label class="control-label">Schulzeit</label>';
     echo DatePicker::widget([
@@ -40,7 +40,7 @@ use yii\helpers\Html;
 
     <?= $form->field($model, 'graduation')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'report_id')->textInput() ?>
+    <?= $form->field($model, 'report_id')->fileInput() ?>
 
 
 
