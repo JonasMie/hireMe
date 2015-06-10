@@ -297,4 +297,9 @@ class SiteController extends Controller
     {
         return User::getAutocompleteUser($q);
     }
+
+    public function actionCompanySearch($q=null)
+    {
+        return Company::getAutocompleteCompany($q);
+    }
 }

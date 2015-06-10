@@ -39,7 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => function ($data) {
                     return Html::a($data->subject, '/message/view?id=' . $data->id, ['class' => $data->read ? "read" : ""]);  // STYLE: wenn klasse 'read' => bold
                 },
-                'headerOptions' => ['test'=>'foo', 'data-foo'=>'bar']     // STYLE: edit headerOptions
             ],
 //            TODO: check if content needed in overview? if so, use ellipsis to shorten content --jonas
 //            [

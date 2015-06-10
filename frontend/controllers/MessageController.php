@@ -163,7 +163,6 @@ class MessageController extends Controller
      */
     public function actionDelete($id)
     {
-//        $this->findModel($id)->delete();
         $model = $this->findModel($id);
         $model->deleted = 1;
         $model->save();

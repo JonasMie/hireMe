@@ -2,6 +2,8 @@
 
 namespace frontend\models;
 
+use common\models\User;
+use frontend\helper\Setup;
 use Yii;
 
 /**
@@ -9,16 +11,16 @@ use Yii;
  *
  * @property integer $id
  * @property integer $user_id
- * @property string $begin
- * @property string $end
- * @property integer $company_id
- * @property string $type
+ * @property string  $begin
+ * @property string  $end
+ * @property integer|string $company_id
+ * @property string  $type
  * @property integer $current
  * @property integer $report_id
  *
- * @property File $report
+ * @property File    $report
  * @property Company $company
- * @property User $user
+ * @property User    $user
  */
 class ResumeJob extends \yii\db\ActiveRecord
 {
@@ -37,9 +39,10 @@ class ResumeJob extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'company_id', 'type'], 'required'],
-            [['user_id', 'company_id', 'current', 'report_id'], 'integer'],
+            [['user_id', 'current',], 'integer'],
             [['begin', 'end'], 'safe'],
-            [['type'], 'string', 'max' => 255]
+            [['type', 'description'], 'string', 'max' => 255],
+            ['report_id', 'file', 'extensions' => ['pdf']]
         ];
     }
 
@@ -49,14 +52,15 @@ class ResumeJob extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'begin' => Yii::t('app', 'Begin'),
-            'end' => Yii::t('app', 'End'),
-            'company_id' => Yii::t('app', 'Company ID'),
-            'type' => Yii::t('app', 'Type'),
-            'current' => Yii::t('app', 'Current'),
-            'report_id' => Yii::t('app', 'Report ID'),
+            'id'         => Yii::t('app', 'ID'),
+            'user_id'    => Yii::t('app', 'User ID'),
+            'begin'      => Yii::t('app', 'Beginn'),
+            'end'        => Yii::t('app', 'Ende'),
+            'company_id' => Yii::t('app', 'Unternehmen'),
+            'type'       => Yii::t('app', 'Beruf'),
+            'description' => Yii::t('app', 'Beschreibung'),
+            'current'    => Yii::t('app', 'Aktuell'),
+            'report_id'  => Yii::t('app', 'Anlage'),
         ];
     }
 
@@ -82,5 +86,16 @@ class ResumeJob extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->begin = Setup::convert($this->begin);
+            $this->end = Setup::convert($this->end);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
