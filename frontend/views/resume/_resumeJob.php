@@ -7,41 +7,81 @@
  * Project: hireMe
  */
 
+use kartik\datecontrol\DateControl;
+use kartik\detail\DetailView;
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use yii\helpers\Url;
+
 
 $attributes = [
     'type:text:Beschreibung',
     [
-        'label'     => 'Arbeitgeber',
-        'format'    => 'raw',
-        'attribute' => function ($data) {
-            return Html::a($data->company->name, '/company');
-        }
-    ],
-    [
-        'label'     => 'Von',
-        'format'    => ['date', 'php:m.Y'],
-        'attribute' => 'begin',
-    ],
-    [
-        'label'     => 'Bis',
-        'format'    => ['date', 'php:m.Y'],
-        'attribute' => 'end',
-    ],
+        'attribute' => 'company_id',
+        'label'  => 'Arbeitgeber',
+        'format' => 'raw',
+        'value'  =>  Html::a($model->company->name, '/company'),
+        'type' => DetailView::INPUT_TYPEAHEAD,
+        'widgetOptions' => [
+            'pluginOptions' => ['highlight' => true],
+            'dataset'       => [
+                [
+                    'remote' => Url::to(['site/company-search' . '?q=%QUERY']),
+                    'limit'  => 10,
+                ],
 
+            ],
+            'options' => ['id'=>'typeahed-'.$model->id]
+        ]
+    ],
+    [
+        'label'         => 'Von',
+        'attribute'     => 'begin',
+        'format'        => ['date', 'php:d.m.Y'],
+        'type'          => DetailView::INPUT_WIDGET,
+        'widgetOptions' => [
+            'class' => DateControl::classname(),
+            'type'  => DateControl::FORMAT_DATE,
+            'options' => ['id'=>'date-begin-'.$model->id]
+        ]
+    ],
+    [
+        'label'         => 'Bis',
+        'format'        => ['date', 'php:d.m.Y'],
+        'attribute'     => 'end',
+        'type'          => DetailView::INPUT_WIDGET,
+        'widgetOptions' => [
+            'class' => DateControl::classname(),
+            'type'  => DateControl::FORMAT_DATE,
+            'options' => ['id'=>'date-end-'.$model->id]
+        ]
+    ],
+    [
+        'attribute' => 'id',
+        'format'=> 'raw',
+        'value' => Html::activeHiddenInput($model, 'id'),
+        'rowOptions'=>['style'=>'display:none'],
+        'type'      => DetailView::INPUT_HIDDEN
+    ],
 ];
-if (!empty($model->report)) {
-    array_push($attributes, [
-        'label'     => 'Anhänge',
-        'attribute' => function () use ($model) {
-            return Html::a($model->report->title . "." . $model->report->extension, "/uploads/messattachments" . $model->report->path . "." . $model->report->extension);
-        },
-        'format'    => 'raw'
-    ]);
-}
+//if (!empty($model->report)) {
+//    array_push($attributes, [
+//        'label'     => 'Anhänge',
+//        'attribute' => function () use ($model) {
+//            return Html::a($model->report->title . "." . $model->report->extension, "/uploads/messattachments" . $model->report->path . "." . $model->report->extension);
+//        },
+//        'format'    => 'raw'
+//    ]);
+//}
 
 echo DetailView::widget([
-    'model'      => $model,
-    'attributes' => $attributes,
+    'model'         => $model,
+    'attributes'    => $attributes,
+    'panel'         => [
+        'heading' => $model->type,
+        'type'    => DetailView::TYPE_DEFAULT      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
+    ],
+    'deleteOptions' => [
+        'params' => ['id' => $model->id, 'type' => 'job'],
+        'url'    => ['delete'],
+    ],
 ]);

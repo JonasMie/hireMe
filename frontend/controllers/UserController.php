@@ -9,6 +9,7 @@ use frontend\models\SettingsModel;
 use common\models\User;
 use Yii;
 use yii\base\UserException;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
@@ -17,7 +18,7 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
+            'access'      => [
                 'class' => AccessControl::className(),
                 'only'  => ['index', 'settings'],
                 'rules' => [
@@ -28,8 +29,8 @@ class UserController extends Controller
                     ],
                     [
                         'actions' => ['settings'],
-                        'allow' => true,
-                        'roles' => ['@'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ]
             ],
@@ -39,11 +40,11 @@ class UserController extends Controller
         ];
     }
 
-    public function actionIndex($un=null)
+    public function actionIndex($un = null)
     {
-        if($un!==null && $un!=Yii::$app->user->identity->username){
+        if ($un !== null && $un != Yii::$app->user->identity->username) {
             $user = User::findByUsername($un);
-            if($user===null){
+            if ($user === null) {
                 throw new UserException();      // TODO: throw error
             } else {
                 return $this->render('index', [
@@ -51,16 +52,24 @@ class UserController extends Controller
                 ]);
             }
         } else {
-            $jobResume =  ResumeJob::find()->where(['user_id' => Yii::$app->user->identity->getId()])->orderBy('current', 'end')->all();
-            $schoolResume =  ResumeSchool::find()->where(['user_id' => Yii::$app->user->identity->getId()])->orderBy('current', 'end')->all();
-            return $this->render('index', [
-                'resumeJob' => $jobResume,
-                'resumeSchool' => $schoolResume,
-                'user' => Yii::$app->user->identity,
+            $jobDataProvider = new ActiveDataProvider([
+                'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
             ]);
+
+            $schoolDataProvider = new ActiveDataProvider([
+                'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
+            ]);
+
+            return $this->render('index', [
+                'jobDataProvider'    => $jobDataProvider,
+                'schoolDataProvider' => $schoolDataProvider,
+                'user'               => Yii::$app->user->identity,
+            ]);
+
         }
 
     }
+
     public function actionSettings()
     {
         $model = new SettingsModel();
@@ -68,12 +77,12 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->update()) {
                 return $this->render('settings', [
-                    'model' => $model,
+                    'model'   => $model,
                     'success' => true,
                 ]);
             } else {
                 return $this->render('settings', [
-                    'model' => $model,
+                    'model'   => $model,
                     'success' => false,
                 ]);
             }

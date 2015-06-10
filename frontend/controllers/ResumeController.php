@@ -11,13 +11,18 @@ namespace frontend\controllers;
 
 
 use common\behaviours\BodyClassBehaviour;
+use frontend\helper\Setup;
+use frontend\models\Company;
 use frontend\models\ResumeJob;
 use frontend\models\ResumeJobSearch;
 use frontend\models\ResumeSchool;
 use frontend\models\ResumeSchoolSearch;
 use Yii;
+use yii\base\InvalidCallException;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
+use yii\helpers\Url;
 use yii\web\Controller;
 
 class ResumeController extends Controller
@@ -30,16 +35,11 @@ class ResumeController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'create'],
+                        'actions' => ['index', 'create', 'delete', 'update'],
                         'allow'   => true,  // TODO: set allow to false
                         'roles'   => ['@'], // TODO: set roles to '?'
                     ],
-//                    [
-//                        'actions' => ['settings'],
-//                        'allow' => true,
-//                        'roles' => ['@'],
-//                    ],
-                ]
+                ],
             ],
             'bodyClasses' => [
                 'class' => BodyClassBehaviour::className()
@@ -53,26 +53,140 @@ class ResumeController extends Controller
      */
     public function actionIndex()
     {
-        $jobDataProvider = new ActiveDataProvider([
-            'query'=> ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
-        ]);
+        if ( Yii::$app->request->post() ) {
+            $post = Yii::$app->request->post();
+            if (isset($post['ResumeJob'])) {
+                $model = ResumeJob::findOne($post['ResumeJob']['id']);
+                if(isset($model->company_id)){
+                    $company = Company::findByName($model->company_id);
+                    if($company==null){
+                        $newCompany = new Company();
+                        $newCompany->name = $model->company_id;
+                        $newCompany->save();
+                        $model->company_id = $newCompany->id;
+                    } else {
+                        $model->company_id = $company->id;
+                    }
+                }
+            } else if (isset($post['ResumeSchool'])) {
+                $model = ResumeSchool::findOne($post['ResumeSchool']['id']);
+            }
 
-        $schoolDataProvider = new ActiveDataProvider([
-            'query'=> ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
-        ]);
+            if ($model->load($post) && $model->save()) {
+                $jobDataProvider = new ActiveDataProvider([
+                    'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
+                ]);
 
-        return $this->render('index', [
-            'jobDataProvider' => $jobDataProvider,
-            'schoolDataProvider' => $schoolDataProvider
-        ]);
+                $schoolDataProvider = new ActiveDataProvider([
+                    'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
+                ]);
+
+                return $this->render('index', [
+                    'jobDataProvider'    => $jobDataProvider,
+                    'schoolDataProvider' => $schoolDataProvider
+                ]);
+            }
+        } else {
+            $jobDataProvider = new ActiveDataProvider([
+                'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
+            ]);
+
+            $schoolDataProvider = new ActiveDataProvider([
+                'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
+            ]);
+
+            return $this->render('index', [
+                'jobDataProvider'    => $jobDataProvider,
+                'schoolDataProvider' => $schoolDataProvider
+            ]);
+        }
     }
 
     public function actionCreate($type)
     {
-        if($type=="work"){
-            $this->render('jobResumeCreate');
-        } else if($type=="school"){
-
+        $model = null;
+        if ($type == "job") {
+            $model = new ResumeJob();
+        } else if ($type == "school") {
+            $model = new ResumeSchool();
+        } else {
+            return $this->redirect(['/resume']);
         }
+
+        $model->user_id = Yii::$app->user->getId();
+        if ($model->load(Yii::$app->request->post())) {
+            if(isset($model->company_id)){
+                $company = Company::findByName($model->company_id);
+                if($company==null){
+                    $newCompany = new Company();
+                    $newCompany->name = $model->company_id;
+                    $newCompany->save();
+                    $model->company_id = $newCompany->id;
+                } else {
+                    $model->company_id = $company->id;
+                }
+            }
+            if ($model->save()) {
+                return $this->redirect(['/resume']);
+            } else {
+                return $this->render($type . 'ResumeCreate', [
+                    'model' => $model,
+                ]);
+            }
+        } else {
+            return $this->render($type . 'ResumeCreate', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing ResumeJob|ResumeSchool model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     *
+     * @return mixed
+     */
+    public function actionUpdate()
+    {
+
+//
+//        if ($model->load($post) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('update', [
+//                'model' => $model,
+//            ]);
+//        }
+    }
+
+    public function actionDelete()
+    {
+        $post = Yii::$app->request->post();
+        if (Yii::$app->request->isAjax && isset($post['type'])) {
+            $id = $post['id'];
+            $type = $post['type'];
+            if ($type == 'job') {
+                $model = ResumeJob::findOne($id);
+            } else if ($type == 'school') {
+                $model = ResumeSchool::findOne($id);
+            }
+            if ($model->delete()) {
+                echo Json::encode([
+                    'success'  => true,
+                    'messages' => [
+                        'kv-detail-success' => 'Der Eintrag wurde erfolgreich gelöscht.'
+                    ]
+                ]);
+            } else {
+                echo Json::encode([
+                    'success'  => false,
+                    'messages' => [
+                        'kv-detail-error' => 'Das Löschen des Eintrags ist leider fehlgeschlagen.'
+                    ]
+                ]);
+            }
+            return;
+        }
+        throw new InvalidCallException("You are not allowed to do this operation. Contact the administrator.");
     }
 }

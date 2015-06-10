@@ -1,28 +1,54 @@
 <?php
 
+use kartik\date\DatePicker;
+use kartik\typeahead\Typeahead;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ResumeJob */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="resume-job-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <?
+    echo '<label class="control-label">Beschäftigungszeit</label>';
+    echo DatePicker::widget([
+        'model'         => $model,
+        'attribute'     => 'begin',
+        'attribute2'    => 'end',
+        'options'       => ['placeholder' => 'Beginn'],
+        'options2'      => ['placeholder' => 'Ende'],
+        'type'          => DatePicker::TYPE_RANGE,
+        'form'          => $form,
+        'language'      => 'de',
+        'pluginOptions' => [
+            'format'         => 'dd.mm.yyyy',
+            'autoclose'      => true,
+            'todayHighlight' => true,
+        ]
+    ]);
+    ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+    <?= $form->field($model, 'company_id')->textInput()->widget(Typeahead::classname(), [
+//        'options' => ['placeholder' => 'Filter as you type ...'],
+        'pluginOptions' => ['highlight' => true],
+        'dataset'       => [
+            [
+                'remote' => Url::to(['site/company-search' . '?q=%QUERY']),
+                'limit'  => 10,
+            ],
 
-    <?= $form->field($model, 'begin')->textInput() ?>
+        ]
+    ]) ?>
 
-    <?= $form->field($model, 'end')->textInput() ?>
+    <?= $form->field($model, 'type')->textInput(['maxlength' => 255])->label('Beruf') ?>
 
-    <?= $form->field($model, 'company_id')->textInput() ?>
-
-    <?= $form->field($model, 'type')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'current')->textInput() ?>
+    <? //= $form->field($model, 'current')->checkbox()->label('Aktuell') ?>
 
     <?= $form->field($model, 'report_id')->textInput() ?>
 

@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use frontend\helper\Setup;
 use Yii;
 
 /**
@@ -73,5 +74,16 @@ class ResumeSchool extends \yii\db\ActiveRecord
     public function getReport()
     {
         return $this->hasOne(File::className(), ['id' => 'report_id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->begin = Setup::convert($this->begin);
+            $this->end = Setup::convert($this->end);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

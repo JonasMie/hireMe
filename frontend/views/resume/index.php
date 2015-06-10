@@ -15,25 +15,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <?=
+    $this->render('_resume', [
+        'jobDataProvider'    => $jobDataProvider,
+        'schoolDataProvider' => $schoolDataProvider,
+        'edit' => true,
+        'label' => 'Eintrag hinzufügen',
 
-    <h2>Berufserfahrung</h2>
-    <?php
-    echo \yii\widgets\ListView::widget([
-       'dataProvider'=>  $jobDataProvider,
-        'itemView' => '_resumeJob'
-    ]);
+    ])
     ?>
-    <p>
-        <?= Html::a(Yii::t('app', 'Eintrag hinzufügen'), ['create', 'type'=>'work'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <h2>Schulische Laufbahn</h2>
-    <?php
-    echo \yii\widgets\ListView::widget([
-        'dataProvider'=>  $schoolDataProvider,
-        'itemView' => '_resumeSchool'
-    ]);
-    ?>
-    <p>
-        <?= Html::a(Yii::t('app', 'Eintrag hinzufügen'), ['create', 'type'=>'school'], ['class' => 'btn btn-success']) ?>
-    </p>
+
 </div>
