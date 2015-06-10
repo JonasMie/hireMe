@@ -88,10 +88,8 @@ class SiteController extends Controller
         $cookies->add(new \yii\web\Cookie([
                 'name' => 'usr_',
                 'value' => Yii::$app->user->getId(),
-             //   'domain' => 'http://frontend/'
-          
         ]));
-        return $this->redirect(["./dashboard"]);
+        return $this->render("index");
 
     }
 
