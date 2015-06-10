@@ -514,6 +514,12 @@ body {
   color: #9d9d9d;
   background-color: #ffffff;
   /* HighDPI support */
+  /* BASIC FORM STYLING */
+  /* UNFOCUSED INPUT */
+  /* END UNFOCUSED INPUT */
+  /* FOCUSED INPUT*/
+  /* END FOCUSED INPUT*/
+  /* END BASIC FORM STYLING */
 }
 /* line 7, ../sass/_basicTemplate.scss */
 body a:focus {
@@ -696,6 +702,49 @@ body .icheckbox_flat-green.checked.disabled {
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
+}
+/* line 221, ../sass/_basicTemplate.scss */
+body .form-group {
+  position: relative;
+  margin-bottom: 45px;
+}
+/* line 225, ../sass/_basicTemplate.scss */
+body .form-group input[type="text"] {
+  font-size: 18px;
+  padding: 10px 10px 2px 5px;
+  display: block;
+  max-width: 400px;
+  border: none;
+  border-bottom: 2px solid #dddddd;
+  transition: 0.2s ease border;
+  -moz-transition: 0.2s ease border;
+  -webkit-transition: 0.2s ease border;
+}
+/* line 235, ../sass/_basicTemplate.scss */
+body .form-group input[type="text"]:focus {
+  outline: none;
+}
+/* line 239, ../sass/_basicTemplate.scss */
+body .form-group label {
+  color: #9d9d9d;
+  font-size: 18px;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
+  -moz-transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
+  -webkit-transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
+}
+/* line 255, ../sass/_basicTemplate.scss */
+body .input-in-focus > input[type="text"], body .has-success > input[type="text"] {
+  border-bottom: 2px solid #5dca88;
+}
+/* line 258, ../sass/_basicTemplate.scss */
+body .input-in-focus > label, body .has-success > label {
+  top: -20px;
+  font-size: 15px;
+  color: #5dca88;
 }
 
 /* line 3, ../sass/_login.scss */
@@ -931,4 +980,9 @@ body.controller-message div.summary {
 /* line 18, ../sass/_message.scss */
 body.controller-message table#inboxTable {
   margin-top: 10px;
+}
+
+/* line 23, ../sass/_message.scss */
+body.controller-message.action-create {
+  /* END FOCUSED INPUT*/
 }

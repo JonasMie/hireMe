@@ -82,6 +82,18 @@ $(".ripple").on("click", function(e){
 /** END Touch Ripple Function **/
 
 
+/** Helper Function for Input Forms **/
+
+$('#message-subject').focus(function () {
+    $(this).parent().addClass('input-in-focus');
+}).blur(function () {
+    $(this).parent().removeClass('input-in-focus');
+});
+
+/** END Helper Function for Input Forms **/
+
+
+
 /** Demo Chart **/
 var data = [
     {

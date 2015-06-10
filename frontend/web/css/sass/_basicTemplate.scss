@@ -214,5 +214,57 @@ body {
       background-size: 176px 22px;
     }
   } //END iCheck plugin Flat skin, green
+
+
+  /* BASIC FORM STYLING */
+  /* UNFOCUSED INPUT */
+  .form-group {
+    position: relative;
+    margin-bottom: 45px;
+
+    input[type="text"] {
+      font-size: 18px;
+      padding: 10px 10px 2px 5px;
+      display: block;
+      max-width: 400px;
+      border: none;
+      border-bottom: 2px solid $borderGrey;
+      transition: 0.2s ease border;
+      -moz-transition: 0.2s ease border;
+      -webkit-transition: 0.2s ease border;
+      &:focus {
+        outline:none;
+      }
+    }
+    label 				 {
+      color:$greyFont;
+      font-size:18px;
+      position:absolute;
+      pointer-events:none;
+      left:5px;
+      top:10px;
+
+      transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+      -moz-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+      -webkit-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+    }
+  } /* END UNFOCUSED INPUT */
+
+  /* FOCUSED INPUT*/
+  .input-in-focus , .has-success {
+    > input[type="text"] {
+      border-bottom: 2px solid $green;
+    }
+    > label {
+      top:-20px;
+      font-size:15px;
+      color: $green;
+    }
+  }  /* END FOCUSED INPUT*/
+  /* END BASIC FORM STYLING */
+
 }
+
+
+
 
