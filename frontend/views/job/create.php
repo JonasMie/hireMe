@@ -12,10 +12,8 @@ use yii\helpers\Url;
 CreateJobAsset::register($this);
 
 $this->title = 'Create Job';
-$this->params['breadcrumbs'][] = ['label' => 'Jobs', 'url' => ['index']];
 /* @var $model frontend\models\Job */
 
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="job-create">
 

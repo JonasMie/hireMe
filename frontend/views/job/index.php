@@ -11,8 +11,7 @@ use frontend\models\MyJobsGridView;
 /* @var $model frontend\models\Job */
 
 $this->title = $indiTitle;
-$this->params['breadcrumbs'][] = ['label' => 'Jobs', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 
 <div class="_myjobs">
@@ -44,8 +43,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}{delete}{update}'
+                'label'  => 'Actions',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::a(Yii::t('app', 'Update'), ['update-job', 'id' => $data->id], ['class' => 'btn btn-primary'])." ". \yii\helpers\Html::a(Yii::t('app', 'View'), ['view', 'id' => $data->id], ['class' => 'btn btn-primary']);
+                }
+                    
+
             ],
            
         ],

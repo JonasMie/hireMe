@@ -20,6 +20,7 @@ use yii\db\Query;
 use frontend\models\JobCreateForm;
 use frontend\controllers\ApplicationController;
 use yii\web\Session;
+use frontend\models\ApplyBtnSearch;
 /**
  * JobController implements the CRUD actions for Job model.
  */
@@ -40,6 +41,32 @@ class JobController extends Controller
                 'class' => BodyClassBehaviour::className()
             ]
         ];
+    }
+
+    public function actionCreateBtn($id) {
+
+        $model = new ApplyBtn();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->clickCount = 0;
+            $model->viewCount = 0;
+            $model->job_id = $id;
+            $model->key = $this->generateBtn($id);
+            $model->save();
+            return $this->redirect(['view', 'id' => $id]);
+        } else {
+            return $this->render('createBtn', [
+                'model' => $model,
+            ]);
+        }
+
+    }
+
+     public function actionDelete($id)
+    {
+        $btn = ApplyBtn::findOne($id);
+        $btn->delete();
+        return $this->redirect(['index']);
     }
 
     /**
@@ -96,9 +123,19 @@ class JobController extends Controller
 
     public function actionView($id)
     {
+        $query = ApplyBtn::find()
+        ->where(['job_id' => $id])
+        ->orderBy('id');
+
+        $searchModel = new ApplyBtnSearch();
+        $dataProvider = $searchModel->search(['ApplyBtnSearch' =>['job_id' => $id]]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
+
     }
 
     public function actionApply($key,$user,$case) {
@@ -254,11 +291,6 @@ class JobController extends Controller
     
     }
 
-    public function actionDeleteJobs($sel) {
-
-        Yii::trace("Values: ".$app->yiiGridView->getSelection);
-    }
-
     private function keyGeneration($keyBase) {
 
        $key = md5(uniqid($keyBase, true));
@@ -326,6 +358,20 @@ class JobController extends Controller
 
     }
 
+    public function actionUpdate($id) {
+
+       $model = ApplyBtn::findOne($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('updateBtn', [
+                'model' => $model,
+            ]);
+        }
+
+    }
+
     /**
      * Updates an existing Job model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -333,7 +379,7 @@ class JobController extends Controller
      * @return mixed
      */
 
-    public function actionUpdate($id)
+    public function actionUpdateJob($id)
     {
         $model = $this->findModel($id);
 
@@ -352,7 +398,7 @@ class JobController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDeleteJob($id)
     {
         $this->findModel($id)->delete();
 

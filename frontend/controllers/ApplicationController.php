@@ -122,6 +122,7 @@ class ApplicationController extends Controller
 
         $app = Application::findOne($id);
         $app->state = "Versendet";
+        $app->sent = 1;
         $app->save();
 
         $applications = new ApplicationSearch();        
