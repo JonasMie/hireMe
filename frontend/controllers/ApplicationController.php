@@ -18,6 +18,7 @@ use yii\web\UploadedFile;
 use yii\data\ActiveDataProvider;
 use frontend\models\ApplicationDataSearch;
 use common\models\User;
+use yii\data\SqlDataProvider;
 /**
  * ApplicationController implements the CRUD actions for Application model.
  */
@@ -55,7 +56,7 @@ class ApplicationController extends Controller
         return $user->firstName." ".$user->lastName; 
     }
     
-    public function actionIndex()
+    public function actionIndex($new=null)
     {
 
         if (Yii::$app->user->identity->isRecruiter()) {
@@ -64,12 +65,22 @@ class ApplicationController extends Controller
         Yii::trace("Company ID: ".$companyId);
         // For displaying applier data
     
-        $applications = new ApplicationSearch();        
-
-        $dataProvider = $applications->search(['ApplicationSearch' =>['company_id' => $companyId]]);
+        $applications = new ApplicationSearch(); 
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and d.id = ".Yii::$app->user->identity->company_id;
+        $dataProvider = new SqlDataProvider([
+            'sql' => $sql,
+            'sort' => [
+                'attributes' => [
+                'title','fullName'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,
+                'fullName' => SORT_ASC
+            ]
+            ],
+        ]);
         Yii::trace("Company: ".$companyId);
        return $this->render('index', [
-            'indiTitle' => "Eingegangene Bewerbungen:",
             'id' => $companyId,
             'provider' => $dataProvider,
         ]);
@@ -79,11 +90,12 @@ class ApplicationController extends Controller
      else {
 
         $applications = new ApplicationSearch();        
-        $dataProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id]]);
+        $savedProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Gespeichert']]);
+        $sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Versendet']]);
 
        return $this->render('index', [
-            'indiTitle' => "Deine Bewerbungen",
-            'provider' => $dataProvider,
+            'savedProvider' => $savedProvider,
+            'sentProvider' => $sentProvider,
         ]);
 
         }
@@ -106,6 +118,23 @@ class ApplicationController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+    public function actionSend($id) {
+
+        $app = Application::findOne($id);
+        $app->state = "Versendet";
+        $app->sent = 1;
+        $app->save();
+
+        $applications = new ApplicationSearch();        
+        $savedProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Gespeichert']]);
+        $sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Versendet']]);
+
+       return $this->render('index', [
+            'savedProvider' => $savedProvider,
+            'sentProvider' => $sentProvider,
+        ]);
+    }
+
     public function actionAddData($id)
     {
         $user = Yii::$app->user->identity;

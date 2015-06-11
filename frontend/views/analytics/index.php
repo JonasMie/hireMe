@@ -7,8 +7,7 @@ use yii\widgets\ListView;
 
 
 $this->title = "Analytics: Overview für";
-$this->params['breadcrumbs'][] = ['label' => 'Analytics', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 
 <div class="myjobs">

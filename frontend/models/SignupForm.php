@@ -1,7 +1,7 @@
 <?php
 namespace frontend\models;
 
-use frontend\models\Company;
+use app\models\Company;
 use common\models\User;
 use yii\base\Model;
 use Yii;

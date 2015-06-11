@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
 			else {
 			displayingHTML = '<h2>Jetzt bewerben:</h2><br><button id="hireNow">JETZT BEWERBEN</button><br><button id="hireLater">NUR SPEICHERN</button>';
 			$("#applierView").html(displayingHTML);
-			alert();
 			}
 
 

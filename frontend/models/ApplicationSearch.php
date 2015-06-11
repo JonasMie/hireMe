@@ -39,10 +39,10 @@ class ApplicationSearch extends Application
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $jobContact = false)
+    public function search($params, $jobContact = false, $appView = false)
     {
         $query = Application::find();
-
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -82,6 +82,10 @@ class ApplicationSearch extends Application
         ]);
 
         $query->andFilterWhere(['like', 'state', $this->state]);
+        if ($appView) {
+           // $query->join('LEFT JOIN', 'user', 'user.id = application.user_id');   
+            Yii::trace("klapp");
+        }
 
         if ($jobContact) {
             $query->join('INNER JOIN', 'job_contacts', 'job_contacts.job_id = application.job_id AND job_contacts.contact_id = ' . Yii::$app->user->getId());

@@ -7,27 +7,22 @@ use yii\base\Model;
 use Yii;
 
 /**
- * Signup form
+ * Job Create form
  */
+
 class JobCreateForm extends Model
 {
-    public $id;
     public $title;
     public $description;
+    public $zip;
     public $job_begin;
     public $job_end;
-    public $zip;
     public $sector;
-    public $company_id;
-    public $active;
-    public $created_at;
-    public $updated_at;
     public $type;
     public $city;
     public $time;
-    public $allocated;
     public $checkLocationBased;
-
+    public $visibility;
 
     /**
      * @inheritdoc
@@ -43,20 +38,20 @@ class JobCreateForm extends Model
             ['description', 'string', 'min' => 2, 'max' => 500],
 
             ['sector', 'required'],
-            ['sector', 'integer'],
-
+            [['sector','time','zip'], 'integer'],
+            ['city','string'],
             ['type', 'required'],
-            ['type', 'integer'],   
-
-
-
-            [['city', 'zip'], 'required', 'when' => function ($model){
+            ['type', 'integer'],  
+          
+            [['city', 'zip'], 'required', 'when' => function ($model) {
                 return $model->checkLocationBased == true;
             }, 'whenClient' => 'function(attribute,value){
                     return $("#checkLocationBased").prop("checked");
                 }'
             ],
+             ['visibility', 'default', 'value' => 0],
             ['checkLocationBased', 'boolean'],
+            ['checkLocationBased','default','value' => false],
 
         ];
     }
@@ -94,37 +89,41 @@ class JobCreateForm extends Model
             $job->description = $this->description;
             $job->job_begin = $this->job_begin;
             $job->job_end = $this->job_end;
-            $job->zip = $this->zip;
             $job->sector = $this->sector;
             $job->company_id = $user->company_id;
             $job->active = 0;
             $job->title = $this->title;
             $job->type = $this->type;
-            $job->city = $this->city;
             $job->allocated = 0;
-            $job->time = 100;
-
-            if($this->checkLocationBased) {
-
-                Yii::trace("check loaction is activated");
-
-            }
+            $job->time = $this->time;
+            $job->zip = 12;
+            $job->city = "asd";
 
             Yii::trace("ID: ".$job->id);
-            Yii::trace("Desc.: ".$job->description);
-            Yii::trace("begin.: ".$job->job_begin);
-            Yii::trace("end.: ".$job->job_end);
-            Yii::trace("zip.: ".$job->zip);
-            Yii::trace("sect.: ".$job->sector);
-            Yii::trace("Desc.: ".$job->description);
-            Yii::trace("comp.: ".$job->company_id);
-            Yii::trace("active.: ".$job->active);
-            Yii::trace("created:.: ".$job->created_at);
-            Yii::trace("title.: ".$job->title);
-            Yii::trace("type.: ".$job->type);
-            Yii::trace("city.: ".$job->city);
-            Yii::trace("tim.: ".$job->time);
+            Yii::trace("desc: ".$job->description);
+            Yii::trace("begin: ".$job->job_begin);
+            Yii::trace("end: ".$job->job_end);
+            Yii::trace("sec: ".$job->sector);
+            Yii::trace("comp: ".$job->company_id);
+            Yii::trace("act: ".$job->active);
+            Yii::trace("title: ".$job->title);
+            Yii::trace("alloc: ".$job->allocated);
+            Yii::trace("time: ".$job->time);
+            Yii::trace("zip: ".$job->zip);
+            Yii::trace("city: ".$job->city);
 
+
+
+
+            if($this->checkLocationBased) {
+                $job->zip = $this->zip;
+                $job->city = $this->city;
+                Yii::trace("check loaction is activated");
+            }
+            else {
+            Yii::trace("check loaction is deactivated");
+
+            }
             if($job->save()) {
                 Yii::trace("saved");
                 return true;

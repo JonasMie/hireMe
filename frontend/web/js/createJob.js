@@ -1,5 +1,5 @@
 /**
- * Created by jonas on 26.04.15.
+ * Created by Simon
  */
 
 $('#checkLocationBased').change(function(){

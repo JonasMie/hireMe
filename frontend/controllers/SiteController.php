@@ -84,6 +84,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+
         $cookies = Yii::$app->response->cookies;
         $cookies->add(new \yii\web\Cookie([
                 'name' => 'usr_',
@@ -118,6 +119,12 @@ class SiteController extends Controller
 
             ]);
         }
+    }
+
+    public function actionHome() {
+
+        return $this->renderPartial("home");
+
     }
 
 

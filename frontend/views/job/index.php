@@ -11,8 +11,7 @@ use frontend\models\MyJobsGridView;
 /* @var $model frontend\models\Job */
 
 $this->title = $indiTitle;
-$this->params['breadcrumbs'][] = ['label' => 'Jobs', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 
 <div class="_myjobs">
@@ -24,15 +23,15 @@ $this->params['breadcrumbs'][] = $this->title;
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
  <?= GridView::widget([
+        'id'=>'jobList',
         'dataProvider' => $provider,
         'columns'      => [
-         [
-                'label'  => '  ',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::checkbox("checkbox",false);
+        [
+                'class'         => 'yii\grid\CheckboxColumn',
+                'filterOptions' => function () {
+                    echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
                 }
-            ],    
+            ],
                 'title:text:Titel',
                 'job_begin:text:Job beginnt',   
             [
@@ -40,15 +39,24 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'  => 'Info',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id)." - ".\yii\helpers\Html::a("Bearbeiten","/job/update?id=".$data->id);
+                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id);
                 }
+            ],
+            [
+                'label'  => 'Actions',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::a(Yii::t('app', 'Update'), ['update-job', 'id' => $data->id], ['class' => 'btn btn-primary'])." ". \yii\helpers\Html::a(Yii::t('app', 'View'), ['view', 'id' => $data->id], ['class' => 'btn btn-primary']);
+                }
+                    
+
             ],
            
         ],
         'caption'  => Html::decode("<a href='http://frontend/job/create'><button>Neue Stellenanzeige</button></a>")
     ]); ?>  
-
-    
+<!--
+-->
 
 <? else: ?>
 

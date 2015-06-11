@@ -18,7 +18,7 @@ $( document ).ready(function() {
 
 });
 
-$(document).on('mouseenter', '#applyBtn', function(){ 
+$(document).on('click', '#applyBtn', function(){ 
      
      $('#hoverInfo').show();
      
