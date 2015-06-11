@@ -14,16 +14,16 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4.0",
-        "yiisoft/yii2": "*",
-        "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*",
-        "yiisoft/yii2-authclient": "*",
-        "kartik-v/yii2-widget-typeahead": "*",
-        "kartik-v/yii2-detail-view": "*",
-        "kartik-v/yii2-widget-datepicker": "*",
-        "kartik-v/yii2-field-range": "*",
-        "kartik-v/yii2-datecontrol": "dev-master"
+      "php": ">=5.4.0",
+      "yiisoft/yii2": "*",
+      "yiisoft/yii2-bootstrap": "*",
+      "yiisoft/yii2-swiftmailer": "*",
+      "yiisoft/yii2-authclient": "*",
+      "kartik-v/yii2-widget-typeahead": "*",
+      "kartik-v/yii2-detail-view": "*",
+      "kartik-v/yii2-widget-datepicker": "*",
+      "kartik-v/yii2-field-range": "*",
+      "kartik-v/yii2-datecontrol": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

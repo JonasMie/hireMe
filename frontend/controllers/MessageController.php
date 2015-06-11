@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\Controllers;
+namespace frontend\controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use common\models\User;
