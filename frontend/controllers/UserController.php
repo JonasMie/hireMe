@@ -84,4 +84,9 @@ class UserController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function getUserName($id) {
+        $usr = User::findOne($id);
+        return $usr->username;
+    }
 }

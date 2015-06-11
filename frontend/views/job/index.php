@@ -24,15 +24,15 @@ $this->params['breadcrumbs'][] = $this->title;
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
  <?= GridView::widget([
+        'id'=>'jobList',
         'dataProvider' => $provider,
         'columns'      => [
-         [
-                'label'  => '  ',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::checkbox("checkbox",false);
+        [
+                'class'         => 'yii\grid\CheckboxColumn',
+                'filterOptions' => function () {
+                    echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
                 }
-            ],    
+            ],
                 'title:text:Titel',
                 'job_begin:text:Job beginnt',   
             [
@@ -40,15 +40,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'  => 'Info',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id)." - ".\yii\helpers\Html::a("Bearbeiten","/job/update?id=".$data->id);
+                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id);
                 }
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}{delete}{update}'
             ],
            
         ],
         'caption'  => Html::decode("<a href='http://frontend/job/create'><button>Neue Stellenanzeige</button></a>")
     ]); ?>  
-
-    
+<!--
+-->
 
 <? else: ?>
 

@@ -47,11 +47,10 @@ class Job extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'description', 'zip', 'sector', 'company_id', 'active', 'type', 'city', 'time'], 'required'],
+            [['id', 'description', 'sector', 'company_id', 'active', 'type', 'time'], 'required'],
             [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
             [['job_begin', 'job_end', 'created_at', 'updated_at'], 'safe'],
             [['description', 'city'], 'string', 'max' => 255],
-            [['zip'], 'string', 'max' => 10],
             [['title'], 'string', 'max' => 100],
             [['id'], 'unique']
         ];
@@ -87,6 +86,13 @@ class Job extends \yii\db\ActiveRecord
     public function getApplications()
     {
         return $this->hasMany(Application::className(), ['job_id' => 'id']);
+    }
+
+    public function getTitle($id) {
+
+        $job = Job::findOne($id);
+        return $job->title;
+
     }
 
     /**
