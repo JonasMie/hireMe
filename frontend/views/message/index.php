@@ -57,9 +57,9 @@ $this->title = Yii::t('app', 'Messages');
                 'format'    => 'raw',
                 'value'     => function ($data) {
                     if (Yii::$app->user->getId() === $data->sender_id) {
-                        return Html::a($data->receiver->firstName . " " . $data->receiver->lastName, '../user/' . $data->receiver->username);
+                        return Html::a($data->receiver->getProfilePicture(true) .$data->receiver->firstName . " " . $data->receiver->lastName, '../user/' . $data->receiver->username);
                     } else if (Yii::$app->user->getId() === $data->receiver_id) {
-                        return Html::a($data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
+                        return Html::a($data->sender->getProfilePicture(true) .$data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
                     }
                 },
                 'headerOptions' => ['data-sender'=>'homo']
