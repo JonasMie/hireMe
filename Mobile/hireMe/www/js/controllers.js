@@ -1,55 +1,129 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+
+
   
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  
-  // Form data for the login modal
-  $scope.loginData = {};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('HomeCtrl', function($scope,$http,$compile,$ionicPlatform) {
+
+	var markers = [];
+
+	 var myLatlng = new google.maps.LatLng(48.77584600,9.18293200);
+ 
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+ 
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+ 
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var myLocation = new google.maps.Marker({
+                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: "My Location"
+            });
+
+            var contentString = "<div><h5>Meine Position</h5></div>";
+        	var compiled = $compile(contentString)($scope);
+	        var infowindow = new google.maps.InfoWindow({
+	           content: compiled[0]
+	         });
+             google.maps.event.addListener(myLocation, 'click', function() {
+          	 infowindow.open(map,myLocation);
+         	});
+        });
+
+$ionicPlatform.ready(function() {
+
+	 $http.get('http://frontend/mobile/')
+
+ 		.success(function(data, status, headers, config) {
+ 
+       		console.log(data);
+
+       		if (status == 200) {
+       		for (var i = 0; i < data.length; i++) {
+
+       			var job = data[i];
+       			var contentString = "<div><h5>"+job.title+"</h5></div>";
+                var compiled = $compile(contentString)($scope);
+  				var infowindow = new google.maps.InfoWindow({
+                    content: compiled[0]
+                 });
+                        
+       			var jobPosition = new google.maps.Marker({
+                position: new google.maps.LatLng(job.latitude,job.longitude),
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: "My Location",
+                html:compiled[0]
+            	});
+       			markers.push(jobPosition);
+
+       			}
+       		}
+
+       		for (var i = 0; i < markers.length; i++) {
+
+         	 var marker = markers[i];
+             google.maps.event.addListener(marker, 'click', function () {
+                 infowindow.setContent(this.html);
+                 infowindow.open(map, this);
+         	 });
+       		 
+       		 }
+
+       		 $scope.map = map;
+       });
+
+  });
+
+
+	 function loadMarkers() {
+
+          for (var i = 0; i < markers.length; i++) {
+          var marker = markers[i];
+             google.maps.event.addListener(marker, 'click', function () {
+                 // where I have added .tml to the marker object.
+                 infowindow.setContent(this.html);
+                 infowindow.open(map, this);
+          });
+        }
+
+     }
+
+})
+
+.controller('ListCtrl', function($scope) {
+  
+
+  
+})
+
+.controller('EventCtrl', function($scope) {
+  
+
+  
+})
+
+.controller('MessageCtrl', function($scope) {
+  
+
+  
+})
+
+.controller('SettingsCtrl', function($scope) {
+  
+
+  
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
