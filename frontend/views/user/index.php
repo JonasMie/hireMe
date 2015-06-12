@@ -7,11 +7,10 @@
 use yii\helpers\Html;
 
 $this->title = "Profil";
-$this->params['breadcrumbs'][] = $this->title;
-
+Yii::$app->getSession()->getFlash('error');
 ?>
-    <h1><?= /*$user->fullName*/
-        $user->fullName?></h1>
+
+    <h1><?= $user->fullName ?></h1>
     <div>
         <?= $user->getProfilePicture() ?>
 
@@ -23,16 +22,20 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
     </div>
 <?
-if ($user->getId() == Yii::$app->user->identity->getId()) {
 
-    echo $this->render('/resume/_resume',[
+// only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
+
+    echo $this->render('/resume/_resume', [
         'jobDataProvider'    => $jobDataProvider,
         'schoolDataProvider' => $schoolDataProvider,
-        'edit' => false,
-        'label' => 'Bearbeiten',
-        'url1' =>['/resume'],
-        'url2' =>['/resume'],
+        'edit'               => false,
+        'label'              => 'Bearbeiten',
+        'url1'               => ['/resume'],
+        'url2'               => ['/resume'],
     ]);
+} else {
+    echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
 }
 
 

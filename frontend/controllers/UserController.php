@@ -45,29 +45,24 @@ class UserController extends Controller
         if ($un !== null && $un != Yii::$app->user->identity->username) {
             $user = User::findByUsername($un);
             if ($user === null) {
-                throw new UserException();      // TODO: throw error
-            } else {
-                return $this->render('index', [
-                    'user' => $user
-                ]);
+                Yii::$app->getSession()->setFlash('error', 'Sorry, der Nutzer ' .$un .' existiert leider nicht.');
+                return $this->redirect('/user');
             }
-        } else {
-            $jobDataProvider = new ActiveDataProvider([
-                'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
-            ]);
-
-            $schoolDataProvider = new ActiveDataProvider([
-                'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
-            ]);
-
-            return $this->render('index', [
-                'jobDataProvider'    => $jobDataProvider,
-                'schoolDataProvider' => $schoolDataProvider,
-                'user'               => Yii::$app->user->identity,
-            ]);
-
+            else
+                $id = $user->id;
         }
+        $jobDataProvider = new ActiveDataProvider([
+            'query' => ResumeJob::find()->where(['user_id' => isset($id) ? $id : Yii::$app->user->getId()]),
+        ]);
+        $schoolDataProvider = new ActiveDataProvider([
+            'query' => ResumeSchool::find()->where(['user_id' => isset($id) ? $id : Yii::$app->user->getId()]),
+        ]);
 
+        return $this->render('index', [
+            'jobDataProvider'    => $jobDataProvider,
+            'schoolDataProvider' => $schoolDataProvider,
+            'user'               => isset($user) ? $user : Yii::$app->user->identity,
+        ]);
     }
 
     public function actionSettings()
@@ -94,7 +89,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function getUserName($id) {
+    public function getUserName($id)
+    {
         $usr = User::findOne($id);
         return $usr->username;
     }
