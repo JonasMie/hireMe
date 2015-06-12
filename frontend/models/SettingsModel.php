@@ -12,14 +12,23 @@ namespace frontend\models;
 use common\models\User;
 use Yii;
 use yii\base\Model;
+use yii\web\UploadedFile;
 
-class SettingsModel extends Model{
+// set image dimension constants
+define("IMGWIDHT", 500);
+define("IMGHEIGHT", 500);
+define("THUMBHEIGHT", 150);
+define("THUMBWIDTH", 150);
+
+class SettingsModel extends Model
+{
 
     public $visibility;
     public $email;
     public $password;
     public $password_repeat;
     public $oldPassword;
+    public $picture;
 
 
     /**
@@ -30,31 +39,32 @@ class SettingsModel extends Model{
         return [
             [['email', 'visibility'], 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'filter' => function($query){
-                $query->andWhere(['id' => '!=' .Yii::$app->user->identity->getId()]);
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'filter' => function ($query) {
+                $query->andWhere(['id' => '!=' . Yii::$app->user->identity->getId()]);
             }],
             ['email', 'filter', 'filter' => 'trim'],
 
 
             ['password', 'string', 'min' => 6],
             ['password', 'compare'],
-            ['password_repeat', 'required', 'when' => function($model){
+            ['password_repeat', 'required', 'when' => function ($model) {
                 return !empty($model->password);
-            },'whenClient'=> "function(attribute,value){
+            }, 'whenClient'                        => "function(attribute,value){
                     return $('#settingsmodel-password').val()!='';
             }"],
-            ['oldPassword', 'required', 'when' => function($model){
+            ['oldPassword', 'required', 'when' => function ($model) {
                 return !empty($model->password);
-            }, 'whenClient'=> "function(attribute,value){
+            }, 'whenClient'                    => "function(attribute,value){
                     return $('#settingsmodel-password').val()!='';
             }"],
-            ['oldPassword', function($attribute, $param) {
-                if(!User::findIdentity(Yii::$app->user->identity->getId())->validatePassword($this->$attribute)){
+            ['oldPassword', function ($attribute, $param) {
+                if (!User::findIdentity(Yii::$app->user->identity->getId())->validatePassword($this->$attribute)) {
                     $this->addError($attribute, 'Das Passwort stimmt nicht mit deinem aktuellen Passwort überein.');
                 }
             }],
 
-            ['visibility', 'in', 'range'=> [0,1,2]]
+            ['visibility', 'in', 'range' => [0, 1, 2]],
+            ['picture', 'file', 'extensions' => ['jpg', 'png']],
         ];
     }
 
@@ -64,10 +74,11 @@ class SettingsModel extends Model{
     public function attributeLabels()
     {
         return [
-            'visibility' => 'Sichtbarkeit',
-            'oldPassword' => 'Altes Passwort',
-            'password' => 'Neues Passwort',
-            'password_repeat' => 'Passwort-Bestätigung'
+            'visibility'      => 'Sichtbarkeit',
+            'oldPassword'     => 'Altes Passwort',
+            'password'        => 'Neues Passwort',
+            'password_repeat' => 'Passwort-Bestätigung',
+            'picture'         => 'Profilbild',
         ];
     }
 
@@ -78,12 +89,15 @@ class SettingsModel extends Model{
      */
     public function update()
     {
-        if($this->validate()){
+        if ($this->validate()) {
             $user = User::findIdentity(Yii::$app->user->identity->getId());
-
+            $imageId = $this->uploadImage($this);
+            if (isset($imageId) && $imageId) {
+                $user->picture = $imageId;
+            }
             $user->email = $this->email;
             $user->visibility = $this->visibility;
-            if(!empty($this->password)){
+            if (!empty($this->password)) {
                 $user->setPassword($this->password);
             }
             $user->generateAuthKey();
@@ -93,5 +107,98 @@ class SettingsModel extends Model{
         } else {
             return null;
         }
+    }
+
+    private function uploadImage($model)
+    {
+        $model->picture = UploadedFile::getInstance($model, 'picture');
+        $param = Yii::$app->request->post();
+        if ($model->picture && $model->validate()) {
+            $profilePic = new File();
+            $profilePic->path = "/" . uniqid("profile_");
+            $profilePic->extension = $model->picture->extension;
+            $profilePic->size = $model->picture->size;
+            $profilePic->title = $model->picture->baseName;
+            if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path . "." . $profilePic->extension,$param) && $this->saveThumbnail($profilePic->path)) {
+                return $profilePic->id;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    private function cropImage($path,$param)
+    {
+        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path;
+        $imagesize = getimagesize($imagefile);
+        $imagetype = $imagesize[2];
+        switch ($imagetype) {
+            case 1: // GIF
+                $image = imagecreatefromgif($imagefile);
+                break;
+            case 2: // JPEG
+                $image = imagecreatefromjpeg($imagefile);
+                break;
+            case 3: // PNG
+                $image = imagecreatefrompng($imagefile);
+                break;
+            default:
+                die('Unsupported imageformat');
+        }
+
+        // Crop Original Image
+        $vDstImg = @imagecreatetruecolor(IMGWIDHT, IMGHEIGHT);
+
+        // copy and resize part of an image with resampling
+        imagecopyresampled($vDstImg, $image, 0, 0, $param['x'], $param['y'], IMGWIDHT, IMGHEIGHT, $param['w'], $param['h']);
+
+        // define a result image filename
+        $sResultFileName = Yii::getAlias('@webroot') . '/uploads/profile' . $path;
+
+        // output image to file
+        imagejpeg($vDstImg, $sResultFileName);
+        @unlink($imagefile);
+
+        return true;
+    }
+
+    private function saveThumbnail($path)
+    {
+        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile' . $path.".jpg";
+        $imagesize = getimagesize($imagefile);
+        $imagewidth = $imagesize[0];
+        $imageheight = $imagesize[1];
+        $image = imagecreatefromjpeg($imagefile);
+
+        // Ausmaße kopieren, wir gehen zuerst davon aus, dass das Bild schon Thumbnailgröße hat
+        $thumbwidth = $imagewidth;
+        $thumbheight = $imageheight;
+        // Breite skalieren falls nötig
+        if ($thumbwidth > THUMBWIDTH) {
+            $factor = THUMBWIDTH / $thumbwidth;
+            $thumbwidth *= $factor;
+            $thumbheight *= $factor;
+        }
+        // Höhe skalieren, falls nötig
+        if ($thumbheight > THUMBHEIGHT) {
+            $factor = THUMBHEIGHT / $thumbheight;
+            $thumbwidth *= $factor;
+            $thumbheight *= $factor;
+        }
+        // Thumbnail erstellen
+        $thumb = imagecreatetruecolor($thumbwidth, $thumbheight);
+
+        imagecopyresampled(
+            $thumb,
+            $image,
+            0, 0, 0, 0,
+            $thumbwidth, $thumbheight,
+            $imagewidth, $imageheight
+        );
+
+
+        imagejpeg($thumb, Yii::getAlias('@webroot') . '/uploads/profile/thumbnails' . $path .".jpg");
+        imagedestroy($thumb);
+        return true;
     }
 }

@@ -104,8 +104,8 @@ use yii\helpers\Html;
             [
                 'attribute'      => 'picture',
                 'format'         => 'raw',
-                'value'          => function () {
-                    return '<img src="/images/tmp/user/1.jpg">';
+                'value'          => function ($data) {
+                    return $data->user->getProfilePicture(true);
                 },
                 'contentOptions' => ['data-title' => 'Picture'],
                 'label'          => false

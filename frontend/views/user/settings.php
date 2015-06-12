@@ -7,13 +7,13 @@
  * Project: hireMe
  */
 
+use frontend\assets\ImageAssetBundle;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 $this->title = 'Eintstellungen';
-$this->params['breadcrumbs'][] = ['label' => 'Profil', 'url' => ['/user']];
-$this->params['breadcrumbs'][] = $this->title;
+ImageAssetBundle::register($this);
 ?>
 <div class="user-settings">
     <? if(isset($success)){
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="settings-form">
 
-        <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
         <?= $form->field($model, 'visibility')->radioList([0=>'Keiner kann das Profil sehen', 1=>'Recruiter können das Profil sehen', 2=>'Jeder kann das Profil sehen'])->label('Sichtbarkeit des Profils') ?>
 
@@ -41,7 +41,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password_repeat', ['inputOptions'=>['placeholder'=>'Neus Passwort wiederholen']])->passwordInput()->label(false) ?>
             </fieldset>
         </div>
+
         <?= $form->field($model, 'email')->textInput()->label('Neue Email-Adresse') ?>
+        <?= $form->field($model, 'picture')->fileInput(); ?>
+
+        <div style="width: 1000px; max-height: 1000px; overflow: scroll">
+            <img id="settingsmodel-picture-jcrop" src="" style="display: none">
+            <input type="text" id="w" name="w" style="display: none"  />
+            <input type="text" id="h" name="h" style="display: none"  />
+            <input type="text" id="x" name="x" style="display: none"  />
+            <input type="text" id="y" name="y" style="display: none"  />
+        </div>
         <div class="form-group">
             <?= Html::submitButton('Speichern', ['class' => 'btn btn-primary', 'name' => 'settings-button']) ?>
         </div>
