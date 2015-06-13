@@ -60,7 +60,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a($data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
                     }
                 },
-                'headerOptions' => ['data-sender'=>'homo']
             ],
             'sent_at:datetime:Gesendet',
 

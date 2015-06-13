@@ -7,30 +7,45 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\FavouritesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Favourites');
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('app', 'Favoriten');
 ?>
 <div class="favourites-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Favourites'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
+        'filterModel'  => $searchModel,
+        'columns'      => [
             ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\CheckboxColumn'],
+            [
+                'attribute' => 'jobDescription',
+                'label'     => 'Job',
+                'format'    => 'raw',
+                'value'     => function ($data) {
+                    return Html::a($data->job->description, ['/job/view','id' => $data->job->id]);
+                },
+            ],
+            [
+                'attribute' => 'company',
+                'label' => 'Unternehmen',
+                'format' => 'raw',
+                'value'     => function ($data) {
+                    return Html::a($data->job->company->name, ['/company/view' ,'id'=> $data->job->company->id]);
+                },
+            ],
 
-            'id',
-            'job_id',
-            'user_id',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{delete}'
+            ],
         ],
     ]); ?>
+
+
+    <p>
+        <?= Html::a(Yii::t('app', 'Nach Jobs suchen'), ['/job'], ['class' => 'btn btn-success']) ?>
+    </p>
 
 </div>
