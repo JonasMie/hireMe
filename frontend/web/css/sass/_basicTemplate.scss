@@ -226,9 +226,8 @@ body {
       font-size: 18px;
       padding: 10px 10px 2px 5px;
       display: block;
-      max-width: 400px;
       border: none;
-      border-bottom: 2px solid $borderGrey;
+      border-bottom: $FormBorderNonFocused;
       transition: 0.2s ease border;
       -moz-transition: 0.2s ease border;
       -webkit-transition: 0.2s ease border;
@@ -236,7 +235,7 @@ body {
         outline:none;
       }
     }
-    label 				 {
+    label {
       color:$greyFont;
       font-size:18px;
       position:absolute;
@@ -253,7 +252,7 @@ body {
   /* FOCUSED INPUT*/
   .input-in-focus , .has-success {
     > input[type="text"] {
-      border-bottom: 2px solid $green;
+      border-bottom: $FormBorderFocused;
     }
     > label {
       top:-20px;
@@ -261,6 +260,27 @@ body {
       color: $green;
     }
   }  /* END FOCUSED INPUT*/
+
+  /*Typeahead Fix */
+  label.typeahead-label{
+    position: relative;
+    color:$greyFont;
+    font-size:18px;
+    pointer-events:none;
+    left:5px;
+    top:28px;
+
+    transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+    -moz-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+    -webkit-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+  }
+
+  label.typeahead-label-in-focus {
+    top:-2px;
+    font-size:15px;
+    color: $green;
+  }
+  /*END Typeahead Fix */
   /* END BASIC FORM STYLING */
 
 }

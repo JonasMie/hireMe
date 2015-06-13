@@ -8,7 +8,7 @@ use frontend\models\ResumeJob;
 use frontend\models\ResumeSchool;
 use frontend\models\File;
 use frontend\models\JobContacts;
-use kartik\helpers\Html;
+use yii\helpers\Html;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -345,6 +345,6 @@ class User extends ActiveRecord implements IdentityInterface
             }
             return Html::img("/uploads/profile".$picture->path.".jpg");
         }
-        return Html::img("/uploads/profile/default.jpg");
+        return Html::img("/uploads/profile/default.png");
     }
 }

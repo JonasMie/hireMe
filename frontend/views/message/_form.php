@@ -16,26 +16,45 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'subject')->textInput(['maxlength' => 255]) ?>
+    <div class="row message-create-first-row">
+        <div class="col-lg-6">
+
+            <?= $form->field($model, 'subject')->textInput(['maxlength' => 255]) ?>
+
+
+        </div>
+        <div class="col-lg-6">
+
+
+            <? echo "<label class='control-label typeahead-label'>Empfänger</label>"; ?>
+            <?=
+            // TODO: set receiver if $rec!== null
+            Typeahead::widget([
+                'name'         => 'receiver_name',
+                'dataset'      => [
+                    [
+                        'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
+                        'limit'  => 10,
+                    ],
+                ],
+                'pluginEvents' => [     // Typeahead search with bloodhound suggestion
+                    "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
+                ]
+
+            ]) ?>
+
+        </div>
+
+
+    </div>
+
+
+
+
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <? echo "<label class='control-label'>Empfänger</label>"; ?>
-    <?=
-    // TODO: set receiver if $rec!== null
-    Typeahead::widget([
-        'name'         => 'receiver_name',
-        'dataset'      => [
-            [
-                'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
-                'limit'  => 10,
-            ],
-        ],
-        'pluginEvents' => [     // Typeahead search with bloodhound suggestion
-            "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
-        ]
 
-    ]) ?>
 
     <!--?= $form->field($model, 'receiver_id')->widget(Typeahead::className(), [
         'dataset' => [
@@ -55,7 +74,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($attachment, 'file')->fileInput()->label('Anhang hinzufügen'); ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Create'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Nachricht versenden'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

@@ -22,8 +22,21 @@ body.controller-message {
 
 body.controller-message.action-create {
 
-  /* END FOCUSED INPUT*/
+  .message-create-first-row {
+    margin-top: 40px;
+  }
 
+  input[type="text"], span.tt-dropdown-menu {
+    max-width: 400px;
+  }
+
+  #message-content {
+    border: none;
+    border-bottom: $FormBorderNonFocused;
+    border-top: $FormBorderNonFocused;
+    box-shadow: none;
+    max-width: 600px;
+  }
 
 
 

@@ -12,6 +12,7 @@ $(document).ready(function(){
         radioClass: 'iradio_flat'
     });
 
+
 });
 
 
@@ -84,11 +85,18 @@ $(".ripple").on("click", function(e){
 
 /** Helper Function for Input Forms **/
 
-$('#message-subject').focus(function () {
+
+
+$('input[type=text]').focus(function () {
+    if ($(this).attr('class') == 'form-control tt-input') { //Typeahead Fix
+        $(this).parent().parent().prev().addClass('typeahead-label-in-focus');
+    } // END Typeahead Fix
     $(this).parent().addClass('input-in-focus');
 }).blur(function () {
     $(this).parent().removeClass('input-in-focus');
 });
+
+
 
 /** END Helper Function for Input Forms **/
 

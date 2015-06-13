@@ -108,7 +108,7 @@ h6, .h6 {
   margin-bottom: 10px;
 }
 
-/* line 78, ../sass/_variables.scss */
+/* line 83, ../sass/_variables.scss */
 input.form-control {
   background: transparent;
   border-width: 0px 0px 1px 0px;
@@ -116,7 +116,7 @@ input.form-control {
   -webkit-box-shadow: none !important;
   border-radius: 0px;
 }
-/* line 84, ../sass/_variables.scss */
+/* line 89, ../sass/_variables.scss */
 input.form-control:focus {
   border-color: #5dca88;
 }
@@ -519,6 +519,8 @@ body {
   /* END UNFOCUSED INPUT */
   /* FOCUSED INPUT*/
   /* END FOCUSED INPUT*/
+  /*Typeahead Fix */
+  /*END Typeahead Fix */
   /* END BASIC FORM STYLING */
 }
 /* line 7, ../sass/_basicTemplate.scss */
@@ -713,18 +715,17 @@ body .form-group input[type="text"] {
   font-size: 18px;
   padding: 10px 10px 2px 5px;
   display: block;
-  max-width: 400px;
   border: none;
   border-bottom: 2px solid #dddddd;
   transition: 0.2s ease border;
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-/* line 235, ../sass/_basicTemplate.scss */
+/* line 234, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 239, ../sass/_basicTemplate.scss */
+/* line 238, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -736,13 +737,31 @@ body .form-group label {
   -moz-transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
   -webkit-transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
 }
-/* line 255, ../sass/_basicTemplate.scss */
+/* line 254, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .has-success > input[type="text"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 258, ../sass/_basicTemplate.scss */
+/* line 257, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label {
   top: -20px;
+  font-size: 15px;
+  color: #5dca88;
+}
+/* line 265, ../sass/_basicTemplate.scss */
+body label.typeahead-label {
+  position: relative;
+  color: #9d9d9d;
+  font-size: 18px;
+  pointer-events: none;
+  left: 5px;
+  top: 28px;
+  transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
+  -moz-transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
+  -webkit-transition: 0.2s ease color,0.2s ease top,0.2s ease font-size;
+}
+/* line 278, ../sass/_basicTemplate.scss */
+body label.typeahead-label-in-focus {
+  top: -2px;
   font-size: 15px;
   color: #5dca88;
 }
@@ -982,7 +1001,19 @@ body.controller-message table#inboxTable {
   margin-top: 10px;
 }
 
-/* line 23, ../sass/_message.scss */
-body.controller-message.action-create {
-  /* END FOCUSED INPUT*/
+/* line 25, ../sass/_message.scss */
+body.controller-message.action-create .message-create-first-row {
+  margin-top: 40px;
+}
+/* line 29, ../sass/_message.scss */
+body.controller-message.action-create input[type="text"], body.controller-message.action-create span.tt-dropdown-menu {
+  max-width: 400px;
+}
+/* line 33, ../sass/_message.scss */
+body.controller-message.action-create #message-content {
+  border: none;
+  border-bottom: 2px solid #dddddd;
+  border-top: 2px solid #dddddd;
+  box-shadow: none;
+  max-width: 600px;
 }
