@@ -17,6 +17,56 @@ body.controller-message {
 
   table#inboxTable {
     margin-top: 10px;
+
+
+    tr {
+      td {
+        div.profile-picture-thumbnail {
+          margin-right: 10px;
+        }
+        div.message-sender {
+          margin-top: 18px;
+        }
+        a:hover {
+          div.profile-picture-thumbnail {
+            background: $DefaultThumbnailHover;
+          }
+        }
+        a[title="Anzeigen"] {
+          margin-right: 40px;
+        }
+      }
+
+      td.first-col {
+        width: 5%;
+      }
+      td.second-col {
+        width: 35%;
+        @media (max-width: 769px) {
+          width: 50%;
+        }
+      }
+      td.third-col {
+        width: 25%;
+        @media (max-width: 769px) {
+          width: 50%;
+        }
+      }
+      td.fourth-col {
+        width: 20%;
+      }
+      td.fifth-col {
+        width: 15%;
+        text-align: right;
+        padding-right: 20px;
+      }
+
+
+
+    }
+
+
+
   }
 }
 
@@ -24,18 +74,22 @@ body.controller-message.action-create {
 
   .message-create-first-row {
     margin-top: 40px;
-  }
 
-  input[type="text"], span.tt-dropdown-menu {
-    max-width: 400px;
+    input[type="text"], span.tt-dropdown-menu {
+      max-width: 400px;
+    }
+
   }
 
   #message-content {
-    border: none;
-    border-bottom: $FormBorderNonFocused;
-    border-top: $FormBorderNonFocused;
-    box-shadow: none;
     max-width: 600px;
+
+
+    background-image: url("/images/textarea-grippe.png");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+
+
   }
 
 

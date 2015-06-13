@@ -24,33 +24,27 @@ use yii\widgets\ActiveForm;
 
         </div>
         <div class="col-lg-6">
+            <div class="message-create-first-row-first-col">
 
-
-            <? echo "<label class='control-label typeahead-label'>Empfänger</label>"; ?>
-            <?=
-            // TODO: set receiver if $rec!== null
-            Typeahead::widget([
-                'name'         => 'receiver_name',
-                'dataset'      => [
-                    [
-                        'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
-                        'limit'  => 10,
+                <? echo "<label class='control-label typeahead-label'>Empfänger</label>"; ?>
+                <?=
+                // TODO: set receiver if $rec!== null
+                Typeahead::widget([
+                    'name'         => 'receiver_name',
+                    'dataset'      => [
+                        [
+                            'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
+                            'limit'  => 10,
+                        ],
                     ],
-                ],
-                'pluginEvents' => [     // Typeahead search with bloodhound suggestion
-                    "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
-                ]
+                    'pluginEvents' => [     // Typeahead search with bloodhound suggestion
+                        "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
+                    ]
 
-            ]) ?>
-
+                ]) ?>
+            </div>
         </div>
-
-
     </div>
-
-
-
-
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 

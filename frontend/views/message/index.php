@@ -11,6 +11,20 @@ $this->title = Yii::t('app', 'Messages');
 
 
 ?>
+
+<!-- Initializing Foo Tables -->
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                xsmall: 736, /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                mediaSmall: 960
+            }
+        });
+    });");
+
+?>
+
 <div class="message-index">
 
     <h1>Posteingang</h1>
@@ -25,13 +39,15 @@ $this->title = Yii::t('app', 'Messages');
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel'  => $searchModel,
-        'tableOptions' => ['class' => 'hireMeTable', 'id' => 'inboxTable'],
+        'tableOptions' => ['class' => 'hireMeTable footable', 'id' => 'inboxTable'],
         'columns'      => [
             [
-                    'class'         => 'yii\grid\CheckboxColumn',
+                'class'         => 'yii\grid\CheckboxColumn',
                 'filterOptions' => function () {
                     echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
-                }
+                },
+                'headerOptions' => ['class'=>'first-col', 'data-hide'=>'bar'],
+                'contentOptions' => ['class' => 'first-col']
             ],
             [
                 'attribute' => 'subject',
@@ -40,7 +56,8 @@ $this->title = Yii::t('app', 'Messages');
                 'value'     => function ($data) {
                     return Html::a($data->subject, '/message/view?id=' . $data->id, ['class' => $data->read ? "read" : ""]);  // STYLE: wenn klasse 'read' => bold
                 },
-                'headerOptions' => ['test'=>'foo', 'data-foo'=>'bar']     // STYLE: edit headerOptions
+                'headerOptions' => ['class'=>'second-col', 'data-hide'=>'bar'],     // STYLE: edit headerOptions
+                'contentOptions' => ['class' => 'second-col']
             ],
 //            TODO: check if content needed in overview? if so, use ellipsis to shorten content --jonas
 //            [
@@ -57,19 +74,31 @@ $this->title = Yii::t('app', 'Messages');
                 'format'    => 'raw',
                 'value'     => function ($data) {
                     if (Yii::$app->user->getId() === $data->sender_id) {
-                        return Html::a($data->receiver->getProfilePicture(true) .$data->receiver->firstName . " " . $data->receiver->lastName, '../user/' . $data->receiver->username);
+                        return Html::a($data->receiver->getProfilePicture(true). '<div class="message-sender">' .$data->receiver->firstName . " " . $data->receiver->lastName . '</div>', '../user/' . $data->receiver->username);
                     } else if (Yii::$app->user->getId() === $data->receiver_id) {
-                        return Html::a($data->sender->getProfilePicture(true) .$data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
+                        return Html::a($data->sender->getProfilePicture(true) .'<div class="message-sender">' .$data->sender->firstName . " " . $data->sender->lastName . '</div>', '../user/' . $data->sender->username);
                     }
                 },
-                'headerOptions' => ['data-sender'=>'homo']
-            ],
-            'sent_at:datetime:Gesendet',
+                'headerOptions' => ['class'=>'third-col', 'data-hide'=>'bar'],
+                'contentOptions' => ['class' => 'third-col']
 
+            ],
+            [
+                'attribute' => 'sent_at',
+                'format' => 'datetime',
+                'label' => 'Gesendet',
+                'headerOptions' => ['class'=>'fourth-col', 'data-hide'=>'mediaSmall,phone,xsmall'],
+                'contentOptions' => ['class' => 'fourth-col']
+
+
+            ],
 //            TODO: check if action column needed (rather not) --jonas
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}{delete}'
+                'template' => '{view}{delete}',
+                'headerOptions' => ['class'=>'fifth-col', 'data-hide'=>'xsmall,phone'],
+                'contentOptions' => ['class' => 'fifth-col']
+
             ],
         ],
     ]); ?>

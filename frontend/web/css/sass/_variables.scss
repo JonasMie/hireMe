@@ -72,9 +72,13 @@ h6, .h6{
   margin-bottom:10px;
 }
 
+// Default Thumbnail
+$DefaultThumbnailNonHover: url('/uploads/profile/default.png') no-repeat top;
+$DefaultThumbnailHover: url('/uploads/profile/default-hover.png') no-repeat top;
+
+
 
 // Forms
-
 $FormBorderNonFocused:  2px solid $borderGrey;
 $FormBorderFocused: 2px solid $green;
 
