@@ -825,8 +825,9 @@ body {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
+  background-attachment: fixed;
 }
-/* line 63, ../sass/_login.scss */
+/* line 64, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
 }
