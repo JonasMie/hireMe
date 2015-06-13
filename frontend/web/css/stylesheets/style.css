@@ -431,37 +431,37 @@ footer.footer p.pull-right span.glyphicon-heart {
 }
 /* line 15, ../sass/_header.scss */
 #header div.container {
-  margin-top: 20px;
   width: 100%;
   padding-left: 0px;
 }
-/* line 20, ../sass/_header.scss */
+/* line 19, ../sass/_header.scss */
 #header div.container .navbar-header {
   padding: 40px 0px;
   margin-top: -70px;
 }
-/* line 24, ../sass/_header.scss */
+/* line 23, ../sass/_header.scss */
 #header div.container .navbar-header a.navbar-brand {
   padding: 25px 15px 0px 50px;
 }
-/* line 26, ../sass/_header.scss */
+/* line 25, ../sass/_header.scss */
 #header div.container .navbar-header a.navbar-brand img#navbar-logo {
   width: 100px;
+  margin-top: 20px;
 }
 @media (max-width: 991px) {
-  /* line 24, ../sass/_header.scss */
+  /* line 23, ../sass/_header.scss */
   #header div.container .navbar-header a.navbar-brand {
     display: none;
   }
 }
 /* line 37, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li {
-  padding: 0px 20px 0px 20px;
+  padding: 0px;
   color: #5d6461;
 }
 /* line 40, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li a {
-  padding: 0;
+  padding: 20px 20px;
 }
 /* line 42, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li a:hover {
@@ -471,68 +471,74 @@ footer.footer p.pull-right span.glyphicon-heart {
 #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu {
   border-radius: 0px;
   min-width: 1px;
-  top: 40px;
+  top: 60px;
   background-color: #2d312f;
   border: none;
+  margin-top: 10px;
 }
-/* line 52, ../sass/_header.scss */
+/* line 53, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li {
   display: inline-block;
   float: left;
   padding: 0px 20px 10px 20px;
 }
-/* line 56, ../sass/_header.scss */
+/* line 57, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li:nth-child(1) {
   padding-top: 10px !important;
 }
-/* line 59, ../sass/_header.scss */
+/* line 60, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a {
   color: #9d9d9d;
+  padding: 3px 20px;
 }
-/* line 61, ../sass/_header.scss */
+/* line 63, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:hover {
   background: none;
   color: #5dca88;
 }
-/* line 70, ../sass/_header.scss */
+/* line 72, ../sass/_header.scss */
+#header div.container #header-collapse ul.navbar-nav > li.dropdown.open:after {
+  background-image: url("/images/caret-black.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 10px;
+  width: 100%;
+  display: block;
+  content: " ";
+  transition: display 0.2s ease-in-out;
+}
+/* line 83, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav li.dropdown {
   margin-right: -10px;
 }
-/* line 75, ../sass/_header.scss */
+/* line 88, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li.active a {
   background: none;
   color: #5dca88;
 }
-/* line 81, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav > li.open {
-  background-image: url("/images/caret.png");
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  height: 40px;
-}
-/* line 86, ../sass/_header.scss */
+/* line 96, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li.open > a {
   background: none;
 }
-/* line 88, ../sass/_header.scss */
+/* line 98, ../sass/_header.scss */
 #header div.container #header-collapse ul.navbar-nav > li.open > a:focus, #header div.container #header-collapse ul.navbar-nav > li.open > a:hover {
   color: #5dca88 !important;
   background: none;
 }
 @media (max-width: 991px) {
-  /* line 98, ../sass/_header.scss */
+  /* line 108, ../sass/_header.scss */
   #header div.container {
     margin: 0;
     padding: 0;
   }
-  /* line 102, ../sass/_header.scss */
+  /* line 112, ../sass/_header.scss */
   #header div.container .navbar-header {
     float: none;
     background: none;
     padding: 0;
     margin: 0;
   }
-  /* line 108, ../sass/_header.scss */
+  /* line 118, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle {
     display: block;
     background-color: #5dca88;
@@ -549,7 +555,7 @@ footer.footer p.pull-right span.glyphicon-heart {
     -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   }
-  /* line 133, ../sass/_header.scss */
+  /* line 143, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar {
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
@@ -557,55 +563,55 @@ footer.footer p.pull-right span.glyphicon-heart {
     -o-transition: 0.3s;
     transition: 0.3s;
   }
-  /* line 140, ../sass/_header.scss */
+  /* line 150, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(2) {
     position: absolute;
     top: 11px;
   }
-  /* line 144, ../sass/_header.scss */
+  /* line 154, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(3) {
     margin-top: 0px;
   }
-  /* line 147, ../sass/_header.scss */
+  /* line 157, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle .icon-bar:nth-of-type(4) {
     position: absolute;
     top: 23px;
   }
-  /* line 151, ../sass/_header.scss */
+  /* line 161, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:active {
     transition: 0s;
   }
-  /* line 155, ../sass/_header.scss */
+  /* line 165, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(2) {
     top: 9px;
   }
-  /* line 158, ../sass/_header.scss */
+  /* line 168, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle:hover .icon-bar:nth-of-type(4) {
     top: 25px;
   }
-  /* line 163, ../sass/_header.scss */
+  /* line 173, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked {
     left: 163px;
   }
-  /* line 166, ../sass/_header.scss */
+  /* line 176, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(2) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, -40deg);
     top: 15px;
     left: 9px;
   }
-  /* line 172, ../sass/_header.scss */
+  /* line 182, ../sass/_header.scss */
   #header div.container .navbar-header button.navbar-toggle.clicked .icon-bar:nth-of-type(4) {
     width: 12.22222px;
     transform: rotate3d(0, 0, 1, 40deg);
     top: 19px;
     left: 9px;
   }
-  /* line 182, ../sass/_header.scss */
+  /* line 192, ../sass/_header.scss */
   #header div.container .navbar-header a.navbar-brand img#navbar-logo {
     display: none;
   }
-  /* line 187, ../sass/_header.scss */
+  /* line 197, ../sass/_header.scss */
   #header div.container #header-collapse {
     background-color: #2d312f;
     -webkit-transition: width .4s;
@@ -614,47 +620,47 @@ footer.footer p.pull-right span.glyphicon-heart {
     -o-transition: width 0.4s;
     transition: width .4s;
   }
-  /* line 195, ../sass/_header.scss */
+  /* line 205, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right {
     float: none !important;
     float: none !important;
     margin-top: 70px;
     margin-right: 0px;
   }
-  /* line 201, ../sass/_header.scss */
+  /* line 211, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li {
     float: none;
     margin-left: 15px;
     margin-bottom: 10px;
     clear: both;
   }
-  /* line 207, ../sass/_header.scss */
+  /* line 217, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  /* line 210, ../sass/_header.scss */
+  /* line 220, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li a:hover {
     color: #5dca88;
   }
-  /* line 216, ../sass/_header.scss */
+  /* line 226, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.open {
     background-image: none;
   }
-  /* line 218, ../sass/_header.scss */
+  /* line 228, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle {
     background: none;
   }
-  /* line 220, ../sass/_header.scss */
+  /* line 230, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:focus, #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:hover {
     color: #5dca88 !important;
     background: none;
   }
-  /* line 225, ../sass/_header.scss */
+  /* line 235, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.open ul#w1 {
     display: block !important;
   }
-  /* line 231, ../sass/_header.scss */
+  /* line 241, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 {
     background: none;
     border: none;
@@ -662,35 +668,39 @@ footer.footer p.pull-right span.glyphicon-heart {
     position: static;
     left: auto;
     top: auto;
-    background-color: #5d6461;
+    background-color: #2d312f;
     border-radius: 0px;
     padding-bottom: 8px;
     width: 200px;
     margin-left: -35px;
     float: left;
   }
-  /* line 244, ../sass/_header.scss */
+  /* line 254, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li {
     display: inline-block;
     float: left;
-    margin: 10px 0px 0px 45px;
+    margin: 10px 0px 0px 35px;
     padding: 0px 30px 0px 10px;
   }
-  /* line 249, ../sass/_header.scss */
+  /* line 259, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a {
     color: #fff;
   }
-  /* line 251, ../sass/_header.scss */
+  /* line 261, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:hover, #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:focus {
     background: none !important;
     color: #5dca88;
   }
-  /* line 257, ../sass/_header.scss */
+  /* line 267, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li:nth-child(1) {
-    margin-left: 45px;
+    margin-left: 35px;
     margin-top: 0px;
   }
-  /* line 266, ../sass/_header.scss */
+  /* line 273, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown.open:after {
+    display: none;
+  }
+  /* line 279, ../sass/_header.scss */
   #header div.container #header-collapse.slidedout {
     max-height: none;
     top: 0px;
@@ -698,12 +708,20 @@ footer.footer p.pull-right span.glyphicon-heart {
     left: 0;
     width: 200px;
     position: fixed;
-    overflow: hidden;
+    overflow: hidden !important;
     display: block !important;
     margin: 0;
     visibility: visible !important;
   }
-  /* line 279, ../sass/_header.scss */
+  /* line 291, ../sass/_header.scss */
+  #header div.container #header-collapse.slidedout .slideout-helper {
+    width: 250px;
+    height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  /* line 301, ../sass/_header.scss */
   #header div.container #header-collapse:not(.slidedout) {
     width: 0;
     max-height: none;
@@ -712,12 +730,12 @@ footer.footer p.pull-right span.glyphicon-heart {
   }
 }
 
-/* line 291, ../sass/_header.scss */
+/* line 313, ../sass/_header.scss */
 body.overflowx {
   overflow-x: hidden;
 }
 
-/* line 295, ../sass/_header.scss */
+/* line 317, ../sass/_header.scss */
 .wrap > .container {
   width: 100%;
   position: relative;
@@ -725,38 +743,38 @@ body.overflowx {
   transition: 0.3s;
 }
 
-/* line 302, ../sass/_header.scss */
+/* line 324, ../sass/_header.scss */
 .wrap > .container.out {
   left: 1px;
   padding-right: -1px;
 }
 
-/* line 310, ../sass/_header.scss */
+/* line 332, ../sass/_header.scss */
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #9d9d9d;
 }
 
-/* line 315, ../sass/_header.scss */
+/* line 337, ../sass/_header.scss */
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #9d9d9d;
 }
 
 @media (max-width: 991px) {
-  /* line 324, ../sass/_header.scss */
+  /* line 346, ../sass/_header.scss */
   #header > div.container {
     height: 1px;
   }
 }
-/* line 331, ../sass/_header.scss */
+/* line 353, ../sass/_header.scss */
 li.dropdown a b.caret {
   border-bottom: 4px solid transparent;
   border-top: 4px solid transparent;
   border-left: 4px solid #9d9d9d;
 }
 
-/* line 340, ../sass/_header.scss */
+/* line 362, ../sass/_header.scss */
 li.dropdown.open a b.caret {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
@@ -832,7 +850,11 @@ body {
   color: #fff;
 }
 
-/* line 3, ../sass/_user.scss */
-.site-user div.user-picture {
+/* line 4, ../sass/_user.scss */
+.controller-user div.user-picture a.btn {
   display: block;
+}
+/* line 10, ../sass/_user.scss */
+.controller-user div.user-resume h2:first-of-type {
+  margin-top: 0px;
 }

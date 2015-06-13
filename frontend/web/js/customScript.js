@@ -5,8 +5,14 @@
 $(document).ready(function(){
 
     $('#header .navbar-toggle').removeAttr('data-target');
+	
+	/** Insert Slideout-Helper for Scrollable Mobile Navigation */
+	$('#header-collapse').wrapInner( '<div class="slideout-helper"></div>' );
+	/** END Insert Slideout-Helper for Scrollable Mobile Navigation */
 
 });
+
+
 
 
 /** Animation for Hamburger Icon on Mobile View */

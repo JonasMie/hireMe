@@ -13,7 +13,6 @@
   }
 
   div.container {
-    margin-top: 20px;
     width: 100%;
     padding-left: 0px;
 
@@ -25,6 +24,7 @@
         padding: 25px 15px 0px 50px;
         img#navbar-logo {
           width: 100px;
+		  margin-top:20px;
         }
         @media(max-width: 991px) {
           display: none; // Bugfix
@@ -35,10 +35,10 @@
 
 
       > li {
-        padding: 0px 20px 0px 20px;
+        padding: 0px;
         color: $grey;
-        a {
-          padding: 0;
+        a{
+		  padding: 20px 20px;
           &:hover {
             color: $green;
           }
@@ -46,9 +46,10 @@
         > ul.dropdown-menu {
           border-radius: 0px;
           min-width: 1px;
-          top: 40px;
+          top: 60px;
           background-color: $black;
           border: none;
+		  margin-top:10px;
           li {
             display: inline-block;
             float: left;
@@ -58,6 +59,7 @@
             }
             a {
               color: $greyFont;
+			  padding: 3px 20px;
               &:hover {
                 background: none;
                 color: $green;
@@ -66,6 +68,17 @@
           }
         }
       }
+	  
+	  > li.dropdown.open:after{
+			background-image: url("/images/caret-black.png");
+			background-position: center bottom;
+			background-repeat: no-repeat;
+			height: 10px;
+			width:100%;
+			display:block;
+			content:" ";
+			transition: display 0.2s ease-in-out;
+		}
 
       li.dropdown {
         margin-right: -10px;
@@ -79,10 +92,7 @@
       }
 
       > li.open {
-        background-image: url("/images/caret.png");
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        height: 40px;
+        
         > a {
           background: none;
           &:focus, &:hover {
@@ -235,7 +245,7 @@
               position: static;
               left: auto;
               top: auto;
-              background-color: $grey;
+              background-color: $black;
               border-radius: 0px;
               padding-bottom: 8px;
               width: 200px;
@@ -244,7 +254,7 @@
               li {
                 display: inline-block;
                 float: left;
-                margin: 10px 0px 0px 45px;
+                margin: 10px 0px 0px 35px;
                 padding: 0px 30px 0px 10px;
                 a {
                   color: #fff;
@@ -255,11 +265,14 @@
                 }
               }
               li:nth-child(1) {
-                margin-left: 45px;
+                margin-left: 35px;
                 margin-top: 0px;
               }
             }
           }
+		  li.dropdown.open:after{
+			display:none;
+		  }
         }
       }
 
@@ -270,10 +283,19 @@
         left:0;
         width:200px;
         position:fixed;
-        overflow:hidden;
+        overflow:hidden!important;
         display: block !important;
         margin: 0;
         visibility: visible !important;
+		
+		.slideout-helper{
+		    width: 250px;
+			height: 100vh;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			overflow-x: hidden;
+		}
+		
       }
 
       #header-collapse:not(.slidedout) {
