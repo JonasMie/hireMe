@@ -11,7 +11,7 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-$this->title = 'Eintstellungen';
+$this->title = 'Einstellungen';
 $this->params['breadcrumbs'][] = ['label' => 'Profil', 'url' => ['/user']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
