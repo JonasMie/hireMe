@@ -770,19 +770,25 @@ body {
   background-color: #ffffff;
 }
 
-/* line 3, ../sass/_login.scss */
+/* line 5, ../sass/_login.scss */
 .site-login .login-field {
   text-align: center;
+  background-color: rgba(45, 49, 47, 0.8);
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-top: 20px;
 }
-/* line 7, ../sass/_login.scss */
+/* line 13, ../sass/_login.scss */
 .site-login .login-button {
   padding: 10px 60px;
 }
-/* line 11, ../sass/_login.scss */
+/* line 17, ../sass/_login.scss */
 .site-login input {
   color: #fff;
 }
-/* line 16, ../sass/_login.scss */
+/* line 22, ../sass/_login.scss */
 .site-login #login-form input {
   background: transparent;
   border-width: 0px 0px 1px 0px;
@@ -790,37 +796,42 @@ body {
   -webkit-box-shadow: none;
   border-radius: 0px;
 }
-/* line 25, ../sass/_login.scss */
+/* line 31, ../sass/_login.scss */
 .site-login .auth-clients {
   overflow: inherit;
   min-height: 100px;
 }
-/* line 32, ../sass/_login.scss */
+/* line 38, ../sass/_login.scss */
 .site-login ::-webkit-input-placeholder {
   color: #fff;
 }
-/* line 36, ../sass/_login.scss */
+/* line 42, ../sass/_login.scss */
 .site-login :-moz-placeholder {
   /* Firefox 18- */
   color: #fff;
 }
-/* line 40, ../sass/_login.scss */
+/* line 46, ../sass/_login.scss */
 .site-login ::-moz-placeholder {
   /* Firefox 19+ */
   color: #fff;
 }
-/* line 44, ../sass/_login.scss */
+/* line 50, ../sass/_login.scss */
 .site-login :-ms-input-placeholder {
   color: #fff;
 }
 
-/* line 52, ../sass/_login.scss */
+/* line 58, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
 }
-/* line 57, ../sass/_login.scss */
+/* line 63, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
+}
+
+/* line 3, ../sass/_user.scss */
+.site-user div.user-picture {
+  display: block;
 }

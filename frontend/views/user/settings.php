@@ -12,8 +12,14 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
+<<<<<<< HEAD
 $this->title = 'Eintstellungen';
 ImageAssetBundle::register($this);
+=======
+$this->title = 'Einstellungen';
+$this->params['breadcrumbs'][] = ['label' => 'Profil', 'url' => ['/user']];
+$this->params['breadcrumbs'][] = $this->title;
+>>>>>>> feature/userProfile
 ?>
 <div class="user-settings">
     <? if(isset($success)){

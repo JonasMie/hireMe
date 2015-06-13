@@ -70,7 +70,6 @@ CustomAppAsset::register($this);
 			[
 				'label' => Yii::$app->user->identity->firstName,
 				'items' => [
-					['label' => 'Als Bewerber nutzen', 'url' => '#'],
 					['label' => 'Einstellungen', 'url' => '/user/settings'],
 					[
 						'label' => 'Logout',
@@ -98,7 +97,6 @@ CustomAppAsset::register($this);
 				'items' => [
 					['label' => 'Profil ansehen', 'url' => ['/user']],
 					['label' => 'Einstellungen', 'url' => '/user/settings'],
-					['label' => 'Als Recruiter nutzen', 'url' => '#'],
 					[
 						'label' => 'Logout',
 						'url' => ['/site/logout'],
