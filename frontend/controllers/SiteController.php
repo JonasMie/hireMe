@@ -90,6 +90,11 @@ class SiteController extends Controller
                 'name' => 'usr_',
                 'value' => Yii::$app->user->getId(),
         ]));
+        if(!Yii::$app->user->isGuest)
+        {
+            return $this->redirect('/dashboard');
+        }
+
         return $this->render("index");
 
     }
