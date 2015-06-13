@@ -9,7 +9,6 @@ use yii\helpers\Html;
 $this->title = "Profil";
 
 ?>
-<<<<<<< HEAD
     <h1><?= /*$user->fullName*/
         $user->fullName?></h1>
     <div>
@@ -34,8 +33,8 @@ if ($user->getId() == Yii::$app->user->identity->getId()) {
         'url2' =>['/resume'],
     ]);
 }
+?>
 
-=======
 	<div class="row">
 		<div class="col-sm-6 user-info">
 			<h1><?= /*$user->fullName*/
@@ -51,7 +50,7 @@ if ($user->getId() == Yii::$app->user->identity->getId()) {
 				'width'  => '100%',
 				'class' => 'img-rounded'
 			]); ?>
->>>>>>> feature/userProfile
+
 
 			<? if ($user->id !== Yii::$app->user->identity->getId()) {
 				echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id,['class' => 'btn btn-lg btn-success']);
