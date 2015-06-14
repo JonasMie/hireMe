@@ -1033,67 +1033,71 @@ body.controller-message div.summary {
 /* line 18, ../sass/_message.scss */
 body.controller-message table#inboxTable {
   margin-top: 10px;
+  table-layout: fixed;
 }
-/* line 24, ../sass/_message.scss */
+/* line 25, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td div.profile-picture-thumbnail {
   margin-right: 10px;
 }
-/* line 27, ../sass/_message.scss */
+/* line 28, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td div.message-sender {
   margin-top: 18px;
 }
-/* line 31, ../sass/_message.scss */
+/* line 32, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td a:hover div.profile-picture-thumbnail {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 35, ../sass/_message.scss */
+/* line 36, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td a[title="Anzeigen"] {
   margin-right: 40px;
 }
-/* line 40, ../sass/_message.scss */
+/* line 41, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.first-col {
   width: 5%;
 }
-/* line 43, ../sass/_message.scss */
+/* line 44, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.second-col {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   width: 35%;
 }
 @media (max-width: 769px) {
-  /* line 43, ../sass/_message.scss */
+  /* line 44, ../sass/_message.scss */
   body.controller-message table#inboxTable tr td.second-col {
     width: 50%;
   }
 }
-/* line 49, ../sass/_message.scss */
+/* line 53, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.third-col {
   width: 25%;
 }
 @media (max-width: 769px) {
-  /* line 49, ../sass/_message.scss */
+  /* line 53, ../sass/_message.scss */
   body.controller-message table#inboxTable tr td.third-col {
     width: 50%;
   }
 }
-/* line 55, ../sass/_message.scss */
+/* line 59, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.fourth-col {
   width: 20%;
 }
-/* line 58, ../sass/_message.scss */
+/* line 62, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.fifth-col {
   width: 15%;
   text-align: right;
   padding-right: 20px;
 }
 
-/* line 75, ../sass/_message.scss */
+/* line 79, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row {
   margin-top: 40px;
 }
-/* line 78, ../sass/_message.scss */
+/* line 82, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row input[type="text"], body.controller-message.action-create .message-create-first-row span.tt-dropdown-menu {
   max-width: 400px;
 }
-/* line 84, ../sass/_message.scss */
+/* line 88, ../sass/_message.scss */
 body.controller-message.action-create #message-content {
   max-width: 600px;
   background-image: url("/images/textarea-grippe.png");

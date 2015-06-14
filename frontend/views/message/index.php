@@ -39,7 +39,7 @@ $this->title = Yii::t('app', 'Messages');
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel'  => $searchModel,
-        'tableOptions' => ['class' => 'hireMeTable footable', 'id' => 'inboxTable'],
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
             [
                 'class'         => 'yii\grid\CheckboxColumn',
@@ -98,6 +98,13 @@ $this->title = Yii::t('app', 'Messages');
                 'template' => '{view}{delete}',
                 'headerOptions' => ['class'=>'fifth-col', 'data-hide'=>'xsmall,phone'],
                 'contentOptions' => ['class' => 'fifth-col']
+
+            ],
+            [
+
+                'class' => 'yii\grid\Column',
+                'headerOptions' => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
 
             ],
         ],
