@@ -12,7 +12,14 @@ $(document).ready(function(){
 
 });
 
+$('.controller-site.action-login').on('keydown', function() {
+    var input = $('input#loginform-email');
 
+    if(!input.is(':focus')) {
+        input.focus();
+    }
+
+});
 
 
 /** Animation for Hamburger Icon on Mobile View */

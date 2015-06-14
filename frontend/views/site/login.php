@@ -30,7 +30,7 @@ include Yii::getAlias('@helper/companySignup.php');
 			<h2><?= Html::encode($this->title) ?></h2>
 		
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-            <?= $form->field($loginModel, 'email', ['inputOptions' => ['autofocus'=>'autofocus']])->label('E-Mail'); ?>
+            <?= $form->field($loginModel, 'email')->label('E-Mail'); ?>
             <?= $form->field($loginModel, 'password')->passwordInput()->label('Passwort'); ?>
             <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
 
