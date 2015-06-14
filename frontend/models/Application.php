@@ -75,7 +75,7 @@ class Application extends \yii\db\ActiveRecord
 
     }
 
-    public function getApplicationStatByUserAndJob($user,$job) {
+    public static function getApplicationStatByUserAndJob($user,$job) {
 
         $application = Application::findOne(['user_id' => $user, 'job_id' => $job]);
         return $application->state;
@@ -83,7 +83,7 @@ class Application extends \yii\db\ActiveRecord
     }
 
 
-    public function existsApplicationFromUser($user,$job) {
+    public static function existsApplicationFromUser($user,$job) {
 
         $application = Application::findOne(['user_id' => $user, 'job_id' => $job]);
         if (count($application) == 0)  return false;

@@ -10,6 +10,4 @@ $('#checkCompanySignup').change(function(){
     }
 });
 
-if($("#checkCompanySignup").prop("checked")){
-    $('.companySetup').show();
-}
+var selVal;

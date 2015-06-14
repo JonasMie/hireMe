@@ -60,15 +60,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a($data->sender->firstName . " " . $data->sender->lastName, '../user/' . $data->sender->username);
                     }
                 },
-                'headerOptions' => ['data-sender'=>'homo']
+                'headerOptions' => ['data-sender'=>'homo'],
             ],
             'sent_at:datetime:Gesendet',
 
 //            TODO: check if action column needed (rather not) --jonas
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}{delete}'
-            ],
+                'template' => '{view}{delete}',
+            ]
         ],
     ]); ?>
 

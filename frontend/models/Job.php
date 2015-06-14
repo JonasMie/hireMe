@@ -88,7 +88,7 @@ class Job extends \yii\db\ActiveRecord
         return $this->hasMany(Application::className(), ['job_id' => 'id']);
     }
 
-    public function getTitle($id) {
+    public static function getTitle($id) {
 
         $job = Job::findOne($id);
         return $job->title;

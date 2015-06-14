@@ -13,7 +13,16 @@ return [
                 'user/<un:\w+>' => 'user',
             ]
         ],
-
+        'i18n' => [
+            'translations' => [
+                'user' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+                'company' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ]
+            ],
+        ],
     ],
     'modules'    => [
         'datecontrol' => [
@@ -37,5 +46,6 @@ return [
             'autoWidget'      => true,
         ],
     ],
+
     'language'   => 'de',
 ];
