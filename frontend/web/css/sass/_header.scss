@@ -32,17 +32,21 @@
       }
     }
     #header-collapse ul.navbar-nav {
-
+	  
+	  margin-right: -5px;
 
       > li {
         padding: 0px;
         color: $grey;
         a{
-		  padding: 20px 20px;
+		  padding: 20px 15px;
           &:hover {
             color: $green;
           }
         }
+		.glyphicon{
+			font-size:0.8em;
+		}
         > ul.dropdown-menu {
           border-radius: 0px;
           min-width: 1px;
@@ -53,7 +57,7 @@
           li {
             display: inline-block;
             float: left;
-            padding: 0px 20px 10px 20px;
+            padding: 0px 10px 10px 10px;
             &:nth-child(1){
               padding-top: 10px !important;
             }
