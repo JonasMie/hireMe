@@ -13,14 +13,13 @@ $(document).ready(function(){
 });
 
 /** Focus input field with class "typeStart" when typing randomly on page */
-$('.controller-site.action-login').on('keydown', function() {
-    var input = $('input.typeStart');
 
-    if(!input.is(':focus')) {
-        input.focus();
-    }
-
-});
+if ($(".typeStart")[0]){
+	$(document).bind('keydown',function(e){
+		$('.typeStart').focus();
+		$(document).unbind('keydown');
+	});
+}
 /** END Focus input field with class "typeStart" when typing randomly on page */
 
 
