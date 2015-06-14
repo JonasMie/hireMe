@@ -12,14 +12,17 @@ $(document).ready(function(){
 
 });
 
+/** Focus input field with class "typeStart" when typing randomly on page */
 $('.controller-site.action-login').on('keydown', function() {
-    var input = $('input#loginform-email');
+    var input = $('input.typeStart');
 
     if(!input.is(':focus')) {
         input.focus();
     }
 
 });
+/** END Focus input field with class "typeStart" when typing randomly on page */
+
 
 
 /** Animation for Hamburger Icon on Mobile View */
