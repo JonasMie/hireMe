@@ -1,7 +1,13 @@
+@import "compass/css3/border-radius";
+
 .site-login{
 
 	.login-field{
 		text-align: center;
+		background-color: rgba(45, 49, 47, 0.8);
+		@include border-radius(6px);
+		padding: 10px 20px;
+		margin-top: 20px;
 	}
 	
 	.login-button{
@@ -53,6 +59,7 @@
 	background: url('../../images/loginBG2.jpg') center top no-repeat;
 	background-size: cover;
 	color: #fff;
+	background-attachment:fixed;
 	
 	h1, h2 {
 		color: #fff;

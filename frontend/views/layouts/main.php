@@ -51,9 +51,9 @@ CustomAppAsset::register($this);
 	
 	if (Yii::$app->user->isGuest) {
         $menuItems = [
-		['label' => 'Home', 'url' => ['/site/index']],
-		['label' => 'About', 'url' => ['/site/about']],
-		['label' => 'Login', 'url' => ['/site/login']],
+		['label' => '<i class="glyphicon glyphicon-home"></i> Home', 'url' => ['/site/index']],
+		['label' => '<i class="glyphicon glyphicon-info-sign"></i> About', 'url' => ['/site/about']],
+		['label' => '<i class="glyphicon glyphicon-log-in"></i> Login', 'url' => ['/site/login']],
 		];
     }
 	
@@ -61,19 +61,18 @@ CustomAppAsset::register($this);
 	
 	elseif (Yii::$app->user->identity->isRecruiter()){
 		$menuItems = [
-			['label' => 'Dashboard', 'url' => ['/dashboard']],
-			['label' => 'Stellenanzeigen', 'url' => ['/job']],
-			['label' => 'Bewerbungen', 'url' => ['/application']],
-			['label' => 'Nachrichten', 'url' => ['/message']],
-			['label' => 'Analytics', 'url' => ['/analytics']],
+			['label' => '<i class="glyphicon glyphicon-th"></i> Dashboard', 'url' => ['/dashboard']],
+			['label' => '<i class="glyphicon glyphicon-comment"></i> Nachrichten', 'url' => ['/message']],
+			['label' => '<i class="glyphicon glyphicon-list-alt"></i> Stellenanzeigen', 'url' => ['/job']],
+			['label' => '<i class="glyphicon glyphicon-user"></i> Bewerbungen', 'url' => ['/application']],
+			['label' => '<i class="glyphicon glyphicon-signal"></i> Analytics', 'url' => ['/analytics']],
 
 			[
 				'label' => Yii::$app->user->identity->firstName,
 				'items' => [
-					['label' => 'Als Bewerber nutzen', 'url' => '#'],
-					['label' => 'Einstellungen', 'url' => '/user/settings'],
+					['label' => '<i class="glyphicon glyphicon-cog"></i> Einstellungen', 'url' => '/user/settings'],
 					[
-						'label' => 'Logout',
+						'label' => '<i class="glyphicon glyphicon-log-out"></i> Logout',
 						'url' => ['/site/logout'],
 						'linkOptions' => ['data-method' => 'post']
 					],
@@ -86,21 +85,20 @@ CustomAppAsset::register($this);
 	
     else {
         $menuItems = [
-			['label' => 'Dashboard', 'url' => ['/dashboard']],
-			['label' => 'Favoriten', 'url' => ['/favourites']],
-			['label' => 'Bewerbungen', 'url' => ['/application']],
-			['label' => 'Nachrichten', 'url' => ['/message']],
-			['label' => 'Lebenslauf', 'url' => ['/resume']],
-			['label' => 'Anlagen', 'url' => ['#']],
+			['label' => '<i class="glyphicon glyphicon-th"></i> Dashboard', 'url' => ['/dashboard']],
+			['label' => '<i class="glyphicon glyphicon-comment"></i> Nachrichten', 'url' => ['/message']],
+			['label' => '<i class="glyphicon glyphicon-star"></i> Favoriten', 'url' => ['/favourites']],
+			['label' => '<i class="glyphicon glyphicon-duplicate"></i> Bewerbungen', 'url' => ['/application']],
+			['label' => '<i class="glyphicon glyphicon-list-alt"></i> Lebenslauf', 'url' => ['/resume']],
+			['label' => '<i class="glyphicon glyphicon-file"></i> Anlagen', 'url' => ['#']],
 
 			[
 				'label' => Yii::$app->user->identity->firstName,
 				'items' => [
-					['label' => 'Profil ansehen', 'url' => ['/user']],
-					['label' => 'Einstellungen', 'url' => '/user/settings'],
-					['label' => 'Als Recruiter nutzen', 'url' => '#'],
+					['label' => '<i class="glyphicon glyphicon-user"></i> Profil ansehen', 'url' => ['/user']],
+					['label' => '<i class="glyphicon glyphicon-cog"></i> Einstellungen', 'url' => '/user/settings'],
 					[
-						'label' => 'Logout',
+						'label' => '<i class="glyphicon glyphicon-log-out"></i> Logout',
 						'url' => ['/site/logout'],
 						'linkOptions' => ['data-method' => 'post']
 					],
@@ -111,6 +109,7 @@ CustomAppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
+		'encodeLabels' => false,
     ]);
     NavBar::end();
     ?>

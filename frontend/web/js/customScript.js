@@ -5,8 +5,28 @@
 $(document).ready(function(){
 
     $('#header .navbar-toggle').removeAttr('data-target');
+	
+	/** Insert Slideout-Helper for Scrollable Mobile Navigation */
+	$('#header-collapse').wrapInner( '<div class="slideout-helper"></div>' );
+	/** END Insert Slideout-Helper for Scrollable Mobile Navigation */
+	
+	/** Focus input field with class "typeStart" when typing randomly on page */
+	if ($('.typeStart')[0]){
+		var default_input_handler = function() {
+			$('.typeStart').focus();
+			$(document).off('keydown', default_input_handler);
+		}
+
+		$(document).on('keydown', default_input_handler);
+
+		$('input, textarea, select').on('focus', function() {
+			$(document).off('keydown', default_input_handler);
+		});
+	}
+/** END Focus input field with class "typeStart" when typing randomly on page */
 
 });
+
 
 
 /** Animation for Hamburger Icon on Mobile View */
