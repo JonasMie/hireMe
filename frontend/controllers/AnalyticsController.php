@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
 use frontend\models\ApplyBtn;
 use frontend\models\Application;
+use yii\helpers\BaseJson;
 
 class AnalyticsController extends Controller
 {
@@ -58,6 +59,12 @@ class AnalyticsController extends Controller
             'pageSize' => 20,],
         ]);
 
+        $returnData = [];
+        $returnData[0] = count($applier);
+        $dataa = json_encode($returnData);
+        $json = "[]"
+
+
          return $this->render('index', [
             'id' => $id,
             'applyCount' => count($applier),
@@ -71,6 +78,7 @@ class AnalyticsController extends Controller
             'conversionRate' => $conversionRate,
             'companyName' =>  $analytics->getCompany($id),
             'provider' => $jobProvider,
+            'jsonData' => $dataa,
         ]);
 
 

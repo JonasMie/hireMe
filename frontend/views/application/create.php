@@ -1,14 +1,13 @@
 <?php
 
 use yii\helpers\Html;
+use frontend\assets\CheckAsset;
 
+CheckAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
 
-$this->title = Yii::t('app', 'Create Application');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Applications'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="application-create">
 
@@ -18,6 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Yii::$app->controller->renderPartial("uploadSection", ['model' =>$model, 'provider' => $provider]) ?>
 	</div>
 
-	<?= Html::a(Html::button("Bewerbung senden")) ?>
+	<?= Html::a(Html::button("Bewerbung senden"),'/application/send?id='.$appId) ?>
 
 </div>

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\widgets\ListView;
+use yii\helpers\BaseJson;
 
 
 
@@ -15,6 +16,7 @@ $this->title = "Analytics: Overview für";
     <h1><?= Html::encode($this->title) ?> <?= $companyName ?></h1>
 
     <p>
+    <p><?php echo "".$jsonData['']; ?></p>
 
     <h1><?= $applyCount ?> Bewerbungen</h1>
     <h1><?= $hiredCount ?> Einstellungen</h1>

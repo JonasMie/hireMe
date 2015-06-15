@@ -6,9 +6,7 @@ use yii\helpers\Html;
 /* @var $model frontend\models\ApplyBtn */
 
 $this->title = 'Update Apply Btn: ' . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Apply Btns', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+
 ?>
 <div class="apply-btn-update">
 

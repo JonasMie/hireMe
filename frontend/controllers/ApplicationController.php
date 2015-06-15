@@ -65,8 +65,16 @@ class ApplicationController extends Controller
         Yii::trace("Company ID: ".$companyId);
         // For displaying applier data
     
+
         $applications = new ApplicationSearch(); 
-        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and d.id = ".Yii::$app->user->identity->company_id;
+        $indiTitle = "Alle Bewerbungen";
+        
+        if ($new != null) {
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        $indiTitle = "Neue Bewerbungen";
+        }
+       
         $dataProvider = new SqlDataProvider([
             'sql' => $sql,
             'sort' => [
@@ -79,9 +87,11 @@ class ApplicationController extends Controller
             ]
             ],
         ]);
+
         Yii::trace("Company: ".$companyId);
        return $this->render('index', [
             'id' => $companyId,
+            'title' => $indiTitle,
             'provider' => $dataProvider,
         ]);
 
@@ -190,6 +200,7 @@ class ApplicationController extends Controller
 
         } else {
             return $this->render('create', [
+                'appId' => $id,
                 'model' => $model,
                 'job' => $job,
                 'provider' => $provider,

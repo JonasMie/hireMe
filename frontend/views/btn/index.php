@@ -8,7 +8,6 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Apply Btns';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="apply-btn-index">
 

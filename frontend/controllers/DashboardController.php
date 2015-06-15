@@ -55,16 +55,12 @@ class DashboardController extends \yii\web\Controller
 
 
             $jobContacts = JobContacts::find()->where(['contact_id'=>Yii::$app->user->getId()]);
-            $jobs = $jobContacts->count();
+            $jobs = Job::find()->where(['company_id'=>Yii::$app->user->identity->company_id])->all();
 
-            $applicationsProto = $jobContacts->join('RIGHT JOIN', 'application', 'application.job_id = job_contacts.job_id')->where(['contact_id'=>Yii::$app->user->getId()]);
+            //$applicationsProto = $jobContacts->join('RIGHT JOIN', 'application', 'application.job_id = job_contacts.job_id')->where(['contact_id'=>Yii::$app->user->getId()]);
+            $applicationsProto = Application::find()->where(['company_id'=>Yii::$app->user->identity->company_id,'sent'=>1]);
             $totalApplications = $applicationsProto->count();
-            $newApplications = $applicationsProto->andWhere(['read'=>0])->count();
-
-            $newApplications = count(Application::find()
-            ->where(['company_id' => Yii::$app->user->identity->company_id , 'read' => 0])
-            ->orderBy('id')
-            ->all());
+            $newApplications = $applicationsProto->andWhere(['read'=>0,'sent'=>1])->count();
 
             return $this->render('index', [
                 'messages' => $messages,

@@ -7,8 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\ApplyBtn */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Apply Btns', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="apply-btn-view">
 

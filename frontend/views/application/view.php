@@ -2,16 +2,23 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use frontend\models\Application;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Applications'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="application-view">
 
+
+    <?php
+        if(Yii::$app->user->identity->isRecruiter()) {
+        $model->read = 1;
+        $model->save();}
+    ?>
+
+    <? if (Yii::$app->user->identity->isRecruiter() == false): ?>
 
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -23,6 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+
+    <? endif; ?>
+
 
     <?= DetailView::widget([
         'model' => $model,
