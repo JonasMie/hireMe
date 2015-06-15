@@ -39,7 +39,8 @@ $this->title = $indiTitle;
                 'label'  => 'Info',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id);
+                    $analytics = new Analytics();
+                    return \yii\helpers\Html::encode("Bewerber: ".count($analytics->getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id);
                 }
             ],
             [

@@ -69,8 +69,11 @@ use yii\grid\GridView;
          'caption'  => Html::a("Neuen Key generieren",'/job/create-btn?id='.$model->id),
     ]); ?>
     <? else: ?>
-     <? if (Application::existsApplicationFromUser(Yii::$app->user->identity->id,$model->id) == true) :?>
-        <?= Html::decode("Bewerbung ist bereits raus.<br>Status: ".Application::getApplicationStatByUserAndJob(Yii::$app->user->identity->id,$model->id)) ?>
+     <? 
+        $app = new Application();
+        if ($app->existsApplicationFromUser(Yii::$app->user->identity->id,$model->id) == true) :?>
+        <?= Html::decode("Bewerbung ist bereits raus.<br>Status: ".$app->getApplicationStatByUserAndJob(Yii::$app->user->identity->id,$model->id)) ?>
+        <? else: ?>
         <?= Html::a(Html::button("Jetzt bewerben"),"/job/apply-intern?id=".$model->id); ?>   
     <? endif; ?>
     <? endif; ?>
