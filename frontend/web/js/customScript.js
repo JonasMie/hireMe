@@ -146,25 +146,6 @@ jQuery('img.svg').each(function(){
 /** END Replace all SVG images with inline SVG **/
 
 
-/** Demo Chart **/
-var data = [
-    {
-        value: 965,
-        color: "rgba(93,202,136,0.5)",
-        label: "Bewerbungen"
-    },
-    {
-        value: 84,
-        color: "rgb(221,221,221)",
-        label: "Stellenanzeigen"
-    }
-];
-
-
-var ctx = document.getElementById("DashboardChart").getContext("2d");
-var myNewChart = new Chart(ctx).Doughnut(data);
-/** END Demo**/
-
 
 
 
