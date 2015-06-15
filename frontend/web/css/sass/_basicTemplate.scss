@@ -10,12 +10,12 @@ body {
   }
 
   // Buttons
-  .btn{
+  .btn {
     border-radius: 0;
     border: none;
-    -webkit-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
-    box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
     &:focus {
       outline: none !important; //Removes the dotted line around each Button when clicking on it
     }
@@ -23,8 +23,8 @@ body {
   .btn.btn-success {
     background-color: $green;
     color: #fff;
-  } // END Buttons
-
+  }
+  // END Buttons
 
   // Touch Ripple
   .ripple {
@@ -39,8 +39,8 @@ body {
     circle {
       fill: rgba(255, 255, 255, 0.1);
     }
-  } //End Touch Ripple
-
+  }
+  //End Touch Ripple
 
   // BASIC TABLE STYLING
   table.hireMeTable {
@@ -104,8 +104,8 @@ body {
         }
       }
     }
-  } // END BASIC TABLE STYLING
-
+  }
+  // END BASIC TABLE STYLING
 
   // Footable specific styling
   // Accordion Chevrons
@@ -122,7 +122,7 @@ body {
   }
 
   .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
-    content:"\e259";
+    content: "\e259";
   }
   // END Accordion Chevrons
 
@@ -146,8 +146,8 @@ body {
         }
       }
     }
-  } // END Footable specific styling
-
+  }
+  // END Footable specific styling
 
   //Pagination
   ul.pagination {
@@ -178,7 +178,6 @@ body {
     }
   }
   //END Pagination
-
 
   //iCheck plugin Flat skin, green
   .icheckbox_flat-green {
@@ -213,8 +212,8 @@ body {
       -webkit-background-size: 176px 22px;
       background-size: 176px 22px;
     }
-  } //END iCheck plugin Flat skin, green
-
+  }
+  //END iCheck plugin Flat skin, green
 
   /* BASIC FORM STYLING */
   /* UNFOCUSED INPUT */
@@ -223,7 +222,7 @@ body {
     margin-bottom: 45px;
 
     input[type="text"] {
-      font-size: 18px;
+      @include font-standard();
       padding: 10px 10px 2px 5px;
       display: block;
       border: none;
@@ -232,7 +231,7 @@ body {
       -moz-transition: 0.2s ease border;
       -webkit-transition: 0.2s ease border;
       &:focus {
-        outline:none;
+        outline: none;
       }
     }
 
@@ -242,60 +241,90 @@ body {
       border-top: $FormBorderNonFocused;
       box-shadow: none;
       border-radius: 0px;
+      @include font-standard();
     }
 
     label {
-      color:$greyFont;
-      font-size:18px;
-      position:absolute;
-      pointer-events:none;
-      left:5px;
-      top:10px;
+      color: $greyFont;
+      font-size: 18px;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 10px;
 
-      transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
-      -moz-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
-      -webkit-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+      transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+      -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+      -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
     }
-  } /* END UNFOCUSED INPUT */
+  }
+  /* END UNFOCUSED INPUT */
 
   /* FOCUSED INPUT*/
-  .input-in-focus , .has-success {
+  .input-in-focus, .has-success {
     > input[type="text"] {
       border-bottom: $FormBorderFocused;
     }
     > label {
-      top:-20px;
-      font-size:15px;
+      top: -20px;
+      font-size: 15px;
       color: $green;
     }
-  }  /* END FOCUSED INPUT*/
+  }
+  /* END FOCUSED INPUT*/
 
-  /*Typeahead Fix */
-  label.typeahead-label{
+  /*Typeahead Fix and Styling */
+
+  label.typeahead-label {
     position: absolute;
-    color:$greyFont;
-    font-size:18px;
-    pointer-events:none;
-    left:20px;
-    top:10px;
+    color: $greyFont;
+    font-size: 18px;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
 
-    transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
-    -moz-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
-    -webkit-transition:0.2s ease color,0.2s ease top,0.2s ease font-size;
+    transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   }
 
   label.typeahead-label-in-focus {
-    top:-20px;
-    font-size:15px;
     color: $green;
+    top: -20px;
+    font-size: 15px;
   }
 
-  input.tt-input {
-    position: static;
-    border-bottom: $FormBorderNonFocused;
-    padding: 10px 10px 2px 5px;
+  .twitter-typeahead {
+
+    pre {
+      display: none;
+    }
+    input.tt-hint {
+      display: none !important;
+    }
+
+    input.tt-input {
+      position: static;
+      border-bottom: $FormBorderNonFocused;
+      padding: 10px 10px 2px 5px;
+      @include font-standard();
+      &:focus {
+        border-bottom: $FormBorderFocused;
+      }
+    }
+
+    .tt-dropdown-menu {
+      padding: 0px;
+      .tt-suggestion {
+        @include font-standard();
+
+      }
+      .tt-suggestion.tt-cursor {
+        background-color: $green20;
+        color: $greyFont;
+      }
+    }
   }
-  /*END Typeahead Fix */
+  /*END Typeahead Fix and Styling*/
   /* END BASIC FORM STYLING */
 
 

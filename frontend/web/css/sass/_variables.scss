@@ -22,6 +22,7 @@ $fontbase: 16px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: $greyFont;
+  font-size: $fontbase;
 }
 
 @mixin font-header {

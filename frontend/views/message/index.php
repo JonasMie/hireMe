@@ -17,8 +17,11 @@ $this->title = Yii::t('app', 'Messages');
     "$(function () {
         $('.footable').footable({
             breakpoints: {
-                xsmall: 736, /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
                 mediaSmall: 960
+
             }
         });
     });");
@@ -46,7 +49,7 @@ $this->title = Yii::t('app', 'Messages');
                 'filterOptions' => function () {
                     echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
                 },
-                'headerOptions' => ['class'=>'first-col', 'data-hide'=>'bar'],
+                'headerOptions' => ['class'=>'first-col'],
                 'contentOptions' => ['class' => 'first-col']
             ],
             [
@@ -56,7 +59,7 @@ $this->title = Yii::t('app', 'Messages');
                 'value'     => function ($data) {
                     return Html::a($data->subject, '/message/view?id=' . $data->id, ['class' => $data->read ? "read" : ""]);  // STYLE: wenn klasse 'read' => bold
                 },
-                'headerOptions' => ['class'=>'second-col', 'data-hide'=>'bar'],     // STYLE: edit headerOptions
+                'headerOptions' => ['class'=>'second-col'],     // STYLE: edit headerOptions
                 'contentOptions' => ['class' => 'second-col']
             ],
 //            TODO: check if content needed in overview? if so, use ellipsis to shorten content --jonas
@@ -79,7 +82,7 @@ $this->title = Yii::t('app', 'Messages');
                         return Html::a($data->sender->getProfilePicture(true) .'<div class="message-sender">' .$data->sender->firstName . " " . $data->sender->lastName . '</div>', '../user/' . $data->sender->username);
                     }
                 },
-                'headerOptions' => ['class'=>'third-col', 'data-hide'=>'bar'],
+                'headerOptions' => ['class'=>'third-col', 'data-hide'=>'mediaXXsmall,phone'],
                 'contentOptions' => ['class' => 'third-col']
 
             ],
@@ -87,7 +90,7 @@ $this->title = Yii::t('app', 'Messages');
                 'attribute' => 'sent_at',
                 'format' => 'datetime',
                 'label' => 'Gesendet',
-                'headerOptions' => ['class'=>'fourth-col', 'data-hide'=>'mediaSmall,phone,xsmall'],
+                'headerOptions' => ['class'=>'fourth-col', 'data-hide'=>'mediaSmall,phone,mediaXsmall'],
                 'contentOptions' => ['class' => 'fourth-col']
 
 
@@ -96,7 +99,7 @@ $this->title = Yii::t('app', 'Messages');
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{view}{delete}',
-                'headerOptions' => ['class'=>'fifth-col', 'data-hide'=>'xsmall,phone'],
+                'headerOptions' => ['class'=>'fifth-col', 'data-hide'=>'mediaXsmall,phone'],
                 'contentOptions' => ['class' => 'fifth-col']
 
             ],
