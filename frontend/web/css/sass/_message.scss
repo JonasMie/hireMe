@@ -1,0 +1,165 @@
+body.controller-message {
+
+  .btn-newMessage {
+    float: right;
+    clear: left;
+    @media (max-width: 551px) {
+      float: none;
+    }
+  }
+
+  .btn-newMessageSecond {
+    float: right;
+    clear: left;
+    margin-top: -57px;
+    @media (max-width: 551px) {
+      display: none;
+    }
+  }
+
+  div.summary {
+    margin-top: 30px;
+    @media (max-width: 551px) {
+      display: none;
+    }
+  }
+
+  table#inboxTable {
+    margin-top: 10px;
+
+
+    tr {
+      td {
+        div.profile-picture-thumbnail {
+          margin-right: 10px;
+        }
+        div.message-sender {
+          margin-top: 18px;
+        }
+        a:hover {
+          div.profile-picture-thumbnail {
+            background: $DefaultThumbnailHover;
+          }
+        }
+        a[title="Anzeigen"] {
+          margin-right: 40px;
+        }
+      }
+
+      td.first-col {
+        width: 5%;
+      }
+      td.second-col {
+        width: 35%;
+        @media (max-width: 769px) {
+          width: 50%;
+        }
+      }
+      td.third-col {
+        width: 25%;
+        @media (max-width: 769px) {
+          width: 50%;
+        }
+      }
+      td.fourth-col {
+        width: 20%;
+      }
+      td.fifth-col {
+        width: 15%;
+        text-align: right;
+        padding-right: 20px;
+
+      }
+      td.sixth-col {
+        width: 5%;
+      }
+    }
+
+    tr.footable-row-detail {
+
+      .footable-row-detail-cell {
+        padding-bottom: 0px;
+      }
+
+      @media(max-width: 551px) {
+        .footable-row-detail-row:nth-of-type(1) {
+          height: 60px;
+          .footable-row-detail-value > a {
+            display: inline;
+            > div {
+              display: inline-block;
+            }
+          }
+        }
+        .footable-row-detail-row:nth-of-type(3) {
+          margin-top: 5px;
+        }
+      }
+
+      @media(max-width: 767px) {
+        .footable-row-detail-row:nth-of-type(2) {
+          margin-top: 20px;
+        }
+        .footable-row-detail-inner{
+          padding-bottom: 30px;
+        }
+      }
+
+      @media(max-width: 991px) {
+        .footable-row-detail-cell {
+          height: auto;
+        }
+      }
+    }
+
+
+  }
+}
+
+body.controller-message.action-create {
+
+  .message-create-first-row, .message-create-second-row {
+    margin-top: 40px;
+  }
+
+  .message-create-first-row {
+    position: relative;
+  }
+
+  input[type="text"], span.tt-dropdown-menu {
+    max-width: 400px;
+  }
+
+  .field-message-content{
+    label[for="message-content"]{
+      display: none;
+    }
+
+    #message-content {
+      resize: none;
+      box-shadow: none;
+      &:focus{
+        border-color: $green;
+      }
+    }
+  }
+
+  .field-messageattachments-file {
+    position: static;
+    label {
+      position: static;
+    }
+
+    #messageattachments-file {
+      margin-left: -2px;
+      margin-top: 10px;
+      max-width: 99%;
+      overflow: hidden;
+    }
+  }
+
+
+
+
+
+}

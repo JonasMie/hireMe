@@ -21,6 +21,8 @@ $fontbase: 16px;
 @mixin font-standard {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  color: $greyFont;
+  font-size: $fontbase;
 }
 
 @mixin font-header {
@@ -33,68 +35,66 @@ $fontbase: 16px;
 // Headings
 
 h1, .h1{
-font-size: $fontbase * 1.8;
-margin-top:10px;
-margin-bottom:10px;
-color: $greyFont;
+  font-size: $fontbase * 1.8;
+  margin-top:10px;
+  margin-bottom:10px;
+  color: $greyFont;
 }
 
 h2, .h2{
-font-size: $fontbase * 1.6;
-margin-top:10px;
-margin-bottom:10px;
-color: $green;
-margin-top: 20px;
+  font-size: $fontbase * 1.6;
+  margin-top:10px;
+  margin-bottom:10px;
+  color: $green;
+  margin-top: 20px;
 }
 
 h3, .h4{
-font-size: $fontbase * 1.4;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 1.4;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 h4, .h4{
-font-size: $fontbase * 1.2;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 1.2;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 h5, .h5{
-font-size: $fontbase;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 h6, .h6{
-font-size: $fontbase * 0.8;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 0.8;
+  margin-top:10px;
+  margin-bottom:10px;
 }
+
+// Default Thumbnail
+$DefaultThumbnailNonHover: url('/uploads/profile/default.png') no-repeat top;
+$DefaultThumbnailHover: url('/uploads/profile/default-hover.png') no-repeat top;
 
 
 // Forms
+$FormBorderNonFocused:  2px solid $borderGrey;
+$FormBorderFocused: 2px solid $green;
 
 input.form-control{
-background: transparent;
-border-width: 0px 0px 1px 0px;
-box-shadow: none!important;
--webkit-box-shadow: none!important;
-border-radius: 0px;
-font-size:16px;
+  background: transparent;
+  border-width: 0px 0px 1px 0px;
+  box-shadow: none!important;
+  -webkit-box-shadow: none!important;
+  border-radius: 0px;
+  &:focus {
+    border-color: $green;
+  }
 }
-
-
-
-
-// Buttons
-
-.btn{
-border-radius: 0;
-}
-
 
 // Links
-
 a {
 transition: color 0.2s ease-in-out;
 }
+

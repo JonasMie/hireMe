@@ -12,8 +12,7 @@ use yii\widgets\DetailView;
  **/
 
 $this->title = $model->subject;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Messages'), 'url' => ['./message']];
-$this->params['breadcrumbs'][] = $this->title;
+
 
 if ($model->receiver_id === Yii::$app->user->getId()) {
     $model->read = 1;
@@ -48,8 +47,8 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
     </p>
 
     <?
-    $attributes = ['subject:text:Betreff',
-        'content:html:Nachricht',
+    $attributes = [
+
 
         [
             'label'     => Yii::$app->user->getId() === $model->sender_id ? "An" : "Von",
@@ -62,7 +61,13 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
                 }
             }
         ],
-        'sent_at:datetime:Gesendet'];
+
+        'sent_at:datetime:Gesendet',
+        'subject:text:Betreff',
+        'content:html:Nachricht',
+
+    ];
+
     if (!empty($model->messageAttachments)) {           // TODO: check multiple attachments
         foreach ($model->messageAttachments as $attachment) {
             switch ($attachment->file->extension) {     // TODO: check file paths

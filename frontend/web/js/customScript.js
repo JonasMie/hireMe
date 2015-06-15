@@ -25,6 +25,13 @@ $(document).ready(function(){
 	}
 /** END Focus input field with class "typeStart" when typing randomly on page */
 
+    /** INITIALIZING ICHECK **/
+    $('input').iCheck({
+        checkboxClass: 'icheckbox_flat-green',
+        radioClass: 'iradio_flat'
+    });
+
+
 });
 
 
@@ -46,7 +53,6 @@ $('#header .navbar-header .navbar-toggle').click(function(){
     }
     hamburgerClickedClass = !hamburgerClickedClass;
 });
-
 /** END Animation for Hamburger Icon on Mobile View */
 
 
@@ -59,6 +65,86 @@ $('#header .navbar-header .navbar-toggle').click(function(){
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
     });
 /** END Helper function for the header dropdown **/
+
+
+/** Touch Ripple Function **/
+$(".ripple").on("click", function(e){
+
+    e.preventDefault();
+
+    var x = e.pageX;
+    var y = e.pageY;
+    var clickY = y - $(this).offset().top;
+    var clickX = x - $(this).offset().left;
+    var box = this;
+
+    var setX = parseInt(clickX);
+    var setY = parseInt(clickY);
+    $(this).find("svg").remove();
+    $(this).append('<svg><circle cx="'+setX+'" cy="'+setY+'" r="'+0+'"></circle></svg>');
+
+    var c = $(box).find("circle");
+    c.animate(
+        {
+            "r" : $(box).outerWidth()
+        },
+        {
+            easing: "linear",
+            duration: 400,
+            step : function(val){
+                c.attr("r", val);
+            },
+            complete: function() {
+                location.href = $(box).attr('href');
+            }
+        }
+    );
+});
+/** END Touch Ripple Function **/
+
+
+/** Helper Function for Input Forms **/
+$('input[type=text]').focus(function () {
+    if ($(this).attr('class') == 'form-control tt-input') { //Typeahead Fix
+        $(this).parent().parent().prev().addClass('typeahead-label-in-focus');
+    } // END Typeahead Fix
+    $(this).parent().addClass('input-in-focus');
+}).blur(function () {
+    $(this).parent().removeClass('input-in-focus');
+});
+/** END Helper Function for Input Forms **/
+
+
+/** Replace all SVG images with inline SVG **/
+jQuery('img.svg').each(function(){
+    var $img = jQuery(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+
+    jQuery.get(imgURL, function(data) {
+        // Get the SVG tag, ignore the rest
+        var $svg = jQuery(data).find('svg');
+
+        // Add replaced image's ID to the new SVG
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        // Add replaced image's classes to the new SVG
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+
+        // Remove any invalid XML tags as per http://validator.w3.org
+        $svg = $svg.removeAttr('xmlns:a');
+
+        // Replace image with new SVG
+        $img.replaceWith($svg);
+
+    }, 'xml');
+});
+/** END Replace all SVG images with inline SVG **/
+
 
 /** Demo Chart **/
 var data = [
@@ -77,5 +163,10 @@ var data = [
 
 var ctx = document.getElementById("DashboardChart").getContext("2d");
 var myNewChart = new Chart(ctx).Doughnut(data);
-
 /** END Demo**/
+
+
+
+
+
+

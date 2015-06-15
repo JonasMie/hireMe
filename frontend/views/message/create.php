@@ -10,8 +10,6 @@ use yii\helpers\Html;
 /* @var $attachment frontend\models\MessageAttachments */
 
 $this->title = Yii::t('app', 'Nachricht verfassen');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Messages'), 'url' => ['']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="message-create">
 
@@ -24,3 +22,4 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+form order
