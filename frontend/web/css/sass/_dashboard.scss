@@ -1,4 +1,5 @@
 body.controller-dashboard{
+
   // TILES
   div.container {
     div.row {
@@ -9,8 +10,6 @@ body.controller-dashboard{
         @media (max-width: 511px) {
           width: 100%;
         }
-
-
         div.subtile {
           height: 130px;
           width: 50%;
@@ -39,7 +38,6 @@ body.controller-dashboard{
             padding: 0 5%;
             line-height: 18px;
           }
-
         }
       }
 
@@ -130,25 +128,12 @@ body.controller-dashboard{
   }
   // END TILES
 
+
   // Newest Applications Table
-
-  .table-hover > tbody > tr:hover {
-    background-color: $green20;
-  }
-
   #NewestApplicationsTable {
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
-    -moz-box-shadow:    0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
-    box-shadow:         0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
-
-    margin-top: 20px;
-    color: $greyFont;
-    border: 1px solid $borderGrey;
-
     thead {
       tr{
         th{
-          border-bottom: 1px solid $borderGrey;
           &:nth-of-type(4),&:nth-of-type(5){
             text-align: right;
           }
@@ -156,13 +141,9 @@ body.controller-dashboard{
 
       }
     }
-
     tbody {
       tr {
         td {
-          vertical-align: middle;
-          height: 72px;
-          border: none;
           img {
             width: 50px;
             height: auto;
@@ -174,7 +155,6 @@ body.controller-dashboard{
             &:hover {
               color: $green;
             }
-
           }
         }
         td[data-title="Picture"] {
@@ -200,51 +180,7 @@ body.controller-dashboard{
         }
       }
     }
-  }
-
-  // Footable specific styling
-
-  // Accordion Chewrons
-  .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle {
-
-    &:before {
-    cursor: pointer;
-    font-family: 'Glyphicons Halflings';
-    content: "\e258";
-    }
-    &:hover {
-      color: $green;
-    }
-  }
-
-  .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
-    content:"\e259";
-  }
-  // END Accordion Chevrons
-
-
-  .footable .footable-row-detail {
-
-    .footable-row-detail-inner {
-
-      border-bottom: 1px solid $borderGrey;
-      padding-bottom: 10px;
-
-      .footable-row-detail-row {
-        display: block;
-
-        .footable-row-detail-name {
-          display: inline;
-          color: $green;
-        }
-        .footable-row-detail-value {
-          display: inline;
-          float: right;
-        }
-      }
-    }
-  }
-  // END Newest Applications Table
+  } // END Newest Applications Table
 }
 
 

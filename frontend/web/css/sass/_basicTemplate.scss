@@ -1,7 +1,360 @@
 body {
+
   @include font-standard();
   background-color: #ffffff;
+
+  a {
+    &:focus {
+      outline: none !important; //Removes the dotted line around each Anchor when clicking on it
+    }
+  }
+
+  // Buttons
+  .btn {
+    border-radius: 0;
+    border: none;
+    -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    &:focus {
+      outline: none !important; //Removes the dotted line around each Button when clicking on it
+    }
+  }
+  .btn.btn-success {
+    background-color: $green;
+    color: #fff;
+  }
+  // END Buttons
+
+  // Touch Ripple
+  .ripple {
+    position: relative;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    circle {
+      fill: rgba(255, 255, 255, 0.1);
+    }
+  }
+  //End Touch Ripple
+
+  // BASIC TABLE STYLING
+  table.hireMeTable {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+
+    margin-top: 20px;
+    color: $greyFont;
+    border: 1px solid $borderGrey;
+    width: 100%;
+
+    thead {
+      tr {
+        th {
+          border-bottom: 1px solid $borderGrey;
+          padding: 8px;
+          text-align: left;
+
+          a {
+            color: $greyFont;
+            text-decoration: none;
+            &:hover {
+              color: $green;
+            }
+          }
+          a.asc {
+            &::after {
+              content: "\e093";
+            }
+          }
+          a.desc {
+            &::after {
+              content: "\e094";
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+
+        &:hover {
+          background-color: $green20 !important;
+        }
+
+        td {
+          vertical-align: middle;
+          height: 72px;
+          border: none;
+          padding: 8px;
+
+          a {
+            color: $greyFont;
+            text-decoration: none;
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+  // END BASIC TABLE STYLING
+
+  // Footable specific styling
+  // Accordion Chevrons
+  .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle {
+
+    &:before {
+      cursor: pointer;
+      font-family: 'Glyphicons Halflings';
+      content: "\e258";
+    }
+    &:hover {
+      color: $green;
+    }
+  }
+
+  .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+    content: "\e259";
+  }
+  // END Accordion Chevrons
+
+  .footable .footable-row-detail {
+
+    .footable-row-detail-inner {
+
+      border-bottom: 1px solid $borderGrey;
+      padding-bottom: 10px;
+
+      .footable-row-detail-row {
+        display: block;
+
+        .footable-row-detail-name {
+          display: inline;
+          color: $green;
+        }
+        .footable-row-detail-value {
+          display: inline;
+          float: right;
+        }
+      }
+    }
+  }
+  // END Footable specific styling
+
+  //Pagination
+  ul.pagination {
+    li {
+      a {
+        border-color: $borderGrey;
+        color: $green;
+        &:hover {
+          background-color: $green20;
+          color: $greyFont;
+        }
+      }
+    }
+    li.active {
+      a, a:hover {
+        background-color: $green;
+        border-color: $borderGrey;
+        color: #fff;
+      }
+    }
+    li.disabled {
+      a {
+        color: $greyFont;
+      }
+      span {
+        color: $greyFont;
+      }
+    }
+  }
+  //END Pagination
+
+  //iCheck plugin Flat skin, green
+  .icheckbox_flat-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(/images/icheck/green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+    background-position: 0 0;
+  }
+
+  .icheckbox_flat-green.checked {
+    background-position: -22px 0;
+  }
+  .icheckbox_flat-green.disabled {
+    background-position: -44px 0;
+    cursor: default;
+  }
+  .icheckbox_flat-green.checked.disabled {
+    background-position: -66px 0;
+  }
+
+  /* HighDPI support */
+  @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+    .icheckbox_flat-green {
+      background-image: url(/images/icheck/green@2x.png);
+      -webkit-background-size: 176px 22px;
+      background-size: 176px 22px;
+    }
+  }
+  //END iCheck plugin Flat skin, green
+
+  /* BASIC FORM STYLING */
+  /* UNFOCUSED INPUT */
+  .form-group {
+    position: relative;
+    margin-bottom: 45px;
+
+    input[type="text"] {
+      @include font-standard();
+      padding: 10px 10px 2px 5px;
+      display: block;
+      border: none;
+      border-bottom: $FormBorderNonFocused;
+      transition: 0.2s ease border;
+      -moz-transition: 0.2s ease border;
+      -webkit-transition: 0.2s ease border;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    textarea {
+      border: none;
+      border-bottom: $FormBorderNonFocused;
+      border-top: $FormBorderNonFocused;
+      box-shadow: none;
+      border-radius: 0px;
+      @include font-standard();
+    }
+
+    label {
+      color: $greyFont;
+      font-size: 18px;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 10px;
+
+      transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+      -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+      -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    }
+  }
+  /* END UNFOCUSED INPUT */
+
+  /* FOCUSED INPUT*/
+  .input-in-focus, .has-success {
+    > input[type="text"] {
+      border-bottom: $FormBorderFocused;
+    }
+    > label {
+      top: -20px;
+      font-size: 15px;
+      color: $green !important;
+    }
+    textarea {
+      border-color: $green !important;
+    }
+  }
+  /* END FOCUSED INPUT*/
+
+  /*Typeahead Fix and Styling */
+
+  label.typeahead-label {
+    position: absolute;
+    color: $greyFont;
+    font-size: 18px;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+
+    transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+  }
+
+  label.typeahead-label-in-focus {
+    color: $green;
+    top: -20px;
+    font-size: 15px;
+  }
+
+  .twitter-typeahead {
+
+    pre {
+      display: none;
+    }
+    input.tt-hint {
+      display: none !important;
+    }
+
+    input.tt-input {
+      position: static;
+      border-bottom: $FormBorderNonFocused;
+      padding: 10px 10px 2px 5px;
+      @include font-standard();
+      &:focus {
+        border-bottom: $FormBorderFocused;
+      }
+    }
+
+    .tt-dropdown-menu {
+      padding: 0px;
+      .tt-suggestion {
+        @include font-standard();
+
+      }
+      .tt-suggestion.tt-cursor {
+        background-color: $green20;
+        color: $greyFont;
+      }
+    }
+  }
+  /*END Typeahead Fix and Styling*/
+  /* END BASIC FORM STYLING */
+
+
+  /*PROFILE PICTURE */
+  img.profile-picture-thumbnail {
+    width: 50px;
+    height: auto;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  div.profile-picture-thumbnail {
+
+    width: 50px;
+    height: 50px;
+    background: $DefaultThumbnailNonHover;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: $DefaultThumbnailHover;
+    }
+
+  }
+
+  /*END PROFILE PICTURE */
+
 }
+
 
 
 
