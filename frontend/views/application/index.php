@@ -20,6 +20,7 @@ use frontend\models\Job;
 
   <?= GridView::widget([
         'dataProvider' => $provider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
             'title:text:Stellenanzeige',
         [
