@@ -22,4 +22,3 @@ $this->title = Yii::t('app', 'Nachricht verfassen');
     ]) ?>
 
 </div>
-form order
