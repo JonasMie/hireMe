@@ -24,6 +24,7 @@ $this->title = $indiTitle;
 
  <?= GridView::widget([
         'id'=>'jobList',
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'dataProvider' => $provider,
         'columns'      => [
         [
@@ -46,7 +47,8 @@ $this->title = $indiTitle;
                 'label'  => 'Actions',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::a(Yii::t('app', 'Update'), ['update-job', 'id' => $data->id], ['class' => 'btn btn-primary'])." ". \yii\helpers\Html::a(Yii::t('app', 'View'), ['view', 'id' => $data->id], ['class' => 'btn btn-primary']);
+                    
+                    return Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Bearbeiten'), ['update-job', 'id' => $data->id], ['class' => 'btn btn-success ripple btn-editJob'])." ". Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Anschauen'), ['view', 'id' => $data->id], ['class' => 'btn btn-primary ripple btn-viewJob']);
                 }
                     
 
@@ -62,6 +64,7 @@ $this->title = $indiTitle;
 
 <?= GridView::widget([
         'dataProvider' => $provider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
 
                 'title:text:Titel',
@@ -70,7 +73,7 @@ $this->title = $indiTitle;
                 'label'  => 'Mehr',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::a("Will ich!","/job/view?id=".$data->id);
+                    return \yii\helpers\Html::a("Ansehen","/job/view?id=".$data->id);
                 }
             ],    
         ],

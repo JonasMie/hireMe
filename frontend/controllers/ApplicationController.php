@@ -19,6 +19,7 @@ use yii\data\ActiveDataProvider;
 use frontend\models\ApplicationDataSearch;
 use common\models\User;
 use yii\data\SqlDataProvider;
+use yii\db\Query;
 /**
  * ApplicationController implements the CRUD actions for Application model.
  */
@@ -55,6 +56,27 @@ class ApplicationController extends Controller
         $user = User::findOne($id);
         return $user->firstName." ".$user->lastName; 
     }
+
+    public function actionShowFile($id) {
+
+        $appData = ApplicationData::find()
+        ->where(['id' => $id])->one();
+        Yii::trace("file id: ".$appData->file_id);
+
+        $file = File::find()
+        ->where(["id" => $appData->file_id])->one();
+        Yii::trace("file title: ".$file->title);
+
+        $app = Application::find()
+        ->where(['id' => $appData->application_id])->one();
+        Yii::trace("app user: ".$app->user_id);
+
+        $user_id = $app->user_id;
+
+
+        $this->redirect("http://frontend/assets/uploads/ad/AD_".md5($user_id.'_'.$appData->file_id).'.'.$file->extension);
+        
+    }
     
     public function actionIndex($new=null)
     {
@@ -65,8 +87,16 @@ class ApplicationController extends Controller
         Yii::trace("Company ID: ".$companyId);
         // For displaying applier data
     
+
         $applications = new ApplicationSearch(); 
-        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and d.id = ".Yii::$app->user->identity->company_id;
+        $indiTitle = "Alle Bewerbungen";
+        
+        if ($new != null) {
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        $indiTitle = "Neue Bewerbungen";
+        }
+       
         $dataProvider = new SqlDataProvider([
             'sql' => $sql,
             'sort' => [
@@ -79,9 +109,11 @@ class ApplicationController extends Controller
             ]
             ],
         ]);
+
         Yii::trace("Company: ".$companyId);
        return $this->render('index', [
             'id' => $companyId,
+            'title' => $indiTitle,
             'provider' => $dataProvider,
         ]);
 
@@ -108,8 +140,26 @@ class ApplicationController extends Controller
      */
     public function actionView($id)
     {
+
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        
+        $app = Application::findOne($id);
+        $user = User::find()->where(['id' => $app->user_id])->one();
+        Yii::trace($user->fullName);
+        $created = $app->created_at;
+        $model["app"] = $app;
+        $model["user"] = $user;
+        $model["created"] = $app->created_at;
+        
+        $appDatas = new ApplicationDataSearch();
+        $provider = $appDatas->search(['ApplicationDataSearch']);
+
+        
+       
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'appDataProvider' => $provider,
+
         ]);
     }
 
@@ -156,13 +206,12 @@ class ApplicationController extends Controller
                 $file = new File();
                 // Firstly, create file, then reference it by application_data 
                 $files = File::find()->orderBy('id')->all();
-                $name = "AD_".uniqid();             
                 $file->path = "assets/uploads/ad/";
                 $file->extension = $model->file->extension;
                 $file->size = $model->file->size;
                 $file->title = $model->title;
                 if($file->save()) {
-                $model->file->saveAs('assets/uploads/ad/' . $name . '.' . $model->file->extension);                
+                $model->file->saveAs('assets/uploads/ad/AD_' .md5($user->id.'_'.$file->id). '.' . $model->file->extension);                
                 Yii::trace("Saved file");
                 }
 
@@ -190,6 +239,7 @@ class ApplicationController extends Controller
 
         } else {
             return $this->render('create', [
+                'appId' => $id,
                 'model' => $model,
                 'job' => $job,
                 'provider' => $provider,
@@ -197,10 +247,25 @@ class ApplicationController extends Controller
         }
     }
 
-    public function getFileTitle($id) { //expected app data id
+    public static function getFileTitle($id) { //expected app data id
 
         $file = File::findOne($id);
         return $file->title;
+
+    }
+
+    public static function getFileExtension($id) { //expected app data id
+
+        $file = File::findOne($id);
+        return $file->extension;
+
+    }
+
+    public static function getUserIdFromAppData($id) {
+
+        $app = Application::find()
+        ->where(['id' => $id])->one();
+        return $app->user_id;
 
     }
 

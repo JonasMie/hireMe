@@ -33,13 +33,13 @@ use yii\helpers\Html;
 
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"
-             onclick="window.location='./application';">
+             onclick="window.location='./application/index?new=true';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a(count($newApplications), "/application"); ?>
+                    <?= Html::a($newApplications, "/application/index?new=true"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a('neue Bewerbungen', "/application"); ?>
+                    <?= Html::a('neue Bewerbungen', "/application/index?new=true"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -75,13 +75,13 @@ use yii\helpers\Html;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-4 tile-black"
-             onclick="window.location='./bewerbungen';">
+             onclick="window.location='./application';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($totalApplications, "/bewerbungen"); ?>
+                    <?= Html::a($totalApplications, "/application"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a('Bewerbungen insgesamt', "/bewerbungen"); ?>
+                    <?= Html::a('Bewerbungen insgesamt', "/application"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">

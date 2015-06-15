@@ -35,7 +35,6 @@ use yii\grid\GridView;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'title',
             'description',
             'job_begin',
@@ -48,7 +47,6 @@ use yii\grid\GridView;
             ],
             'active',
             'created_at',
-            'type',
             'city',
             'time:datetime',
         ],
@@ -57,6 +55,7 @@ use yii\grid\GridView;
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
      <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'key:ntext',
