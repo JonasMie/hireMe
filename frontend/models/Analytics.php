@@ -77,7 +77,7 @@ class Analytics extends \yii\base\Model
 
     }
     //Detail
-    public function getAppliesForJob($id) {
+    public static function getAppliesForJob($id) {
 
     	 $applications = Application::find()
         ->where(['job_id' => $id, 'sent' => 1,])
@@ -118,7 +118,7 @@ class Analytics extends \yii\base\Model
         return $btns;
     }
 
-     public function getInterestRateForBtn($id) {
+     public static function getInterestRateForBtn($id) {
 
         $btn = ApplyBtn::findOne($id);
         if ($btn->clickCount == 0) $rate = 0;
@@ -127,7 +127,7 @@ class Analytics extends \yii\base\Model
 
     }
 
-       public function getApplicationRateForBtn($id) {
+       public static function getApplicationRateForBtn($id) {
 
         $btn = ApplyBtn::findOne($id);
         $btnApplies = Application::find()
@@ -139,7 +139,7 @@ class Analytics extends \yii\base\Model
         return $rate;
     }
 
-      public function getInterviewRateForBtn($id) {
+      public static function getInterviewRateForBtn($id) {
         
         $btn = ApplyBtn::findOne($id);
         $applies = Application::find()

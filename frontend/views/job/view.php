@@ -70,9 +70,8 @@ use yii\grid\GridView;
     ]); ?>
     <? else: ?>
      <? 
-        $app = new Application();
-        if ($app->existsApplicationFromUser(Yii::$app->user->identity->id,$model->id) == true) :?>
-        <?= Html::decode("Bewerbung ist bereits raus.<br>Status: ".$app->getApplicationStatByUserAndJob(Yii::$app->user->identity->id,$model->id)) ?>
+        if (Application::existsApplicationFromUser(Yii::$app->user->identity->id,$model->id) == true) :?>
+        <?= Html::decode("Bewerbung ist bereits raus.<br>Status: ".Application::getApplicationStatByUserAndJob(Yii::$app->user->identity->id,$model->id)) ?>
         <? else: ?>
         <?= Html::a(Html::button("Jetzt bewerben"),"/job/apply-intern?id=".$model->id); ?>   
     <? endif; ?>

@@ -68,14 +68,14 @@ class Application extends \yii\db\ActiveRecord
     }
 
 
-    public function getApplicationStatus($id) {
+    public static function getApplicationStatus($id) {
 
         $app = Application::find($id);
         return $app->state;
 
     }
 
-    public function getApplicationStatByUserAndJob($user,$job) {
+    public static function getApplicationStatByUserAndJob($user,$job) {
 
         $application = Application::findOne(['user_id' => $user, 'job_id' => $job]);
         return $application->state;
