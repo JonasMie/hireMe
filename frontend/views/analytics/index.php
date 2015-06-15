@@ -64,6 +64,7 @@ $this->title = "Analytics für";
 
 
 
+
     <h2><?= $clickCount  ?> Klicks bei <?= $viewCount ?> Views</h2>
     <h5>Interest Rate somit bei: <?= $interestRate ?> %</h5>
     <h2><?= $applyCount ?> Applications bei <?= $clickCount ?> Klicks</h2>
