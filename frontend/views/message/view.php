@@ -110,7 +110,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Antworten</h4>
             </div>
             <div class="modal-body">
 
@@ -150,14 +150,3 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 
 
 
-
-<?
-$this->registerJs(
-    '$("document").ready(function(){
-        $(".btn-reply").click(function(e){
-            e.preventDefault();
-            $(".form-reply").toggle();
-        });
-    });'
-);
-?>
