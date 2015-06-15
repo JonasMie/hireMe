@@ -67,7 +67,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($attachment, 'file')->fileInput()->label('Anhang hinzufügen'); ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => $model->isNewRecord ? 'btn btn-success ripple' : 'btn btn-primary ripple']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

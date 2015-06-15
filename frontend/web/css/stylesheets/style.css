@@ -1296,41 +1296,60 @@ body.controller-message table#inboxTable tr.footable-row-detail .footable-row-de
   }
 }
 
-/* line 121, ../sass/_message.scss */
+/* line 122, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row, body.controller-message.action-create .message-create-second-row {
   margin-top: 40px;
 }
-/* line 125, ../sass/_message.scss */
+/* line 126, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row {
   position: relative;
 }
-/* line 129, ../sass/_message.scss */
+/* line 130, ../sass/_message.scss */
 body.controller-message.action-create input[type="text"], body.controller-message.action-create span.tt-dropdown-menu {
   max-width: 400px;
 }
-/* line 134, ../sass/_message.scss */
+/* line 135, ../sass/_message.scss */
 body.controller-message.action-create .field-message-content label[for="message-content"] {
   display: none;
 }
-/* line 138, ../sass/_message.scss */
-body.controller-message.action-create .field-message-content #message-content {
+
+/* line 145, ../sass/_message.scss */
+body.controller-message.action-view #replyModal form {
+  margin-top: 20px;
+}
+/* line 147, ../sass/_message.scss */
+body.controller-message.action-view #replyModal form .field-message-subject {
+  position: relative;
+}
+/* line 149, ../sass/_message.scss */
+body.controller-message.action-view #replyModal form .field-message-subject .control-label {
+  position: absolute;
+}
+/* line 154, ../sass/_message.scss */
+body.controller-message.action-view #replyModal form .field-message-content label[for=message-content] {
+  display: none;
+}
+
+/* line 162, ../sass/_message.scss */
+#message-content {
   resize: none;
   box-shadow: none;
 }
-/* line 141, ../sass/_message.scss */
-body.controller-message.action-create .field-message-content #message-content:focus {
+/* line 165, ../sass/_message.scss */
+#message-content:focus {
   border-color: #5dca88;
 }
-/* line 147, ../sass/_message.scss */
-body.controller-message.action-create .field-messageattachments-file {
-  position: static;
+
+/* line 170, ../sass/_message.scss */
+.field-messageattachments-file {
+  position: static !important;
 }
-/* line 149, ../sass/_message.scss */
-body.controller-message.action-create .field-messageattachments-file label {
-  position: static;
+/* line 172, ../sass/_message.scss */
+.field-messageattachments-file label {
+  position: static !important;
 }
-/* line 153, ../sass/_message.scss */
-body.controller-message.action-create .field-messageattachments-file #messageattachments-file {
+/* line 176, ../sass/_message.scss */
+.field-messageattachments-file #messageattachments-file {
   margin-left: -2px;
   margin-top: 10px;
   max-width: 99%;

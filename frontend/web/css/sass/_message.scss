@@ -116,6 +116,7 @@ body.controller-message {
   }
 }
 
+
 body.controller-message.action-create {
 
   .message-create-first-row, .message-create-second-row {
@@ -134,32 +135,48 @@ body.controller-message.action-create {
     label[for="message-content"]{
       display: none;
     }
+  }
+}
 
-    #message-content {
-      resize: none;
-      box-shadow: none;
-      &:focus{
-        border-color: $green;
+
+body.controller-message.action-view {
+
+  #replyModal {
+    form {
+      margin-top: 20px;
+      .field-message-subject {
+        position: relative;
+        .control-label {
+          position: absolute;
+        }
+      }
+      .field-message-content {
+        label[for=message-content]{
+          display: none;
+        }
       }
     }
   }
+}
 
-  .field-messageattachments-file {
-    position: static;
-    label {
-      position: static;
-    }
+#message-content {
+  resize: none;
+  box-shadow: none;
+  &:focus{
+    border-color: $green;
+  }
+}
 
-    #messageattachments-file {
-      margin-left: -2px;
-      margin-top: 10px;
-      max-width: 99%;
-      overflow: hidden;
-    }
+.field-messageattachments-file {
+  position: static !important;
+  label {
+    position: static !important;
   }
 
-
-
-
-
+  #messageattachments-file {
+    margin-left: -2px;
+    margin-top: 10px;
+    max-width: 99%;
+    overflow: hidden;
+  }
 }

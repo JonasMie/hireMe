@@ -114,7 +114,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
             </div>
             <div class="modal-body">
 
-                <div class="message-form form-reply">
+                <div class="message-form form-reply form-group">
 
                     <?php
                     $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'], 'action' => '/message/create']);
@@ -123,9 +123,9 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
                     $reply->flow = $model->flow;
                     ?>
 
-                    <?= $form->field($reply, 'subject')->textInput(['maxlength' => 255]) ?>
+                    <?= $form->field($reply, 'subject', ['options' => ['class' => 'input-in-focus']])->textInput(['maxlength' => 255]) ?>
 
-                    <?= $form->field($reply, 'content')->textarea(['rows' => 6]) ?>
+                    <?= $form->field($reply, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...'] ], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15]) ?>
 
 
                     <?= Html::activeHiddenInput($reply, 'receiver_id') // TODO: check if exists       ?>
@@ -133,16 +133,17 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
                     <?= $form->field($attachment, 'file')->fileInput()->label('Anhang hinzufügen'); ?>
                     <?= Html::activeHiddenInput($reply, 'flow') // TODO: DANKE YII, DASS ICH DEN SCHEIß MIT HIDDEN INPUT MACHEN MUSS! DANKE! WIRKLICH! DANKE, DU ARSCHLOCH! SECURITY UND SO LÄUFT BEI DIR. wenn noch zeit ist, evtl verbessern ?>
                     <div class="form-group">
-                        <?= Html::submitButton(Yii::t('app', 'Create'), ['class' => $reply->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                     </div>
-                    <?php ActiveForm::end(); ?>
 
                 </div>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => $reply->isNewRecord ? 'btn btn-success ripple' : 'btn btn-primary ripple']) ?>
+
+                <?php ActiveForm::end(); ?>
+
             </div>
         </div>
     </div>
