@@ -6,6 +6,7 @@ use common\behaviours\BodyClassBehaviour;
 use common\models\User;
 use frontend\models\Message;
 use frontend\models\MessageAttachments;
+use frontend\models\MessageCreate;
 use Yii;
 use frontend\models\MessageSearch;
 use yii\filters\AccessControl;
@@ -96,38 +97,16 @@ class MessageController extends Controller
     public function actionCreate($rec = null)
     {
         // TODO: check if reply
-        $model = new Message();
-        $attachment = new MessageAttachments(); // TODO: set message id
-
-        $model->sender_id = Yii::$app->user->identity->getId();
-        $receiver = User::findIdentity($rec);
-        if (isset($rec)) {
-            $model->receiver_id = $receiver->id;
+        $model = new MessageCreate();
+        if(isset($rec)){
+            $rec = User::findIdentity($rec);
+            $model->receiver = $rec->fullName;
         }
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $attachment->uploadedFile = UploadedFile::getInstance($attachment, 'file');
-            if ($attachment->uploadedFile && $attachment->validate()) {
-                $filename = "/" . uniqid("ma_");
-                $extension = $attachment->uploadedFile->extension;
-                $size = $attachment->uploadedFile->size;
-                $title = $attachment->uploadedFile->baseName;
-                $attachment->message_id = $model->primaryKey;
-                if (!$attachment->addFile($filename, $extension, $size, $title) || !$attachment->uploadedFile->saveAs(Yii::getAlias('@webroot') . '/uploads/messattachments/' . $filename . '.' . $attachment->uploadedFile->extension)) {
-
-                    return $this->render('create', [
-                        'model'      => $model,
-                        'rec'        => $receiver,      // TODO: remove receiver, use $model->receiver_id instead
-                        'attachment' => $attachment
-                    ]);
-                }
-            }
             return $this->redirect(['./message']);
         } else {
             return $this->render('create', [
-                'model'      => $model,
-                'rec'        => $receiver,
-                'attachment' => $attachment
+                'model' => $model,
             ]);
         }
     }

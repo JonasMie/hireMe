@@ -3,6 +3,7 @@
 use kartik\typeahead\Typeahead;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -20,50 +21,30 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <? echo "<label class='control-label'>Empfänger</label>"; ?>
-    <?=
-    // TODO: set receiver if $rec!== null
-    Typeahead::widget([
+    <?
+    $template =
+        '<p>{{value}}</p>' .
+        '<img src="/uploads/profile/{{image}}.jpg"/>';
+
+    echo $form->field($model, 'receiver')->widget(Typeahead::className(), [
         'name'         => 'receiver_name',
         'dataset'      => [
             [
-                'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
-                'limit'  => 10,
+                'remote'    => Url::to(['site/user-search' . '?q=%QUERY']),
+                'limit'     => 10,
+                'templates' => [
+                    'empty'      => '<div class="text-error">Es wurde leider kein Nutzer gefunden.</div>',
+                    'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                ]
             ],
         ],
-        'pluginEvents' => [     // Typeahead search with bloodhound suggestion
-            "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
-        ]
+    ])->label('Empfänger') ?>
 
-    ]) ?>
-
-    <!--?= $form->field($model, 'receiver_id')->widget(Typeahead::className(), [
-        'dataset' => [
-            [
-                'remote' => Url::to(['site/user-search'.'?q=%QUERY']),
-                'limit' => 10,
-            ],
-        ],
-        'pluginEvents' => [
-            "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
-        ]
-
-    ])->label('Empfänger')->textInput()  ?-->
-
-    <?= Html::activeHiddenInput($model, 'receiver_id') // TODO: check if exists    ?>
-
-    <?= $form->field($attachment, 'file')->fileInput()->label('Anhang hinzufügen'); ?>
+    <?= $form->field($model, 'attachment')->fileInput()->label('Anhang hinzufügen'); ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Create'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Create'), ['class' => 'btn btn-success']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 
 </div>
-
-<script>
-    // TODO: verschönern
-    <? if (isset($receiver)){ ?>
-        document.getElementById('w1').value = "<?=$receiver->fullName?>";
-    <? } ?>
-</script>

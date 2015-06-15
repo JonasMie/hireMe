@@ -79,7 +79,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['firstName', 'lastName', 'auth_key', 'email', 'fullName'], 'required'],
-            [['status', 'is_recruiter', 'company_id', 'created_at', 'updated_at', 'picture', 'visibility'], 'integer'],
+            [['status', 'is_recruiter', 'company_id', 'created_at', 'updated_at', 'picture_id', 'visibility'], 'integer'],
             [['birthday'], 'safe'],
             [['firstName', 'lastName', 'password_hash', 'password_reset_token', 'email', 'username', 'fullName'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
@@ -110,7 +110,7 @@ class User extends ActiveRecord implements IdentityInterface
             'position'             => Yii::t('app', 'Position'),
             'username'             => Yii::t('app', 'Username'),
             'fullName'             => Yii::t('app', 'Full Name'),
-            'picture'              => Yii::t('app', 'Picture'),
+            'picture_id'              => Yii::t('app', 'Picture'),
             'visibility'           => Yii::t('app', 'Visibility'),
         ];
 
@@ -142,6 +142,18 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($un)
     {
         return static::findOne(['username' => $un, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * Finds user by fullName
+     *
+     * @param string $fn fullName
+     *
+     * @return static|null
+     */
+    public static function findByFullname($fn)
+    {
+        return static::findOne(['fullName' => $fn, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -200,7 +212,8 @@ class User extends ActiveRecord implements IdentityInterface
      *
      * @return boolean
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->firstName;
     }
 
@@ -286,17 +299,15 @@ class User extends ActiveRecord implements IdentityInterface
 
     public static function getAutocompleteUser($q)
     {
-        $query = new Query;
-
-        $query->select('id, fullName')
-            ->from('user')
-            ->where('fullName LIKE "%' . $q . '%" AND id != ' . Yii::$app->user->identity->getId())
-            ->orderBy('fullName');
-        $command = $query->createCommand();
-        $data = $command->queryAll();
+        $query = User::find()
+//            ->select('user.fullName, file.path')
+            ->where('fullName LIKE "%' . $q . '%" AND user.id != ' . Yii::$app->user->identity->getId())
+            ->with('picture')
+            ->orderBy('fullName')
+            ->all();
         $out = [];
-        foreach ($data as $d) {
-            $out[] = ['id' => $d['id'], 'value' => $d['fullName']];
+        foreach ($query as $user) {
+            $out[] = ['value' => $user->fullName, 'image' => isset($user->picture)?'thumbnails'.$user->picture->path:'default'];
         }
         return Json::encode($out);
     }
@@ -326,9 +337,12 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasMany(ResumeSchool::className(), ['user_id' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getPicture()
     {
-        return $this->hasOne(File::className(), ['id' => 'picture']);
+        return $this->hasOne(File::className(), ['id' => 'picture_id']);
     }
 
     public function getCompany()
@@ -337,14 +351,14 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
 
-    public function getProfilePicture($thumbnail=false)
+    public function getProfilePicture($thumbnail = false)
     {
-        if(isset($this->picture)){
-            $picture = File::findOne(['id'=>$this->picture]);           // TODO: cachen
-            if($thumbnail){
-                return Html::img("/uploads/profile/thumbnails/".$picture->path.".jpg");
+        if (isset($this->picture)) {
+            $picture = File::findOne(['id' => $this->picture_id]);           // TODO: cachen
+            if ($thumbnail) {
+                return Html::img("/uploads/profile/thumbnails/" . $picture->path . ".jpg");
             }
-            return Html::img("/uploads/profile".$picture->path.".jpg");
+            return Html::img("/uploads/profile" . $picture->path . ".jpg");
         }
         return Html::img("/uploads/profile/default.jpg");
     }

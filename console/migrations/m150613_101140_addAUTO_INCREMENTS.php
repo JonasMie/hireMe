@@ -7,10 +7,10 @@ class m150613_101140_addAUTO_INCREMENTS extends Migration
 {
     public function up()
     {
-        $this->alterColumn('application','id',SCHEMA::TYPE_INTEGER AUTO_INCREMENT);
-        $this->alterColumn('application_data','id',SCHEMA::TYPE_INTEGER AUTO_INCREMENT);
-        $this->alterColumn('favourites','id',SCHEMA::TYPE_INTEGER AUTO_INCREMENT);
-        $this->alterColumn('job','id',SCHEMA::TYPE_INTEGER AUTO_INCREMENT);
+//        $this->alterColumn('application','id',SCHEMA::TYPE_INTEGER .' AUTO_INCREMENT');
+//        $this->alterColumn('application_data','id',SCHEMA::TYPE_INTEGER .' AUTO_INCREMENT');
+//        $this->alterColumn('favourites','id',SCHEMA::TYPE_INTEGER .' AUTO_INCREMENT');
+//        $this->alterColumn('job','id',SCHEMA::TYPE_INTEGER .' AUTO_INCREMENT');
 
     }
 

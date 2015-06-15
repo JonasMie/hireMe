@@ -93,7 +93,7 @@ class SettingsModel extends Model
             $user = User::findIdentity(Yii::$app->user->identity->getId());
             $imageId = $this->uploadImage($this);
             if (isset($imageId) && $imageId) {
-                $user->picture = $imageId;
+                $user->picture_id = $imageId;
             }
             $user->email = $this->email;
             $user->visibility = $this->visibility;

@@ -5,13 +5,8 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Message */
-/* @var $userModel common\models\User */
-/* @var $rec null|Integer */
-/* @var $attachment frontend\models\MessageAttachments */
 
 $this->title = Yii::t('app', 'Nachricht verfassen');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Messages'), 'url' => ['']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="message-create">
 
@@ -19,8 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
-        'receiver' => $rec,
-        'attachment' => $attachment
     ]) ?>
 
 </div>
