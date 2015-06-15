@@ -936,6 +936,11 @@ body div.profile-picture-thumbnail:hover {
   color: #fff;
 }
 
+/* line 73, ../sass/_login.scss */
+.field-signupform-checkcompanysignup, label[for="checkCompanySignup"] {
+  position: static;
+}
+
 /* line 5, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row {
   margin-top: 20px;

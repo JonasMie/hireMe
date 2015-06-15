@@ -26,10 +26,11 @@ $(document).ready(function(){
 /** END Focus input field with class "typeStart" when typing randomly on page */
 
     /** INITIALIZING ICHECK **/
-    $('input').iCheck({
+    $('body:not(".action-login") input').iCheck({
         checkboxClass: 'icheckbox_flat-green',
         radioClass: 'iradio_flat'
     });
+
 
     // TODO: This is a temporary hack, to prevent prefilled forms by browser which break our styling
     // Clear Form Fields
