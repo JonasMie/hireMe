@@ -14,9 +14,8 @@ $this->title = "Analytics für";
 
     <h1><?= Html::encode($this->title) ?> <?= $companyName ?></h1>
 
+    
     <p>
-
-
 
 
     <h1><?= $applyCount ?> Bewerbungen</h1>
