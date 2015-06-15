@@ -763,9 +763,13 @@ body .input-in-focus > input[type="text"], body .has-success > input[type="text"
 body .input-in-focus > label, body .has-success > label {
   top: -20px;
   font-size: 15px;
-  color: #5dca88;
+  color: #5dca88 !important;
 }
-/* line 277, ../sass/_basicTemplate.scss */
+/* line 272, ../sass/_basicTemplate.scss */
+body .input-in-focus textarea, body .has-success textarea {
+  border-color: #5dca88 !important;
+}
+/* line 280, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -777,21 +781,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 290, ../sass/_basicTemplate.scss */
+/* line 293, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 298, ../sass/_basicTemplate.scss */
+/* line 301, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 301, ../sass/_basicTemplate.scss */
+/* line 304, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 305, ../sass/_basicTemplate.scss */
+/* line 308, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -801,41 +805,41 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 310, ../sass/_basicTemplate.scss */
+/* line 313, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 315, ../sass/_basicTemplate.scss */
+/* line 318, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 317, ../sass/_basicTemplate.scss */
+/* line 320, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 321, ../sass/_basicTemplate.scss */
+/* line 324, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 332, ../sass/_basicTemplate.scss */
+/* line 335, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 338, ../sass/_basicTemplate.scss */
+/* line 341, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 345, ../sass/_basicTemplate.scss */
+/* line 348, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }

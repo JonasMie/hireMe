@@ -267,7 +267,10 @@ body {
     > label {
       top: -20px;
       font-size: 15px;
-      color: $green;
+      color: $green !important;
+    }
+    textarea {
+      border-color: $green !important;
     }
   }
   /* END FOCUSED INPUT*/
