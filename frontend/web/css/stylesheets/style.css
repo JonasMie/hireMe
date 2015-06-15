@@ -1193,20 +1193,35 @@ body.controller-message.action-create .message-create-first-row, body.controller
 body.controller-message.action-create .message-create-first-row {
   position: relative;
 }
-/* line 131, ../sass/_message.scss */
+/* line 129, ../sass/_message.scss */
 body.controller-message.action-create input[type="text"], body.controller-message.action-create span.tt-dropdown-menu {
   max-width: 400px;
 }
-/* line 136, ../sass/_message.scss */
+/* line 134, ../sass/_message.scss */
 body.controller-message.action-create .field-message-content label[for="message-content"] {
   display: none;
 }
-/* line 140, ../sass/_message.scss */
+/* line 138, ../sass/_message.scss */
 body.controller-message.action-create .field-message-content #message-content {
   resize: none;
   box-shadow: none;
 }
-/* line 143, ../sass/_message.scss */
+/* line 141, ../sass/_message.scss */
 body.controller-message.action-create .field-message-content #message-content:focus {
   border-color: #5dca88;
+}
+/* line 147, ../sass/_message.scss */
+body.controller-message.action-create .field-messageattachments-file {
+  position: static;
+}
+/* line 149, ../sass/_message.scss */
+body.controller-message.action-create .field-messageattachments-file label {
+  position: static;
+}
+/* line 153, ../sass/_message.scss */
+body.controller-message.action-create .field-messageattachments-file #messageattachments-file {
+  margin-left: -2px;
+  margin-top: 10px;
+  max-width: 99%;
+  overflow: hidden;
 }

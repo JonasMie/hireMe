@@ -124,8 +124,6 @@ body.controller-message.action-create {
 
   .message-create-first-row {
     position: relative;
-
-
   }
 
   input[type="text"], span.tt-dropdown-menu {
@@ -144,9 +142,21 @@ body.controller-message.action-create {
         border-color: $green;
       }
     }
-
   }
 
+  .field-messageattachments-file {
+    position: static;
+    label {
+      position: static;
+    }
+
+    #messageattachments-file {
+      margin-left: -2px;
+      margin-top: 10px;
+      max-width: 99%;
+      overflow: hidden;
+    }
+  }
 
 
 
