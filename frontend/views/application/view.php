@@ -33,9 +33,10 @@ use frontend\controllers\ApplicationController;
 
     <? else: ?>
 
-    <h2><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
-    <p>Eingestellt: <?= $model["created"];?></p>
-    <h3>Gesendete Anlagen:</h3>
+    <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
+    <p> Eingestellt: <?= $model["created"];?></p>
+    <p><?= Html::a(Html::button("Lebenslauf anschauen"),"") ?></p>
+    <h3> Gesendete Anlagen:</h3>
 
     <?= GridView::widget([
         'dataProvider' => $appDataProvider,
@@ -55,7 +56,7 @@ use frontend\controllers\ApplicationController;
                 'label'  => 'Info',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return Html::a("Anschauen","/application/show-file?id=".$data->id);
+                    return Html::a("Anschauen","/application/show-file?id=".$data->id,['target' => '_blank']);
                 }
             ],
         ],

@@ -74,7 +74,7 @@ class ApplicationController extends Controller
         $user_id = $app->user_id;
 
 
-        $this->redirect("http://frontend/assets/uploads/ad/AD_".md5($user_id.'_'.$appData->file_id).'.'.$file->extension);
+        $this->redirect("http://frontend/uploads/appData/AD_".md5($user_id.'_'.$appData->file_id).'.'.$file->extension);
         
     }
     
@@ -141,8 +141,6 @@ class ApplicationController extends Controller
     public function actionView($id)
     {
 
-        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
-        
         $app = Application::findOne($id);
         $user = User::find()->where(['id' => $app->user_id])->one();
         Yii::trace($user->fullName);
@@ -152,15 +150,33 @@ class ApplicationController extends Controller
         $model["created"] = $app->created_at;
         
         $appDatas = new ApplicationDataSearch();
-        $provider = $appDatas->search(['ApplicationDataSearch']);
-
-        
+        $provider = $appDatas->search(['ApplicationDataSearch' => ['application_id' => $app->id]]);
        
         return $this->render('view', [
             'model' => $model,
             'appDataProvider' => $provider,
 
         ]);
+    }
+
+    public function actionDataHandler($id,$appID,$direction) { // expects app data id.
+
+        Yii::trace("app id:".$appID);
+        $appData = ApplicationData::findOne($id);
+        // TODO: differenciate app ids
+        Yii::trace("APP DATA FOR: ".$appData->application_id);
+        $app = Application::findOne($appID);  
+        if($appData->application_id != $app->id) {
+
+            Yii::trace("noch nicht dafür hinzugefügt");
+
+        }
+        if($direction == 1) { $appData->sent = 1; }
+        else { $appData->sent = 0; }
+        $appData->save();
+
+        $this->redirect("/application/add-data?id=".$appID);
+
     }
 
     /**
@@ -191,11 +207,39 @@ class ApplicationController extends Controller
 
         $app = Application::findOne($id);
         $job = Job::findOne($app->job_id);
-      
+        
         $model = new UploadForm();
         $appDatas = new ApplicationDataSearch();
-        $provider = $appDatas->search(['ApplicationDataSearch']);
 
+        $query = new Query;
+        $newSQL = "SELECT f.title, ad.id, ad.application_id from file f, application_data ad, application a WHERE ad.application_id = a.id and f.id = ad.file_id and a.user_id = ".$user->id;
+        Yii::trace("User ID: ".$user->id);
+        $provider = new SqlDataProvider([
+            'sql' => $newSQL,
+            'sort' => [
+                'attributes' => [
+                'title'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,
+                
+            ]
+            ],
+        ]);
+
+        $dataSQL = "SELECT f.title, ad.id, ad.application_id from file f, application_data ad, application a WHERE ad.application_id = a.id and f.id = ad.file_id  and ad.sent = 1 and a.id = ".$app->id." and a.user_id = ".$user->id;
+        $appDataProvider = new SqlDataProvider([
+            'sql' => $dataSQL,
+            'sort' => [
+                'attributes' => [
+                'title'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,
+                
+            ]
+            ],
+        ]);
 
         if ($model->load(Yii::$app->request->post())) {
 
@@ -206,12 +250,12 @@ class ApplicationController extends Controller
                 $file = new File();
                 // Firstly, create file, then reference it by application_data 
                 $files = File::find()->orderBy('id')->all();
-                $file->path = "assets/uploads/ad/";
+                $file->path = "uploads/appData/";
                 $file->extension = $model->file->extension;
                 $file->size = $model->file->size;
                 $file->title = $model->title;
                 if($file->save()) {
-                $model->file->saveAs('assets/uploads/ad/AD_' .md5($user->id.'_'.$file->id). '.' . $model->file->extension);                
+                $model->file->saveAs('uploads/appData/AD_' .md5($user->id.'_'.$file->id). '.' . $model->file->extension);                
                 Yii::trace("Saved file");
                 }
 
@@ -225,6 +269,7 @@ class ApplicationController extends Controller
 
                 $appData->application_id = $app->id;
                 $appData->file_id = $file->id;
+                $appData->sent = 0;
 
                 if($appData->save()) {
                 Yii::trace("Saved app data and application");
@@ -243,6 +288,7 @@ class ApplicationController extends Controller
                 'model' => $model,
                 'job' => $job,
                 'provider' => $provider,
+                'appDataProvider' => $appDataProvider,
             ]);
         }
     }

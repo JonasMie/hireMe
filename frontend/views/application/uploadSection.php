@@ -14,28 +14,28 @@ CheckAsset::register($this);
         'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'id' => "uploadedGrid",
         'columns'      => [
-        [
-            'class'    => 'yii\grid\CheckboxColumn',
-        'headerOptions' => ['class'=>'first-col'],
-        'contentOptions' => ['class' => 'first-col']
-
-        ],
             [
                 'label'  => 'Titel',
                 'format' => 'raw',
+                'value'  => 'title'
+            ], 
+            [
+                'label'  => 'Mitschicken',
+                'format' => 'raw',
                 'value'  => function ($data) {
-                    return  ApplicationController::getFileTitle($data->file_id);
+                    return  Html::a(Html::button("Mitschicken"),"/application/data-handler?id=".$data['id']."&appID=".$data['application_id']."&direction=1");
+                }
+            ], 
+            [
+                'label'  => 'Anschauen',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  Html::a("Anschauen","/application/show-file?id=".$data['id'],['target' => '_blank']);
                 }
             ], 
         ],
     ]); ?>  
 
-<script type="text/javascript">
-
-function userClicks(target_id) {
-        alert($.fn.yiiGridView.getSelection(target_id));
-}
-</script>
 
  <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
