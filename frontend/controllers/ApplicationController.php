@@ -161,20 +161,29 @@ class ApplicationController extends Controller
 
     public function actionDataHandler($id,$appID,$direction) { // expects app data id.
 
-        Yii::trace("app id:".$appID);
-        $appData = ApplicationData::findOne($id);
-        // TODO: differenciate app ids
-        Yii::trace("APP DATA FOR: ".$appData->application_id);
-        $app = Application::findOne($appID);  
-        if($appData->application_id != $app->id) {
+        Yii::trace("file id:".$id);
+        $app = Application::findOne($appID);
 
-            Yii::trace("noch nicht dafür hinzugefügt");
+       if($direction == 1) {   
+        $appData = new ApplicationData();
 
-        }
-        if($direction == 1) { $appData->sent = 1; }
-        else { $appData->sent = 0; }
+         $appDatas = ApplicationData::find()->orderBy('id')->all();
+            if (count($appDatas) == 0) {
+                $appData->id = 0;
+            }
+            else {
+                $highestID = $appDatas[count($appDatas)-1];
+                $appData->id = $highestID->id+1;
+            } 
+
+        $appData->application_id = $appID;
+        $appData->file_id = $id;
         $appData->save();
-
+       }
+       else {
+        $appData = ApplicationData::findOne($id);
+        $appData->delete();
+       }
         $this->redirect("/application/add-data?id=".$appID);
 
     }
@@ -207,12 +216,8 @@ class ApplicationController extends Controller
 
         $app = Application::findOne($id);
         $job = Job::findOne($app->job_id);
-        
-        $model = new UploadForm();
-        $appDatas = new ApplicationDataSearch();
 
-        $query = new Query;
-        $newSQL = "SELECT f.title, ad.id, ad.application_id from file f, application_data ad, application a WHERE ad.application_id = a.id and f.id = ad.file_id and a.user_id = ".$user->id;
+        $newSQL = "SELECT f.title, f.id from file f WHERE f.user_id = ".$user->id;
         Yii::trace("User ID: ".$user->id);
         $provider = new SqlDataProvider([
             'sql' => $newSQL,
@@ -221,76 +226,29 @@ class ApplicationController extends Controller
                 'title'
             ],
             'defaultOrder' => [
-                'title' => SORT_ASC,
-                
+                'title' => SORT_ASC,   
             ]
             ],
         ]);
 
-        $dataSQL = "SELECT f.title, ad.id, ad.application_id from file f, application_data ad, application a WHERE ad.application_id = a.id and f.id = ad.file_id  and ad.sent = 1 and a.id = ".$app->id." and a.user_id = ".$user->id;
-        $appDataProvider = new SqlDataProvider([
-            'sql' => $dataSQL,
+        $sentSQL = "SELECT f.title, ad.id from file f, application_data ad, application a WHERE a.user_id = ".$user->id." and ad.application_id = a.id and ad.file_id = f.id and a.id =".$id;
+        $sentProvider = new SqlDataProvider([
+            'sql' => $sentSQL,
             'sort' => [
                 'attributes' => [
                 'title'
             ],
             'defaultOrder' => [
-                'title' => SORT_ASC,
-                
+                'title' => SORT_ASC,   
             ]
             ],
         ]);
-
-        if ($model->load(Yii::$app->request->post())) {
-
-            $model->file = UploadedFile::getInstance($model, 'file');
-
-            if ($model->file && $model->validate()) { 
-
-                $file = new File();
-                // Firstly, create file, then reference it by application_data 
-                $files = File::find()->orderBy('id')->all();
-                $file->path = "uploads/appData/";
-                $file->extension = $model->file->extension;
-                $file->size = $model->file->size;
-                $file->title = $model->title;
-                if($file->save()) {
-                $model->file->saveAs('uploads/appData/AD_' .md5($user->id.'_'.$file->id). '.' . $model->file->extension);                
-                Yii::trace("Saved file");
-                }
-
-                $appData = new ApplicationData();
-                $appDates = ApplicationData::find()->orderBy('id')->all();
-                if (count($appDates) == 0) $appData->id = 0;
-                else { 
-                $highestID = $appDates[count($appDates)-1];
-                $appData->id = $highestID->id+1;
-                }
-
-                $appData->application_id = $app->id;
-                $appData->file_id = $file->id;
-                $appData->sent = 0;
-
-                if($appData->save()) {
-                Yii::trace("Saved app data and application");
-                }
-
-                $this->renderPartial("uploadSection", ['model'=>$model,'provider' => $provider]);
-            }
-        }
-
-        if ($app->load(Yii::$app->request->post()) && $app->save()) {
-            return $this->redirect(['view', 'id' => $app->id]);
-
-        } else {
             return $this->render('create', [
                 'appId' => $id,
-                'model' => $model,
                 'job' => $job,
                 'provider' => $provider,
-                'appDataProvider' => $appDataProvider,
+                'sentProvider' => $sentProvider
             ]);
-        }
     }
 
     public static function getFileTitle($id) { //expected app data id
