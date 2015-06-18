@@ -1,0 +1,132 @@
+body.controller-analytics {
+
+  // TILES
+  #analytics-tiles {
+    margin-top: 40px;
+
+    div.analytics-tile {
+      height: 130px;
+      padding: 0px 1%;
+      @media (max-width: 511px) {
+        width: 100%;
+      }
+      div.subtile {
+        height: 130px;
+        width: 50%;
+        @media (max-width: 767px) {
+          width: 100%;
+        }
+        float: left;
+        clear: right;
+
+        div.tile-value {
+          text-align: center;
+          a, .a-analytics {
+            color: #fff;
+            font-size: 17px;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        div.tile-value.tile-number {
+          padding: 25px 0px 2px 0px;
+          @media (max-width: 767px) {
+            padding-top: 35px;
+          }
+          a, .a-analytics {
+            font-size: 30px;
+          }
+        }
+        div.tile-value.tile-string {
+          padding: 0 5%;
+          line-height: 18px;
+        }
+      }
+    }
+
+    div.tile-green {
+
+      div.subtile-left {
+        background-color: $green;
+      }
+
+      div.subtile-right {
+        background-color: $green50;
+      }
+    }
+
+    div.tile-black {
+
+      div.subtile-left {
+        background-color: $black;
+      }
+
+      div.subtile-right {
+        background-color: $grey;
+      }
+    }
+
+    div.analytics-tile-1 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-bewerbungen.png");
+        background-size: 55% auto;
+        @media (max-width: 767px) {
+          background-size: 110px auto;
+        }
+      }
+      div.subtile {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+
+    div.analytics-tile-2 {
+      div.subtile-right {
+        background-image: url("/images/analytics-einstellungen.png");
+        background-size: 35% auto;
+        @media (max-width: 991px) {
+          background-size: 37% auto;
+        }
+        @media (max-width: 767px) {
+        }
+      }
+    }
+
+    div.analytics-tile-3 {
+      div.subtile-right {
+        background-image: url("/images/dashboard-stellenanzeigen.png");
+        background-size: 25% auto;
+        @media (max-width: 991px) {
+          background-size: 25% auto;
+        }
+        @media (max-width: 767px) {
+          background-size: 50px auto;
+        }
+      }
+      div.subtile {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    div.analytics-tile {
+      div.subtile-right {
+        background-position: center;
+        background-repeat: no-repeat
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+  // END TILES
+}

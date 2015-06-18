@@ -1336,3 +1336,132 @@ body.controller-message.action-create .field-messageattachments-file #messageatt
   max-width: 99%;
   overflow: hidden;
 }
+
+/* line 4, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles {
+  margin-top: 40px;
+}
+/* line 7, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile {
+  height: 130px;
+  padding: 0px 1%;
+}
+@media (max-width: 511px) {
+  /* line 7, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile {
+    width: 100%;
+  }
+}
+/* line 13, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
+  height: 130px;
+  width: 50%;
+  float: left;
+  clear: right;
+}
+@media (max-width: 767px) {
+  /* line 13, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
+    width: 100%;
+  }
+}
+/* line 22, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value {
+  text-align: center;
+}
+/* line 24, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics {
+  color: #fff;
+  font-size: 17px;
+}
+/* line 27, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a:hover, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics:hover {
+  text-decoration: none;
+}
+/* line 32, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
+  padding: 25px 0px 2px 0px;
+}
+@media (max-width: 767px) {
+  /* line 32, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
+    padding-top: 35px;
+  }
+}
+/* line 37, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number .a-analytics {
+  font-size: 30px;
+}
+/* line 41, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-string {
+  padding: 0 5%;
+  line-height: 18px;
+}
+/* line 50, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-green div.subtile-left {
+  background-color: #5dca88;
+}
+/* line 54, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-green div.subtile-right {
+  background-color: rgba(93, 202, 136, 0.5);
+}
+/* line 61, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-black div.subtile-left {
+  background-color: #2d312f;
+}
+/* line 65, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-black div.subtile-right {
+  background-color: #5d6461;
+}
+/* line 71, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
+  background-image: url("/images/dashboard-bewerbungen.png");
+  background-size: 55% auto;
+}
+@media (max-width: 767px) {
+  /* line 71, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
+    background-size: 110px auto;
+  }
+}
+/* line 79, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile:hover {
+  cursor: pointer;
+}
+/* line 87, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
+  background-image: url("/images/analytics-einstellungen.png");
+  background-size: 35% auto;
+}
+@media (max-width: 991px) {
+  /* line 87, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
+    background-size: 37% auto;
+  }
+}
+/* line 99, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+  background-image: url("/images/dashboard-stellenanzeigen.png");
+  background-size: 25% auto;
+}
+@media (max-width: 991px) {
+  /* line 99, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 99, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+/* line 110, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile:hover {
+  cursor: pointer;
+}
+/* line 117, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right {
+  background-position: center;
+  background-repeat: no-repeat;
+}
