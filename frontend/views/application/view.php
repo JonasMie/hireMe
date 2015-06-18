@@ -12,31 +12,19 @@ use frontend\controllers\ApplicationController;
 <div class="application-view">
 
 
-    <?php
-        if(Yii::$app->user->identity->isRecruiter()) {
+    <? if (Yii::$app->user->identity->isRecruiter()): ?>
+    <?
         $model["app"]->read = 1;
-        $model["app"]->save();}
+        $model["app"]->save();
     ?>
-
-    <? if (Yii::$app->user->identity->isRecruiter() == false): ?>
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <? else: ?>
-
     <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
     <p> Eingestellt: <?= $model["created"];?></p>
     <p><?= Html::a(Html::button("Lebenslauf anschauen"),"") ?></p>
+   
+    <? else: ?>
+     <h2>Meine Bewerbung auf: <?= $model['job']->title ?></h2>
     <h3> Gesendete Anlagen:</h3>
+    <? endif; ?>
 
     <?= GridView::widget([
         'dataProvider' => $appDataProvider,
@@ -61,14 +49,11 @@ use frontend\controllers\ApplicationController;
             ],
         ],
     ]); ?>  
-
-
-    <? endif; ?>
-   
-
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
-
-
+    
+    <?= Html::a(Html::button("Nachricht senden"),"/message/create?rec=".$model["user"]->id); ?>
+    <?= Html::a(Html::button("Einstellen"),"/application/hire?job=".$model["app"]->job_id."&app=".$model["app"]->id); ?>
+    <?= Html::a(Html::button("Archivieren"),"/application/archive?app=".$model["app"]->id); ?>
 
     <? endif; ?>
 

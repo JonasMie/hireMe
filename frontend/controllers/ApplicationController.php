@@ -20,6 +20,7 @@ use frontend\models\ApplicationDataSearch;
 use common\models\User;
 use yii\data\SqlDataProvider;
 use yii\db\Query;
+use frontend\models\Message;
 /**
  * ApplicationController implements the CRUD actions for Application model.
  */
@@ -89,11 +90,11 @@ class ApplicationController extends Controller
     
 
         $applications = new ApplicationSearch(); 
-        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and d.id = ".Yii::$app->user->identity->company_id;
         $indiTitle = "Alle Bewerbungen";
         
         if ($new != null) {
-        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
         $indiTitle = "Neue Bewerbungen";
         }
        
@@ -145,18 +146,66 @@ class ApplicationController extends Controller
         $user = User::find()->where(['id' => $app->user_id])->one();
         Yii::trace($user->fullName);
         $created = $app->created_at;
+        
+        $appDatas = new ApplicationDataSearch();
+        $provider = $appDatas->search(['ApplicationDataSearch' => ['application_id' => $app->id]]);
+        if (Yii::$app->user->identity->isRecruiter()) {
+
         $model["app"] = $app;
         $model["user"] = $user;
         $model["created"] = $app->created_at;
         
-        $appDatas = new ApplicationDataSearch();
-        $provider = $appDatas->search(['ApplicationDataSearch' => ['application_id' => $app->id]]);
-       
+          return $this->render('view', [
+            'model' => $model,
+            'appDataProvider' => $provider,
+
+        ]);
+        }
+        else {
+
+        $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
+        $model["created"] = $app->created_at;
+
         return $this->render('view', [
             'model' => $model,
             'appDataProvider' => $provider,
 
         ]);
+
+        }
+       
+    }
+
+    public function actionHire($job,$app) {
+
+        $job = Job::findOne($job);
+        $app = Application::findOne($app);
+        return "JOB: ".$job." AND APP: ".$app;
+    }
+
+    public function actionArchive($app) {
+
+        $user = Yii::$app->user->identity;
+        $app = Application::findOne($app);
+        $app->archived = 1;
+        $job = Job::find()->where(['id' => $app->job_id])->one();
+
+        if($app->save()) {
+
+            $message = new Message();
+            $message->subject = "Deine Bewerbung auf: ".$job->title;
+            $message->content = "Hey do Loser, du warst einfach zu schlecht, hab die Bewerbung sofort gelöscht.... Du penner!";
+            $message->sender_id = $user->id;
+            $message->receiver_id = $app->user_id;
+
+            if($message->save()) {
+            $this->redirect("/application");
+            }
+        }
+       
+
+        return "APP: ".$app->id;
+
     }
 
     public function actionDataHandler($id,$appID,$direction) { // expects app data id.
