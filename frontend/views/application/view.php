@@ -52,8 +52,8 @@ use frontend\controllers\ApplicationController;
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
     
     <?= Html::a(Html::button("Nachricht senden"),"/message/create?rec=".$model["user"]->id); ?>
-    <?= Html::a(Html::button("Einstellen"),"/application/hire?job=".$model["app"]->job_id."&app=".$model["app"]->id); ?>
-    <?= Html::a(Html::button("Archivieren"),"/application/archive?app=".$model["app"]->id); ?>
+    <?= Html::a(Html::button("Einstellen"),"/application/app-action?app=".$model["app"]->id."&act=1"); ?>
+    <?= Html::a(Html::button("Archivieren"),"/application/app-action?app=".$model["app"]->id."&act=0"); ?>
 
     <? endif; ?>
 

@@ -58,24 +58,15 @@ class ApplicationController extends Controller
         return $user->firstName." ".$user->lastName; 
     }
 
-    public function actionShowFile($id) {
-
-        $appData = ApplicationData::find()
-        ->where(['id' => $id])->one();
-        Yii::trace("file id: ".$appData->file_id);
+     public function actionShowFile($id) {
 
         $file = File::find()
-        ->where(["id" => $appData->file_id])->one();
+        ->where(["id" => $id])->one();
         Yii::trace("file title: ".$file->title);
 
-        $app = Application::find()
-        ->where(['id' => $appData->application_id])->one();
-        Yii::trace("app user: ".$app->user_id);
+        $user_id = $file->user_id;
 
-        $user_id = $app->user_id;
-
-
-        $this->redirect("http://frontend/uploads/appData/AD_".md5($user_id.'_'.$appData->file_id).'.'.$file->extension);
+        $this->redirect("http://frontend/uploads/appData/AD_".md5($user_id.'_'.$file->id).'.'.$file->extension);
         
     }
     
@@ -176,35 +167,32 @@ class ApplicationController extends Controller
        
     }
 
-    public function actionHire($job,$app) {
-
-        $job = Job::findOne($job);
-        $app = Application::findOne($app);
-        return "JOB: ".$job." AND APP: ".$app;
-    }
-
-    public function actionArchive($app) {
-
+    public function actionAppAction($app,$act) {
         $user = Yii::$app->user->identity;
         $app = Application::findOne($app);
-        $app->archived = 1;
         $job = Job::find()->where(['id' => $app->job_id])->one();
 
+        $message = new Message();
+        $message->subject = "Deine Bewerbung auf: ".$job->title;
+        $message->sender_id = $user->id;
+        $message->receiver_id = $app->user_id;
+
+        if ($act == 1) {
+        $message->content = "Herzlichen Glückwunsch! Soeben wurdest du von ".$user->fullName. " für den Job ". $job->title." eingestellt.";
+        if($message->save()) {
+            $this->redirect("/application");
+        }
+        }
+        else {
+
+        $app->archived = 1;
         if($app->save()) {
-
-            $message = new Message();
-            $message->subject = "Deine Bewerbung auf: ".$job->title;
             $message->content = "Hey do Loser, du warst einfach zu schlecht, hab die Bewerbung sofort gelöscht.... Du penner!";
-            $message->sender_id = $user->id;
-            $message->receiver_id = $app->user_id;
-
             if($message->save()) {
             $this->redirect("/application");
             }
         }
-       
-
-        return "APP: ".$app->id;
+      }
 
     }
 

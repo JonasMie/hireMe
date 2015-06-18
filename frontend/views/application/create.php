@@ -65,13 +65,6 @@ use frontend\models\ApplicationData;
                     return  Html::a(Html::button("Einbehalten"),"/application/data-handler?id=".$data['id']."&appID=".$appId."&direction=0");
                 }
             ], 
-           [
-                'label'  => 'Anschauen',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return  Html::a("Anschauen","/application/show-file?id=".$data['id'],['target' => '_blank']);
-                }
-            ], 
         ],
     ]); ?> 
     <br>
