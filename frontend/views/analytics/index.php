@@ -3,13 +3,12 @@
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\widgets\ListView;
+use frontend\assets\CustomChartsAsset;
 
-
-
+CustomChartsAsset::register($this);
 $this->title = "Analytics für";
 
 ?>
-
 <div class="myjobs">
 
     <h1><?= Html::encode($this->title) ?> <?= $companyName ?></h1>
@@ -21,7 +20,7 @@ $this->title = "Analytics für";
     <h1><?= $applyCount ?> Bewerbungen</h1>
     <h1><?= $hiredCount ?> Einstellungen</h1>
     <h1><?= $jobCount ?> Stellenanzeigen</h1>
-    ---------------------------------------------------------------
+    <!--
     <h2><?= $clickCount  ?> Klicks bei <?= $viewCount ?> Views</h2>
     <h5>Interest Rate somit bei: <?= $interestRate ?> %</h5>
     <h2><?= $applyCount ?> Applications bei <?= $clickCount ?> Klicks</h2>
@@ -29,8 +28,10 @@ $this->title = "Analytics für";
     <h2>Interview Rate liegt bei: <?= $interviewRate ?> %</h2>
     <h2>Conversion Rate liegt bei: <?= $conversionRate ?> %</h2>
     </p>
+    -->
     <h1>-------------------------------------------------------------------------------</h1>
-
+    <canvas id="DashboardChart" class="chart"></canvas>
+    <div id="legend"></div>
      <?=
     ListView::widget([
         'dataProvider' => $provider,

@@ -16,10 +16,9 @@ class CustomAppAsset extends AssetBundle
     ];
     public $js = [
         'js/footable.js',
-        'js/Chart.min.js',
         'js/signup.js',
         'js/icheck.min.js',
-        'js/customScript.js'
+        'js/customScript.js',
 
     ];
     public $depends = [

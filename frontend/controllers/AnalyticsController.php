@@ -16,6 +16,7 @@ use frontend\models\ApplyBtn;
 use frontend\models\Application;
 use yii\helpers\BaseJson;
 
+
 class AnalyticsController extends Controller
 {
 
@@ -41,7 +42,6 @@ class AnalyticsController extends Controller
         if ($viewCount == 0) {$interestRate = 0;}
         else {$interestRate = ($clickCount/$viewCount)*100;}
         $interviewRate = $analytics->getInterviewRateForJob($id);
-
 
     }
 
@@ -117,6 +117,7 @@ class AnalyticsController extends Controller
     public function actionIndex()
     {
          $id = Yii::$app->user->identity->company_id;
+         Yii::trace("Company: ".$id);
     	 $analytics = new Analytics();
     	 $jobs = $analytics->getJobs($id);
          $applier = $analytics->getApplier($id);
@@ -141,7 +142,8 @@ class AnalyticsController extends Controller
 
 
         $jobProvider = new ActiveDataProvider([
-        'query' => Job::find(['company_id' => $id]),
+        'query' => Job::find()
+        ->where(['company_id' => $id]),
         'pagination' => [
             'pageSize' => 20,],
         ]);
