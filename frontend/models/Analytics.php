@@ -43,6 +43,16 @@ class Analytics extends \yii\base\Model
 
     }
 
+    public function getAllInterviews($id) {
+
+        $inteviewer = Application::find()
+        ->where(['company_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
+        ->orderBy('id')
+        ->all();
+        return count($inteviewer);
+
+    }
+
     public function getInterviewRate($id) {
 
         $applier = $this->getApplier($id);
@@ -66,6 +76,18 @@ class Analytics extends \yii\base\Model
         if (count($applier)==0) $rate = 0;
         else $rate = count($inteviewer)/count($applier)*100; 
         return $rate;
+
+    }
+
+      public function getInterviewsForJob($id) {
+
+        $applier = $this->getAppliesForJob($id);
+
+        $inteviewer = Application::find()
+        ->where(['job_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
+        ->orderBy('id')
+        ->all();
+        return count($inteviewer);
 
     }
 
@@ -102,10 +124,9 @@ class Analytics extends \yii\base\Model
     public function getHired($id) {
 
     	 $hired = Application::find()
-        ->where(['company_id' => $id , 'state' => 'Versendet'])
+        ->where(['company_id' => $id , 'state' => 'Eingestellt'])
         ->orderBy('id')
         ->all();
-
         return $hired;
     }
 

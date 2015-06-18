@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\widgets\ListView;
 use frontend\assets\CustomChartsAsset;
+use yii\grid\GridView;
 
 CustomChartsAsset::register($this);
 $this->title = "Analytics für";
@@ -20,39 +21,58 @@ $this->title = "Analytics für";
     <h1><?= $applyCount ?> Bewerbungen</h1>
     <h1><?= $hiredCount ?> Einstellungen</h1>
     <h1><?= $jobCount ?> Stellenanzeigen</h1>
-    <!--
-    <h2><?= $clickCount  ?> Klicks bei <?= $viewCount ?> Views</h2>
-    <h5>Interest Rate somit bei: <?= $interestRate ?> %</h5>
-    <h2><?= $applyCount ?> Applications bei <?= $clickCount ?> Klicks</h2>
-    <h5>Application Rate somit bei: <?= $applicationRate ?> %</h5>
-    <h2>Interview Rate liegt bei: <?= $interviewRate ?> %</h2>
-    <h2>Conversion Rate liegt bei: <?= $conversionRate ?> %</h2>
-    </p>
-    -->
-    <h1>-------------------------------------------------------------------------------</h1>
-    <canvas id="DashboardChart" class="chart"></canvas>
-    <div id="legend"></div>
-     <?=
-    ListView::widget([
-        'dataProvider' => $provider,
-        'itemView' =>function($model) {
-            return $this->render('jobDetail',[
-                'model' => $model,
-            ]); 
-        }
-        ]);
 
+    <h1>-------------------------------------------------------------------------------</h1>
+    <canvas id="viewClickChart" class="chart"></canvas>
+    <canvas id="interestRateChart" class="chart"></canvas>
+    <br>
+    <canvas id="clicksApplicationChart" class="chart"></canvas>
+    <canvas id="applicationRateChart" class="chart"></canvas>
+    <br>
+    <canvas id="interviewApplicationChart" class="chart"></canvas>
+    <canvas id="interviewRateChart" class="chart"></canvas>
+    <br>
+    <canvas id="applicationHiredChart" class="chart"></canvas>
+    <canvas id="conversionRateChart" class="chart"></canvas>
+    <br>
+    <br>
+
+   <?= GridView::widget([
+        'dataProvider' => $provider,
+        'columns'      => [
+         [
+                'label'  => 'Titel',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode($data->title);
+                }
+            ],       
+        [
+                'label'  => 'Job Beginn',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode($data->job_begin);
+                }
+            ],    
+        [
+                'label'  => 'Job Ende',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode($data->job_end);
+                }
+        ],   
+        [
+                'label'  => 'Ansehen',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::a(Html::button("Ansehen"),"/analytics/detail?id=".$data->id);
+                }
+        ],  
+        ],
+    ]); 
 
     ?>
 
 
 </div>
 
-<!--<p>
-
-    <h2><//?= $allJobs[0]->description ?></h2>
-    <p>Anzahl Klicks overall: <//?= $clicks[0] ?></p>
-    <p>Anzahl Bewerber auf diesen Job: <//?= $applicationsOverall[0] ?></p>
-
-</p>
--->

@@ -28,7 +28,7 @@ class AnalyticsController extends Controller
             ]
         ];
     }
-    public function actionJobJson($id) {
+    public function actionJsonDetail($id) {
 
         $analytics = new Analytics();
         $applier = count($analytics->getAppliesForJob($id));
@@ -41,7 +41,16 @@ class AnalyticsController extends Controller
         $jobName = $job->title;
         if ($viewCount == 0) {$interestRate = 0;}
         else {$interestRate = ($clickCount/$viewCount)*100;}
-        $interviewRate = $analytics->getInterviewRateForJob($id);
+
+        $jobData["applierCount"] = count($applier);
+        $jobData["viewCount"] = $viewCount;
+        $jobData["clickCount"] = $clickCount;
+        $jobData["applicationRate"] = $applicationRate;
+        $jobData["interviewCount"] = $analytics->getInterviewsForJob($id);
+        $jobData["interviewRate"] = $analytics->getInterviewRateForJob($id);
+        $jobData["interestRate"] = $interestRate;
+
+       return BaseJson::encode($jobData);
 
     }
 
@@ -76,7 +85,7 @@ class AnalyticsController extends Controller
         'pagination' => [
             'pageSize' => 20,],
         ]);
-        $jsonData = [];
+
 
         $generalData["companyName"] = $analytics->getCompany($id);
         $generalData["applierCount"] = count($applier);
@@ -85,32 +94,12 @@ class AnalyticsController extends Controller
         $generalData["viewCount"] = $viewCount;
         $generalData["clickCount"] = $clickCount;
         $generalData["applicationRate"] = $applicationRate;
+        $generalData["interviewCount"] = $analytics->getAllInterviews($id);
         $generalData["interviewRate"] = $analytics->getInterviewRate($id);
         $generalData["interestRate"] = $interestRate;
         $generalData["conversionRate"] = $conversionRate;
-        $jsonData[0] = $generalData;
 
-       return BaseJson::encode($jsonData);
-
-
-        /*
-
-         return $this->render('index', [
-            'id' => $id,
-            'applyCount' => count($applier),
-            'hiredCount' => count($hired),
-            'jobCount' =>   count($jobs),
-            'viewCount' =>  $viewCount,
-            'clickCount' => $clickCount,
-            'applicationRate' => $applicationRate,
-            'interviewRate' => $analytics->getInterviewRate($id),
-            'interestRate' => $interestRate,
-            'conversionRate' => $conversionRate,
-            'companyName' =>  $analytics->getCompany($id),
-            'provider' => $jobProvider,
-        ]);
-
-    */
+       return BaseJson::encode($generalData);
 
     }
 
@@ -122,24 +111,6 @@ class AnalyticsController extends Controller
     	 $jobs = $analytics->getJobs($id);
          $applier = $analytics->getApplier($id);
          $hired = $analytics->getHired($id);
-
-         //Interest and Clicks:
-         $viewClickData =  $analytics->getAllViewsAndClicks($id);
-         $viewCount = $viewClickData[0];
-         $clickCount = $viewClickData[1];
-         if ($clickCount == 0) {$applicationRate = 0;}
-         else { $applicationRate = (count($applier)/$clickCount)*100;}
-         if (count($applier) == 0) {
-         $conversionRate = 0;
-         }
-         else {
-         $conversionRate = count($hired)/count($applier)*100;             
-         }
-    	 $clicks = [];
-         $applications = [];
-         if ($viewCount == 0) {$interestRate = 0;}
-         else {$interestRate = ($clickCount/$viewCount)*100;}
-
 
         $jobProvider = new ActiveDataProvider([
         'query' => Job::find()
@@ -153,12 +124,6 @@ class AnalyticsController extends Controller
             'applyCount' => count($applier),
             'hiredCount' => count($hired),
             'jobCount' =>   count($jobs),
-            'viewCount' =>  $viewCount,
-            'clickCount' => $clickCount,
-            'applicationRate' => $applicationRate,
-            'interviewRate' => $analytics->getInterviewRate($id),
-            'interestRate' => $interestRate,
-            'conversionRate' => $conversionRate,
             'companyName' =>  $analytics->getCompany($id),
             'provider' => $jobProvider,
         ]);

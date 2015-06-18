@@ -30,56 +30,146 @@ var options =
 
     //Number - Spacing between data sets within X values
     barDatasetSpacing : 1,
-
-    legendTemplate : '<ul>'
-                  +'<% for (var i=0; i<datasets.length; i++) { %>'
-                    +'<li>'
-                    +'<span style=\"background-color:<%=datasets[i].lineColor%>\"></span>'
-                    +'<% if (datasets[i].label) { %><%= datasets[i].label %><% } %>'
-                  +'</li>'
-                +'<% } %>'
-              +'</ul>'
-
 }
-
-
 
 $(document).ready(function() {
 
      $.get("http://frontend/analytics/json", function(response, status){
 
         var obj = jQuery.parseJSON(response);
-        alert(obj[0].viewCount);
 
-        var data = {
-            labels: ["Interest Rate"],
+        var viewClickData = {
+            labels: ["Views","Clicks"],
             datasets: [
                 {
-                    label: "Views:",
-                    fillColor: "rgba(220,220,220,0.5)",
-                    strokeColor: "rgba(220,220,220,0.8)",
-                    highlightFill: "rgba(220,220,220,0.75)",
-                    highlightStroke: "rgba(220,220,220,1)",
-                    data: [obj[0].viewCount]
-                },
-                {
-                    label: "Clicks:",
                     fillColor: "rgba(151,187,205,0.5)",
                     strokeColor: "rgba(151,187,205,0.8)",
                     highlightFill: "rgba(151,187,205,0.75)",
                     highlightStroke: "rgba(151,187,205,1)",
-                    data: [obj[0].clickCount]
+                    data: [obj.viewCount,obj.clickCount]
                 }
             ]
         }
 
+         var interestRateData = {
+            labels: ["Interest Rate"],
+            datasets: [
+                {
+                    label: "InterestRate:",
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [obj.interestRate]
+                }
+            ]
+        }
 
-        var ctx = document.getElementById("DashboardChart").getContext("2d");
-        var myBarChart = new Chart(ctx).Bar(data, options);
-        var legend = myBarChart.generateLegend();
+        var clickApplicationData = {
+            labels: ["Clicks","Bewerbungen"],
+            datasets: [
+                {
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [obj.clickCount,obj.applierCount]
+                }
+            ]
+        }
 
-        //and append it to your page somewhere
-        $("#legend").append(legend);
+        var applicationRateData = {
+            labels: ["Application Rate"],
+            datasets: [
+                {
+                    label: "Application Rate:",
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [obj.applicationRate]
+                }
+            ]
+        }
+
+        var interviewApplicationData = {
+            labels: ["Bewerbungen","Vorstellungsgespräche"],
+            datasets: [
+                {
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [obj.applierCount,obj.interviewCount]
+                }
+            ]
+        }
+
+         var interviewRateData = {
+            labels: ["Interview Rate"],
+            datasets: [
+                {
+                    label: "Interview Rate:",
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [obj.interviewRate]
+                }
+            ]
+        }
+
+        var applicationHiredData = {
+            labels: ["Bewerbungen","Eingestellt"],
+            datasets: [
+                {
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [obj.applierCount,obj.hiredCount]
+                }
+            ]
+        }
+
+         var conversionRateData = {
+            labels: ["Conversion Rate"],
+            datasets: [
+                {
+                    label: "Conversion Rate:",
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [obj.conversionRate]
+                }
+            ]
+        }
+
+        // VIEWS CLICKS + INTEREST RATE
+        var ctx1 = document.getElementById("viewClickChart").getContext("2d");
+        var ctx2 = document.getElementById("interestRateChart").getContext("2d");
+        var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
+        var interestRate = new Chart(ctx2).Bar(interestRateData, options);
+
+        // CLICKS APPLICAIONS + APPLICATION RATE
+        var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
+        var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
+        var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
+        var applicationRate = new Chart(ctx4).Bar(applicationRateData, options);
+
+        // APPLICATIONS INTERVIEWS + INTERVIEW RATE
+        var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");
+        var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
+        var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
+        var interviewRate = new Chart(ctx6).Bar(interviewRateData, options);
+
+        // APPLICATIONS HIRED + CONVERSION RATE
+        var ctx5 = document.getElementById("applicationHiredChart").getContext("2d");
+        var ctx6 = document.getElementById("conversionRateChart").getContext("2d");
+        var interviewApplication = new Chart(ctx5).Bar(applicationHiredData, options);
+        var interviewRate = new Chart(ctx6).Bar(conversionRateData, options);
+
 
     });
 
