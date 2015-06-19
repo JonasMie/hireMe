@@ -92,7 +92,7 @@ class m150430_210924_database_resetup extends Migration
         $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`job_ad` ;
 
             CREATE TABLE IF NOT EXISTS `hireMe`.`job_ad` (
-              `id` INT NOT NULL,
+              `id` INT NOT NULL AUTO_INCREMENT,
               `description` VARCHAR(255) NOT NULL,
               `job_begin` DATETIME NULL,
               `job_end` DATETIME NULL,
@@ -125,7 +125,7 @@ class m150430_210924_database_resetup extends Migration
         $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`application` ;
 
             CREATE TABLE IF NOT EXISTS `hireMe`.`application` (
-              `id` INT NOT NULL,
+              `id` INT NOT NULL AUTO_INCREMENT,
               `user_id` INT NOT NULL,
               `company_id` INT(11) NOT NULL,
               `jobAd_id` INT(11) NOT NULL,
@@ -164,7 +164,7 @@ class m150430_210924_database_resetup extends Migration
         $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`application_data` ;
 
             CREATE TABLE IF NOT EXISTS `hireMe`.`application_data` (
-              `id` INT NOT NULL,
+              `id` INT NOT NULL AUTO_INCREMENT,
               `application_id` INT NOT NULL,
               `file_id` VARCHAR(45) NOT NULL,
               `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -280,7 +280,7 @@ class m150430_210924_database_resetup extends Migration
         $this->db->createCommand("DROP TABLE IF EXISTS `hireMe`.`favourites` ;
 
             CREATE TABLE IF NOT EXISTS `hireMe`.`favourites` (
-              `id` INT NOT NULL,
+              `id` INT NOT NULL AUTO_INCREMENT,
               `job_ad_id` INT NOT NULL,
               `user_id` INT NOT NULL,
               PRIMARY KEY (`id`),
