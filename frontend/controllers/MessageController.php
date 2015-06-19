@@ -80,12 +80,13 @@ class MessageController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        $reply = new Message();
-        $attachment = new MessageAttachments();
+        $attachments = MessageAttachments::find()->where(['message_id' => $id])->all();
+        $reply = new MessageCreate();
+        $reply->receiver = $model->receiver->fullName;
         return $this->render('view', [
-            'model'      => $model,
-            'reply'      => $reply,
-            'attachment' => $attachment
+            'model'       => $model,
+            'attachments' => $attachments,
+            'reply'       => $reply,
         ]);
     }
 
@@ -96,11 +97,14 @@ class MessageController extends Controller
      */
     public function actionCreate($rec = null)
     {
-        // TODO: check if reply
         $model = new MessageCreate();
-        if(isset($rec)){
-            $rec = User::findIdentity($rec);
-            $model->receiver = $rec->fullName;
+        $recModel = Yii::$app->request->post('MessageCreate');
+        if (isset($recModel) && isset($recModel['receiver_id'])) {
+            $rec = $recModel['receiver_id'];
+        }
+        if (isset($rec)) {
+            $r = User::findIdentity($rec);
+            $model->receiver = $r->fullName;
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['./message']);
