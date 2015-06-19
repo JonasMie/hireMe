@@ -367,11 +367,13 @@ class JobController extends Controller
     }
 
     public function actionButtonPopup($key) {
+        $hasApplied = 0;
 
        // $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
         if (Yii::$app->user->isGuest) {
         $userID = "NA";
         }
+
         else {
 
         $userID = Yii::$app->user->identity->id;
@@ -383,15 +385,13 @@ class JobController extends Controller
         $possibleApp = Application::find()
         ->where(['job_id' => $job->id , 'user_id' => $userID])
         ->all();
-        $applied = 0;
-        if (count($possibleApp) == 1) {
-            $applied = 1;
-        }
+        if (count($possibleApp) == 1) {$hasApplied = 1;}
+        else {$hasApplied = 0;}
         }
 
          return $this->renderPartial('buttonPopup',[
             'userID' => $userID,
-            'applied' => $applied,
+            'applied' => $hasApplied,
             ]);
 
     }
