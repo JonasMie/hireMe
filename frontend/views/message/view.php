@@ -60,13 +60,8 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
         <?= $model->content ?>
     </div>
 
-
     <div>
-        <? echo Html::img("/uploads/messattachments/default.jpg");
-        echo Html::a("Testfile.pdf", "/uploads/messattachments/default.pdf");?>
-    </div>
-    <!--div>
-        <?/* if (isset($attachments->file)) {
+        <?if (!empty($attachments)) {
 
             foreach ($attachments as $attachment) {
                 switch ($attachment->file->extension) {
@@ -76,13 +71,13 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
                     echo Html::img("/uploads/messattachments" . $attachment->file->path . "." . $attachment->file->extension);
                         break;
                     case "pdf":
-                        echo Html::a($model->file->title . "." . $model->file->extension, "/uploads/messattachments" . $model->file->path . "." . $model->file->extension);
+                        echo Html::a($attachment->file->title . "." . $attachment->file->extension, "/uploads/messattachments" . $attachment->file->path . "." . $attachment->file->extension, ['target'=>'_blank']);
                         break;
                 }
             }
         }
-        */?>
-    </div-->
+        ?>
+    </div>
 </div>
 
 <?php /*
