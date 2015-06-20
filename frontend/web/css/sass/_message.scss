@@ -130,12 +130,12 @@ body.controller-message.action-create {
     max-width: 400px;
   }
 
-  .field-message-content{
-    label[for="message-content"]{
+  .field-messagecreate-content{
+    label[for="messagecreate-content"]{
       display: none;
     }
 
-    #message-content {
+    #messagecreate-content {
       resize: none;
       box-shadow: none;
       &:focus{
@@ -144,7 +144,7 @@ body.controller-message.action-create {
     }
   }
 
-  .field-messageattachments-file {
+  .field-messagecreate-attachments-file {
     position: static;
     label {
       position: static;
