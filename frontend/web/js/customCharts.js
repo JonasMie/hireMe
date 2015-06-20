@@ -34,7 +34,7 @@ var options =
 
 $(document).ready(function() {
 
-     $.get("http://frontend/analytics/json", function(response, status){
+     $.get("/analytics/json", function(response, status){
 
         var obj = jQuery.parseJSON(response);
 
