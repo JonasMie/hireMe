@@ -80,7 +80,7 @@ class MessageController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        $attachments = MessageAttachments::find()->where(['message_id' => $id])->all();
+        $attachments = MessageAttachments::findOne(3);  // TODO: FUCK YOU, WIESO FUNKTIONIERT DER ANHANG NICHTMEHR? FIXEN!
         $reply = new MessageCreate();
         $reply->receiver = $model->receiver->fullName;
         return $this->render('view', [
