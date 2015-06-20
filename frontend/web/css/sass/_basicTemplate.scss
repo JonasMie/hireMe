@@ -7,6 +7,9 @@ body {
     &:focus {
       outline: none !important; //Removes the dotted line around each Anchor when clicking on it
     }
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   // Buttons
@@ -248,7 +251,6 @@ body {
       color: $greyFont;
       font-size: 18px;
       position: absolute;
-      pointer-events: none;
       left: 5px;
       top: 10px;
 
@@ -257,6 +259,19 @@ body {
       -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
     }
   }
+  /*Fix for Checkboxes and other inputs with a label */
+  .form-group.field-signupform-checkcompanysignup,
+  .form-group.field-loginform-rememberme,
+  .form-group.field-signupform-companysector,
+  .form-group.field-signupform-companyemployees, {
+    position: static;
+    label {
+      position: static;
+    }
+  }
+  /*END Fix for Checkboxes and other inputs with a label */
+
+
   /* END UNFOCUSED INPUT */
 
   /* FOCUSED INPUT*/
@@ -281,7 +296,6 @@ body {
     position: absolute;
     color: $greyFont;
     font-size: 18px;
-    pointer-events: none;
     left: 5px;
     top: 10px;
 
