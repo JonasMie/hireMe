@@ -547,8 +547,8 @@ body {
   /* HighDPI support */
   /* BASIC FORM STYLING */
   /* UNFOCUSED INPUT */
-  /*Fix for Checkboxes with a label */
-  /*END Fix for Checkboxes with a label */
+  /*Fix for Checkboxes and other inputs with a label */
+  /*END Fix for Checkboxes and other inputs with a label */
   /* END UNFOCUSED INPUT */
   /* FOCUSED INPUT*/
   /* END FOCUSED INPUT*/
@@ -562,7 +562,11 @@ body {
 body a:focus {
   outline: none !important;
 }
-/* line 13, ../sass/_basicTemplate.scss */
+/* line 10, ../sass/_basicTemplate.scss */
+body a:hover {
+  text-decoration: none;
+}
+/* line 16, ../sass/_basicTemplate.scss */
 body .btn {
   border-radius: 0;
   border: none;
@@ -570,20 +574,20 @@ body .btn {
   -moz-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
 }
-/* line 19, ../sass/_basicTemplate.scss */
+/* line 22, ../sass/_basicTemplate.scss */
 body .btn:focus {
   outline: none !important;
 }
-/* line 23, ../sass/_basicTemplate.scss */
+/* line 26, ../sass/_basicTemplate.scss */
 body .btn.btn-success {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 30, ../sass/_basicTemplate.scss */
+/* line 33, ../sass/_basicTemplate.scss */
 body .ripple {
   position: relative;
 }
-/* line 32, ../sass/_basicTemplate.scss */
+/* line 35, ../sass/_basicTemplate.scss */
 body .ripple svg {
   position: absolute;
   top: 0;
@@ -591,11 +595,11 @@ body .ripple svg {
   width: 100%;
   height: 100%;
 }
-/* line 39, ../sass/_basicTemplate.scss */
+/* line 42, ../sass/_basicTemplate.scss */
 body .ripple circle {
   fill: rgba(255, 255, 255, 0.1);
 }
-/* line 46, ../sass/_basicTemplate.scss */
+/* line 49, ../sass/_basicTemplate.scss */
 body table.hireMeTable {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
@@ -605,107 +609,107 @@ body table.hireMeTable {
   border: 1px solid #dddddd;
   width: 100%;
 }
-/* line 58, ../sass/_basicTemplate.scss */
+/* line 61, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th {
   border-bottom: 1px solid #dddddd;
   padding: 8px;
   text-align: left;
 }
-/* line 63, ../sass/_basicTemplate.scss */
+/* line 66, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a {
   color: #9d9d9d;
   text-decoration: none;
 }
-/* line 66, ../sass/_basicTemplate.scss */
+/* line 69, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a:hover {
   color: #5dca88;
 }
-/* line 71, ../sass/_basicTemplate.scss */
+/* line 74, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.asc::after {
   content: "\e093";
 }
-/* line 76, ../sass/_basicTemplate.scss */
+/* line 79, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.desc::after {
   content: "\e094";
 }
-/* line 87, ../sass/_basicTemplate.scss */
+/* line 90, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr:hover {
   background-color: rgba(93, 202, 136, 0.2) !important;
 }
-/* line 91, ../sass/_basicTemplate.scss */
+/* line 94, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td {
   vertical-align: middle;
   height: 72px;
   border: none;
   padding: 8px;
 }
-/* line 97, ../sass/_basicTemplate.scss */
+/* line 100, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a {
   color: #9d9d9d;
   text-decoration: none;
 }
-/* line 100, ../sass/_basicTemplate.scss */
+/* line 103, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a:hover {
   color: #5dca88;
 }
-/* line 114, ../sass/_basicTemplate.scss */
+/* line 117, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
   cursor: pointer;
   font-family: 'Glyphicons Halflings';
   content: "\e258";
 }
-/* line 119, ../sass/_basicTemplate.scss */
+/* line 122, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:hover {
   color: #5dca88;
 }
-/* line 124, ../sass/_basicTemplate.scss */
+/* line 127, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
   content: "\e259";
 }
-/* line 131, ../sass/_basicTemplate.scss */
+/* line 134, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner {
   border-bottom: 1px solid #dddddd;
   padding-bottom: 10px;
 }
-/* line 136, ../sass/_basicTemplate.scss */
+/* line 139, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row {
   display: block;
 }
-/* line 139, ../sass/_basicTemplate.scss */
+/* line 142, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-name {
   display: inline;
   color: #5dca88;
 }
-/* line 143, ../sass/_basicTemplate.scss */
+/* line 146, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-value {
   display: inline;
   float: right;
 }
-/* line 155, ../sass/_basicTemplate.scss */
+/* line 158, ../sass/_basicTemplate.scss */
 body ul.pagination li a {
   border-color: #dddddd;
   color: #5dca88;
 }
-/* line 158, ../sass/_basicTemplate.scss */
+/* line 161, ../sass/_basicTemplate.scss */
 body ul.pagination li a:hover {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 165, ../sass/_basicTemplate.scss */
+/* line 168, ../sass/_basicTemplate.scss */
 body ul.pagination li.active a, body ul.pagination li.active a:hover {
   background-color: #5dca88;
   border-color: #dddddd;
   color: #fff;
 }
-/* line 172, ../sass/_basicTemplate.scss */
+/* line 175, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled a {
   color: #9d9d9d;
 }
-/* line 175, ../sass/_basicTemplate.scss */
+/* line 178, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled span {
   color: #9d9d9d;
 }
-/* line 183, ../sass/_basicTemplate.scss */
+/* line 186, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green {
   display: inline-block;
   *display: inline;
@@ -719,33 +723,33 @@ body .icheckbox_flat-green {
   cursor: pointer;
   background-position: 0 0;
 }
-/* line 197, ../sass/_basicTemplate.scss */
+/* line 200, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked {
   background-position: -22px 0;
 }
-/* line 200, ../sass/_basicTemplate.scss */
+/* line 203, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.disabled {
   background-position: -44px 0;
   cursor: default;
 }
-/* line 204, ../sass/_basicTemplate.scss */
+/* line 207, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked.disabled {
   background-position: -66px 0;
 }
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-  /* line 210, ../sass/_basicTemplate.scss */
+  /* line 213, ../sass/_basicTemplate.scss */
   body .icheckbox_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
-/* line 220, ../sass/_basicTemplate.scss */
+/* line 223, ../sass/_basicTemplate.scss */
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
-/* line 224, ../sass/_basicTemplate.scss */
+/* line 227, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -759,11 +763,11 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-/* line 233, ../sass/_basicTemplate.scss */
+/* line 236, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 238, ../sass/_basicTemplate.scss */
+/* line 241, ../sass/_basicTemplate.scss */
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -775,7 +779,7 @@ body .form-group textarea {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 247, ../sass/_basicTemplate.scss */
+/* line 250, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -786,26 +790,35 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 262, ../sass/_basicTemplate.scss */
-body .form-group.field-signupform-checkcompanysignup label,
-body .form-group.field-loginform-rememberme label {
+/* line 263, ../sass/_basicTemplate.scss */
+body .form-group.field-signupform-checkcompanysignup,
+body .form-group.field-loginform-rememberme,
+body .form-group.field-signupform-companysector,
+body .form-group.field-signupform-companyemployees {
   position: static;
 }
-/* line 273, ../sass/_basicTemplate.scss */
+/* line 268, ../sass/_basicTemplate.scss */
+body .form-group.field-signupform-checkcompanysignup label,
+body .form-group.field-loginform-rememberme label,
+body .form-group.field-signupform-companysector label,
+body .form-group.field-signupform-companyemployees label {
+  position: static;
+}
+/* line 279, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .has-success > input[type="text"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 276, ../sass/_basicTemplate.scss */
+/* line 282, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 281, ../sass/_basicTemplate.scss */
+/* line 287, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea {
   border-color: #5dca88 !important;
 }
-/* line 289, ../sass/_basicTemplate.scss */
+/* line 295, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -816,21 +829,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 301, ../sass/_basicTemplate.scss */
+/* line 307, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 309, ../sass/_basicTemplate.scss */
+/* line 315, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 312, ../sass/_basicTemplate.scss */
+/* line 318, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 316, ../sass/_basicTemplate.scss */
+/* line 322, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -840,47 +853,47 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 321, ../sass/_basicTemplate.scss */
+/* line 327, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 326, ../sass/_basicTemplate.scss */
+/* line 332, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 328, ../sass/_basicTemplate.scss */
+/* line 334, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 332, ../sass/_basicTemplate.scss */
+/* line 338, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 343, ../sass/_basicTemplate.scss */
+/* line 349, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 349, ../sass/_basicTemplate.scss */
+/* line 355, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 356, ../sass/_basicTemplate.scss */
+/* line 362, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
 
-/* line 5, ../sass/_login.scss */
-.site-login .login-field {
+/* line 24, ../sass/_login.scss */
+body.action-login .site-login .login-field {
   text-align: center;
   background-color: rgba(45, 49, 47, 0.8);
   -moz-border-radius: 6px;
@@ -889,61 +902,71 @@ body div.profile-picture-thumbnail:hover {
   padding: 10px 20px;
   margin-top: 20px;
 }
-/* line 13, ../sass/_login.scss */
-.site-login .login-button {
+/* line 32, ../sass/_login.scss */
+body.action-login .site-login .login-button {
   padding: 10px 60px;
 }
-/* line 17, ../sass/_login.scss */
-.site-login input {
+/* line 36, ../sass/_login.scss */
+body.action-login .site-login input {
   color: #fff;
 }
-/* line 22, ../sass/_login.scss */
-.site-login #login-form input {
+/* line 41, ../sass/_login.scss */
+body.action-login .site-login #login-form input {
   background: transparent;
   border-width: 0px 0px 1px 0px;
   box-shadow: none;
   -webkit-box-shadow: none;
   border-radius: 0px;
 }
-/* line 31, ../sass/_login.scss */
-.site-login .auth-clients {
+/* line 48, ../sass/_login.scss */
+body.action-login .site-login #login-form .SubmitLogin {
+  margin-bottom: 10px;
+}
+/* line 51, ../sass/_login.scss */
+body.action-login .site-login #login-form .requestNewPassword {
+  margin-bottom: 50px;
+}
+/* line 53, ../sass/_login.scss */
+body.action-login .site-login #login-form .requestNewPassword a {
+  color: #fff;
+}
+/* line 55, ../sass/_login.scss */
+body.action-login .site-login #login-form .requestNewPassword a:hover {
+  color: #5dca88;
+}
+/* line 64, ../sass/_login.scss */
+body.action-login .site-login .auth-clients {
   overflow: inherit;
   min-height: 100px;
 }
-/* line 38, ../sass/_login.scss */
-.site-login ::-webkit-input-placeholder {
-  color: #fff;
+/* line 71, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-checkcompanysignup .icheckbox_flat-green {
+  margin-right: 10px;
 }
-/* line 42, ../sass/_login.scss */
-.site-login :-moz-placeholder {
-  /* Firefox 18- */
-  color: #fff;
+/* line 76, ../sass/_login.scss */
+body.action-login .site-login #form-signup .companySetup {
+  margin-top: 60px;
 }
-/* line 46, ../sass/_login.scss */
-.site-login ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #fff;
+/* line 79, ../sass/_login.scss */
+body.action-login .site-login #form-signup .companySetup .field-signupform-companysector, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees {
+  text-align: left;
 }
-/* line 50, ../sass/_login.scss */
-.site-login :-ms-input-placeholder {
-  color: #fff;
+/* line 81, ../sass/_login.scss */
+body.action-login .site-login #form-signup .companySetup .field-signupform-companysector select, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees select {
+  margin-top: 10px;
 }
 
-/* line 58, ../sass/_login.scss */
+/* line 95, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 64, ../sass/_login.scss */
+/* line 101, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
-}
-
-/* line 73, ../sass/_login.scss */
-.field-signupform-checkcompanysignup, label[for="checkCompanySignup"] {
-  position: static;
+  margin-bottom: 40px;
 }
 
 /* line 5, ../sass/_dashboard.scss */
