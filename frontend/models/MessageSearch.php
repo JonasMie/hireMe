@@ -71,9 +71,9 @@ class MessageSearch extends Message
                         'asc'  => ['subject' => SORT_ASC],
                         'desc' => ['subject' => SORT_DESC]
                     ],
-                    'senderName' => [                            // TODO: Fix order by sender
-                        'asc'  => ['user.lastName' => SORT_ASC],
-                        'desc' => ['user.lastName' => SORT_DESC],
+                    'senderName' => [
+                        'asc'  => ['other' => SORT_ASC],
+                        'desc' => ['other' => SORT_DESC],
                         'label' => ['senderName']
                     ],
                 ],
@@ -85,11 +85,10 @@ class MessageSearch extends Message
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to any records when validation fails
-            // $query->where('0=1');
-            $query->joinWith(['sender']);
             return $dataProvider;
         }
+
+        $query->select(['message.*', 'IF (sender_id = '.Yii::$app->user->getId() .', (SELECT lastName FROM user WHERE id = receiver_id), (SELECT lastName FROM user WHERE id = sender_id)) as "other"']);
 
         $query->andWhere(
             ['or', '`receiver_id` = ' .Yii::$app->user->identity->getId() .' AND `deleted` = 0', ['sender_id' => Yii::$app->user->identity->getId()]]
@@ -102,18 +101,13 @@ class MessageSearch extends Message
 
         $query->andFilterWhere(['like', 'subject', $this->subject])
             ->andFilterWhere(['like', 'content', $this->content]);
+        $query->join('INNER JOIN', 'user', '(user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
+//        $query->join('INNER JOIN', 'user', '(user.id = message.receiver_id OR user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
+//        if (isset($this->senderName)) {
+//            $query->join('RIGHT JOIN', 'user', '(user.id = message.receiver_id OR user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
 
-        if (isset($this->senderName)) {
-            $query->join('RIGHT JOIN', 'user', '(user.id = message.receiver_id OR user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
-//            $query->joinWith(['receiver' => function ($q) {
-//                $q->from('user receiver')->onCondition('receiver.fullName LIKE "%' . $this->senderName . '%"');
-//            }], true, 'right JOIN');
-//
-//            $query->joinWith(['sender' => function ($q) {
-//                $q->from('user sender')->onCondition('sender.fullName LIKE "%' . $this->senderName . '%"');
-//            }], true, 'left JOIN');
 
-        }
+//        }
         return $dataProvider;
     }
 }
