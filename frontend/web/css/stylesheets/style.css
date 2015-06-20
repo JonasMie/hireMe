@@ -547,6 +547,8 @@ body {
   /* HighDPI support */
   /* BASIC FORM STYLING */
   /* UNFOCUSED INPUT */
+  /*Fix for Checkboxes with a label */
+  /*END Fix for Checkboxes with a label */
   /* END UNFOCUSED INPUT */
   /* FOCUSED INPUT*/
   /* END FOCUSED INPUT*/
@@ -778,54 +780,57 @@ body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
   position: absolute;
-  pointer-events: none;
   left: 5px;
   top: 10px;
   transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 264, ../sass/_basicTemplate.scss */
+/* line 262, ../sass/_basicTemplate.scss */
+body .form-group.field-signupform-checkcompanysignup label,
+body .form-group.field-loginform-rememberme label {
+  position: static;
+}
+/* line 273, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .has-success > input[type="text"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 267, ../sass/_basicTemplate.scss */
+/* line 276, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 272, ../sass/_basicTemplate.scss */
+/* line 281, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea {
   border-color: #5dca88 !important;
 }
-/* line 280, ../sass/_basicTemplate.scss */
+/* line 289, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
   font-size: 18px;
-  pointer-events: none;
   left: 5px;
   top: 10px;
   transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 293, ../sass/_basicTemplate.scss */
+/* line 301, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 301, ../sass/_basicTemplate.scss */
+/* line 309, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 304, ../sass/_basicTemplate.scss */
+/* line 312, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 308, ../sass/_basicTemplate.scss */
+/* line 316, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -835,41 +840,41 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 313, ../sass/_basicTemplate.scss */
+/* line 321, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 318, ../sass/_basicTemplate.scss */
+/* line 326, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 320, ../sass/_basicTemplate.scss */
+/* line 328, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 324, ../sass/_basicTemplate.scss */
+/* line 332, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 335, ../sass/_basicTemplate.scss */
+/* line 343, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 341, ../sass/_basicTemplate.scss */
+/* line 349, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 348, ../sass/_basicTemplate.scss */
+/* line 356, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }

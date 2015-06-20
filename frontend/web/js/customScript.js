@@ -26,7 +26,7 @@ $(document).ready(function(){
 /** END Focus input field with class "typeStart" when typing randomly on page */
 
     /** INITIALIZING ICHECK **/
-    $('body:not(".action-login") input').iCheck({
+    $('input').iCheck({
         checkboxClass: 'icheckbox_flat-green',
         radioClass: 'iradio_flat'
     });

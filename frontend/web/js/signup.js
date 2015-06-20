@@ -1,15 +1,16 @@
 /**
- * Created by jonas on 26.04.15.
+ * Created by jonas on 26.04.15 but made awesome by Marco on 19.6.15. ;)
  */
 
-$('#checkCompanySignup').change(function(){
-    if(this.checked){
-        $('.companySetup').show();
-    } else {
-        $('.companySetup').hide();
-    }
+$('#checkCompanySignup').on('ifChecked', function(event){
+    $('.companySetup').show();
 });
 
-if($("#checkCompanySignup").prop("checked")){
-    $('.companySetup').show();
-}
+$('#checkCompanySignup').on('ifUnchecked', function(event){
+    $('.companySetup').hide();
+});
+
+
+
+
+
