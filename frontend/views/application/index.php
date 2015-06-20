@@ -16,10 +16,11 @@ use frontend\models\Job;
 
      <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
-         <h1><?= Html::encode("Eingegangene Bewerbungen") ?></h1>
+         <h1><?= Html::encode($title) ?></h1>
 
   <?= GridView::widget([
         'dataProvider' => $provider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
             'title:text:Stellenanzeige',
         [
@@ -35,7 +36,7 @@ use frontend\models\Job;
                 'label'  => '',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return Html::a("Was isch des?",'/application/view?id='.$data['id']);
+                    return Html::a("Ansehen",'/application/view?id='.$data['id']);
                 }
         ],    
         ],
@@ -49,6 +50,7 @@ use frontend\models\Job;
 
      <?= GridView::widget([
         'dataProvider' => $savedProvider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
          [
                 'label'  => 'Stellenanzeige',
@@ -75,10 +77,11 @@ use frontend\models\Job;
         ],
 
     ]); ?>  
-     <h2><?= Html::encode("Gesendete Bewerbungem:") ?></h2>
+     <h2><?= Html::encode("Gesendete Bewerbungen:") ?></h2>
 
     <?= GridView::widget([
         'dataProvider' => $sentProvider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
          [
                 'label'  => 'Stellenanzeige',
@@ -106,7 +109,7 @@ use frontend\models\Job;
                 'label'  => '',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return Html::a("Was isch des?",'/application/view?id='.$data->id);
+                    return Html::a("Ansehen",'/application/view?id='.$data->id);
                 }
         ],    
         ],

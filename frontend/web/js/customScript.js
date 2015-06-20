@@ -32,6 +32,11 @@ $(document).ready(function(){
     });
 
 
+    // TODO: This is a temporary hack, to prevent prefilled forms by browser which break our styling
+    // Clear Form Fields
+    $('input[type=text], input[type=password]').val('');
+
+
 });
 
 
@@ -122,7 +127,7 @@ $(".ripple").on("click", function(e){
 
 
 /** Helper Function for Input Forms **/
-$('input[type=text]').focus(function () {
+$('input[type=text], input[type=password]').focus(function () {
     if ($(this).attr('class') == 'form-control tt-input') { //Typeahead Fix
         $(this).parent().parent().prev().addClass('typeahead-label-in-focus');
     } // END Typeahead Fix

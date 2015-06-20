@@ -3,6 +3,7 @@
 use kartik\typeahead\Typeahead;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -19,24 +20,6 @@ use yii\widgets\ActiveForm;
 
     <div class="message-create-first-row">
 
-        <? echo "<label class='control-label typeahead-label'>Empfänger</label>"; ?>
-        <?=
-        // TODO: set receiver if $rec!== null
-        Typeahead::widget([
-            'name'         => 'receiver_name',
-            'dataset'      => [
-                [
-                    'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
-                    'limit'  => 10,
-                ],
-            ],
-            'pluginEvents' => [     // Typeahead search with bloodhound suggestion
-                "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
-            ]
-
-        ]) ?>
-
-    </div>
 
     <div class="message-create-second-row">
 
@@ -47,35 +30,30 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...'] ], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15]) ?>
 
+    <?
+    $template =
+        '<p>{{value}}</p>' .
+        '<img src="/uploads/profile/{{image}}.jpg"/>';
 
-
-    <!--?= $form->field($model, 'receiver_id')->widget(Typeahead::className(), [
-        'dataset' => [
+    echo $form->field($model, 'receiver')->widget(Typeahead::className(), [
+        'name'         => 'receiver_name',
+        'dataset'      => [
             [
-                'remote' => Url::to(['site/user-search'.'?q=%QUERY']),
-                'limit' => 10,
+                'remote'    => Url::to(['site/user-search' . '?q=%QUERY']),
+                'limit'     => 10,
+                'templates' => [
+                    'empty'      => '<div class="text-error">Es wurde leider kein Nutzer gefunden.</div>',
+                    'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                ]
             ],
         ],
-        'pluginEvents' => [
-            "typeahead:selected" => 'function(x,y) {$("#message-receiver_id").val(y.id)}',
-        ]
+    ])->label('Empfänger') ?>
 
-    ])->label('Empfänger')->textInput()  ?-->
-
-    <?= Html::activeHiddenInput($model, 'receiver_id') // TODO: check if exists    ?>
-
-    <?= $form->field($attachment, 'file')->fileInput()->label('Anhang hinzufügen'); ?>
+    <?= $form->field($model, 'attachment')->fileInput()->label('Anhang hinzufügen'); ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => 'btn btn-success']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 
 </div>
-
-<script>
-    // TODO: verschönern
-    <? if (isset($receiver)){ ?>
-        document.getElementById('w1').value = "<?=$receiver->fullName?>";
-    <? } ?>
-</script>
