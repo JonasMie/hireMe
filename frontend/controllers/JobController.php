@@ -27,6 +27,8 @@ use frontend\models\ApplyBtnSearch;
 
 class JobController extends Controller
 {
+	
+	public $layout='main';
 
     public function behaviors()
     {
@@ -349,10 +351,11 @@ class JobController extends Controller
 
     public function actionButtonPopup() {
 
+		$this->layout='empty';
 
         $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
 
-         return $this->renderPartial('buttonPopup',[
+         return $this->render('buttonPopupWindow',[
             'userID' => $cookie,
             ]);
 

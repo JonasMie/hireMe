@@ -20,9 +20,9 @@ $this->title = "Profil";
         <?= $user->getProfilePicture() ?>
 
         <? if ($user->id !== Yii::$app->user->identity->getId()) {
-            echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id,['class' => 'btn btn-success']);
+            echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id,['class' => 'btn btn-success ripple']);
 			} else {
-			echo Html::a('Einstellungen', '/user/settings',['class' => 'btn btn-success']);
+			echo Html::a('Einstellungen', '/user/settings',['class' => 'btn btn-success ripple']);
         }
         ?>
     </div>
@@ -36,7 +36,7 @@ $this->title = "Profil";
 				'edit' => false,
 				'label' => 'Bearbeiten',
 				'url1' =>['/resume'],
-				'url2' =>['/resume'],
+				'url2' =>['/resume']
 			]);
 		}
 		?>

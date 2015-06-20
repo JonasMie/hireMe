@@ -17,6 +17,22 @@
 use yii\helpers\Html;
 
 ?>
+<!-- Initializing Foo Tables -->
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
+                mediaSmall: 960
+
+            }
+        });
+    });");
+
+?>
+
 <h2>Berufserfahrung</h2>
     <?php
     echo \yii\widgets\ListView::widget([
@@ -26,7 +42,7 @@ use yii\helpers\Html;
     ]);
     ?>
 <p>
-    <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success']) ?>
+    <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
 </p>
 <h2>Schulische Laufbahn</h2>
 <?php
@@ -37,5 +53,5 @@ echo \yii\widgets\ListView::widget([
 ]);
 ?>
 <p>
-    <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success']) ?>
+    <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple']) ?>
 </p>

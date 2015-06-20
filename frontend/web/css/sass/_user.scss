@@ -1,7 +1,15 @@
-.site-user{
+.controller-user.action-index{
 
 	div.user-picture{
-		display:block;
+		a.btn {
+			display:block;
+		}
+	}
+	
+	div.user-timeline{
+		h2:first-of-type{
+			margin-top:0px;
+		}
 	}
 
 }

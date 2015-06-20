@@ -52,7 +52,6 @@ CustomAppAsset::register($this);
 	if (Yii::$app->user->isGuest) {
         $menuItems = [
 		['label' => '<i class="glyphicon glyphicon-home"></i> Home', 'url' => ['/site/index']],
-		['label' => '<i class="glyphicon glyphicon-info-sign"></i> About', 'url' => ['/site/about']],
 		['label' => '<i class="glyphicon glyphicon-log-in"></i> Login', 'url' => ['/site/login']],
 		];
     }
@@ -90,7 +89,7 @@ CustomAppAsset::register($this);
 			['label' => '<i class="glyphicon glyphicon-star"></i> Favoriten', 'url' => ['/favourites']],
 			['label' => '<i class="glyphicon glyphicon-duplicate"></i> Bewerbungen', 'url' => ['/application']],
 			['label' => '<i class="glyphicon glyphicon-list-alt"></i> Lebenslauf', 'url' => ['/resume']],
-			['label' => '<i class="glyphicon glyphicon-file"></i> Anlagen', 'url' => ['#']],
+			['label' => '<i class="glyphicon glyphicon-file"></i> Anlagen', 'url' => ['attachment']],
 
 			[
 				'label' => Yii::$app->user->identity->firstName,
@@ -127,7 +126,7 @@ CustomAppAsset::register($this);
     <div class="container">
         <p class="pull-left">&copy; hireMe <?= date('Y') ?></p>
         <p class="pull-right">
-            Made with <span class="glyphicon glyphicon-heart"></span> in Stuttgart
+            <?=Html::a('Made with <span class="glyphicon glyphicon-heart"></span> in Stuttgart','/site/about');?>
 
 
         </p>

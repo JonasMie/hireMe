@@ -18,15 +18,23 @@
 		padding:0px;
 	}
 	
+	.row {
+		margin-left:0px;
+		margin-right:0px;
+	}
+	
 	.full.first{
 		background: url("../../images/mouse.jpg") center top no-repeat;
 		background-size: cover;
 		color: #fff;
 		width: 100%;
 		height: 100vh;
+		padding-top:70px;
+		margin-bottom: 10vh;
 	}
 	
-	.full:first-child{
-		padding-top:70px;
+	img.centered{
+		margin: 0 auto;
 	}
+	
 }

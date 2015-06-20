@@ -23,7 +23,7 @@ $(document).ready(function(){
 			$(document).off('keydown', default_input_handler);
 		});
 	}
-/** END Focus input field with class "typeStart" when typing randomly on page */
+	/** END Focus input field with class "typeStart" when typing randomly on page */
 
     /** INITIALIZING ICHECK **/
     $('input').iCheck({
@@ -34,6 +34,24 @@ $(document).ready(function(){
 
 });
 
+
+/** Frontpage: Check if elements are in viewport */
+/** See: http://www.jqueryscript.net/animation/jQuery-Plugin-For-Element-Fade-Slide-Effects-As-You-Scroll-FadeThis.html */
+
+$(document).ready(function() {
+$(window).fadeThis({
+baseName:       "slide-",
+speed:          500, // <a href="http://www.jqueryscript.net/animation/">Animation</a> speed in milliseconds.
+easing:         "swing", // Animation easing.
+offset:         0, // <a href="http://www.jqueryscript.net/tags.php?/Scroll/">Scroll</a> offset, allowing to fire fading a little after or before the element appear.
+reverse:        false, // Make element disappear again when scrolled out, and fade again when scrolled in. 
+distance:       50, // Element distance to its emplacement, before animation.
+scrolledIn:     null, // Function to call when the element come in viewport. 
+scrolledOut:    null // Function to call when the element go out of the viewport. 
+});
+});
+
+/** Frontpage: Check if elements are in viewport */
 
 
 /** Animation for Hamburger Icon on Mobile View */
