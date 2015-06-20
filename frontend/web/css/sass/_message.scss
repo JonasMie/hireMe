@@ -144,13 +144,13 @@ body.controller-message.action-create {
     }
   }
 
-  .field-messagecreate-attachments-file {
+  .field-messagecreate-attachment {
     position: static;
     label {
       position: static;
     }
 
-    #messageattachments-file {
+    #messagecreate-attachment {
       margin-left: -2px;
       margin-top: 10px;
       max-width: 99%;

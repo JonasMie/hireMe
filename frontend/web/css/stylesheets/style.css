@@ -1366,15 +1366,15 @@ body.controller-message.action-create .field-messagecreate-content #messagecreat
   border-color: #5dca88;
 }
 /* line 147, ../sass/_message.scss */
-body.controller-message.action-create .field-messagecreate-attachments-file {
+body.controller-message.action-create .field-messagecreate-attachment {
   position: static;
 }
 /* line 149, ../sass/_message.scss */
-body.controller-message.action-create .field-messagecreate-attachments-file label {
+body.controller-message.action-create .field-messagecreate-attachment label {
   position: static;
 }
 /* line 153, ../sass/_message.scss */
-body.controller-message.action-create .field-messagecreate-attachments-file #messageattachments-file {
+body.controller-message.action-create .field-messagecreate-attachment #messagecreate-attachment {
   margin-left: -2px;
   margin-top: 10px;
   max-width: 99%;
