@@ -240,8 +240,9 @@ use yii\helpers\Html;
                 'class' => 'yii\grid\CheckboxColumn',
             ],
             [
-                'label'  => 'Von/An',
-                'format' => 'raw',
+                'attribute' => 'senderName',
+                'label'     => 'Von/An',
+                'format'    => 'raw',
                 'value'     => function ($data) {
                     if (Yii::$app->user->getId() === $data->sender_id) {
                         return Html::a($data->receiver->getProfilePicture(true). '<div class="message-sender">' .$data->receiver->firstName . " " . $data->receiver->lastName . '</div>', '../user/' . $data->receiver->username);

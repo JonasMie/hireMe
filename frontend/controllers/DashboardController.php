@@ -39,13 +39,6 @@ class DashboardController extends \yii\web\Controller
 
     public function actionIndex()
     {
-
-
-
-        $favourites = new FavouritesSearch();
-        $favouritesDataProvider = $favourites->search(['FavouritesSearch' => ['user_id' => Yii::$app->user->identity->getId()]]);
-
-
         if(Yii::$app->user->identity->isRecruiter()){
 
             $messages = Message::find()->where(['receiver_id'=>Yii::$app->user->getId(), 'read'=> 0])->count();
@@ -71,8 +64,12 @@ class DashboardController extends \yii\web\Controller
                 'newApplications' => $newApplications
             ]);
         }
+        $favourites = new FavouritesSearch();
+        $favouritesDataProvider = $favourites->search(['FavouritesSearch' => ['user_id' => Yii::$app->user->identity->getId()]]);
+
         $messages = new MessageSearch();
-        $messageDataProvider = $messages->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId()]]);
+        $messageDataProvider = $messages->search(Yii::$app->request->queryParams);
+
         return $this->render('index', [
             'messageDP' => $messageDataProvider,
             'favouritesDP' => $favouritesDataProvider,

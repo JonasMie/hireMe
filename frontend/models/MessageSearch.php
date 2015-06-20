@@ -13,7 +13,7 @@ class MessageSearch extends Message
 {
 
     /**
-     * @var
+     * @var $senderName String
      */
     public $senderName;
 
@@ -72,8 +72,8 @@ class MessageSearch extends Message
                         'desc' => ['subject' => SORT_DESC]
                     ],
                     'senderName' => [                            // TODO: Fix order by sender
-                        'asc'  => ['lastName' => SORT_ASC],
-                        'desc' => ['lastName' => SORT_DESC],
+                        'asc'  => ['user.lastName' => SORT_ASC],
+                        'desc' => ['user.lastName' => SORT_DESC],
                         'label' => ['senderName']
                     ],
                 ],

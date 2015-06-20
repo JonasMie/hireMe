@@ -61,7 +61,6 @@ class MessageController extends Controller
     public function actionIndex()
     {
         $searchModel = new MessageSearch();
-//        $dataProvider = $searchModel->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId(), 'sender_id' =>Yii::$app->user->identity->getId()]],true);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
