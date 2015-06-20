@@ -119,14 +119,13 @@ body.controller-analytics {
         background-repeat: no-repeat
       }
     }
+  }// END TILES
+
+  #analyticsCharts {
+    #charts-first-row, #charts-second-row, #charts-third-row, #charts-fourth-row {
+      margin-top: 50px;
+    }
   }
 
 
-
-
-
-
-
-
-  // END TILES
 }

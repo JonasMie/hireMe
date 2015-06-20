@@ -1465,3 +1465,7 @@ body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right 
   background-position: center;
   background-repeat: no-repeat;
 }
+/* line 125, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts #charts-first-row, body.controller-analytics #analyticsCharts #charts-second-row, body.controller-analytics #analyticsCharts #charts-third-row, body.controller-analytics #analyticsCharts #charts-fourth-row {
+  margin-top: 50px;
+}

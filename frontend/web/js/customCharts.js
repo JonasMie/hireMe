@@ -20,16 +20,19 @@ var options =
     scaleShowVerticalLines: true,
 
     //Boolean - If there is a stroke on each bar
-    barShowStroke : true,
-
-    //Number - Pixel width of the bar stroke
-    barStrokeWidth : 2,
+    barShowStroke : false,
 
     //Number - Spacing between each of the X value sets
     barValueSpacing : 5,
 
     //Number - Spacing between data sets within X values
     barDatasetSpacing : 1,
+
+    // Boolean - whether or not the chart should be responsive and resize when the browser does.
+    responsive: false,
+
+    // Boolean - Determines whether to draw tooltips on the canvas or not
+    showTooltips: true,
 };
 
 $(document).ready(function() {
@@ -71,37 +74,39 @@ $(document).ready(function() {
             labels: ["Clicks","Bewerbungen"],
             datasets: [
                 {
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
+                    fillColor: "rgba(93,202,136,0.5)",
+                    strokeColor: "rgba(93,202,136,0.5)",
+                    highlightFill: "rgba(93,202,136,1.0)",
+                    highlightStroke: "rgba(93,202,136,1.0)",
                     data: [obj.clickCount,obj.applierCount]
                 }
             ]
         }
 
-        var applicationRateData = {
-            labels: ["Application Rate"],
-            datasets: [
-                {
-                    label: "Application Rate:",
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
-                    data: [obj.applicationRate]
-                }
-            ]
-        }
+        var applicationRateData = [
+
+            {
+                value: [obj.applicationRate],
+                color:"rgba(93,202,136,0.5)",
+                highlight: "rgba(93,202,136,1.0)",
+                label: ""
+            },
+            {
+                value: 100 - [obj.applicationRate],
+                color: "rgba(157,157,157,0.5)",
+                highlight: "rgba(157,157,157,1.0)",
+                label: ""
+            }
+        ]
 
         var interviewApplicationData = {
             labels: ["Bewerbungen","Vorstellungsgespräche"],
             datasets: [
                 {
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
+                    fillColor: "rgba(93,202,136,0.5)",
+                    strokeColor: "rgba(93,202,136,0.5)",
+                    highlightFill: "rgba(93,202,136,1.0)",
+                    highlightStroke: "rgba(93,202,136,1.0)",
                     data: [obj.applierCount,obj.interviewCount]
                 }
             ]
@@ -125,10 +130,10 @@ $(document).ready(function() {
             labels: ["Bewerbungen","Eingestellt"],
             datasets: [
                 {
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
+                    fillColor: "rgba(93,202,136,0.5)",
+                    strokeColor: "rgba(93,202,136,0.5)",
+                    highlightFill: "rgba(93,202,136,1.0)",
+                    highlightStroke: "rgba(93,202,136,1.0)",
                     data: [obj.applierCount,obj.hiredCount]
                 }
             ]
@@ -158,7 +163,7 @@ $(document).ready(function() {
         var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
         var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
         var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
-        var applicationRate = new Chart(ctx4).Bar(applicationRateData, options);
+        var applicationRate = new Chart(ctx4).Pie(applicationRateData, options);
 
         // APPLICATIONS INTERVIEWS + INTERVIEW RATE
         var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");

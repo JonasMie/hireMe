@@ -64,19 +64,33 @@ $this->title = "Analytics für";
 
     </div>
 
-    <canvas id="viewClickChart" class="chart"></canvas>
-    <canvas id="interestRateChart" class="chart"></canvas>
-    <br>
-    <canvas id="clicksApplicationChart" class="chart"></canvas>
-    <canvas id="applicationRateChart" class="chart"></canvas>
-    <br>
-    <canvas id="interviewApplicationChart" class="chart"></canvas>
-    <canvas id="interviewRateChart" class="chart"></canvas>
-    <br>
-    <canvas id="applicationHiredChart" class="chart"></canvas>
-    <canvas id="conversionRateChart" class="chart"></canvas>
-    <br>
-    <br>
+    <div id="analyticsCharts">
+
+        <div id="charts-first-row" class="row">
+            <div class="col-lg-4">
+                <canvas id="viewClickChart" class="chart"></canvas>
+            </div>
+            <div class="col-lg-4">
+                <canvas id="interestRateChart" class="chart"></canvas>
+            </div>
+        </div>
+
+        <div id="charts-second-row" class="row">
+            <canvas id="clicksApplicationChart" class="chart"></canvas>
+            <canvas id="applicationRateChart" class="chart"></canvas>
+        </div>
+
+        <div id="charts-third-row" class="row">
+            <canvas id="interviewApplicationChart" class="chart"></canvas>
+            <canvas id="interviewRateChart" class="chart"></canvas>
+        </div>
+
+        <div id="charts-fourth-row" class="row">
+            <canvas id="applicationHiredChart" class="chart"></canvas>
+            <canvas id="conversionRateChart" class="chart"></canvas>
+        </div>
+
+    </div>
 
    <?= GridView::widget([
         'dataProvider' => $provider,
