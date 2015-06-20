@@ -110,9 +110,9 @@ class ResumeController extends Controller
                 }
             }
         } else {
-            $jobDataProvider = new ActiveDataProvider(['query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),]);
+            $jobDataProvider = new ActiveDataProvider(['query' => ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()])]);
 
-            $schoolDataProvider = new ActiveDataProvider(['query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),]);
+            $schoolDataProvider = new ActiveDataProvider(['query' => ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()])]);
 
             return $this->render('index', ['jobDataProvider'    => $jobDataProvider,
                                            'schoolDataProvider' => $schoolDataProvider]);
@@ -147,10 +147,6 @@ class ResumeController extends Controller
             $report_id = $this->upload($model);
             if ($report_id) {
                 $model->report_id = $report_id;
-            } else {
-                return $this->render($type . 'ResumeCreate', [
-                    'model' => $model,
-                ]);
             }
             if ($model->save()) {
                 return $this->redirect(['/resume']);
