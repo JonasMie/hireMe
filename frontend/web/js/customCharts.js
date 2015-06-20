@@ -30,7 +30,7 @@ var options =
 
     //Number - Spacing between data sets within X values
     barDatasetSpacing : 1,
-}
+};
 
 $(document).ready(function() {
 
@@ -42,28 +42,30 @@ $(document).ready(function() {
             labels: ["Views","Clicks"],
             datasets: [
                 {
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
+                    fillColor: "rgba(93,202,136,0.5)",
+                    strokeColor: "rgba(93,202,136,0.5)",
+                    highlightFill: "rgba(93,202,136,1.0)",
+                    highlightStroke: "rgba(93,202,136,1.0)",
                     data: [obj.viewCount,obj.clickCount]
                 }
             ]
         }
 
-         var interestRateData = {
-            labels: ["Interest Rate"],
-            datasets: [
-                {
-                    label: "InterestRate:",
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
-                    data: [obj.interestRate]
-                }
-            ]
-        }
+         var interestRateData = [
+
+             {
+                 value: [obj.interestRate],
+                 color:"rgba(93,202,136,0.5)",
+                 highlight: "rgba(93,202,136,1.0)",
+                 label: ""
+             },
+             {
+                 value: 100 - [obj.interestRate],
+                 color: "rgba(157,157,157,0.5)",
+                 highlight: "rgba(157,157,157,1.0)",
+                 label: ""
+                 }
+         ]
 
         var clickApplicationData = {
             labels: ["Clicks","Bewerbungen"],
@@ -150,7 +152,7 @@ $(document).ready(function() {
         var ctx1 = document.getElementById("viewClickChart").getContext("2d");
         var ctx2 = document.getElementById("interestRateChart").getContext("2d");
         var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
-        var interestRate = new Chart(ctx2).Bar(interestRateData, options);
+        var interestRate = new Chart(ctx2).Pie(interestRateData, options);
 
         // CLICKS APPLICAIONS + APPLICATION RATE
         var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
@@ -173,53 +175,5 @@ $(document).ready(function() {
 
     });
 
-})
-
-
-
-
-// /** Demo Chart **/
-// var data = [
-//     {
-//         value: 965,
-//         color: "rgba(93,202,136,0.5)",
-//         label: "Bewerbungen insgesamt"
-//     },
-//     {
-//         value: 96,
-//         color: "rgb(221,221,221)",
-//         label: "Stellenanzeigen"
-//     },
-//     {
-//         value: 84,
-//         color: "rgb(221,221,221)",
-//         label: "Übernahmen"
-//     },
-//     {
-//         value: 10,
-//         color: "rgb(221,221,221)",
-//         label: "Klicks"
-//     },
-//     {
-//         value: 20,
-//         color: "rgb(221,221,221)",
-//         label: "Views"
-//     },
-//     {
-//         value: 30,
-//         color: "rgb(221,221,221)",
-//         label: "Bewerbungen"
-//     },
-//     {
-//         value: 40,
-//         color: "rgb(221,221,221)",
-//         label: "Klicks"
-//     },
-//     {
-//         value: 84,
-//         color: "rgb(221,221,221)",
-//         label: "Übernahmen"
-//     }
-// ];
-
+});
 

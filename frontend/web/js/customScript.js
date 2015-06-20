@@ -95,7 +95,9 @@ $(".ripple").on("click", function(e){
                 c.attr("r", val);
             },
             complete: function() {
-                location.href = $(box).attr('href');
+                if ($(box).attr('href').text != '') {
+                    location.href = $(box).attr('href');
+                }
             }
         }
     );

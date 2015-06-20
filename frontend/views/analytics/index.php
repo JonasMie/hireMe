@@ -34,13 +34,13 @@ $this->title = "Analytics für";
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <div class="a-analytics"><?=$hiredCount?></div>
                 </div>
                 <div class="tile-value tile-string">
-                    <div class="a-analytics">Einstellungen</div>
+                    <div class="a-analytics">Neue Mitarbeiter</div>
                 </div>
             </div>
             <div class="subtile subtile-right hidden-xs">
