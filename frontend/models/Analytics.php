@@ -143,7 +143,7 @@ class Analytics extends \yii\base\Model
 
         $btn = ApplyBtn::findOne($id);
         if ($btn->clickCount == 0) $rate = 0;
-        else $rate =  (count($btn->viewCount)/$btn->clickCount)*10;
+        else $rate =  ($btn->clickCount/$btn->viewCount)*100;
         return $rate;
 
     }
@@ -152,7 +152,7 @@ class Analytics extends \yii\base\Model
 
         $btn = ApplyBtn::findOne($id);
         $btnApplies = Application::find()
-        ->where(['btn_id' => $id, 'sent' => 1,])
+        ->where(['btn_id' => $id, 'sent' => 1, 'archived' => 0])
         ->orderBy('id')
         ->all();
         if ($btn->clickCount == 0) $rate = 0;
