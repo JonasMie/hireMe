@@ -21,6 +21,26 @@ use yii\widgets\ActiveForm;
     <div class="message-create-first-row">
 
 
+        <?
+        $template =
+            '<p>{{value}}</p>' .
+            '<img src="/uploads/profile/{{image}}.jpg"/>';
+
+        echo $form->field($model, 'receiver')->widget(Typeahead::className(), [
+            'name' => 'receiver_name',
+            'dataset' => [
+                [
+                    'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
+                    'limit' => 10,
+                    'templates' => [
+                        'empty' => '<div class="text-error">Es wurde leider kein Nutzer gefunden.</div>',
+                        'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                    ]
+                ],
+            ],
+        ])->label('Empfänger') ?>
+    </div>
+
     <div class="message-create-second-row">
 
         <?= $form->field($model, 'subject')->textInput(['maxlength' => 255]) ?>
@@ -28,26 +48,9 @@ use yii\widgets\ActiveForm;
     </div>
 
 
-    <?= $form->field($model, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...'] ], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15]) ?>
+    <?= $form->field($model, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15]) ?>
 
-    <?
-    $template =
-        '<p>{{value}}</p>' .
-        '<img src="/uploads/profile/{{image}}.jpg"/>';
 
-    echo $form->field($model, 'receiver')->widget(Typeahead::className(), [
-        'name'         => 'receiver_name',
-        'dataset'      => [
-            [
-                'remote'    => Url::to(['site/user-search' . '?q=%QUERY']),
-                'limit'     => 10,
-                'templates' => [
-                    'empty'      => '<div class="text-error">Es wurde leider kein Nutzer gefunden.</div>',
-                    'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
-                ]
-            ],
-        ],
-    ])->label('Empfänger') ?>
 
     <?= $form->field($model, 'attachment')->fileInput()->label('Anhang hinzufügen'); ?>
 
