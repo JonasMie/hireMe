@@ -168,8 +168,22 @@ jQuery('img.svg').each(function(){
 });
 /** END Replace all SVG images with inline SVG **/
 
+/** iCheck js select-on-check-all fix **/
 
-/** Demo Chart **/
+$('.select-on-check-all').on('ifChecked', function(event){
+    $('input[type=checkbox]').iCheck('check');
+});
+
+$('.select-on-check-all').on('ifUnchecked', function(event){
+    $('input[type=checkbox]').iCheck('uncheck');
+});
+
+
+
+/** END iCheck js select-on-check-all fix ++/
+
+
+ /** Demo Chart **/
 var data = [
     {
         value: 965,
