@@ -38,6 +38,12 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 
         <?= Html::a(Yii::t('app', 'Reply'), '#', [
             'class' => 'btn btn-info btn-reply',
+            'data-toggle' => 'modal',
+            'data-target' => '#replyModal'
+//            'data'  => [
+//                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+//                'method'  => 'post',
+//            ],
         ]) ?>
     </p>
 
@@ -85,25 +91,59 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
     </div-->
 </div>
 
+<<<<<<< HEAD
 <?php /*
     $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'], 'action' => '/message/create']);
     $reply->subject = "Re: " . $model->subject;
     $reply->receiver_id = $model->receiver_id == Yii::$app->user->getId() ? $model->sender_id : $model->receiver_id;
     $reply->flow = $model->flow;
     ?>
+  */ ?>
 
-    <?= $form->field($reply, 'subject')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($reply, 'content')->textarea(['rows' => 6]) ?>
+<!-- Modal -->
+<div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Antworten</h4>
+            </div>
+            <div class="modal-body">
 
-    <?= $form->field($reply, 'attachment')->fileInput()->label('Anhang hinzufügen'); ?>
-    <?= Html::activeHiddenInput($reply, 'flow') // TODO: DANKE YII, DASS ICH DEN SCHEIß MIT HIDDEN INPUT MACHEN MUSS! DANKE! WIRKLICH! DANKE, DU ARSCHLOCH! SECURITY UND SO LÄUFT BEI DIR. wenn noch zeit ist, evtl verbessern    ?>
-    <?= Html::activeHiddenInput($reply, 'receiver_id', ['value'=>$contactID])?>
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Create'), ['class' =>'btn btn-success']) ?>
+                <div class="message-form form-reply form-group">
+
+                    <?php
+                    $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'], 'action' => '/message/create']);
+                    $reply->subject = "Re: " . $model->subject;
+                    $reply->receiver_id = $model->receiver_id == Yii::$app->user->getId() ? $model->sender_id : $model->receiver_id;
+                    $reply->flow = $model->flow;
+                    ?>
+
+                    <?= $form->field($reply, 'subject', ['options' => ['class' => 'input-in-focus']])->textInput(['maxlength' => 255]) ?>
+
+                    <?= $form->field($reply, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...'] ], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15])  ->label(false) ?>
+
+
+                    <?= Html::activeHiddenInput($reply, 'receiver_id') // TODO: check if exists       ?>
+
+                    <?/*= $form->field($model, 'attachments')->fileInput()->label('Anhang hinzufügen'); */?>
+                    <?= Html::activeHiddenInput($reply, 'flow') // TODO: DANKE YII, DASS ICH DEN SCHEIß MIT HIDDEN INPUT MACHEN MUSS! DANKE! WIRKLICH! DANKE, DU ARSCHLOCH! SECURITY UND SO LÄUFT BEI DIR. wenn noch zeit ist, evtl verbessern ?>
+                    <div class="form-group">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default ripple" data-dismiss="modal">Close</button>
+                <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => 'btn btn-success ripple']) ?>
+
+                <?php ActiveForm::end(); ?>
+
+            </div>
+        </div>
     </div>
-    <?php ActiveForm::end(); ?>
-
 </div>
 
- */ ?>
+

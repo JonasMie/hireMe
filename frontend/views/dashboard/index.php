@@ -34,6 +34,7 @@ use yii\helpers\Html;
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"
              onclick="window.location='./application/index?new=true';">
+
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a($newApplications, "/application/index?new=true"); ?>
@@ -46,7 +47,7 @@ use yii\helpers\Html;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-2 tile-black"
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-2 tile-black ripple"
              onclick="window.location='/message';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
@@ -60,7 +61,7 @@ use yii\helpers\Html;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-3 tile-green"
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-3 tile-green ripple"
              onclick="window.location='./job';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
@@ -76,6 +77,7 @@ use yii\helpers\Html;
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-4 tile-black"
              onclick="window.location='./application';">
+
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a($totalApplications, "/application"); ?>
@@ -107,6 +109,7 @@ use yii\helpers\Html;
                 'value'          => function ($data) {
                     return $data->user->getProfilePicture(true);
                 },
+                'contentOptions' => ['data-title' => 'Picture'],
                 'contentOptions' => ['data-title' => 'Picture'],
                 'label'          => false
             ],

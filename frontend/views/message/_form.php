@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
     </div>
 
 
-    <?= $form->field($model, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15]) ?>
+    <?= $form->field($model, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15]) ->label(false) ?>
 
 
 
@@ -56,6 +56,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => 'btn btn-success']) ?>
+
     </div>
     <?php ActiveForm::end(); ?>
 

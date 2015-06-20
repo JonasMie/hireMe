@@ -27,7 +27,6 @@ body.controller-message {
   table#inboxTable {
     margin-top: 10px;
 
-
     tr {
       td {
         div.profile-picture-thumbnail {
@@ -100,7 +99,7 @@ body.controller-message {
         .footable-row-detail-row:nth-of-type(2) {
           margin-top: 20px;
         }
-        .footable-row-detail-inner{
+        .footable-row-detail-inner {
           padding-bottom: 30px;
         }
       }
@@ -111,7 +110,6 @@ body.controller-message {
         }
       }
     }
-
 
   }
 }
@@ -130,17 +128,11 @@ body.controller-message.action-create {
     max-width: 400px;
   }
 
-  .field-messagecreate-content{
-    label[for="messagecreate-content"]{
-      display: none;
-    }
-
-    #messagecreate-content {
-      resize: none;
-      box-shadow: none;
-      &:focus{
-        border-color: $green;
-      }
+  #messagecreate-content {
+    resize: none;
+    box-shadow: none;
+    &:focus {
+      border-color: $green;
     }
   }
 
@@ -157,9 +149,45 @@ body.controller-message.action-create {
       overflow: hidden;
     }
   }
-
-
-
-
-
 }
+
+body.controller-message.action-view {
+
+  #replyModal {
+    form {
+      margin-top: 20px;
+      .field-messagecreate-subject {
+        position: relative;
+        .control-label {
+          position: absolute;
+        }
+      }
+
+
+      #messagecreate-content {
+        resize: none;
+        box-shadow: none;
+        &:focus {
+          border-color: $green;
+        }
+      }
+
+      // TODO: STYLE ATTACHMENTS
+      .field-messageattachments-file {
+        position: static !important;
+        label {
+          position: static !important;
+        }
+
+        #messageattachments-file {
+          margin-left: -2px;
+          margin-top: 10px;
+          max-width: 99%;
+          overflow: hidden;
+        }
+      }
+
+    }
+  }
+}
+
