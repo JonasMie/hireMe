@@ -21,6 +21,7 @@ use frontend\models\JobCreateForm;
 use frontend\controllers\ApplicationController;
 use yii\web\Session;
 use frontend\models\ApplyBtnSearch;
+use frontend\models\Favourites;
 /**
  * JobController implements the CRUD actions for Job model.
  */
@@ -138,13 +139,32 @@ class JobController extends Controller
 
     }
 
-    public function actionApply($key,$user,$case) {
+    public function actionSaveFavorit($key,$user) {
 
-        if ($case == 0) {
- 
-        }
+      $fav = new Favourites();
 
-        else {
+      $thisBtn = ApplyBtn::find()
+        ->where(['key' => $key])
+        ->one();
+      $job = Job::findOne($thisBtn->job_id);
+
+    
+      $favs = Favourites::find()->orderBy('id')->all();
+            if (count($favs) == 0) {
+                $fav->id = 0;
+            }
+            else {
+                $highestID = $favs[count($favs)-1];
+                $fav->id = $highestID->id+1;
+            }
+      $fav->job_id = $job->id;
+      $fav->user_id = $user;
+      $fav->save();
+      return $this->renderPartial("savedFavourite");
+
+    }
+
+    public function actionApply($key,$user) {
 
         $app = new Application();
 
@@ -171,9 +191,8 @@ class JobController extends Controller
         $app->state = "Gespeichert";
         $app->btn_id = $thisBtn->id;
         $app->save();
-        return $this->render('applied');
-
-        }
+        //return $this->render('applied');
+        $this->redirect(["./application/add-data?id=".$app->id]);
 
     }
 
@@ -347,13 +366,32 @@ class JobController extends Controller
          return $this->renderPartial('viewCountIFrame');
     }
 
-    public function actionButtonPopup() {
+    public function actionButtonPopup($key) {
+        $hasApplied = 0;
 
+       // $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
+        if (Yii::$app->user->isGuest) {
+        $userID = "NA";
+        }
 
-        $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
+        else {
+
+        $userID = Yii::$app->user->identity->id;
+        $btn = ApplyBtn::find()
+        ->where(['key' => $key])
+        ->one();
+        $job = Job::findOne($btn->job_id);
+
+        $possibleApp = Application::find()
+        ->where(['job_id' => $job->id , 'user_id' => $userID])
+        ->all();
+        if (count($possibleApp) == 1) {$hasApplied = 1;}
+        else {$hasApplied = 0;}
+        }
 
          return $this->renderPartial('buttonPopup',[
-            'userID' => $cookie,
+            'userID' => $userID,
+            'applied' => $hasApplied,
             ]);
 
     }
