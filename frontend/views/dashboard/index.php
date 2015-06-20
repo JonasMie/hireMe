@@ -240,11 +240,15 @@ use yii\helpers\Html;
                 'class' => 'yii\grid\CheckboxColumn',
             ],
             [
-                'label'  => 'Von',
+                'label'  => 'Von/An',
                 'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, 'user/' . $data->sender->username);
-                }
+                'value'     => function ($data) {
+                    if (Yii::$app->user->getId() === $data->sender_id) {
+                        return Html::a($data->receiver->getProfilePicture(true). '<div class="message-sender">' .$data->receiver->firstName . " " . $data->receiver->lastName . '</div>', '../user/' . $data->receiver->username);
+                    } else if (Yii::$app->user->getId() === $data->receiver_id) {
+                        return Html::a($data->sender->getProfilePicture(true) .'<div class="message-sender">' .$data->sender->firstName . " " . $data->sender->lastName . '</div>', '../user/' . $data->sender->username);
+                    }
+                },
             ],
             [
                 'label'  => 'Betreff',

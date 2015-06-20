@@ -32,23 +32,20 @@ $this->title = Yii::t('app', 'Messages');
 
     <h1>Posteingang</h1>
 
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Neue Nachricht'), ['create'], ['class' => 'btn btn-success ripple btn-newMessage']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        //'filterModel'  => $searchModel,
+//        'filterModel'  => $searchModel,
         'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
             [
                 'class'         => 'yii\grid\CheckboxColumn',
-                'filterOptions' => function () {
-                    echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
-                },
+//                'filterOptions' => function () {
+//                    echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
+//                },
                 'headerOptions' => ['class'=>'first-col'],
                 'contentOptions' => ['class' => 'first-col']
             ],
