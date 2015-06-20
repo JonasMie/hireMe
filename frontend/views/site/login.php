@@ -33,13 +33,17 @@ include Yii::getAlias('@helper/companySignup.php');
 
             <?= $form->field($loginModel, 'email',['inputOptions' => ['class' => 'form-control typeStart']])->label('E-Mail'); ?>
             <?= $form->field($loginModel, 'password')->passwordInput()->label('Passwort'); ?>
-            <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
+            <!--<?= $form->field($loginModel, 'rememberMe')->checkbox() ?>-->
 
 
-            <div class="form-group">
+            <div class="form-group SubmitLogin">
                     <?= Html::submitButton('Login', ['class' => 'btn btn-success login-button', 'name' => 'login-button']) ?>
-					<?= Html::a('Passwort vergessen?', ['site/request-password-reset']) ?>
-                </div>
+			</div>
+
+            <div class="requestNewPassword">
+                <?= Html::a('Passwort vergessen?', ['site/request-password-reset']) ?>
+            </div>
+
             <?php ActiveForm::end(); ?>
 		
 			<?= yii\authclient\widgets\AuthChoice::widget([
