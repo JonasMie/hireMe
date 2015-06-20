@@ -55,7 +55,7 @@ $this->title = $indiTitle;
             ],
            
         ],
-        'caption'  => Html::decode("<a href='http://frontend/job/create'><button>Neue Stellenanzeige</button></a>")
+        'caption'  => Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>")
     ]); ?>  
 <!--
 -->

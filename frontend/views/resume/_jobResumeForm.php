@@ -16,7 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
     <?
-    echo '<label class="control-label">Beschäftigungszeit</label>';
     echo DatePicker::widget([
         'model'         => $model,
         'attribute'     => 'begin',
@@ -35,7 +34,6 @@ use yii\widgets\ActiveForm;
     ?>
 
     <?= $form->field($model, 'company_id')->textInput()->widget(Typeahead::classname(), [
-//        'options' => ['placeholder' => 'xyz'],
         'pluginOptions' => ['highlight' => true],
         'dataset'       => [
             [
@@ -44,7 +42,7 @@ use yii\widgets\ActiveForm;
             ],
 
         ]
-    ]) ?>
+    ])->label('Unternehmen') ?>
 
     <?= $form->field($model, 'type')->textInput(['maxlength' => 255])->label('Beruf') ?>
     <?= $form->field($model, 'description')->textarea([])->label('Beschreibung'); ?>

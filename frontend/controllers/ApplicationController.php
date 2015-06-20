@@ -21,6 +21,7 @@ use common\models\User;
 use yii\data\SqlDataProvider;
 use yii\db\Query;
 use frontend\models\Message;
+use frontend\models\CoverCreateForm;
 /**
  * ApplicationController implements the CRUD actions for Application model.
  */
@@ -140,6 +141,7 @@ class ApplicationController extends Controller
         
         $appDatas = new ApplicationDataSearch();
         $provider = $appDatas->search(['ApplicationDataSearch' => ['application_id' => $app->id]]);
+        $model["coverText"] = file_get_contents('uploads/cover/COVER_' .md5($user->id.'_'.$app->id). '.txt');          
         if (Yii::$app->user->identity->isRecruiter()) {
 
         $model["app"] = $app;
@@ -254,7 +256,7 @@ class ApplicationController extends Controller
         $app = Application::findOne($id);
         $job = Job::findOne($app->job_id);
 
-        $newSQL = "SELECT f.title, f.id from file f WHERE f.user_id = ".$user->id;
+        $newSQL = "SELECT f.title, f.id from file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = ".$user->id;
         Yii::trace("User ID: ".$user->id);
         $provider = new SqlDataProvider([
             'sql' => $newSQL,
@@ -280,7 +282,30 @@ class ApplicationController extends Controller
             ]
             ],
         ]);
+
+        $model = new CoverCreateForm();
+        $model->app = $app->id;
+        $possibleFile = File::find()
+        ->where(['title' => 'cover_'.$app->id,'user_id' => $user->id])->one();
+
+        if (count($possibleFile) ==1) {
+
+            $model->text = file_get_contents('uploads/cover/COVER_' .md5($user->id.'_'.$app->id). '.txt');          
+        }
+
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->create() == true) {
+
+            }
+
+
+        }
+
+
             return $this->render('create', [
+                'model' => $model,
                 'appId' => $id,
                 'job' => $job,
                 'provider' => $provider,
