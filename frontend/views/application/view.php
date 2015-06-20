@@ -20,9 +20,19 @@ use frontend\controllers\ApplicationController;
     <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
     <p> Eingestellt: <?= $model["created"];?></p>
     <p><?= Html::a(Html::button("Lebenslauf anschauen"),"") ?></p>
-   
+    <br>
+    <h3>Anschreiben:</h3>
+    <p>
+    <?= $model['coverText']; ?>
+    </p>
+    <br>   
     <? else: ?>
      <h2>Meine Bewerbung auf: <?= $model['job']->title ?></h2>
+    <h3>Anschreiben:</h3>
+    <p>
+    <?= $model['coverText']; ?>
+    </p>
+    <br>   
     <h3> Gesendete Anlagen:</h3>
     <? endif; ?>
 
@@ -44,7 +54,7 @@ use frontend\controllers\ApplicationController;
                 'label'  => 'Info',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return Html::a("Anschauen","/application/show-file?id=".$data->id,['target' => '_blank']);
+                    return Html::a("Anschauen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
                 }
             ],
         ],

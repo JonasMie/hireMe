@@ -54,7 +54,7 @@ class AttachementController extends Controller
     public function actionIndex()
     {
     	$user = Yii::$app->user->identity;
-  		$sql = "SELECT title,id from file WHERE user_id =".$user->id;
+  		$sql = "SELECT title,id from file WHERE NOT (title LIKE '%cover%') AND user_id =".$user->id;
   		$model = new UploadForm();
 
   		$fileDataProvider = new SqlDataProvider([
