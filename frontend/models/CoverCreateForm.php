@@ -73,6 +73,7 @@ class CoverCreateForm extends Model
             }
             else {
             Yii::trace("First time... Creating file");
+            
 
             $file = new File();
             $file->path = "uploads/cover/";
