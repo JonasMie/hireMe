@@ -33,7 +33,7 @@ class Analytics extends \yii\base\Model
     }
 
     //Overview
-    public function getApplier($id) {
+    public static function getApplier($id) {
 
     	 $applications = Application::find()
         ->where(['company_id' => $id, 'sent' => 1,])
@@ -55,7 +55,10 @@ class Analytics extends \yii\base\Model
 
     public function getInterviewRate($id) {
 
-        $applier = $this->getApplier($id);
+         $applier = Application::find()
+        ->where(['company_id' => $id, 'sent' => 1,])
+        ->orderBy('id')
+        ->all();
 
         $inteviewer = Application::find()
         ->where(['company_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
@@ -65,9 +68,12 @@ class Analytics extends \yii\base\Model
         else $rate = count($inteviewer)/count($applier)*100; 
         return $rate;
     } 
-    public function getInterviewRateForJob($id) {
+    public static function getInterviewRateForJob($id) {
 
-        $applier = $this->getAppliesForJob($id);
+         $applier = Application::find()
+        ->where(['company_id' => $id, 'sent' => 1,])
+        ->orderBy('id')
+        ->all();
 
         $inteviewer = Application::find()
         ->where(['job_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
@@ -75,6 +81,7 @@ class Analytics extends \yii\base\Model
         ->all();
         if (count($applier)==0) $rate = 0;
         else $rate = count($inteviewer)/count($applier)*100; 
+
         return $rate;
 
     }
@@ -139,6 +146,24 @@ class Analytics extends \yii\base\Model
         return $btns;
     }
 
+
+    public static function getInterestRateForJob($id)  {
+
+        $job = Job::findOne($id);
+        $data = Analytics::getAllViewsAndClicksForJob($id);
+
+        $views = $data[0];
+        $clicks = $data[1];
+
+        if ($views == 0) {$interestRate = 0;}
+        else {$interestRate = ($clicks/$views)*100;}
+        return round($interestRate,2,0);
+
+    }
+
+
+
+
      public static function getInterestRateForBtn($id) {
 
         $btn = ApplyBtn::findOne($id);
@@ -146,6 +171,19 @@ class Analytics extends \yii\base\Model
         else $rate =  ($btn->clickCount/$btn->viewCount)*100;
         return $rate;
 
+    }
+    public static function getApplicationRateForJob($id) {
+        /*
+        $job = Job::findOne($id);
+        //$data = $this->getAllViewsAndClicksForJob($id)
+        $jobApplies = Application::find()
+        ->where(['job_id' => $id, 'sent' => 1, 'archived' => 0])
+        ->orderBy('id')
+        ->all();    
+        if ($btn->clickCount == 0) $rate = 0;
+        else $rate =  (count($btnApplies)/$btn->clickCount)*100;
+        return $rate; 
+        */
     }
 
        public static function getApplicationRateForBtn($id) {
@@ -215,7 +253,7 @@ class Analytics extends \yii\base\Model
     }
 
     //Detail
-    public function getAllViewsAndClicksForJob($id) {
+    public static function getAllViewsAndClicksForJob($id) {
 
         $views = 0;
         $clicks = 0;

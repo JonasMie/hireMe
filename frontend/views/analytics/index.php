@@ -5,6 +5,7 @@ use yii\helpers\HtmlPurifier;
 use yii\widgets\ListView;
 use frontend\assets\CustomChartsAsset;
 use yii\grid\GridView;
+use frontend\models\Analytics;
 
 CustomChartsAsset::register($this);
 $this->title = "Analytics für";
@@ -172,24 +173,45 @@ $this->title = "Analytics für";
                 }
             ],       
         [
-                'label'  => 'Job Beginn',
+                'label'  => 'Views',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::encode($data->job_begin);
+                    return \yii\helpers\Html::encode(Analytics::getAllViewsAndClicksForJob($data->id)[0]);
                 }
             ],    
         [
-                'label'  => 'Job Ende',
+                'label'  => 'Clicks',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::encode($data->job_end);
+                    return \yii\helpers\Html::encode(Analytics::getAllViewsAndClicksForJob($data->id)[1]);
+                }
+        ],   
+         [
+                'label'  => 'Interest Rate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getInterestRateForJob($data->id));
                 }
         ],   
         [
-                'label'  => 'Ansehen',
+                'label'  => 'Interview Rate',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::a(Html::button("Ansehen"),"/analytics/detail?id=".$data->id);
+                    return \yii\helpers\Html::encode(Analytics::getInterviewRateForJob($data->id));
+                }
+        ],   
+        [
+                'label'  => 'Application Rate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getApplicationRateForJob($data->id));
+                }
+        ],   
+        [
+                'label'  => '',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::a("Ansehen","/analytics/detail?id=".$data->id);
                 }
         ],  
         ],
