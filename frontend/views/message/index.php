@@ -28,6 +28,15 @@ $this->title = Yii::t('app', 'Messages');
 
 ?>
 
+
+<? $this->registerJS ("
+    // When The Message Table is empty, a class gets set
+    if($('#inboxTable tbody tr td .empty').length){
+        $('#inboxTable').addClass('tableIsEmpty');
+    }
+") ?>
+
+
 <div class="message-index">
 
     <h1>Posteingang</h1>

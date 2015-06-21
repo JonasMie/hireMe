@@ -31,6 +31,8 @@ use yii\helpers\Html;
 
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
+
+    <!-- TILES -->
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"
              onclick="window.location='./application/index?new=true';">
@@ -91,15 +93,16 @@ use yii\helpers\Html;
             </div>
         </div>
     </div>
+    <!-- END TILES -->
 
-
+    <!-- TABLE -->
     <h2>Neueste Bewerbungen</h2>
 
     <?= GridView::widget([
         'dataProvider' => $applicationProvider,
-        'filterModel'  => $searchModel,
+    //    'filterModel'  => $searchModel,
         'tableOptions' => [
-            'class' => 'table table-hover footable toggle-arrow',
+            'class' => 'table table-hover footable toggle-arrow hireMeTable',
             'id'    => 'NewestApplicationsTable',
         ],
         'columns'      => [
@@ -109,7 +112,6 @@ use yii\helpers\Html;
                 'value'          => function ($data) {
                     return $data->user->getProfilePicture(true);
                 },
-                'contentOptions' => ['data-title' => 'Picture'],
                 'contentOptions' => ['data-title' => 'Picture'],
                 'label'          => false
             ],
@@ -142,112 +144,35 @@ use yii\helpers\Html;
             [
                 'class'          => 'yii\grid\ActionColumn',
                 'template'       => '{view}',
-                'headerOptions'  => ['data-toggle' => 'true'],
+                'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'View'],
-            ]
+            ],
+            [
+
+                'class' => 'yii\grid\Column',
+                'headerOptions' => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle']
+
+            ],
 
         ]
     ]);
     ?>
 
-    <table id="NewestApplicationsTable" class="table table-hover footable toggle-arrow hireMeTable">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Name</th>
-            <th data-hide="phone">Stelle</th>
-            <th data-hide="xsmall,phone">Beworben am</th>
-            <th data-hide="phone">Ansehen</th>
-            <th data-toggle="true"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/1.jpg"></td>
-            <td data-title="Name">Tom Krug</td>
-            <td data-title="Ad">Facility Manager</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/2.jpg"></td>
-            <td data-title="Name">Stefan Humm</td>
-            <td data-title="Ad">Hostess</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/3.jpg"></td>
-            <td data-title="Name">Chris Lang</td>
-            <td data-title="Ad">Hostess</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/4.jpg"></td>
-            <td data-title="Name">Moritz Hofmann</td>
-            <td data-title="Ad">Facility Manager</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/5.jpg"></td>
-            <td data-title="Name">Cornelius Specht</td>
-            <td data-title="Ad">Taxi-Fahrer</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/6.jpg"></td>
-            <td data-title="Name">Michael Gerrrrrrrulllis</td>
-            <td data-title="Ad">MMBler</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/7.jpg"></td>
-            <td data-title="Name">Aaron Pollvogt</td>
-            <td data-title="Ad">Backend Entwickler</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-        <tr>
-            <td data-title="Picture"><img src="/images/tmp/user/8.jpg"></td>
-            <td data-title="Name">Simön Ströbel</td>
-            <td data-title="Ad">Sparfuchs</td>
-            <td data-title="Date"><?= date('d' . '.' . 'm' . '.' . 'y') ?></td>
-            <td data-title="View"><span class="glyphicon glyphicon-eye-open"></span></td>
-            <td data-title="data-toggle"></td>
-        </tr>
-
-        </tbody>
-    </table>
-
-
-
-
 
 <? else: ?>
 
+    <h2><a class="userDashboardMessagesHeader" href="./message">Nachrichten</a></h2>
+
     <?= GridView::widget([
         'dataProvider' => $messageDP,
+        'tableOptions' => [
+            'class' => 'table table-hover footable toggle-arrow hireMeTable',
+            'id'    => 'DashboardMessages',
+        ],
         'columns'      => [
             [
                 'class' => 'yii\grid\CheckboxColumn',
-            ],
-            [
-                'label'  => 'Von',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, 'user/' . $data->sender->username);
-                }
             ],
             [
                 'label'  => 'Betreff',
@@ -256,29 +181,76 @@ use yii\helpers\Html;
                     return Html::a($data->read ? $data->subject : Html::tag('b', $data->subject), 'message/view?id=' . $data->id);
                 }
             ],
-            'sent_at:datetime:Datum/Uhrzeit'
+            [
+                'label'  => 'Von',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, 'user/' . $data->sender->username);
+                },
+                'headerOptions'  => ['data-hide' => 'phone'],
+
+            ],
+            [
+                'attribute' => 'sent_at',
+                'format' => 'datetime',
+                'label' => 'Gesendet/Empfangen',
+                'headerOptions'  => ['data-hide' => 'xsmall,phone'],
+
+            ],
+            [
+
+                'class' => 'yii\grid\Column',
+                'headerOptions' => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle']
+
+            ],
         ],
-        'caption'      => Html::a('Nachrichten', './message')
+        //'caption'      => Html::a('Nachrichten', './message')
     ]); ?>
+
+    <h2 class="userDashboardFavoritesHeader">Favoriten / Gespeicherte Suchen</h2>
+
 
     <?= GridView::widget([
         'dataProvider' => $favouritesDP,
+        'tableOptions' => [
+            'class' => 'table table-hover footable toggle-arrow hireMeTable',
+            'id'    => 'DashboardFavorites',
+        ],
         'columns'      => [
             [
                 'class' => 'yii\grid\CheckboxColumn',
             ],
-            'job.created_at:datetime:Erstellt am',
-            'job.sector:text:Branche',
             [
-                'label'  => 'Stellenbezeichnung/Beschreibung',
+                'label'  => 'Stellenbezeichnung',
                 'format' => 'raw',
                 'value'  => function ($data) {
                     return \yii\helpers\Html::a($data->job->description, '../job/view?id=' . $data->id);
                 }
             ],
-        ],
-        'caption'      => 'Favoriten / Gespeicherte Suchen',
+            [
+                'attribute' => 'sector',
+                'format' => 'datetime',
+                'label' => 'Branche',
+                'headerOptions'  => ['data-hide' => 'phone'],
 
+            ],
+            [
+                'attribute' => 'created_at',
+                'format' => 'datetime',
+                'label' => 'Erstellt am',
+                'headerOptions'  => ['data-hide' => 'xsmall,phone'],
+
+            ],
+            [
+
+                'class' => 'yii\grid\Column',
+                'headerOptions' => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle']
+
+            ],
+        ],
+        //'caption'      => 'Favoriten / Gespeicherte Suchen',
     ]); ?>
 
 
