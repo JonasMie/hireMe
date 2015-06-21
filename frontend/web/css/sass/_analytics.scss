@@ -124,6 +124,8 @@ body.controller-analytics {
   // CHARTS
   #analyticsCharts {
 
+    margin-bottom: 50px;
+
     .background-wrapper {
       background-color: $greyBG;
 
@@ -151,6 +153,9 @@ body.controller-analytics {
     }
 
     .second-col {
+      @media (max-width: 767px) {
+        margin-top: 50px;
+      }
       .background-wrapper {
         .header {
           background-color: $black;
@@ -162,15 +167,10 @@ body.controller-analytics {
     #charts-first-row, #charts-second-row, #charts-third-row, #charts-fourth-row {
       margin-top: 50px;
     }
-
-    #charts-first-row {
-
-    }
-
-
-
-
   }// END CHARTS
 
+  #analyticsTable {
+
+  }
 
 }

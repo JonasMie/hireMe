@@ -104,7 +104,7 @@ $(document).ready(function () {
         ]
 
         var interviewApplicationData = {
-            labels: ["Bewerbungen", "Vorstellungsgespräche"],
+            labels: ["Bewerbungen", "Interviews"],
             datasets: [
                 {
                     fillColor: "rgba(93,202,136,0.5)",
@@ -116,19 +116,21 @@ $(document).ready(function () {
             ]
         }
 
-        var interviewRateData = {
-            labels: ["Interview Rate"],
-            datasets: [
-                {
-                    label: "Interview Rate:",
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
-                    data: [obj.interviewRate]
-                }
-            ]
-        }
+        var interviewRateData = [
+
+            {
+                value: [obj.interviewRate],
+                color: "rgba(93,202,136,0.5)",
+                highlight: "rgba(93,202,136,1.0)",
+                label: ""
+            },
+            {
+                value: 100 - [obj.interviewRate],
+                color: "rgba(157,157,157,0.5)",
+                highlight: "rgba(157,157,157,1.0)",
+                label: ""
+            }
+        ]
 
         var applicationHiredData = {
             labels: ["Bewerbungen", "Eingestellt"],
@@ -143,19 +145,21 @@ $(document).ready(function () {
             ]
         }
 
-        var conversionRateData = {
-            labels: ["Conversion Rate"],
-            datasets: [
-                {
-                    label: "Conversion Rate:",
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,0.8)",
-                    highlightFill: "rgba(151,187,205,0.75)",
-                    highlightStroke: "rgba(151,187,205,1)",
-                    data: [obj.conversionRate]
-                }
-            ]
-        }
+        var conversionRateData = [
+
+            {
+                value: [obj.conversionRate],
+                color: "rgba(93,202,136,0.5)",
+                highlight: "rgba(93,202,136,1.0)",
+                label: ""
+            },
+            {
+                value: 100 - [obj.conversionRate],
+                color: "rgba(157,157,157,0.5)",
+                highlight: "rgba(157,157,157,1.0)",
+                label: ""
+            }
+        ]
 
         // VIEWS CLICKS + INTEREST RATE
         var ctx1 = document.getElementById("viewClickChart").getContext("2d");
@@ -164,7 +168,7 @@ $(document).ready(function () {
 
         var ctx2 = document.getElementById("interestRateChart").getContext("2d");
         var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
-        var interestRate = new Chart(ctx2).Pie(interestRateData, options);
+        var interestRate = new Chart(ctx2).Doughnut(interestRateData, options);
 
         // CLICKS APPLICAIONS + APPLICATION RATE
         var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
@@ -173,7 +177,7 @@ $(document).ready(function () {
 
         var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
         var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
-        var applicationRate = new Chart(ctx4).Pie(applicationRateData, options);
+        var applicationRate = new Chart(ctx4).Doughnut(applicationRateData, options);
 
         // APPLICATIONS INTERVIEWS + INTERVIEW RATE
         var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");
@@ -182,7 +186,7 @@ $(document).ready(function () {
 
         var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
         var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
-        var interviewRate = new Chart(ctx6).Bar(interviewRateData, options);
+        var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
 
         // APPLICATIONS HIRED + CONVERSION RATE
         var ctx7 = document.getElementById("applicationHiredChart").getContext("2d");
@@ -190,8 +194,8 @@ $(document).ready(function () {
         ctx7.canvas.height = 100;
 
         var ctx8 = document.getElementById("conversionRateChart").getContext("2d");
-        var interviewApplication = new Chart(ctx5).Bar(applicationHiredData, options);
-        var interviewRate = new Chart(ctx6).Bar(conversionRateData, options);
+        var interviewApplication = new Chart(ctx7).Bar(applicationHiredData, options);
+        var interviewRate = new Chart(ctx8).Doughnut(conversionRateData, options);
 
 
     });

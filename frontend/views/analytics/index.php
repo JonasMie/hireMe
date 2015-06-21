@@ -162,6 +162,7 @@ $this->title = "Analytics für";
 
     <?= GridView::widget([
         'dataProvider' => $provider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'analyticsTable'],
         'columns'      => [
          [
                 'label'  => 'Titel',
