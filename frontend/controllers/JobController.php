@@ -391,7 +391,7 @@ class JobController extends Controller
         else {$hasApplied = 0;}
         }
 
-         return $this->render('buttonPopupWindow',[
+         return $this->render('buttonPopup',[
             'userID' => $userID,
             'applied' => $hasApplied,
             ]);
