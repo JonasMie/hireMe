@@ -13,7 +13,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
+use yii\web\Response;
 
 /**
  * MessageController implements the CRUD actions for Message model.
@@ -137,18 +137,61 @@ class MessageController extends Controller
     }
 
     /**
-     * Deletes an existing Message model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * Marks one or multiple messages as read/unread
      *
-     * @param integer $id
      *
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionRead()
     {
-        $model = $this->findModel($id);
-        $model->deleted = 1;
-        $model->save();
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+        if (Yii::$app->request->isAjax) {
+            $params = Yii::$app->request->get('keys');
+            if (!is_null($params)) {
+                $keys = array_values($params);
+                $type = Yii::$app->request->get('type');
+                Message::updateAll(['read' => $type == "read" ? 1 : 0], ['and', ['in', 'id', $keys], 'receiver_id = ' . Yii::$app->user->getId()]);
+                return [
+                    'success' => true,
+                ];
+            }
+        }
+        return [
+            'success' => false,
+        ];
+    }
+
+    /**
+     * Deletes an existing Message model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     *
+     * @return mixed
+     */
+    public function actionDelete()          // TODO: make sure, only authorized user can delete messages (can only delete their own)
+    {
+        $id = Yii::$app->request->post('id');
+        $keys = Yii::$app->request->post('keys');
+        if (!is_null($id) && !is_array($id)) {
+            $model = $this->findModel($id);
+            if ($model->sender_id == Yii::$app->user->getId()) {
+                $model->deleted_sender = 1;
+            } else if ($model->receiver_id == Yii::$app->user->getId()) {
+                $model->deleted_receiver = 1;
+            }
+            $model->save();
+
+        } else if (!is_null($keys) && is_array($keys)) {
+            $messages = Message::find()->where(['and', ['in', 'id', $keys], ['or', 'receiver_id = ' . Yii::$app->user->getId(), 'sender_id = ' . Yii::$app->user->getId()]])->all();
+            foreach ($messages as $message) {
+                if ($message->receiver_id == Yii::$app->user->getId()) {
+                    $message->deleted_receiver = 1;
+                    $message->save();
+                } else if ($message->sender_id == Yii::$app->user->getId()) {
+                    $message->deleted_sender = 1;
+                    $message->save();
+                }
+            }
+        }
         return $this->redirect(['index']);
     }
 

@@ -15,7 +15,8 @@ use yii\db\ActiveRecord;
  * @property integer $sender_id
  * @property integer $receiver_id
  * @property string $sent_at
- * @property integer $deleted
+ * @property integer $deleted_sender
+ * @property integer $deleted_receiver
  * @property integer $read
  * @property integer $flow
  *
@@ -42,7 +43,7 @@ class Message extends ActiveRecord
         return [
             [['subject', 'content', 'sender_id', 'receiver_id'], 'required'],
             [['content'], 'string'],
-            [['sender_id', 'receiver_id', 'deleted', 'read', 'flow'], 'integer'],
+            [['sender_id', 'receiver_id', 'deleted_sender','deleted_receiver', 'read', 'flow'], 'integer'],
             [['sent_at'], 'safe'],
             [['subject'], 'string', 'max' => 255]
         ];
@@ -60,7 +61,8 @@ class Message extends ActiveRecord
             'sender_id' => 'Sender ID',
             'receiver_id' => 'Receiver ID',
             'sent_at' => 'Gesendet',
-            'deleted' => 'Gelöscht',
+            'deleted_sender' => 'Gelöscht',
+            'deleted_receiver' => 'Gelöscht',
             'read' => 'Gelesen',
             'flow' => 'Flow'
         ];

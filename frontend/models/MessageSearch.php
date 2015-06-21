@@ -29,7 +29,7 @@ class MessageSearch extends Message
     public function rules()
     {
         return [
-            [['id', 'sender_id', 'receiver_id', 'deleted', 'read'], 'integer'],
+            [['id', 'sender_id', 'receiver_id', 'deleted_sender', 'deleted_receiver', 'read'], 'integer'],
             [['subject', 'content', 'sent_at', 'senderName'], 'safe'],
         ];
     }
@@ -92,11 +92,13 @@ class MessageSearch extends Message
         }
 
         $query->andWhere(
-            ['or', '`receiver_id` = ' .Yii::$app->user->identity->getId() .' AND `deleted` = 0', ['sender_id' => Yii::$app->user->identity->getId()]]
+            ['or', 'receiver_id = ' .Yii::$app->user->identity->getId() .' AND `deleted_receiver` = 0', 'sender_id = ' . Yii::$app->user->identity->getId() .' AND `deleted_sender` = 0']
         );
+
         $query->andFilterWhere([
             'sent_at' => $this->sent_at,
-            'deleted' => $this->deleted,
+            'deleted_sender' => $this->deleted_sender,
+            'deleted_receiver' => $this->deleted_receiver,
             'read'    => $this->read,
         ]);
 
