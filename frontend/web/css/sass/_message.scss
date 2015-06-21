@@ -118,6 +118,9 @@ body.controller-message {
     }
 
   }
+  #inboxTable.tableIsEmpty {
+    margin-top: 60px;
+  }
 }
 
 body.controller-message.action-create {

@@ -974,200 +974,204 @@ body.action-login .site-login #form-signup .companySetup .field-signupform-compa
   margin-bottom: 40px;
 }
 
-/* line 5, ../sass/_dashboard.scss */
+/* line 3, ../sass/_dashboard.scss */
+body.controller-dashboard .summary {
+  display: none;
+}
+/* line 9, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row {
   margin-top: 20px;
 }
-/* line 7, ../sass/_dashboard.scss */
+/* line 11, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile {
   height: 130px;
   padding: 0px 1%;
 }
 @media (max-width: 511px) {
-  /* line 7, ../sass/_dashboard.scss */
+  /* line 11, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile {
     width: 100%;
   }
 }
-/* line 13, ../sass/_dashboard.scss */
+/* line 17, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile {
   height: 130px;
   width: 50%;
   float: left;
   clear: right;
 }
-/* line 18, ../sass/_dashboard.scss */
+/* line 22, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile:hover {
   cursor: pointer;
 }
-/* line 21, ../sass/_dashboard.scss */
+/* line 25, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value {
   text-align: center;
 }
-/* line 23, ../sass/_dashboard.scss */
+/* line 27, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value a {
   color: #fff;
   font-size: 17px;
 }
-/* line 26, ../sass/_dashboard.scss */
+/* line 30, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value a:hover {
   text-decoration: none;
 }
-/* line 31, ../sass/_dashboard.scss */
+/* line 35, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number {
   padding: 25px 0px 2px 0px;
 }
-/* line 33, ../sass/_dashboard.scss */
+/* line 37, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-number a {
   font-size: 30px;
 }
-/* line 37, ../sass/_dashboard.scss */
+/* line 41, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile div.tile-value.tile-string {
   padding: 0 5%;
   line-height: 18px;
 }
-/* line 46, ../sass/_dashboard.scss */
+/* line 50, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.col-lg-3.tile-green div.subtile-left {
   background-color: #5dca88;
 }
-/* line 50, ../sass/_dashboard.scss */
+/* line 54, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.col-lg-3.tile-green div.subtile-right {
   background-color: rgba(93, 202, 136, 0.5);
 }
-/* line 57, ../sass/_dashboard.scss */
+/* line 61, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.col-lg-3.tile-black div.subtile-left {
   background-color: #2d312f;
 }
-/* line 61, ../sass/_dashboard.scss */
+/* line 65, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.col-lg-3.tile-black div.subtile-right {
   background-color: #5d6461;
 }
-/* line 67, ../sass/_dashboard.scss */
+/* line 71, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
   background-image: url("/images/dashboard-neue-bewerbungen.png");
   background-size: 55% auto;
 }
 @media (max-width: 991px) {
-  /* line 67, ../sass/_dashboard.scss */
+  /* line 71, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
     background-size: 40% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 67, ../sass/_dashboard.scss */
+  /* line 71, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
     background-size: 80px auto;
   }
 }
 @media (max-width: 511px) {
-  /* line 78, ../sass/_dashboard.scss */
+  /* line 82, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-2 {
     margin-top: 20px;
   }
 }
-/* line 82, ../sass/_dashboard.scss */
+/* line 86, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
   background-image: url("/images/dashboard-nachrichten.png");
   background-size: 50% auto;
 }
 @media (max-width: 991px) {
-  /* line 82, ../sass/_dashboard.scss */
+  /* line 86, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
     background-size: 45% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 82, ../sass/_dashboard.scss */
+  /* line 86, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
     background-size: 90px auto;
   }
 }
-/* line 94, ../sass/_dashboard.scss */
+/* line 98, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
   background-image: url("/images/dashboard-stellenanzeigen.png");
   background-size: 35% auto;
 }
 @media (max-width: 991px) {
-  /* line 94, ../sass/_dashboard.scss */
+  /* line 98, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
     background-size: 25% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 94, ../sass/_dashboard.scss */
+  /* line 98, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
     background-size: 50px auto;
   }
 }
-/* line 106, ../sass/_dashboard.scss */
+/* line 110, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
   background-image: url("/images/dashboard-bewerbungen.png");
   background-size: 55% auto;
 }
 @media (max-width: 767px) {
-  /* line 106, ../sass/_dashboard.scss */
+  /* line 110, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
     background-size: 110px auto;
   }
 }
-/* line 116, ../sass/_dashboard.scss */
+/* line 120, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile-right {
   background-position: center;
   background-repeat: no-repeat;
 }
 @media (max-width: 991px) {
-  /* line 122, ../sass/_dashboard.scss */
+  /* line 126, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-3, body.controller-dashboard div.container div.row div.dashboard-tile-4 {
     margin-top: 20px;
   }
 }
-/* line 137, ../sass/_dashboard.scss */
+/* line 141, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(4), body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(5) {
   text-align: right;
 }
-/* line 147, ../sass/_dashboard.scss */
+/* line 151, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td img {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 153, ../sass/_dashboard.scss */
+/* line 157, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open {
   cursor: pointer;
 }
-/* line 155, ../sass/_dashboard.scss */
+/* line 159, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open:hover {
   color: #5dca88;
 }
-/* line 160, ../sass/_dashboard.scss */
+/* line 164, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Picture"] {
   width: 10%;
 }
-/* line 163, ../sass/_dashboard.scss */
+/* line 167, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Name"] {
   width: 30%;
 }
-/* line 166, ../sass/_dashboard.scss */
+/* line 170, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Ad"] {
   width: 34%;
 }
-/* line 169, ../sass/_dashboard.scss */
+/* line 173, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Date"] {
   width: 16%;
   text-align: right;
 }
-/* line 173, ../sass/_dashboard.scss */
+/* line 177, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="View"] {
   width: 10%;
   text-align: right;
 }
-/* line 177, ../sass/_dashboard.scss */
+/* line 181, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="data-toggle"] {
   text-align: right;
   width: 5%;
 }
-/* line 183, ../sass/_dashboard.scss */
+/* line 187, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr.footable-row-detail div.footable-row-detail-inner {
   padding-bottom: 25px;
 }
@@ -1356,37 +1360,41 @@ body.controller-message table#inboxTable tr.footable-row-detail .footable-row-de
     height: auto;
   }
 }
+/* line 121, ../sass/_message.scss */
+body.controller-message #inboxTable.tableIsEmpty {
+  margin-top: 60px;
+}
 
-/* line 125, ../sass/_message.scss */
+/* line 128, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row, body.controller-message.action-create .message-create-second-row {
   margin-top: 40px;
 }
-/* line 129, ../sass/_message.scss */
+/* line 132, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row {
   position: relative;
 }
-/* line 133, ../sass/_message.scss */
+/* line 136, ../sass/_message.scss */
 body.controller-message.action-create input[type="text"], body.controller-message.action-create span.tt-dropdown-menu {
   max-width: 400px;
 }
-/* line 137, ../sass/_message.scss */
+/* line 140, ../sass/_message.scss */
 body.controller-message.action-create #messagecreate-content {
   resize: none;
   box-shadow: none;
 }
-/* line 140, ../sass/_message.scss */
+/* line 143, ../sass/_message.scss */
 body.controller-message.action-create #messagecreate-content:focus {
   border-color: #5dca88;
 }
-/* line 145, ../sass/_message.scss */
+/* line 148, ../sass/_message.scss */
 body.controller-message.action-create .field-messagecreate-attachment {
   position: static;
 }
-/* line 147, ../sass/_message.scss */
+/* line 150, ../sass/_message.scss */
 body.controller-message.action-create .field-messagecreate-attachment label {
   position: static;
 }
-/* line 151, ../sass/_message.scss */
+/* line 154, ../sass/_message.scss */
 body.controller-message.action-create .field-messagecreate-attachment #messagecreate-attachment {
   margin-left: -2px;
   margin-top: 10px;
@@ -1394,36 +1402,36 @@ body.controller-message.action-create .field-messagecreate-attachment #messagecr
   overflow: hidden;
 }
 
-/* line 163, ../sass/_message.scss */
+/* line 166, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form {
   margin-top: 20px;
 }
-/* line 165, ../sass/_message.scss */
+/* line 168, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messagecreate-subject {
   position: relative;
 }
-/* line 167, ../sass/_message.scss */
+/* line 170, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messagecreate-subject .control-label {
   position: absolute;
 }
-/* line 173, ../sass/_message.scss */
+/* line 176, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form #messagecreate-content {
   resize: none;
   box-shadow: none;
 }
-/* line 176, ../sass/_message.scss */
+/* line 179, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form #messagecreate-content:focus {
   border-color: #5dca88;
 }
-/* line 182, ../sass/_message.scss */
+/* line 185, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file {
   position: static !important;
 }
-/* line 184, ../sass/_message.scss */
+/* line 187, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file label {
   position: static !important;
 }
-/* line 188, ../sass/_message.scss */
+/* line 191, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file #messageattachments-file {
   margin-left: -2px;
   margin-top: 10px;

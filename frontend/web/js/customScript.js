@@ -36,7 +36,6 @@ $(document).ready(function(){
     // Clear Form Fields
     $('input[type=text], input[type=password]').val('');
 
-
 });
 
 
