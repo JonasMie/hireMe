@@ -31,6 +31,8 @@ use yii\helpers\Html;
 
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
+
+    <!-- TILES -->
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"
              onclick="window.location='./application/index?new=true';">
@@ -91,15 +93,16 @@ use yii\helpers\Html;
             </div>
         </div>
     </div>
+    <!-- END TILES -->
 
-
+    <!-- TABLE -->
     <h2>Neueste Bewerbungen</h2>
 
     <?= GridView::widget([
         'dataProvider' => $applicationProvider,
-        'filterModel'  => $searchModel,
+    //    'filterModel'  => $searchModel,
         'tableOptions' => [
-            'class' => 'table table-hover footable toggle-arrow',
+            'class' => 'table table-hover footable toggle-arrow hireMeTable',
             'id'    => 'NewestApplicationsTable',
         ],
         'columns'      => [
@@ -109,7 +112,6 @@ use yii\helpers\Html;
                 'value'          => function ($data) {
                     return $data->user->getProfilePicture(true);
                 },
-                'contentOptions' => ['data-title' => 'Picture'],
                 'contentOptions' => ['data-title' => 'Picture'],
                 'label'          => false
             ],
@@ -142,14 +144,23 @@ use yii\helpers\Html;
             [
                 'class'          => 'yii\grid\ActionColumn',
                 'template'       => '{view}',
-                'headerOptions'  => ['data-toggle' => 'true'],
+                'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'View'],
-            ]
+            ],
+            [
+
+                'class' => 'yii\grid\Column',
+                'headerOptions' => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle']
+
+            ],
 
         ]
     ]);
     ?>
+    <!-- END TABLE -->
 
+    <!--
     <table id="NewestApplicationsTable" class="table table-hover footable toggle-arrow hireMeTable">
         <thead>
         <tr>
@@ -229,7 +240,7 @@ use yii\helpers\Html;
 
         </tbody>
     </table>
-
+    -->
 
 
 

@@ -1167,6 +1167,10 @@ body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="data-
   text-align: right;
   width: 5%;
 }
+/* line 183, ../sass/_dashboard.scss */
+body.controller-dashboard #NewestApplicationsTable tbody tr.footable-row-detail div.footable-row-detail-inner {
+  padding-bottom: 25px;
+}
 
 @media (min-width: 992px) {
   /* line 3, ../sass/_home.scss */

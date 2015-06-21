@@ -179,6 +179,11 @@ body.controller-dashboard{
           width: 5%;
         }
       }
+      tr.footable-row-detail {
+        div.footable-row-detail-inner {
+          padding-bottom: 25px;
+        }
+      }
     }
   } // END Newest Applications Table
 }
