@@ -7,12 +7,11 @@
 use yii\helpers\Html;
 
 $this->title = "Profil";
-
+Yii::$app->getSession()->getFlash('error');
 ?>
 <div class="row">
 	<div class="col-sm-6 user-info">
-    <h1><?= /*$user->fullName*/
-        $user->fullName?></h1>
+    <h1><?= $user->fullName?></h1>
 	</div>
 </div>
 <div class="row">
@@ -28,7 +27,8 @@ $this->title = "Profil";
     </div>
 	<div class="col-sm-9 user-timeline">
 		<?
-		if ($user->getId() == Yii::$app->user->identity->getId()) {
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
 
 			echo $this->render('/resume/_resume',[
 				'jobDataProvider'    => $jobDataProvider,
@@ -38,7 +38,10 @@ $this->title = "Profil";
 				'url1' =>['/resume'],
 				'url2' =>['/resume']
 			]);
-		}
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
+        }
 		?>
 	</div>
 </div>
+

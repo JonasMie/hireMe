@@ -11,11 +11,9 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\CreateJobForm;
 use frontend\models\ContactForm;
-use frontend\models\Job;
 use frontend\models\Company;
 use frontend\models\Auth;
 use yii\base\InvalidParamException;
-use yii\db\Query;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -32,24 +30,24 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
+            'access'      => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only'  => ['logout', 'signup'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
+                        'allow'   => true,
+                        'roles'   => ['?'],
                     ],
                     [
                         'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
+            'verbs'       => [
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -66,24 +64,32 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
+            'error'   => [
                 'class' => 'yii\web\ErrorAction',
             ],
             'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
+                'class'           => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
-            'auth' => [
-                'class' => 'yii\authclient\AuthAction',
+            'auth'    => [
+                'class'           => 'yii\authclient\AuthAction',
                 'successCallback' => [$this, 'onAuthSuccess'],
             ],
         ];
     }
 
 
-
     public function actionIndex()
     {
+
+        $cookies = Yii::$app->response->cookies;
+        $cookies->add(new \yii\web\Cookie([
+            'name'  => 'usr_',
+            'value' => Yii::$app->user->getId(),
+        ]));
+        if (!Yii::$app->user->isGuest) {
+            return $this->redirect('/dashboard');
+        }
 
         return $this->render("index");
 
@@ -99,24 +105,24 @@ class SiteController extends Controller
         $loginModel = new LoginForm();
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
             return $this->goBack();
-        } else if($signupModel->load(Yii::$app->request->post())) {
+        } else if ($signupModel->load(Yii::$app->request->post())) {
             if ($user = $signupModel->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
             }
-        }
-        else {
+        } else {
 
             return $this->render('login', [
-                'loginModel' => $loginModel,
+                'loginModel'  => $loginModel,
                 'signupModel' => $signupModel
 
             ]);
         }
     }
 
-    public function actionHome() {
+    public function actionHome()
+    {
 
         return $this->renderPartial("home");
 
@@ -169,21 +175,22 @@ class SiteController extends Controller
         ]);
     }
 
-    public function onAuthSuccess($client){
+    public function onAuthSuccess($client)
+    {
 
-        $attributes   = $client->getUserAttributes();
+        $attributes = $client->getUserAttributes();
         /** @var Auth $auth */
         $auth = Auth::find()->where([
-            'source' => $client->getId(),
+            'source'    => $client->getId(),
             'source_id' => $attributes['id'],
         ])->one();
 
-        if(Yii::$app->user->isGuest) {
-            if($auth){  // login
+        if (Yii::$app->user->isGuest) {
+            if ($auth) {  // login
                 $user = $auth->user;
                 Yii::$app->user->login($user);
             } else {    // signup
-                if(isset($attributes['email']) && isset($attributes['firstName']) && User::find()->where(['email' => $attributes['email']])->exists()){
+                if (isset($attributes['email']) && isset($attributes['firstName']) && User::find()->where(['email' => $attributes['email']])->exists()) {
                     Yii::$app->getSession()->setFlash('error', [
                         Yii::t('app', "User with the same email as in {client} account already exists but isn't linked to it. Login using email
                         first to link it.", ['client' => $client->getTitle()]),
@@ -191,8 +198,8 @@ class SiteController extends Controller
                 } else {
                     $password = Yii::$app->security->generateRandomString(6);
                     $firstName = $lastName = $email = '';
-                    error_log(print_r($attributes,1));
-                    switch ($client->getTitle()){
+                    error_log(print_r($attributes, 1));
+                    switch ($client->getTitle()) {
                         case("Google"):
                             $firstName = $attributes['name']['givenName'];
                             $lastName = $attributes['name']['familyName'];
@@ -205,7 +212,7 @@ class SiteController extends Controller
                             break;
                         case("GitHub"):
                             $firstName = $attributes['login'];
-                            if(isset($attributes['email'])) {
+                            if (isset($attributes['email'])) {
                                 $email = $attributes['email'];
                             }
                             break;
@@ -220,20 +227,20 @@ class SiteController extends Controller
 
                     $user = new User([
                         'firstName' => $firstName,
-                        'lastName' => $lastName,
-                        'email' => $email,
-                        'password' => $password
+                        'lastName'  => $lastName,
+                        'email'     => $email,
+                        'password'  => $password
                     ]);
                     $user->generateAuthKey();
                     $user->generatePasswordResetToken();
                     $transaction = $user->getDb()->beginTransaction();
-                    if($user->save()){
+                    if ($user->save()) {
                         $auth = new Auth([
-                            'user_id' => $user->id,
-                            'source' => $client->getId(),
+                            'user_id'   => $user->id,
+                            'source'    => $client->getId(),
                             'source_id' => (string)$attributes['id'],
                         ]);
-                        if($auth->save()){
+                        if ($auth->save()) {
                             $transaction->commit();
                             Yii::$app->user->login($user);
                         } else {
@@ -245,10 +252,10 @@ class SiteController extends Controller
                 }
             }
         } else {    // already logged in
-            if(!$auth) {    //add auth provider
+            if (!$auth) {    //add auth provider
                 $auth = new Auth([
-                    'user_id' => Yii::$app->user->id,
-                    'source' => $client->getId(),
+                    'user_id'   => Yii::$app->user->id,
+                    'source'    => $client->getId(),
                     'source_id' => $attributes['id'],
                 ]);
                 $auth->save();
@@ -261,11 +268,12 @@ class SiteController extends Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->getSession()->setFlash('success', 'Eine Email mit weiteren Anweisungen wurde an deine Adresse gesendet.');
 
                 return $this->goHome();
             } else {
-                Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+                Yii::$app->getSession()->setFlash('error', 'Entschuldigung, beim Zurücksetzen ist ein Fehler aufgetreten. Stelle sicher, dass
+                die Email-Adresse zu deinem Account gehört und probiere es später erneut.');
             }
         }
 
@@ -293,12 +301,12 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionUserSearch($q=null)
+    public function actionUserSearch($q = null)
     {
         return User::getAutocompleteUser($q);
     }
 
-    public function actionCompanySearch($q=null)
+    public function actionCompanySearch($q = null)
     {
         return Company::getAutocompleteCompany($q);
     }
