@@ -30,7 +30,7 @@ body.controller-message {
     tr {
       td {
         div.profile-picture-thumbnail {
-          margin-right: 10px;
+          margin-right: 0px;
         }
         div.message-sender {
           margin-top: 18px;
@@ -61,7 +61,7 @@ body.controller-message {
         }
         a {
           display: inline-flex;
-          div {
+          div.message-sender {
             margin-left: 10px;
           }
         }

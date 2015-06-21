@@ -1175,6 +1175,52 @@ body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="data-
 body.controller-dashboard #NewestApplicationsTable tbody tr.footable-row-detail div.footable-row-detail-inner {
   padding-bottom: 25px;
 }
+/* line 197, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages thead th:nth-of-type(1), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(1) {
+  width: 5%;
+}
+/* line 200, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages thead th:nth-of-type(2), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(2) {
+  width: 40%;
+}
+/* line 203, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages thead th:nth-of-type(3), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(3) {
+  width: 30%;
+}
+/* line 206, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages thead th:nth-of-type(4), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(4) {
+  width: 20%;
+}
+/* line 209, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages thead th:nth-of-type(5), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(5) {
+  width: 20%;
+}
+@media (max-width: 767px) {
+  /* line 214, ../sass/_dashboard.scss */
+  body.controller-dashboard #DashboardMessages thead th.footable-last-column, body.controller-dashboard #DashboardFavorites thead th.footable-last-column {
+    width: 5%;
+  }
+}
+/* line 221, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages tbody td.footable-last-column, body.controller-dashboard #DashboardFavorites tbody td.footable-last-column {
+  text-align: right;
+}
+/* line 225, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages tbody td div.empty, body.controller-dashboard #DashboardFavorites tbody td div.empty {
+  text-align: left;
+}
+/* line 235, ../sass/_dashboard.scss */
+body.controller-dashboard .userDashboardMessagesHeader {
+  color: #5dca88;
+}
+/* line 237, ../sass/_dashboard.scss */
+body.controller-dashboard .userDashboardMessagesHeader:hover {
+  color: rgba(93, 202, 136, 0.5);
+}
+/* line 242, ../sass/_dashboard.scss */
+body.controller-dashboard .userDashboardFavoritesHeader {
+  margin-top: 50px;
+}
 
 @media (min-width: 992px) {
   /* line 3, ../sass/_home.scss */
@@ -1262,7 +1308,7 @@ body.controller-message table#inboxTable {
 }
 /* line 32, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td div.profile-picture-thumbnail {
-  margin-right: 10px;
+  margin-right: 0px;
 }
 /* line 35, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td div.message-sender {
@@ -1305,7 +1351,7 @@ body.controller-message table#inboxTable tr td.third-col a {
   display: inline-flex;
 }
 /* line 64, ../sass/_message.scss */
-body.controller-message table#inboxTable tr td.third-col a div {
+body.controller-message table#inboxTable tr td.third-col a div.message-sender {
   margin-left: 10px;
 }
 /* line 69, ../sass/_message.scss */
