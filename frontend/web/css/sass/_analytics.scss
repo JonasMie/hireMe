@@ -121,11 +121,56 @@ body.controller-analytics {
     }
   }// END TILES
 
+  // CHARTS
   #analyticsCharts {
+
+    .background-wrapper {
+      background-color: $greyBG;
+
+      .header {
+        padding: 15px 20px;
+        color: #fff;
+        span {
+          cursor: help;
+        }
+      }
+
+      canvas {
+        margin-top: 60px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .first-col {
+      .background-wrapper {
+        .header {
+          background-color: $green;
+        }
+        canvas {}
+      }
+    }
+
+    .second-col {
+      .background-wrapper {
+        .header {
+          background-color: $black;
+        }
+        canvas {}
+      }
+    }
+
     #charts-first-row, #charts-second-row, #charts-third-row, #charts-fourth-row {
       margin-top: 50px;
     }
-  }
+
+    #charts-first-row {
+
+    }
+
+
+
+
+  }// END CHARTS
 
 
 }

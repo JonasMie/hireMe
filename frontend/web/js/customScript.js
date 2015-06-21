@@ -31,6 +31,11 @@ $(document).ready(function(){
         radioClass: 'iradio_flat'
     });
 
+    /* Tooltip */
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    /* END Tooltip */
 
 });
 
@@ -117,6 +122,7 @@ $('input[type=text]').focus(function () {
 /** END Helper Function for Input Forms **/
 
 
+/* TODO: CHECK IF NEEDED
 /** Replace all SVG images with inline SVG **/
 jQuery('img.svg').each(function(){
     var $img = jQuery(this);

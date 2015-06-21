@@ -1465,7 +1465,33 @@ body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right 
   background-position: center;
   background-repeat: no-repeat;
 }
-/* line 125, ../sass/_analytics.scss */
+/* line 127, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts .background-wrapper {
+  background-color: #edf0f0;
+}
+/* line 130, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts .background-wrapper .header {
+  padding: 15px 20px;
+  color: #fff;
+}
+/* line 133, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts .background-wrapper .header span {
+  cursor: help;
+}
+/* line 138, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts .background-wrapper canvas {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+/* line 146, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts .first-col .background-wrapper .header {
+  background-color: #5dca88;
+}
+/* line 155, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts .second-col .background-wrapper .header {
+  background-color: #2d312f;
+}
+/* line 162, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts #charts-first-row, body.controller-analytics #analyticsCharts #charts-second-row, body.controller-analytics #analyticsCharts #charts-third-row, body.controller-analytics #analyticsCharts #charts-fourth-row {
   margin-top: 50px;
 }
