@@ -4,10 +4,11 @@ use yii\helpers\Html;
 /**
  * @var $jobDataProvider \yii\data\ActiveDataProvider
  * @var $schoolDataProvider \yii\data\ActiveDataProvider
+ * @var $currentJobsDataProvider \yii\data\ActiveDataProvider
+ * @var $currentSchoolsDataProvider \yii\data\ActiveDataProvider
  */
 
 $this->title = Yii::t('app', 'Lebenslauf');
-$this->params['breadcrumbs'][] = $this->title;
 
 
 ?>
@@ -19,6 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
     $this->render('_resume', [
         'jobDataProvider'    => $jobDataProvider,
         'schoolDataProvider' => $schoolDataProvider,
+        'currentJobsDataProvider'        => $currentJobsDataProvider,
+        'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
         'edit' => true,
         'label' => 'Eintrag hinzufügen',
         'url1' => ['create', 'type'=>'job'],

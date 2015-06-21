@@ -354,11 +354,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function getProfilePicture($thumbnail = false)
     {
         if (isset($this->picture)) {
-            $picture = File::findOne(['id' => $this->picture_id]);           // TODO: cachen
+            $path = $this->picture->path;
             if ($thumbnail) {
-                return Html::img("/uploads/profile/thumbnails/" . $picture->path . ".jpg");
+                return Html::img("/uploads/profile/thumbnails/" . $path . ".jpg");
             }
-            return Html::img("/uploads/profile".$picture->path.".jpg", ['class'=>'img-responsive']);
+            return Html::img("/uploads/profile".$path.".jpg", ['class'=>'img-responsive']);
         }
 
         return "<div class = 'profile-picture-thumbnail pull-left'></div>";

@@ -53,6 +53,7 @@ $attributes = [
         'rowOptions'=>['style'=>'display:none'],
         'type'      => DetailView::INPUT_HIDDEN
     ],
+
 ];
 
 echo DetailView::widget([

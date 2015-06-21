@@ -85,42 +85,18 @@ class ResumeController extends Controller
                 $report_id = $this->upload($model);
                 if ($report_id) {
                     $model->report_id = $report_id;
-                } else if($report_id==false && $report_id!==null) {
-                    $jobDataProvider = new ActiveDataProvider(['query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),]);
-
-                    $schoolDataProvider = new ActiveDataProvider(['query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),]);
-
-                    return $this->render('index', ['jobDataProvider'    => $jobDataProvider,
-                                                   'schoolDataProvider' => $schoolDataProvider]);
+                } else if ($report_id == false && $report_id !== null) {
+                    return $this->renderIndex();
                 }
-                if ($model->save()) {
-
-                    $jobDataProvider = new ActiveDataProvider([
-                        'query' => ResumeJob::find(['user_id' => Yii::$app->user->getId()]),
-                    ]);
-
-                    $schoolDataProvider = new ActiveDataProvider([
-                        'query' => ResumeSchool::find(['user_id' => Yii::$app->user->getId()]),
-                    ]);
-
-                    return $this->render('index', [
-                        'jobDataProvider'    => $jobDataProvider,
-                        'schoolDataProvider' => $schoolDataProvider
-                    ]);
-                }
+                $model->save();
+                return $this->renderIndex();
             }
         } else {
-            $jobDataProvider = new ActiveDataProvider(['query' => ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()])]);
-
-            $schoolDataProvider = new ActiveDataProvider(['query' => ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()])]);
-
-            return $this->render('index', ['jobDataProvider'    => $jobDataProvider,
-                                           'schoolDataProvider' => $schoolDataProvider]);
+            return $this->renderIndex();
         }
     }
 
-    public
-    function actionCreate($type)
+    public function actionCreate($type)
     {
         $model = null;
         if ($type == "job") {
@@ -228,5 +204,60 @@ class ResumeController extends Controller
             }
             return false;
         }
+    }
+
+    /**
+     *
+     */
+    private function renderIndex()
+    {
+        $defaultOrder = [
+            'defaultOrder' =>
+                [
+                    'current' => SORT_DESC,
+                    'end'     => SORT_DESC,
+                    'begin'   => SORT_DESC
+                ]
+        ];
+
+        $jobQuery = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()]);
+        $schoolQuery = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()]);
+        $currentJobs = $jobQuery->andWhere(['current' => 1]);
+        $currentSchools = $schoolQuery->andWhere(['current' => 1]);
+        $jobDataProvider = new ActiveDataProvider([
+            'query' => $jobQuery,
+            'sort'  => $defaultOrder,
+        ]);
+
+        $schoolDataProvider = new ActiveDataProvider([
+            'query' => $schoolQuery,
+            'sort'  => $defaultOrder,
+        ]);
+
+        $currentJobsDataProvider = new ActiveDataProvider([
+            'query' => $currentJobs,
+            'sort'  => [
+                'defaultOrder' => [
+                    'end'   => SORT_DESC,
+                    'begin' => SORT_DESC
+                ]
+            ]
+        ]);
+
+        $currentSchoolsDataProvider = new ActiveDataProvider([
+            'query' => $currentSchools,
+            'sort'  => [
+                'defaultOrder' => [
+                    'end'   => SORT_DESC,
+                    'begin' => SORT_DESC
+                ]
+            ]
+        ]);
+        return $this->render('index', [
+            'jobDataProvider'            => $jobDataProvider,
+            'schoolDataProvider'         => $schoolDataProvider,
+            'currentJobsDataProvider'    => $currentJobsDataProvider,
+            'currentSchoolsDataProvider' => $currentSchoolsDataProvider,
+        ]);
     }
 }

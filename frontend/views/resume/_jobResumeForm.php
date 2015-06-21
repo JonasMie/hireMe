@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
         ]
     ]);
     ?>
-
+    <?= $form->field($model, 'current')->checkbox() ?>
     <?= $form->field($model, 'company_id')->textInput()->widget(Typeahead::classname(), [
         'pluginOptions' => ['highlight' => true],
         'dataset'       => [
@@ -46,8 +46,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'type')->textInput(['maxlength' => 255])->label('Beruf') ?>
     <?= $form->field($model, 'description')->textarea([])->label('Beschreibung'); ?>
-
-    <? //= $form->field($model, 'current')->checkbox()->label('Aktuell') ?>
 
     <?= $form->field($model, 'report_id')->fileInput()?>
 

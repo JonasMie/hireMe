@@ -33,6 +33,8 @@ Yii::$app->getSession()->getFlash('error');
 			echo $this->render('/resume/_resume',[
 				'jobDataProvider'    => $jobDataProvider,
 				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
 				'edit' => false,
 				'label' => 'Bearbeiten',
 				'url1' =>['/resume'],

@@ -7,8 +7,6 @@ use yii\helpers\Html;
 /* @var $model frontend\models\ResumeJob */
 
 $this->title = Yii::t('app', 'Arbeitsstelle hinzufügen');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Lebenslauf'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="resume-job-create">
 

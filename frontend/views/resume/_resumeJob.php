@@ -22,7 +22,7 @@ $attributes = [
         'attribute'     => 'company_id',
         'label'         => 'Arbeitgeber',
         'format'        => 'raw',
-        'value'         => Html::a($model->company->name, '/company'),
+        'value'         => Html::a($model->company->name, ['/company/view', 'id' => $model->company->id]), // TODO: check company url
         'type'          => DetailView::INPUT_TYPEAHEAD,
         'widgetOptions' => [
             'pluginOptions' => ['highlight' => true],
@@ -72,6 +72,11 @@ $attributes = [
         'rowOptions' => ['style' => 'display:none'],
         'type'       => DetailView::INPUT_HIDDEN
     ],
+    [
+        'attribute' => 'current',
+        'rowOptions' => ['class'=>'kv-view-hidden'],
+        'type' => DetailView::INPUT_CHECKBOX,
+    ]
 ];
 
 echo DetailView::widget([

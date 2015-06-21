@@ -45,23 +45,65 @@ class UserController extends Controller
         if ($un !== null && $un != Yii::$app->user->identity->username) {
             $user = User::findByUsername($un);
             if ($user === null) {
-                Yii::$app->getSession()->setFlash('error', 'Sorry, der Nutzer ' .$un .' existiert leider nicht.');
+                Yii::$app->getSession()->setFlash('error', 'Sorry, der Nutzer ' . $un . ' existiert leider nicht.');
                 return $this->redirect('/user');
-            }
-            else
+            } else
                 $id = $user->id;
         }
+        $jobQuery = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()]);
+        $schoolQuery = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()]);
+        $currentJobs = $jobQuery->andWhere(['current' => 1]);
+        $currentSchools = $schoolQuery->andWhere(['current' => 1]);
         $jobDataProvider = new ActiveDataProvider([
-            'query' => ResumeJob::find()->where(['user_id' => isset($id) ? $id : Yii::$app->user->getId()]),
+            'query' => $jobQuery,
+            'sort'  => [
+                'defaultOrder' =>
+                    [
+                        'current' => SORT_DESC,
+                        'end'     => SORT_DESC,
+                        'begin'   => SORT_DESC
+                    ]
+            ]
         ]);
+
         $schoolDataProvider = new ActiveDataProvider([
-            'query' => ResumeSchool::find()->where(['user_id' => isset($id) ? $id : Yii::$app->user->getId()]),
+            'query' => $schoolQuery,
+            'sort'  => [
+                'defaultOrder' =>
+                    [
+                        'current' => SORT_DESC,
+                        'end'     => SORT_DESC,
+                        'begin'   => SORT_DESC
+                    ]
+            ]
+        ]);
+
+        $currentJobsDataProvider = new ActiveDataProvider([
+            'query' => $currentJobs,
+            'sort'  => [
+                'defaultOrder' => [
+                    'end'   => SORT_DESC,
+                    'begin' => SORT_DESC
+                ]
+            ]
+        ]);
+
+        $currentSchoolsDataProvider = new ActiveDataProvider([
+            'query' => $currentSchools,
+            'sort'  => [
+                'defaultOrder' => [
+                    'end'   => SORT_DESC,
+                    'begin' => SORT_DESC
+                ]
+            ]
         ]);
 
         return $this->render('index', [
-            'jobDataProvider'    => $jobDataProvider,
-            'schoolDataProvider' => $schoolDataProvider,
-            'user'               => isset($user) ? $user : Yii::$app->user->identity,
+            'jobDataProvider'            => $jobDataProvider,
+            'schoolDataProvider'         => $schoolDataProvider,
+            'currentJobsDataProvider'    => $currentJobsDataProvider,
+            'currentSchoolsDataProvider' => $currentSchoolsDataProvider,
+            'user'                       => isset($user) ? $user : Yii::$app->user->identity,
         ]);
     }
 

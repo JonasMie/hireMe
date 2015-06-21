@@ -7,12 +7,16 @@
  * Project: hireMe
  */
 
-/* @var $jobDataProvider \yii\data\ActiveDataProvider */
-/* @var $schoolDataProvider \yii\data\ActiveDataProvider */
-/* @var $edit boolean */
-/* @var $label String */
-/* @var $url1 Array*/
-/* @var $url2 Array*/
+/**
+ * @var $jobDataProvider \yii\data\ActiveDataProvider
+ * @var $schoolDataProvider \yii\data\ActiveDataProvider
+ * @var $edit boolean
+ * @var $label String
+ * @var $url1 Array
+ * @var $url2 Array
+ * @var $currentJobsDataProvider \yii\data\ActiveDataProvider
+ * @var $currentSchoolsDataProvider \yii\data\ActiveDataProvider
+ */
 
 use yii\helpers\Html;
 
@@ -33,23 +37,46 @@ use yii\helpers\Html;
 
 ?>
 
-<h2>Berufserfahrung</h2>
-    <?php
+<?php
+$currentJobs = $currentJobsDataProvider->getCount();
+$currentSchools = $currentSchoolsDataProvider->getCount();
+
+if ($currentJobs + $currentSchools > 0) {
+    echo "<h2>Aktuell</h2>";
+}
+if ($currentJobs) {
     echo \yii\widgets\ListView::widget([
-        'dataProvider'=>  $jobDataProvider,
-        'itemView' => '_resumeJob',
-        'viewParams' => ['edit' =>$edit],
+        'dataProvider' => $currentJobsDataProvider,
+        'itemView'     => '_resumeJob',
+        'viewParams'   => ['edit' => $edit],
     ]);
-    ?>
+}
+if ($currentSchools) {
+    echo \yii\widgets\ListView::widget([
+        'dataProvider' => $currentSchoolsDataProvider,
+        'itemView'     => '_resumeSchool',
+        'viewParams'   => ['edit' => $edit],
+    ]);
+}
+?>
+
+<h2>Berufserfahrung</h2>
+<?php
+echo \yii\widgets\ListView::widget([
+    'dataProvider' => $jobDataProvider,
+    'itemView'     => '_resumeJob',
+    'viewParams'   => ['edit' => $edit],
+]);
+?>
 <p>
     <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
 </p>
-<h2>Schulische Laufbahn</h2>
+<h2>Ausbildung</h2>
 <?php
 echo \yii\widgets\ListView::widget([
-    'dataProvider'=>  $schoolDataProvider,
-    'itemView' => '_resumeSchool',
-    'viewParams' => ['edit' =>$edit],
+    'dataProvider' => $schoolDataProvider,
+    'itemView'     => '_resumeSchool',
+    'viewParams'   => ['edit' => $edit],
 ]);
 ?>
 <p>
