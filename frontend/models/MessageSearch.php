@@ -87,7 +87,7 @@ class MessageSearch extends Message
         if (!$this->validate()) {
             return $dataProvider;
         }
-
+        $query->distinct('message.id');
         $query->select(['message.*', 'IF (sender_id = '.Yii::$app->user->getId() .', (SELECT lastName FROM user WHERE id = receiver_id), (SELECT lastName FROM user WHERE id = sender_id)) as "other"']);
 
         $query->andWhere(
@@ -101,7 +101,7 @@ class MessageSearch extends Message
 
         $query->andFilterWhere(['like', 'subject', $this->subject])
             ->andFilterWhere(['like', 'content', $this->content]);
-        $query->join('INNER JOIN', 'user', '(user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
+        $query->join('INNER JOIN', 'user', '(user.id = message.sender_id OR user.id = message.receiver_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
 //        $query->join('INNER JOIN', 'user', '(user.id = message.receiver_id OR user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');
 //        if (isset($this->senderName)) {
 //            $query->join('RIGHT JOIN', 'user', '(user.id = message.receiver_id OR user.id = message.sender_id) AND user.fullName LIKE "%' . $this->senderName . '%"');

@@ -54,7 +54,7 @@ $this->title = Yii::t('app', 'Messages');
                 'label'     => 'Betreff',
                 'format'    => 'raw',
                 'value'     => function ($data) {
-                    return Html::a($data->subject, '/message/view?id=' . $data->id, ['class' => $data->read ? "read" : ""]);  // STYLE: wenn klasse 'read' => bold
+                    return Html::a(\yii\helpers\StringHelper::truncateWords($data->subject,15), '/message/view?id=' . $data->id, ['class' => $data->read ? "read" : ""]);  // STYLE: wenn klasse 'read' => bold
                 },
 
                 'headerOptions' => ['class'=>'second-col'],
