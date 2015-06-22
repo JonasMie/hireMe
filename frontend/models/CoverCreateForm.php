@@ -63,7 +63,7 @@ class CoverCreateForm extends Model
             if (count($possibleFile) == 1) {
             Yii::trace("File created already");
 
-            $writeFile =  'uploads/cover/COVER_' .md5($user->id.'_'.$this->app). '.txt';
+            $writeFile =  'uploads/covers/COVER_' .md5($user->id.'_'.$this->app). '.txt';
             $handle = fopen($writeFile, 'w');
             $txt = $this->text;
             fwrite($handle,$txt);
@@ -74,16 +74,15 @@ class CoverCreateForm extends Model
             else {
             Yii::trace("First time... Creating file");
             
-
             $file = new File();
-            $file->path = "uploads/cover/";
+            $file->path = '/covers/COVER_' .md5($user->id.'_'.$this->app);
             $file->extension = "txt";
             $file->size = 100;
             $file->title = "cover_".$this->app;
             $file->user_id = $user->id;
             $file->save();
 
-            $writeFile =  'uploads/cover/COVER_' .md5($user->id.'_'.$this->app). '.txt';
+            $writeFile =  "uploads/".$file->path. '.txt';
             $handle = fopen($writeFile, 'w');
             $txt = $this->text;
             fwrite($handle,$txt);

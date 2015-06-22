@@ -44,11 +44,49 @@ class AttachementController extends Controller
         $file = File::find()
         ->where(["id" => $id])->one();
         Yii::trace("file title: ".$file->title);
-
         $user_id = $file->user_id;
-
-        $this->redirect("http://frontend/uploads/appData/AD_".md5($user_id.'_'.$file->id).'.'.$file->extension);
+        $this->redirect("/uploads".$file->path.'.'.$file->extension);
         
+    }
+
+    public function actionUpdate($id) {
+
+        $model = File::find()
+        ->where(['id' => $id])
+        ->one();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+    
+
+    public function actionDeleteFile($id) {
+
+        $model = File::find()
+        ->where(['id' => $id])
+        ->one();
+        $model->delete();
+
+        $appDatas = ApplicationData::find()
+        ->where(['file_id' => $id])
+        ->all();
+
+        if (count($appDatas) > 0) {
+            foreach($appDatas as $data) {
+                $data->delete();
+                Yii::trace("löschen von app data");
+            }
+        }
+
+
+        return $this->redirect(['index']);
+
+
     }
 
     public function actionIndex()
@@ -78,13 +116,13 @@ class AttachementController extends Controller
                 $file = new File();
                 // Firstly, create file, then reference it by application_data 
                 $files = File::find()->orderBy('id')->all();
-                $file->path = "uploads/appData/";
+                $file->path = "/appData/AD_".md5($user->id.'_'.$file->id);
                 $file->extension = $model->file->extension;
                 $file->size = $model->file->size;
                 $file->title = $model->title;
                 $file->user_id = $user->id;
                 if($file->save()) {
-                $model->file->saveAs('uploads/appData/AD_' .md5($user->id.'_'.$file->id). '.' . $model->file->extension);                
+                $model->file->saveAs("uploads".$file->path.'.' . $model->file->extension);                
                 Yii::trace("Saved file");
                 }
                 $this->renderPartial("uploadSection", ['model'=>$model,'provider' => $fileDataProvider]);

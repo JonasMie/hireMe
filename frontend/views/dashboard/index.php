@@ -228,6 +228,7 @@ use yii\helpers\Html;
                     return \yii\helpers\Html::a($data->job->description, '../job/view?id=' . $data->id);
                 }
             ],
+            /*
             [
                 'attribute' => 'sector',
                 'format' => 'datetime',
@@ -242,6 +243,7 @@ use yii\helpers\Html;
                 'headerOptions'  => ['data-hide' => 'xsmall,phone'],
 
             ],
+            */
             [
 
                 'class' => 'yii\grid\Column',
