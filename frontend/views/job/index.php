@@ -29,6 +29,7 @@ $this->title = $indiTitle;
             return $this->render('jobItem',[
                 'model' => $data,
                 'subProvider' => ApplicationController::getApplicationDataForJob($data['id']),
+                
             ]); 
         }
         ]);

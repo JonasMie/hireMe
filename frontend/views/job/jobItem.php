@@ -18,9 +18,10 @@ use frontend\models\Analytics;
  <?= 
     ListView::widget([
         'dataProvider' => $subProvider,
-        'itemView' =>function($data) {
+        'itemView' =>function($data) use ($model){
             return $this->render('jobSubItem',[
                 'model' => $data,
+                'job' => $model['id'],
             ]); 
         }
         ]);

@@ -21,6 +21,7 @@ use frontend\models\Company;
         $model["app"]->read = 1;
         $model["app"]->save();
     ?>
+    <h2><?= $model["job"]->title ?> </h2>
     <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
     <p> Beworben am: <?= $model["created"];?></p>
     <br>
@@ -166,8 +167,9 @@ use frontend\models\Company;
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
     
     <?= Html::a(Html::button("Nachricht senden"),"/message/create?rec=".$model["user"]->id); ?>
-    <?= Html::a(Html::button("Einstellen"),"/application/app-action?app=".$model["app"]->id."&act=1"); ?>
-    <?= Html::a(Html::button("Archivieren"),"/application/app-action?app=".$model["app"]->id."&act=0"); ?>
+    <?= Html::a(Html::button("Zum Gespräch einladen"),"/application/app-action?app=".$model["app"]->id."&act=0"); ?>
+    <?= Html::a(Html::button("Stelle besetzen"),"/application/app-action?app=".$model["app"]->id."&act=1"); ?>
+    <?= Html::a(Html::button("Archivieren"),"/application/app-action?app=".$model["app"]->id."&act=2"); ?>
 
     <? endif; ?>
 

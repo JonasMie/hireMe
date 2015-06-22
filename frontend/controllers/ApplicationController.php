@@ -183,6 +183,8 @@ class ApplicationController extends Controller
         $model["app"] = $app;
         $model["user"] = $user;
         $model["created"] = $app->created_at;
+        $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
+
         
           return $this->render('view', [
             'model' => $model,
@@ -218,14 +220,25 @@ class ApplicationController extends Controller
         $message->sender_id = $user->id;
         $message->receiver_id = $app->user_id;
 
-        if ($act == 1) {
+        if($act == 0) {
+            // Invite for talk
+            $app->state = "Vorstellungsgespräch";
+            if($app->save()) {
+            $this->redirect("/application");
+            }
+
+        }   
+
+        else if ($act == 1) {
+            // Hire directly
+
         $message->content = "Herzlichen Glückwunsch! Soeben wurdest du von ".$user->fullName. " für den Job ". $job->title." eingestellt.";
         if($message->save()) {
             $this->redirect("/application");
         }
         }
         else {
-
+            //Archived application :(
         $app->archived = 1;
         if($app->save()) {
             $message->content = "Hey do Loser, du warst einfach zu schlecht, hab die Bewerbung sofort gelöscht.... Du penner!";
