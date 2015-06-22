@@ -25,7 +25,7 @@ use yii\helpers\Html;
                 'label'  => 'Anschauen',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return  Html::a("Anschauen","/attachement/show-file?id=".$data['id'],['target' => '_blank']);
+                    return  Html::a("Anschauen","/attachement/show-file?id=".$data['id'],['target' => '_blank'])." ".Html::a("Bearbeiten","/attachement/update?id=".$data['id'])."  ".Html::a("Löschen","/attachement/delete-file?id=".$data['id']);
                 }
             ], 
         ],

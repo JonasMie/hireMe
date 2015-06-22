@@ -49,6 +49,35 @@ class AttachementController extends Controller
         
     }
 
+    public function actionUpdate($id) {
+
+        $model = File::find()
+        ->where(['id' => $id])
+        ->one();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+    
+
+    public function actionDeleteFile($id) {
+
+        
+        $model = File::find()
+        ->where(['id' => $id])
+        ->one();
+        $model->delete();
+
+        return $this->redirect(['index']);
+
+
+    }
+
     public function actionIndex()
     {
     	$user = Yii::$app->user->identity;
