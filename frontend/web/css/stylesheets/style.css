@@ -1486,6 +1486,13 @@ body.controller-message.action-view .dateMessageView {
   margin-bottom: 10px;
 }
 /* line 195, ../sass/_message.scss */
+body.controller-message.action-view .subjectMessageView {
+  border-top: 2px solid #dddddd;
+  font-weight: bold;
+  line-height: 23px;
+  padding: 10px 0;
+}
+/* line 202, ../sass/_message.scss */
 body.controller-message.action-view .contentMessageView {
   margin-bottom: 10px;
   line-height: 23px;
@@ -1493,50 +1500,50 @@ body.controller-message.action-view .contentMessageView {
   border-bottom: 2px solid #dddddd;
   padding: 10px 0px;
 }
-/* line 204, ../sass/_message.scss */
+/* line 211, ../sass/_message.scss */
 body.controller-message.action-view .senderMessageView a, body.controller-message.action-view .attachmentMessageView a {
   color: #5dca88;
 }
-/* line 206, ../sass/_message.scss */
+/* line 213, ../sass/_message.scss */
 body.controller-message.action-view .senderMessageView a:hover, body.controller-message.action-view .attachmentMessageView a:hover {
   color: rgba(93, 202, 136, 0.5);
 }
 @media (max-width: 511px) {
-  /* line 212, ../sass/_message.scss */
+  /* line 219, ../sass/_message.scss */
   body.controller-message.action-view .attachmentMessageView {
     margin-bottom: 30px;
   }
 }
-/* line 223, ../sass/_message.scss */
+/* line 230, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form {
   margin-top: 20px;
 }
-/* line 225, ../sass/_message.scss */
+/* line 232, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messagecreate-subject {
   position: relative;
 }
-/* line 227, ../sass/_message.scss */
+/* line 234, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messagecreate-subject .control-label {
   position: absolute;
 }
-/* line 233, ../sass/_message.scss */
+/* line 240, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form #messagecreate-content {
   resize: none;
   box-shadow: none;
 }
-/* line 236, ../sass/_message.scss */
+/* line 243, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form #messagecreate-content:focus {
   border-color: #5dca88;
 }
-/* line 242, ../sass/_message.scss */
+/* line 249, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file {
   position: static !important;
 }
-/* line 244, ../sass/_message.scss */
+/* line 251, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file label {
   position: static !important;
 }
-/* line 248, ../sass/_message.scss */
+/* line 255, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file #messageattachments-file {
   margin-left: -2px;
   margin-top: 10px;

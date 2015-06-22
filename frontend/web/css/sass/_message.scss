@@ -192,6 +192,13 @@ body.controller-message.action-view {
     margin-bottom: 10px;
   }
 
+  .subjectMessageView {
+    border-top: $FormBorderNonFocused;
+    font-weight: bold;
+    line-height: 23px;
+    padding: 10px 0;
+  }
+
   .contentMessageView {
     margin-bottom: 10px;
     line-height: 23px;

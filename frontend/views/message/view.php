@@ -75,6 +75,10 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
         <?= Yii::$app->formatter->asDatetime($model->sent_at, "php:H:i:s d.m.Y") ?>
     </div>
 
+    <div class="subjectMessageView">
+        <?= $model->subject ?>
+    </div>
+
     <div class="contentMessageView">
         <?= $model->content ?>
     </div>
