@@ -38,6 +38,7 @@ class File extends \yii\db\ActiveRecord
     {
         return [
             [['path'], 'string', 'max' => 255],
+            [['title'],'string','max' => 255],
             // TODO: rules for file (size & extension)
         ];
     }

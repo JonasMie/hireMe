@@ -1,34 +1,50 @@
 
-$( document ).ready(function() {
 
-	var key = $("#ac").attr('name');
-	var html = '<iframe src="http://frontend/job/view-count" width="0" height="0" id="hireMeFrame" scrolling="no" frameBorder="0" name="'+key+'">';
-	$("#ac").html(html);
-	$("#ac").append("<button id='applyBtn' onclick='clicked();'>APPLY</button>");
-	$("#ac").append('<div style="width:400px; height:400px; border:1px solid;" id="hoverInfo"><iframe id="hoverInfoFrame" src="http://frontend/job/button-popup?key='+key+'" width="400" height="400" scrolling="no" frameBorder="0" name="'+key+'"></div>');
-	var btn = $( "#ac" ).children()[1];
+//thanks to http://www.sitepoint.com/dynamically-load-jquery-library-javascript/
+function loadScript(url, callback) {
+ 
+        var script = document.createElement("script")
+        script.type = "text/javascript";
+ 
+        if (script.readyState) { //IE
+            script.onreadystatechange = function () {
+                if (script.readyState == "loaded" || script.readyState == "complete") {
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else { //Others
+            script.onload = function () {
+                callback();
+            };
+        }
+ 
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+/* thanks finished*/
+  
+  loadScript("http://code.jquery.com/jquery-1.11.3.min.js", function () {
+ 
+  		loadScript("http://code.jquery.com/jquery-migrate-1.2.1.min.js", function () {
+  			console.log("jquery loaded");
 
-	console.log(btn);
+  			var key = $("#ac").attr('name');
+			var html = '<iframe src="http://frontend/job/view-count" width="0" height="0" id="hireMeFrame" scrolling="no" frameBorder="0" name="'+key+'">';
+			$("#ac").html(html);
+			$("#ac").append("<button id='applyBtn' onclick='clicked();'>APPLY</button>");
+			$("#ac").append('<div style="width:400px; height:400px; border:1px solid;" id="hoverInfo"><iframe id="hoverInfoFrame" src="http://frontend/job/button-popup?key='+key+'" width="400" height="400" scrolling="no" frameBorder="0" name="'+key+'"></div>');
+			var btn = $( "#ac" ).children()[1];
+			console.log(btn);
+			$('#hoverInfo').hide();
+			$(document).on('click', '#applyBtn', function(){  $('#hoverInfo').show();});
+			$(document).on('mouseleave', '#hoverInfoFrame', function(){  $('#hoverInfo').hide();  });
 
-	$(document).on('ready' ,function()  { 
-   		
-   		 $('#hoverInfo').hide();
-		
-	});
-
+	  });
 });
 
-$(document).on('click', '#applyBtn', function(){ 
-     
-     $('#hoverInfo').show();
-     
- });
 
-$(document).on('mouseleave', '#hoverInfoFrame', function(){ 
-     
-     $('#hoverInfo').hide();
-     
- });
+
 
 
 
