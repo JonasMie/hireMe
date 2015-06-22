@@ -22,11 +22,26 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 ?>
 <div class="message-view">
 
-    <h1 class="headerMessageView"><?= Html::encode($this->title) ?></h1>
+    <h1 class="headerMessageView">
 
-    <p class="buttonsMessageView">
+        Nachricht
+
+        <?= Yii::$app->user->getId() === $model->sender_id ? "an" : "von" ?>
+        <? if (Yii::$app->user->getId() === $model->sender_id) {             // Aktueller Nutzer ist Sender der Nachricht
+            echo Html::a($model->receiver->fullName, '../user/' . $model->receiver->username);
+        } else if (Yii::$app->user->getId() === $model->receiver_id) {       // Aktueller Nutzer ist Empfänger der Nachricht
+            echo Html::a($model->sender->fullName, '../user/' . $model->sender->username);
+        } ?>
+
+
+
+
+    </h1>
+
+    <div class="buttonsMessageView">
 
         <? if (True) {
+        // if (Yii::$app->user->getId() === $model->receiver_id) {
             echo Html::a(Yii::t('app', '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Löschen'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-default ripple',
                 'data'  => [
@@ -45,7 +60,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 //                'method'  => 'post',
 //            ],
         ]) ?>
-    </p>
+    </div>
 
     <div class="senderMessageView">
         <?= Yii::$app->user->getId() === $model->sender_id ? "An" : "Von" ?>
@@ -82,6 +97,31 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
         }
         ?>
     </div>
+
+    <div class="buttonsMessageView">
+
+        <? if (True) {
+            // if (Yii::$app->user->getId() === $model->receiver_id) {
+            echo Html::a(Yii::t('app', '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Löschen'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-default ripple',
+                'data'  => [
+                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                    'method'  => 'post',
+                ],
+            ]);
+        } ?>
+
+        <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Antworten'), '#', [
+            'class' => 'btn btn-success',
+            'data-toggle' => 'modal',
+            'data-target' => '#replyModal'
+//            'data'  => [
+//                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+//                'method'  => 'post',
+//            ],
+        ]) ?>
+    </div>
+
 </div>
 
 <?php /*
@@ -112,7 +152,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
                     $reply->flow = $model->flow;
                     ?>
 
-                    <?= $form->field($reply, 'subject', ['options' => ['class' => 'input-in-focus']])->textInput(['maxlength' => 255]) ?>
+                    <?= $form->field($reply, 'subject', ['options' => ['class' => 'input-in-focus allowPrefill']])->textInput(['maxlength' => 255]) ?>
 
                     <?= $form->field($reply, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...'] ], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15])  ->label(false) ?>
 

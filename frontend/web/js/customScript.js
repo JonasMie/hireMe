@@ -34,7 +34,7 @@ $(document).ready(function(){
 
     // TODO: This is a temporary hack, to prevent prefilled forms by browser which break our styling
     // Clear Form Fields
-    $('input[type=text], input[type=password]').val('');
+    $(':not(.allowPrefill) > input').val('');
 
 });
 

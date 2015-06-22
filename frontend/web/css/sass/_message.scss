@@ -162,16 +162,42 @@ body.controller-message.action-create {
 
 body.controller-message.action-view {
 
-  .headerMessageView, .buttonsMessageView {
+  .headerMessageView {
     margin-bottom: 30px;
+    a {
+      color: $green;
+      &:hover {
+        color: $green50; // TODO: Change hover color
+      }
+    }
   }
 
-  .senderMessageView, .dateMessageView, .contentMessageView {
-    margin-bottom: 20px;
+  .buttonsMessageView {
+    margin-bottom: 30px;
+    float: right;
+    clear: left;
+    @media (max-width: 511px) {
+      float: none;
+    }
+  }
+
+  .senderMessageView {
+    margin-bottom: 10px;
+  }
+
+  .dateMessageView {
+    border-top: $FormBorderNonFocused;
+    max-width: 180px;
+    padding-top: 10px;
+    margin-bottom: 10px;
   }
 
   .contentMessageView {
+    margin-bottom: 10px;
     line-height: 23px;
+    border-top: $FormBorderNonFocused;
+    border-bottom: $FormBorderNonFocused;
+    padding: 10px 0px;
   }
 
   .senderMessageView, .attachmentMessageView {
@@ -183,7 +209,11 @@ body.controller-message.action-view {
     }
   }
 
-
+  .attachmentMessageView {
+    @media (max-width: 511px) {
+      margin-bottom: 30px;
+    }
+  }
 
 
 
