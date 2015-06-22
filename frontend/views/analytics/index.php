@@ -176,9 +176,57 @@ $this->title = "Analytics für";
                 'label'  => 'Views',
                 'format' => 'raw',
                 'value'  => function ($data) {
+                        if($data['views'] == 0) {return \yii\helpers\Html::encode("0");}
                     return \yii\helpers\Html::encode($data['views']);
                 }
             ],    
+        [
+                'label'  => 'Clicks',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                     if($data['clicks'] == 0) {return \yii\helpers\Html::encode("0");}
+                    return \yii\helpers\Html::encode($data['clicks']);
+                }
+            ],   
+        [
+                'label'  => 'Bewerber',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getAppliesForJob($data['id']));
+                }
+            ],   
+        [
+                'label'  => 'InterestRate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    if($data['interestRate'] == null) {return \yii\helpers\Html::encode("0 %");}
+                    return \yii\helpers\Html::encode($data['interestRate']." %");
+                }
+            ],   
+       [
+                'label'  => 'ApplicationRate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                     if($data['clicks'] == 0) {return \yii\helpers\Html::encode("0 %");}
+                    return \yii\helpers\Html::encode(100*Analytics::getAppliesForJob($data['id'])/$data['clicks']." %");
+                }
+            ],   
+         [
+                'label'  => 'InterviewRate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    $interviews = Analytics::getInterviewsForJob($data['id']);
+                    if ($interviews == 0)  {return \yii\helpers\Html::encode("0 %");}
+                    return \yii\helpers\Html::encode(100*Analytics::getInterviewsForJob($data['id'])/Analytics::getAppliesForJob($data['id'])." %");
+                }
+            ],   
+        [
+                'label'  => 'Ansehen',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::a("Ansehen","/analytics/detail?id=".$data['id']);
+                }
+            ],   
         ],
     ]); 
 

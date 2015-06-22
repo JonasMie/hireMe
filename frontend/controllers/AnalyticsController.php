@@ -120,17 +120,22 @@ class AnalyticsController extends Controller
             'pageSize' => 20,],
         ]);
 
-        $sql = "SELECT j.title, b.viewCount as views from job j, applyBtn b WHERE b.job_id = j.id and j.company_id = ".$id;
-
+        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, (SUM(b.clickCount)/SUM(b.viewCount)*100) as interestRate
+                        FROM job j
+                        LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                        GROUP BY j.title";
+      
         $jobProvider = new SqlDataProvider([
             'sql' => $sql,
             'sort' => [
                 'attributes' => [
-                'title','views'
+                'title','views','clicks','interestRate',
             ],
             'defaultOrder' => [
                 'title' => SORT_ASC,
                 'views' => SORT_ASC,
+                'clicks' => SORT_ASC,
+                'interestRate' => SORT_ASC,
             ]
             ],
         ]);
