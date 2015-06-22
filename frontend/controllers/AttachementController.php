@@ -67,11 +67,22 @@ class AttachementController extends Controller
 
     public function actionDeleteFile($id) {
 
-        
         $model = File::find()
         ->where(['id' => $id])
         ->one();
         $model->delete();
+
+        $appDatas = ApplicationData::find()
+        ->where(['file_id' => $id])
+        ->all();
+
+        if (count($appDatas) > 0) {
+            foreach($appDatas as $data) {
+                $data->delete();
+                Yii::trace("löschen von app data");
+            }
+        }
+
 
         return $this->redirect(['index']);
 
