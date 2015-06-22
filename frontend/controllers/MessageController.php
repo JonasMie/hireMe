@@ -61,7 +61,6 @@ class MessageController extends Controller
     public function actionIndex()
     {
         $searchModel = new MessageSearch();
-//        $dataProvider = $searchModel->search(['MessageSearch' =>['receiver_id' => Yii::$app->user->identity->getId(), 'sender_id' =>Yii::$app->user->identity->getId()]],true);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -80,7 +79,7 @@ class MessageController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        $attachments = MessageAttachments::findOne(3);  // TODO: FUCK YOU, WIESO FUNKTIONIERT DER ANHANG NICHTMEHR? FIXEN!
+        $attachments = MessageAttachments::findAll(['message_id' => $id]);
         $reply = new MessageCreate();
         $reply->receiver = $model->receiver->fullName;
         return $this->render('view', [

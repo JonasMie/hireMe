@@ -100,7 +100,7 @@ use yii\helpers\Html;
 
     <?= GridView::widget([
         'dataProvider' => $applicationProvider,
-    //    'filterModel'  => $searchModel,
+        //    'filterModel'  => $searchModel,
         'tableOptions' => [
             'class' => 'table table-hover footable toggle-arrow hireMeTable',
             'id'    => 'NewestApplicationsTable',
@@ -149,8 +149,8 @@ use yii\helpers\Html;
             ],
             [
 
-                'class' => 'yii\grid\Column',
-                'headerOptions' => ['data-toggle' => 'true'],
+                'class'          => 'yii\grid\Column',
+                'headerOptions'  => ['data-toggle' => 'true'],
                 'contentOptions' => ['data-title' => 'data-toggle']
 
             ],
@@ -182,25 +182,30 @@ use yii\helpers\Html;
                 }
             ],
             [
-                'label'  => 'Von',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::a($data->sender->firstName . " " . $data->sender->lastName, 'user/' . $data->sender->username);
+                'attribute'     => 'senderName',
+                'label'         => 'Von/An',
+                'format'        => 'raw',
+                'value'         => function ($data) {
+                    if (Yii::$app->user->getId() === $data->sender_id) {
+                        return Html::a($data->receiver->getProfilePicture(true) . '<div class="message-sender">' . $data->receiver->firstName . " " . $data->receiver->lastName . '</div>', '../user/' . $data->receiver->username);
+                    } else if (Yii::$app->user->getId() === $data->receiver_id) {
+                        return Html::a($data->sender->getProfilePicture(true) . '<div class="message-sender">' . $data->sender->firstName . " " . $data->sender->lastName . '</div>', '../user/' . $data->sender->username);
+                    }
                 },
-                'headerOptions'  => ['data-hide' => 'phone'],
+                'headerOptions' => ['data-hide' => 'phone'],
+                
+            ],
+            [
+                'attribute'     => 'sent_at',
+                'format'        => 'datetime',
+                'label'         => 'Gesendet/Empfangen',
+                'headerOptions' => ['data-hide' => 'xsmall,phone'],
 
             ],
             [
-                'attribute' => 'sent_at',
-                'format' => 'datetime',
-                'label' => 'Gesendet/Empfangen',
-                'headerOptions'  => ['data-hide' => 'xsmall,phone'],
 
-            ],
-            [
-
-                'class' => 'yii\grid\Column',
-                'headerOptions' => ['data-toggle' => 'true'],
+                'class'          => 'yii\grid\Column',
+                'headerOptions'  => ['data-toggle' => 'true'],
                 'contentOptions' => ['data-title' => 'data-toggle']
 
             ],
@@ -246,8 +251,8 @@ use yii\helpers\Html;
             */
             [
 
-                'class' => 'yii\grid\Column',
-                'headerOptions' => ['data-toggle' => 'true'],
+                'class'          => 'yii\grid\Column',
+                'headerOptions'  => ['data-toggle' => 'true'],
                 'contentOptions' => ['data-title' => 'data-toggle']
 
             ],
