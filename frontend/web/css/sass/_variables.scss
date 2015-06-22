@@ -84,13 +84,15 @@ $FormBorderFocused: 2px solid $green;
 
 input.form-control{
   background: transparent;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 2px 0px;
   box-shadow: none!important;
   -webkit-box-shadow: none!important;
   border-radius: 0px;
   &:focus {
     border-color: $green;
   }
+  $FormBorderNonFocused: 2px solid $borderGrey;
+  $FormBorderFocused: 2px solid $green;
 }
 
 // Links
