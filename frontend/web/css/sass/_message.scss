@@ -116,8 +116,8 @@ body.controller-message {
         }
       }
     }
-
   }
+
   #inboxTable.tableIsEmpty {
     margin-top: 60px;
   }
@@ -162,6 +162,33 @@ body.controller-message.action-create {
 
 body.controller-message.action-view {
 
+  .headerMessageView, .buttonsMessageView {
+    margin-bottom: 30px;
+  }
+
+  .senderMessageView, .dateMessageView, .contentMessageView {
+    margin-bottom: 20px;
+  }
+
+  .contentMessageView {
+    line-height: 23px;
+  }
+
+  .senderMessageView, .attachmentMessageView {
+    a {
+      color: $green;
+      &:hover {
+        color: $green50; // TODO: Change hover color
+      }
+    }
+  }
+
+
+
+
+
+
+
   #replyModal {
     form {
       margin-top: 20px;
@@ -195,7 +222,6 @@ body.controller-message.action-view {
           overflow: hidden;
         }
       }
-
     }
   }
 }
