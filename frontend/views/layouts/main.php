@@ -89,7 +89,7 @@ CustomAppAsset::register($this);
 			['label' => '<i class="glyphicon glyphicon-star"></i> Favoriten', 'url' => ['/favourites']],
 			['label' => '<i class="glyphicon glyphicon-duplicate"></i> Bewerbungen', 'url' => ['/application']],
 			['label' => '<i class="glyphicon glyphicon-list-alt"></i> Lebenslauf', 'url' => ['/resume']],
-			['label' => '<i class="glyphicon glyphicon-file"></i> Anlagen', 'url' => ['attachment']],
+			['label' => '<i class="glyphicon glyphicon-file"></i> Anlagen', 'url' => ['/attachement']], // ToDo: attachment
 
 			[
 				'label' => Yii::$app->user->identity->firstName,

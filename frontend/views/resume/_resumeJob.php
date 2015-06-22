@@ -14,13 +14,11 @@ use yii\helpers\Url;
 
 
 $attributes = [
-    [
-        'attribute' => 'description',
-        'type'      => 'textArea',
-        'label'     => 'Beschreibung'],
+	
+	
     [
         'attribute'     => 'company_id',
-        'label'         => 'Arbeitgeber',
+        'label'         => '',
         'format'        => 'raw',
         'value'         => Html::a($model->company->name, ['/company/view', 'id' => $model->company->id]), // TODO: check company url
         'type'          => DetailView::INPUT_TYPEAHEAD,
@@ -37,7 +35,7 @@ $attributes = [
         ]
     ],
     [
-        'label'         => 'Von',
+        'label'         => '',
         'attribute'     => 'begin',
         'format'        => ['date', 'php:d.m.Y'],
         'type'          => DetailView::INPUT_WIDGET,
@@ -48,7 +46,7 @@ $attributes = [
         ]
     ],
     [
-        'label'         => 'Bis',
+        'label'         => '',
         'format'        => ['date', 'php:d.m.Y'],
         'attribute'     => 'end',
         'type'          => DetailView::INPUT_WIDGET,
@@ -59,7 +57,7 @@ $attributes = [
         ]
     ],
     [    // TODO: add possibility to remove file
-        'label'     => 'Anhänge',
+        'label'     => '',
         'attribute' => 'report_id',
         'value'     => $model->report ? Html::a($model->report->title . "." . $model->report->extension, "/uploads/reports" . $model->report->path . "." . $model->report->extension, ['target' => '_blank']) : null,
         'format'    => 'raw',
@@ -76,10 +74,16 @@ $attributes = [
         'attribute' => 'current',
         'rowOptions' => ['class'=>'kv-view-hidden'],
         'type' => DetailView::INPUT_CHECKBOX,
-    ]
+    ],
+	[
+        'attribute' => 'description',
+        'type'      => 'textArea',
+        'label'     => ''
+	],
 ];
 
 echo DetailView::widget([
+	'bootstrap' => false,
     'model'          => $model,
     'attributes'     => $attributes,
     'panel'          => [
@@ -93,4 +97,5 @@ echo DetailView::widget([
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
     'enableEditMode' => $edit,
+	'labelColOptions' => ['class' => 'kv-view-hidden'],
 ]);
