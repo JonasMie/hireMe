@@ -61,7 +61,7 @@ class SignupForm extends Model
                     return $("#checkCompanySignup").prop("checked");
                 }'
             ],
-            ['companyAddressZIP', 'integer', 'max'=> 99998, 'min'=> 01001],
+            ['companyAddressZIP', 'exist', 'targetClass' => Geo::className(), 'targetAttribute' => 'plz'],
             ['checkCompanySignup', 'boolean'],
         ];
     }

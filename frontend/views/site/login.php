@@ -103,8 +103,7 @@ include Yii::getAlias('@helper/companySignup.php');
                                 'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
                                 'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
                             ],
-                            'display' => '"plz"',
-//                        'display' => "function(a,b){console.log(a,b)}"
+                            'displayKey' => 'plz',
                         ],
                     ],
                     'pluginEvents' => [
@@ -126,7 +125,7 @@ include Yii::getAlias('@helper/companySignup.php');
                                 'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
                                 'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
                             ],
-                            'display'   => 'city',
+                            'displayKey' => 'city',
                         ],
                     ],
                     'pluginEvents' => [
@@ -148,3 +147,6 @@ include Yii::getAlias('@helper/companySignup.php');
 
     </div>
 </div>
+
+
+<?= print_r(empty($loginModel->errors));

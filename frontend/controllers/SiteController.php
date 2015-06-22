@@ -110,9 +110,14 @@ class SiteController extends Controller
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
+            } else {
+                return $this->render('login', [
+                    'loginModel'  => $loginModel,
+                    'signupModel' => $signupModel
+
+                ]);
             }
         } else {
-
             return $this->render('login', [
                 'loginModel'  => $loginModel,
                 'signupModel' => $signupModel
