@@ -15,6 +15,7 @@ use yii\data\ActiveDataProvider;
 use frontend\models\ApplyBtn;
 use frontend\models\Application;
 use yii\helpers\BaseJson;
+use yii\data\SqlDataProvider;
 
 
 class AnalyticsController extends Controller
@@ -118,6 +119,22 @@ class AnalyticsController extends Controller
         'pagination' => [
             'pageSize' => 20,],
         ]);
+
+        $sql = "SELECT j.title, b.viewCount as views from job j, applyBtn b WHERE b.job_id = j.id and j.company_id = ".$id;
+
+        $jobProvider = new SqlDataProvider([
+            'sql' => $sql,
+            'sort' => [
+                'attributes' => [
+                'title','views'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,
+                'views' => SORT_ASC,
+            ]
+            ],
+        ]);
+
 
          return $this->render('index', [
             'id' => $id,

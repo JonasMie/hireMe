@@ -169,51 +169,16 @@ $this->title = "Analytics für";
                 'label'  => 'Titel',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::encode($data->title);
+                    return \yii\helpers\Html::encode($data['title']);
                 }
             ],       
         [
                 'label'  => 'Views',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getAllViewsAndClicksForJob($data->id)[0]);
+                    return \yii\helpers\Html::encode($data['views']);
                 }
             ],    
-        [
-                'label'  => 'Clicks',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getAllViewsAndClicksForJob($data->id)[1]);
-                }
-        ],   
-         [
-                'label'  => 'Interest Rate',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getInterestRateForJob($data->id));
-                }
-        ],   
-        [
-                'label'  => 'Interview Rate',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getInterviewRateForJob($data->id));
-                }
-        ],   
-        [
-                'label'  => 'Application Rate',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getApplicationRateForJob($data->id));
-                }
-        ],   
-        [
-                'label'  => '',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::a("Ansehen","/analytics/detail?id=".$data->id);
-                }
-        ],  
         ],
     ]); 
 
