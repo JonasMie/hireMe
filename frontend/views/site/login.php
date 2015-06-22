@@ -91,7 +91,7 @@ include Yii::getAlias('@helper/companySignup.php');
                 </div>
                 <?
                 $template =
-                    '<p>{{value}}  -  {{city}}</p>';
+                    '<p>{{plz}}  -  {{city}}</p>';
 
                 echo $form->field($signupModel, 'companyAddressZIP')->widget(Typeahead::className(), [
                     'name'         => 'companyAddressCity',
@@ -102,7 +102,9 @@ include Yii::getAlias('@helper/companySignup.php');
                             'templates' => [
                                 'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
                                 'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
-                            ]
+                            ],
+                            'display' => '"plz"',
+//                        'display' => "function(a,b){console.log(a,b)}"
                         ],
                     ],
                     'pluginEvents' => [
@@ -112,7 +114,7 @@ include Yii::getAlias('@helper/companySignup.php');
 
                 <?
                 $template =
-                    '<p>{{value}}  -  {{city}}</p>';
+                    '<p>{{plz}}  -  {{city}}</p>';
 
                 echo $form->field($signupModel, 'companyAddressCity')->widget(Typeahead::className(), [
                     'name'         => 'companyAddressCity',
@@ -128,7 +130,7 @@ include Yii::getAlias('@helper/companySignup.php');
                         ],
                     ],
                     'pluginEvents' => [
-                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresszip").val(val.value) }'
+                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresszip").val(val.plz) }'
                     ],
                 ])->label('Ort') ?>
 

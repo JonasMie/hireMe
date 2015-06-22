@@ -58,7 +58,7 @@ class Geo extends \yii\db\ActiveRecord
             ->all();
         $out = [];
         foreach ($query as $city) {
-            $out[] = ['value' => (string)$city->plz, 'id'=> $city->id, 'city' => $city->city];
+            $out[] = ['plz' => (string)$city->plz, 'id'=> $city->id, 'city' => $city->city];
         }
         return Json::encode($out);
 
