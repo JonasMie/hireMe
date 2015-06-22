@@ -1,13 +1,11 @@
 .controller-user.action-index{
 
 	div.user-picture{
-		a.btn {
-			display:block;
-		}
+		
 	}
 	
-	div.user-timeline{
-		h2:first-of-type{
+	div.row.first{
+		h2{
 			margin-top:0px;
 		}
 	}

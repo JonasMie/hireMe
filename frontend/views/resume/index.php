@@ -26,6 +26,7 @@ $this->title = Yii::t('app', 'Lebenslauf');
         'label' => 'Eintrag hinzufügen',
         'url1' => ['create', 'type'=>'job'],
         'url2' => ['create', 'type'=>'school'],
+		'order' => 'profile'
     ])
     ?>
 

@@ -10,12 +10,12 @@ $this->title = "Profil";
 Yii::$app->getSession()->getFlash('error');
 ?>
 <div class="row">
-	<div class="col-sm-6 user-info">
+	<div class="col-sm-12 user-info">
     <h1><?= $user->fullName?></h1>
 	</div>
 </div>
-<div class="row">
-    <div class="col-sm-3 user-picture">
+<div class="row first">
+    <div class="col-sm-4 user-picture">
         <?= $user->getProfilePicture() ?>
 
         <? if ($user->id !== Yii::$app->user->identity->getId()) {
@@ -25,7 +25,7 @@ Yii::$app->getSession()->getFlash('error');
         }
         ?>
     </div>
-	<div class="col-sm-9 user-timeline">
+	<div class="col-sm-4 currentJob">
 		<?
         // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
         if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
@@ -38,7 +38,73 @@ Yii::$app->getSession()->getFlash('error');
 				'edit' => false,
 				'label' => 'Bearbeiten',
 				'url1' =>['/resume'],
-				'url2' =>['/resume']
+				'url2' =>['/resume'],
+				'order' => 'currentJob'
+			]);
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
+        }
+		?>
+	</div>
+	<div class="col-sm-4 currentSchool">
+		<?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
+
+			echo $this->render('/resume/_resume',[
+				'jobDataProvider'    => $jobDataProvider,
+				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
+				'edit' => false,
+				'label' => 'Bearbeiten',
+				'url1' =>['/resume'],
+				'url2' =>['/resume'],
+				'order' => 'currentSchool'
+			]);
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
+        }
+		?>
+	</div>
+</div>
+<div class="row second">
+	<div class="col-sm-6 fullJob">
+		<?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
+
+			echo $this->render('/resume/_resume',[
+				'jobDataProvider'    => $jobDataProvider,
+				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
+				'edit' => false,
+				'label' => 'Bearbeiten',
+				'url1' =>['/resume'],
+				'url2' =>['/resume'],
+				'order' => 'fullJob'
+			]);
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
+        }
+		?>
+	</div>
+	<div class="col-sm-6 fullSchool">
+		<?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
+
+			echo $this->render('/resume/_resume',[
+				'jobDataProvider'    => $jobDataProvider,
+				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
+				'edit' => false,
+				'label' => 'Bearbeiten',
+				'url1' =>['/resume'],
+				'url2' =>['/resume'],
+				'order' => 'fullSchool'
 			]);
 		} else {
             echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";

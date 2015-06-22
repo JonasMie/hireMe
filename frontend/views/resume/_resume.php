@@ -16,33 +16,20 @@
  * @var $url2 Array
  * @var $currentJobsDataProvider \yii\data\ActiveDataProvider
  * @var $currentSchoolsDataProvider \yii\data\ActiveDataProvider
+ * @var $order String
  */
 
 use yii\helpers\Html;
 
 ?>
-<!-- Initializing Foo Tables -->
-<? $this->registerJS(
-    "$(function () {
-        $('.footable').footable({
-            breakpoints: {
-                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
-                mediaXXsmall: 480,
-                mediaXsmall: 736,
-                mediaSmall: 960
-
-            }
-        });
-    });");
-
-?>
+<?php if ($order=='currentJob'): ?>
 
 <?php
 $currentJobs = $currentJobsDataProvider->getCount();
 $currentSchools = $currentSchoolsDataProvider->getCount();
 
-if ($currentJobs + $currentSchools > 0) {
-    echo "<h2>Aktuell</h2>";
+if ($currentJobs > 0) {
+    echo "<h2>Aktuelle Stelle</h2>";
 }
 if ($currentJobs) {
     echo \yii\widgets\ListView::widget([
@@ -50,6 +37,17 @@ if ($currentJobs) {
         'itemView'     => '_resumeJob',
         'viewParams'   => ['edit' => $edit],
     ]);
+}
+?>
+
+<?php elseif ($order=='currentSchool'): ?>
+
+<?php
+$currentJobs = $currentJobsDataProvider->getCount();
+$currentSchools = $currentSchoolsDataProvider->getCount();
+
+if ($currentSchools > 0) {
+    echo "<h2>Letzter Abschluss</h2>";
 }
 if ($currentSchools) {
     echo \yii\widgets\ListView::widget([
@@ -60,6 +58,12 @@ if ($currentSchools) {
 }
 ?>
 
+<?php elseif ($order=='fullJob'): ?>
+
+<?php
+$currentJobs = $currentJobsDataProvider->getCount();
+$currentSchools = $currentSchoolsDataProvider->getCount();
+?>
 <h2>Berufserfahrung</h2>
 <?php
 echo \yii\widgets\ListView::widget([
@@ -71,6 +75,14 @@ echo \yii\widgets\ListView::widget([
 <p>
     <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
 </p>
+
+
+<?php elseif ($order=='fullSchool'): ?>
+
+<?php
+$currentJobs = $currentJobsDataProvider->getCount();
+$currentSchools = $currentSchoolsDataProvider->getCount();
+?>
 <h2>Ausbildung</h2>
 <?php
 echo \yii\widgets\ListView::widget([
@@ -82,3 +94,7 @@ echo \yii\widgets\ListView::widget([
 <p>
     <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple']) ?>
 </p>
+
+<?php else: ?>
+
+<?php endif; ?>
