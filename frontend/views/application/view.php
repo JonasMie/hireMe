@@ -72,7 +72,7 @@ use frontend\models\Company;
                 'label'  => 'Nachweis',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return  Html::a("Ansehen","/uploads/");
+                    return Html::a("Ansehen","/application/show-file?id=".$data->report_id,['target' => '_blank']);
                 }
             ], 
         ],
@@ -119,7 +119,7 @@ use frontend\models\Company;
                 'label'  => 'Nachweis',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return  Html::a("Ansehen","/uploads/");
+                    return Html::a("Ansehen","/application/show-file?id=".$data->report_id,['target' => '_blank']);
                 }
             ], 
         ],
@@ -159,7 +159,7 @@ use frontend\models\Company;
                 'label'  => 'Info',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return Html::a("Anschauen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
+                    return Html::a("Ansehen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
                 }
             ],
         ],

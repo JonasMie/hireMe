@@ -88,10 +88,8 @@ class ApplicationController extends Controller
         $file = File::find()
         ->where(["id" => $id])->one();
         Yii::trace("file title: ".$file->title);
-
         $user_id = $file->user_id;
-
-        $this->redirect("http://frontend/uploads/appData/AD_".md5($user_id.'_'.$file->id).'.'.$file->extension);
+        $this->redirect("/uploads/reports".$file->path.'.'.$file->extension);
         
     }
     
@@ -173,11 +171,15 @@ class ApplicationController extends Controller
         
         $currentJob = ResumeJob::find()
         ->where(['user_id' => $user->id,'current' => 1])->one();
+        if(count($currentJob) == 0) {
+        $currentJob = ResumeJob::find()
+        ->where(['user_id' => $user->id])->one();
+        }
         
 
         $appDatas = new ApplicationDataSearch();
         $provider = $appDatas->search(['ApplicationDataSearch' => ['application_id' => $app->id]]);
-        $model["coverText"] = file_get_contents('uploads/cover/COVER_' .md5($user->id.'_'.$app->id). '.txt');          
+        $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($user->id.'_'.$app->id). '.txt');          
         if (Yii::$app->user->identity->isRecruiter()) {
 
         $model["app"] = $app;
@@ -342,7 +344,7 @@ class ApplicationController extends Controller
 
         if (count($possibleFile) ==1) {
 
-            $model->text = file_get_contents('uploads/cover/COVER_' .md5($user->id.'_'.$app->id). '.txt');          
+            $model->text = file_get_contents('uploads'.$possibleFile->path.'.txt');          
         }
 
 

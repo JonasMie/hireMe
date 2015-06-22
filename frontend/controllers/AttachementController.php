@@ -44,10 +44,8 @@ class AttachementController extends Controller
         $file = File::find()
         ->where(["id" => $id])->one();
         Yii::trace("file title: ".$file->title);
-
         $user_id = $file->user_id;
-
-        $this->redirect("http://frontend/uploads/appData/AD_".md5($user_id.'_'.$file->id).'.'.$file->extension);
+        $this->redirect("/uploads".$file->path.'.'.$file->extension);
         
     }
 
@@ -78,13 +76,13 @@ class AttachementController extends Controller
                 $file = new File();
                 // Firstly, create file, then reference it by application_data 
                 $files = File::find()->orderBy('id')->all();
-                $file->path = "uploads/appData/";
+                $file->path = "/appData/AD_".md5($user->id.'_'.$file->id);
                 $file->extension = $model->file->extension;
                 $file->size = $model->file->size;
                 $file->title = $model->title;
                 $file->user_id = $user->id;
                 if($file->save()) {
-                $model->file->saveAs('uploads/appData/AD_' .md5($user->id.'_'.$file->id). '.' . $model->file->extension);                
+                $model->file->saveAs("uploads".$file->path.'.' . $model->file->extension);                
                 Yii::trace("Saved file");
                 }
                 $this->renderPartial("uploadSection", ['model'=>$model,'provider' => $fileDataProvider]);
