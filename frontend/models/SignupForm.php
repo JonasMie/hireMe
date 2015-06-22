@@ -15,6 +15,7 @@ class SignupForm extends Model
     public $lastName;
     public $email;
     public $password;
+    public $password_repeat;
     public $checkCompanySignup;
     public $companyName;
     public $companyAddress;
@@ -47,6 +48,9 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['password', 'compare'],
+
+            ['password_repeat','required'],
 
             ['visibility', 'default', 'value' => 0],
 
