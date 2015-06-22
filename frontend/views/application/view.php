@@ -5,6 +5,10 @@ use yii\widgets\DetailView;
 use frontend\models\Application;
 use yii\grid\GridView;
 use frontend\controllers\ApplicationController;
+use frontend\models\ResumeJob;
+use frontend\models\ResumeSchool;
+use frontend\models\Company;
+
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
 
@@ -18,14 +22,114 @@ use frontend\controllers\ApplicationController;
         $model["app"]->save();
     ?>
     <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
-    <p> Eingestellt: <?= $model["created"];?></p>
-    <p><?= Html::a(Html::button("Lebenslauf anschauen"),"") ?></p>
+    <p> Beworben am: <?= $model["created"];?></p>
     <br>
-    <h3>Anschreiben:</h3>
+    <p>Arbeitet aktuell als <?= $currentJob->type ?> bei <?= Company::findOne($currentJob->company_id)->name?></p>
+     <h2>Anschreiben:</h2>
     <p>
     <?= $model['coverText']; ?>
     </p>
+    <h2>Lebenslauf:</h2>
+    <p>
+        <h4>Schulische Ausbildung:</h4>
+
+        <?= GridView::widget([
+        'dataProvider' => $schoolProvider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+        'id' => "schoolGrid",
+        'columns'      => [
+
+            [
+                'label'  => 'Schule',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  $data->schoolname;
+                }
+            ], 
+           [
+                'label'  => 'Von',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  $data->begin;
+                }
+            ], 
+              [
+                'label'  => 'Bis',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  $data->end;
+                }
+            ], 
+            [
+                'label'  => 'Abschluss',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  $data->graduation;
+                }
+            ], 
+            [
+                'label'  => 'Nachweis',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  Html::a("Ansehen","/uploads/");
+                }
+            ], 
+        ],
+    ]);  
+    ?>
+
+     <h4>Arbeitserfahrung:</h4>
+
+        <?= GridView::widget([
+        'dataProvider' => $jobProvider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+        'id' => "schoolGrid",
+        'columns'      => [
+
+            [
+                'label'  => 'Unternehmen',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  Company::findOne($data->company_id)->name;
+                }
+            ], 
+           [
+                'label'  => 'Von',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  $data->begin;
+                }
+            ], 
+              [
+                'label'  => 'Bis',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  $data->end;
+                }
+            ], 
+             [
+                'label'  => 'Position',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  $data->type;
+                }
+            ], 
+            [
+                'label'  => 'Nachweis',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return  Html::a("Ansehen","/uploads/");
+                }
+            ], 
+        ],
+    ]);  
+    ?>
+    </p>
+    <br>
     <br>   
+    <h2>
+    Gesendete Anlagen
+</h2>
     <? else: ?>
      <h2>Meine Bewerbung auf: <?= $model['job']->title ?></h2>
     <h3>Anschreiben:</h3>

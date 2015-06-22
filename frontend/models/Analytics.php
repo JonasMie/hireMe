@@ -43,6 +43,15 @@ class Analytics extends \yii\base\Model
 
     }
 
+    public function getUnreadApplicationsForJob($id) {
+
+         $applications = Application::find()
+        ->where(['company_id' => $id, 'sent' => 1, 'read' => 0])
+        ->orderBy('id')
+        ->all();
+        return count($applications);
+    }
+
     public function getInterviewRate($id) {
 
         $applier = $this->getApplier($id);

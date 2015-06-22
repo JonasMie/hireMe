@@ -6,6 +6,8 @@ use frontend\models\Application;
 use frontend\controllers\ApplicationController;
 use frontend\controllers\UserController;
 use frontend\models\Job;
+use yii\widgets\ListView;
+use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\ApplicationSearch */
@@ -15,23 +17,30 @@ use frontend\models\Job;
 <div class="application-index">
 
      <? if (Yii::$app->user->identity->isRecruiter()): ?>
-
+       
          <h1><?= Html::encode($title) ?></h1>
 
   <?= GridView::widget([
         'dataProvider' => $provider,
         'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
         'columns'      => [
-            'title:text:Stellenanzeige',
         [
                 'attribute' => 'fullName',
-                'label' => 'Bewerber',
+                'label' => 'Name',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return Html::a($data['fullName'],'/user?un='.$data['userName']);
+                    return User::findOne($data["userID"])->getProfilePicture(true)."".Html::a($data['fullName'],'/user?un='.$data['userName']);
                 }
         ], 
-           
+         'title:text:Stelle',
+         [
+                'attribute' => 'created_at',
+                'label' => 'Beworben am',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return Html::encode($data['created_at']);
+                }
+        ], 
         [
                 'label'  => '',
                 'format' => 'raw',

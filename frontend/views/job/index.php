@@ -6,6 +6,7 @@ use yii\widgets\ListView;
 use yii\grid\GridView;
 use frontend\models\analytics;
 use frontend\models\MyJobsGridView;
+use frontend\controllers\ApplicationController;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
@@ -19,9 +20,21 @@ $this->title = $indiTitle;
     <h1><?= Html::encode($this->title) ?></h1>   
     <p>
 
-
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
+   <?= 
+    ListView::widget([
+        'dataProvider' => $provider,
+        'itemView' =>function($data) {
+            return $this->render('jobItem',[
+                'model' => $data,
+                'subProvider' => ApplicationController::getApplicationDataForJob($data['id']),
+            ]); 
+        }
+        ]);
+
+    ?>
+<?= Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>") ?>
  <?= GridView::widget([
         'id'=>'jobList',
         'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],

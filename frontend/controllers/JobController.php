@@ -77,10 +77,8 @@ class JobController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {   
-
+    {  
         if (Yii::$app->user->identity->isRecruiter()) {
-        
         $companyId = Yii::$app->user->identity->getCompanyId();
         Yii::trace("Company ID: ".$companyId);
         // For displaying applier data

@@ -22,6 +22,10 @@ use yii\data\SqlDataProvider;
 use yii\db\Query;
 use frontend\models\Message;
 use frontend\models\CoverCreateForm;
+use frontend\models\ResumeSchoolSearch;
+use frontend\models\ResumeJobSearch;
+use frontend\models\ResumeJob;
+use frontend\models\ResumeSchool;
 /**
  * ApplicationController implements the CRUD actions for Application model.
  */
@@ -53,6 +57,26 @@ class ApplicationController extends Controller
 
     }
 
+    public static function getApplicationDataForJob($id) {
+
+       $sql = "SELECT u.fullName, u.id from user u, application a WHERE a.job_id = ".$id." and u.id = a.user_id";
+       
+       $dataProvider = new SqlDataProvider([
+            'sql' => $sql,
+            'sort' => [
+                'attributes' => [
+                'fullName'
+            ],
+            'defaultOrder' => [
+                'fullName' => SORT_ASC
+            ]
+            ],
+        ]);
+
+       return $dataProvider;
+
+    }
+
     public function getApplierName($id) { // expecting user id
 
         $user = User::findOne($id);
@@ -79,14 +103,16 @@ class ApplicationController extends Controller
         $companyId = Yii::$app->user->identity->getCompanyId();
         Yii::trace("Company ID: ".$companyId);
         // For displaying applier data
+
+
     
 
         $applications = new ApplicationSearch(); 
-        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, j.id as jobID, a.created_at, a.id, u.fullName,u.userName, u.id as userID from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and d.id = ".Yii::$app->user->identity->company_id;
         $indiTitle = "Alle Bewerbungen";
         
         if ($new != null) {
-        $sql = "SELECT j.title, a.id, u.fullName,u.userName from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, j.id as jobID, a.created_at, a.id, u.fullName,u.userName, u.id as userID from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
         $indiTitle = "Neue Bewerbungen";
         }
        
@@ -138,7 +164,17 @@ class ApplicationController extends Controller
         $user = User::find()->where(['id' => $app->user_id])->one();
         Yii::trace($user->fullName);
         $created = $app->created_at;
+
+        $schools = new ResumeSchoolSearch();
+        $schoolProvider = $schools->search(['ResumeSchoolSearch' => ['user_id' => $user->id]]);
+
+        $jobs = new ResumeJobSearch();
+        $jobProvider = $jobs->search(['ResumeJobSearch' => ['user_id' => $user->id]]);
         
+        $currentJob = ResumeJob::find()
+        ->where(['user_id' => $user->id,'current' => 1])->one();
+        
+
         $appDatas = new ApplicationDataSearch();
         $provider = $appDatas->search(['ApplicationDataSearch' => ['application_id' => $app->id]]);
         $model["coverText"] = file_get_contents('uploads/cover/COVER_' .md5($user->id.'_'.$app->id). '.txt');          
@@ -151,6 +187,9 @@ class ApplicationController extends Controller
           return $this->render('view', [
             'model' => $model,
             'appDataProvider' => $provider,
+            'schoolProvider' => $schoolProvider,
+            'jobProvider' => $jobProvider,
+            'currentJob' => $currentJob,
 
         ]);
         }
