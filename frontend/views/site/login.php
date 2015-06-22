@@ -148,5 +148,7 @@ include Yii::getAlias('@helper/companySignup.php');
     </div>
 </div>
 
-
-<?= print_r(empty($loginModel->errors));
+// make sure to show initially hidden company signup div, if errors occur
+<? if(!empty($signupModel->errors) && $signupModel->checkCompanySignup){
+    $this->registerJs("$('.companySetup').show();");
+}
