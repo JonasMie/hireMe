@@ -111,7 +111,7 @@ h6, .h6 {
 /* line 85, ../sass/_variables.scss */
 input.form-control {
   background: transparent;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 2px 0px;
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   border-radius: 0px;
@@ -121,7 +121,7 @@ input.form-control:focus {
   border-color: #5dca88;
 }
 
-/* line 97, ../sass/_variables.scss */
+/* line 99, ../sass/_variables.scss */
 a {
   transition: color 0.2s ease-in-out;
 }
@@ -794,31 +794,33 @@ body .form-group label {
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-signupform-companysector,
-body .form-group.field-signupform-companyemployees {
+body .form-group.field-signupform-companyemployees,
+body .form-group.field-settingsmodel-picture {
   position: static;
 }
-/* line 268, ../sass/_basicTemplate.scss */
+/* line 269, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-signupform-companysector label,
-body .form-group.field-signupform-companyemployees label {
+body .form-group.field-signupform-companyemployees label,
+body .form-group.field-settingsmodel-picture label {
   position: static;
 }
-/* line 279, ../sass/_basicTemplate.scss */
+/* line 280, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .has-success > input[type="text"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 282, ../sass/_basicTemplate.scss */
+/* line 283, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 287, ../sass/_basicTemplate.scss */
+/* line 288, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea {
   border-color: #5dca88 !important;
 }
-/* line 295, ../sass/_basicTemplate.scss */
+/* line 296, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -829,21 +831,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 307, ../sass/_basicTemplate.scss */
+/* line 308, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 315, ../sass/_basicTemplate.scss */
+/* line 316, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 318, ../sass/_basicTemplate.scss */
+/* line 319, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 322, ../sass/_basicTemplate.scss */
+/* line 323, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -853,41 +855,41 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 327, ../sass/_basicTemplate.scss */
+/* line 328, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 332, ../sass/_basicTemplate.scss */
+/* line 333, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 334, ../sass/_basicTemplate.scss */
+/* line 335, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 338, ../sass/_basicTemplate.scss */
+/* line 339, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 349, ../sass/_basicTemplate.scss */
+/* line 350, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 355, ../sass/_basicTemplate.scss */
+/* line 356, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 362, ../sass/_basicTemplate.scss */
+/* line 363, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
@@ -913,7 +915,7 @@ body.action-login .site-login input {
 /* line 41, ../sass/_login.scss */
 body.action-login .site-login #login-form input {
   background: transparent;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 2px 0px;
   box-shadow: none;
   -webkit-box-shadow: none;
   border-radius: 0px;
@@ -934,36 +936,36 @@ body.action-login .site-login #login-form .requestNewPassword a {
 body.action-login .site-login #login-form .requestNewPassword a:hover {
   color: #5dca88;
 }
-/* line 64, ../sass/_login.scss */
+/* line 66, ../sass/_login.scss */
 body.action-login .site-login .auth-clients {
   overflow: inherit;
   min-height: 100px;
 }
-/* line 71, ../sass/_login.scss */
+/* line 73, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-checkcompanysignup .icheckbox_flat-green {
   margin-right: 10px;
 }
-/* line 76, ../sass/_login.scss */
+/* line 78, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup {
   margin-top: 60px;
 }
-/* line 79, ../sass/_login.scss */
+/* line 81, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees {
   text-align: left;
 }
-/* line 81, ../sass/_login.scss */
+/* line 83, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector select, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees select {
   margin-top: 10px;
 }
 
-/* line 95, ../sass/_login.scss */
+/* line 97, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 101, ../sass/_login.scss */
+/* line 103, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
