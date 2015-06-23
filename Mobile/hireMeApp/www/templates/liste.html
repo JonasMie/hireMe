@@ -1,5 +1,32 @@
-<ion-view view-title="Liste">
-  <ion-content>
-    <h1>Liste</h1>
+<ion-view view-title="Jobs">
+  <ion-content class="content">
+    <div class="card" ng-repeat="job in jobs">
+  <div class="item item-divider">
+    {{job.title}}
+  </div>
+  <div class="item item-text-wrap">
+  	<p>
+  	Beginnt: {{job.job_begin}}<br>
+  	{{job.description}}
+  </p>
+  </div>
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+</div>
+<br>
+<br>
+<br>
   </ion-content>
 </ion-view>
