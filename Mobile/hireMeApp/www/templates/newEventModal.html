@@ -1,0 +1,28 @@
+<div class="modal">
+
+<ion-header-bar>
+	<h1 class="title">Neues Event</h1>
+	<div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+</ion-header-bar>
+
+<ion-content>
+
+<div class="card">
+
+	<div class="list">
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Titel</span>
+    <input type="text" placeholder="Witz Titel" id="joke_title">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Text</span>
+    <input type="text" placeholder="Witz" id="joke_text">
+  </label>
+</div>
+
+<button class="button button-full button-positive" ng-click="sendData()">Event speichern</button>
+
+</div>
+
+
+</div>
