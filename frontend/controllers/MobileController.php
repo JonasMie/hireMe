@@ -7,7 +7,7 @@ use yii\helpers\BaseJson;
 
 class MobileController extends \yii\web\Controller
 {
-    public function actionIndex()
+    public function actionGetJobs()
     {
     	 $jobs = Job::find()
         ->orderBy('id')
