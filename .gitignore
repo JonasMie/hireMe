@@ -28,8 +28,6 @@ phpunit.phar
 
 # sass-caching files
 frontend/web/css/.sass-cache/*
-Mobile/hireMeApp/www/css/ionic.app.css
-Mobile/hireMeApp/www/css/ionic.app.min.css
 frontend/web/uploads/profiletest.jpg
 node_modules/grunt/.npmignore
 node_modules/grunt/CONTRIBUTING.md
