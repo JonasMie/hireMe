@@ -18,13 +18,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <div class="message-create-first-row">
+    <div class="message-create-first-row typeahead-validation">
 
 
         <?
         $template =
-            '<p>{{value}}</p>' .
-            '<img src="/uploads/profile/{{image}}.jpg"/>';
+            '<img src="/uploads/profile/{{image}}.jpg"/>' .
+            '<p>{{value}}</p>';
 
         echo $form->field($model, 'receiver')->widget(Typeahead::className(), [
             'name' => 'receiver_name',

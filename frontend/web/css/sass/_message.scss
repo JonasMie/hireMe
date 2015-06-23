@@ -61,6 +61,9 @@ body.controller-message {
         }
         a {
           display: inline-flex;
+          img {
+            border-radius: 25px;
+          }
           div.message-sender {
             margin-left: 10px;
           }
@@ -116,14 +119,28 @@ body.controller-message {
         }
       }
     }
-
   }
+
   #inboxTable.tableIsEmpty {
     margin-top: 60px;
   }
 }
 
 body.controller-message.action-create {
+
+  .field-messagecreate-receiver {
+    .tt-suggestion {
+      display: inline-flex;
+      width: 100%;
+      > p {
+        margin-left: 10px;
+        margin-top: 17px;
+      }
+      > img {
+        border-radius: 25px;
+      }
+    }
+  }
 
   .message-create-first-row, .message-create-second-row {
     margin-top: 40px;
@@ -162,6 +179,66 @@ body.controller-message.action-create {
 
 body.controller-message.action-view {
 
+  .headerMessageView {
+    margin-bottom: 30px;
+    a {
+      color: $green;
+      &:hover {
+        color: $green50; // TODO: Change hover color
+      }
+    }
+  }
+
+  .buttonsMessageView {
+    margin-bottom: 30px;
+    float: right;
+    clear: left;
+    @media (max-width: 511px) {
+      float: none;
+    }
+  }
+
+  .senderMessageView {
+    margin-bottom: 10px;
+  }
+
+  .dateMessageView {
+    border-top: $FormBorderNonFocused;
+    max-width: 180px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .subjectMessageView {
+    border-top: $FormBorderNonFocused;
+    font-weight: bold;
+    line-height: 23px;
+    padding: 10px 0;
+  }
+
+  .contentMessageView {
+    margin-bottom: 10px;
+    line-height: 23px;
+    border-top: $FormBorderNonFocused;
+    border-bottom: $FormBorderNonFocused;
+    padding: 10px 0px;
+  }
+
+  .senderMessageView, .attachmentMessageView {
+    a {
+      color: $green;
+      &:hover {
+        color: $green50; // TODO: Change hover color
+      }
+    }
+  }
+
+  .attachmentMessageView {
+    @media (max-width: 511px) {
+      margin-bottom: 30px;
+    }
+  }
+
   #replyModal {
     form {
       margin-top: 20px;
@@ -195,7 +272,6 @@ body.controller-message.action-view {
           overflow: hidden;
         }
       }
-
     }
   }
 }

@@ -111,7 +111,7 @@ h6, .h6 {
 /* line 85, ../sass/_variables.scss */
 input.form-control {
   background: transparent;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 2px 0px;
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   border-radius: 0px;
@@ -555,6 +555,10 @@ body {
   /*Typeahead Fix and Styling */
   /*END Typeahead Fix and Styling*/
   /* END BASIC FORM STYLING */
+  /* FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+  /* END FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+  /* Background color does not work for class .has-error anymore. This is a temporary fix */
+  /* END Background color does not work for class .has-error anymore. This is a temporary fix */
   /*PROFILE PICTURE */
   /*END PROFILE PICTURE */
 }
@@ -799,31 +803,37 @@ body .form-group label {
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-signupform-companysector,
-body .form-group.field-signupform-companyemployees {
+body .form-group.field-signupform-companyemployees,
+body .form-group.field-settingsmodel-picture {
   position: static;
 }
-/* line 272, ../sass/_basicTemplate.scss */
+/* line 273, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-signupform-companysector label,
-body .form-group.field-signupform-companyemployees label {
+body .form-group.field-signupform-companyemployees label,
+body .form-group.field-settingsmodel-picture label {
   position: static;
 }
-/* line 283, ../sass/_basicTemplate.scss */
+/* line 284, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .has-success > input[type="text"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 286, ../sass/_basicTemplate.scss */
+/* line 287, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 291, ../sass/_basicTemplate.scss */
+/* line 292, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea {
   border-color: #5dca88 !important;
 }
-/* line 299, ../sass/_basicTemplate.scss */
+/* line 302, ../sass/_basicTemplate.scss */
+body .typeahead-validation .has-success input {
+  border-bottom: 2px solid #5dca88 !important;
+}
+/* line 308, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -834,21 +844,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 311, ../sass/_basicTemplate.scss */
+/* line 320, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 319, ../sass/_basicTemplate.scss */
+/* line 328, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 322, ../sass/_basicTemplate.scss */
+/* line 331, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 326, ../sass/_basicTemplate.scss */
+/* line 335, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -858,41 +868,50 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 331, ../sass/_basicTemplate.scss */
+/* line 340, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 336, ../sass/_basicTemplate.scss */
+/* line 345, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 338, ../sass/_basicTemplate.scss */
+/* line 347, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 342, ../sass/_basicTemplate.scss */
+/* line 351, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 353, ../sass/_basicTemplate.scss */
+/* line 361, ../sass/_basicTemplate.scss */
+body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
+  background: none !important;
+  color: #9d9d9d;
+}
+/* line 369, ../sass/_basicTemplate.scss */
+body .has-error input[type="text"] {
+  border-color: #a94442 !important;
+}
+/* line 377, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 359, ../sass/_basicTemplate.scss */
+/* line 383, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 366, ../sass/_basicTemplate.scss */
+/* line 390, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
@@ -918,7 +937,7 @@ body.action-login .site-login input {
 /* line 41, ../sass/_login.scss */
 body.action-login .site-login #login-form input {
   background: transparent;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 2px 0px;
   box-shadow: none;
   -webkit-box-shadow: none;
   border-radius: 0px;
@@ -939,36 +958,36 @@ body.action-login .site-login #login-form .requestNewPassword a {
 body.action-login .site-login #login-form .requestNewPassword a:hover {
   color: #5dca88;
 }
-/* line 64, ../sass/_login.scss */
+/* line 66, ../sass/_login.scss */
 body.action-login .site-login .auth-clients {
   overflow: inherit;
   min-height: 100px;
 }
-/* line 71, ../sass/_login.scss */
+/* line 73, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-checkcompanysignup .icheckbox_flat-green {
   margin-right: 10px;
 }
-/* line 76, ../sass/_login.scss */
+/* line 78, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup {
   margin-top: 60px;
 }
-/* line 79, ../sass/_login.scss */
+/* line 81, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees {
   text-align: left;
 }
-/* line 81, ../sass/_login.scss */
+/* line 83, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector select, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees select {
   margin-top: 10px;
 }
 
-/* line 95, ../sass/_login.scss */
+/* line 97, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 101, ../sass/_login.scss */
+/* line 103, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
@@ -1209,15 +1228,15 @@ body.controller-dashboard #DashboardMessages tbody td.footable-last-column, body
 body.controller-dashboard #DashboardMessages tbody td div.empty, body.controller-dashboard #DashboardFavorites tbody td div.empty {
   text-align: left;
 }
-/* line 235, ../sass/_dashboard.scss */
+/* line 233, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardMessagesHeader {
   color: #5dca88;
 }
-/* line 237, ../sass/_dashboard.scss */
+/* line 235, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardMessagesHeader:hover {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 242, ../sass/_dashboard.scss */
+/* line 240, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardFavoritesHeader {
   margin-top: 50px;
 }
@@ -1351,96 +1370,114 @@ body.controller-message table#inboxTable tr td.third-col a {
   display: inline-flex;
 }
 /* line 64, ../sass/_message.scss */
+body.controller-message table#inboxTable tr td.third-col a img {
+  border-radius: 25px;
+}
+/* line 67, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.third-col a div.message-sender {
   margin-left: 10px;
 }
-/* line 69, ../sass/_message.scss */
+/* line 72, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.fourth-col {
   width: 20%;
 }
-/* line 72, ../sass/_message.scss */
+/* line 75, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.fifth-col {
   width: 15%;
   text-align: right;
   padding-right: 20px;
 }
-/* line 78, ../sass/_message.scss */
+/* line 81, ../sass/_message.scss */
 body.controller-message table#inboxTable tr td.sixth-col {
   width: 5%;
 }
-/* line 85, ../sass/_message.scss */
+/* line 88, ../sass/_message.scss */
 body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-cell {
   padding-bottom: 0px;
 }
 @media (max-width: 551px) {
-  /* line 90, ../sass/_message.scss */
+  /* line 93, ../sass/_message.scss */
   body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-row:nth-of-type(1) {
     height: 60px;
   }
-  /* line 92, ../sass/_message.scss */
+  /* line 95, ../sass/_message.scss */
   body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-row:nth-of-type(1) .footable-row-detail-value > a {
     display: inline;
   }
-  /* line 94, ../sass/_message.scss */
+  /* line 97, ../sass/_message.scss */
   body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-row:nth-of-type(1) .footable-row-detail-value > a > div {
     display: inline-block;
   }
-  /* line 99, ../sass/_message.scss */
+  /* line 102, ../sass/_message.scss */
   body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-row:nth-of-type(3) {
     margin-top: 5px;
   }
 }
 @media (max-width: 767px) {
-  /* line 105, ../sass/_message.scss */
+  /* line 108, ../sass/_message.scss */
   body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-row:nth-of-type(2) {
     margin-top: 20px;
   }
-  /* line 108, ../sass/_message.scss */
+  /* line 111, ../sass/_message.scss */
   body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-inner {
     padding-bottom: 30px;
   }
 }
 @media (max-width: 991px) {
-  /* line 114, ../sass/_message.scss */
+  /* line 117, ../sass/_message.scss */
   body.controller-message table#inboxTable tr.footable-row-detail .footable-row-detail-cell {
     height: auto;
   }
 }
-/* line 121, ../sass/_message.scss */
+/* line 124, ../sass/_message.scss */
 body.controller-message #inboxTable.tableIsEmpty {
   margin-top: 60px;
 }
 
-/* line 128, ../sass/_message.scss */
+/* line 132, ../sass/_message.scss */
+body.controller-message.action-create .field-messagecreate-receiver .tt-suggestion {
+  display: inline-flex;
+  width: 100%;
+}
+/* line 135, ../sass/_message.scss */
+body.controller-message.action-create .field-messagecreate-receiver .tt-suggestion > p {
+  margin-left: 10px;
+  margin-top: 17px;
+}
+/* line 139, ../sass/_message.scss */
+body.controller-message.action-create .field-messagecreate-receiver .tt-suggestion > img {
+  border-radius: 25px;
+}
+/* line 145, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row, body.controller-message.action-create .message-create-second-row {
   margin-top: 40px;
 }
-/* line 132, ../sass/_message.scss */
+/* line 149, ../sass/_message.scss */
 body.controller-message.action-create .message-create-first-row {
   position: relative;
 }
-/* line 136, ../sass/_message.scss */
+/* line 153, ../sass/_message.scss */
 body.controller-message.action-create input[type="text"], body.controller-message.action-create span.tt-dropdown-menu {
   max-width: 400px;
 }
-/* line 140, ../sass/_message.scss */
+/* line 157, ../sass/_message.scss */
 body.controller-message.action-create #messagecreate-content {
   resize: none;
   box-shadow: none;
 }
-/* line 143, ../sass/_message.scss */
+/* line 160, ../sass/_message.scss */
 body.controller-message.action-create #messagecreate-content:focus {
   border-color: #5dca88;
 }
-/* line 148, ../sass/_message.scss */
+/* line 165, ../sass/_message.scss */
 body.controller-message.action-create .field-messagecreate-attachment {
   position: static;
 }
-/* line 150, ../sass/_message.scss */
+/* line 167, ../sass/_message.scss */
 body.controller-message.action-create .field-messagecreate-attachment label {
   position: static;
 }
-/* line 154, ../sass/_message.scss */
+/* line 171, ../sass/_message.scss */
 body.controller-message.action-create .field-messagecreate-attachment #messagecreate-attachment {
   margin-left: -2px;
   margin-top: 10px;
@@ -1448,36 +1485,100 @@ body.controller-message.action-create .field-messagecreate-attachment #messagecr
   overflow: hidden;
 }
 
-/* line 166, ../sass/_message.scss */
+/* line 182, ../sass/_message.scss */
+body.controller-message.action-view .headerMessageView {
+  margin-bottom: 30px;
+}
+/* line 184, ../sass/_message.scss */
+body.controller-message.action-view .headerMessageView a {
+  color: #5dca88;
+}
+/* line 186, ../sass/_message.scss */
+body.controller-message.action-view .headerMessageView a:hover {
+  color: rgba(93, 202, 136, 0.5);
+}
+/* line 192, ../sass/_message.scss */
+body.controller-message.action-view .buttonsMessageView {
+  margin-bottom: 30px;
+  float: right;
+  clear: left;
+}
+@media (max-width: 511px) {
+  /* line 192, ../sass/_message.scss */
+  body.controller-message.action-view .buttonsMessageView {
+    float: none;
+  }
+}
+/* line 201, ../sass/_message.scss */
+body.controller-message.action-view .senderMessageView {
+  margin-bottom: 10px;
+}
+/* line 205, ../sass/_message.scss */
+body.controller-message.action-view .dateMessageView {
+  border-top: 2px solid #dddddd;
+  max-width: 180px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 212, ../sass/_message.scss */
+body.controller-message.action-view .subjectMessageView {
+  border-top: 2px solid #dddddd;
+  font-weight: bold;
+  line-height: 23px;
+  padding: 10px 0;
+}
+/* line 219, ../sass/_message.scss */
+body.controller-message.action-view .contentMessageView {
+  margin-bottom: 10px;
+  line-height: 23px;
+  border-top: 2px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
+  padding: 10px 0px;
+}
+/* line 228, ../sass/_message.scss */
+body.controller-message.action-view .senderMessageView a, body.controller-message.action-view .attachmentMessageView a {
+  color: #5dca88;
+}
+/* line 230, ../sass/_message.scss */
+body.controller-message.action-view .senderMessageView a:hover, body.controller-message.action-view .attachmentMessageView a:hover {
+  color: rgba(93, 202, 136, 0.5);
+}
+@media (max-width: 511px) {
+  /* line 236, ../sass/_message.scss */
+  body.controller-message.action-view .attachmentMessageView {
+    margin-bottom: 30px;
+  }
+}
+/* line 243, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form {
   margin-top: 20px;
 }
-/* line 168, ../sass/_message.scss */
+/* line 245, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messagecreate-subject {
   position: relative;
 }
-/* line 170, ../sass/_message.scss */
+/* line 247, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messagecreate-subject .control-label {
   position: absolute;
 }
-/* line 176, ../sass/_message.scss */
+/* line 253, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form #messagecreate-content {
   resize: none;
   box-shadow: none;
 }
-/* line 179, ../sass/_message.scss */
+/* line 256, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form #messagecreate-content:focus {
   border-color: #5dca88;
 }
-/* line 185, ../sass/_message.scss */
+/* line 262, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file {
   position: static !important;
 }
-/* line 187, ../sass/_message.scss */
+/* line 264, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file label {
   position: static !important;
 }
-/* line 191, ../sass/_message.scss */
+/* line 268, ../sass/_message.scss */
 body.controller-message.action-view #replyModal form .field-messageattachments-file #messageattachments-file {
   margin-left: -2px;
   margin-top: 10px;

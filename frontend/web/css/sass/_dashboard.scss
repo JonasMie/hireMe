@@ -230,21 +230,16 @@ body.controller-dashboard{
     }
   }
 
-
-
   .userDashboardMessagesHeader {
     color: $green;
     &:hover {
-      color: $green50;
+      color: $green50; // TODO: Change hover color
     }
   }
 
   .userDashboardFavoritesHeader {
     margin-top: 50px;
   }
-
-
-
 }
 
 
