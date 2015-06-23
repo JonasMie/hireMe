@@ -21,7 +21,7 @@ $this->title = 'Login';
 
 // SignUp //
 include Yii::getAlias('@helper/companySignup.php');
-
+$values = array_values(array_values($sectors));
 ?>
 <div class="site-login">
 
@@ -89,6 +89,7 @@ include Yii::getAlias('@helper/companySignup.php');
                         <?= $form->field($signupModel, 'companyAddressNumber')->label('Nr.') ?>
                     </div>
                 </div>
+
                 <?
                 $template =
                     '<p>{{plz}}  -  {{city}}</p>';
@@ -133,8 +134,16 @@ include Yii::getAlias('@helper/companySignup.php');
                     ],
                 ])->label('Ort') ?>
 
-                <?= $form->field($signupModel, 'companySector')->dropDownList($sectors, ['prompt' => 'Branche wählen' /*, "0"=>['disabled' => true]*/])->label('Branche') ?>  <? //TODO: Make Prompt disabled?>
-                <?= $form->field($signupModel, 'companyEmployees')->dropDownList($employeeAmount, ['prompt' => 'Anzahl der Beschäftigten'])->label('Anzahl der Mitarbeiter') ?>
+
+                <?= $form->field($signupModel, 'companySector')->widget(\kartik\select2\Select2::className(), [
+                    'data' => $sectors,
+                    'options' => ['prompt' => 'Branche wählen'],
+                ])->label('Branche') ?>
+                <?= $form->field($signupModel, 'companyEmployees')->widget(\kartik\select2\Select2::className(), [
+                    'data' => $employeeAmount,
+                    'options' => ['prompt' => 'Anzahl der Beschäftigten'],
+                    'hideSearch' => true,
+                ])->label('Anzahl der Mitarbeiter') ?>
             </div>
 
 
@@ -148,7 +157,7 @@ include Yii::getAlias('@helper/companySignup.php');
     </div>
 </div>
 
-// make sure to show initially hidden company signup div, if errors occur
-<? if(!empty($signupModel->errors) && $signupModel->checkCompanySignup){
+
+<? if(!empty($signupModel->errors) && $signupModel->checkCompanySignup){        // make sure to show initially hidden company signup div, if errors occur
     $this->registerJs("$('.companySetup').show();");
 }
