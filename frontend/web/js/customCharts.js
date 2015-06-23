@@ -42,7 +42,7 @@ var options =
 $(document).ready(function () {
 
     $.get("/analytics/json", function (response, status) {
-
+        
         var obj = jQuery.parseJSON(response);
 
         var viewClickData = {

@@ -51,6 +51,10 @@ class AnalyticsController extends Controller
         $jobData["interviewRate"] = $analytics->getInterviewRateForJob($id);
         $jobData["interestRate"] = $interestRate;
 
+        $sql = "SELECT viewCount from applyBtn WHERE job_id =".$id;
+
+        //$btnData["views"] = 
+
        return BaseJson::encode($jobData);
 
     }

@@ -4,7 +4,9 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\grid\GridView;
 use frontend\models\Analytics;
+use frontend\assets\CustomChartsAsset;
 
+CustomChartsAsset::register($this);
 
 
 $this->title = "Analytics: Detail";
@@ -12,15 +14,106 @@ $this->title = "Analytics: Detail";
 ?>
 
 <div class="detail">
-	<h1>Detail Overview für: <?= $jobTitle ?></h1>
-	<h2>View Count: <?= $viewCount ?></h2>
-	<h2>Click Count: <?= $clickCount ?></h2>
-    <h2>Bewerbungen: <?= $applyCount ?></h2>    
-	<h2>Interest Rate: <?= $interestRate ?> %</h2>
-    <h2>Application Rate: <?= $applicationRate ?> %</h2>
-	<h2>Interview Rate: <?= $interviewRate ?> %</h2>
-<h1>-----------------------</h1>
-<h2>Analytics für Buttons:</h2>
+	<h1>Statistiken von "<?= $jobTitle ?>"</h1>
+<!-- FIRST ROW BEGIN-->
+
+    <div class="row" id="analytics-tiles">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-1 tile-black ripple">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <?= Html::a($viewCount, "/#"); ?>
+                </div>
+                <div class="tile-value tile-string">
+                    <?= Html::a('Views', "/#"); ?>
+                </div>
+            </div>
+            <div class="subtile subtile-right hidden-xs">
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <div class="a-analytics"><?=$clickCount?></div>
+                </div>
+                <div class="tile-value tile-string">
+                    <div class="a-analytics">Clicks</div>
+                </div>
+            </div>
+            <div class="subtile subtile-right hidden-xs">
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-3 tile-black ripple" onclick="window.location='./job';">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <?= Html::a($applyCount, "/#"); ?>
+                </div>
+                <div class="tile-value tile-string">
+                    <?= Html::a('Bewerber', "/#"); ?>
+                </div>
+            </div>
+            <div class="subtile subtile-right hidden-xs">
+
+            </div>
+        </div>
+
+    </div>
+<!-- FIRST ROW END-->
+<!-- SECOND ROW BEGIN-->
+
+
+ <div class="row" id="analytics-tiles">
+ 
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <div class="a-analytics"><?=$interestRate?> %</div>
+                </div>
+                <div class="tile-value tile-string">
+                    <div class="a-analytics">Interest Rate</div>
+                </div>
+            </div>
+            <div class="subtile subtile-right hidden-xs">
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <div class="a-analytics"><?=$applicationRate?> %</div>
+                </div>
+                <div class="tile-value tile-string">
+                    <div class="a-analytics">Application Rate</div>
+                </div>
+            </div>
+            <div class="subtile subtile-right hidden-xs">
+
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
+            <div class="subtile subtile-left">
+                <div class="tile-value tile-number">
+                    <div class="a-analytics"><?=$interviewRate?> %</div>
+                </div>
+                <div class="tile-value tile-string">
+                    <div class="a-analytics">Interview Rate</div>
+                </div>
+            </div>
+            <div class="subtile subtile-right hidden-xs">
+
+            </div>
+        </div>
+
+    </div>
+<!-- SECOND ROW END-->
+
+
+<h2>Buttons:</h2>
 
 
  <?= GridView::widget([
