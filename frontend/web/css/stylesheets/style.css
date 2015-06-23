@@ -126,6 +126,40 @@ a {
   transition: color 0.2s ease-in-out;
 }
 
+/* line 106, ../sass/_variables.scss */
+.list-view .panel-heading {
+  background: none;
+  border: none;
+  border-radius: none;
+  color: #9d9d9d;
+  padding: 10px 0px;
+}
+/* line 114, ../sass/_variables.scss */
+.list-view .panel-default {
+  border: none;
+}
+/* line 118, ../sass/_variables.scss */
+.list-view .panel {
+  background: none;
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+/* line 126, ../sass/_variables.scss */
+.list-view .panel-title {
+  font-size: 22.4px;
+}
+/* line 130, ../sass/_variables.scss */
+.list-view .kv-attribute {
+  padding: 3px 0px;
+}
+/* line 134, ../sass/_variables.scss */
+.list-view th {
+  padding-right: 50px;
+  color: #d0d0d0;
+}
+
 /* Welcome to Compass. Use this file to write IE specific override styles.
  * Import this file using the following HTML or equivalent:
  * <!--[if IE]>
@@ -1262,9 +1296,44 @@ body.controller-dashboard .userDashboardFavoritesHeader {
   margin: 0 auto;
 }
 
-/* line 8, ../sass/_user.scss */
+/* line 3, ../sass/_user.scss */
+.controller-user.action-index div.row.name {
+  text-align: center;
+}
+/* line 5, ../sass/_user.scss */
+.controller-user.action-index div.row.name h1 {
+  margin-bottom: 20px;
+}
+/* line 10, ../sass/_user.scss */
+.controller-user.action-index div.user-picture {
+  text-align: center;
+}
+/* line 12, ../sass/_user.scss */
+.controller-user.action-index div.user-picture a.btn {
+  display: block;
+  margin: 20px auto;
+  max-width: 200px;
+}
+/* line 17, ../sass/_user.scss */
+.controller-user.action-index div.user-picture img {
+  max-width: 100%;
+}
+/* line 23, ../sass/_user.scss */
 .controller-user.action-index div.row.first h2 {
   margin-top: 0px;
+  font-size: 19.2px;
+}
+/* line 27, ../sass/_user.scss */
+.controller-user.action-index div.row.first .panel-title {
+  font-size: 27.2px;
+}
+/* line 33, ../sass/_user.scss */
+.controller-user.action-index .list-view div.summary {
+  display: none;
+}
+/* line 38, ../sass/_user.scss */
+.controller-user.action-index div.row.second {
+  margin-top: 20px;
 }
 
 /* line 3, ../sass/_message.scss */

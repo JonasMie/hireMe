@@ -29,7 +29,7 @@ $currentJobs = $currentJobsDataProvider->getCount();
 $currentSchools = $currentSchoolsDataProvider->getCount();
 
 if ($currentJobs > 0) {
-    echo "<h2>Aktuelle Stelle</h2>";
+    echo "<h2>Aktuelle Beschäftigung</h2>";
 }
 if ($currentJobs) {
     echo \yii\widgets\ListView::widget([
@@ -96,5 +96,51 @@ echo \yii\widgets\ListView::widget([
 </p>
 
 <?php else: ?>
+
+<?php
+$currentJobs = $currentJobsDataProvider->getCount();
+$currentSchools = $currentSchoolsDataProvider->getCount();
+
+if ($currentJobs + $currentSchools > 0) {
+    echo "<h2>Aktuell</h2>";
+}
+if ($currentJobs) {
+    echo \yii\widgets\ListView::widget([
+        'dataProvider' => $currentJobsDataProvider,
+        'itemView'     => '_resumeJob',
+        'viewParams'   => ['edit' => $edit],
+    ]);
+}
+if ($currentSchools) {
+    echo \yii\widgets\ListView::widget([
+        'dataProvider' => $currentSchoolsDataProvider,
+        'itemView'     => '_resumeSchool',
+        'viewParams'   => ['edit' => $edit],
+    ]);
+}
+?>
+
+<h2>Berufserfahrung</h2>
+<?php
+echo \yii\widgets\ListView::widget([
+    'dataProvider' => $jobDataProvider,
+    'itemView'     => '_resumeJob',
+    'viewParams'   => ['edit' => $edit],
+]);
+?>
+<p>
+    <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
+</p>
+<h2>Ausbildung</h2>
+<?php
+echo \yii\widgets\ListView::widget([
+    'dataProvider' => $schoolDataProvider,
+    'itemView'     => '_resumeSchool',
+    'viewParams'   => ['edit' => $edit],
+]);
+?>
+<p>
+    <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple']) ?>
+</p>
 
 <?php endif; ?>

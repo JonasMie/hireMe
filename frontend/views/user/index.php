@@ -9,8 +9,8 @@ use yii\helpers\Html;
 $this->title = "Profil";
 Yii::$app->getSession()->getFlash('error');
 ?>
-<div class="row">
-	<div class="col-sm-12 user-info">
+<div class="row name">
+	<div class="col-sm-4 user-info">
     <h1><?= $user->fullName?></h1>
 	</div>
 </div>
@@ -21,7 +21,11 @@ Yii::$app->getSession()->getFlash('error');
         <? if ($user->id !== Yii::$app->user->identity->getId()) {
             echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id,['class' => 'btn btn-success ripple']);
 			} else {
-			echo Html::a('Einstellungen', '/user/settings',['class' => 'btn btn-success ripple']);
+			echo Html::a('Profil-Einstellungen', '/user/settings',['class' => 'btn btn-success ripple']);
+        }
+        ?>
+		<? if ($user->id == Yii::$app->user->identity->getId()) {
+			echo Html::a('Lebenslauf bearbeiten', '/resume',['class' => 'btn btn-success ripple']);
         }
         ?>
     </div>
@@ -46,7 +50,7 @@ Yii::$app->getSession()->getFlash('error');
         }
 		?>
 	</div>
-	<div class="col-sm-4 currentSchool">
+	<div class="col-sm-3 currentSchool">
 		<?
         // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
         if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
@@ -69,7 +73,7 @@ Yii::$app->getSession()->getFlash('error');
 	</div>
 </div>
 <div class="row second">
-	<div class="col-sm-6 fullJob">
+	<div class="col-sm-4 col-sm-offset-4 fullJob">
 		<?
         // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
         if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
@@ -90,7 +94,7 @@ Yii::$app->getSession()->getFlash('error');
         }
 		?>
 	</div>
-	<div class="col-sm-6 fullSchool">
+	<div class="col-sm-4 fullSchool">
 		<?
         // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
         if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {

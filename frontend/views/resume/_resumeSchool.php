@@ -57,17 +57,19 @@ $attributes = [
 ];
 
 echo DetailView::widget([
-    'model'      => $model,
-    'attributes' => $attributes,
-    'panel'=>[
-        'heading'=> $model->graduation,
-        'type' => DetailView::TYPE_DEFAULT      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
+	'bootstrap' => false,
+    'model'          => $model,
+    'attributes'     => $attributes,
+    'panel'          => [
+        'heading' => $model->graduation,
+        'type'    => DetailView::TYPE_DEFAULT      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
     ],
-    'deleteOptions'=>[
-        'params' => ['id' => $model->id, 'type' => 'school'],
-        'url'=>['delete'],
+    'deleteOptions'  => [
+        'params' => ['id' => $model->id, 'type' => 'job'],
+        'url'    => ['delete'],
     ],
-    'hideIfEmpty' => true,
-    'formOptions' => ['options' =>['enctype' => 'multipart/form-data']],
+    'hideIfEmpty'    => true,
+    'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
     'enableEditMode' => $edit,
+	'hAlign' => DetailView::ALIGN_LEFT,
 ]);

@@ -18,7 +18,7 @@ $attributes = [
 	
     [
         'attribute'     => 'company_id',
-        'label'         => '',
+        'label'         => 'Unternehmen',
         'format'        => 'raw',
         'value'         => Html::a($model->company->name, ['/company/view', 'id' => $model->company->id]), // TODO: check company url
         'type'          => DetailView::INPUT_TYPEAHEAD,
@@ -35,7 +35,7 @@ $attributes = [
         ]
     ],
     [
-        'label'         => '',
+        'label'         => 'Von',
         'attribute'     => 'begin',
         'format'        => ['date', 'php:d.m.Y'],
         'type'          => DetailView::INPUT_WIDGET,
@@ -46,7 +46,7 @@ $attributes = [
         ]
     ],
     [
-        'label'         => '',
+        'label'         => 'Bis',
         'format'        => ['date', 'php:d.m.Y'],
         'attribute'     => 'end',
         'type'          => DetailView::INPUT_WIDGET,
@@ -78,7 +78,7 @@ $attributes = [
 	[
         'attribute' => 'description',
         'type'      => 'textArea',
-        'label'     => ''
+        'label'     => 'Beschreibung'
 	],
 ];
 
@@ -97,5 +97,5 @@ echo DetailView::widget([
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
     'enableEditMode' => $edit,
-	'labelColOptions' => ['class' => 'kv-view-hidden'],
+	'hAlign' => DetailView::ALIGN_LEFT,
 ]);

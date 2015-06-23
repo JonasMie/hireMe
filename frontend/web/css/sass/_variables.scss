@@ -100,3 +100,39 @@ a {
 transition: color 0.2s ease-in-out;
 }
 
+// Kartik ListView Resets for Default Type
+
+.list-view{
+	.panel-heading{
+		background: none;
+		border: none;
+		border-radius:none;
+		color: $greyFont;
+		padding: 10px 0px;
+	}
+	
+	.panel-default{
+		border: none;
+	}
+	
+	.panel{
+		background: none;
+		border: none;
+		border-radius: none;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+	}
+	
+	.panel-title{
+		font-size:$fontbase * 1.4;
+	}
+	
+	.kv-attribute{
+		padding:3px 0px;
+	}
+	
+	th{
+		padding-right:50px;
+		color: lighten($greyFont, 20%);
+	}
+}
