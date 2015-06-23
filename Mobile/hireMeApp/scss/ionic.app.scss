@@ -35,7 +35,7 @@ body{
   height: 100%;
 }
 
-.menu ion-content.scroll-content.ionic-scroll.has-header{
+.menu{
 	background-color:#2d312f;
 	height: 100%;
 }
@@ -47,14 +47,12 @@ body{
 ion-header-bar.bar-dark.bar.bar-header.disable-user-behavior{
 	border:none;
 }
-
-ion-side-menu-content.menu-content.pane.menu-animated{
+.menu-content{
 	background-color:$light;
-	padding:20px;
 }
 
-.view-container,ion-content.scroll-content.ionic-scroll.has-header{
-	background-color:$light;
+.menu-content ion-view[view-title]{
+	padding:20px;
 }
 
 #advertisment {
@@ -72,6 +70,13 @@ ion-side-menu-content.menu-content.pane.menu-animated{
 
 img {
     vertical-align: middle;
+}
+
+.bar-dark{
+	img{
+		max-height:100%;
+		text-align: left;
+	}
 }
 
 .item, .item-complex .item-content, .item-radio .item-content {
@@ -93,4 +98,8 @@ a[href]:hover{
 
 	
 	
+}
+
+pane[view-title="Home"]{
+	padding:0px;
 }
