@@ -15,9 +15,78 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$dark:							  #2d312f !default;
+$green:							  #5dca88;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+body{
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+}
+
+/* Empty. Add your own CSS if you like */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.menu ion-content.scroll-content.ionic-scroll.has-header{
+	background-color:#2d312f;
+	height: 100%;
+}
+
+ion-header-bar.bar-dark.bar.bar-header.disable-user-behavior{
+	border:none;
+}
+
+ion-side-menu-content.menu-content.pane.menu-animated{
+	background-color:$light;
+	padding:20px;
+}
+
+.view-container,ion-content.scroll-content.ionic-scroll.has-header{
+	background-color:$light;
+}
+
+#advertisment {
+
+	margin-top: 0px;
+	height: 10%;
+}
+
+.bar-footer {
+	margin-top: 0px;
+	padding:0px;
+	height:10%;
+	background-color: blue;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.item, .item-complex .item-content, .item-radio .item-content {
+  background-color: $dark;
+  color: #fff;
+  border: none;
+}
+
+a[href]:hover{
+	color: $green;
+}
+
+.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
+  border:none;
+  background-color: $dark;
+}
+
+#applyBtn {
+
+	
+	
+}
