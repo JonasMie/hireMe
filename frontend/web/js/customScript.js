@@ -167,6 +167,52 @@ jQuery('img.svg').each(function(){
 });
 /** END Replace all SVG images with inline SVG **/
 
+/** iCheck js select-on-check-all fix **/
+
+//$('.select-on-check-all').on('ifChecked', function(event){
+//    $('input[type=checkbox]').iCheck('check');
+//});
+//
+//$('.select-on-check-all').on('ifUnchecked', function(event){
+//    $('input[type=checkbox]').iCheck('uncheck');
+//});
+
+
+/**
+ * Additional fix: The solution above would fail, if there are more than one forms on one page
+ * (all checkboxes would be checked, even in other forms)
+ * -- jonas
+ */
+
+$('.select-on-check-all').on('ifChecked', function(event){
+    $('#' + jQuery(this).closest('div.grid-view').attr('id') + ' input[type=checkbox]').iCheck('check');
+});
+
+$('.select-on-check-all').on('ifUnchecked', function(event){
+    $('#' + jQuery(this).closest('div.grid-view').attr('id') +' input[type=checkbox]').iCheck('uncheck');
+});
+
+/** END iCheck js select-on-check-all fix ++/
+
+
+ /** Demo Chart **/
+var data = [
+    {
+        value: 965,
+        color: "rgba(93,202,136,0.5)",
+        label: "Bewerbungen"
+    },
+    {
+        value: 84,
+        color: "rgb(221,221,221)",
+        label: "Stellenanzeigen"
+    }
+];
+
+
+var ctx = document.getElementById("DashboardChart").getContext("2d");
+var myNewChart = new Chart(ctx).Doughnut(data);
+/** END Demo**/
 
 
 

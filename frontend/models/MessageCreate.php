@@ -74,7 +74,8 @@ class MessageCreate extends Model
             'receiver_id' => 'Receiver ID',
             'receiver'    => 'Empfänger',
             'sent_at'     => 'Gesendet',
-            'deleted'     => 'Gelöscht',
+            'deleted_sender'     => 'Gelöscht',
+            'deleted_receiver'     => 'Gelöscht',
             'read'        => 'Gelesen',
             'flow'        => 'Flow'
         ];
