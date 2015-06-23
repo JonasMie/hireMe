@@ -4,12 +4,12 @@ namespace frontend\controllers;
 
 use common\behaviours\BodyClassBehaviour;
 use common\models\User;
+use frontend\models\Geo;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\CreateJobForm;
 use frontend\models\ContactForm;
 use frontend\models\Company;
 use frontend\models\Auth;
@@ -110,9 +110,14 @@ class SiteController extends Controller
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
+            } else {
+                return $this->render('login', [
+                    'loginModel'  => $loginModel,
+                    'signupModel' => $signupModel
+
+                ]);
             }
         } else {
-
             return $this->render('login', [
                 'loginModel'  => $loginModel,
                 'signupModel' => $signupModel
@@ -309,5 +314,10 @@ class SiteController extends Controller
     public function actionCompanySearch($q = null)
     {
         return Company::getAutocompleteCompany($q);
+    }
+
+    public function actionGeoSearch($q = null)
+    {
+        return Geo::getAutocompleteGeo($q);
     }
 }
