@@ -297,6 +297,14 @@ body {
 
   /*Typeahead Fix and Styling */
 
+  .typeahead-validation {
+    .has-success {
+      input {
+        border-bottom: $FormBorderFocused !important;
+      }
+    }
+  }
+
   label.typeahead-label {
     position: absolute;
     color: $greyFont;
@@ -348,6 +356,21 @@ body {
   }
   /*END Typeahead Fix and Styling*/
   /* END BASIC FORM STYLING */
+
+  /* FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background: none !important;
+    color: $greyFont;
+  }
+  /* END FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+
+  /* Background color does not work for class .has-error anymore. This is a temporary fix */
+  .has-error {
+    input[type="text"] {
+      border-color: #a94442 !important;
+    }
+  }
+  /* END Background color does not work for class .has-error anymore. This is a temporary fix */
 
 
   /*PROFILE PICTURE */

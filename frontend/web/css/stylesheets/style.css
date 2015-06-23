@@ -121,7 +121,7 @@ input.form-control:focus {
   border-color: #5dca88;
 }
 
-/* line 99, ../sass/_variables.scss */
+/* line 97, ../sass/_variables.scss */
 a {
   transition: color 0.2s ease-in-out;
 }
@@ -555,6 +555,10 @@ body {
   /*Typeahead Fix and Styling */
   /*END Typeahead Fix and Styling*/
   /* END BASIC FORM STYLING */
+  /* FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+  /* END FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+  /* Background color does not work for class .has-error anymore. This is a temporary fix */
+  /* END Background color does not work for class .has-error anymore. This is a temporary fix */
   /*PROFILE PICTURE */
   /*END PROFILE PICTURE */
 }
@@ -825,7 +829,11 @@ body .input-in-focus > label, body .has-success > label {
 body .input-in-focus textarea, body .has-success textarea {
   border-color: #5dca88 !important;
 }
-/* line 300, ../sass/_basicTemplate.scss */
+/* line 302, ../sass/_basicTemplate.scss */
+body .typeahead-validation .has-success input {
+  border-bottom: 2px solid #5dca88 !important;
+}
+/* line 308, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -836,21 +844,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 312, ../sass/_basicTemplate.scss */
+/* line 320, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 320, ../sass/_basicTemplate.scss */
+/* line 328, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 323, ../sass/_basicTemplate.scss */
+/* line 331, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 327, ../sass/_basicTemplate.scss */
+/* line 335, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -860,41 +868,50 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 332, ../sass/_basicTemplate.scss */
+/* line 340, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 337, ../sass/_basicTemplate.scss */
+/* line 345, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 339, ../sass/_basicTemplate.scss */
+/* line 347, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 343, ../sass/_basicTemplate.scss */
+/* line 351, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 354, ../sass/_basicTemplate.scss */
+/* line 361, ../sass/_basicTemplate.scss */
+body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
+  background: none !important;
+  color: #9d9d9d;
+}
+/* line 369, ../sass/_basicTemplate.scss */
+body .has-error input[type="text"] {
+  border-color: #a94442 !important;
+}
+/* line 377, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 360, ../sass/_basicTemplate.scss */
+/* line 383, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 367, ../sass/_basicTemplate.scss */
+/* line 390, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }

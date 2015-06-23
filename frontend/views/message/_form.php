@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <div class="message-create-first-row">
+    <div class="message-create-first-row typeahead-validation">
 
 
         <?
