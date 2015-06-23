@@ -1316,22 +1316,23 @@ body.controller-dashboard .userDashboardFavoritesHeader {
 }
 /* line 17, ../sass/_user.scss */
 .controller-user.action-index div.user-picture img {
-  max-width: 100%;
+  max-width: 300px;
+  width: 100%;
 }
-/* line 23, ../sass/_user.scss */
+/* line 24, ../sass/_user.scss */
 .controller-user.action-index div.row.first h2 {
   margin-top: 0px;
   font-size: 19.2px;
 }
-/* line 27, ../sass/_user.scss */
+/* line 28, ../sass/_user.scss */
 .controller-user.action-index div.row.first .panel-title {
   font-size: 27.2px;
 }
-/* line 33, ../sass/_user.scss */
+/* line 34, ../sass/_user.scss */
 .controller-user.action-index .list-view div.summary {
   display: none;
 }
-/* line 38, ../sass/_user.scss */
+/* line 39, ../sass/_user.scss */
 .controller-user.action-index div.row.second {
   margin-top: 20px;
 }
