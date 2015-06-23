@@ -7684,7 +7684,7 @@ body {
   width: 100%;
   height: 100%; }
 
-.menu ion-content.scroll-content.ionic-scroll.has-header {
+.menu {
   background-color: #2d312f;
   height: 100%; }
 
@@ -7694,12 +7694,11 @@ body {
 ion-header-bar.bar-dark.bar.bar-header.disable-user-behavior {
   border: none; }
 
-ion-side-menu-content.menu-content.pane.menu-animated {
-  background-color: #fff;
-  padding: 20px; }
-
-.view-container, ion-content.scroll-content.ionic-scroll.has-header {
+.menu-content {
   background-color: #fff; }
+
+.menu-content ion-view[view-title] {
+  padding: 20px; }
 
 #advertisment {
   margin-top: 0px;
@@ -7714,6 +7713,10 @@ ion-side-menu-content.menu-content.pane.menu-animated {
 img {
   vertical-align: middle; }
 
+.bar-dark img {
+  max-height: 100%;
+  text-align: left; }
+
 .item, .item-complex .item-content, .item-radio .item-content {
   background-color: #2d312f;
   color: #fff;
@@ -7726,3 +7729,5 @@ a[href]:hover {
   border: none;
   background-color: #2d312f; }
 
+pane[view-title="Home"] {
+  padding: 0px; }
