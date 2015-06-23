@@ -23,8 +23,8 @@ use yii\widgets\ActiveForm;
 
         <?
         $template =
-            '<p>{{value}}</p>' .
-            '<img src="/uploads/profile/{{image}}.jpg"/>';
+            '<img src="/uploads/profile/{{image}}.jpg"/>' .
+            '<p>{{value}}</p>';
 
         echo $form->field($model, 'receiver')->widget(Typeahead::className(), [
             'name' => 'receiver_name',
