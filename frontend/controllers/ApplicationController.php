@@ -83,13 +83,14 @@ class ApplicationController extends Controller
         return $user->firstName." ".$user->lastName; 
     }
 
-     public function actionShowFile($id) {
+     public function actionShowFile($id,$isReport=false) {
 
         $file = File::find()
         ->where(["id" => $id])->one();
         Yii::trace("file title: ".$file->title);
         $user_id = $file->user_id;
-        $this->redirect("/uploads/reports".$file->path.'.'.$file->extension);
+        
+        $this->redirect("/uploads".$file->path.'.'.$file->extension);
         
     }
     
@@ -159,35 +160,36 @@ class ApplicationController extends Controller
     {
 
         $app = Application::findOne($id);
-        $user = User::find()->where(['id' => $app->user_id])->one();
-        Yii::trace($user->fullName);
+        Yii::trace("Bewerbung: ".$app->id);
+        $applier = User::find()->where(['id' => $app->user_id])->one();
+        Yii::trace($applier->fullName);
         $created = $app->created_at;
 
         $schools = new ResumeSchoolSearch();
-        $schoolProvider = $schools->search(['ResumeSchoolSearch' => ['user_id' => $user->id]]);
+        $schoolProvider = $schools->search(['ResumeSchoolSearch' => ['user_id' => $applier->id]]);
 
         $jobs = new ResumeJobSearch();
-        $jobProvider = $jobs->search(['ResumeJobSearch' => ['user_id' => $user->id]]);
+        $jobProvider = $jobs->search(['ResumeJobSearch' => ['user_id' => $applier->id]]);
         
         $currentJob = ResumeJob::find()
-        ->where(['user_id' => $user->id,'current' => 1])->one();
+        ->where(['user_id' => $applier->id,'current' => 1])->one();
         if(count($currentJob) == 0) {
         $currentJob = ResumeJob::find()
-        ->where(['user_id' => $user->id])->one();
+        ->where(['user_id' => $applier->id])->one();
         }
         
 
         $appDatas = new ApplicationDataSearch();
         $provider = $appDatas->search(['ApplicationDataSearch' => ['application_id' => $app->id]]);
-        $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($user->id.'_'.$app->id). '.txt');          
         if (Yii::$app->user->identity->isRecruiter()) {
 
+        Yii::trace($applier->id);
         $model["app"] = $app;
-        $model["user"] = $user;
+        $model["user"] = $applier;
         $model["created"] = $app->created_at;
         $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
+        $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
 
-        
           return $this->render('view', [
             'model' => $model,
             'appDataProvider' => $provider,
@@ -201,6 +203,7 @@ class ApplicationController extends Controller
 
         $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
         $model["created"] = $app->created_at;
+        $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
 
         return $this->render('view', [
             'model' => $model,

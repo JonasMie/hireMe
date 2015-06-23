@@ -25,7 +25,6 @@ use frontend\models\Company;
     <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
     <p> Beworben am: <?= $model["created"];?></p>
     <br>
-    <p>Arbeitet aktuell als <?= $currentJob->type ?> bei <?= Company::findOne($currentJob->company_id)->name?></p>
      <h2>Anschreiben:</h2>
     <p>
     <?= $model['coverText']; ?>
