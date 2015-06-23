@@ -162,7 +162,26 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('EventCtrl', function($scope,$ionicSideMenuDelegate,$http) {
+.controller('EventCtrl', function($scope,$ionicSideMenuDelegate,$http,$ionicModal) {
+
+  $ionicModal.fromTemplateUrl('./templates/newEventModal.html', {
+    scope:$scope,
+    animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    })
+
+  $scope.sendData = function() {
+
+    
+    
+  }
+
+  $scope.newEvent = function() {
+
+    $scope.modal.show();
+
+  }
     	
     	$ionicSideMenuDelegate.canDragContent(true);
 

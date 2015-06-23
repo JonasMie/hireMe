@@ -1,4 +1,17 @@
-<ion-view view>
+<ion-view>
+<ion-nav-bar class="bar-dark" title="Casd">  
+  <ion-nav-buttons side="left">
+
+    <button class="button button-icon ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+ <ion-nav-title>
+      <h2 class="title">Events</h2>
+    </ion-nav-title>
+  <ion-nav-buttons side="right">
+           <button class="button button-clear icon ion-plus" ng-click="newEvent()"></button>
+  </ion-nav-buttons>
+  </ion-nav-bar>
+
   <ion-content class="content">
     <div class="card" ng-repeat="event in events">
   <div class="item item-divider">
