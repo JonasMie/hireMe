@@ -45,7 +45,7 @@ ImageAssetBundle::register($this);
 
 			<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 			
-			<div class="col-sm-6">
+			<div class="col-sm-4 col-sm-offset-1">
 			<h2>Profilbild</h2>
 			<?= $form->field($model, 'picture')->fileInput(); ?>
 
@@ -59,7 +59,7 @@ ImageAssetBundle::register($this);
 			
 			</div>
 			
-			<div class="col-sm-6">
+			<div class="col-sm-4">
 			
 			<h2>Allgemein</h2>
 			
@@ -77,7 +77,7 @@ ImageAssetBundle::register($this);
 			<?= $form->field($model, 'email')->textInput()->label('Neue Email-Adresse') ?>
 			
 			<div class="form-group">
-				<?= Html::submitButton('Speichern', ['class' => 'btn btn-primary ripple', 'name' => 'settings-button']) ?>
+				<?= Html::submitButton('Speichern', ['class' => 'btn btn-success ripple', 'name' => 'settings-button']) ?>
 			</div>
 			
 			</div>

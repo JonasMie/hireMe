@@ -17,17 +17,6 @@ Yii::$app->getSession()->getFlash('error');
 <div class="row first">
     <div class="col-sm-4 user-picture">
         <?= $user->getProfilePicture() ?>
-
-        <? if ($user->id !== Yii::$app->user->identity->getId()) {
-            echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id,['class' => 'btn btn-success ripple']);
-			} else {
-			echo Html::a('Profil-Einstellungen', '/user/settings',['class' => 'btn btn-success ripple']);
-        }
-        ?>
-		<? if ($user->id == Yii::$app->user->identity->getId()) {
-			echo Html::a('Lebenslauf bearbeiten', '/resume',['class' => 'btn btn-success ripple']);
-        }
-        ?>
     </div>
 	<div class="col-sm-4 currentJob">
 		<?
@@ -73,7 +62,22 @@ Yii::$app->getSession()->getFlash('error');
 	</div>
 </div>
 <div class="row second">
-	<div class="col-sm-4 col-sm-offset-4 fullJob">
+	
+	<div class="col-sm-4 userProfileSettings">
+		<div class="row">
+			<? if ($user->id !== Yii::$app->user->identity->getId()) {
+				echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id,['class' => 'btn btn-success ripple']);
+				} else {
+				echo Html::a('Profil-Einstellungen', '/user/settings',['class' => 'btn btn-success ripple']);
+			}
+			?>
+			<? if ($user->id == Yii::$app->user->identity->getId()) {
+				echo Html::a('Lebenslauf bearbeiten', '/resume',['class' => 'btn btn-success ripple']);
+			}
+			?>
+		</div>
+	</div>
+	<div class="col-sm-4 fullJob">
 		<?
         // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
         if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
