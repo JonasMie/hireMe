@@ -45,7 +45,7 @@ $this->title = Yii::t('app', 'Messages');
     <p>
         <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Neue Nachricht'), ['create'], ['class' => 'btn btn-success ripple btn-newMessage']) ?>
     </p>
-
+    
     <?= GridView::widget(['dataProvider' => $dataProvider,
         //        'filterModel'  => $searchModel,
                           'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],

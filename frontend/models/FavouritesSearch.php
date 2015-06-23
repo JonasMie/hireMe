@@ -13,6 +13,9 @@ use yii\data\ActiveDataProvider;
 class FavouritesSearch extends Favourites
 {
     public $job;
+    public $company;
+    public $jobDescription;
+
     /**
      * @inheritdoc
      */
@@ -20,7 +23,7 @@ class FavouritesSearch extends Favourites
     {
         return [
             [['id', 'job_id', 'user_id'], 'integer'],
-            [['job'], 'safe'],
+            [['job', 'company', 'jobDescription'], 'safe'],
         ];
     }
 
@@ -49,13 +52,25 @@ class FavouritesSearch extends Favourites
         ]);
 
         $dataProvider->setSort([
-            'attributes'=> [
+            'attributes'   => [
                 'id',
                 'job.created_at' => [
-                    'asc' => ['job.created_at' => SORT_ASC],
+                    'asc'  => ['job.created_at' => SORT_ASC],
                     'desc' => ['job.created_at' => SORT_DESC],
                 ],
-
+                'jobDescription' => [
+                    'asc'   => ['description' => SORT_ASC],
+                    'desc'  => ['description' => SORT_DESC],
+                    'label' => ['description']
+                ],
+                'company'        => [
+                    'asc'   => ['name' => SORT_ASC],
+                    'desc'  => ['name' => SORT_DESC],
+                    'label' => ['name']
+                ]
+            ],
+            'defaultOrder' => [
+                'job.created_at' => SORT_DESC
             ]
         ]);
 
@@ -64,13 +79,28 @@ class FavouritesSearch extends Favourites
         if (!$this->validate()) {
             // uncomment the following line if you do not want to any records when validation fails
             // $query->where('0=1');
+            $query->joinWith(['job']);
             return $dataProvider;
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'job_id' => $this->job_id,
+            'id'      => $this->id,
+            'job_id'  => $this->job_id,
             'user_id' => $this->user_id,
+        ]);
+
+        $query->joinWith(['job' => function ($q) {
+            $q->where('job.description LIKE "%' .
+                $this->jobDescription . '%"');
+            $q->joinWith(['company' =>function($q1){
+                $q1->where('company.name LIKE "%' .
+                    $this->company . '%"');
+            }]);
+        }]);
+
+
+        $query->andFilterWhere([
+            'user_id' => Yii::$app->user->getId(),
         ]);
 
 
