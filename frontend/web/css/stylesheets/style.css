@@ -1344,7 +1344,6 @@ body.controller-analytics #analytics-tiles {
 /* line 7, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile {
   height: 130px;
-  padding: 0px 1%;
 }
 @media (max-width: 511px) {
   /* line 7, ../sass/_analytics.scss */
@@ -1352,156 +1351,233 @@ body.controller-analytics #analytics-tiles div.analytics-tile {
     width: 100%;
   }
 }
-/* line 13, ../sass/_analytics.scss */
+/* line 12, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
   height: 130px;
   width: 50%;
   float: left;
   clear: right;
 }
-@media (max-width: 767px) {
-  /* line 13, ../sass/_analytics.scss */
+@media (min-width: 512px) and (max-width: 767px) {
+  /* line 12, ../sass/_analytics.scss */
   body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
     width: 100%;
   }
 }
-/* line 22, ../sass/_analytics.scss */
+/* line 21, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value {
   text-align: center;
 }
-/* line 24, ../sass/_analytics.scss */
+/* line 23, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics {
   color: #fff;
   font-size: 17px;
 }
-/* line 27, ../sass/_analytics.scss */
+/* line 26, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a:hover, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics:hover {
   text-decoration: none;
 }
-/* line 32, ../sass/_analytics.scss */
+/* line 31, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
   padding: 25px 0px 2px 0px;
 }
 @media (max-width: 767px) {
-  /* line 32, ../sass/_analytics.scss */
+  /* line 31, ../sass/_analytics.scss */
   body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
     padding-top: 35px;
   }
 }
-/* line 37, ../sass/_analytics.scss */
+/* line 36, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number .a-analytics {
   font-size: 30px;
 }
-/* line 41, ../sass/_analytics.scss */
+/* line 40, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-string {
   padding: 0 5%;
   line-height: 18px;
 }
-/* line 50, ../sass/_analytics.scss */
+/* line 49, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.tile-green div.subtile-left {
   background-color: #5dca88;
 }
-/* line 54, ../sass/_analytics.scss */
+/* line 53, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.tile-green div.subtile-right {
   background-color: rgba(93, 202, 136, 0.5);
 }
-/* line 61, ../sass/_analytics.scss */
+/* line 60, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.tile-black div.subtile-left {
   background-color: #2d312f;
 }
-/* line 65, ../sass/_analytics.scss */
+/* line 64, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.tile-black div.subtile-right {
   background-color: #5d6461;
 }
-/* line 71, ../sass/_analytics.scss */
+/* line 70, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
   background-image: url("/images/dashboard-bewerbungen.png");
   background-size: 55% auto;
 }
 @media (max-width: 767px) {
-  /* line 71, ../sass/_analytics.scss */
+  /* line 70, ../sass/_analytics.scss */
   body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
     background-size: 110px auto;
   }
 }
-/* line 79, ../sass/_analytics.scss */
+/* line 78, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile:hover {
   cursor: pointer;
 }
-/* line 87, ../sass/_analytics.scss */
+@media (max-width: 511px) {
+  /* line 85, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-2 {
+    margin-top: 20px;
+  }
+}
+/* line 89, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
   background-image: url("/images/analytics-einstellungen.png");
   background-size: 35% auto;
 }
 @media (max-width: 991px) {
-  /* line 87, ../sass/_analytics.scss */
+  /* line 89, ../sass/_analytics.scss */
   body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
     background-size: 37% auto;
   }
 }
-/* line 99, ../sass/_analytics.scss */
+@media (max-width: 511px) {
+  /* line 100, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 {
+    margin-top: 20px;
+  }
+}
+/* line 104, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
   background-image: url("/images/dashboard-stellenanzeigen.png");
   background-size: 25% auto;
 }
 @media (max-width: 991px) {
-  /* line 99, ../sass/_analytics.scss */
+  /* line 104, ../sass/_analytics.scss */
   body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
     background-size: 25% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 99, ../sass/_analytics.scss */
+  /* line 104, ../sass/_analytics.scss */
   body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
     background-size: 50px auto;
   }
 }
-/* line 110, ../sass/_analytics.scss */
+/* line 115, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile:hover {
   cursor: pointer;
 }
-/* line 117, ../sass/_analytics.scss */
+/* line 122, ../sass/_analytics.scss */
 body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right {
   background-position: center;
   background-repeat: no-repeat;
 }
-/* line 125, ../sass/_analytics.scss */
+@media (min-width: 512px) and (max-width: 767px) {
+  /* line 122, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right {
+    display: none;
+  }
+}
+/* line 133, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts {
   margin-bottom: 50px;
 }
-/* line 129, ../sass/_analytics.scss */
+/* line 137, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts .background-wrapper {
   background-color: #edf0f0;
 }
-/* line 132, ../sass/_analytics.scss */
+/* line 140, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts .background-wrapper .header {
   padding: 15px 20px;
   color: #fff;
 }
-/* line 135, ../sass/_analytics.scss */
+/* line 143, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts .background-wrapper .header span {
   cursor: help;
 }
-/* line 140, ../sass/_analytics.scss */
+/* line 148, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts .background-wrapper canvas {
   margin-top: 60px;
   margin-bottom: 30px;
 }
-/* line 148, ../sass/_analytics.scss */
+/* line 156, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts .first-col .background-wrapper .header {
   background-color: #5dca88;
 }
 @media (max-width: 767px) {
-  /* line 155, ../sass/_analytics.scss */
+  /* line 163, ../sass/_analytics.scss */
   body.controller-analytics #analyticsCharts .second-col {
     margin-top: 50px;
   }
 }
-/* line 160, ../sass/_analytics.scss */
+/* line 168, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts .second-col .background-wrapper .header {
   background-color: #2d312f;
 }
-/* line 167, ../sass/_analytics.scss */
+/* line 175, ../sass/_analytics.scss */
 body.controller-analytics #analyticsCharts #charts-first-row, body.controller-analytics #analyticsCharts #charts-second-row, body.controller-analytics #analyticsCharts #charts-third-row, body.controller-analytics #analyticsCharts #charts-fourth-row {
   margin-top: 50px;
+}
+/* line 182, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.first-col, body.controller-analytics #analyticsTable tr th.first-col {
+  width: 35%;
+}
+/* line 185, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.second-col, body.controller-analytics #analyticsTable tr th.second-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 189, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.third-col, body.controller-analytics #analyticsTable tr th.third-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 193, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.fourth-col, body.controller-analytics #analyticsTable tr th.fourth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 197, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.fifth-col, body.controller-analytics #analyticsTable tr th.fifth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 201, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.sixth-col, body.controller-analytics #analyticsTable tr th.sixth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 205, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.seventh-col, body.controller-analytics #analyticsTable tr th.seventh-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 209, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.eight-col, body.controller-analytics #analyticsTable tr th.eight-col {
+  width: 5%;
+  text-align: right;
+}
+/* line 213, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
+  width: 5%;
+  text-align: right;
+}
+@media (min-width: 992px) {
+  /* line 213, ../sass/_analytics.scss */
+  body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
+    width: 0%;
+    text-align: right;
+  }
+}
+/* line 222, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr .footable-row-detail-cell {
+  padding-bottom: 0px;
+}
+/* line 224, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr .footable-row-detail-cell .footable-row-detail-row {
+  margin-top: 8px;
 }

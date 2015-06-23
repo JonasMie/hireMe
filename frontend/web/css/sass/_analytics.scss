@@ -6,14 +6,13 @@ body.controller-analytics {
 
     div.analytics-tile {
       height: 130px;
-      padding: 0px 1%;
       @media (max-width: 511px) {
         width: 100%;
       }
       div.subtile {
         height: 130px;
         width: 50%;
-        @media (max-width: 767px) {
+        @media (min-width: 512px) and (max-width: 767px) {
           width: 100%;
         }
         float: left;
@@ -84,6 +83,9 @@ body.controller-analytics {
 
 
     div.analytics-tile-2 {
+      @media (max-width: 511px){
+        margin-top: 20px;
+      }
       div.subtile-right {
         background-image: url("/images/analytics-einstellungen.png");
         background-size: 35% auto;
@@ -96,6 +98,9 @@ body.controller-analytics {
     }
 
     div.analytics-tile-3 {
+      @media (max-width: 511px){
+        margin-top: 20px;
+      }
       div.subtile-right {
         background-image: url("/images/dashboard-stellenanzeigen.png");
         background-size: 25% auto;
@@ -116,7 +121,10 @@ body.controller-analytics {
     div.analytics-tile {
       div.subtile-right {
         background-position: center;
-        background-repeat: no-repeat
+        background-repeat: no-repeat;
+        @media (min-width: 512px) and (max-width: 767px) {
+          display: none;
+        }
       }
     }
   }// END TILES
@@ -170,7 +178,55 @@ body.controller-analytics {
   }// END CHARTS
 
   #analyticsTable {
+    tr {
+      td.first-col, th.first-col {
+        width: 35%;
+      }
+      td.second-col, th.second-col {
+        width: 10%;
+        text-align: right;
+      }
+      td.third-col, th.third-col {
+        width: 10%;
+        text-align: right;
+      }
+      td.fourth-col, th.fourth-col {
+        width: 10%;
+        text-align: right;
+      }
+      td.fifth-col, th.fifth-col {
+        width: 10%;
+        text-align: right;
+      }
+      td.sixth-col, th.sixth-col {
+        width: 10%;
+        text-align: right;
+      }
+      td.seventh-col, th.seventh-col {
+        width: 10%;
+        text-align: right;
+      }
+      td.eight-col, th.eight-col {
+        width: 5%;
+        text-align: right;
+      }
+      td.ninth-col, th.ninth-col {
+        width: 5%;
+        text-align: right;
+        @media (min-width: 992px) {
+          width: 0%;
+          text-align: right;
+        }
+      }
 
+      .footable-row-detail-cell {
+        padding-bottom: 0px;
+        .footable-row-detail-row {
+          margin-top: 8px;
+        }
+      }
+
+
+    }
   }
-
 }
