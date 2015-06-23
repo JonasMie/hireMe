@@ -53,7 +53,7 @@ class Analytics extends \yii\base\Model
 
     }
 
-    public function getInterviewRate($id) {
+    public static function getInterviewRate($id) {
 
          $applier = Application::find()
         ->where(['company_id' => $id, 'sent' => 1,])
@@ -86,7 +86,7 @@ class Analytics extends \yii\base\Model
 
     }
 
-      public function getInterviewsForJob($id) {
+      public static function getInterviewsForJob($id) {
 
         $applier = Analytics::getAppliesForJob($id);
 
