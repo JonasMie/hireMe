@@ -1,7 +1,0 @@
-{
-  "name": "hireMe",
-  "private": "true",
-  "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0"
-  }
-}
