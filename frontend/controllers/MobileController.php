@@ -25,15 +25,15 @@ class MobileController extends \yii\web\Controller
 
     }
 
-    public function actionCreateEvent($event) {
+    public function actionCreateEvent($thisevent) {
 
+    		$event = BaseJson::encode($thisevent);
     	$ev = new Event();
-    	$ev->title = $event.title;
-    	$ev->description = $event.description;
-    	$ev->begin = $event.begin;
-    	$ev->end = $event.end;
+    	$ev->title = $event['title'];
+    	$ev->description = $event['description'];
+    	$ev->begin = $event['begin'];
+    	$ev->end = $event['end'];
     	$ev->save();
-
 
     }
 

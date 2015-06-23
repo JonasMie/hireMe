@@ -164,6 +164,17 @@ angular.module('starter.controllers', [])
 
 .controller('EventCtrl', function($scope,$ionicSideMenuDelegate,$http,$ionicModal) {
 
+  function makeHttpObject() {
+  try {return new XMLHttpRequest();}
+  catch (error) {}
+  try {return new ActiveXObject("Msxml2.XMLHTTP");}
+  catch (error) {}
+  try {return new ActiveXObject("Microsoft.XMLHTTP");}
+  catch (error) {}
+
+  throw new Error("Could not create HTTP request object.");
+  }
+
   $ionicModal.fromTemplateUrl('./templates/newEventModal.html', {
     scope:$scope,
     animation: 'slide-in-up'
@@ -173,8 +184,51 @@ angular.module('starter.controllers', [])
 
   $scope.sendData = function() {
 
-    
-    
+    var thisEvent = {
+     title:"Hevent title",
+     description:"description",
+     begin:"0",
+     end:"0"
+    };
+    var url = 'http://frontend/mobile/create-event?thisevent='+thisEvent;
+
+    $http(
+    {
+      method:'GET',
+      url:url,
+      headers: {
+        'Content-type':'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .success(function(data,status,headers,config) {
+
+      alert(status);
+
+    })
+/*
+     var request1 = makeHttpObject();
+    request1.open("GET", "http://frontend/mobile/create-event?thisevent="+thisEvent, true);
+    request1.send(null);
+
+    request1.onreadystatechange = function() {
+
+        if (request1.readyState == 4) {
+
+
+        }
+
+    }
+    /*
+    alert(thisEvent.title);
+
+    $http({
+    url: url,
+    method: "GET",
+    params: {event:thisEvent}
+    });
+*/
+
   }
 
   $scope.newEvent = function() {
