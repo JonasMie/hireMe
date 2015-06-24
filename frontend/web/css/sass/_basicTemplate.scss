@@ -22,12 +22,17 @@ body {
     &:focus {
       outline: none !important; //Removes the dotted line around each Button when clicking on it
     }
+    &:active {
+      box-shadow: none;
+    }
   }
-  .btn.btn-success {
+  .btn.btn-success,
+  .btn.btn-success:active {
     background-color: $green;
     color: #fff;
   }
-  .btn.btn-default {
+  .btn.btn-default,
+  .btn.btn-default:active {
     background-color: $black;
     color: #fff;
   }
@@ -249,6 +254,11 @@ body {
       box-shadow: none;
       border-radius: 0px;
       @include font-standard();
+      &:focus {
+        box-shadow: none;
+        border-bottom: $FormBorderFocused;
+        border-top: $FormBorderFocused;
+      }
     }
 
     label {
@@ -270,7 +280,8 @@ body {
   .form-group.field-signupform-companyemployees,
   .form-group.field-settingsmodel-picture,
   .form-group.field-resumejob-current,
-  .form-group.field-resumejob-report_id{
+  .form-group.field-resumejob-report_id,
+  .form-group.field-messagecreate-attachment{
     position: static;
     label {
       position: static;
@@ -293,6 +304,9 @@ body {
     }
     textarea {
       border-color: $green !important;
+      &:focus {
+        box-shadow: none !important;
+      }
     }
   }
   /* END FOCUSED INPUT*/
