@@ -67,6 +67,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
+        'formatter'  => [
+            'defaultTimeZone' => 'CEST',
+            'timeZone'        => 'Europe/Berlin',
+        ]
     ],
     'params' => $params,
 ];

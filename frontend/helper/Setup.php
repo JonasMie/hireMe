@@ -30,4 +30,14 @@ class Setup {
         }
         return \Yii::$app->formatter->asDate($dateStr, $fmt);
     }
+
+    public static function verboseDate($datetime){
+        $date = \Yii::$app->formatter->asDate($datetime);
+        if($date == date("d.m.Y")){
+            return "Heute, " .\Yii::$app->formatter->asTime($datetime,"php:H:i");
+        } else if ($date == date("d.m.Y", time()- (24*60*60))){
+            return "Gestern, " .\Yii::$app->formatter->asTime($datetime,"php:H:i");
+        } else
+            return \Yii::$app->formatter->asDatetime($datetime, "php:d.m.Y H:i");
+    }
 }
