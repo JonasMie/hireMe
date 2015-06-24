@@ -41,7 +41,10 @@ var options =
 
 $(document).ready(function () {
 
-    $.get("/analytics/json", function (response, status) {
+    var hiddenJobId = $("#hiddenID").text();
+    var url = "/analytics/json-detail?id="+parseInt(hiddenJobId);
+
+    $.get(url, function (response, status) {
         
         var obj = jQuery.parseJSON(response);
 
@@ -126,35 +129,6 @@ $(document).ready(function () {
             },
             {
                 value: 100 - [obj.interviewRate],
-                color: "rgba(157,157,157,0.5)",
-                highlight: "rgba(157,157,157,1.0)",
-                label: ""
-            }
-        ]
-
-        var applicationHiredData = {
-            labels: ["Bewerbungen", "Eingestellt"],
-            datasets: [
-                {
-                    fillColor: "rgba(93,202,136,0.5)",
-                    strokeColor: "rgba(93,202,136,0.5)",
-                    highlightFill: "rgba(93,202,136,1.0)",
-                    highlightStroke: "rgba(93,202,136,1.0)",
-                    data: [obj.applierCount, obj.hiredCount]
-                }
-            ]
-        }
-
-        var conversionRateData = [
-
-            {
-                value: [obj.conversionRate],
-                color: "rgba(93,202,136,0.5)",
-                highlight: "rgba(93,202,136,1.0)",
-                label: ""
-            },
-            {
-                value: 100 - [obj.conversionRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
                 label: ""

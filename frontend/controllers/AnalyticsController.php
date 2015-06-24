@@ -33,9 +33,11 @@ class AnalyticsController extends Controller
 
         $analytics = new Analytics();
         $applier = count($analytics->getAppliesForJob($id));
+
         $viewCount= Yii::$app->db->createCommand("SELECT  sum(b.viewCount) as views, sum(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
                         FROM job j
                         LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                        WHERE j.id =".$id."
                         GROUP BY j.title")->queryAll();
 
         $jobData["viewCount"] = intval($viewCount[0]['views']);
@@ -44,6 +46,8 @@ class AnalyticsController extends Controller
         $jobData["interestRate"] = floatval($viewCount[0]['interestRate']);
         $jobData["applicationRate"] = round($applier/$jobData["clickCount"]*100,2);
         $jobData["interviewRate"] = $analytics->getInterviewRateForJob($id);
+        $jobData["interviewCount"] = $analytics->getInterviewsForJob($id);
+
         return BaseJson::encode($jobData);
 
     }
@@ -132,7 +136,6 @@ class AnalyticsController extends Controller
             ],
         ]);
 
-
          return $this->render('index', [
             'id' => $id,
             'applyCount' => count($applier),
@@ -182,6 +185,7 @@ class AnalyticsController extends Controller
 
          return $this->render('detail', [
             'id' => $job->company_id,
+            'jobID' => $job->id,
             'jobTitle' =>  $jobName,
             'applyCount' => count($applier),
             'viewCount' =>  $viewCount,

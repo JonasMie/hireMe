@@ -4,17 +4,32 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\grid\GridView;
 use frontend\models\Analytics;
-use frontend\assets\CustomChartsAsset;
+use frontend\assets\DetailChartsAsset;
 
-CustomChartsAsset::register($this);
+DetailChartsAsset::register($this);
 
 
 $this->title = "Analytics: Detail";
 
 ?>
 
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                /* Somehow Footable misses the screen width by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
+                mediaSmall: 960
+
+            }
+        });
+    });");
+?>
+
 <div class="detail">
 	<h1>Statistiken von "<?= $jobTitle ?>"</h1>
+    <p class="hidden" id="hiddenID"><?= $jobID ?></p>
 <!-- FIRST ROW BEGIN-->
 
     <div class="row" id="analytics-tiles">
@@ -111,6 +126,88 @@ $this->title = "Analytics: Detail";
 
     </div>
 <!-- SECOND ROW END-->
+
+
+ <div id="analyticsCharts">
+
+        <div id="charts-first-row" class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+                <div class="background-wrapper">
+                    <div class="header">
+                        Views und Clicks
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                    </div>
+                    <canvas id="viewClickChart" class="chart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+                <div class="background-wrapper">
+                    <div class="header">
+                        Interesst Rate
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                    </div>
+                    <canvas id="interestRateChart" class="chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="charts-second-row" class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+                <div class="background-wrapper">
+                    <div class="header">
+                        Clicks und Bewerbungen
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                    </div>
+                    <canvas id="clicksApplicationChart" class="chart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+                <div class="background-wrapper">
+                    <div class="header">
+                        Application Rate
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                    </div>
+                    <canvas id="applicationRateChart" class="chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="charts-third-row" class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+                <div class="background-wrapper">
+                    <div class="header">
+                        Bewerbungen und Interviews
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                    </div>
+                    <canvas id="interviewApplicationChart" class="chart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+                <div class="background-wrapper">
+                    <div class="header">
+                        Interview Rate
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                    </div>
+                    <canvas id="interviewRateChart" class="chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <h2>Buttons:</h2>
