@@ -68,7 +68,7 @@ return [
             'showScriptName' => false,
         ],
         'formatter'  => [
-            'defaultTimeZone' => 'CEST',
+//            'defaultTimeZone' => 'CEST',
             'timeZone'        => 'Europe/Berlin',
         ]
     ],
