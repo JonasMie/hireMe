@@ -595,6 +595,7 @@ body {
   /* END Background color does not work for class .has-error anymore. This is a temporary fix */
   /*PROFILE PICTURE */
   /*END PROFILE PICTURE */
+  /* Bulk Action Dropdown */
 }
 /* line 7, ../sass/_basicTemplate.scss */
 body a:focus {
@@ -948,6 +949,10 @@ body div.profile-picture-thumbnail {
 /* line 390, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
+}
+/* line 399, ../sass/_basicTemplate.scss */
+body div#bulkActions {
+  margin-top: 15px;
 }
 
 /* line 24, ../sass/_login.scss */
@@ -1660,4 +1665,14 @@ body.controller-message.action-view #replyModal form .field-messageattachments-f
   margin-top: 10px;
   max-width: 99%;
   overflow: hidden;
+}
+
+/* line 2, ../sass/_favourites.scss */
+.controller-favourites.action-index div.summary {
+  display: none;
+}
+/* line 6, ../sass/_favourites.scss */
+.controller-favourites.action-index div.searchBtn {
+  margin-top: 15px;
+  text-align: right;
 }
