@@ -77,7 +77,7 @@ use yii\grid\GridView;
         endif;
 
 
-        $inFavourites = \frontend\models\Favourites::find(['job_id' => $model->id, 'user_id' => Yii::$app->user->getId()])->count() > 0;
+        $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $model->id, 'user_id' => Yii::$app->user->getId()])->count()> 0;
         if ($inFavourites) {
             $label = "Aus Favoriten entfernen";
             $class = "remove";
