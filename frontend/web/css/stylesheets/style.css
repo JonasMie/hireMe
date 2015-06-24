@@ -121,12 +121,12 @@ input.form-control:focus {
   border-color: #5dca88;
 }
 
-/* line 99, ../sass/_variables.scss */
+/* line 97, ../sass/_variables.scss */
 a {
   transition: color 0.2s ease-in-out;
 }
 
-/* line 106, ../sass/_variables.scss */
+/* line 104, ../sass/_variables.scss */
 .list-view .panel-heading {
   background: none;
   border: none;
@@ -134,11 +134,11 @@ a {
   color: #9d9d9d;
   padding: 10px 0px;
 }
-/* line 114, ../sass/_variables.scss */
+/* line 112, ../sass/_variables.scss */
 .list-view .panel-default {
   border: none;
 }
-/* line 118, ../sass/_variables.scss */
+/* line 116, ../sass/_variables.scss */
 .list-view .panel {
   background: none;
   border: none;
@@ -146,15 +146,15 @@ a {
   box-shadow: none;
   -webkit-box-shadow: none;
 }
-/* line 126, ../sass/_variables.scss */
+/* line 124, ../sass/_variables.scss */
 .list-view .panel-title {
   font-size: 22.4px;
 }
-/* line 130, ../sass/_variables.scss */
+/* line 128, ../sass/_variables.scss */
 .list-view .kv-attribute {
   padding: 3px 0px;
 }
-/* line 134, ../sass/_variables.scss */
+/* line 132, ../sass/_variables.scss */
 .list-view th {
   padding-right: 50px;
   color: #d0d0d0;
@@ -863,15 +863,11 @@ body .input-in-focus > label, body .has-success > label {
 body .input-in-focus textarea, body .has-success textarea {
   border-color: #5dca88 !important;
 }
-<<<<<<< HEAD
 /* line 302, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
 /* line 308, ../sass/_basicTemplate.scss */
-=======
-/* line 300, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -882,17 +878,12 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-<<<<<<< HEAD
 /* line 320, ../sass/_basicTemplate.scss */
-=======
-/* line 312, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-<<<<<<< HEAD
 /* line 328, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
@@ -902,17 +893,6 @@ body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
 /* line 335, ../sass/_basicTemplate.scss */
-=======
-/* line 320, ../sass/_basicTemplate.scss */
-body .twitter-typeahead pre {
-  display: none;
-}
-/* line 323, ../sass/_basicTemplate.scss */
-body .twitter-typeahead input.tt-hint {
-  display: none !important;
-}
-/* line 327, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -922,7 +902,6 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-<<<<<<< HEAD
 /* line 340, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
@@ -932,33 +911,17 @@ body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
 /* line 347, ../sass/_basicTemplate.scss */
-=======
-/* line 332, ../sass/_basicTemplate.scss */
-body .twitter-typeahead input.tt-input:focus {
-  border-bottom: 2px solid #5dca88;
-}
-/* line 337, ../sass/_basicTemplate.scss */
-body .twitter-typeahead .tt-dropdown-menu {
-  padding: 0px;
-}
-/* line 339, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-<<<<<<< HEAD
 /* line 351, ../sass/_basicTemplate.scss */
-=======
-/* line 343, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-<<<<<<< HEAD
 /* line 361, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
@@ -969,31 +932,20 @@ body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
 /* line 377, ../sass/_basicTemplate.scss */
-=======
-/* line 354, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-<<<<<<< HEAD
 /* line 383, ../sass/_basicTemplate.scss */
-=======
-/* line 360, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-<<<<<<< HEAD
 /* line 390, ../sass/_basicTemplate.scss */
-=======
-/* line 367, ../sass/_basicTemplate.scss */
->>>>>>> feature/resume
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
@@ -1384,20 +1336,30 @@ body.controller-dashboard .userDashboardFavoritesHeader {
   max-width: 300px;
   width: 100%;
 }
-/* line 24, ../sass/_user.scss */
+/* line 23, ../sass/_user.scss */
+.controller-user.action-index div.userProfileSettings {
+  text-align: center;
+}
+/* line 25, ../sass/_user.scss */
+.controller-user.action-index div.userProfileSettings a.btn {
+  display: block;
+  margin: 20px auto;
+  max-width: 200px;
+}
+/* line 33, ../sass/_user.scss */
 .controller-user.action-index div.row.first h2 {
   margin-top: 0px;
   font-size: 19.2px;
 }
-/* line 28, ../sass/_user.scss */
+/* line 37, ../sass/_user.scss */
 .controller-user.action-index div.row.first .panel-title {
   font-size: 27.2px;
 }
-/* line 34, ../sass/_user.scss */
+/* line 43, ../sass/_user.scss */
 .controller-user.action-index .list-view div.summary {
   display: none;
 }
-/* line 39, ../sass/_user.scss */
+/* line 48, ../sass/_user.scss */
 .controller-user.action-index div.row.second {
   margin-top: 20px;
 }
