@@ -57,8 +57,9 @@ function fileSelectHandler() {
             if (typeof jcrop_api != 'undefined') {
                 jcrop_api.destroy();
                 jcrop_api = null;
-                $('#settingsmodel-picture-jcrop').width(oImage.naturalWidth);
-                $('#settingsmodel-picture-jcrop').height(oImage.naturalHeight);
+                //$('#settingsmodel-picture-jcrop').width(oImage.naturalWidth);
+                $('#settingsmodel-picture-jcrop').width(20);
+                //$('#settingsmodel-picture-jcrop').height(oImage.naturalHeight);
             }
 
             setTimeout(function(){

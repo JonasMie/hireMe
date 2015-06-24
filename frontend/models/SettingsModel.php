@@ -46,12 +46,13 @@ class SettingsModel extends Model
 
 
             ['password', 'string', 'min' => 6],
-            ['password', 'compare'],
+//            ['password', 'compare'],
             ['password_repeat', 'required', 'when' => function ($model) {
                 return !empty($model->password);
             }, 'whenClient'                        => "function(attribute,value){
                     return $('#settingsmodel-password').val()!='';
             }"],
+            ['password_repeat', 'compare','compareAttribute' => 'password'],
             ['oldPassword', 'required', 'when' => function ($model) {
                 return !empty($model->password);
             }, 'whenClient'                    => "function(attribute,value){
@@ -119,7 +120,7 @@ class SettingsModel extends Model
             $profilePic->extension = $model->picture->extension;
             $profilePic->size = $model->picture->size;
             $profilePic->title = $model->picture->baseName;
-            if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path . "." . $profilePic->extension,$param) && $this->saveThumbnail($profilePic->path)) {
+            if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path . "." . $profilePic->extension, $param) && $this->saveThumbnail($profilePic->path)) {
                 return $profilePic->id;
             }
             return false;
@@ -127,7 +128,7 @@ class SettingsModel extends Model
         return false;
     }
 
-    private function cropImage($path,$param)
+    private function cropImage($path, $param)
     {
         $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path;
         $imagesize = getimagesize($imagefile);
@@ -164,7 +165,7 @@ class SettingsModel extends Model
 
     private function saveThumbnail($path)
     {
-        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile' . $path.".jpg";
+        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile' . $path . ".jpg";
         $imagesize = getimagesize($imagefile);
         $imagewidth = $imagesize[0];
         $imageheight = $imagesize[1];
@@ -197,7 +198,7 @@ class SettingsModel extends Model
         );
 
 
-        imagejpeg($thumb, Yii::getAlias('@webroot') . '/uploads/profile/thumbnails' . $path .".jpg");
+        imagejpeg($thumb, Yii::getAlias('@webroot') . '/uploads/profile/thumbnails' . $path . ".jpg");
         imagedestroy($thumb);
         return true;
     }
