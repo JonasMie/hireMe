@@ -36,8 +36,17 @@ body{
 }
 
 .menu{
-	background-color:#2d312f;
+	background-color:$dark;
 	height: 100%;
+}
+
+.item{
+	border:none;
+}
+
+.item-complex .item-content, .item-radio .item-content,.item-complex .item-content:active, .item-radio .item-content:active,.item-complex .item-content:hover, .item-radio .item-content:hover,.item-complex .item-content:focus, .item-radio .item-content:focus{
+	background-color:$dark;
+	color:#fff;
 }
 
 .scroll{
@@ -79,21 +88,11 @@ img {
 	}
 }
 
-.item, .item-complex .item-content, .item-radio .item-content {
-  background-color: $dark;
-  color: #fff;
-  border: none;
-}
-
 a[href]:hover{
 	color: $green;
 	text-decoration:none;
 }
 
-.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
-  border:none;
-  background-color: $dark;
-}
 
 #applyBtn {
 
@@ -103,4 +102,9 @@ a[href]:hover{
 
 pane[view-title="Home"]{
 	padding:0px;
+}
+
+div.card {
+	box-shadow:none;
+	-webkit-box-shadow:none;
 }

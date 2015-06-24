@@ -7688,6 +7688,13 @@ body {
   background-color: #2d312f;
   height: 100%; }
 
+.item {
+  border: none; }
+
+.item-complex .item-content, .item-radio .item-content, .item-complex .item-content:active, .item-radio .item-content:active, .item-complex .item-content:hover, .item-radio .item-content:hover, .item-complex .item-content:focus, .item-radio .item-content:focus {
+  background-color: #2d312f;
+  color: #fff; }
+
 .scroll {
   height: 100%; }
 
@@ -7717,18 +7724,13 @@ img {
   max-height: 100%;
   text-align: left; }
 
-.item, .item-complex .item-content, .item-radio .item-content {
-  background-color: #2d312f;
-  color: #fff;
-  border: none; }
-
 a[href]:hover {
   color: #5dca88;
   text-decoration: none; }
 
-.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
-  border: none;
-  background-color: #2d312f; }
-
 pane[view-title="Home"] {
   padding: 0px; }
+
+div.card {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
