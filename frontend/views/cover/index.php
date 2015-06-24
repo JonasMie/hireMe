@@ -8,7 +8,6 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Covers');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cover-index">
 

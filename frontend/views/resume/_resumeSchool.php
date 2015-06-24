@@ -65,7 +65,7 @@ echo DetailView::widget([
         'type'    => DetailView::TYPE_DEFAULT      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
     ],
     'deleteOptions'  => [
-        'params' => ['id' => $model->id, 'type' => 'job'],
+        'params' => ['id' => $model->id, 'type' => 'school'],
         'url'    => ['delete'],
     ],
     'hideIfEmpty'    => true,

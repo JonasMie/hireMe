@@ -8,7 +8,6 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Companies');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="company-index">
 

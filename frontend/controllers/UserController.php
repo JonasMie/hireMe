@@ -18,14 +18,19 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
+            /**
+             * Access:
+             *  -index      logged in
+             *  -settings   logged in
+            */
             'access'      => [
                 'class' => AccessControl::className(),
                 'only'  => ['index', 'settings'],
                 'rules' => [
                     [
                         'actions' => ['index'],
-                        'allow'   => true,  // TODO: set allow to false
-                        'roles'   => ['@'], // TODO: set roles to '?'
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                     [
                         'actions' => ['settings'],
@@ -45,7 +50,7 @@ class UserController extends Controller
         if ($un !== null && $un != Yii::$app->user->identity->username) {
             $user = User::findByUsername($un);
             if ($user === null) {
-                Yii::$app->getSession()->setFlash('error', 'Sorry, der Nutzer ' . $un . ' existiert leider nicht.');
+//                Yii::$app->getSession()->setFlash('error', 'Der Nutzer ' . $un . ' existiert leider nicht.');  //TODO: check functionality
                 return $this->redirect('/user');
             } else
                 $id = $user->id;

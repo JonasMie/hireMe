@@ -7,8 +7,6 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Cover */
 
 $this->title = Yii::t('app', 'Create Cover');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Covers'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cover-create">
 

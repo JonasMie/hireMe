@@ -34,13 +34,17 @@ class ResumeController extends Controller
     public function behaviors()
     {
         return [
+            /**
+             * Access
+             * need login for all sites
+             */
             'access'      => [
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
                         'actions' => ['index', 'create', 'delete', 'update'],
-                        'allow'   => true,  // TODO: set allow to false
-                        'roles'   => ['@'], // TODO: set roles to '?'
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ],
             ],
@@ -158,8 +162,7 @@ class ResumeController extends Controller
 //        }
     }
 
-    public
-    function actionDelete()
+    public function actionDelete()
     {
         $post = Yii::$app->request->post();
         if (Yii::$app->request->isAjax && isset($post['type'])) {
@@ -222,8 +225,9 @@ class ResumeController extends Controller
 
         $jobQuery = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()]);
         $schoolQuery = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()]);
-        $currentJobs = $jobQuery->andWhere(['current' => 1]);
-        $currentSchools = $schoolQuery->andWhere(['current' => 1]);
+        $currentJobs = ResumeJob::find()->where(['and',['current' => 1],['user_id' => Yii::$app->user->getId()]]);
+        $currentSchools = ResumeSchool::find()->where(['and', ['current' => 1],['user_id' => Yii::$app->user->getId()]]);
+
         $jobDataProvider = new ActiveDataProvider([
             'query' => $jobQuery,
             'sort'  => $defaultOrder,

@@ -5,7 +5,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\PasswordResetRequestForm */
-
+$this->title = "Reset Password";
 ?>
 <div class="site-request-password-reset">
     <h1><?= Html::encode("Passwort zurücksetzen") ?></h1>

@@ -7,8 +7,6 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\Cover */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Covers'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cover-view">
 

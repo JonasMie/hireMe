@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 
-$this->title = "Profil";
+$this->title = $user->fullName;
 Yii::$app->getSession()->getFlash('error');
 ?>
 <div class="row name">

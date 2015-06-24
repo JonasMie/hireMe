@@ -8,7 +8,6 @@ use yii\widgets\ActiveForm;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Generated Code';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

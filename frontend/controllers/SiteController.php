@@ -32,6 +32,11 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
+            /**
+             * Access:
+             *  -index      logged out (redirect to dashboard in actionIndex() if user is logged in)
+             *  -login      logged out (see above)
+             */
             'access'      => [
                 'class' => AccessControl::className(),
                 'only'  => ['logout', 'signup'],
@@ -100,7 +105,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-            return $this->render('/dashboard');
+            return $this->redirect('/dashboard/index');
         }
 
         $signupModel = new SignupForm();
@@ -129,57 +134,49 @@ class SiteController extends Controller
 
     public function actionHome()
     {
-
         return $this->renderPartial("home");
-
     }
 
 
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
-            }
+//    public function actionContact()
+//    {
+//        $model = new ContactForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+//            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+//                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+//            } else {
+//                Yii::$app->session->setFlash('error', 'There was an error sending email.');
+//            }
+//
+//            return $this->refresh();
+//        } else {
+//            return $this->render('contact', [
+//                'model' => $model,
+//            ]);
+//        }
+//    }
 
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
-    }
+//    public function actionSignup()
+//    {
+//        $model = new SignupForm();
+//        if ($model->load(Yii::$app->request->post())) {
+//            if ($user = $model->signup()) {
+//                if (Yii::$app->getUser()->login($user)) {
+//                    return $this->goHome();
+//                }
+//            }
+//        }
+//
+//        return $this->render('signup', [
+//            'model' => $model,
+//        ]);
+//    }
 
     public function onAuthSuccess($client)
     {
@@ -271,21 +268,25 @@ class SiteController extends Controller
 
     public function actionRequestPasswordReset()
     {
-        $model = new PasswordResetRequestForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail()) {
-                Yii::$app->getSession()->setFlash('success', 'Eine Email mit weiteren Anweisungen wurde an deine Adresse gesendet.');
+        if (Yii::$app->user->isGuest) {
+            $model = new PasswordResetRequestForm();
+            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+                if ($model->sendEmail()) {
+                    Yii::$app->getSession()->setFlash('success', 'Eine Email mit weiteren Anweisungen wurde an deine Adresse gesendet.');
 
-                return $this->goHome();
-            } else {
-                Yii::$app->getSession()->setFlash('error', 'Entschuldigung, beim Zurücksetzen ist ein Fehler aufgetreten. Stelle sicher, dass
+                    return $this->goHome();
+                } else {
+                    Yii::$app->getSession()->setFlash('error', 'Entschuldigung, beim Zurücksetzen ist ein Fehler aufgetreten. Stelle sicher, dass
                 die Email-Adresse zu deinem Account gehört und probiere es später erneut.');
+                }
             }
-        }
 
-        return $this->render('requestPasswordResetToken', [
-            'model' => $model,
-        ]);
+            return $this->render('requestPasswordResetToken', [
+                'model' => $model,
+            ]);
+        } else {
+            return $this->goHome();
+        }
     }
 
     public function actionResetPassword($token)

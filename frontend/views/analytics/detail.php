@@ -8,8 +8,6 @@ use frontend\models\Analytics;
 
 
 $this->title = "Analytics: Detail";
-$this->params['breadcrumbs'][] = ['label' => 'Analytics', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="detail">

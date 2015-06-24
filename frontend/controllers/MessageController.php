@@ -25,18 +25,18 @@ class MessageController extends Controller
         return [
             'access'      => [
                 'class' => AccessControl::className(),
-                'only'  => ['view', 'index'],
+                'only'  => ['view', 'index', 'delete','create'],
                 'rules' => [
                     [
-                        'actions'       => ['view'],
+                        'actions'       => ['view', 'delete'],
                         'allow'         => true,
                         'matchCallback' => function () {
                             $messageModel = new Message();
-                            return $messageModel->belongsToUser(Yii::$app->user->identity->getId(), Yii::$app->request->get()['id']);
+                            return !Yii::$app->user->isGuest && $messageModel->belongsToUser(Yii::$app->user->identity->getId(), Yii::$app->request->get()['id']);
                         }
                     ],
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index','create'],
                         'allow'   => true,
                         'roles'   => ['@']
                     ]
@@ -109,27 +109,6 @@ class MessageController extends Controller
             return $this->redirect(['./message']);
         } else {
             return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Updates an existing Message model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     *
-     * @param integer $id
-     *
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
                 'model' => $model,
             ]);
         }

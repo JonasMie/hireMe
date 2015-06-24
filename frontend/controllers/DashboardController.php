@@ -26,8 +26,8 @@ class DashboardController extends \yii\web\Controller
                 'rules' => [
                     [
                         'actions' => ['index'],
-                        'allow'   => true,  // TODO: set allow to false
-                        'roles'   => ['@'], // TODO: set roles to '?'
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ]
             ],
