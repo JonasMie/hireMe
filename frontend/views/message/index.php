@@ -123,8 +123,8 @@ $this->title = Yii::t('app', 'Messages');
                               [
                                   'class'    => 'yii\grid\ActionColumn',
                                   'template' => '{view}{delete}',
-//                                  'headerOptions'  => ['class' => 'fifth-col', 'data-hide' => 'mediaXsmall,phone'],
-//                                  'contentOptions' => ['class' => 'fifth-col']
+                                  'headerOptions'  => ['class' => 'fifth-col', 'data-hide' => 'mediaXsmall,phone'],
+                                  'contentOptions' => ['class' => 'fifth-col']
 
                               ],
                               [
