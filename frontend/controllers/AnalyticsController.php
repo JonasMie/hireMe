@@ -40,6 +40,7 @@ class AnalyticsController extends Controller
                         WHERE j.id =".$id."
                         GROUP BY j.title")->queryAll();
 
+
         $jobData["viewCount"] = intval($viewCount[0]['views']);
         $jobData["clickCount"] = intval($viewCount[0]['clicks']);
         $jobData["applierCount"] = $applier;
@@ -84,13 +85,13 @@ class AnalyticsController extends Controller
             'pageSize' => 20,],
         ]);
 
-        $compareInterest = Yii::$app->db->createCommand("SELECT  round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
-                            FROM job j
-                            LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
-                            LEFT OUTER JOIN company c ON j.company_id =".$id." 
-                            GROUP BY j.title")->queryAll();        
+        $compareViews = Yii::$app->db->createCommand("SELECT j.title, SUM(b.viewCount) as views 
+                            FROM applyBtn b
+                            LEFT OUTER JOIN job j ON j.id = b.job_id
+                            WHERE j.company_id = ".$id."
+                            GROUP BY j.title")->queryAll();
 
-
+        $generalData["viewArray"] = $compareViews;
         $generalData["companyName"] = $analytics->getCompany($id);
         $generalData["applierCount"] = count($applier);
         $generalData["hiredCount"] = count($hired);
