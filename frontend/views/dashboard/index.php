@@ -219,11 +219,13 @@ use yii\helpers\Html;
 
             ],
             [
-                'attribute'     => 'sent_at',
-                'format'        => 'datetime',
-                'label'         => 'Gesendet/Empfangen',
+                'attribute'      => 'sent_at',
+                'format'         => 'text',
+                'label'          => 'Gesendet',
+                'value'          => function ($data) {
+                    return \frontend\helper\Setup::verboseDate($data->sent_at);
+                },
                 'headerOptions' => ['data-hide' => 'xsmall,phone'],
-
             ],
             [
                 'class'          => 'yii\grid\Column',

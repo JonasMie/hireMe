@@ -50,10 +50,10 @@ class File extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'path' => Yii::t('app', 'Path'),
-            'extension' => Yii::t('app', 'Extension'),
-            'size' => Yii::t('app', 'Size'),
-            'title' => Yii::t('app', 'Title'),
+            'path' => Yii::t('file', 'Path'),
+            'extension' => Yii::t('file', 'Extension'),
+            'size' => Yii::t('file', 'Size'),
+            'title' => Yii::t('file', 'Title'),
         ];
     }
 

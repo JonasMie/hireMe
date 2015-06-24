@@ -47,8 +47,8 @@ class ApplyBtn extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'job_id' => 'Job ID',
-            'key' => 'Key',
-            'site' => 'Site',
+            'key' => Yii::t('application','Key'),
+            'site' => Yii::t('application','Site'),
             'clickCount' => 'Click Count',
             'viewCount' => 'View Count',
         ];

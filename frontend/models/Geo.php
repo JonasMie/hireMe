@@ -43,10 +43,10 @@ class Geo extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'plz' => 'Plz',
-            'lon' => 'Lon',
-            'lat' => 'Lat',
-            'city' => 'City',
+            'plz' => Yii::t('geo','Plz'),
+            'lon' => Yii::t('geo','Lon'),
+            'lat' => Yii::t('geo','Lat'),
+            'city' => Yii::t('geo','City'),
         ];
     }
 

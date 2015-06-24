@@ -59,10 +59,10 @@ class Application extends \yii\db\ActiveRecord
             'company_id' => Yii::t('app', 'Company ID'),
             'job_id' => Yii::t('app', 'Job ID'),
             'score' => Yii::t('app', 'Score'),
-            'state' => Yii::t('app', 'State'),
-            'sent' => Yii::t('app', 'Sent'),
-            'read' => Yii::t('app', 'Read'),
-            'archived' => Yii::t('app', 'Archived'),
+            'state' => Yii::t('application', 'State'),
+            'sent' => Yii::t('message', 'Sent'),
+            'read' => Yii::t('message', 'Read'),
+            'archived' => Yii::t('message', 'Archived'),
             'created_at' => Yii::t('app', 'Created At'),
         ];
     }

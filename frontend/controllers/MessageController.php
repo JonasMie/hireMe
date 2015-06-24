@@ -168,7 +168,7 @@ class MessageController extends Controller
      */
     public function actionDelete()          // TODO: make sure, only authorized user can delete messages (can only delete their own)
     {
-        $id = Yii::$app->request->post('id');
+        $id = Yii::$app->request->get('id');
         $keys = Yii::$app->request->post('keys');
         if (!is_null($id) && !is_array($id)) {
             $model = $this->findModel($id);

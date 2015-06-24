@@ -111,17 +111,20 @@ $this->title = Yii::t('app', 'Messages');
                               ],
                               [
                                   'attribute'      => 'sent_at',
-                                  'format'         => 'datetime',
+                                  'format'         => 'text',
                                   'label'          => 'Gesendet',
+                                  'value'          => function ($data) {
+                                      return \frontend\helper\Setup::verboseDate($data->sent_at);
+                                  },
                                   'headerOptions'  => ['class' => 'fourth-col', 'data-hide' => 'mediaSmall,phone,mediaXsmall'],
                                   'contentOptions' => ['class' => 'fourth-col']
                               ],
 
                               [
-                                  'class'          => 'yii\grid\ActionColumn',
-                                  'template'       => '{view}{delete}',
-                                  'headerOptions'  => ['class' => 'fifth-col', 'data-hide' => 'mediaXsmall,phone'],
-                                  'contentOptions' => ['class' => 'fifth-col']
+                                  'class'    => 'yii\grid\ActionColumn',
+                                  'template' => '{view}{delete}',
+//                                  'headerOptions'  => ['class' => 'fifth-col', 'data-hide' => 'mediaXsmall,phone'],
+//                                  'contentOptions' => ['class' => 'fifth-col']
 
                               ],
                               [
