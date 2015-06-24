@@ -240,6 +240,24 @@ body.controller-dashboard{
   .userDashboardFavoritesHeader {
     margin-top: 50px;
   }
+
+  // FIX for Profile Picture
+  #DashboardMessages {
+    tbody {
+      tr {
+        td:nth-of-type(3) {
+          img {
+            float: left;
+          }
+          div.message-sender {
+            margin-left: 60px;
+            margin-top: 14px;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 
