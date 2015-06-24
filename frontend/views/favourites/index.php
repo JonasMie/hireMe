@@ -34,7 +34,7 @@ $this->title = Yii::t('app', 'Favoriten');
 			<h1><?= Html::encode($this->title) ?></h1>
 		</div>
 		<div class="col-sm-2 searchBtn">
-			<?= Html::a(Yii::t('app', 'Nach Jobs suchen'), ['/job'], ['class' => 'btn btn-success']) ?>
+			<?= Html::a(Yii::t('app', 'Stellenanzeigen suchen'), ['/job'], ['class' => 'btn btn-success ripple']) ?>
 		</div>
 	</div>
 	<div class="row">
