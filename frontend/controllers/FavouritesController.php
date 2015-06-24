@@ -122,14 +122,14 @@ class FavouritesController extends Controller
      */
     public function actionDelete()
     {
-        $id = Yii::$app->request->post('id');
+        $id = Yii::$app->request->get('id');
         $keys = Yii::$app->request->post('keys');
         if (!is_null($id) && !is_array($id)) {
             $this->findModel($id)->delete();
         } else if (!is_null($keys) && is_array($keys)) {
             Favourites::deleteAll(['and', ['in','id',$keys], 'user_id = ' . Yii::$app->user->getId()]);
         }
-        return $this->goBack();
+        return $this->redirect('index');
     }
 
     /**

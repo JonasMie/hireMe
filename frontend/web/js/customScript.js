@@ -117,6 +117,10 @@ $(".ripple").on("click", function(e){
                 c.attr("r", val);
             },
             complete: function() {
+                // workaround to ensure post on delete
+                if($(box).data('method') == 'post'){
+                    $.post($(box).attr('href'));
+                } else
                 location.href = $(box).attr('href');
             }
         }
