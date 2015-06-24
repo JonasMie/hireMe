@@ -16,4 +16,6 @@ return [
     'Company Address City'   => 'Stadt',
     'Company Sector'         => 'Branche',
     'Company Employees'      => 'Anzahl der Beschäftigten',
+    'Sector'                 => 'Branche',
+    'Company ID'             => 'Unternehmens-ID',
 ];
