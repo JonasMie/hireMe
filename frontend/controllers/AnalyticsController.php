@@ -84,6 +84,12 @@ class AnalyticsController extends Controller
             'pageSize' => 20,],
         ]);
 
+        $compareInterest = Yii::$app->db->createCommand("SELECT  round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
+                            FROM job j
+                            LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                            LEFT OUTER JOIN company c ON j.company_id =".$id." 
+                            GROUP BY j.title")->queryAll();        
+
 
         $generalData["companyName"] = $analytics->getCompany($id);
         $generalData["applierCount"] = count($applier);
@@ -96,6 +102,7 @@ class AnalyticsController extends Controller
         $generalData["interviewRate"] = $analytics->getInterviewRate($id);
         $generalData["interestRate"] = $interestRate;
         $generalData["conversionRate"] = $conversionRate;
+
         return BaseJson::encode($generalData);
 
     }
