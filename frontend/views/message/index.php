@@ -45,7 +45,7 @@ $this->title = Yii::t('app', 'Messages');
     <p>
         <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Neue Nachricht'), ['create'], ['class' => 'btn btn-success ripple btn-newMessage']) ?>
     </p>
-    
+
     <?= GridView::widget(['dataProvider' => $dataProvider,
         //        'filterModel'  => $searchModel,
                           'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
@@ -57,9 +57,9 @@ $this->title = Yii::t('app', 'Messages');
                               return ['class' => $role];
 
                           },
-                          'options' => [
+                          'options'      => [
                               'data-type' => 'message',
-                              'class' => 'grid-view'
+                              'class'     => 'grid-view'
                           ],
                           'columns'      => [
                               [
@@ -115,10 +115,8 @@ $this->title = Yii::t('app', 'Messages');
                                   'label'          => 'Gesendet',
                                   'headerOptions'  => ['class' => 'fourth-col', 'data-hide' => 'mediaSmall,phone,mediaXsmall'],
                                   'contentOptions' => ['class' => 'fourth-col']
-
-
                               ],
-//            TODO: check if action column needed (rather not) --jonas
+
                               [
                                   'class'          => 'yii\grid\ActionColumn',
                                   'template'       => '{view}{delete}',
@@ -134,6 +132,7 @@ $this->title = Yii::t('app', 'Messages');
 
                               ],
                           ],
+
     ]); ?>
 
 

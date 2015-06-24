@@ -20,8 +20,3 @@ if($('#checkCompanySignup').prop('checked')){
 $('#checkCompanySignup').on('ifUnchecked', function(event){
     $('.companySetup').hide();
 });
-
-
-
-
-

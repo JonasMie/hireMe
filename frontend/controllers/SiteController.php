@@ -18,6 +18,8 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 /**
  * Site controller
@@ -98,7 +100,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->render('/dashboard');
         }
 
         $signupModel = new SignupForm();
@@ -114,7 +116,6 @@ class SiteController extends Controller
                 return $this->render('login', [
                     'loginModel'  => $loginModel,
                     'signupModel' => $signupModel
-
                 ]);
             }
         } else {

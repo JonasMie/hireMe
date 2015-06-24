@@ -67,8 +67,6 @@ $values = array_values(array_values($sectors));
             <?= $form->field($signupModel, 'password')->label('Passwort')->passwordInput() ?>
             <?= $form->field($signupModel, 'password_repeat')->label('Passwort wiederholen ')->passwordInput() ?>
 
-
-
             <br>
             <?= $form->field($signupModel, 'checkCompanySignup')->checkbox(array('id' => 'checkCompanySignup'))->label('Als Recruiter registrieren') ?>
 
@@ -77,9 +75,20 @@ $values = array_values(array_values($sectors));
 
 
             <div class="companySetup" style="display: none">    <? //STYLE: display in css?>
-                <?= $form->field($signupModel, 'companyName')->label('Name des Unternehmens'); ?>
-                <?= $form->field($signupModel, 'companyAddress')->label('Anschrift des Unternehmens'); ?>
-
+                <?= $form->field($signupModel, 'companyName')->widget(Typeahead::className(), [
+                    'name'       => 'companyName',
+                    'dataset'    => [
+                        [
+                            'remote' => Url::to(['site/company-search' . '?q=%QUERY']),
+                            'limit'  => 10,
+                        ],
+                    ],
+                    'pluginEvents' => [
+                        "typeahead:selected"      => "function(ev,val) {selVal=val.value;jQuery('.companySetup>:not(.field-signupform-companyname)').hide();jQuery('#signupform-companyname').keyup(function(e){
+   if(e.which==13) return;if($(this).val()!= selVal){jQuery('.companySetup>:not(.field-signupform-companyname)').show()};
+});}",
+                        "typeahead:change" => "function(e,val) { console.log(val, value, value==val)  }",
+                    ]])->label('Name des Unternehmens') ?>
 
                 <div class="row">
                     <div class="col-lg-9">
@@ -156,7 +165,6 @@ $values = array_values(array_values($sectors));
 
     </div>
 </div>
-
 
 <? if(!empty($signupModel->errors) && $signupModel->checkCompanySignup){        // make sure to show initially hidden company signup div, if errors occur
     $this->registerJs("$('.companySetup').show();");

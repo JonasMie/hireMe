@@ -1,7 +1,6 @@
 <?php
 namespace frontend\models;
 
-use frontend\models\Company;
 use common\models\User;
 use yii\base\Model;
 use Yii;
@@ -19,7 +18,6 @@ class SignupForm extends Model
     public $password_repeat;
     public $checkCompanySignup;
     public $companyName;
-    public $companyAddress;
     public $companyAddressStreet;
     public $companyAddressNumber;
     public $companyAddressZIP;
@@ -65,11 +63,33 @@ class SignupForm extends Model
             ['companyAddressZIP', 'exist', 'targetClass' => Geo::className(), 'targetAttribute' => 'plz'],
             ['checkCompanySignup', 'boolean'],
 
-            ['companySector', 'integer', 'min'=>0, 'max' =>99 ],
-            ['companyEmployees', 'integer', 'min'=>0, 'max' =>3 ],
+            ['companySector', 'integer', 'min' => 0, 'max' => 99],
+            ['companyEmployees', 'integer', 'min' => 0, 'max' => 3],
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'firstName'            => Yii::t('user', 'First Name'),
+            'lastName'             => Yii::t('user', 'Last Name'),
+            'email'                => Yii::t('user', 'Email'),
+            'password'             => Yii::t('user', 'Password'),
+            'checkCompanySignup'   => Yii::t('company', 'Check Company Signup'),
+            'companyName'          => Yii::t('company', 'Company Name'),
+            'companyAddressStreet' => Yii::t('company', 'Company Address Street'),
+            'companyAddressNumber' => Yii::t('company', 'Company Address Number'),
+            'companyAddressZIP'    => Yii::t('company', 'Company Address ZIP'),
+            'companyAddressCity'   => Yii::t('company', 'Company Address City'),
+            'companySector'        => Yii::t('company', 'Company Sector'),
+            'companyEmployees'     => Yii::t('company', 'Company Employees'),
+            'visibility'           => Yii::t('user', 'Visibility'),
+        ];
+
+    }
 
     /**
      * Signs user up.
