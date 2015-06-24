@@ -6,22 +6,23 @@
 
 jQuery('#bulkActions.dropdown').on('click', '.bulkRead, .bulkUnread, .bulkDelete', function (e) {
     e.preventDefault();
-    var _this = jQuery(this);
-    jQuery('#w0').bulkAction(_this)
+    var $_this = jQuery(this);
+    $gridView = $_this.closest('div.grid-view');
+    $gridView.bulkAction($_this, $gridView.data('type'));
 });
 
 (function ($) {
-    $.fn.bulkAction = function (object) {
+    $.fn.bulkAction = function (object, page) {
         var type = object.attr('class');
         var keys = this.yiiGridView('getSelectedRows');
         if (keys.length <= 0)
             return;
         switch (type) {
             case "bulkDelete":
-                var r = confirm("Wollen Sie die markierten Nachrichten wirklich löschen?");
+                var r = confirm("Wollen Sie die markierten Einträge wirklich löschen?");
                 if (r === true) {
                     jQuery.ajax({
-                        url: "/message/delete",
+                        url: "/" + page + "/delete",
                         data: {keys: keys},
                         type: 'POST',
                         async: false
@@ -63,3 +64,4 @@ jQuery('#bulkActions.dropdown').on('click', '.bulkRead, .bulkUnread, .bulkDelete
         jQuery('input').iCheck('uncheck');
     }
 })(window.jQuery);
+

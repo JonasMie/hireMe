@@ -57,6 +57,10 @@ $this->title = Yii::t('app', 'Messages');
                               return ['class' => $role];
 
                           },
+                          'options' => [
+                              'data-type' => 'message',
+                              'class' => 'grid-view'
+                          ],
                           'columns'      => [
                               [
                                   'class'          => 'yii\grid\CheckboxColumn',
@@ -140,6 +144,7 @@ $this->title = Yii::t('app', 'Messages');
 
 </div>
 
+<? // TODO: check functionality when correctly arranged ?>
 <div class="dropdown" id="bulkActions">
     <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Aktion

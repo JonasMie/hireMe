@@ -191,7 +191,7 @@ class MessageController extends Controller
                 }
             }
         }
-        return $this->redirect(['index']);
+        return $this->goBack();
     }
 
     /**

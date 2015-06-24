@@ -54,9 +54,9 @@ class FavouritesSearch extends Favourites
         $dataProvider->setSort([
             'attributes'   => [
                 'id',
-                'job.created_at' => [
-                    'asc'  => ['job.created_at' => SORT_ASC],
-                    'desc' => ['job.created_at' => SORT_DESC],
+                'jobBegin' => [
+                    'asc'  => ['job_begin' => SORT_ASC],
+                    'desc' => ['job_begin' => SORT_DESC],
                 ],
                 'jobDescription' => [
                     'asc'   => ['description' => SORT_ASC],
@@ -70,7 +70,7 @@ class FavouritesSearch extends Favourites
                 ]
             ],
             'defaultOrder' => [
-                'job.created_at' => SORT_DESC
+                'jobBegin' => SORT_DESC
             ]
         ]);
 

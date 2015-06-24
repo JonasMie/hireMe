@@ -10,6 +10,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * FavouritesController implements the CRUD actions for Favourites model.
@@ -21,6 +22,7 @@ class FavouritesController extends Controller
         return [
             'access'      => [
                 'class' => AccessControl::className(),
+                'only' => ['index'],
                 'rules' => [
                     [
                         'actions' => ['index'],
@@ -29,10 +31,11 @@ class FavouritesController extends Controller
                     ]
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
+            'verbs'       => [
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                    'toggle' => ['post'],
                 ],
             ],
             'bodyClasses' => [
@@ -51,14 +54,16 @@ class FavouritesController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
+            'searchModel'  => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
      * Displays a single Favourites model.
+     *
      * @param integer $id
+     *
      * @return mixed
      */
     public function actionView($id)
@@ -89,7 +94,9 @@ class FavouritesController extends Controller
     /**
      * Updates an existing Favourites model.
      * If update is successful, the browser will be redirected to the 'view' page.
+     *
      * @param integer $id
+     *
      * @return mixed
      */
     public function actionUpdate($id)
@@ -108,20 +115,29 @@ class FavouritesController extends Controller
     /**
      * Deletes an existing Favourites model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
+     *
      * @param integer $id
+     *
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete()
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $id = Yii::$app->request->post('id');
+        $keys = Yii::$app->request->post('keys');
+        if (!is_null($id) && !is_array($id)) {
+            $this->findModel($id)->delete();
+        } else if (!is_null($keys) && is_array($keys)) {
+            Favourites::deleteAll(['and', ['in','id',$keys], 'user_id = ' . Yii::$app->user->getId()]);
+        }
+        return $this->goBack();
     }
 
     /**
      * Finds the Favourites model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
+     *
      * @param integer $id
+     *
      * @return Favourites the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -131,6 +147,37 @@ class FavouritesController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    public function actionToggle()
+    {
+        if(Yii::$app->request->isAjax){
+            $job_id = Yii::$app->request->post('id');
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            if(isset($job_id)){
+                $model = Favourites::findAll(['user_id' => Yii::$app->user->getId(), 'job_id' => $job_id]);
+                if(empty($model)){
+                    $fav = new Favourites();
+                    $fav->user_id = Yii::$app->user->getId();
+                    $fav->job_id = $job_id;
+                    if(!$fav->save()){
+                        return [
+                            'success' => false,
+                        ];
+                    }
+                    $type = "remove";
+                } else {
+                    foreach($model as $fav){
+                        $fav->delete();
+                    }
+                    $type = "add";
+                }
+                return [
+                    'success' => true,
+                    'type' => $type,
+                ];
+            }
         }
     }
 }
