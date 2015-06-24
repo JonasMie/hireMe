@@ -20,7 +20,7 @@ class Analytics extends \yii\base\Model
 
     }
 
-    public function getUnreadJobs($id) {
+    public static function getUnreadJobs($id) {
 
         $jobs = Application::find()
         ->where(['company_id' => $id , 'read' => 0])
@@ -43,7 +43,7 @@ class Analytics extends \yii\base\Model
 
     }
 
-    public function getUnreadApplicationsForJob($id) {
+    public static function getUnreadApplicationsForJob($id) {
 
          $applications = Application::find()
         ->where(['company_id' => $id, 'sent' => 1, 'read' => 0])
