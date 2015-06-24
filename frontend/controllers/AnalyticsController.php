@@ -72,17 +72,17 @@ class AnalyticsController extends Controller
          $viewCount = $viewClickData[0];
          $clickCount = $viewClickData[1];
          if ($clickCount == 0) {$applicationRate = 0;}
-         else { $applicationRate = (count($applier)/$clickCount)*100;}
+         else { $applicationRate = round((count($applier)/$clickCount)*100,2);}
          if (count($applier) == 0) {
          $conversionRate = 0;
          }
          else {
-         $conversionRate = count($hired)/count($applier)*100;             
+         $conversionRate = round(count($hired)/count($applier)*100,2);             
          }
          $clicks = [];
          $applications = [];
          if ($viewCount == 0) {$interestRate = 0;}
-         else {$interestRate = ($clickCount/$viewCount)*100;}
+         else {$interestRate = round(($clickCount/$viewCount)*100,2);}
 
 
         $jobProvider = new ActiveDataProvider([
@@ -124,7 +124,7 @@ class AnalyticsController extends Controller
             'pageSize' => 20,],
         ]);
 
-        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, (SUM(b.clickCount)/SUM(b.viewCount)*100) as interestRate
+        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
                         FROM job j
                         LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
                         GROUP BY j.title";

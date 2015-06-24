@@ -65,7 +65,7 @@ class Analytics extends \yii\base\Model
         ->orderBy('id')
         ->all();
         if (count($applier)==0) $rate = 0;
-        else $rate = count($inteviewer)/count($applier)*100; 
+        else $rate = round(count($inteviewer)/count($applier)*100,2); 
         return $rate;
     } 
     public static function getInterviewRateForJob($id) {
@@ -181,7 +181,7 @@ class Analytics extends \yii\base\Model
         ->orderBy('id')
         ->all();
         if (count($applies) == 0) { $rate = 0;}
-        else $rate =  (count($interviews)/count($applies))*100;
+        else $rate =  round((count($interviews)/count($applies))*100,2);
         return $rate;
 
     }

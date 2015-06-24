@@ -257,7 +257,7 @@ $this->title = "Analytics für";
                     if ($data['clicks'] == 0) {
                         return \yii\helpers\Html::encode("0 %");
                     }
-                    return \yii\helpers\Html::encode(100 * Analytics::getAppliesForJob($data['id']) / $data['clicks'] . " %");
+                    return \yii\helpers\Html::encode(round(100 * Analytics::getAppliesForJob($data['id']) / $data['clicks'],2) . " %");
                 }
             ],
             [
@@ -270,7 +270,7 @@ $this->title = "Analytics für";
                     if ($interviews == 0) {
                         return \yii\helpers\Html::encode("0 %");
                     }
-                    return \yii\helpers\Html::encode(100 * Analytics::getInterviewsForJob($data['id']) / Analytics::getAppliesForJob($data['id']) . " %");
+                    return \yii\helpers\Html::encode(round(100 * Analytics::getInterviewsForJob($data['id']) / Analytics::getAppliesForJob($data['id']),2) . " %");
                 }
             ],
             [
