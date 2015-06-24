@@ -87,6 +87,7 @@ img {
 
 a[href]:hover{
 	color: $green;
+	text-decoration:none;
 }
 
 .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {

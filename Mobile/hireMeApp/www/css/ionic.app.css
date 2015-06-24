@@ -7723,7 +7723,8 @@ img {
   border: none; }
 
 a[href]:hover {
-  color: #5dca88; }
+  color: #5dca88;
+  text-decoration: none; }
 
 .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
   border: none;
