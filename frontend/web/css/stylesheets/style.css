@@ -839,36 +839,40 @@ body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-signupform-companysector,
 body .form-group.field-signupform-companyemployees,
-body .form-group.field-settingsmodel-picture {
+body .form-group.field-settingsmodel-picture,
+body .form-group.field-resumejob-current,
+body .form-group.field-resumejob-report_id {
   position: static;
 }
-/* line 273, ../sass/_basicTemplate.scss */
+/* line 275, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-signupform-companysector label,
 body .form-group.field-signupform-companyemployees label,
-body .form-group.field-settingsmodel-picture label {
+body .form-group.field-settingsmodel-picture label,
+body .form-group.field-resumejob-current label,
+body .form-group.field-resumejob-report_id label {
   position: static;
 }
-/* line 284, ../sass/_basicTemplate.scss */
+/* line 286, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .has-success > input[type="text"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 287, ../sass/_basicTemplate.scss */
+/* line 289, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 292, ../sass/_basicTemplate.scss */
+/* line 294, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea {
   border-color: #5dca88 !important;
 }
-/* line 302, ../sass/_basicTemplate.scss */
+/* line 304, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 308, ../sass/_basicTemplate.scss */
+/* line 310, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -879,21 +883,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 320, ../sass/_basicTemplate.scss */
+/* line 322, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 328, ../sass/_basicTemplate.scss */
+/* line 330, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 331, ../sass/_basicTemplate.scss */
+/* line 333, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 335, ../sass/_basicTemplate.scss */
+/* line 337, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -903,59 +907,59 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 340, ../sass/_basicTemplate.scss */
+/* line 342, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 345, ../sass/_basicTemplate.scss */
+/* line 347, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 347, ../sass/_basicTemplate.scss */
+/* line 349, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 351, ../sass/_basicTemplate.scss */
+/* line 353, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 361, ../sass/_basicTemplate.scss */
+/* line 363, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 369, ../sass/_basicTemplate.scss */
+/* line 371, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 377, ../sass/_basicTemplate.scss */
+/* line 379, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 383, ../sass/_basicTemplate.scss */
+/* line 385, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 390, ../sass/_basicTemplate.scss */
+/* line 392, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 396, ../sass/_basicTemplate.scss */
+/* line 398, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 404, ../sass/_basicTemplate.scss */
+/* line 406, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
@@ -1689,4 +1693,18 @@ body.controller-message.action-view #replyModal form .field-messageattachments-f
 .controller-favourites.action-index div.searchBtn {
   margin-top: 15px;
   text-align: right;
+}
+
+/* line 3, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 > div {
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+/* line 7, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 > div label[for="resumejob-report_id"] {
+  margin-bottom: 10px;
+}
+/* line 11, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 > div textarea {
+  resize: none;
 }
