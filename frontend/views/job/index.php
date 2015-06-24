@@ -87,7 +87,7 @@ $this->title = $indiTitle;
                 'label'  => 'Mehr',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return \yii\helpers\Html::a("Ansehen","/job/view?id=".$data->id);
+                    return Html::a("Ansehen","/job/view?id=".$data->id);
                 }
             ],    
         ],

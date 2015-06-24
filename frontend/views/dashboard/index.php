@@ -12,7 +12,7 @@
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-
+\frontend\assets\BulkAction::register($this);
 ?>
 
     <!-- Initializing Foo Tables -->
@@ -162,7 +162,7 @@ use yii\helpers\Html;
 
 <? else: ?>
 
-    <h2><a class="userDashboardMessagesHeader" href="./message">Nachrichten</a></h2>
+    <h2><a class="userDashboardMessagesHeader" href="/message">Nachrichten</a></h2>
 
     <?= GridView::widget([
         'dataProvider' => $messageDP,
@@ -170,9 +170,32 @@ use yii\helpers\Html;
             'class' => 'table table-hover footable toggle-arrow hireMeTable',
             'id'    => 'DashboardMessages',
         ],
+        'options' => [
+            'data-type' => 'message',
+            'class' => 'grid-view'
+        ],
         'columns'      => [
             [
-                'class' => 'yii\grid\CheckboxColumn',
+                'class'  => 'yii\grid\CheckboxColumn',
+                'footer' =>
+
+                    '<div class="dropdown" id="bulkActions">
+        <a href="#" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Aktion
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li class="bulkRead">
+                <a href="#" tabindex="-1">Als gelesen markieren</a>
+            </li>
+            <li class="bulkUnread">
+                <a href="#" tabindex="-1">Als ungelesen markieren</a>
+            </li>
+            <li class="bulkDelete">
+                <a href="#" tabindex="-1">Löschen</a>
+            </li>
+        </ul>
+    </div>',
             ],
             [
                 'label'  => 'Betreff',
@@ -193,12 +216,76 @@ use yii\helpers\Html;
                     }
                 },
                 'headerOptions' => ['data-hide' => 'phone'],
-                
+
             ],
             [
                 'attribute'     => 'sent_at',
                 'format'        => 'datetime',
                 'label'         => 'Gesendet/Empfangen',
+                'headerOptions' => ['data-hide' => 'xsmall,phone'],
+
+            ],
+            [
+                'class'          => 'yii\grid\Column',
+                'headerOptions'  => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle']
+            ],
+        ],
+        'showFooter'   => true,
+    ]); ?>
+
+    <h2><a class="userDashboardFavoritesHeader" href="/favourites">Favoriten</a></h2>
+
+
+    <?= GridView::widget([
+        'dataProvider' => $favouritesDP,
+        'tableOptions' => [
+            'class' => 'table table-hover footable toggle-arrow hireMeTable',
+            'id'    => 'DashboardFavorites',
+        ],
+        'options' => [
+            'data-type' => 'favourites',
+            'class' => 'grid-view'
+        ],
+        'columns'      => [
+            [
+                'class'  => 'yii\grid\CheckboxColumn',
+                'footer' =>
+                    '<div class="dropdown" id="bulkActions">
+                        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Aktion
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li class="bulkDelete">
+                                <a href="#" tabindex="-1">Löschen</a>
+                            </li>
+                        </ul>
+                    </div>'
+            ],
+            [
+                'attribute' => 'jobDescription',
+                'label'     => 'Job',
+                'format'    => 'raw',
+                'value'     => function ($data) {
+                    return Html::a($data->job->description, ['/job/view', 'id' => $data->job->id]);
+                },
+            ],
+            [
+                'attribute' => 'company',
+                'label'     => 'Unternehmen',
+                'format'    => 'raw',
+                'value'     => function ($data) {
+                    return Html::a($data->job->company->name, ['/company/view', 'id' => $data->job->company->id]);
+                },
+            ],
+            [
+                'attribute'     => 'jobBegin',
+                'format'        => 'date',
+                'label'         => 'Verfügbar ab',
+                'value'         => function ($data) {
+                    return Yii::$app->formatter->asDate($data->job->job_begin, "php: d.m.Y");
+                },
                 'headerOptions' => ['data-hide' => 'xsmall,phone'],
 
             ],
@@ -210,60 +297,9 @@ use yii\helpers\Html;
 
             ],
         ],
-        //'caption'      => Html::a('Nachrichten', './message')
-    ]); ?>
-
-    <h2 class="userDashboardFavoritesHeader">Favoriten / Gespeicherte Suchen</h2>
-
-
-    <?= GridView::widget([
-        'dataProvider' => $favouritesDP,
-        'tableOptions' => [
-            'class' => 'table table-hover footable toggle-arrow hireMeTable',
-            'id'    => 'DashboardFavorites',
-        ],
-        'columns'      => [
-            [
-                'class' => 'yii\grid\CheckboxColumn',
-            ],
-            [
-                'label'  => 'Stellenbezeichnung',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::a($data->job->description, '../job/view?id=' . $data->id);
-                }
-            ],
-            /*
-            [
-                'attribute' => 'sector',
-                'format' => 'datetime',
-                'label' => 'Branche',
-                'headerOptions'  => ['data-hide' => 'phone'],
-
-            ],
-            [
-                'attribute' => 'created_at',
-                'format' => 'datetime',
-                'label' => 'Erstellt am',
-                'headerOptions'  => ['data-hide' => 'xsmall,phone'],
-
-            ],
-            */
-            [
-
-                'class'          => 'yii\grid\Column',
-                'headerOptions'  => ['data-toggle' => 'true'],
-                'contentOptions' => ['data-title' => 'data-toggle']
-
-            ],
-        ],
-        //'caption'      => 'Favoriten / Gespeicherte Suchen',
+        'showFooter' => true,
     ]); ?>
 
 
-    <? //=ListView::widget([
-//    'dataProvider' => $favouritesDP,
-//    'itemView' => '../favourites/view.php',
-//    ]); ?>
 
 <? endif; ?>
