@@ -33,29 +33,18 @@ class AnalyticsController extends Controller
 
         $analytics = new Analytics();
         $applier = count($analytics->getAppliesForJob($id));
-        $viewClickData =  $analytics->getAllViewsAndClicksForJob($id);
-        $viewCount = $viewClickData[0];
-        $clickCount = $viewClickData[1];
-        if ($clickCount == 0) {$applicationRate = 0;}
-        else { $applicationRate = (count($applier)/$clickCount)*100;}        
-        $job = Job::findOne($id);
-        $jobName = $job->title;
-        if ($viewCount == 0) {$interestRate = 0;}
-        else {$interestRate = ($clickCount/$viewCount)*100;}
+        $viewCount= Yii::$app->db->createCommand("SELECT  sum(b.viewCount) as views, sum(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
+                        FROM job j
+                        LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                        GROUP BY j.title")->queryAll();
 
-        $jobData["applierCount"] = count($applier);
-        $jobData["viewCount"] = $viewCount;
-        $jobData["clickCount"] = $clickCount;
-        $jobData["applicationRate"] = $applicationRate;
-        $jobData["interviewCount"] = $analytics->getInterviewsForJob($id);
+        $jobData["viewCount"] = intval($viewCount[0]['views']);
+        $jobData["clickCount"] = intval($viewCount[0]['clicks']);
+        $jobData["applierCount"] = $applier;
+        $jobData["interestRate"] = floatval($viewCount[0]['interestRate']);
+        $jobData["applicationRate"] = round($applier/$jobData["clickCount"]*100,2);
         $jobData["interviewRate"] = $analytics->getInterviewRateForJob($id);
-        $jobData["interestRate"] = $interestRate;
-
-        $sql = "SELECT viewCount from applyBtn WHERE job_id =".$id;
-
-        //$btnData["views"] = 
-
-       return BaseJson::encode($jobData);
+        return BaseJson::encode($jobData);
 
     }
 
@@ -103,8 +92,7 @@ class AnalyticsController extends Controller
         $generalData["interviewRate"] = $analytics->getInterviewRate($id);
         $generalData["interestRate"] = $interestRate;
         $generalData["conversionRate"] = $conversionRate;
-
-       return BaseJson::encode($generalData);
+        return BaseJson::encode($generalData);
 
     }
 
@@ -179,6 +167,12 @@ class AnalyticsController extends Controller
         $query = ApplyBtn::find()
         ->where(['job_id' => $id])
         ->orderBy('id');
+
+        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
+                        FROM job j
+                        LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                        GROUP BY j.title";
+
 
         $jobProvider = new ActiveDataProvider([
         'query' => $query,
