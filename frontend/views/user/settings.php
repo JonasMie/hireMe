@@ -35,7 +35,7 @@ ImageAssetBundle::register($this);
     }
     ?>
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="col-sm-10 col-sm-offset-1">
 			<h1><?= Html::encode($this->title) ?></h1>
 		</div>
 	</div>
