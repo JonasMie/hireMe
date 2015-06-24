@@ -17,21 +17,24 @@ $this->title = Yii::t('app', 'Companies');
     <p>
         <?= Html::a(Yii::t('app', 'Create Company'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+<?include Yii::getAlias('@helper/companySignup.php'); var_dump($employeeAmount)?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+//        'filterModel' => $searchModel,
+        'columns'      => [
             'name',
-            'street',
-            'houseno',
-            'zip',
-            // 'city',
-            // 'sector',
-            // 'employeeAmount',
+//            'street',
+//            'houseno',
+//            'zip',
+            'city',
+            'sector',
+            [
+                'attribute' => 'employeeAmount',
+                'value'  => function($data){
+                    global $employeeAmount;
+                    return $employeeAmount[$data->employeeAmount];
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
