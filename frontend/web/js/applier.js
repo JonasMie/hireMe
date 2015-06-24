@@ -32,8 +32,8 @@ loadScript("http://code.jquery.com/jquery-1.11.3.min.js", function () {
 		var key = $("#ac").attr('name');
 		var html = '<iframe src="http://frontend/job/view-count" width="0" height="0" id="hireMeFrame" scrolling="no" frameBorder="0" name="'+key+'">';
 		$("#ac").html(html);
-		$("#ac").append("<span title='Mit hireMe bewerben' alt='Mit hireMe bewerben' id='applyBtn' class='ripple' onclick='clicked();'></span>"); // ToDo: jquery tooltip http://www.codechewing.com/library/create-simple-tooltip-jquery/
-		$("#applyBtn").css({"width":"50px","height":"50px","background":"url('http://bewerbung.local/images/button/hireMe-Button-1-transp.png') no-repeat center center","display":"block","cursor":"pointer"});
+		$("#ac").append("<span title='Mit hireMe bewerben' alt='Mit hireMe bewerben' id='applyBtn' class='ripple' onclick='clicked();'><img src='http://bewerbung.local/images/button/hireMe-Button-1-transp.png' witdh='50'></span>"); // ToDo: jquery tooltip http://www.codechewing.com/library/create-simple-tooltip-jquery/
+		$("#applyBtn").css({"width":"50px","height":"50px","cursor":"pointer"});
 		$('#applyBtn').css({"background-size":"cover"});
 		/* On-Page Hover Modal
 		$("#ac").append('<div style="width:400px; height:400px; border:1px solid;" id="hoverInfo"><iframe id="hoverInfoFrame" src="http://frontend/job/button-popup?key='+key+'" width="400" height="400" scrolling="no" frameBorder="0" name="'+key+'"></div>');
