@@ -176,7 +176,7 @@ class AnalyticsController extends Controller
         if ($viewCount == 0) {$interestRate = 0;}
         else {$interestRate = ($clickCount/$viewCount)*100;}
 
-        Yii::trace(count(Analytics::getBtnsForJob($id)));
+        //Yii::trace(count(Analytics::getBtnsForJob($id)));
 
         $query = ApplyBtn::find()
         ->where(['job_id' => $id])
