@@ -20,7 +20,19 @@ return [
                 ],
                 'company' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                ]
+                ],
+                'application'=> [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+                'file' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+                'geo'=> [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+                'job'=> [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
             ],
         ],
     ],
