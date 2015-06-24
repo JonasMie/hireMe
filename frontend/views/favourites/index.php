@@ -42,7 +42,7 @@ $this->title = Yii::t('app', 'Favoriten');
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
 		//        'filterModel'  => $searchModel,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'favouritesTable'],
 				'options' => [
 					'data-type' => 'favourites',
 					'class' => 'grid-view'

@@ -14,6 +14,23 @@ use common\models\User;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 ?>
+
+<!-- Initializing Foo Tables -->
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
+                mediaSmall: 960
+
+            }
+        });
+    });");
+
+?>
+
 <div class="row">
 	<div class="col-sm-8 col-sm-offset-1">
 		<h1><?= Html::encode($this->title) ?></h1>
@@ -23,82 +40,101 @@ use common\models\User;
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-10 col-sm-offset-1">
-		<div class="application-index">
-
+	<div class="application-index">
+		<div class="col-sm-10 col-sm-offset-1">
+			
+			<? /* Recruiter View */ ?>
+			
 			 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 			   
 				 <h1><?= Html::encode($title) ?></h1>
 
-		  <?= GridView::widget([
+			<?= GridView::widget([
 				'dataProvider' => $provider,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'applicationTable'],
 				'columns'      => [
-				[
-						'attribute' => 'fullName',
-						'label' => 'Name',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return User::findOne($data["userID"])->getProfilePicture(true)."".Html::a($data['fullName'],'/user?un='.$data['userName']);
-						}
-				], 
-				 'title:text:Stelle',
-				 [
-						'attribute' => 'created_at',
-						'label' => 'Beworben am',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return Html::encode($data['created_at']);
-						}
-				], 
-				[
-						'label'  => '',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return Html::a(["Ansehen"],['/application/view?id='.$data['id']]);
-						}
-				],    
+					[
+							'attribute' => 'fullName',
+							'label' => 'Name',
+							'format' => 'raw',
+							'value'  => function ($data) {
+								return User::findOne($data["userID"])->getProfilePicture(true)."".Html::a($data['fullName'],'/user?un='.$data['userName']);
+							},
+							'headerOptions'  => ['class' => 'first-col'],
+							'contentOptions' => ['class' => 'first-col'],
+					], 
+					 'title:text:Stelle',
+					 [
+							'attribute' => 'created_at',
+							'label' => 'Beworben am',
+							'format' => 'raw',
+							'value'  => function ($data) {
+								return Html::encode($data['created_at']);
+							},
+							'headerOptions'  => ['class' => 'second-col'],
+							'contentOptions' => ['class' => 'second-col'],
+					], 
+					[
+							'label'  => '',
+							'format' => 'raw',
+							'value'  => function ($data) {
+								return Html::a(["Ansehen"],['/application/view?id='.$data['id']]);
+							},
+							'headerOptions'  => ['class' => 'third-col','data-hide' => 'xsmall,phone'],
+							'contentOptions' => ['class' => 'third-col'],
+					],
+					[
+						'class'          => 'yii\grid\Column',
+						'headerOptions'  => ['data-toggle' => 'true'],
+						'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'fifth-col']
+					],
 				],
 
 			]); ?>  
-
-
+			<? /* Recruiter View End */ ?>
+			
+			<? /* Bewerber View */ ?>
 			  <? else:?>
 
 			 <h2><?= Html::encode("Gespeicherte Bewerbungen") ?></h2>
 
 			 <?= GridView::widget([
 				'dataProvider' => $savedProvider,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'applicationTable'],
 				'columns'      => [
-				 [
-						'label'  => 'Stellenanzeige',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return Html::a(Job::getTitle($data->job_id),"/application/add-data?id=".$data->id);
-						},
-						'headerOptions'  => ['class' => 'first-col'],
-						'contentOptions' => ['class' => 'first-col']
-					],
+					 [
+							'label'  => 'Stellenanzeige',
+							'format' => 'raw',
+							'value'  => function ($data) {
+								return Html::a(Job::getTitle($data->job_id),"/application/add-data?id=".$data->id);
+							},
+							'headerOptions'  => ['class' => 'first-col'],
+							'contentOptions' => ['class' => 'first-col']
+						],
 
-				[
-						'label'  => 'Erstellt',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return Html::encode($data->created_at);
-						},
-						'headerOptions'  => ['class' => 'second-col'],
-						'contentOptions' => ['class' => 'second-col']
-				],    
-				[
-						'label'  => '',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return Html::a("<span class='glyphicon glyphicon-pencil'></span>",'/application/add-data?id='.$data->id, ['class' => 'btn btn-success ripple']) . Html::a("Bearbeiten","/application/add-data?id=".$data->id, ['class' => 'btn btn-primary ripple']);
-						},
-						'headerOptions'  => ['class' => 'third-col'],
-						'contentOptions' => ['class' => 'third-col']
-				],    
+					[
+							'label'  => 'Erstellt',
+							'format' => 'raw',
+							'value'  => function ($data) {
+								return Html::encode($data->created_at);
+							},
+							'headerOptions'  => ['class' => 'second-col','data-hide' => 'xsmall,phone'],
+							'contentOptions' => ['class' => 'second-col']
+					],    
+					[
+							'label'  => '',
+							'format' => 'raw',
+							'value'  => function ($data) {
+								return Html::a("Ansehen",'/application/add-data?id='.$data->id,['class' => 'btn btn-success ripple']) . ;
+							},
+							'headerOptions'  => ['class' => 'third-col'],
+							'contentOptions' => ['class' => 'third-col']
+					],
+					[
+						'class'          => 'yii\grid\Column',
+						'headerOptions'  => ['data-toggle' => 'true'],
+						'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'fourth-col']
+					],			
 				],
 
 			]); ?>  
@@ -106,7 +142,7 @@ use common\models\User;
 
 			<?= GridView::widget([
 				'dataProvider' => $sentProvider,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'applicationTable'],
 				'columns'      => [
 				 [
 						'label'  => 'Stellenanzeige',
