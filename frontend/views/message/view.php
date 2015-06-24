@@ -163,8 +163,8 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 
                     <?= Html::activeHiddenInput($reply, 'receiver_id') // TODO: check if exists       ?>
 
-                    <?/*= $form->field($model, 'attachments')->fileInput()->label('Anhang hinzufügen'); */?>
-                    <?= Html::activeHiddenInput($reply, 'flow') // TODO: DANKE YII, DASS ICH DEN SCHEIß MIT HIDDEN INPUT MACHEN MUSS! DANKE! WIRKLICH! DANKE, DU ARSCHLOCH! SECURITY UND SO LÄUFT BEI DIR. wenn noch zeit ist, evtl verbessern ?>
+                    <?= $form->field($reply, 'attachment')->fileInput()->label('Anhang hinzufügen'); ?>
+                    <?= Html::activeHiddenInput($reply, 'flow')?>
                     <div class="form-group">
                     </div>
 
@@ -173,7 +173,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => 'btn btn-success ripple']) ?>
+                <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => 'btn btn-success']) ?>
 
                 <?php ActiveForm::end(); ?>
 

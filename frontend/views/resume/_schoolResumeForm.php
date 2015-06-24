@@ -34,7 +34,7 @@ use yii\helpers\Html;
     ]);
     ?>
 
-    <? //= $form->field($model, 'current')->textInput() ?>
+    <?= $form->field($model, 'current')->checkbox() ?>
 
     <?= $form->field($model, 'schoolname')->textInput(['maxlength' => 255]) ?>
 

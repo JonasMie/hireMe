@@ -127,7 +127,7 @@ class MessageCreate extends Model
             $message->sender_id = \Yii::$app->user->getId();
             $message->receiver_id = $receiver_id;
             $message->subject = $this->subject;
-            $message->content = $this->content;
+            $message->content = nl2br($this->content);
 
             if ($message->save()) {
                 $file = UploadedFile::getInstance($this, 'attachment');
