@@ -101,10 +101,8 @@ class AnalyticsController extends Controller
 
         $generalData["viewArray"] = $compareViews;
         $generalData["clickArray"] = $compareClicks;
-        $generalData["companyName"] = $analytics->getCompany($id);
         $generalData["applierCount"] = count($applier);
         $generalData["hiredCount"] = count($hired);
-        $generalData["jobCount"] = count($data);
         $generalData["viewCount"] = $allViews;
         $generalData["clickCount"] = $allClicks;
         $generalData["applicationRate"] = $applicationRate;
