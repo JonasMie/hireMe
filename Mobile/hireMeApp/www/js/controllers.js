@@ -160,18 +160,30 @@ angular.module('starter.controllers', [])
   
 }])
 
-.controller('EventCtrl', function($scope,$ionicSideMenuDelegate,$http,$ionicModal) {
+.controller('EventCtrl', function($scope,$ionicSideMenuDelegate,$http,$ionicModal,EventService) {
 
-  function makeHttpObject() {
-  try {return new XMLHttpRequest();}
-  catch (error) {}
-  try {return new ActiveXObject("Msxml2.XMLHTTP");}
-  catch (error) {}
-  try {return new ActiveXObject("Microsoft.XMLHTTP");}
-  catch (error) {}
+    $scope.events = [];
 
-  throw new Error("Could not create HTTP request object.");
-  }
+      EventService.getAll().then(function (events) {
+        $scope.events = events;
+
+      }, function (response) {
+          // our q.reject gets the reponse and you can handle an error
+          console.log("Rejected connection for EventService");
+      })
+
+
+     $scope.doRefresh = function() {
+           EventService.getAllItems().then(function (events) {
+          $scope.events = events;     
+            $scope.$broadcast('scroll.refreshComplete');
+          })
+          .finally(function() {
+            // Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+          })
+      }
+
 
   $ionicModal.fromTemplateUrl('./templates/newEventModal.html', {
     scope:$scope,
@@ -204,29 +216,6 @@ angular.module('starter.controllers', [])
       alert(status);
 
     })
-/*
-     var request1 = makeHttpObject();
-    request1.open("GET", "http://frontend/mobile/create-event?thisevent="+thisEvent, true);
-    request1.send(null);
-
-    request1.onreadystatechange = function() {
-
-        if (request1.readyState == 4) {
-
-
-        }
-
-    }
-    /*
-    alert(thisEvent.title);
-
-    $http({
-    url: url,
-    method: "GET",
-    params: {event:thisEvent}
-    });
-*/
-
   }
 
   $scope.newEvent = function() {
@@ -234,31 +223,9 @@ angular.module('starter.controllers', [])
     $scope.modal.show();
 
   }
-    	
+
     	$ionicSideMenuDelegate.canDragContent(true);
 
-   $scope.events = [];
-
-  		getEvents();
-
-  		function getEvents() {
-
-		 $http.get('http://frontend/mobile/get-events')
-
-		 		.success(function(data, status, headers, config) {
-		 
-		       		console.log(data);
-		       		if (status == 200) {
-		       		for (var i = 0; i < data.length; i++) {
-
-		       			var job = data[i];
-		       			$scope.events.push(job);
-		       			}
-		       		}
-
-		       })
-		}
-  
 
   
 })
@@ -290,6 +257,24 @@ angular.module('starter.controllers', [])
       var jobID = $stateParams.job_id;
       JobService.getSpecific(jobID).then(function (jobReceived) {
         $scope.job = jobReceived;
+      }, function (response) {
+          // our q.reject gets the reponse and you can handle an error
+          console.log("Rejected connection for JobService");
+      });
+
+})
+
+.controller('EventDetailCtrl', function($scope,$ionicSideMenuDelegate,$stateParams, EventService) {
+  
+      $ionicSideMenuDelegate.canDragContent(true);
+
+       $scope.openLink = function(link) {
+
+      navigator.app.loadUrl(link, { openExternal:true });
+      }
+      var eventID = $stateParams.event_id;
+      EventService.getSpecific(eventID).then(function (eventReceived) {
+        $scope.event = eventReceived;
       }, function (response) {
           // our q.reject gets the reponse and you can handle an error
           console.log("Rejected connection for JobService");

@@ -50,6 +50,36 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   };
 }])
 
+.factory('EventService', ['$http', '$q', function($http, $q){
+  var eventArray = [];
+  return {
+    
+    getAll: function(){
+      var myPromise = $q.defer();
+
+      $http.get('http://frontend/mobile/get-events').then(function(response){
+                  myPromise.resolve(response.data); // resolve our promise -> success
+                  eventArray = response.data;
+               }, myPromise.reject); // reject our promise -> fail / error case
+      return myPromise.promise;
+      
+    },
+
+    getSpecific: function(event_id){
+      var dfd = $q.defer();
+      eventArray.forEach(function(event) {
+        console.log("Iterator: "+ event.id);
+        console.log("Übergabe: "+event_id);
+        if (event.id == event_id) {
+          console.log("Treffer");
+          dfd.resolve(event);
+        }
+      })
+      return dfd.promise;
+    }
+  };
+}])
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -99,6 +129,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: "templates/events.html",
         controller: 'EventCtrl'
 
+      }
+    }
+  })
+
+  .state('app.eventDetail', {
+    url: "/events/:event_id",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/eventDetail.html",
+        controller:"EventDetailCtrl"
       }
     }
   })
