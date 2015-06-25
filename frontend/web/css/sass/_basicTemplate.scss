@@ -293,8 +293,8 @@ body {
   /* END UNFOCUSED INPUT */
 
   /* FOCUSED INPUT*/
-  .input-in-focus, .has-success {
-    > input[type="text"] {
+  .input-in-focus, .has-success, .has-error {
+    > input[type="text"], input[type="password"] {
       border-bottom: $FormBorderFocused;
     }
     > label {
@@ -307,6 +307,12 @@ body {
       &:focus {
         box-shadow: none !important;
       }
+    }
+  }
+
+  .has-error {
+    > label {
+      color: #a94442 !important;
     }
   }
   /* END FOCUSED INPUT*/
