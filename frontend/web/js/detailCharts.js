@@ -135,6 +135,50 @@ $(document).ready(function () {
             }
         ]
 
+        var lastValue;
+
+        function getRandomHipsterColor() {
+
+            var hue = 'rgba('
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 100)/100+0.2) + ')';
+            console.log(hue);
+            return hue;
+        }
+
+        var compareViewsData =  [];
+
+        for (var i = 0; i < obj.compareData.length; i++) {
+                var tmp = obj.compareData[i];
+                var subObject = '{';
+                subObject += '"value":'+(tmp.views/obj.viewCount).toFixed(2)*100+',';
+                subObject += '"color": "'+getRandomHipsterColor()+'",';
+                subObject += '"highlight": "rgba(93,202,136,1.0)",';
+                subObject += '"label": "'+tmp.site+'"';
+                subObject += '}';
+                console.log(subObject);
+                compareViewsData.push($.parseJSON(subObject));
+        }
+
+        var compareClicksData =  [];
+
+        for (var i = 0; i < obj.compareData.length; i++) {
+                var tmp = obj.compareData[i];
+                var subObject = '{';
+                subObject += '"value":'+(tmp.clicks/obj.clickCount).toFixed(2)*100+',';
+                subObject += '"color": "'+getRandomHipsterColor()+'",';
+                subObject += '"highlight": "rgba(93,202,136,1.0)",';
+                subObject += '"label": "'+tmp.site+'"';
+                subObject += '}';
+                console.log(subObject);
+                compareClicksData.push($.parseJSON(subObject));
+        }
+
+        console.log(obj.compareData);
+
+
         // VIEWS CLICKS + INTEREST RATE
         var ctx1 = document.getElementById("viewClickChart").getContext("2d");
         ctx1.canvas.width = 200;
@@ -161,15 +205,12 @@ $(document).ready(function () {
         var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
         var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
         var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
+       
+        var ctx8 = document.getElementById("viewCompareChart").getContext("2d");
+        var views = new Chart(ctx8).Doughnut(compareViewsData, options);
 
-        // APPLICATIONS HIRED + CONVERSION RATE
-        var ctx7 = document.getElementById("applicationHiredChart").getContext("2d");
-        ctx7.canvas.width = 200;
-        ctx7.canvas.height = 100;
-
-        var ctx8 = document.getElementById("conversionRateChart").getContext("2d");
-        var interviewApplication = new Chart(ctx7).Bar(applicationHiredData, options);
-        var interviewRate = new Chart(ctx8).Doughnut(conversionRateData, options);
+        var ctx9 = document.getElementById("clickCompareChart").getContext("2d");
+        var views = new Chart(ctx9).Doughnut(compareClicksData, options);
 
 
     });

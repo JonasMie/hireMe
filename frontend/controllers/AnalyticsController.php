@@ -40,7 +40,7 @@ class AnalyticsController extends Controller
                         WHERE j.id =".$id."
                         GROUP BY j.title")->queryAll();
 
-        $compareData = Yii::$app->db->createCommand("SELECT b.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks  
+        $compareData = Yii::$app->db->createCommand("SELECT b.site, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks  
                             FROM applyBtn b
                             INNER JOIN job j ON j.id = b.job_id
                             WHERE j.id = ".$id."
