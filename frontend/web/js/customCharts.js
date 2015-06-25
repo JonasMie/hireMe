@@ -178,14 +178,28 @@ $(document).ready(function () {
 
         for (var i = 0; i < obj.viewArray.length; i++) {
                 var tmp = obj.viewArray[i];
-                var compareViewsJSON = '{';
-                compareViewsJSON += '"value":'+(tmp.views/obj.viewCount).toFixed(2)*100+',';
-                compareViewsJSON += '"color": "'+getRandomHipsterColor()+'",';
-                compareViewsJSON += '"highlight": "rgba(93,202,136,1.0)",';
-                compareViewsJSON += '"label": "'+tmp.title+'"';
-                compareViewsJSON += '}';
-                console.log(compareViewsJSON);
-                compareViewsData.push($.parseJSON(compareViewsJSON));
+                var subObject = '{';
+                subObject += '"value":'+(tmp.views/obj.viewCount).toFixed(2)*100+',';
+                subObject += '"color": "'+getRandomHipsterColor()+'",';
+                subObject += '"highlight": "rgba(93,202,136,1.0)",';
+                subObject += '"label": "'+tmp.title+'"';
+                subObject += '}';
+                console.log(subObject);
+                compareViewsData.push($.parseJSON(subObject));
+        }
+
+        var compareClicksData =  [];
+
+        for (var i = 0; i < obj.clickArray.length; i++) {
+                var tmp = obj.clickArray[i];
+                var subObject = '{';
+                subObject += '"value":'+(tmp.clicks/obj.clickCount).toFixed(2)*100+',';
+                subObject += '"color": "'+getRandomHipsterColor()+'",';
+                subObject += '"highlight": "rgba(93,202,136,1.0)",';
+                subObject += '"label": "'+tmp.title+'"';
+                subObject += '}';
+                console.log(subObject);
+                compareClicksData.push($.parseJSON(subObject));
         }
     
         
@@ -227,6 +241,9 @@ $(document).ready(function () {
 
         var ctx9 = document.getElementById("viewCompareChart").getContext("2d");
         var viewCompare = new Chart(ctx9).Doughnut(compareViewsData, options);
+
+        var ctx10 = document.getElementById("clickCompareChart").getContext("2d");
+        var clickCompare = new Chart(ctx10).Doughnut(compareClicksData, options);
 
     });
 

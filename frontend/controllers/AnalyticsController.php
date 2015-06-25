@@ -91,7 +91,14 @@ class AnalyticsController extends Controller
                             WHERE j.company_id = ".$id."
                             GROUP BY j.title")->queryAll();
 
+        $compareClicks = Yii::$app->db->createCommand("SELECT j.title, SUM(b.clickCount) as clicks 
+                            FROM applyBtn b
+                            LEFT OUTER JOIN job j ON j.id = b.job_id
+                            WHERE j.company_id = ".$id."
+                            GROUP BY j.title")->queryAll();
+
         $generalData["viewArray"] = $compareViews;
+        $generalData["clickArray"] = $compareClicks;
         $generalData["companyName"] = $analytics->getCompany($id);
         $generalData["applierCount"] = count($applier);
         $generalData["hiredCount"] = count($hired);
