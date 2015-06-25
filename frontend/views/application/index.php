@@ -14,6 +14,7 @@ use common\models\User;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 ?>
+
 <div class="application-index">
 
      <? if (Yii::$app->user->identity->isRecruiter()): ?>

@@ -18,6 +18,9 @@ use yii\filters\VerbFilter;
 use frontend\models\JobCreateForm;
 use frontend\models\ApplyBtnSearch;
 use frontend\models\Favourites;
+use frontend\models\CoverCreateForm;
+use yii\data\SqlDataProvider;
+use frontend\models\File;
 
 /**
  * JobController implements the CRUD actions for Job model.
@@ -171,6 +174,126 @@ class JobController extends Controller
 
     }
 
+    public  function createAndEdit($key,$user) {
+
+        $app = new Application();
+
+        $apps = Application::find()->orderBy('id')->all();
+        if (count($apps) == 0) {
+            $app->id = 0;
+        } else {
+            $highestID = $apps[count($apps) - 1];
+            $app->id = $highestID->id + 1;
+        }
+
+
+        $thisBtn = ApplyBtn::find()
+            ->where(['key' => $key])
+            ->one();
+
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: " . $job->id);
+        $app->user_id = $user;
+        $app->company_id = $job->company_id;
+        $app->job_id = $job->id;
+        $app->state = "Gespeichert";
+        $app->btn_id = $thisBtn->id;
+        $app->save();
+        $user = Yii::$app->user->identity;
+
+        $newSQL = "SELECT f.title, f.id from file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = ".$user->id;
+        Yii::trace("User ID: ".$user->id);
+        $provider = new SqlDataProvider([
+            'sql' => $newSQL,
+            'sort' => [
+                'attributes' => [
+                'title'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,   
+            ]
+            ],
+        ]);
+
+        $sentSQL = "SELECT f.title, ad.id from file f, application_data ad, application a WHERE a.user_id = ".$user->id." and ad.application_id = a.id and ad.file_id = f.id and a.id =".$app->id;
+        $sentProvider = new SqlDataProvider([
+            'sql' => $sentSQL,
+            'sort' => [
+                'attributes' => [
+                'title'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,   
+            ]
+            ],
+        ]);
+
+        $model = new CoverCreateForm();
+        $model->app = $app->id;
+        $possibleFile = File::find()
+        ->where(['title' => 'cover_'.$app->id,'user_id' => $user->id])->one();
+
+        if (count($possibleFile) ==1) {
+
+            $model->text = file_get_contents('uploads'.$possibleFile->path.'.txt');          
+        }
+
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->create() == true) {
+
+            }
+
+
+        }
+
+        return $this->renderPartial('buttonAddData', [
+            'model' => $model,
+            'appId' => $app->id,
+            'job' => $job,
+            'provider' => $provider,
+            'sentProvider' => $sentProvider
+        ]);
+    }
+
+     public function actionSend($id) {
+
+        $app = Application::findOne($id);
+        $app->state = "Versendet";
+        $app->sent = 1;
+        $app->save();
+        $this->redirect("/application");
+    }
+
+    public function actionDataHandler($id,$appID,$direction) { // expects app data id.
+
+        $app = Application::findOne($appID);
+
+       if($direction == 1) {   
+        $appData = new ApplicationData();
+
+         $appDatas = ApplicationData::find()->orderBy('id')->all();
+            if (count($appDatas) == 0) {
+                $appData->id = 0;
+            }
+            else {
+                $highestID = $appDatas[count($appDatas)-1];
+                $appData->id = $highestID->id+1;
+            } 
+
+        $appData->application_id = $appID;
+        $appData->file_id = $id;
+        $appData->save();
+       }
+       else {
+        $appData = ApplicationData::findOne($id);
+        $appData->delete();
+       }
+        $this->redirect("/job/buttonAddData?id=".$appID);
+
+    }
+
     public function actionApply($key, $user)
     {
 
@@ -200,6 +323,35 @@ class JobController extends Controller
         $app->save();
         //return $this->render('applied');
         $this->redirect(["./application/add-data?id=" . $app->id]);
+
+    }
+
+    public function getAppIDByKeyAndUser($key,$user) {
+
+         $app = new Application();
+
+        $apps = Application::find()->orderBy('id')->all();
+        if (count($apps) == 0) {
+            $app->id = 0;
+        } else {
+            $highestID = $apps[count($apps) - 1];
+            $app->id = $highestID->id + 1;
+        }
+
+        $thisBtn = ApplyBtn::find()
+            ->where(['key' => $key])
+            ->one();
+
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: " . $job->id);
+        $app->user_id = $user;
+        $app->company_id = $job->company_id;
+        $app->job_id = $job->id;
+        $app->state = "Gespeichert";
+        $app->btn_id = $thisBtn->id;
+        $app->save();
+
+        return $app->id;
 
     }
 
@@ -401,7 +553,7 @@ class JobController extends Controller
             }
         }
 
-        return $this->render('buttonPopup', [
+        return $this->render('buttonPopupWindow', [
             'userID'  => $userID,
             'applied' => $hasApplied,
         ]);

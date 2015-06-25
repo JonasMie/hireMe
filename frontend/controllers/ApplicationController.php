@@ -361,7 +361,7 @@ class ApplicationController extends Controller
         }
 
 
-            return $this->render('create', [
+            return $this->renderPartial('create', [
                 'model' => $model,
                 'appId' => $id,
                 'job' => $job,
