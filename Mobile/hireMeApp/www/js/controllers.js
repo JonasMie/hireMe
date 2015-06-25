@@ -200,22 +200,17 @@ angular.module('starter.controllers', [])
      begin:"0",
      end:"0"
     };
-    var url = 'http://frontend/mobile/create-event?thisevent='+thisEvent;
 
-    $http(
-    {
-      method:'GET',
-      url:url,
-      headers: {
-        'Content-type':'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      }
-    })
-    .success(function(data,status,headers,config) {
+     var req = {
+                method: 'POST',
+                url: 'http://frontend/mobile/create-event',
+                data: {data:thisEvent}
+            };
 
-      alert(status);
+            $http(req).success(function (data) {
 
-    })
+                console.log(data);
+            });
   }
 
   $scope.newEvent = function() {
