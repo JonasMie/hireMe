@@ -127,6 +127,7 @@ class AnalyticsController extends Controller
         $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
                         FROM job j
                         LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                        WHERE j.company_id = ".$id."
                         GROUP BY j.title";
       
         $jobProvider = new SqlDataProvider([

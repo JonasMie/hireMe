@@ -161,39 +161,25 @@ $(document).ready(function () {
             }
         ]
 
-        var compareViewsData = [
 
-            {
-                value: [obj.conversionRate],
-                color: "rgba(93,202,136,0.5)",
-                highlight: "rgba(93,202,136,1.0)",
-                label: ""
-            },
-            {
-                value: 100 - [obj.conversionRate],
-                color: "rgba(157,157,157,0.5)",
-                highlight: "rgba(157,157,157,1.0)",
-                label: ""
-            }
-        ]
-
-        var compareViewsJSON =  '[';
+    
+        var compareViewsData =  [];
 
         for (var i = 0; i < obj.viewArray.length; i++) {
                 var tmp = obj.viewArray[i];
-                compareViewsJSON += '{';
-                compareViewsJSON += 'value:'+tmp.views/obj.viewCount+',';
-                compareViewsJSON += 'color: "rgba(93,202,136,0.5)",';
-                compareViewsJSON += 'highlight: "rgba(93,202,136,1.0)",';
-                compareViewsJSON += 'label: "'+tmp.title+'"';
-                if (i == obj.viewArray.length-1) {compareViewsJSON += '}';}
-                else {compareViewsJSON += '},';}
+                var compareViewsJSON = '{';
+                compareViewsJSON += '"value":'+tmp.views/obj.viewCount+',';
+                compareViewsJSON += '"color": "rgba(93,202,136,0.5)",';
+                compareViewsJSON += '"highlight": "rgba(93,202,136,1.0)",';
+                compareViewsJSON += '"label": "'+tmp.title+'"';
+                compareViewsJSON += '}';
+                console.log(compareViewsJSON);
+                compareViewsData.push($.parseJSON(compareViewsJSON));
+
         };
-
-        compareViewsJSON += "]";
-        console.log(compareViewsJSON);
-        compareViewsData = jQuery.parseJSON(compareViewsJSON);
-
+    
+      
+        
         // VIEWS CLICKS + INTEREST RATE
         var ctx1 = document.getElementById("viewClickChart").getContext("2d");
         ctx1.canvas.width = 200;
@@ -231,7 +217,7 @@ $(document).ready(function () {
         var interviewRate = new Chart(ctx8).Doughnut(conversionRateData, options);
 
         var ctx9 = document.getElementById("viewCompareChart").getContext("2d");
-        var viewCompare = new Chart(ctx9).Bar(compareViewsData, options);
+        var viewCompare = new Chart(ctx9).Doughnut(compareViewsData, options);
 
     });
 
