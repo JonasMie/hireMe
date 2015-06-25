@@ -20,6 +20,18 @@ class Analytics extends \yii\base\Model
 
     }
 
+    public static function getUnreadJobs($id) {
+
+        $jobs = Application::find()
+        ->where(['company_id' => $id , 'read' => 0])
+        ->orderBy('id')
+        ->all();
+
+        return count($jobs);
+
+
+    }
+
     //Overview
     public function getApplier($id) {
 
@@ -31,6 +43,15 @@ class Analytics extends \yii\base\Model
 
     }
 
+    public static function getUnreadApplicationsForJob($id) {
+
+         $applications = Application::find()
+        ->where(['company_id' => $id, 'sent' => 1, 'read' => 0])
+        ->orderBy('id')
+        ->all();
+        return count($applications);
+    }
+
     public function getInterviewRate($id) {
 
         $applier = $this->getApplier($id);
@@ -39,7 +60,8 @@ class Analytics extends \yii\base\Model
         ->where(['company_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
         ->orderBy('id')
         ->all();
-        $rate =count($inteviewer)/count($applier)*100; 
+        if (count($applier)==0) $rate = 0;
+        else $rate = count($inteviewer)/count($applier)*100; 
         return $rate;
     } 
     public function getInterviewRateForJob($id) {
@@ -50,7 +72,8 @@ class Analytics extends \yii\base\Model
         ->where(['job_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
         ->orderBy('id')
         ->all();
-        $rate =count($inteviewer)/count($applier)*100; 
+        if (count($applier)==0) $rate = 0;
+        else $rate = count($inteviewer)/count($applier)*100; 
         return $rate;
 
     }
@@ -63,13 +86,13 @@ class Analytics extends \yii\base\Model
 
     }
     //Detail
-    public function getAppliesForJob($id) {
+    public static function getAppliesForJob($id) {
 
     	 $applications = Application::find()
         ->where(['job_id' => $id, 'sent' => 1,])
         ->orderBy('id')
         ->all();
-
+        Yii::trace("Applier for ".Job::findOne($id)->title.": ".count($applications));
         return $applications;
 
     }
@@ -97,11 +120,50 @@ class Analytics extends \yii\base\Model
 
     public function getBtnsForJob($id) {
 
-        $btns = Application::find()
+        $btns = ApplyBtn::find()
         ->where(['job_id' => $id])
         ->orderBy('id')
         ->all();
         return $btns;
+    }
+
+     public static function getInterestRateForBtn($id) {
+
+        $btn = ApplyBtn::findOne($id);
+        if ($btn->clickCount == 0) $rate = 0;
+        else $rate =  (count($btn->viewCount)/$btn->clickCount)*10;
+        return $rate;
+
+    }
+
+       public static function getApplicationRateForBtn($id) {
+
+        $btn = ApplyBtn::findOne($id);
+        $btnApplies = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1,])
+        ->orderBy('id')
+        ->all();
+        if ($btn->clickCount == 0) $rate = 0;
+        else $rate =  (count($btnApplies)/$btn->clickCount)*100;
+        return $rate;
+    }
+
+      public static function getInterviewRateForBtn($id) {
+        
+        $btn = ApplyBtn::findOne($id);
+        $applies = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1])
+        ->orderBy('id')
+        ->all();
+
+        $interviews = Application::find()
+        ->where(['btn_id' => $id, 'sent' => 1, 'state' => 'Vorstellungsgespräch'])
+        ->orderBy('id')
+        ->all();
+        if (count($applies) == 0) { $rate = 0;}
+        else $rate =  (count($interviews)/count($applies))*100;
+        return $rate;
+
     }
 
     //Overview

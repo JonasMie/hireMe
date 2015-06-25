@@ -2,22 +2,25 @@
 
 namespace frontend\models;
 
+use common\models\User;
 use Yii;
+use yii\db\Query;
+use yii\helpers\Json;
 use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "company".
  *
  * @property integer $id
- * @property string $name
- * @property string $street
- * @property string $houseno
- * @property string $zip
- * @property string $city
+ * @property string  $name
+ * @property string  $street
+ * @property string  $houseno
+ * @property string  $zip
+ * @property string  $city
  * @property integer $sector
  * @property integer $employeeAmount
- *  
- * @property User[] $users
+ *
+ * @property User[]  $users
  */
 class Company extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -35,7 +38,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['name', 'street', 'houseno', 'zip', 'city', 'sector', 'employeeAmount'], 'required'],
+            [['name'], 'required'],
             [['sector', 'employeeAmount'], 'integer'],
             [['name', 'street', 'houseno', 'city'], 'string', 'max' => 255],
             [['zip'], 'string', 'max' => 10]
@@ -48,14 +51,14 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'street' => 'Street',
-            'houseno' => 'Houseno',
-            'zip' => 'Zip',
-            'city' => 'City',
-            'sector' => 'Sector',
-            'employeeAmount' => 'Employee Amount',
+            'id'             => 'ID',
+            'name'           => Yii::t('company','Name'),
+            'street'         => Yii::t('company','Street'),
+            'houseno'        => Yii::t('company','Houseno'),
+            'zip'            => Yii::t('company','Zip'),
+            'city'           => Yii::t('company','City'),
+            'sector'         => Yii::t('company','Sector'),
+            'employeeAmount' => Yii::t('company','Employee Amount'),
         ];
     }
 
@@ -116,6 +119,12 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
      * @return string a key that is used to check the validity of a given identity ID.
      * @see validateAuthKey()
      */
+    public static function getNameById($id)
+    {
+
+        return static::findOne(['id' => $id])->name;
+    }
+
     public function getAuthKey()
     {
         // TODO: Implement getAuthKey() method.
@@ -134,7 +143,7 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         // TODO: Implement validateAuthKey() method.
-}
+    }
 
     /**
      * Finds an identity by the given token.
@@ -150,4 +159,22 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
     public static function findIdentityByAccessToken($token, $type = null)
     {
         // TODO: Implement findIdentityByAccessToken() method.
-}}
+    }
+
+    public static function getAutocompleteCompany($q)
+    {
+        $query = new Query;
+
+        $query->select('name')
+            ->from('company')
+            ->where('name LIKE "%' . $q . '%"');
+//            ->orderBy('fullName');
+        $command = $query->createCommand();
+        $data = $command->queryAll();
+        $out = [];
+        foreach ($data as $d) {
+            $out[] = ['value' => $d['name']];
+        }
+        echo Json::encode($out);
+    }
+}

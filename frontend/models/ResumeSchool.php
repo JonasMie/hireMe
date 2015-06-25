@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use frontend\helper\Setup;
 use Yii;
 
 /**
@@ -36,9 +37,10 @@ class ResumeSchool extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'begin', 'end', 'schoolname', 'graduation'], 'required'],
-            [['user_id', 'current', 'report_id'], 'integer'],
+            [['user_id', 'current'], 'integer'],
             [['begin', 'end'], 'safe'],
-            [['schoolname', 'graduation'], 'string', 'max' => 255]
+            [['schoolname', 'graduation'], 'string', 'max' => 255],
+            ['report_id', 'file', 'extensions' => ['pdf']]
         ];
     }
 
@@ -73,5 +75,16 @@ class ResumeSchool extends \yii\db\ActiveRecord
     public function getReport()
     {
         return $this->hasOne(File::className(), ['id' => 'report_id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->begin = Setup::convert($this->begin);
+            $this->end = Setup::convert($this->end);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

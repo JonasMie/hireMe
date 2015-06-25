@@ -1,25 +1,112 @@
-.site-login{
+@import "compass/css3/border-radius";
 
-	.login-field{
-		text-align: center;
-	}
-	
-	.login-button{
-		padding: 10px 60px;
-	}
+body.action-login {
+  .site-login {
 
-	#login-form{
-		input{
-			background: transparent;
-			border-width: 0px 0px 1px 0px;
-			box-shadow: none;
-			-webkit-box-shadow: none;
-			border-radius: 0px;
-		}
-	}
-	
-	.auth-clients{
-		overflow:inherit;
-	}
+    //$placeholderColor: #fff;
+    //
+    //::-webkit-input-placeholder {
+    //   color: $placeholderColor;
+    //}
+    //
+    //:-moz-placeholder { /* Firefox 18- */
+    //   color: $placeholderColor;
+    //}
+    //
+    //::-moz-placeholder {  /* Firefox 19+ */
+    //   color: $placeholderColor;
+    //}
+    //
+    //:-ms-input-placeholder {
+    //   color: $placeholderColor;
+    //}
+
+    .login-field {
+      text-align: center;
+      background-color: rgba(45, 49, 47, 0.8);
+      @include border-radius(6px);
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+
+    .login-button {
+      padding: 10px 60px;
+    }
+
+    input {
+      color: #fff;
+    }
+
+    #login-form {
+      input {
+        background: transparent;
+        border-width: 0px 0px 2px 0px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        border-radius: 0px;
+      }
+      .SubmitLogin {
+        margin-bottom: 10px;
+      }
+      .requestNewPassword {
+        margin-bottom: 50px;
+        a {
+          color: #fff;
+          &:hover {
+            color: $green;
+          }
+        }
+      }
+	  $FormBorderNonFocused: 2px solid $borderGrey;
+	  $FormBorderFocused: 2px solid $green;
+
+
+    }
+
+    .auth-clients {
+      overflow: inherit;
+      min-height: 100px;
+    }
+
+    #form-signup {
+      .field-signupform-checkcompanysignup{
+        .icheckbox_flat-green {
+          margin-right: 10px;
+        }
+      }
+
+      .companySetup {
+        margin-top: 60px;
+
+        .field-signupform-companysector, .field-signupform-companyemployees {
+          text-align: left;
+          select {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+
+
+  }
+}
+
+.action-login {
+
+  .wrap {
+    background: url('../../images/loginBG2.jpg') center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    background-attachment: fixed;
+
+    h1, h2 {
+      color: #fff;
+      margin-bottom: 40px;
+    }
+
+  }
 
 }
+
+

@@ -1,3 +1,434 @@
 body {
-  background-color: $greyBG;
+
+  @include font-standard();
+  background-color: #ffffff;
+
+  a {
+    &:focus {
+      outline: none !important; //Removes the dotted line around each Anchor when clicking on it
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Buttons
+  .btn {
+    border-radius: 0;
+    border: none;
+    -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    &:focus {
+      outline: none !important; //Removes the dotted line around each Button when clicking on it
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
+  .btn.btn-success,
+  .btn.btn-success:active {
+    background-color: $green;
+    color: #fff;
+  }
+  .btn.btn-default,
+  .btn.btn-default:active {
+    background-color: $black;
+    color: #fff;
+  }
+  // END Buttons
+
+  // Touch Ripple
+  .ripple {
+    position: relative;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    circle {
+      fill: rgba(255, 255, 255, 0.1);
+    }
+  }
+  //End Touch Ripple
+
+  // BASIC TABLE STYLING
+  table.hireMeTable {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+
+    margin-top: 20px;
+    color: $greyFont;
+    border: 1px solid $borderGrey;
+    width: 100%;
+
+    thead {
+      tr {
+        th {
+          border-bottom: 1px solid $borderGrey;
+          padding: 8px;
+          text-align: left;
+
+          a {
+            color: $greyFont;
+            text-decoration: none;
+            &:hover {
+              color: $green;
+            }
+          }
+          a.asc {
+            &::after {
+              content: "\e093";
+            }
+          }
+          a.desc {
+            &::after {
+              content: "\e094";
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+
+        &:hover {
+          background-color: $green20 !important;
+        }
+
+        td {
+          vertical-align: middle;
+          height: 72px;
+          border: none;
+          padding: 8px;
+
+          a {
+            color: $greyFont;
+            text-decoration: none;
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+  // END BASIC TABLE STYLING
+
+  // Footable specific styling
+  // Accordion Chevrons
+  .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle {
+
+    &:before {
+      cursor: pointer;
+      font-family: 'Glyphicons Halflings';
+      content: "\e258";
+    }
+    &:hover {
+      color: $green;
+    }
+  }
+
+  .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+    content: "\e259";
+  }
+  // END Accordion Chevrons
+
+  .footable .footable-row-detail {
+
+    .footable-row-detail-inner {
+
+      border-bottom: 1px solid $borderGrey;
+      padding-bottom: 10px;
+
+      .footable-row-detail-row {
+        display: block;
+
+        .footable-row-detail-name {
+          display: inline;
+          color: $green;
+        }
+        .footable-row-detail-value {
+          display: inline;
+          float: right;
+        }
+      }
+    }
+  }
+  // END Footable specific styling
+
+  //Pagination
+  ul.pagination {
+    li {
+      a {
+        border-color: $borderGrey;
+        color: $green;
+        &:hover {
+          background-color: $green20;
+          color: $greyFont;
+        }
+      }
+    }
+    li.active {
+      a, a:hover {
+        background-color: $green;
+        border-color: $borderGrey;
+        color: #fff;
+      }
+    }
+    li.disabled {
+      a {
+        color: $greyFont;
+      }
+      span {
+        color: $greyFont;
+      }
+    }
+  }
+  //END Pagination
+
+  //iCheck plugin Flat skin, green
+  .icheckbox_flat-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(/images/icheck/green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+    background-position: 0 0;
+  }
+
+  .icheckbox_flat-green.checked {
+    background-position: -22px 0;
+  }
+  .icheckbox_flat-green.disabled {
+    background-position: -44px 0;
+    cursor: default;
+  }
+  .icheckbox_flat-green.checked.disabled {
+    background-position: -66px 0;
+  }
+
+  /* HighDPI support */
+  @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+    .icheckbox_flat-green {
+      background-image: url(/images/icheck/green@2x.png);
+      -webkit-background-size: 176px 22px;
+      background-size: 176px 22px;
+    }
+  }
+  //END iCheck plugin Flat skin, green
+
+  /* BASIC FORM STYLING */
+  /* UNFOCUSED INPUT */
+  .form-group {
+    position: relative;
+    margin-bottom: 45px;
+
+    input[type="text"] {
+      @include font-standard();
+      padding: 10px 10px 2px 5px;
+      display: block;
+      border: none;
+      border-bottom: $FormBorderNonFocused;
+      transition: 0.2s ease border;
+      -moz-transition: 0.2s ease border;
+      -webkit-transition: 0.2s ease border;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    textarea {
+      border: none;
+      border-bottom: $FormBorderNonFocused;
+      border-top: $FormBorderNonFocused;
+      box-shadow: none;
+      border-radius: 0px;
+      @include font-standard();
+      &:focus {
+        box-shadow: none;
+        border-bottom: $FormBorderFocused;
+        border-top: $FormBorderFocused;
+      }
+    }
+
+    label {
+      color: $greyFont;
+      font-size: 18px;
+      position: absolute;
+      left: 5px;
+      top: 10px;
+
+      transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+      -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+      -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    }
+  }
+  /*Fix for Checkboxes and other inputs with a label */
+  .form-group.field-signupform-checkcompanysignup,
+  .form-group.field-loginform-rememberme,
+  .form-group.field-signupform-companysector,
+  .form-group.field-signupform-companyemployees,
+  .form-group.field-settingsmodel-picture,
+  .form-group.field-resumejob-current,
+  .form-group.field-resumejob-report_id,
+  .form-group.field-messagecreate-attachment{
+    position: static;
+    label {
+      position: static;
+    }
+  }
+  /*END Fix for Checkboxes and other inputs with a label */
+
+
+  /* END UNFOCUSED INPUT */
+
+  /* FOCUSED INPUT*/
+  .input-in-focus, .has-success, .has-error {
+    > input[type="text"], input[type="password"] {
+      border-bottom: $FormBorderFocused;
+    }
+    > label {
+      top: -20px;
+      font-size: 15px;
+      color: $green !important;
+    }
+    textarea {
+      border-color: $green !important;
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  .has-error {
+    > label {
+      color: #a94442 !important;
+    }
+  }
+  /* END FOCUSED INPUT*/
+
+  /*Typeahead Fix and Styling */
+
+  .typeahead-validation {
+    .has-success {
+      input {
+        border-bottom: $FormBorderFocused !important;
+      }
+    }
+  }
+
+  label.typeahead-label {
+    position: absolute;
+    color: $greyFont;
+    font-size: 18px;
+    left: 5px;
+    top: 10px;
+
+    transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+    -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
+  }
+
+  label.typeahead-label-in-focus {
+    color: $green;
+    top: -20px;
+    font-size: 15px;
+  }
+
+  .twitter-typeahead {
+
+    pre {
+      display: none;
+    }
+    input.tt-hint {
+      display: none !important;
+    }
+
+    input.tt-input {
+      position: static;
+      border-bottom: $FormBorderNonFocused;
+      padding: 10px 10px 2px 5px;
+      @include font-standard();
+      &:focus {
+        border-bottom: $FormBorderFocused;
+      }
+    }
+
+    .tt-dropdown-menu {
+      padding: 0px;
+      .tt-suggestion {
+        @include font-standard();
+
+      }
+      .tt-suggestion.tt-cursor {
+        background-color: $green20;
+        color: $greyFont;
+      }
+    }
+  }
+  /*END Typeahead Fix and Styling*/
+  /* END BASIC FORM STYLING */
+
+  /* FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background: none !important;
+    color: $greyFont;
+  }
+  /* END FUCKING STUPID CHROME'S YELLOW BACKGROUND ON AUTOFILL!!!!! */
+
+  /* Background color does not work for class .has-error anymore. This is a temporary fix */
+  .has-error {
+    input[type="text"] {
+      border-color: #a94442 !important;
+    }
+  }
+  /* END Background color does not work for class .has-error anymore. This is a temporary fix */
+
+
+  /*PROFILE PICTURE */
+  img.profile-picture-thumbnail {
+    width: 50px;
+    height: auto;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  div.profile-picture-thumbnail {
+
+    width: 50px;
+    height: 50px;
+    background: $DefaultThumbnailNonHover;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: $DefaultThumbnailHover;
+    }
+
+  }
+
+  div.profile-picture-thumbnail + div.message-sender {
+    margin-top: 14px;
+    margin-left: 60px;
+  }
+
+  /*END PROFILE PICTURE */
+  
+  /* Bulk Action Dropdown */
+  div#bulkActions{
+	margin-top:15px;
+  }
+
 }
+
+
+
+

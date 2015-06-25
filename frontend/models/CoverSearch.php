@@ -5,10 +5,10 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Cover;
+use frontend\models\Cover;
 
 /**
- * CoverSearch represents the model behind the search form about `app\models\Cover`.
+ * CoverSearch represents the model behind the search form about `frontend\models\Cover`.
  */
 class CoverSearch extends Cover
 {

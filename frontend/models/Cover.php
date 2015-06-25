@@ -44,7 +44,7 @@ class Cover extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
+            'title' => Yii::t('application', 'Title'),
             'attachment_id' => Yii::t('app', 'Attachment ID'),
             'created_at' => Yii::t('app', 'Created At'),
         ];

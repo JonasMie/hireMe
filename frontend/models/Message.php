@@ -15,11 +15,15 @@ use yii\db\ActiveRecord;
  * @property integer $sender_id
  * @property integer $receiver_id
  * @property string $sent_at
- * @property integer $deleted
+ * @property integer $deleted_sender
+ * @property integer $deleted_receiver
  * @property integer $read
+ * @property integer $flow
  *
  * @property User $sender
  * @property User $receiver
+ *
+ * @property MessageAttachments[] $messageAttachments
  */
 class Message extends ActiveRecord
 {
@@ -39,7 +43,7 @@ class Message extends ActiveRecord
         return [
             [['subject', 'content', 'sender_id', 'receiver_id'], 'required'],
             [['content'], 'string'],
-            [['sender_id', 'receiver_id', 'deleted', 'read'], 'integer'],
+            [['sender_id', 'receiver_id', 'deleted_sender','deleted_receiver', 'read', 'flow'], 'integer'],
             [['sent_at'], 'safe'],
             [['subject'], 'string', 'max' => 255]
         ];
@@ -57,8 +61,10 @@ class Message extends ActiveRecord
             'sender_id' => 'Sender ID',
             'receiver_id' => 'Receiver ID',
             'sent_at' => 'Gesendet',
-            'deleted' => 'Gelöscht',
+            'deleted_sender' => 'Gelöscht',
+            'deleted_receiver' => 'Gelöscht',
             'read' => 'Gelesen',
+            'flow' => 'Flow'
         ];
     }
 
@@ -85,6 +91,22 @@ class Message extends ActiveRecord
 
     public function belongsToUser($userId, $messageId)
     {
-        return $this->findOne(['id' => $messageId, 'receiver_id' => $userId]);
+        return $this->find()->where(['id' => $messageId, 'receiver_id' => $userId])->orWhere(['id' => $messageId, 'sender_id' => $userId])->one();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMessageAttachments()
+    {
+        return $this->hasMany(MessageAttachments::className(), ['message_id' => 'id']);
+    }
+
+//    /**
+//     * @return \yii\db\ActiveQuery
+//     */
+//    public function getPrev()
+//    {
+//        return $this->hasOne(Message::className(), ['id' => 'prev']);
+//    }
 }

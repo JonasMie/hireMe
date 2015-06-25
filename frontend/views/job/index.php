@@ -1,78 +1,98 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
+use yii\widgets\ListView;
 use yii\grid\GridView;
+use frontend\models\analytics;
+use frontend\models\MyJobsGridView;
+use frontend\controllers\ApplicationController;
 
 /* @var $this yii\web\View */
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* @var $searchModel frontend\models\JobSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $model frontend\models\Job */
 
-$this->title = 'Jobs';
-=======
-=======
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
-/* @var $searchModel app\models\JobSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+$this->title = $indiTitle;
 
-$this->title = Yii::t('app', 'Jobs');
-<<<<<<< HEAD
->>>>>>> Complete generated files (views, models & controllers) and minor changes
-=======
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="job-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<div class="_myjobs">
 
+    <h1><?= Html::encode($this->title) ?></h1>   
     <p>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <?= Html::a('Create Job', ['create'], ['class' => 'btn btn-success']) ?>
-=======
-        <?= Html::a(Yii::t('app', 'Create Job'), ['create'], ['class' => 'btn btn-success']) ?>
->>>>>>> Complete generated files (views, models & controllers) and minor changes
-=======
-        <?= Html::a(Yii::t('app', 'Create Job'), ['create'], ['class' => 'btn btn-success']) ?>
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
-    </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+<? if (Yii::$app->user->identity->isRecruiter()): ?>
 
-            'id',
-            'description',
-            'job_begin',
-            'job_end',
-            'zip',
-            // 'sector',
-            // 'company_id',
-            // 'active',
-            // 'created_at',
-            // 'updated_at',
-<<<<<<< HEAD
-<<<<<<< HEAD
-            // 'title',
-=======
-=======
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
-            // 'type',
-            // 'city',
-            // 'time:datetime',
-            // 'allocated',
-<<<<<<< HEAD
->>>>>>> Complete generated files (views, models & controllers) and minor changes
-=======
->>>>>>> bc255c11865ac6559952248f9b47f4fe9381674c
+   <?= 
+    ListView::widget([
+        'dataProvider' => $provider,
+        'itemView' =>function($data) {
+            return $this->render('jobItem',[
+                'model' => $data,
+                'subProvider' => ApplicationController::getApplicationDataForJob($data['id']),
+                
+            ]); 
+        }
+        ]);
 
-            ['class' => 'yii\grid\ActionColumn'],
+    ?>
+<?= Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>") ?>
+ <?= GridView::widget([
+        'id'=>'jobList',
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+        'dataProvider' => $provider,
+        'columns'      => [
+        [
+                'class'         => 'yii\grid\CheckboxColumn',
+                'filterOptions' => function () {
+                    echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
+                }
+            ],
+                'title:text:Titel',
+                'job_begin:text:Job beginnt',   
+            [
+
+                'label'  => 'Info',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id);
+                }
+            ],
+            [
+                'label'  => 'Actions',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    
+                    return Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Bearbeiten'), ['update-job', 'id' => $data->id], ['class' => 'btn btn-success ripple btn-editJob'])." ". Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Anschauen'), ['view', 'id' => $data->id], ['class' => 'btn btn-primary ripple btn-viewJob']);
+                }
+                    
+
+            ],
+           
         ],
-    ]); ?>
+        'caption'  => Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>")
+    ]); ?>  
+<!--
+-->
 
+<? else: ?>
+
+<?= GridView::widget([
+        'dataProvider' => $provider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+        'columns'      => [
+
+                'title:text:Titel',
+                'job_begin:text:Job beginnt',  
+             [
+                'label'  => 'Mehr',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return Html::a("Ansehen","/job/view?id=".$data->id);
+                }
+            ],    
+        ],
+    ]); ?>  
+    
+    </p>
+<? endif; ?>
 </div>

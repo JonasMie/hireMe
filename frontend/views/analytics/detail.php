@@ -2,13 +2,12 @@
 
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
-use yii\widgets\ListView;
+use yii\grid\GridView;
+use frontend\models\Analytics;
 
 
 
 $this->title = "Analytics: Detail";
-$this->params['breadcrumbs'][] = ['label' => 'Analytics', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="detail">
@@ -22,18 +21,63 @@ $this->params['breadcrumbs'][] = $this->title;
 <h1>-----------------------</h1>
 <h2>Analytics für Buttons:</h2>
 
- <?=
-    ListView::widget([
-    	'dataProvider' => $provider,
-    	'itemView' =>function($model) {
-    		return $this->render('btnDetail',[
-    			'model' => $model,
-    		]); 
-    	}
-    	]);
 
+ <?= GridView::widget([
+        'dataProvider' => $provider,
+        'columns'      => [
+         [
+                'label'  => 'Seite',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode($data->site);
+                }
+            ],       
+        [
+                'label'  => 'Key',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode($data->key);
+                }
+            ],    
+        [
+                'label'  => 'Views',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode($data->viewCount);
+                }
+            ],   
+        [
+                'label'  => 'Clicks',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode($data->clickCount);
+                }
+            ], 
+        [
+                'label'  => 'Interest Rate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getInterestRateForBtn($data->id)." %");
+                }
+            ],     
+         [
+                'label'  => 'Interview Rate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getInterviewRateForBtn($data->id)." %");
+                }
+            ],
+         [
+                'label'  => 'Application Rate',
+                'format' => 'raw',
+                'value'  => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getApplicationRateForBtn($data->id)." %");
+                }
+            ],
 
-    ?>
+        ],
+    ]); ?>  
+
 
 <h4>
 

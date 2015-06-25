@@ -12,77 +12,125 @@ $greyBG: #edf0f0;
 
 $greyFont:  rgb(157,157,157);
 
+$borderGrey: rgb(221,221,221);
 
 // Basic fonts
 
 $fontbase: 16px;
 
 @mixin font-standard {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: $greyFont;
+  font-size: $fontbase;
 }
 
 @mixin font-header {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: $fontbase;
+  font-weight: 300;
 }
 
 
 // Headings
 
 h1, .h1{
-font-size: $fontbase * 1.8;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 1.8;
+  margin-top:10px;
+  margin-bottom:10px;
+  color: $greyFont;
 }
 
 h2, .h2{
-font-size: $fontbase * 1.6;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 1.6;
+  margin-top:10px;
+  margin-bottom:10px;
+  color: $green;
+  margin-top: 20px;
 }
 
 h3, .h4{
-font-size: $fontbase * 1.4;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 1.4;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 h4, .h4{
-font-size: $fontbase * 1.2;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 1.2;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 h5, .h5{
-font-size: $fontbase;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 h6, .h6{
-font-size: $fontbase * 0.8;
-margin-top:10px;
-margin-bottom:10px;
+  font-size: $fontbase * 0.8;
+  margin-top:10px;
+  margin-bottom:10px;
 }
+
+// Default Thumbnail
+$DefaultThumbnailNonHover: url('/uploads/profile/default.png') no-repeat top;
+$DefaultThumbnailHover: url('/uploads/profile/default-hover.png') no-repeat top;
 
 
 // Forms
+$FormBorderNonFocused:  2px solid $borderGrey;
+$FormBorderFocused: 2px solid $green;
 
 input.form-control{
-background: transparent;
-border-width: 0px 0px 1px 0px;
-box-shadow: none!important;
--webkit-box-shadow: none!important;
-border-radius: 0px;
+  background: transparent;
+  border-width: 0px 0px 2px 0px;
+  box-shadow: none!important;
+  -webkit-box-shadow: none!important;
+  border-radius: 0px;
+  &:focus {
+    border-color: $green;
+  }
 }
 
-
-
-
-// Buttons
-
-.btn{
-border-radius: 0;
+// Links
+a {
+transition: color 0.2s ease-in-out;
 }
 
+// Kartik ListView Resets for Default Type
 
+.list-view{
+	.panel-heading{
+		background: none;
+		border: none;
+		border-radius:none;
+		color: $greyFont;
+		padding: 10px 0px;
+	}
+	
+	.panel-default{
+		border: none;
+	}
+	
+	.panel{
+		background: none;
+		border: none;
+		border-radius: none;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+	}
+	
+	.panel-title{
+		font-size:$fontbase * 1.4;
+	}
+	
+	.kv-attribute{
+		padding:3px 0px;
+	}
+	
+	th{
+		padding-right:50px;
+		color: lighten($greyFont, 20%);
+	}
+}

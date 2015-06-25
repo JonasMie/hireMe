@@ -4,11 +4,10 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\CoverSearch */
+/* @var $searchModel frontend\models\CoverSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Covers');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cover-index">
 

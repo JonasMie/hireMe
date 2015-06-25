@@ -3,12 +3,12 @@
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\widgets\ListView;
+use yii\helpers\BaseJson;
 
 
 
 $this->title = "Analytics: Overview für";
-$this->params['breadcrumbs'][] = ['label' => 'Analytics', 'url' => ['index?id='.$id]];
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 
 <div class="myjobs">

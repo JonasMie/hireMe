@@ -1,10 +1,8 @@
 #header {
-  background: #ffffff;
+  background: $black;
   border: none;
   height: 60px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   user-select: none;
-
 
   @include font-header();
 
@@ -15,7 +13,6 @@
   }
 
   div.container {
-    margin-top: 20px;
     width: 100%;
     padding-left: 0px;
 
@@ -26,36 +23,47 @@
       a.navbar-brand {
         padding: 25px 15px 0px 50px;
         img#navbar-logo {
-          width: 126px;
-          height: 26px;
+          width: 100px;
+		  margin-top:20px;
+        }
+        @media(max-width: 991px) {
+          display: none; // Bugfix
         }
       }
     }
     #header-collapse ul.navbar-nav {
-
+	  
+	  margin-right: -5px;
 
       > li {
-        padding: 0px 20px 0px 20px;
+        padding: 0px;
         color: $grey;
-        a {
-          padding: 0;
+        a{
+		  padding: 20px 15px;
           &:hover {
             color: $green;
           }
         }
-        > ul {
+		.glyphicon{
+			font-size:0.8em;
+		}
+        > ul.dropdown-menu {
           border-radius: 0px;
           min-width: 1px;
-          top: 40px;
+          top: 60px;
+          background-color: $black;
+          border: none;
+		  margin-top:10px;
           li {
             display: inline-block;
             float: left;
-            padding: 0px 20px 10px 20px;
+            padding: 0px 10px 10px 10px;
             &:nth-child(1){
               padding-top: 10px !important;
             }
             a {
               color: $greyFont;
+			  padding: 3px 20px;
               &:hover {
                 background: none;
                 color: $green;
@@ -64,6 +72,17 @@
           }
         }
       }
+	  
+	  > li.dropdown.open:after{
+			background-image: url("/images/caret-black.png");
+			background-position: center bottom;
+			background-repeat: no-repeat;
+			height: 10px;
+			width:100%;
+			display:block;
+			content:" ";
+			transition: display 0.2s ease-in-out;
+		}
 
       li.dropdown {
         margin-right: -10px;
@@ -77,10 +96,7 @@
       }
 
       > li.open {
-        background-image: url("/images/caret.png");
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        height: 40px;
+        
         > a {
           background: none;
           &:focus, &:hover {
@@ -114,6 +130,12 @@
           cursor: pointer;
           user-select: none;
           z-index: 1;
+
+          border: 1px solid #fff;
+          -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+          -moz-box-shadow:    0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+          box-shadow:         0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+
         }
 
         //Styling of Hamburger Icon animation
@@ -131,7 +153,7 @@
           }
           .icon-bar:nth-of-type(2){
             position: absolute;
-            top: 13px;
+            top: 11px;
           }
           .icon-bar:nth-of-type(3){
             margin-top: 0px;
@@ -145,7 +167,7 @@
           }
           &:hover {
             .icon-bar:nth-of-type(2) {
-              top: 11px;
+              top: 9px;
             }
             .icon-bar:nth-of-type(4) {
               top: 25px;
@@ -158,13 +180,13 @@
           .icon-bar:nth-of-type(2){
             width: $hamburger-button-size/1.8;
             transform: rotate3d(0,0,1,-40deg);
-            top: 16px;
+            top: 15px;
             left: 9px;
           }
           .icon-bar:nth-of-type(4) {
             width: $hamburger-button-size/1.8;
             transform: rotate3d(0,0,1,40deg);
-            top: 20px;
+            top: 19px;
             left:9px;
           }
         }
@@ -177,8 +199,7 @@
         }
       }
       #header-collapse {
-        border-right: 1px solid $greyFont ;
-        background-color: #ffffff;
+        background-color: $black;
         -webkit-transition: width .4s;
         -moz-transition: width 0.4s;
         -ms-transition: width 0.4s;
@@ -224,12 +245,11 @@
             ul#w1 {
               background: none;
               border: none;
-              border-right: 1px solid $greyFont ;
               box-shadow: none;
               position: static;
               left: auto;
               top: auto;
-              background-color: $greyBG;
+              background-color: $black;
               border-radius: 0px;
               padding-bottom: 8px;
               width: 200px;
@@ -238,10 +258,10 @@
               li {
                 display: inline-block;
                 float: left;
-                margin: 10px 0px 0px 45px;
+                margin: 10px 0px 0px 35px;
                 padding: 0px 30px 0px 10px;
                 a {
-                  color: $greyFont;
+                  color: #fff;
                   &:hover, &:focus {
                     background: none !important;
                     color: $green;
@@ -249,11 +269,14 @@
                 }
               }
               li:nth-child(1) {
-                margin-left: 45px;
+                margin-left: 35px;
                 margin-top: 0px;
               }
             }
           }
+		  li.dropdown.open:after{
+			display:none;
+		  }
         }
       }
 
@@ -264,10 +287,19 @@
         left:0;
         width:200px;
         position:fixed;
-        overflow:hidden;
+        overflow:hidden!important;
         display: block !important;
         margin: 0;
         visibility: visible !important;
+		
+		.slideout-helper{
+		    width: 250px;
+			height: 100vh;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			overflow-x: hidden;
+		}
+		
       }
 
       #header-collapse:not(.slidedout) {
@@ -309,4 +341,32 @@ body.overflowx {
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: $greyFont;
+}
+
+// END Overwrite for stupid Bootstrap styling
+
+// Fix for Container which overlaps Content
+@media (max-width: 991px) {
+  #header > div.container {
+    height: 1px;
+  }
+}
+
+li.dropdown {
+  a {
+    b.caret {
+      border-bottom: 4px solid transparent;
+      border-top: 4px solid transparent;
+      border-left: 4px solid $greyFont;
+    }
+  }
+}
+li.dropdown.open {
+  a {
+    b.caret {
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid $greyFont;
+    }
+  }
 }

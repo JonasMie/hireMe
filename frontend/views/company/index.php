@@ -4,11 +4,10 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\CompanySearch */
+/* @var $searchModel frontend\models\CompanySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Companies');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="company-index">
 

@@ -31,7 +31,7 @@ class Favourites extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'job_id', 'user_id'], 'required'],
+            [[ 'job_id', 'user_id'], 'required'],
             [['id', 'job_id', 'user_id'], 'integer']
         ];
     }

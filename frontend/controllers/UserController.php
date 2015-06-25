@@ -2,12 +2,14 @@
 
 namespace frontend\controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use frontend\models\ResumeJob;
 use frontend\models\ResumeSchool;
 use frontend\models\SettingsModel;
 use common\models\User;
 use Yii;
 use yii\base\UserException;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
@@ -16,47 +18,100 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
+            /**
+             * Access:
+             *  -index      logged in
+             *  -settings   logged in
+            */
+            'access'      => [
                 'class' => AccessControl::className(),
                 'only'  => ['index', 'settings'],
                 'rules' => [
                     [
                         'actions' => ['index'],
-                        'allow'   => true,  // TODO: set allow to false
-                        'roles'   => ['@'], // TODO: set roles to '?'
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                     [
                         'actions' => ['settings'],
-                        'allow' => true,
-                        'roles' => ['@'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ]
+            ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
             ]
         ];
     }
 
-    public function actionIndex($un=null)
+    public function actionIndex($un = null)
     {
-        if($un!==null && $un!=Yii::$app->user->identity->username){
+        if ($un !== null && $un != Yii::$app->user->identity->username) {
             $user = User::findByUsername($un);
-            if($user===null){
-                throw new UserException();      // TODO: throw error
-            } else {
-                return $this->render('index', [
-                    'user' => $user
-                ]);
-            }
-        } else {
-            $jobResume =  ResumeJob::find()->where(['user_id' => Yii::$app->user->identity->getId()])->orderBy('current', 'end')->all();
-            $schoolResume =  ResumeSchool::find()->where(['user_id' => Yii::$app->user->identity->getId()])->orderBy('current', 'end')->all();
-            return $this->render('index', [
-                'resumeJob' => $jobResume,
-                'resumeSchool' => $schoolResume,
-                'user' => Yii::$app->user->identity,
-            ]);
+            if ($user === null) {
+//                Yii::$app->getSession()->setFlash('error', 'Der Nutzer ' . $un . ' existiert leider nicht.');  //TODO: check functionality
+                return $this->redirect('/user');
+            } else
+                $id = $user->id;
         }
+        $jobQuery = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()]);
+        $schoolQuery = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()]);
+        $currentJobs = $jobQuery->andWhere(['current' => 1]);
+        $currentSchools = $schoolQuery->andWhere(['current' => 1]);
+        $jobDataProvider = new ActiveDataProvider([
+            'query' => $jobQuery,
+            'sort'  => [
+                'defaultOrder' =>
+                    [
+                        'current' => SORT_DESC,
+                        'end'     => SORT_DESC,
+                        'begin'   => SORT_DESC
+                    ]
+            ]
+        ]);
 
+        $schoolDataProvider = new ActiveDataProvider([
+            'query' => $schoolQuery,
+            'sort'  => [
+                'defaultOrder' =>
+                    [
+                        'current' => SORT_DESC,
+                        'end'     => SORT_DESC,
+                        'begin'   => SORT_DESC
+                    ]
+            ]
+        ]);
+
+        $currentJobsDataProvider = new ActiveDataProvider([
+            'query' => $currentJobs,
+            'sort'  => [
+                'defaultOrder' => [
+                    'end'   => SORT_DESC,
+                    'begin' => SORT_DESC
+                ]
+            ]
+        ]);
+
+        $currentSchoolsDataProvider = new ActiveDataProvider([
+            'query' => $currentSchools,
+            'sort'  => [
+                'defaultOrder' => [
+                    'end'   => SORT_DESC,
+                    'begin' => SORT_DESC
+                ]
+            ]
+        ]);
+
+        return $this->render('index', [
+            'jobDataProvider'            => $jobDataProvider,
+            'schoolDataProvider'         => $schoolDataProvider,
+            'currentJobsDataProvider'    => $currentJobsDataProvider,
+            'currentSchoolsDataProvider' => $currentSchoolsDataProvider,
+            'user'                       => isset($user) ? $user : Yii::$app->user->identity,
+        ]);
     }
+
     public function actionSettings()
     {
         $model = new SettingsModel();
@@ -64,12 +119,12 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->update()) {
                 return $this->render('settings', [
-                    'model' => $model,
+                    'model'   => $model,
                     'success' => true,
                 ]);
             } else {
                 return $this->render('settings', [
-                    'model' => $model,
+                    'model'   => $model,
                     'success' => false,
                 ]);
             }
@@ -79,5 +134,11 @@ class UserController extends Controller
         return $this->render('settings', [
             'model' => $model,
         ]);
+    }
+
+    public function getUserName($id)
+    {
+        $usr = User::findOne($id);
+        return $usr->username;
     }
 }

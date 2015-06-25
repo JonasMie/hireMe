@@ -7,8 +7,6 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\Company */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Companies'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="company-view">
 

@@ -47,8 +47,8 @@ class ApplyBtn extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'job_id' => 'Job ID',
-            'key' => 'Key',
-            'site' => 'Site',
+            'key' => Yii::t('application','Key'),
+            'site' => Yii::t('application','Site'),
             'clickCount' => 'Click Count',
             'viewCount' => 'View Count',
         ];
@@ -60,6 +60,13 @@ class ApplyBtn extends \yii\db\ActiveRecord
     public function getApplications()
     {
         return $this->hasMany(Application::className(), ['btn_id' => 'id']);
+    }
+
+    public function getApplicationRate() {
+
+        if ($this->viewCount == 0) return 0;
+        else return $this->clickCount/$this->viewCount*100;
+
     }
 
     /**

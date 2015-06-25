@@ -1,65 +1,123 @@
 <?php
 /* @var $this yii\web\View */
-use yii\grid\GridView;
+/* @var $user common\models\User */
+/* @var $jobDataProvider \yii\data\ActiveDataProvider */
+/* @var $schoolDataProvider \yii\data\ActiveDataProvider */
+
 use yii\helpers\Html;
-use yii\widgets\ListView;
 
-$this->title = "Profil";
-$this->params['breadcrumbs'][] = $this->title;
-
+$this->title = $user->fullName;
+Yii::$app->getSession()->getFlash('error');
 ?>
-    <h1><?= /*$user->fullName*/
-        $user->firstName . " " . $user->lastName   //TODO: use fullName      ?></h1>
-
-    <div>
-        <?= Html::img("http://www.francis-consulting.com/files/8814/2987/8012/avater.jpg", [   // TODO: image
-            'height' => '150px',
-            'width'  => '150px'
-        ]); ?>
-
-        <? if ($user->id !== Yii::$app->user->identity->getId()) {
-            echo Html::button(Html::a('Nachricht senden', '/message/create?rec=' . $user->id));
-        } else {
-            echo Html::button(Html::a('Einstellungen', '/user/settings'));
-        }
-        ?>
+<div class="row name">
+	<div class="col-sm-4 user-info">
+    <h1><?= $user->fullName?></h1>
+	</div>
+</div>
+<div class="row first">
+    <div class="col-sm-4 user-picture">
+        <?= $user->getProfilePicture() ?>
     </div>
-<?
-echo "<div>";
-if ($user->getId() == Yii::$app->user->identity->getId()) {
-    if (!empty($resumeJob)) {
-        foreach ($resumeJob as $job) {
-            if (isset($job->current) && $job->current) {
-                echo "<h2>Aktuell</h2>";            // TODO: only once
-                echo Html::a($job->type, 'search/?type=' . $job->type, ['class' => 'test']); // TODO: check URL
-                echo "<br>";
-                echo Html::a($job->company->name, 'company/?id=' . $job->company->id);   // TODO: review URL
-            }
+	<div class="col-sm-4 currentJob">
+		<?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
+
+			echo $this->render('/resume/_resume',[
+				'jobDataProvider'    => $jobDataProvider,
+				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
+				'edit' => false,
+				'label' => 'Bearbeiten',
+				'url1' =>['/resume'],
+				'url2' =>['/resume'],
+				'order' => 'currentJob'
+			]);
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
         }
+		?>
+	</div>
+	<div class="col-sm-3 currentSchool">
+		<?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
 
-        echo "<h2>Berufserfahrung</h2>";
-        foreach ($resumeJob as $job) {
-            echo "<div>";
-            echo Html::a($job->type, 'search/?type=' . $job->type, ['class' => 'test']); // TODO: check URL
-            echo "<br><div><span>";
-            echo Html::a($job->company->name, 'company/?id=' . $job->company->id);   // TODO: review URL
-            echo "</span><span>";
-            echo Yii::$app->formatter->asDate($job->begin, "MMMM y") ." - ";
-            echo $job->end?Yii::$app->formatter->asDate($job->end, "MMMM y"):"heute";
-            echo "</span></div></div>";
+			echo $this->render('/resume/_resume',[
+				'jobDataProvider'    => $jobDataProvider,
+				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
+				'edit' => false,
+				'label' => 'Bearbeiten',
+				'url1' =>['/resume'],
+				'url2' =>['/resume'],
+				'order' => 'currentSchool'
+			]);
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
         }
-    }
-    if (!empty($resumeSchool)) {
-        echo "<h2>Bildung</h2>";
-        foreach ($resumeSchool as $school) {
-            echo "<p>" . $school->schoolname . "</p>";
-            echo "<br>";
-            echo "<p>" . $school->graduation . "</p>";
+		?>
+	</div>
+</div>
+<div class="row second">
+	
+	<div class="col-sm-4 userProfileSettings">
+		<div class="row">
+			<? if ($user->id !== Yii::$app->user->identity->getId()) {
+				echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id,['class' => 'btn btn-success ripple']);
+				} else {
+				echo Html::a('Profil-Einstellungen', '/user/settings',['class' => 'btn btn-success ripple']);
+			}
+			?>
+			<? if ($user->id == Yii::$app->user->identity->getId()) {
+				echo Html::a('Lebenslauf bearbeiten', '/resume',['class' => 'btn btn-success ripple']);
+			}
+			?>
+		</div>
+	</div>
+	<div class="col-sm-4 fullJob">
+		<?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
+
+			echo $this->render('/resume/_resume',[
+				'jobDataProvider'    => $jobDataProvider,
+				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
+				'edit' => false,
+				'label' => 'Bearbeiten',
+				'url1' =>['/resume'],
+				'url2' =>['/resume'],
+				'order' => 'fullJob'
+			]);
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
         }
-    }
-    echo "</div>";
-}
+		?>
+	</div>
+	<div class="col-sm-4 fullSchool">
+		<?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
 
-
-
+			echo $this->render('/resume/_resume',[
+				'jobDataProvider'    => $jobDataProvider,
+				'schoolDataProvider' => $schoolDataProvider,
+                'currentJobsDataProvider'        => $currentJobsDataProvider,
+                'currentSchoolsDataProvider'     => $currentSchoolsDataProvider,
+				'edit' => false,
+				'label' => 'Bearbeiten',
+				'url1' =>['/resume'],
+				'url2' =>['/resume'],
+				'order' => 'fullSchool'
+			]);
+		} else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
+        }
+		?>
+	</div>
+</div>
 

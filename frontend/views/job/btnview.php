@@ -8,7 +8,6 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Generated Code';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="job-index">
 

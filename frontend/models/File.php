@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use common\models\User;
 use Yii;
 
 /**
@@ -9,6 +10,9 @@ use Yii;
  *
  * @property integer $id
  * @property string $path
+ * @property string $extension
+ * @property integer $size
+ * @property string $title
  *
  * @property Cover[] $covers
  * @property MessageAttachments[] $messageAttachments
@@ -33,7 +37,9 @@ class File extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['path'], 'string', 'max' => 255]
+            [['path'], 'string', 'max' => 255],
+            [['title'],'string','max' => 255],
+            // TODO: rules for file (size & extension)
         ];
     }
 
@@ -44,7 +50,10 @@ class File extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'path' => Yii::t('app', 'Path'),
+            'path' => Yii::t('file', 'Path'),
+            'extension' => Yii::t('file', 'Extension'),
+            'size' => Yii::t('file', 'Size'),
+            'title' => Yii::t('file', 'Title'),
         ];
     }
 

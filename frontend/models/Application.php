@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use common\models\User;
 use Yii;
 
 /**
@@ -53,28 +54,40 @@ class Application extends \yii\db\ActiveRecord
     {
         return [
 
-            'id' => 'ID',
-            'user_id' => 'User ID',
-            'company_id' => 'Company ID',
-            'job_id' => 'Job ID',
-            'score' => 'Score',
-            'state' => 'State',
-            'sent' => 'Sent',
-            'read' => 'Read',
-            'archived' => 'Archived',
-            'created_at' => 'Created At',
-
             'id' => Yii::t('app', 'ID'),
             'user_id' => Yii::t('app', 'User ID'),
             'company_id' => Yii::t('app', 'Company ID'),
             'job_id' => Yii::t('app', 'Job ID'),
             'score' => Yii::t('app', 'Score'),
-            'state' => Yii::t('app', 'State'),
-            'sent' => Yii::t('app', 'Sent'),
-            'read' => Yii::t('app', 'Read'),
-            'archived' => Yii::t('app', 'Archived'),
+            'state' => Yii::t('application', 'State'),
+            'sent' => Yii::t('message', 'Sent'),
+            'read' => Yii::t('message', 'Read'),
+            'archived' => Yii::t('message', 'Archived'),
             'created_at' => Yii::t('app', 'Created At'),
         ];
+    }
+
+
+    public static function getApplicationStatus($id) {
+
+        $app = Application::find($id);
+        return $app->state;
+
+    }
+
+    public static function getApplicationStatByUserAndJob($user,$job) {
+
+        $application = Application::findOne(['user_id' => $user, 'job_id' => $job]);
+        return $application->state;
+
+    }
+
+
+    public static function existsApplicationFromUser($user,$job) {
+
+        $application = Application::findOne(['user_id' => $user, 'job_id' => $job]);
+        if (count($application) == 0)  return false;
+        return true;   
     }
 
     /**
@@ -104,7 +117,7 @@ class Application extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getApplicationDatas()
+    public function getApplicationData()
     {
         return $this->hasMany(ApplicationData::className(), ['application_id' => 'id']);
     }

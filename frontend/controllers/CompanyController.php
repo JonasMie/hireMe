@@ -1,10 +1,11 @@
 <?php
 
-namespace app\Controllers;
+namespace frontend\controllers;
 
+use common\behaviours\BodyClassBehaviour;
 use Yii;
 use frontend\models\Company;
-use app\models\CompanySearch;
+use frontend\models\CompanySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -23,6 +24,9 @@ class CompanyController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'bodyClasses' => [
+                'class' => BodyClassBehaviour::className()
+            ]
         ];
     }
 

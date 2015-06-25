@@ -11,9 +11,7 @@ use yii\bootstrap\ActiveForm;
 include Yii::getAlias('@helper/companySignup.php');
 
 
-SignupAsset::register($this);
 $this->title = 'Signup';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
