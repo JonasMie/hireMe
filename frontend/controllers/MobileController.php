@@ -8,12 +8,23 @@ use yii\helpers\BaseJson;
 
 class MobileController extends \yii\web\Controller
 {
-    public function actionGetJobs()
+    public function actionGetJobs($event_id = false)
     {
+        if ($event_id != false) {
+        
+        $jobs = Job::find()
+        ->where(['event_id' => $event_id])
+        ->orderBy('id')
+        ->all();
+        return BaseJson::encode($jobs);
+
+        }
+        else {
     	 $jobs = Job::find()
         ->orderBy('id')
         ->all();
         return BaseJson::encode($jobs);
+        }
     }
 
     public function actionGetEvents() {

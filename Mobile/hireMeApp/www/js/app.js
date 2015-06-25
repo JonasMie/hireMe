@@ -72,7 +72,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         console.log("Übergabe: "+event_id);
         if (event.id == event_id) {
           console.log("Treffer");
-          dfd.resolve(event);
+          var eventJobs = [];
+            $http.get('http://frontend/mobile/get-jobs?event_id='+event.id).then(function(response){
+                  eventJobs = response.data;
+                  returnArray = [];
+                  returnArray.push(eventJobs);
+                  returnArray.push(event);
+                  dfd.resolve(returnArray);
+               }); 
         }
       })
       return dfd.promise;

@@ -273,8 +273,10 @@ angular.module('starter.controllers', [])
       navigator.app.loadUrl(link, { openExternal:true });
       }
       var eventID = $stateParams.event_id;
-      EventService.getSpecific(eventID).then(function (eventReceived) {
-        $scope.event = eventReceived;
+      EventService.getSpecific(eventID).then(function (array) {
+        $scope.event = array[1];
+        $scope.jobs = array[0]
+        console.log($scope.jobs);
       }, function (response) {
           // our q.reject gets the reponse and you can handle an error
           console.log("Rejected connection for JobService");
