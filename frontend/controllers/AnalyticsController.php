@@ -55,34 +55,31 @@ class AnalyticsController extends Controller
 
          $id = Yii::$app->user->identity->company_id;
          $analytics = new Analytics();
-         $jobs = $analytics->getJobs($id);
          $applier = $analytics->getApplier($id);
          $hired = $analytics->getHired($id);
-
-         //Interest and Clicks:
-         $viewClickData =  $analytics->getAllViewsAndClicks($id);
-         $viewCount = $viewClickData[0];
-         $clickCount = $viewClickData[1];
-         if ($clickCount == 0) {$applicationRate = 0;}
-         else { $applicationRate = round((count($applier)/$clickCount)*100,2);}
-         if (count($applier) == 0) {
-         $conversionRate = 0;
-         }
-         else {
-         $conversionRate = round(count($hired)/count($applier)*100,2);             
-         }
-         $clicks = [];
-         $applications = [];
-         if ($viewCount == 0) {$interestRate = 0;}
-         else {$interestRate = round(($clickCount/$viewCount)*100,2);}
-
 
         $data= Yii::$app->db->createCommand("SELECT  j.title, sum(b.viewCount) as views, sum(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
                         FROM job j
                         LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                        INNER JOIN company c ON j.company_id = c.id
                         WHERE j.company_id =".$id."
                         GROUP BY j.title")->queryAll();
 
+        $allClicks = 0;
+        $allViews = 0;
+        foreach ( $data as $row ) {
+          $allViews += $row["views"];
+          $allClicks += $row["clicks"];
+        }
+
+        if ($allClicks == 0) {$applicationRate = 0;}
+        else { $applicationRate = round((count($applier)/$allClicks)*100,2);}
+
+        if ($allViews == 0) {$interestRate = 0;}
+        else {$interestRate = round(($allClicks/$allViews)*100,2);}
+
+        if (count($applier) == 0) {$conversionRate = 0;}
+        else {$conversionRate = round(count($hired)/count($applier)*100,2);}
 
         $jobProvider = new ActiveDataProvider([
         'query' => Job::find(['company_id' => $id]),
@@ -107,9 +104,9 @@ class AnalyticsController extends Controller
         $generalData["companyName"] = $analytics->getCompany($id);
         $generalData["applierCount"] = count($applier);
         $generalData["hiredCount"] = count($hired);
-        $generalData["jobCount"] = count($jobs);
-        $generalData["viewCount"] = $viewCount;
-        $generalData["clickCount"] = $clickCount;
+        $generalData["jobCount"] = count($data);
+        $generalData["viewCount"] = $allViews;
+        $generalData["clickCount"] = $allClicks;
         $generalData["applicationRate"] = $applicationRate;
         $generalData["interviewCount"] = $analytics->getAllInterviews($id);
         $generalData["interviewRate"] = $analytics->getInterviewRate($id);
