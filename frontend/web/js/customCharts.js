@@ -161,24 +161,33 @@ $(document).ready(function () {
             }
         ]
 
+        var lastValue;
 
-    
+        function getRandomHipsterColor() {
+
+            var hue = 'rgba('
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 256)) + ','
+            + (Math.floor(Math.random() * 100)/100+0.2) + ')';
+            console.log(hue);
+            return hue;
+        }
+
         var compareViewsData =  [];
 
         for (var i = 0; i < obj.viewArray.length; i++) {
                 var tmp = obj.viewArray[i];
                 var compareViewsJSON = '{';
-                compareViewsJSON += '"value":'+tmp.views/obj.viewCount+',';
-                compareViewsJSON += '"color": "rgba(93,202,136,0.5)",';
+                compareViewsJSON += '"value":'+(tmp.views/obj.viewCount).toFixed(2)*100+',';
+                compareViewsJSON += '"color": "'+getRandomHipsterColor()+'",';
                 compareViewsJSON += '"highlight": "rgba(93,202,136,1.0)",';
                 compareViewsJSON += '"label": "'+tmp.title+'"';
                 compareViewsJSON += '}';
                 console.log(compareViewsJSON);
                 compareViewsData.push($.parseJSON(compareViewsJSON));
-
-        };
+        }
     
-      
         
         // VIEWS CLICKS + INTEREST RATE
         var ctx1 = document.getElementById("viewClickChart").getContext("2d");
