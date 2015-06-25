@@ -57,11 +57,13 @@ function fileSelectHandler() {
             if (typeof jcrop_api != 'undefined') {
                 jcrop_api.destroy();
                 jcrop_api = null;
-                //$('#settingsmodel-picture-jcrop').width(oImage.naturalWidth);
-                $('#settingsmodel-picture-jcrop').width(20);
-                //$('#settingsmodel-picture-jcrop').height(oImage.naturalHeight);
+                $('#settingsmodel-picture-jcrop').width($('#imgPreviewWrap').width());
+                $('#settingsmodel-picture-jcrop').height("auto");
             }
-
+            //
+            //$('#settingsmodel-picture-jcrop').width($('#imgPreviewWrap').width());
+            //$('#settingsmodel-picture-jcrop').height("auto");
+            ////$('#settingsmodel-picture-jcrop').height(50);
             setTimeout(function(){
                 // initialize Jcrop
                 $('#settingsmodel-picture-jcrop').Jcrop({
@@ -71,7 +73,9 @@ function fileSelectHandler() {
                     bgOpacity: .3, // fade opacity
                     onChange: updateInfo,
                     onSelect: updateInfo,
-                    onRelease: clearInfo
+                    onRelease: clearInfo,
+                    boxWidth: 650,   //Maximum width you want for your bigger images
+                    boxHeight: 400
                 }, function(){
 
                     // use the Jcrop API to get the real image size

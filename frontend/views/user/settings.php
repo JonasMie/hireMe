@@ -45,11 +45,11 @@ ImageAssetBundle::register($this);
 
             <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-            <div class="col-sm-4 col-sm-offset-1">
+            <div class="col-sm-4 col-sm-offset-1" id="imgPreviewWrap" >
                 <h2>Profilbild</h2>
                 <?= $form->field($model, 'picture')->fileInput(); ?>
 
-                <div id="imgPreviewWrap">
+                <div>
                     <img id="settingsmodel-picture-jcrop" src="" style="display: none">
                     <input type="text" id="w" name="w" style="display: none"/>
                     <input type="text" id="h" name="h" style="display: none"/>
