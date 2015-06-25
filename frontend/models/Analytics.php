@@ -80,7 +80,7 @@ class Analytics extends \yii\base\Model
         ->orderBy('id')
         ->all();
         if (count($applier)==0) $rate = 0;
-        else $rate = count($inteviewer)/count($applier)*100; 
+        else $rate = round(count($inteviewer)/count($applier)*100,2); 
 
         return $rate;
 

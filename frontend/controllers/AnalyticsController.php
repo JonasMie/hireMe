@@ -34,23 +34,21 @@ class AnalyticsController extends Controller
         $analytics = new Analytics();
         $applier = count($analytics->getAppliesForJob($id));
 
-        $viewCount= Yii::$app->db->createCommand("SELECT  sum(b.viewCount) as views, sum(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
+        $data= Yii::$app->db->createCommand("SELECT  sum(b.viewCount) as views, sum(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
                         FROM job j
                         LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
                         WHERE j.id =".$id."
                         GROUP BY j.title")->queryAll();
 
-
-        $jobData["viewCount"] = intval($viewCount[0]['views']);
-        $jobData["clickCount"] = intval($viewCount[0]['clicks']);
+        $jobData["viewCount"] = intval($data[0]['views']);
+        $jobData["clickCount"] = intval($data[0]['clicks']);
         $jobData["applierCount"] = $applier;
-        $jobData["interestRate"] = floatval($viewCount[0]['interestRate']);
+        $jobData["interestRate"] = floatval($data[0]['interestRate']);
         $jobData["applicationRate"] = round($applier/$jobData["clickCount"]*100,2);
         $jobData["interviewRate"] = $analytics->getInterviewRateForJob($id);
         $jobData["interviewCount"] = $analytics->getInterviewsForJob($id);
 
         return BaseJson::encode($jobData);
-
     }
 
     public function actionJson() {
@@ -77,6 +75,13 @@ class AnalyticsController extends Controller
          $applications = [];
          if ($viewCount == 0) {$interestRate = 0;}
          else {$interestRate = round(($clickCount/$viewCount)*100,2);}
+
+
+        $data= Yii::$app->db->createCommand("SELECT  j.title, sum(b.viewCount) as views, sum(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
+                        FROM job j
+                        LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
+                        WHERE j.company_id =".$id."
+                        GROUP BY j.title")->queryAll();
 
 
         $jobProvider = new ActiveDataProvider([
@@ -177,11 +182,11 @@ class AnalyticsController extends Controller
         $viewCount = $viewClickData[0];
         $clickCount = $viewClickData[1];
         if ($clickCount == 0) {$applicationRate = 0;}
-        else { $applicationRate = (count($applier)/$clickCount)*100;}        
+        else { $applicationRate = round((count($applier)/$clickCount)*100,2);}        
         $job = Job::findOne($id);
         $jobName = $job->title;
         if ($viewCount == 0) {$interestRate = 0;}
-        else {$interestRate = ($clickCount/$viewCount)*100;}
+        else {$interestRate = round(($clickCount/$viewCount)*100,2);}
 
         $query = ApplyBtn::find()
         ->where(['job_id' => $id])
