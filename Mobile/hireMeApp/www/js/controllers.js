@@ -133,34 +133,32 @@ angular.module('starter.controllers', [])
 
 
 })
-
-.controller('ListCtrl', function($scope,$ionicSideMenuDelegate,$http) {
+.controller('ListCtrl',['$scope','$ionicSideMenuDelegate','JobService', function($scope,$ionicSideMenuDelegate, JobService){
 
   		$ionicSideMenuDelegate.canDragContent(true);
 
-  		$scope.jobs = [];
+      $scope.jobs = [];
+      JobService.getAll().then(function (jobs) {
+        $scope.jobs = jobs;
 
-  		getJobs();
+      }, function (response) {
+          // our q.reject gets the reponse and you can handle an error
+          console.log("Rejected connection for JobService");
+      })
 
-  		function getJobs() {
 
-		 $http.get('http://frontend/mobile/get-jobs')
-
-		 		.success(function(data, status, headers, config) {
-		 
-		       		console.log(data);
-		       		if (status == 200) {
-		       		for (var i = 0; i < data.length; i++) {
-
-		       			var job = data[i];
-		       			$scope.jobs.push(job);
-		       			}
-		       		}
-
-		       })
-		}
+     $scope.doRefresh = function() {
+           JobService.getAllItems().then(function (jobs) {
+          $scope.jobs = jobs;     
+            $scope.$broadcast('scroll.refreshComplete');
+          })
+          .finally(function() {
+            // Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+          })
+      }
   
-})
+}])
 
 .controller('EventCtrl', function($scope,$ionicSideMenuDelegate,$http,$ionicModal) {
 
@@ -278,6 +276,25 @@ angular.module('starter.controllers', [])
     	$ionicSideMenuDelegate.canDragContent(true);
 
   
+})
+
+.controller('ListDetailCtrl', function($scope,$ionicSideMenuDelegate,$stateParams, JobService) {
+  
+      $ionicSideMenuDelegate.canDragContent(true);
+
+       $scope.openLink = function(link) {
+
+      navigator.app.loadUrl(link, { openExternal:true });
+      }
+      $scope.job = "";
+      var jobID = $stateParams.job_id;
+      JobService.getSpecific(jobID).then(function (jobReceived) {
+        $scope.job = jobReceived;
+      }, function (response) {
+          // our q.reject gets the reponse and you can handle an error
+          console.log("Rejected connection for JobService");
+      });
+
 })
 
 .controller('AdCtrl', function($scope,$ionicSideMenuDelegate,$rootScope) {

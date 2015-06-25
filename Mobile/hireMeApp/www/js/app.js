@@ -20,6 +20,36 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
+.factory('JobService', ['$http', '$q', function($http, $q){
+  var jobArray = [];
+  return {
+    
+    getAll: function(){
+      var myPromise = $q.defer();
+
+      $http.get('http://frontend/mobile/get-jobs').then(function(response){
+                  myPromise.resolve(response.data); // resolve our promise -> success
+                  jobArray = response.data;
+               }, myPromise.reject); // reject our promise -> fail / error case
+      return myPromise.promise;
+      
+    },
+
+    getSpecific: function(job_id){
+      var dfd = $q.defer();
+      jobArray.forEach(function(job) {
+        console.log("Iterator: "+ job.id);
+        console.log("Übergabe: "+job_id);
+        if (job.id == job_id) {
+          console.log("Treffer");
+          dfd.resolve(job);
+        }
+      })
+      return dfd.promise;
+    }
+  };
+}])
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -48,6 +78,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: "templates/liste.html",
         controller: 'ListCtrl'
 
+      }
+    }
+  })
+
+   .state('app.listeDetail', {
+    url: "/liste/:job_id",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/jobDetail.html",
+        controller:"ListDetailCtrl"
       }
     }
   })
