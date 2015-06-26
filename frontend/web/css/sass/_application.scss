@@ -7,6 +7,12 @@
 		}
 	}
 	
+	a.btn{
+		&:hover{
+			color:#fff;
+		}
+	}
+	
 	.footable .footable-row-detail .footable-row-detail-inner{
 		border: none;
 	}
@@ -50,6 +56,10 @@
 	
 	span.attached{
 		color:$green;
+	}
+	
+	.footable-row-detail-value{
+		padding: 10px 10px 10px 140px;
 	}
 	
 }
