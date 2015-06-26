@@ -1,3 +1,21 @@
+// Applications overview
+.controller-application{
+	a{
+		color:$black;
+		&:hover{
+			color:$green;
+		}
+	}
+	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+}
+
 .controller-application.action-index{
 	div.summary{
 		display:none;
@@ -7,4 +25,31 @@
 		margin-top: 15px;
 		text-align: right;
 	}
+}
+
+
+// Create and edit application
+.controller-application.action-add-data{
+	div.summary{
+		display:none;
+	}
+	
+	div.saveBtn {
+		margin-top: 15px;
+		text-align: right;
+	}
+	
+	.form-group{
+		margin-bottom:0px;
+	}
+	
+	#covercreateform-text{
+		margin-top: 20px;
+		height: 40vh;
+	}
+	
+	span.attached{
+		color:$green;
+	}
+	
 }

@@ -13,6 +13,7 @@ use common\models\User;
 /* @var $searchModel frontend\models\ApplicationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+$this->title = 'Bewerbungen';
 ?>
 
 <!-- Initializing Foo Tables -->
@@ -32,16 +33,16 @@ use common\models\User;
 ?>
 
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-1">
+	<div class="col-sm-12">
 		<h1><?= Html::encode($this->title) ?></h1>
 	</div>
-	<div class="col-sm-2 searchBtn">
+	<div class="col-sm-12 searchBtn">
 		<?= Html::a(Yii::t('app', 'Stellenanzeigen suchen'), ['/job'], ['class' => 'btn btn-success ripple']) ?>
 	</div>
 </div>
 <div class="row">
 	<div class="application-index">
-		<div class="col-sm-10 col-sm-offset-1">
+		<div class="col-sm-12">
 			
 			<? /* Recruiter View */ ?>
 			
@@ -125,7 +126,7 @@ use common\models\User;
 							'label'  => '',
 							'format' => 'raw',
 							'value'  => function ($data) {
-								return Html::a("Ansehen",'/application/add-data?id='.$data->id,['class' => 'btn btn-success ripple']) . ;
+								return Html::a("<span class='glyphicon glyphicon-pencil'></span>&nbsp;&nbsp;Bearbeiten",'/application/add-data?id='.$data->id,['class' => 'btn btn-success ripple']);
 							},
 							'headerOptions'  => ['class' => 'third-col'],
 							'contentOptions' => ['class' => 'third-col']
@@ -138,7 +139,7 @@ use common\models\User;
 				],
 
 			]); ?>  
-			 <h2><?= Html::encode("Gesendete Bewerbungen:") ?></h2>
+			 <h2><?= Html::encode("Gesendete Bewerbungen") ?></h2>
 
 			<?= GridView::widget([
 				'dataProvider' => $sentProvider,
@@ -155,12 +156,12 @@ use common\models\User;
 					],
 
 				[
-						'label'  => 'Erstellt',
+						'label'  => 'Bewerbungsdatum',
 						'format' => 'raw',
 						'value'  => function ($data) {
 							return Html::encode($data->created_at);
 						},
-						'headerOptions'  => ['class' => 'second-col'],
+						'headerOptions'  => ['class' => 'second-col','data-hide' => 'xsmall,phone'],
 						'contentOptions' => ['class' => 'second-col']
 				],    
 				  [
@@ -169,16 +170,23 @@ use common\models\User;
 						'value'  => function ($data) {
 							return Html::encode($data->state);
 						},
-						'headerOptions'  => ['class' => 'third-col'],
+						'headerOptions'  => ['class' => 'third-col','data-hide' => 'small,phone'],
 						'contentOptions' => ['class' => 'third-col']
 				],    
 				[
 						'label'  => '',
 						'format' => 'raw',
 						'value'  => function ($data) {
-							return Html::a("Ansehen",'/application/view?id='.$data->id);
-						}
-				],    
+							return Html::a("<span class='glyphicon glyphicon-eye-open'></span>",'/application/view?id='.$data->id);
+						},
+						'headerOptions'  => ['class' => 'fourth-col'],
+						'contentOptions' => ['class' => 'fourth-col'],
+				],
+				[
+					'class'          => 'yii\grid\Column',
+					'headerOptions'  => ['data-toggle' => 'true'],
+					'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'fifth-col']
+				],
 				],
 
 			]); ?>

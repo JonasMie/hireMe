@@ -30,15 +30,15 @@ $this->title = Yii::t('app', 'Favoriten');
 <div class="favourites-index">
 
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-1">
+		<div class="col-sm-12">
 			<h1><?= Html::encode($this->title) ?></h1>
 		</div>
-		<div class="col-sm-2 searchBtn">
+		<div class="col-sm-12 searchBtn">
 			<?= Html::a(Yii::t('app', 'Stellenanzeigen suchen'), ['/job'], ['class' => 'btn btn-success ripple']) ?>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
+		<div class="col-sm-12">
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
 		//        'filterModel'  => $searchModel,
