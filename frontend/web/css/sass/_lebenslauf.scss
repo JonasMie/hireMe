@@ -12,7 +12,7 @@ body.controller-resume.action-create {
         resize: none;
       }
 
-      #resumejob-type {
+      #resumejob-type, #resumeschool-schoolname, #resumeschool-graduation {
         max-width: 500px;
       }
 
@@ -21,26 +21,43 @@ body.controller-resume.action-create {
       }
     }
 
+    .field-resumejob-current, .field-resumeschool-current {
+      label {
+        font-weight: 300;
+        padding-left: 0px;
+        .icheckbox_flat-green {
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+
     // DATEPICKER Input
     .input-group.input-daterange {
       span.input-group-addon.kv-field-separator {
         display: none;  //TODO: remove this in template
       }
-      .field-resumejob-begin, .field-resumejob-end {
+      .field-resumejob-begin,
+      .field-resumejob-end,
+      .field-resumeschool-begin,
+      .field-resumeschool-end{
         box-shadow: none;
         max-width: 250px;
         input {
           max-width: 250px;
         }
       }
-      .field-resumejob-begin {
+      .field-resumejob-begin,
+      .field-resumeschool-begin{
         margin-right: 20px;
       }
       @media (max-width: 767px) {
-        .field-resumejob-begin {
+        .field-resumejob-begin,
+        .field-resumeschool-begin {
           max-width: 100%;
         }
-        .field-resumejob-end {
+        .field-resumejob-end,
+        .field-resumeschool-end{
           margin-top: 50px;
         }
       }
