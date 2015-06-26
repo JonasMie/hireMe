@@ -266,11 +266,9 @@ class JobController extends Controller
         $this->redirect("/application");
     }
 
-    public function actionDataHandler($id,$appID,$direction) { // expects app data id.
+    public function addData($id,$appID) {
 
         $app = Application::findOne($appID);
-
-       if($direction == 1) {   
         $appData = new ApplicationData();
 
          $appDatas = ApplicationData::find()->orderBy('id')->all();
@@ -285,12 +283,19 @@ class JobController extends Controller
         $appData->application_id = $appID;
         $appData->file_id = $id;
         $appData->save();
-       }
-       else {
+
+        $this->renderAjax("sentAppData");
+        $this->renderAjax("possibleAppData");
+
+    }
+
+    public function removeData($id,$appID) {
+
+        $app = Application::findOne($appID);
         $appData = ApplicationData::findOne($id);
         $appData->delete();
-       }
-        $this->redirect("/job/buttonAddData?id=".$appID);
+        $this->renderAjax("sentAppData");
+        $this->renderAjax("possibleAppData");
 
     }
 
