@@ -171,6 +171,25 @@ class JobController extends Controller
 
     }
 
+     public function actionSaveCover() {
+
+         if (Yii::$app->request->isAjax) {
+
+              $model = new CoverCreateForm();
+              $model->app = Yii::$app->request->get('app');
+              $text = Yii::$app->request->get('text');
+              $model->text = $text;
+              if($model->create() == true) {
+                return "Deine Bewerbung wurde gespeichert.";
+              }
+              else {
+                return "Leider gab es einen Fehler beim Speichern der Bewerbung.";
+              }
+        }
+    
+
+    }
+
     public function actionApply($key, $user)
     {
 

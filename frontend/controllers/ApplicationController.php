@@ -351,16 +351,6 @@ class ApplicationController extends Controller
             $model->text = file_get_contents('uploads'.$possibleFile->path.'.txt');          
         }
 
-        /*
-        if ($model->load(Yii::$app->request->post())) {
-
-            if ($model->create() == true) {
-
-            }
-        }
-        */
-
-
             return $this->render('create', [
                 'model' => $model,
                 'appId' => $id,
@@ -375,12 +365,15 @@ class ApplicationController extends Controller
          if (Yii::$app->request->isAjax) {
 
               $model = new CoverCreateForm();
-              
               $model->app = Yii::$app->request->get('app');
               $text = Yii::$app->request->get('text');
               $model->text = $text;
-              $model->create();
-              return $text;
+              if($model->create() == true) {
+                return "Deine Bewerbung wurde gespeichert.";
+              }
+              else {
+                return "Leider gab es einen Fehler beim Speichern der Bewerbung.";
+              }
         }
     
 
