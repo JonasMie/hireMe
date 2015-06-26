@@ -116,12 +116,13 @@ class AttachementController extends Controller
                 $file = new File();
                 // Firstly, create file, then reference it by application_data 
                 $files = File::find()->orderBy('id')->all();
-                $file->path = "/appData/AD_".md5($user->id.'_'.$file->id);
                 $file->extension = $model->file->extension;
                 $file->size = $model->file->size;
                 $file->title = $model->title;
                 $file->user_id = $user->id;
                 if($file->save()) {
+                $file->path = "/appData/AD_".md5($user->id.'_'.$file->id);
+                $file->save();
                 $model->file->saveAs("uploads".$file->path.'.' . $model->file->extension);                
                 Yii::trace("Saved file");
                 }
