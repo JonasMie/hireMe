@@ -4,17 +4,146 @@ body.controller-resume.action-create {
       margin-top: 50px;
       margin-bottom: 0px;
 
-      label[for="resumejob-report_id"] {
+      label[for="resumejob-report_id"], label[for="resumeschool-report_id"] {
         margin-bottom: 10px;
       }
 
       textarea {
         resize: none;
       }
+
+      #resumejob-type, #resumeschool-schoolname, #resumeschool-graduation {
+        max-width: 500px;
+      }
+
+      #resumejob-description {
+        max-width: 1000px;
+      }
+    }
+
+    .field-resumejob-current, .field-resumeschool-current {
+      label {
+        font-weight: 300;
+        padding-left: 0px;
+        .icheckbox_flat-green {
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+
+    // DATEPICKER Input
+    .input-group.input-daterange {
+      span.input-group-addon.kv-field-separator {
+        display: none;  //TODO: remove this in template
+      }
+      .field-resumejob-begin,
+      .field-resumejob-end,
+      .field-resumeschool-begin,
+      .field-resumeschool-end{
+        box-shadow: none;
+        max-width: 250px;
+        input {
+          max-width: 250px;
+        }
+      }
+      .field-resumejob-begin,
+      .field-resumeschool-begin{
+        margin-right: 20px;
+      }
+      @media (max-width: 767px) {
+        .field-resumejob-begin,
+        .field-resumeschool-begin {
+          max-width: 100%;
+        }
+        .field-resumejob-end,
+        .field-resumeschool-end{
+          margin-top: 50px;
+        }
+      }
+
+    }
+    //END DATEPICKER Input 1
+
+    div.field-resumejob-company_id {
+      span.twitter-typeahead {
+        max-width: 500px;
+      }
     }
   }
 
+  //DATEPICKER Popup
+  div.datepicker-dropdown {
+    padding: 0;
+    table.table-condensed {
+      color: $greyFont;
+      thead {
+        tr:nth-of-type(1) {
+          background-color: $green;
+          color: #fff;
+          th{
+            border-radius: 0px;
+            &:hover {
+              background-color: darken($green, 20);
+              border-radius: 0px;
+            }
+          }
+        }
+        tr:nth-of-type(2) {
+          background-color: $black;
+        }
+      }
+      tbody {
+        background-color: #fff;
+        tr {
+          td.selected {
+            background-color: #fff;
+            color: $greyFont;
+            font-weight: lighter;
+          }
+          td.today{
+            border-radius: 50%;
+            background-color: $borderGrey;
+            color: #fff;
+          }
+          td.day:not(.today):not(.active),
+          td.selected:not(.today):not(.active),
+          span.month:not(.active),
+          span.year:not(.active) {
+            &:hover {
+              background-color: $borderGrey;
+              color: #fff;
+              border-radius: 50%;
+            }
+          }
+          td.active, span.active {
+            border-radius: 50%;
+            background-color: $green;
+            color: #fff;
+          }
 
+
+          td {
+            padding: 10px;
+          }
+        }
+      }
+    }
+    div.datepicker-months, div.datepicker-years {
+      table {
+        tbody {
+          tr {
+            td {
+              width: 250px;
+            }
+          }
+        }
+      }
+    }
+
+
+
+  }//END DATEPICKER Popup
 
 
 
