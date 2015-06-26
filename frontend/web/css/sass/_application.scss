@@ -7,6 +7,12 @@
 		}
 	}
 	
+	a.btn{
+		&:hover{
+			color:#fff;
+		}
+	}
+	
 	.footable .footable-row-detail .footable-row-detail-inner{
 		border: none;
 	}

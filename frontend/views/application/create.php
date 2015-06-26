@@ -48,9 +48,18 @@ use yii\widgets\ActiveForm;
 								'label'  => 'Titel',
 								'format' => 'raw',
 								'value'  => function ($data) {
-									return  Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;&nbsp;".$data['title'],"/application/show-file?id=".$data['id'],['target' => '_blank']);
+									ApplicationData::getFileTitle($data->id);
 								},
 								'headerOptions'  => ['class' => 'first-col'],
+								'contentOptions' => ['class' => 'first-col'],
+							],
+							[
+								'label'  => 'Titel',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  Html::a("<span class='glyphicon glyphicon-eye-open'>,'/application/show-file?id=".$data['id'],['target' => '_blank']);
+								},
+								'headerOptions'  => ['class' => 'first-col','data-hide' => 'xsmall, phone'],
 								'contentOptions' => ['class' => 'first-col'],
 							], 
 							[
@@ -59,8 +68,13 @@ use yii\widgets\ActiveForm;
 								'value'  => function ($data) use ($appId) {                 ;
 									return  Html::a("<span class='glyphicon glyphicon-floppy-save'></span>&nbsp;&nbsp;Entfernen","/application/data-handler?id=".$data['id']."&appID=".$appId."&direction=0",["class" => "btn btn-default ripple"]);
 								},
-								'headerOptions'  => ['class' => 'second-col'],
+								'headerOptions'  => ['class' => 'second-col','data-hide' => 'xsmall, phone'],
 								'contentOptions' => ['class' => 'second-col'],
+							],
+							[
+								'class'          => 'yii\grid\Column',
+								'headerOptions'  => ['data-toggle' => 'true'],
+								'contentOptions' => ['data-title' => 'data-toggle'],
 							],
 						],
 					]);
@@ -103,7 +117,7 @@ use yii\widgets\ActiveForm;
 											return  Html::a("<span class='glyphicon glyphicon-floppy-open'></span>&nbsp;&nbsp;Anhängen","/application/data-handler?id=".$data['id']."&appID=".$appId."&direction=1",["class" => "btn btn-success ripple"]);
 											}    
 											else {
-											return  "<span class='attached'><span class='glyphicon glyphicon-ok'></span>&nbsp;&nbsp;Angehängt</span>";
+											return  "<span class='attached'><span class='glyphicon glyphicon-ok'></span>&nbsp;Angehängt</span>";
 											}
 										},
 								'headerOptions'  => ['class' => 'second-col','data-hide' => 'xsmall,phone'],
@@ -113,7 +127,7 @@ use yii\widgets\ActiveForm;
 								'label'  => '',
 								'format' => 'raw',
 								'value'  => function ($data) {
-									return Html::a("<span class='glyphicon glyphicon-pencil'></span>&nbsp;&nbsp;Anlagen bearbeiten", '/attachement');
+									return Html::a("<span class='glyphicon glyphicon-pencil'></span>&nbsp;Anlagen bearbeiten", '/attachement');
 								},
 								'headerOptions'  => ['class' => 'third-col','data-hide' => 'xsmall,phone'],
 								'contentOptions' => ['class' => 'third-col'],
