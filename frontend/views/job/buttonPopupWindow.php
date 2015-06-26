@@ -3,7 +3,9 @@
 use yii\helpers\Html;
 use yii\bootstrap\Tabs;
 use frontend\controllers\JobController;
+use frontend\assets\DataHandlingAsset;
 
+DataHandlingAsset::register($this);
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\JobSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -27,7 +29,9 @@ Yii::trace("Key: ".$key);
 
 ?>
 
+
 <?php
+
 echo Tabs::widget([
     'items' => [
         [
@@ -50,4 +54,5 @@ echo Tabs::widget([
         ],
     ],
 ]);
+
 ?>

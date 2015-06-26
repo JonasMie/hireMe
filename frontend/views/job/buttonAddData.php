@@ -5,6 +5,10 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 use frontend\models\ApplicationData;
 use yii\widgets\ActiveForm;
+use frontend\assets\DataHandlingAsset;
+
+DataHandlingAsset::register($this);
+
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
@@ -18,25 +22,22 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'text')->textarea() ?>
     <?= Html::submitButton('Erstellen', ['class' => 'btn btn-primary', 'name' => 'create-button']) ?>
     <?php ActiveForm::end(); ?>
-
-
-    <h3>Anhänge auswählen:</h3>
+   
+    <div id="files">
     <?=     
 
-    Yii::$app->controller->renderPartial("possibleAppData",[
+    Yii::$app->controller->renderPartial("fileSection",[
         'provider' => $provider,
-        'appId' => $appId,
-        ]);
-    ?>
-
-    <h3>Angehängte:</h3>
-    <?=     
-    Yii::$app->controller->renderPartial("sentAppData",[
         'sentProvider' => $sentProvider,
         'appId' => $appId,
         ]);
     ?>
-    
+
+    </div>
     <br>
     <br>
+
     <?= Html::a(Html::button("Bewerbung senden"),'/job/send?id='.$appId,['target' => '_blank']) ?>
+
+
+

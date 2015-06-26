@@ -21,6 +21,7 @@ use frontend\models\Favourites;
 use frontend\models\CoverCreateForm;
 use yii\data\SqlDataProvider;
 use frontend\models\File;
+use frontend\models\ApplicationData;
 
 /**
  * JobController implements the CRUD actions for Job model.
@@ -247,8 +248,7 @@ class JobController extends Controller
 
 
         }
-
-        return $this->renderPartial('buttonAddData', [
+        return $this->render('buttonAddData', [
             'model' => $model,
             'appId' => $app->id,
             'job' => $job,
@@ -266,11 +266,24 @@ class JobController extends Controller
         $this->redirect("/application");
     }
 
-    public function addData() {
+    public function actionTest() {
 
-         if (Yii::$app->request->isAjax) {
+        if (Yii::$app->request->isAjax) {
 
-        $id = File::findOne(Yii::$app->request->get('fileID')->id);
+        $this->renderPartial("sentAppData",[
+            'updated' => "asdasdas",
+        ],false,true);
+        
+        }
+    }
+
+    public function actionDataHandler() {
+
+         if (Yii::$app->request->isAjax) { 
+
+        if(Yii::$app->request->get("direction") == 1) {
+        $file = File::findOne(Yii::$app->request->get('fileID'));
+        $id = $file->id;
         $app = Application::findOne(Yii::$app->request->get('app'));
         $appData = new ApplicationData();
 
@@ -283,22 +296,63 @@ class JobController extends Controller
                 $appData->id = $highestID->id+1;
             } 
 
-        $appData->application_id = $appID;
+        $appData->application_id = $app->id;
         $appData->file_id = $id;
         $appData->save();
+        }
+        else {
+        $app = Application::findOne(Yii::$app->request->get('app'));
+        $appData = ApplicationData::findOne(Yii::$app->request->get('fileID'));
+        $appData->delete();
+        }
 
-        $this->renderAjax("sentAppData");
-        $this->renderAjax("possibleAppData");
+        $user = Yii::$app->user->identity;
+        
+        $newSQL = "SELECT f.title, f.id from file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = ".$user->id;
+        Yii::trace("User ID: ".$user->id);
+        $provider = new SqlDataProvider([
+            'sql' => $newSQL,
+            'sort' => [
+                'attributes' => [
+                'title'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,   
+            ]
+            ],
+        ]);
+
+        $sentSQL = "SELECT f.title, ad.id from file f, application_data ad, application a WHERE a.user_id = ".$user->id." and ad.application_id = a.id and ad.file_id = f.id and a.id =".$app->id;
+        $sentProvider = new SqlDataProvider([
+            'sql' => $sentSQL,
+            'sort' => [
+                'attributes' => [
+                'title'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,   
+            ]
+            ],
+        ]);
+
+        return $this->renderPartial("fileSection",[
+            'sentProvider' => $sentProvider,
+            'provider' => $provider,
+            'appId' => $app->id,
+            'updated' => "updated"
+
+            ]);
+
+
+       // $this->renderAjax("possibleAppData");
 
         }
 
     }
 
-    public function removeData($id,$appID) {
+    public function actionRemoveData($id,$appID) {
 
-        $app = Application::findOne($appID);
-        $appData = ApplicationData::findOne($id);
-        $appData->delete();
+       
         $this->renderAjax("sentAppData");
         $this->renderAjax("possibleAppData");
 
