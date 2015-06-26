@@ -53,10 +53,10 @@ class Company extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             'id'             => 'ID',
             'name'           => Yii::t('company','Name'),
-            'street'         => Yii::t('company','Street'),
-            'houseno'        => Yii::t('company','Houseno'),
-            'zip'            => Yii::t('company','Zip'),
-            'city'           => Yii::t('company','City'),
+            'street'         => Yii::t('geo','Street'),
+            'houseno'        => Yii::t('geo','Houseno'),
+            'zip'            => Yii::t('geo','Zip'),
+            'city'           => Yii::t('geo','City'),
             'sector'         => Yii::t('company','Sector'),
             'employeeAmount' => Yii::t('company','Employee Amount'),
         ];

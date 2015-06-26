@@ -3,9 +3,11 @@
 namespace frontend\controllers;
 
 use common\behaviours\BodyClassBehaviour;
+use frontend\models\Job;
 use Yii;
 use frontend\models\Company;
 use frontend\models\CompanySearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -52,8 +54,12 @@ class CompanyController extends Controller
      */
     public function actionView($id)
     {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Job::find()->where(['and', ['company_id' => $id], ['active' => 1]]),
+        ]);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'jobDP' => $dataProvider
         ]);
     }
 
