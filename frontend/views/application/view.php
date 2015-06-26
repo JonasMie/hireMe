@@ -31,7 +31,8 @@ use frontend\models\Company;
 ?>
 
 <div class="application-view">
-
+	
+	<? /* View as Recruiter */ ?>
 
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
     <?
@@ -147,15 +148,21 @@ use frontend\models\Company;
     <br>   
     <h2>
     Gesendete Anlagen
-</h2>
+	</h2>
+	
+	<? /* View as Recruiter */ ?>
+	
     <? else: ?>
-     <h1>Meine Bewerbung auf: <?= Html::a($model['job']->title,"/job/view?id=".$model['job']->id) ?></h1>
+	
+	<? /* View as User */ ?>
+	
+    <h1>Bewerbung auf Stellenanzeige: <?= Html::a($model['job']->title,"/job/view?id=".$model['job']->id) ?></h1>
     <h2>Anschreiben:</h2>
     <p>
     <?= $model['coverText']; ?>
     </p>
     <br>   
-    <h2> Gesendete Anlagen:</h2>
+    <h2>Gesendete Anlagen</h2>
     <? endif; ?>
 
     <?= GridView::widget([
@@ -189,7 +196,12 @@ use frontend\models\Company;
 				'contentOptions' => ['data-title' => 'data-toggle'],
 			],
         ],
-    ]); ?>  
+    ]); ?>
+	
+	<? /* View as User End */ ?>
+	
+	<? /* View as Recruiter */ ?>
+	
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
     
     <?= Html::a(Html::button("Nachricht senden"),"/message/create?rec=".$model["user"]->id); ?>
@@ -199,4 +211,6 @@ use frontend\models\Company;
 
     <? endif; ?>
 
+	<? /* View as Recruiter Emd */ ?>
+	
 </div>

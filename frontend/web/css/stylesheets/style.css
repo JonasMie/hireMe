@@ -158,6 +158,11 @@ a {
 .list-view th {
   padding-right: 50px;
   color: #d0d0d0;
+  vertical-align: top;
+}
+/* line 138, ../sass/_variables.scss */
+.list-view td {
+  vertical-align: top;
 }
 
 /* Welcome to Compass. Use this file to write IE specific override styles.
@@ -989,6 +994,10 @@ body div.profile-picture-thumbnail + div.message-sender {
 body div#bulkActions {
   margin-top: 15px;
 }
+/* line 435, ../sass/_basicTemplate.scss */
+body .highlight {
+  color: #5dca88;
+}
 
 /* line 24, ../sass/_login.scss */
 body.action-login .site-login .login-field {
@@ -1743,60 +1752,74 @@ body.controller-resume.action-create #w0 > div textarea {
   resize: none;
 }
 
-/* line 3, ../sass/_application.scss */
-.controller-application a {
-  color: #2d312f;
-}
 /* line 5, ../sass/_application.scss */
-.controller-application a:hover {
-  color: #5dca88;
-}
-/* line 11, ../sass/_application.scss */
 .controller-application a.btn:hover {
   color: #fff;
 }
-/* line 16, ../sass/_application.scss */
+/* line 10, ../sass/_application.scss */
 .controller-application .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 20, ../sass/_application.scss */
+/* line 14, ../sass/_application.scss */
 .controller-application .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 24, ../sass/_application.scss */
+/* line 18, ../sass/_application.scss */
 .controller-application div.summary {
   display: none;
 }
 
-/* line 30, ../sass/_application.scss */
+/* line 24, ../sass/_application.scss */
 .controller-application.action-index div.summary {
   display: none;
 }
-/* line 34, ../sass/_application.scss */
+/* line 28, ../sass/_application.scss */
 .controller-application.action-index div.searchBtn {
   margin-top: 15px;
   text-align: right;
 }
 
-/* line 44, ../sass/_application.scss */
+/* line 38, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 49, ../sass/_application.scss */
+/* line 43, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 53, ../sass/_application.scss */
+/* line 47, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
   height: 40vh;
 }
-/* line 58, ../sass/_application.scss */
+/* line 52, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 62, ../sass/_application.scss */
+/* line 56, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
+}
+
+/* line 3, ../sass/_job.scss */
+.controller-job.action-view div.apply {
+  text-align: right;
+  margin-top: 20px;
+}
+/* line 8, ../sass/_job.scss */
+.controller-job.action-view table.detail-view {
+  width: 100%;
+}
+/* line 12, ../sass/_job.scss */
+.controller-job.action-view table.detail-view th {
+  color: #d0d0d0;
+  padding: 3px 10px 3px 0px;
+  vertical-align: top;
+  width: 25%;
+}
+/* line 19, ../sass/_job.scss */
+.controller-job.action-view table.detail-view td {
+  padding: 3px 0px;
+  vertical-align: top;
 }
