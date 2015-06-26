@@ -20,6 +20,10 @@
 	.footable-row-detail-cell{
 		border-bottom: 1px solid #dddddd;
 	}
+	
+	div.summary{
+		display:none;
+	}
 }
 
 .controller-application.action-index{
@@ -36,9 +40,6 @@
 
 // Create and edit application
 .controller-application.action-add-data{
-	div.summary{
-		display:none;
-	}
 	
 	div.saveBtn {
 		margin-top: 15px;

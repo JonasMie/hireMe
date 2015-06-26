@@ -1763,40 +1763,40 @@ body.controller-resume.action-create #w0 > div textarea {
 .controller-application .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
+/* line 24, ../sass/_application.scss */
+.controller-application div.summary {
+  display: none;
+}
 
-/* line 26, ../sass/_application.scss */
+/* line 30, ../sass/_application.scss */
 .controller-application.action-index div.summary {
   display: none;
 }
-/* line 30, ../sass/_application.scss */
+/* line 34, ../sass/_application.scss */
 .controller-application.action-index div.searchBtn {
   margin-top: 15px;
   text-align: right;
 }
 
-/* line 39, ../sass/_application.scss */
-.controller-application.action-add-data div.summary {
-  display: none;
-}
-/* line 43, ../sass/_application.scss */
+/* line 44, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 48, ../sass/_application.scss */
+/* line 49, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 52, ../sass/_application.scss */
+/* line 53, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
   height: 40vh;
 }
-/* line 57, ../sass/_application.scss */
+/* line 58, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 61, ../sass/_application.scss */
+/* line 62, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
 }
