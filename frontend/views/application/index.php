@@ -79,7 +79,7 @@ $this->title = 'Bewerbungen';
 							'label'  => '',
 							'format' => 'raw',
 							'value'  => function ($data) {
-								return Html::a(["Ansehen"],['/application/view?id='.$data['id']]);
+								return Html::a("Ansehen",['/application/view?id='.$data['id']]);
 							},
 							'headerOptions'  => ['class' => 'third-col','data-hide' => 'xsmall,phone'],
 							'contentOptions' => ['class' => 'third-col'],
