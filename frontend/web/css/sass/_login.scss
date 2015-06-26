@@ -62,11 +62,6 @@ body.action-login {
           padding-left: 0px;
         }
       }
-
-      $FormBorderNonFocused: 2px solid $borderGrey;
-	  $FormBorderFocused: 2px solid $green;
-
-
     }
 
     .auth-clients {
@@ -91,10 +86,16 @@ body.action-login {
           }
         }
       }
+
+      span.twitter-typeahead {
+        span.tt-dropdown-menu {
+          border-radius: 0px;
+        }
+      }
+
+
+
     }
-
-
-
   }
 }
 
