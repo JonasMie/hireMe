@@ -14,15 +14,23 @@ use yii\helpers\Html;
 
 <div class="resume-school-form">
 
+
+
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+
+    <?= $form->field($model, 'schoolname')->textInput(['maxlength' => 255])->label('Name der Schule') ?>
+
+    <?= $form->field($model, 'graduation')->textInput(['maxlength' => 255])->label('Abschluss') ?>
+
+    <?= $form->field($model, 'current')->checkbox()->label('Aktuelle Ausbildung') ?>
+
     <?
-    echo '<label class="control-label">Schulzeit</label>';
     echo DatePicker::widget([
         'model' => $model,
         'attribute' => 'begin',
         'attribute2' => 'end',
-        'options' => ['placeholder' => 'Beginn'],
-        'options2' => ['placeholder' => 'Ende'],
+        'options' => ['placeholder' => 'Von'],
+        'options2' => ['placeholder' => 'Bis'],
         'type' => DatePicker::TYPE_RANGE,
         'form' => $form,
         'language' => 'de',
@@ -34,13 +42,10 @@ use yii\helpers\Html;
     ]);
     ?>
 
-    <?= $form->field($model, 'current')->checkbox() ?>
 
-    <?= $form->field($model, 'schoolname')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'graduation')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'report_id')->fileInput() ?>
+    <?= $form->field($model, 'report_id')->fileInput()->label('Anhang hinzufügen') ?>
 
 
 
@@ -49,5 +54,6 @@ use yii\helpers\Html;
     </div>
 
     <?php ActiveForm::end(); ?>
+
 
 </div>
