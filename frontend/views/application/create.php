@@ -47,21 +47,10 @@ use yii\widgets\ActiveForm;
 							[
 								'label'  => 'Titel',
 								'format' => 'raw',
-								'value'  => function ($data) {
-									ApplicationData::getFileTitle($data->id);
-								},
+								'value'  => 'title',
 								'headerOptions'  => ['class' => 'first-col'],
 								'contentOptions' => ['class' => 'first-col'],
 							],
-							[
-								'label'  => 'Titel',
-								'format' => 'raw',
-								'value'  => function ($data) {
-									return  Html::a("<span class='glyphicon glyphicon-eye-open'>,'/application/show-file?id=".$data['id'],['target' => '_blank']);
-								},
-								'headerOptions'  => ['class' => 'first-col','data-hide' => 'xsmall, phone'],
-								'contentOptions' => ['class' => 'first-col'],
-							], 
 							[
 								'label'  => '',
 								'format' => 'raw',
@@ -100,9 +89,7 @@ use yii\widgets\ActiveForm;
 							[
 								'label'  => 'Titel',
 								'format' => 'raw',
-								'value'  => function ($data) {
-									return  Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;&nbsp;".$data['title'],"/application/show-file?id=".$data['id'],['target' => '_blank']);
-								},
+								'value'  => 'title',
 								'headerOptions'  => ['class' => 'first-col'],
 								'contentOptions' => ['class' => 'first-col'],
 							],
@@ -127,10 +114,19 @@ use yii\widgets\ActiveForm;
 								'label'  => '',
 								'format' => 'raw',
 								'value'  => function ($data) {
+									return  Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data['id'],['target' => '_blank']);
+								},
+								'headerOptions'  => ['class' => 'third-col','data-hide' => 'mediaXsmall,phone'],
+								'contentOptions' => ['class' => 'third-col'],
+							],
+							[
+								'label'  => '',
+								'format' => 'raw',
+								'value'  => function ($data) {
 									return Html::a("<span class='glyphicon glyphicon-pencil'></span>&nbsp;Anlagen bearbeiten", '/attachement');
 								},
-								'headerOptions'  => ['class' => 'third-col','data-hide' => 'xsmall,phone'],
-								'contentOptions' => ['class' => 'third-col'],
+								'headerOptions'  => ['class' => 'fourth-col','data-hide' => 'mediaXsmall,phone'],
+								'contentOptions' => ['class' => 'fourth-col'],
 							],
 							[
 								'class'          => 'yii\grid\Column',
