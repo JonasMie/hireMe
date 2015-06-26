@@ -21,60 +21,22 @@ use yii\widgets\ActiveForm;
 
 
     <h3>Anhänge auswählen:</h3>
-    <?= GridView::widget([
-        'dataProvider' => $provider,
-        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
-        'id' => "uploadedGrid",
-        'columns'      => [
-            [
-                'label'  => 'Titel',
-                'format' => 'raw',
-                'value'  => 'title'
-            ], 
-            [
-                'label'  => 'Mitschicken',
-                'format' => 'raw',
-                'value'  => function ($data) use ($appId){   
-                            $tmpApp = ApplicationData::find()
-                            ->where(['file_id' => $data['id'],'application_id'=>$appId])->one();
+    <?=     
 
-                            if(count($tmpApp) == 0) {
-                            return  Html::a(Html::button("Mitschicken"),"/job/data-handler?id=".$data['id']."&appID=".$appId."&direction=1");
-                            }    
-                            else {
-                            return  Html::encode("Beigefügt");
-                                }
-                    }         
-            ], 
-           [
-                'label'  => 'Anschauen',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return  Html::a("Anschauen","/application/show-file?id=".$data['id'],['target' => '_blank']);
-                }
-            ], 
-        ],
-    ]); ?> 
+    Yii::$app->controller->renderPartial("possibleAppData",[
+        'provider' => $provider,
+        'appId' => $appId,
+        ]);
+    ?>
+
     <h3>Angehängte:</h3>
-    <?= GridView::widget([
-        'dataProvider' => $sentProvider,
-        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
-        'id' => "uploadedGrid",
-        'columns'      => [
-            [
-                'label'  => 'Titel',
-                'format' => 'raw',
-                'value'  => 'title'
-            ], 
-            [
-                'label'  => 'Einbehalten',
-                'format' => 'raw',
-                'value'  => function ($data) use ($appId) {                 ;
-                    return  Html::a(Html::button("Einbehalten"),"/job/data-handler?id=".$data['id']."&appID=".$appId."&direction=0");
-                }
-            ], 
-        ],
-    ]); ?> 
+    <?=     
+    Yii::$app->controller->renderPartial("sentAppData",[
+        'sentProvider' => $sentProvider,
+        'appId' => $appId,
+        ]);
+    ?>
+    
     <br>
     <br>
     <?= Html::a(Html::button("Bewerbung senden"),'/job/send?id='.$appId,['target' => '_blank']) ?>
