@@ -57,7 +57,13 @@ body.action-login {
           }
         }
       }
-	  $FormBorderNonFocused: 2px solid $borderGrey;
+	  .field-loginform-rememberme {
+        label[for="loginform-rememberme"] {
+          padding-left: 0px;
+        }
+      }
+
+      $FormBorderNonFocused: 2px solid $borderGrey;
 	  $FormBorderFocused: 2px solid $green;
 
 
@@ -70,8 +76,8 @@ body.action-login {
 
     #form-signup {
       .field-signupform-checkcompanysignup{
-        .icheckbox_flat-green {
-          margin-right: 10px;
+        label[for="checkCompanySignup"] {
+          padding-left: 0px;
         }
       }
 

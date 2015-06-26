@@ -1036,36 +1036,40 @@ body.action-login .site-login #login-form .requestNewPassword a {
 body.action-login .site-login #login-form .requestNewPassword a:hover {
   color: #5dca88;
 }
-/* line 66, ../sass/_login.scss */
+/* line 61, ../sass/_login.scss */
+body.action-login .site-login #login-form .field-loginform-rememberme label[for="loginform-rememberme"] {
+  padding-left: 0px;
+}
+/* line 72, ../sass/_login.scss */
 body.action-login .site-login .auth-clients {
   overflow: inherit;
   min-height: 100px;
 }
-/* line 73, ../sass/_login.scss */
-body.action-login .site-login #form-signup .field-signupform-checkcompanysignup .icheckbox_flat-green {
-  margin-right: 10px;
+/* line 79, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-checkcompanysignup label[for="checkCompanySignup"] {
+  padding-left: 0px;
 }
-/* line 78, ../sass/_login.scss */
+/* line 84, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup {
   margin-top: 60px;
 }
-/* line 81, ../sass/_login.scss */
+/* line 87, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees {
   text-align: left;
 }
-/* line 83, ../sass/_login.scss */
+/* line 89, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector select, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees select {
   margin-top: 10px;
 }
 
-/* line 97, ../sass/_login.scss */
+/* line 103, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 103, ../sass/_login.scss */
+/* line 109, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
