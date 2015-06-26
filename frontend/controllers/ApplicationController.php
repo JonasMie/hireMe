@@ -188,6 +188,7 @@ class ApplicationController extends Controller
         $model["user"] = $applier;
         $model["created"] = $app->created_at;
         $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
+
         $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
 
           return $this->render('view', [
@@ -350,15 +351,14 @@ class ApplicationController extends Controller
             $model->text = file_get_contents('uploads'.$possibleFile->path.'.txt');          
         }
 
-
+        /*
         if ($model->load(Yii::$app->request->post())) {
 
             if ($model->create() == true) {
 
             }
-
-
         }
+        */
 
 
             return $this->render('create', [
@@ -368,6 +368,22 @@ class ApplicationController extends Controller
                 'provider' => $provider,
                 'sentProvider' => $sentProvider
             ]);
+    }
+
+    public function actionSaveCover() {
+
+         if (Yii::$app->request->isAjax) {
+
+              $model = new CoverCreateForm();
+              
+              $model->app = Yii::$app->request->get('app');
+              $text = Yii::$app->request->get('text');
+              $model->text = $text;
+              $model->create();
+              return $text;
+        }
+    
+
     }
 
     public static function getFileTitle($id) { //expected app data id
