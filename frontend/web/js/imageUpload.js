@@ -50,7 +50,7 @@ function fileSelectHandler() {
 
         // e.target.result contains the DataURL which we can use as a source of the image
         oImage.src = e.target.result;
-        $(oImage).show();
+
         oImage.onload = function () { // onload event handler
 
             // destroy Jcrop if it is existed
@@ -61,7 +61,7 @@ function fileSelectHandler() {
                 $('#settingsmodel-picture-jcrop').height(oImage.naturalHeight);
             }
 
-            setTimeout(function(){
+            //setTimeout(function(){
                 // initialize Jcrop
                 $('#settingsmodel-picture-jcrop').Jcrop({
                     minSize: [100, 100], // min crop size
@@ -70,18 +70,33 @@ function fileSelectHandler() {
                     bgOpacity: .3, // fade opacity
                     onChange: updateInfo,
                     onSelect: updateInfo,
-                    onRelease: clearInfo
+                    onRelease: clearInfo,
+                    boxWidth: $('#imgPreviewWrap').width()
+                    //boxHeight: $('#imgPreviewWrap').height()
                 }, function(){
 
                     // use the Jcrop API to get the real image size
                     var bounds = this.getBounds();
                     boundx = bounds[0];
                     boundy = bounds[1];
+                    ratio  = 1;
+                    var x = 0, y = 0, x_ = boundx, y_ = boundy;
 
+                    var x_r = (x_ / ratio) - y_;
+                    var y_r = (y_ / ratio) - x_;
+
+                    if (x_r > 0) {
+                        x = x_r / 2;
+                    }
+                    if (y_r > 0) {
+                        y = y_r / 2;
+                    }
+
+                    this.setSelect([x, y, boundx, boundy]);
                     // Store the Jcrop API in the jcrop_api variable
                     jcrop_api = this;
                 });
-            },3000);
+            //},3000);
 
         };
     };
