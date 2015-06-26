@@ -266,9 +266,12 @@ class JobController extends Controller
         $this->redirect("/application");
     }
 
-    public function addData($id,$appID) {
+    public function addData() {
 
-        $app = Application::findOne($appID);
+         if (Yii::$app->request->isAjax) {
+
+        $id = File::findOne(Yii::$app->request->get('fileID')->id);
+        $app = Application::findOne(Yii::$app->request->get('app'));
         $appData = new ApplicationData();
 
          $appDatas = ApplicationData::find()->orderBy('id')->all();
@@ -286,6 +289,8 @@ class JobController extends Controller
 
         $this->renderAjax("sentAppData");
         $this->renderAjax("possibleAppData");
+
+        }
 
     }
 
