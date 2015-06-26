@@ -68,6 +68,7 @@ class CoverCreateForm extends Model
             $txt = $this->text;
             fwrite($handle,$txt);
             fclose($handle);
+            return true;
 
                 
             }
@@ -88,7 +89,9 @@ class CoverCreateForm extends Model
             fwrite($handle,$txt);
             fclose($handle);
             $cover->attachment_id = $file->id;
-            $cover->save();
+            if($cover->save()) {
+                return true;
+            }
 
             }
 
