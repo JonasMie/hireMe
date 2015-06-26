@@ -56,7 +56,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'report_id')->fileInput()->label('Anhang hinzufügen')?>
 
     <div class="form-group form-group-submit">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Speichern') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', '<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Speichern') : Yii::t('app', '<span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
