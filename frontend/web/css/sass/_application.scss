@@ -1,11 +1,5 @@
 // Applications overview
 .controller-application{
-	a{
-		color:$black;
-		&:hover{
-			color:$green;
-		}
-	}
 	
 	a.btn{
 		&:hover{
