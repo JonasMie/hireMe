@@ -1730,3 +1730,107 @@ body.controller-resume.action-create #w0 > div label[for="resumejob-report_id"],
 body.controller-resume.action-create #w0 > div textarea {
   resize: none;
 }
+/* line 15, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 > div #resumejob-type {
+  max-width: 500px;
+}
+/* line 19, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 > div #resumejob-description {
+  max-width: 1000px;
+}
+/* line 26, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 .input-group.input-daterange span.input-group-addon.kv-field-separator {
+  display: none;
+}
+/* line 29, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 .input-group.input-daterange .field-resumejob-begin, body.controller-resume.action-create #w0 .input-group.input-daterange .field-resumejob-end {
+  box-shadow: none;
+  max-width: 250px;
+}
+/* line 32, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 .input-group.input-daterange .field-resumejob-begin input, body.controller-resume.action-create #w0 .input-group.input-daterange .field-resumejob-end input {
+  max-width: 250px;
+}
+/* line 36, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 .input-group.input-daterange .field-resumejob-begin {
+  margin-right: 20px;
+}
+@media (max-width: 767px) {
+  /* line 40, ../sass/_lebenslauf.scss */
+  body.controller-resume.action-create #w0 .input-group.input-daterange .field-resumejob-begin {
+    max-width: 100%;
+  }
+  /* line 43, ../sass/_lebenslauf.scss */
+  body.controller-resume.action-create #w0 .input-group.input-daterange .field-resumejob-end {
+    margin-top: 50px;
+  }
+}
+/* line 52, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twitter-typeahead {
+  max-width: 500px;
+}
+/* line 59, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown {
+  padding: 0;
+}
+/* line 61, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed {
+  color: #9d9d9d;
+}
+/* line 64, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) {
+  background-color: #5dca88;
+  color: #fff;
+}
+/* line 67, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th {
+  border-radius: 0px;
+}
+/* line 69, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th:hover {
+  background-color: #309156;
+  border-radius: 0px;
+}
+/* line 75, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(2) {
+  background-color: #2d312f;
+}
+/* line 79, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody {
+  background-color: #fff;
+}
+/* line 82, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr td.selected {
+  background-color: #fff;
+  color: #9d9d9d;
+  font-weight: lighter;
+}
+/* line 87, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr td.today {
+  border-radius: 50%;
+  background-color: #dddddd;
+  color: #fff;
+}
+/* line 96, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr td.day:not(.today):not(.active):hover,
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr td.selected:not(.today):not(.active):hover,
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr span.month:not(.active):hover,
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr span.year:not(.active):hover {
+  background-color: #dddddd;
+  color: #fff;
+  border-radius: 50%;
+}
+/* line 102, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr td.active, body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr span.active {
+  border-radius: 50%;
+  background-color: #5dca88;
+  color: #fff;
+}
+/* line 109, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown table.table-condensed tbody tr td {
+  padding: 10px;
+}
+/* line 119, ../sass/_lebenslauf.scss */
+body.controller-resume.action-create div.datepicker-dropdown div.datepicker-months table tbody tr td, body.controller-resume.action-create div.datepicker-dropdown div.datepicker-years table tbody tr td {
+  width: 250px;
+}
