@@ -57,7 +57,7 @@ body.action-login {
           }
         }
       }
-	  .field-loginform-rememberme {
+      .field-loginform-rememberme {
         label[for="loginform-rememberme"] {
           padding-left: 0px;
         }
@@ -70,7 +70,7 @@ body.action-login {
     }
 
     #form-signup {
-      .field-signupform-checkcompanysignup{
+      .field-signupform-checkcompanysignup {
         label[for="checkCompanySignup"] {
           padding-left: 0px;
         }
@@ -87,14 +87,33 @@ body.action-login {
         }
       }
 
+      // LOGINFORM TYPEAHEAD
       span.twitter-typeahead {
         span.tt-dropdown-menu {
           border-radius: 0px;
+          background-color: rgba(45, 49, 47, 0.95);
+          box-shadow: 0 0 5px 1px rgba(156, 156, 156, 1);
+          div.tt-suggestion {
+            text-align: left;
+            > p {
+              color: #fff;
+            }
+          }
         }
       }
 
-
-
+      .field-signupform-companyname.has-success,
+      .field-signupform-companyaddresszip.has-success,
+      .field-signupform-companyaddresscity.has-success {
+        > div {
+          > .twitter-typeahead {
+            input {
+              border-bottom: $FormBorderFocused;
+            }
+          }
+        }
+      }
+      // END LOGINFORM TYPEAHEAD
     }
   }
 }
