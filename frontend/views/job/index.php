@@ -14,7 +14,7 @@ $this->title = "Stellenanzeigen";
 $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provider->id, 'user_id' => Yii::$app->user->getId()])->count() > 0;
 ?>
 
-    <!-- Initializing Foo Tables -->
+<!-- Initializing Foo Tables -->
 <? $this->registerJS(
     "$(function () {
         $('.footable').footable({
@@ -158,7 +158,7 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
                             [
                                 'update' => function ($url, $model, $key) {
                                     if (Favourites::find()->where(['job_id' => $model["id"], 'user_id' => Yii::$app->user->getId()])->count() == 0) {
-                                        return Html::a('<span class="glyphicon glyphicon-star" id="toggleFavourite"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen')]);
+                                        return Html::a('<span class="glyphicon glyphicon-star" id="toggleFavourite"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen'), 'data-job' => $model["id"]]);
                                     } else return '';
                                 }
                             ],
@@ -200,7 +200,7 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
     </div>
 
 <? // TODO: message if error
-$this->registerJs("jQuery('#toggleFavourite').click(function (e) {e.preventDefault(); \$this = jQuery(this);jQuery.post('/favourites/toggle', {id: \$this.data('job')}, function (res) {if (res.success) {\$this.remove();jQuery('.favouriteAlert').innerHtml('
+$this->registerJs("jQuery('#toggleFavourite').click(function (e) {e.preventDefault(); \$this = jQuery(this);jQuery.post('/favourites/toggle', {id: \$this.data('job')}, function (res) {if (res.success) {\$this.remove();jQuery('.favouriteAlert').html('
 <div class=\"alert alert-success alert-dismissible\" role=\"alert\">
 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
 Der Job wurde deinen Favoriten hinzugefügt. <a href=\"#\" class=\"alert-link\">Hier kannst du deine Favoriten ansehen.</a>
