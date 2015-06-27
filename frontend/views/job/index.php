@@ -171,7 +171,7 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
 
                         'class'          => 'yii\grid\Column',
                         'headerOptions'  => ['data-toggle' => 'true'],
-                        'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
+                        'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'seventh-col'],
 
                     ],
                 ],
@@ -200,10 +200,5 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
     </div>
 
 <? // TODO: message if error
-$this->registerJs("jQuery('#toggleFavourite').click(function (e) {e.preventDefault(); \$this = jQuery(this);jQuery.post('/favourites/toggle', {id: \$this.data('job')}, function (res) {if (res.success) {\$this.remove();jQuery('.favouriteAlert').html('
-<div class=\"alert alert-success alert-dismissible\" role=\"alert\">
-<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
-Der Job wurde deinen Favoriten hinzugefügt. <a href=\"#\" class=\"alert-link\">Hier kannst du deine Favoriten ansehen.</a>
-</div>
-')} else {return;}});});");
+$this->registerJs("jQuery('#toggleFavourite').click(function (e) {e.preventDefault(); \$this = jQuery(this);jQuery.post('/favourites/toggle', {id: \$this.data('job')}, function (res) {if (res.success) {\$this.remove();jQuery('.favouriteAlert').html('<div class=\"alert alert-success alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Der Job wurde deinen Favoriten hinzugefügt. <a href=\"#\" class=\"alert-link\">Hier kannst du deine Favoriten ansehen.</a></div>')} else {\$this.remove();}});});");
 ?>
