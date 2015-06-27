@@ -43,7 +43,7 @@ class SignupForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Diese Email-Adresse wird bereits verwendet.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
@@ -112,6 +112,7 @@ class SignupForm extends Model
      */
     public function signup()
     {
+
         if ($this->validate()) {
 
             $user = new User();
