@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\behaviours\BodyClassBehaviour;
 use common\models\User;
 use frontend\models\Geo;
+use frontend\models\SignupForm;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
