@@ -201,7 +201,6 @@ class SiteController extends Controller
                 } else {
                     $password = Yii::$app->security->generateRandomString(6);
                     $firstName = $lastName = $email = '';
-                    error_log(print_r($attributes, 1));
                     switch ($client->getTitle()) {
                         case("Google"):
                             $firstName = $attributes['name']['givenName'];
@@ -227,16 +226,19 @@ class SiteController extends Controller
                             $lastName = $attributes['last-name'];
                             $email = $attributes['email-address'];
                     }
-
                     $user = new User([
                         'firstName' => $firstName,
                         'lastName'  => $lastName,
                         'email'     => $email,
                         'password'  => $password
                     ]);
+                    $user->fullName = $firstName ." " .$lastName;
+                    $user->username = SignupForm::generateUsername($firstName,$lastName);
                     $user->generateAuthKey();
                     $user->generatePasswordResetToken();
                     $transaction = $user->getDb()->beginTransaction();
+
+
                     if ($user->save()) {
                         $auth = new Auth([
                             'user_id'   => $user->id,
