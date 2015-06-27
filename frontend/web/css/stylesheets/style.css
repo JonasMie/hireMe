@@ -1,4 +1,4 @@
-/* line 5, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -865,10 +865,11 @@ body .form-group.field-resumejob-current,
 body .form-group.field-resumejob-report_id,
 body .form-group.field-messagecreate-attachment,
 body .form-group.field-resumeschool-current,
-body .form-group.field-resumeschool-report_id {
+body .form-group.field-resumeschool-report_id,
+body .field-settingsmodel-visibility {
   position: static;
 }
-/* line 293, ../sass/_basicTemplate.scss */
+/* line 294, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-signupform-companysector label,
@@ -878,36 +879,37 @@ body .form-group.field-resumejob-current label,
 body .form-group.field-resumejob-report_id label,
 body .form-group.field-messagecreate-attachment label,
 body .form-group.field-resumeschool-current label,
-body .form-group.field-resumeschool-report_id label {
+body .form-group.field-resumeschool-report_id label,
+body .field-settingsmodel-visibility label {
   position: static;
 }
-/* line 304, ../sass/_basicTemplate.scss */
+/* line 305, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 307, ../sass/_basicTemplate.scss */
+/* line 308, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 312, ../sass/_basicTemplate.scss */
+/* line 313, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 314, ../sass/_basicTemplate.scss */
+/* line 315, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 321, ../sass/_basicTemplate.scss */
+/* line 322, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 331, ../sass/_basicTemplate.scss */
+/* line 332, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 337, ../sass/_basicTemplate.scss */
+/* line 338, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -918,21 +920,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 349, ../sass/_basicTemplate.scss */
+/* line 350, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 357, ../sass/_basicTemplate.scss */
+/* line 358, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 360, ../sass/_basicTemplate.scss */
+/* line 361, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 364, ../sass/_basicTemplate.scss */
+/* line 365, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -942,63 +944,63 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 369, ../sass/_basicTemplate.scss */
+/* line 370, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 374, ../sass/_basicTemplate.scss */
+/* line 375, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 376, ../sass/_basicTemplate.scss */
+/* line 377, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 380, ../sass/_basicTemplate.scss */
+/* line 381, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 390, ../sass/_basicTemplate.scss */
+/* line 391, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 398, ../sass/_basicTemplate.scss */
+/* line 399, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 406, ../sass/_basicTemplate.scss */
+/* line 407, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 412, ../sass/_basicTemplate.scss */
+/* line 413, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 419, ../sass/_basicTemplate.scss */
+/* line 420, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 425, ../sass/_basicTemplate.scss */
+/* line 426, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 433, ../sass/_basicTemplate.scss */
+/* line 434, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
-/* line 437, ../sass/_basicTemplate.scss */
+/* line 438, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
