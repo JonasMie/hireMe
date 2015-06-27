@@ -23,3 +23,17 @@
 	}
 	
 }
+
+.controller-job.action-index{
+	div.summary{
+		display:none;
+	}
+	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+}

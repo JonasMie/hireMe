@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
@@ -11,14 +11,29 @@ use frontend\controllers\ApplicationController;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
 
-$this->title = $indiTitle;
+$this->title = "Stellenanzeigen";
+
+?>
+
+<!-- Initializing Foo Tables -->
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
+                mediaSmall: 960
+
+            }
+        });
+    });");
 
 ?>
 
 <div class="_myjobs">
 
-    <h1><?= Html::encode($this->title) ?></h1>   
-    <p>
+<h1><?= Html::encode($this->title) ?></h1>
 
 <? if (Yii::$app->user->identity->isRecruiter()): ?>
 
@@ -33,66 +48,87 @@ $this->title = $indiTitle;
             ]); 
         }
         ]);
-
     ?>
-<?= Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>") ?>
- <?= GridView::widget([
-        'id'=>'jobList',
-        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
-        'dataProvider' => $provider,
-        'columns'      => [
-        [
-                'class'         => 'yii\grid\CheckboxColumn',
-                'filterOptions' => function () {
-                    echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
-                }
-            ],
-                'title:text:Titel',
-                'job_begin:text:Job beginnt',   
-            [
+	<?= Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>") ?>
+		<?= GridView::widget([
+			'id'=>'jobList',
+			'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+			'dataProvider' => $provider,
+			'columns'      => [
+			[
+					'class'         => 'yii\grid\CheckboxColumn',
+					'filterOptions' => function () {
+						echo Html::dropDownList('action', '', ['' => 'Mark selected as: ', 'c' => 'Confirmed', 'nc' => 'No Confirmed'], ['class' => 'dropdown']);
+					}
+				],
+					'title:text:Titel',
+					'job_begin:text:Job beginnt',   
+				[
 
-                'label'  => 'Info',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id);
-                }
-            ],
-            [
-                'label'  => 'Actions',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    
-                    return Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Bearbeiten'), ['update-job', 'id' => $data->id], ['class' => 'btn btn-success ripple btn-editJob'])." ". Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Anschauen'), ['view', 'id' => $data->id], ['class' => 'btn btn-primary ripple btn-viewJob']);
-                }
-                    
+					'label'  => 'Info',
+					'format' => 'raw',
+					'value'  => function ($data) {
+						return \yii\helpers\Html::encode("Bewerber: ".count(Analytics::getAppliesForJob($data->id)))." - ".\yii\helpers\Html::a("Analytics","/analytics/detail?id=".$data->id);
+					}
+				],
+				[
+					'label'  => 'Actions',
+					'format' => 'raw',
+					'value'  => function ($data) {
+						
+						return Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Bearbeiten'), ['update-job', 'id' => $data->id], ['class' => 'btn btn-success ripple btn-editJob'])." ". Html::a(Yii::t('app', '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Anschauen'), ['view', 'id' => $data->id], ['class' => 'btn btn-primary ripple btn-viewJob']);
+					}
+						
 
-            ],
-           
-        ],
-        'caption'  => Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>")
-    ]); ?>  
-<!--
--->
+				],
+			   
+			],
+			'caption'  => Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>")
+		]);
+	?>
 
-<? else: ?>
 
-<?= GridView::widget([
-        'dataProvider' => $provider,
-        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
-        'columns'      => [
+	<? else: ?>
 
-                'title:text:Titel',
-                'job_begin:text:Job beginnt',  
-             [
-                'label'  => 'Mehr',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return Html::a("Ansehen","/job/view?id=".$data->id);
-                }
-            ],    
-        ],
-    ]); ?>  
-    
-    </p>
+	<?= GridView::widget([
+			'dataProvider' => $provider,
+			'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'jobListTable'],
+			'columns'      => [
+				[
+					'attribute'  => 'title',
+					'label'  => 'Titel',
+					'format' => 'raw',
+					'value'  => 'title',
+					'headerOptions'  => ['class' => 'first-col'],
+					'contentOptions' => ['class' => 'first-col'],
+				],
+				[
+					'attribute'  => 'job_begin',
+					'label'  => 'Verfügbar ab',
+					'format' => 'raw',
+					'value'  => 'job_begin',
+					'headerOptions'  => ['class' => 'second-col'],
+					'contentOptions' => ['class' => 'second-col'],
+				],
+				
+				[
+					'label'  => '',
+					'format' => 'raw',
+					'value'  => function ($data) {
+						return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/job/view?id=".$data->id);
+					},
+					'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,phone'],
+					'contentOptions' => ['class' => 'third-col'],
+				],
+				[
+
+					'class'          => 'yii\grid\Column',
+					'headerOptions'  => ['data-toggle' => 'true'],
+					'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
+
+				],
+			],
+		]);
+	?>
 <? endif; ?>
 </div>

@@ -1954,3 +1954,16 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   padding: 3px 0px;
   vertical-align: top;
 }
+
+/* line 28, ../sass/_job.scss */
+.controller-job.action-index div.summary {
+  display: none;
+}
+/* line 32, ../sass/_job.scss */
+.controller-job.action-index .footable .footable-row-detail .footable-row-detail-inner {
+  border: none;
+}
+/* line 36, ../sass/_job.scss */
+.controller-job.action-index .footable-row-detail-cell {
+  border-bottom: 1px solid #dddddd;
+}
