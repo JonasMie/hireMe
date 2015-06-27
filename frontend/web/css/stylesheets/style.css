@@ -1949,3 +1949,22 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   padding: 3px 0px;
   vertical-align: top;
 }
+
+/* line 2, ../sass/_attachment.scss */
+.controller-attachement.action-index div.summary {
+  display: none;
+}
+/* line 6, ../sass/_attachment.scss */
+.controller-attachement.action-index .footable .footable-row-detail .footable-row-detail-inner {
+  border: none;
+}
+/* line 10, ../sass/_attachment.scss */
+.controller-attachement.action-index .footable-row-detail-cell {
+  border-bottom: 1px solid #dddddd;
+}
+/* line 14, ../sass/_attachment.scss */
+.controller-attachement.action-index .footable-row-detail-row {
+  min-height: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

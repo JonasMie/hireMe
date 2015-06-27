@@ -1,0 +1,20 @@
+.controller-attachement.action-index{
+	div.summary{
+		display:none;
+	}
+	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+	
+	.footable-row-detail-row{
+		min-height:20px;
+		margin-bottom:10px;
+		margin-top:10px;
+	}
+
+}
