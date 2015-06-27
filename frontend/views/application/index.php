@@ -114,6 +114,7 @@ $this->title = 'Bewerbungen';
 				'dataProvider' => $savedProvider,
 				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'applicationTable'],
 				'columns'      => [
+
 					 [
 							'label'  => 'Stellenanzeige',
 							'format' => 'raw',

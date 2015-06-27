@@ -20,8 +20,5 @@ class DataHandlingAsset extends AssetBundle{
     public $js = [
         'js/dataHandler.js',
     ];
-    public $depends = [
-        'yii\web\JqueryAsset',
-    ];
 
 }

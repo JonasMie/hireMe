@@ -12,16 +12,15 @@ namespace frontend\assets;
 
 use yii\web\AssetBundle;
 
-class CreateCoverAsset extends AssetBundle{
+class ApplyFormAsset extends AssetBundle{
 
     public $basePath = '@webroot';
     public $baseUrl = '@web';
 
     public $js = [
-        'js/createCover.js',
+        'js/applyForm.js',
     ];
-    public $depends = [
+      public $depends = [
         'yii\web\JqueryAsset',
     ];
-
 }
