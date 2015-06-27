@@ -87,7 +87,7 @@ body.action-login {
         }
       }
 
-      // LOGINFORM TYPEAHEAD
+      // SIGNUPFORM TYPEAHEAD
       span.twitter-typeahead {
         span.tt-dropdown-menu {
           border-radius: 0px;
@@ -113,7 +113,49 @@ body.action-login {
           }
         }
       }
-      // END LOGINFORM TYPEAHEAD
+      // END SIGNUPFORM TYPEAHEAD
+
+      // SIGNUP SELECTS
+      .field-signupform-companysector {
+        label[for="signupform-companysector"] {
+        }
+        div.input-group {
+          span.select2-container--krajee {
+            span.selection {
+              span.select2-selection {
+                padding-left: 5px;
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                border: 0px;
+                border-radius: 0;
+                border-bottom: $FormBorderNonFocused;
+                span.select2-signupform-companysector-container {
+                  font-size: 16px;
+                  color: #fff;
+                }
+                span.select2-selection__arrow {
+                  border: 0px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .field-signupform-companysector.has-success {
+        div.input-group {
+          span.select2-container--krajee {
+            span.selection {
+              span.select2-selection {
+                border-bottom: $FormBorderFocused;
+              }
+            }
+          }
+        }
+      }
+
+      // END SIGNUP SELECTS
+
+
     }
   }
 }
@@ -130,9 +172,60 @@ body.action-login {
       color: #fff;
       margin-bottom: 40px;
     }
-
   }
-
 }
 
 
+// SIGNUPFORM DROPDOWN
+
+.select2-container {
+  .select2-dropdown {
+    border: none;
+    border-radius: 0px;
+    background-color: rgba(45, 49, 47, 0.95);
+    box-shadow: 0 0 5px 1px rgba(156, 156, 156, 1);
+    .select2-search {
+      input.select2-search__field {
+        border-radius: 0px;
+        border: 0px;
+        border-bottom: $FormBorderNonFocused;
+        background: rgba(0, 0, 0, 0) url("/images/search.png") no-repeat scroll right 10px top 7px;
+        color: #fff;
+      }
+    }
+    .select2-results {
+      padding: 4px;
+      #select2-signupform-companysector-results {
+        > li.select2-results__option {
+          background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+          color: #fff;
+          > strong.select2-results__group {
+            background-color: $green;
+            border: none;
+            color: #fff;
+          }
+          > ul.select2-results__options {
+            > li {
+              background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+              color: #fff;
+            }
+            > li[aria-selected="true"] {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
+  background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
+  color: $green;
+}
+
+.select2-container--krajee.select2-container--open .select2-selection {
+  box-shadow: none;
+}
+
+// END SIGNUPFORM DROPDOWN

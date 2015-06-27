@@ -146,7 +146,7 @@ $values = array_values(array_values($sectors));
 
                 <?= $form->field($signupModel, 'companySector')->widget(\kartik\select2\Select2::className(), [
                     'data' => $sectors,
-                    'options' => ['prompt' => 'Branche wählen'],
+                    'options' => ['prompt' => ''],
                 ])->label('Branche') ?>
                 <?= $form->field($signupModel, 'companyEmployees')->widget(\kartik\select2\Select2::className(), [
                     'data' => $employeeAmount,

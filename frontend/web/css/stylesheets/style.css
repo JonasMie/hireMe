@@ -853,7 +853,6 @@ body .form-group label {
 /* line 282, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
-body .form-group.field-signupform-companysector,
 body .form-group.field-signupform-companyemployees,
 body .form-group.field-settingsmodel-picture,
 body .form-group.field-resumejob-current,
@@ -863,10 +862,9 @@ body .form-group.field-resumeschool-current,
 body .form-group.field-resumeschool-report_id {
   position: static;
 }
-/* line 293, ../sass/_basicTemplate.scss */
+/* line 292, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
-body .form-group.field-signupform-companysector label,
 body .form-group.field-signupform-companyemployees label,
 body .form-group.field-settingsmodel-picture label,
 body .form-group.field-resumejob-current label,
@@ -876,33 +874,33 @@ body .form-group.field-resumeschool-current label,
 body .form-group.field-resumeschool-report_id label {
   position: static;
 }
-/* line 304, ../sass/_basicTemplate.scss */
+/* line 303, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 307, ../sass/_basicTemplate.scss */
+/* line 306, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 312, ../sass/_basicTemplate.scss */
+/* line 311, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 314, ../sass/_basicTemplate.scss */
+/* line 313, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 321, ../sass/_basicTemplate.scss */
+/* line 320, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 331, ../sass/_basicTemplate.scss */
+/* line 330, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 337, ../sass/_basicTemplate.scss */
+/* line 336, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -913,21 +911,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 349, ../sass/_basicTemplate.scss */
+/* line 348, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 357, ../sass/_basicTemplate.scss */
+/* line 356, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 360, ../sass/_basicTemplate.scss */
+/* line 359, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 364, ../sass/_basicTemplate.scss */
+/* line 363, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -937,59 +935,59 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 369, ../sass/_basicTemplate.scss */
+/* line 368, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 374, ../sass/_basicTemplate.scss */
+/* line 373, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 376, ../sass/_basicTemplate.scss */
+/* line 375, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 380, ../sass/_basicTemplate.scss */
+/* line 379, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 390, ../sass/_basicTemplate.scss */
+/* line 389, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 398, ../sass/_basicTemplate.scss */
+/* line 397, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 406, ../sass/_basicTemplate.scss */
+/* line 405, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 412, ../sass/_basicTemplate.scss */
+/* line 411, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 419, ../sass/_basicTemplate.scss */
+/* line 418, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 425, ../sass/_basicTemplate.scss */
+/* line 424, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 433, ../sass/_basicTemplate.scss */
+/* line 432, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
@@ -1081,18 +1079,90 @@ body.action-login .site-login #form-signup .field-signupform-companyaddresszip.h
 body.action-login .site-login #form-signup .field-signupform-companyaddresscity.has-success > div > .twitter-typeahead input {
   border-bottom: 2px solid #5dca88;
 }
+/* line 125, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection {
+  padding-left: 5px;
+  background: transparent none repeat scroll 0 0;
+  border: 0px;
+  border-radius: 0;
+  border-bottom: 2px solid #dddddd;
+}
+/* line 131, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-signupform-companysector-container {
+  font-size: 16px;
+  color: #fff;
+}
+/* line 135, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-selection__arrow {
+  border: 0px;
+}
+/* line 148, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector.has-success div.input-group span.select2-container--krajee span.selection span.select2-selection {
+  border-bottom: 2px solid #5dca88;
+}
 
-/* line 123, ../sass/_login.scss */
+/* line 165, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 129, ../sass/_login.scss */
+/* line 171, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
+}
+
+/* line 182, ../sass/_login.scss */
+.select2-container .select2-dropdown {
+  border: none;
+  border-radius: 0px;
+  background-color: rgba(45, 49, 47, 0.95);
+  box-shadow: 0 0 5px 1px #9c9c9c;
+}
+/* line 188, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-search input.select2-search__field {
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 2px solid #dddddd;
+  background: transparent url("/images/search.png") no-repeat scroll right 10px top 7px;
+  color: #fff;
+}
+/* line 196, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results {
+  padding: 4px;
+}
+/* line 199, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option {
+  background: transparent none repeat scroll 0 0;
+  color: #fff;
+}
+/* line 202, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > strong.select2-results__group {
+  background-color: #5dca88;
+  border: none;
+  color: #fff;
+}
+/* line 208, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li {
+  background: transparent none repeat scroll 0 0;
+  color: #fff;
+}
+/* line 212, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li[aria-selected="true"] {
+  color: #5dca88;
+}
+
+/* line 222, ../sass/_login.scss */
+.select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
+  background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
+  color: #5dca88;
+}
+
+/* line 227, ../sass/_login.scss */
+.select2-container--krajee.select2-container--open .select2-selection {
+  box-shadow: none;
 }
 
 /* line 3, ../sass/_dashboard.scss */
