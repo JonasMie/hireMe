@@ -41,11 +41,6 @@ return [
                     'clientId' => '58721707988-v5app0rim8mk4pqan11dq8hh95nvph2o.apps.googleusercontent.com',
                     'clientSecret' => 'sNlR14tzduh9Z1n9SXyYodKZ'
                 ],
-                'github' => [
-                    'class' => 'yii\authclient\clients\GitHub',
-                    'clientId' => '3e128b840ff4613e0af4',
-                    'clientSecret' => '94c1823503f80cb2738ff19434d2c5eddcd95871'
-                ],
                 'twitter' => [
                     'class' => 'yii\authclient\clients\Twitter',
                     'consumerKey' => '8ULtNfLiZJrvl5TanxDUkMEAg',
@@ -55,12 +50,8 @@ return [
                     'class' => 'yii\authclient\clients\LinkedIn',
                     'clientId' => '75g3owrkn1hj8d',
                     'clientSecret' => 'SJDPnnOxD9e1qsUi',
-                ],
-                'xing' => [
-                    'class' => 'frontend\customAuth\Xing',
-                    'consumerKey' => '18cdca9317c098c0803e',
-                    'consumerSecret' => '9722ecc7f213cd8553c59b9131cd3f5cb2812dc7'
-                 ]
+                ]
+
             ],
         ],
         'urlManager' => [

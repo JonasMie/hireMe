@@ -3,6 +3,81 @@
 body.action-login {
   .site-login {
 
+    //Social Login
+
+    .login-field {
+      @media (max-width: 767px) {
+        height: 530px;
+      }
+    }
+
+    div.auth-clients {
+      float: right;
+      position: relative;
+      left: -50%;
+      text-align: left;
+      ul.auth-clients {
+        list-style: none;
+        position: relative;
+        left: 50%;
+        li.auth-client {
+          margin-bottom: 20px;
+          a {
+            float: left;
+            text-align: center;
+            white-space: nowrap;
+            .auth-icon {
+              background-attachment: scroll;
+              background-clip: border-box;
+              background-color: transparent;
+              background-image: url("/images/authchoice.png");
+              background-origin: padding-box;
+              background-repeat: no-repeat;
+              background-size: auto auto;
+              display: block;
+              height: 32px;
+              width: 32px;
+            }
+            .auth-title {
+              color: #fff;
+              font-size: 13px;
+              -webkit-transition: color 0.2s ease-in-out;
+              -moz-transition: color 0.2s ease-in-out;
+              -ms-transition: color 0.2s ease-in-out;
+              -o-transition: color 0.2s ease-in-out;
+              transition: color 0.2s ease-in-out;
+            }
+          }
+        }
+        li:hover {
+          a {
+            .auth-icon {
+              background-image: url("/images/authchoiceHover.png");
+            }
+            .auth-title {
+              color: $green;
+            }
+          }
+        }
+        li:nth-of-type(4) {
+          margin-right: 0px;
+        }
+
+        @media (min-width: 768px) and (max-width: 959px) {
+          padding-left: 19%;
+          padding-right: 19%;
+          li:nth-of-type(2), li:nth-of-type(4) {
+            margin-right: 0px;
+            float: right;
+          }
+        }
+      }
+    }
+
+    //END Social Login
+
+
+
     //$placeholderColor: #fff;
     //
     //::-webkit-input-placeholder {
@@ -52,6 +127,7 @@ body.action-login {
         margin-bottom: 50px;
         a {
           color: #fff;
+          font-size: 13px;
           &:hover {
             color: $green;
           }
