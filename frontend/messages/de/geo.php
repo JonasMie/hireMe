@@ -13,4 +13,5 @@ return [
     'Lon'  => 'Längengrad',
     'City' => 'Stadt',
     'Zip'  => 'Postleitzahl',
+    'Distance' => 'Distanz',
 ];

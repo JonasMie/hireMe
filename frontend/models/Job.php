@@ -48,11 +48,11 @@ class Job extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'description', 'sector', 'company_id', 'active', 'type', 'time'], 'required'],
-            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
+            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated', 'distance'], 'integer'],
             [['job_begin', 'job_end', 'created_at', 'updated_at'], 'safe'],
             [['description', 'city'], 'string', 'max' => 255],
             [['title'], 'string', 'max' => 100],
-            [['id'], 'unique']
+            [['id'], 'unique'],
         ];
     }
 
@@ -77,6 +77,7 @@ class Job extends \yii\db\ActiveRecord
             'city' => Yii::t('geo','City'),
             'time' => Yii::t('job','Time'),
             'allocated' => Yii::t('job','Allocated'),
+            'distance' => Yii::t('geo', 'Distance'),
         ];
     }
 

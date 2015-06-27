@@ -39,6 +39,7 @@ use yii\web\Response;
  * @property integer        $visibility
  * @property string         $birthday
  * @property string         $position
+ * @property integer        $geo_id
  * @property Favourites[]   $favourites
  * @property JobContacts[]  $jobContacts
  * @property Message[]      $messages
@@ -79,7 +80,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['firstName', 'lastName', 'auth_key', 'email', 'fullName'], 'required'],
-            [['status', 'is_recruiter', 'company_id', 'created_at', 'updated_at', 'picture_id', 'visibility'], 'integer'],
+            [['status', 'is_recruiter', 'company_id', 'created_at', 'updated_at', 'picture_id', 'visibility', 'geo_id'], 'integer'],
             [['birthday'], 'safe'],
             [['firstName', 'lastName', 'password_hash', 'password_reset_token', 'email', 'username', 'fullName'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],

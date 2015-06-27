@@ -11,46 +11,68 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
 
+include Yii::getAlias('@helper/companySignup.php');
 ?>
     <div class="job-view">
 
         <h1><?= Html::encode($this->title) ?></h1>
+        <?
+        //        if (Yii::$app->user->identity->isRecruiter()): ?>
 
-        <p>
-            <? if (Yii::$app->user->identity->isRecruiter()): ?>
+        <? //= Html::a(Yii::t('app', 'Update'), ['update-job', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <? //= Html::a(Yii::t('app', 'Delete'), ['delete-job', 'id' => $model->id], [
+        //                'class' => 'btn btn-danger',
+        //                'data'  => [
+        //                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+        //                    'method'  => 'post',
+        //                ],
+        //            ]) ?>
 
-                <?= Html::a(Yii::t('app', 'Update'), ['update-job', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                <?= Html::a(Yii::t('app', 'Delete'), ['delete-job', 'id' => $model->id], [
-                    'class' => 'btn btn-danger',
-                    'data'  => [
-                        'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                        'method'  => 'post',
-                    ],
-                ]) ?>
+        <? // endif; ?>
 
-            <? endif; ?>
 
-        </p>
-
-        <?= DetailView::widget([
-            'model'      => $model,
-            'attributes' => [
-                'title',
-                'description',
-                'job_begin',
-                'job_end',
-                'zip',
-                'sector',
-                [                      // the owner name of the model
-                    'label' => 'Company',
-                    'value' => Company::getNameById($model->company_id),
-                ],
-                'active',
-                'created_at',
-                'city',
-                'time:datetime',
-            ],
-        ]) ?>
+        <div>
+            Stellenbezeichnung: <?= $model->title?>
+        </div>
+        <div>
+            Beschreibung: <?= $model->description?>
+        </div>
+        <div>
+            Unternehmen: <?= Html::a($model->company->name, ['/company/view', 'id' => $model->company_id]) ?>
+        </div>
+        <div>
+            Beginn: <?= Yii::$app->formatter->asDate($model->job_begin)?>
+        </div>
+        <div>
+            Ende: <?= Yii::$app->formatter->asDate($model->job_end)?>
+        </div>
+        <div>
+            Ort: <?= $model->zip ." " .$model->city ?>
+        </div>
+        <div>
+            Branche: <?=$sectorList[$model->sector] ?>
+        </div>
+<?
+//=DetailView::widget([
+//            'model'      => $model,
+//            'attributes' => [
+//                'title',
+//                'description',
+//                'job_begin',
+//                'job_end',
+//                'zip',
+//                'sector',
+//                [                      // the owner name of the model
+//                    'label' => 'Company',
+//                    'value' => Company::getNameById($model->company_id),
+//                ],
+//                'active',
+//                'created_at',
+//                'city',
+//                'time:datetime',
+//            ],
+//        ])
+?>
 
         <? if (Yii::$app->user->identity->isRecruiter()): ?>
             <?= GridView::widget([
@@ -74,18 +96,18 @@ use yii\grid\GridView;
             } else {
                 echo Html::a(Html::button("Jetzt bewerben"), "/job/apply-intern?id=" . $model->id);
             }
+
+            $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $model->id, 'user_id' => Yii::$app->user->getId()])->count() > 0;
+            if ($inFavourites) {
+                $label = "Aus Favoriten entfernen";
+                $class = "remove";
+            } else {
+                $label = "Zu Favoriten hinzufügen";
+                $class = "add";
+            }
+            echo Html::a($label, '#', ['data-job' => $model->id, 'class' => $class, 'id' => 'toggleFavourite']);
         endif;
 
-
-        $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $model->id, 'user_id' => Yii::$app->user->getId()])->count()> 0;
-        if ($inFavourites) {
-            $label = "Aus Favoriten entfernen";
-            $class = "remove";
-        } else {
-            $label = "Zu Favoriten hinzufügen";
-            $class = "add";
-        }
-        echo Html::a($label, '#', ['data-job' => $model->id, 'class' => $class, 'id' => 'toggleFavourite']);
         ?>
     </div>
 
