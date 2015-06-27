@@ -25,10 +25,10 @@ class MessageController extends Controller
         return [
             'access'      => [
                 'class' => AccessControl::className(),
-                'only'  => ['view', 'index', 'delete','create'],
+                'only'  => ['view', 'index','create'],
                 'rules' => [
                     [
-                        'actions'       => ['view', 'delete'],
+                        'actions'       => ['view'],
                         'allow'         => true,
                         'matchCallback' => function () {
                             $messageModel = new Message();
@@ -145,7 +145,7 @@ class MessageController extends Controller
      *
      * @return mixed
      */
-    public function actionDelete()          // TODO: make sure, only authorized user can delete messages (can only delete their own)
+    public function actionDelete()
     {
         $id = Yii::$app->request->get('id');
         $keys = Yii::$app->request->post('keys');

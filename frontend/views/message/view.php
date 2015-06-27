@@ -34,14 +34,12 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
         } ?>
 
 
-
-
     </h1>
 
     <div class="buttonsMessageView">
 
-        <? if (True) {
-        // if (Yii::$app->user->getId() === $model->receiver_id) {
+        <? if (true) {
+            // if (Yii::$app->user->getId() === $model->receiver_id) {
             echo Html::a(Yii::t('app', '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Löschen'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-default ripple',
                 'data'  => [
@@ -52,7 +50,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
         } ?>
 
         <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Antworten'), '#', [
-            'class' => 'btn btn-success',
+            'class'       => 'btn btn-success',
             'data-toggle' => 'modal',
             'data-target' => '#replyModal'
 //            'data'  => [
@@ -84,17 +82,18 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
     </div>
 
     <div class="attachmentMessageView">
-        <?if (!empty($attachments)) {
+        <? if (!empty($attachments)) {
 
             foreach ($attachments as $attachment) {
                 switch ($attachment->file->extension) {
                     case "png":
                     case "jpg":
                     case "gif":
-                    echo Html::img("/uploads/messattachments" . $attachment->file->path . "." . $attachment->file->extension);
+                    case "jpeg":
+                    echo Html::img("/uploads/messattachments" . $attachment->file->path . "." . $attachment->file->extension, ['class'=>'img-responsive']);
                         break;
                     case "pdf":
-                        echo Html::a($attachment->file->title . "." . $attachment->file->extension, "/uploads/messattachments" . $attachment->file->path . "." . $attachment->file->extension, ['target'=>'_blank']);
+                        echo Html::a($attachment->file->title . "." . $attachment->file->extension, "/uploads/messattachments" . $attachment->file->path . "." . $attachment->file->extension, ['target' => '_blank']);
                         break;
                 }
             }
@@ -104,7 +103,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 
     <div class="buttonsMessageView">
 
-        <? if (True) {
+        <? if (true) {
             // if (Yii::$app->user->getId() === $model->receiver_id) {
             echo Html::a(Yii::t('app', '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Löschen'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-default ripple',
@@ -116,7 +115,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
         } ?>
 
         <?= Html::a(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Antworten'), '#', [
-            'class' => 'btn btn-success',
+            'class'       => 'btn btn-success',
             'data-toggle' => 'modal',
             'data-target' => '#replyModal'
 //            'data'  => [
@@ -142,7 +141,8 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Antworten</h4>
             </div>
             <div class="modal-body">
@@ -158,13 +158,13 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 
                     <?= $form->field($reply, 'subject', ['options' => ['class' => 'input-in-focus allowPrefill']])->textInput(['maxlength' => 255]) ?>
 
-                    <?= $form->field($reply, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...'] ], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15])  ->label(false) ?>
+                    <?= $form->field($reply, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15])->label(false) ?>
 
 
-                    <?= Html::activeHiddenInput($reply, 'receiver_id') // TODO: check if exists       ?>
+                    <?= Html::activeHiddenInput($reply, 'receiver_id') // TODO: check if exists        ?>
 
                     <?= $form->field($reply, 'attachment')->fileInput()->label('Anhang hinzufügen'); ?>
-                    <?= Html::activeHiddenInput($reply, 'flow')?>
+                    <?= Html::activeHiddenInput($reply, 'flow') ?>
                     <div class="form-group">
                     </div>
 

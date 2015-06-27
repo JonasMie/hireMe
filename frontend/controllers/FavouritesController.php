@@ -76,7 +76,7 @@ class FavouritesController extends Controller
         } else if (!is_null($keys) && is_array($keys)) {
             Favourites::deleteAll(['and', ['in','id',$keys], 'user_id = ' . Yii::$app->user->getId()]);
         }
-        return $this->redirect('index');
+        return $this->redirect('/favourites');
     }
 
     /**

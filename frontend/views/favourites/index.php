@@ -93,12 +93,9 @@ $this->title = Yii::t('app', 'Favoriten');
 						'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'fifth-col']
 					],
 				],
-				/*'showFooter' => true,*/
 			]); ?>
-			
-			<? // TODO: (analog message/index.php) check functionality when correctly arranged ?>
 
-			<div class="dropdown" id="bulkActions">
+			<div class="dropdown" id="bulkActions" data-index="0">
 				<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success">
 					Aktion
 					<span class="caret"></span>

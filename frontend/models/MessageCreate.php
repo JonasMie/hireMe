@@ -57,7 +57,7 @@ class MessageCreate extends Model
             [['receiver_id', 'read', 'flow'], 'integer'],
             [['sent_at'], 'safe'],
             [['subject'], 'string', 'max' => 255],
-            [['attachment'], 'file', 'extensions' => ['png', 'pdf', 'jpg']],
+            [['attachment'], 'file', 'extensions' => ['png', 'pdf', 'jpg', 'jpeg']],
         ];
     }
 

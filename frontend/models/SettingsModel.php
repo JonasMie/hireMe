@@ -65,7 +65,7 @@ class SettingsModel extends Model
             }],
 
             ['visibility', 'in', 'range' => [0, 1, 2]],
-            ['picture', 'file', 'extensions' => ['jpg', 'png']],
+            ['picture', 'file', 'extensions' => ['jpg', 'png', 'jpeg']],
             ['plz', 'exist', 'targetClass' => Geo::className(), 'targetAttribute' => 'plz'],
         ];
     }
