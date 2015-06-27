@@ -769,7 +769,7 @@ body ul.pagination li.disabled span {
   color: #9d9d9d;
 }
 /* line 200, ../sass/_basicTemplate.scss */
-body .icheckbox_flat-green {
+body .icheckbox_flat-green, body .iradio_flat-green {
   display: inline-block;
   *display: inline;
   vertical-align: middle;
@@ -783,32 +783,49 @@ body .icheckbox_flat-green {
   background-position: 0 0;
 }
 /* line 214, ../sass/_basicTemplate.scss */
+body .iradio_flat-green {
+  background-position: -88px 0;
+}
+/* line 218, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked {
   background-position: -22px 0;
 }
-/* line 217, ../sass/_basicTemplate.scss */
+/* line 222, ../sass/_basicTemplate.scss */
+body .iradio_flat-green.checked {
+  background-position: -110px 0;
+}
+/* line 226, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.disabled {
   background-position: -44px 0;
   cursor: default;
 }
-/* line 221, ../sass/_basicTemplate.scss */
+/* line 231, ../sass/_basicTemplate.scss */
+body .iradio_flat-green.disabled {
+  background-position: -132px 0;
+  cursor: default;
+}
+/* line 236, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked.disabled {
   background-position: -66px 0;
 }
+/* line 240, ../sass/_basicTemplate.scss */
+body .iradio_flat-green.checked.disabled {
+  background-position: -154px 0;
+}
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-  /* line 227, ../sass/_basicTemplate.scss */
-  body .icheckbox_flat-green {
+  /* line 246, ../sass/_basicTemplate.scss */
+  body .icheckbox_flat-green, body .iradio_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
-/* line 237, ../sass/_basicTemplate.scss */
+/* line 256, ../sass/_basicTemplate.scss */
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
-/* line 241, ../sass/_basicTemplate.scss */
+/* line 260, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -822,11 +839,11 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-/* line 250, ../sass/_basicTemplate.scss */
+/* line 269, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 255, ../sass/_basicTemplate.scss */
+/* line 274, ../sass/_basicTemplate.scss */
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -838,13 +855,13 @@ body .form-group textarea {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 262, ../sass/_basicTemplate.scss */
+/* line 281, ../sass/_basicTemplate.scss */
 body .form-group textarea:focus {
   box-shadow: none;
   border-bottom: 2px solid #5dca88;
   border-top: 2px solid #5dca88;
 }
-/* line 269, ../sass/_basicTemplate.scss */
+/* line 288, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -855,7 +872,7 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 282, ../sass/_basicTemplate.scss */
+/* line 301, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-signupform-companysector,
@@ -869,7 +886,7 @@ body .form-group.field-resumeschool-report_id,
 body .field-settingsmodel-visibility {
   position: static;
 }
-/* line 294, ../sass/_basicTemplate.scss */
+/* line 313, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-signupform-companysector label,
@@ -883,33 +900,33 @@ body .form-group.field-resumeschool-report_id label,
 body .field-settingsmodel-visibility label {
   position: static;
 }
-/* line 305, ../sass/_basicTemplate.scss */
+/* line 324, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 308, ../sass/_basicTemplate.scss */
+/* line 327, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 313, ../sass/_basicTemplate.scss */
+/* line 332, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 315, ../sass/_basicTemplate.scss */
+/* line 334, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 322, ../sass/_basicTemplate.scss */
+/* line 341, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 332, ../sass/_basicTemplate.scss */
+/* line 351, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 338, ../sass/_basicTemplate.scss */
+/* line 357, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -920,21 +937,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 350, ../sass/_basicTemplate.scss */
+/* line 369, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 358, ../sass/_basicTemplate.scss */
+/* line 377, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 361, ../sass/_basicTemplate.scss */
+/* line 380, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 365, ../sass/_basicTemplate.scss */
+/* line 384, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -944,63 +961,63 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 370, ../sass/_basicTemplate.scss */
+/* line 389, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 375, ../sass/_basicTemplate.scss */
+/* line 394, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 377, ../sass/_basicTemplate.scss */
+/* line 396, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 381, ../sass/_basicTemplate.scss */
+/* line 400, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 391, ../sass/_basicTemplate.scss */
+/* line 410, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 399, ../sass/_basicTemplate.scss */
+/* line 418, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 407, ../sass/_basicTemplate.scss */
+/* line 426, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 413, ../sass/_basicTemplate.scss */
+/* line 432, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 420, ../sass/_basicTemplate.scss */
+/* line 439, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 426, ../sass/_basicTemplate.scss */
+/* line 445, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 434, ../sass/_basicTemplate.scss */
+/* line 453, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
-/* line 438, ../sass/_basicTemplate.scss */
+/* line 457, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }

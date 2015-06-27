@@ -28,7 +28,7 @@ $(document).ready(function(){
     /** INITIALIZING ICHECK **/
     $('input').iCheck({
         checkboxClass: 'icheckbox_flat-green',
-        radioClass: 'iradio_flat'
+        radioClass: 'iradio_flat-green'
     });
 
 
