@@ -875,8 +875,6 @@ body .form-group label {
 /* line 301, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
-body .form-group.field-signupform-companysector,
-body .form-group.field-signupform-companyemployees,
 body .form-group.field-settingsmodel-picture,
 body .form-group.field-resumejob-current,
 body .form-group.field-resumejob-report_id,
@@ -886,11 +884,9 @@ body .form-group.field-resumeschool-report_id,
 body .field-settingsmodel-visibility {
   position: static;
 }
-/* line 313, ../sass/_basicTemplate.scss */
+/* line 311, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
-body .form-group.field-signupform-companysector label,
-body .form-group.field-signupform-companyemployees label,
 body .form-group.field-settingsmodel-picture label,
 body .form-group.field-resumejob-current label,
 body .form-group.field-resumejob-report_id label,
@@ -900,33 +896,33 @@ body .form-group.field-resumeschool-report_id label,
 body .field-settingsmodel-visibility label {
   position: static;
 }
-/* line 324, ../sass/_basicTemplate.scss */
+/* line 322, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 327, ../sass/_basicTemplate.scss */
+/* line 325, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 332, ../sass/_basicTemplate.scss */
+/* line 330, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 334, ../sass/_basicTemplate.scss */
+/* line 332, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 341, ../sass/_basicTemplate.scss */
+/* line 339, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 351, ../sass/_basicTemplate.scss */
+/* line 349, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 357, ../sass/_basicTemplate.scss */
+/* line 355, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -937,21 +933,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 369, ../sass/_basicTemplate.scss */
+/* line 367, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 377, ../sass/_basicTemplate.scss */
+/* line 375, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 380, ../sass/_basicTemplate.scss */
+/* line 378, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 384, ../sass/_basicTemplate.scss */
+/* line 382, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -961,63 +957,63 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 389, ../sass/_basicTemplate.scss */
+/* line 387, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 394, ../sass/_basicTemplate.scss */
+/* line 392, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 396, ../sass/_basicTemplate.scss */
+/* line 394, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 400, ../sass/_basicTemplate.scss */
+/* line 398, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 410, ../sass/_basicTemplate.scss */
+/* line 408, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 418, ../sass/_basicTemplate.scss */
+/* line 416, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 426, ../sass/_basicTemplate.scss */
+/* line 424, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 432, ../sass/_basicTemplate.scss */
+/* line 430, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 439, ../sass/_basicTemplate.scss */
+/* line 437, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 445, ../sass/_basicTemplate.scss */
+/* line 443, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 453, ../sass/_basicTemplate.scss */
+/* line 451, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
-/* line 457, ../sass/_basicTemplate.scss */
+/* line 455, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
@@ -1064,39 +1060,178 @@ body.action-login .site-login #login-form .requestNewPassword a {
 body.action-login .site-login #login-form .requestNewPassword a:hover {
   color: #5dca88;
 }
-/* line 66, ../sass/_login.scss */
+/* line 61, ../sass/_login.scss */
+body.action-login .site-login #login-form .field-loginform-rememberme label[for="loginform-rememberme"] {
+  padding-left: 0px;
+}
+/* line 67, ../sass/_login.scss */
 body.action-login .site-login .auth-clients {
   overflow: inherit;
   min-height: 100px;
 }
-/* line 73, ../sass/_login.scss */
-body.action-login .site-login #form-signup .field-signupform-checkcompanysignup .icheckbox_flat-green {
-  margin-right: 10px;
+/* line 74, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-checkcompanysignup label[for="checkCompanySignup"] {
+  padding-left: 0px;
 }
-/* line 78, ../sass/_login.scss */
+/* line 79, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup {
   margin-top: 60px;
 }
-/* line 81, ../sass/_login.scss */
+/* line 82, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees {
   text-align: left;
 }
-/* line 83, ../sass/_login.scss */
+/* line 84, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector select, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees select {
   margin-top: 10px;
 }
+/* line 92, ../sass/_login.scss */
+body.action-login .site-login #form-signup span.twitter-typeahead span.tt-dropdown-menu {
+  border-radius: 0px;
+  background-color: rgba(45, 49, 47, 0.95);
+  box-shadow: 0 0 5px 1px #9c9c9c;
+}
+/* line 96, ../sass/_login.scss */
+body.action-login .site-login #form-signup span.twitter-typeahead span.tt-dropdown-menu div.tt-suggestion {
+  text-align: left;
+}
+/* line 98, ../sass/_login.scss */
+body.action-login .site-login #form-signup span.twitter-typeahead span.tt-dropdown-menu div.tt-suggestion > p {
+  color: #fff;
+}
+/* line 110, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companyname.has-success > div > .twitter-typeahead input,
+body.action-login .site-login #form-signup .field-signupform-companyaddresszip.has-success > div > .twitter-typeahead input,
+body.action-login .site-login #form-signup .field-signupform-companyaddresscity.has-success > div > .twitter-typeahead input {
+  border-bottom: 2px solid #5dca88;
+}
+/* line 125, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection {
+  padding-left: 5px;
+  background: transparent none repeat scroll 0 0;
+  border: 0px;
+  border-radius: 0;
+  border-bottom: 2px solid #dddddd;
+}
+/* line 131, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection #select2-signupform-companysector-container {
+  font-size: 16px;
+  color: #fff;
+}
+/* line 135, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-selection__arrow {
+  border: 0px;
+}
+/* line 150, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companyemployees div.input-group span.select2-container--krajee span.selection span.select2-selection {
+  padding-left: 5px;
+  background: transparent none repeat scroll 0 0;
+  border: 0px;
+  border-radius: 0;
+  border-bottom: 2px solid #dddddd;
+}
+/* line 156, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companyemployees div.input-group span.select2-container--krajee span.selection span.select2-selection #select2-signupform-companyemployees-container {
+  font-size: 16px;
+  color: #fff;
+}
+/* line 160, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companyemployees div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-selection__arrow {
+  border: 0px;
+}
+/* line 173, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-companysector.has-success div.input-group span.select2-container--krajee span.selection span.select2-selection, body.action-login .site-login #form-signup .field-signupform-companyemployees.has-success div.input-group span.select2-container--krajee span.selection span.select2-selection {
+  border-bottom: 2px solid #5dca88;
+}
 
-/* line 97, ../sass/_login.scss */
+/* line 187, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 103, ../sass/_login.scss */
+/* line 193, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
+}
+
+/* line 204, ../sass/_login.scss */
+.select2-container .select2-dropdown {
+  border: none;
+  border-radius: 0px;
+  background-color: rgba(45, 49, 47, 0.95);
+  box-shadow: 0 0 5px 1px #9c9c9c;
+}
+/* line 210, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-search input.select2-search__field {
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 2px solid #dddddd;
+  background: transparent url("/images/search.png") no-repeat scroll right 10px top 7px;
+  color: #fff;
+}
+/* line 218, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results {
+  padding: 4px;
+}
+/* line 221, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option {
+  background: transparent none repeat scroll 0 0;
+  color: #fff;
+}
+/* line 224, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > strong.select2-results__group {
+  background-color: #5dca88;
+  border: none;
+  color: #fff;
+}
+/* line 230, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li {
+  background: transparent none repeat scroll 0 0;
+  color: #fff;
+}
+/* line 234, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li[aria-selected="true"] {
+  color: #5dca88;
+}
+/* line 237, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li.select2-results__option--highlighted {
+  background-color: rgba(93, 202, 136, 0.2);
+}
+/* line 246, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-search {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+/* line 250, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-results {
+  padding-top: 0px;
+}
+/* line 253, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li:nth-of-type(1) {
+  padding: 0;
+}
+/* line 256, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option {
+  background: transparent none repeat scroll 0 0;
+  color: #fff;
+}
+/* line 260, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option--highlighted {
+  background-color: rgba(93, 202, 136, 0.2);
+}
+
+/* line 269, ../sass/_login.scss */
+.select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
+  background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
+  color: #5dca88;
+}
+
+/* line 274, ../sass/_login.scss */
+.select2-container--krajee.select2-container--open .select2-selection {
+  box-shadow: none;
 }
 
 /* line 3, ../sass/_dashboard.scss */

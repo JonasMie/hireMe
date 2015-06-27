@@ -34,7 +34,7 @@ include Yii::getAlias('@helper/companySignup.php');
 
             <?= $form->field($loginModel, 'email', ['inputOptions' => ['class' => 'form-control typeStart']])->label('E-Mail'); ?>
             <?= $form->field($loginModel, 'password')->passwordInput()->label('Passwort'); ?>
-            <!--<?= $form->field($loginModel, 'rememberMe')->checkbox() ?>-->
+            <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
 
 
             <div class="form-group SubmitLogin">
@@ -145,11 +145,11 @@ include Yii::getAlias('@helper/companySignup.php');
 
                 <?= $form->field($signupModel, 'companySector')->widget(\kartik\select2\Select2::className(), [
                     'data' => $sectors,
-                    'options' => ['prompt' => 'Branche wählen'],
+                    'options' => ['prompt' => ''],
                 ])->label('Branche') ?>
                 <?= $form->field($signupModel, 'companyEmployees')->widget(\kartik\select2\Select2::className(), [
                     'data' => $employeeAmount,
-                    'options' => ['prompt' => 'Anzahl der Beschäftigten'],
+                    'options' => ['prompt' => ''],
                     'hideSearch' => true,
                 ])->label('Anzahl der Mitarbeiter') ?>
             </div>
