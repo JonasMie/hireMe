@@ -29,7 +29,7 @@ class SettingsModel extends Model
     public $password_repeat;
     public $oldPassword;
     public $picture;
-
+    public $plz;
 
     /**
      * @inheritdoc
@@ -52,7 +52,7 @@ class SettingsModel extends Model
             }, 'whenClient'                        => "function(attribute,value){
                     return $('#settingsmodel-password').val()!='';
             }"],
-            ['password_repeat', 'compare','compareAttribute' => 'password'],
+            ['password_repeat', 'compare', 'compareAttribute' => 'password'],
             ['oldPassword', 'required', 'when' => function ($model) {
                 return !empty($model->password);
             }, 'whenClient'                    => "function(attribute,value){
@@ -66,6 +66,7 @@ class SettingsModel extends Model
 
             ['visibility', 'in', 'range' => [0, 1, 2]],
             ['picture', 'file', 'extensions' => ['jpg', 'png']],
+            ['plz', 'exist', 'targetClass' => Geo::className(), 'targetAttribute' => 'plz'],
         ];
     }
 
@@ -80,6 +81,7 @@ class SettingsModel extends Model
             'password'        => 'Neues Passwort',
             'password_repeat' => 'Passwort-Bestätigung',
             'picture'         => 'Profilbild',
+            'plz'             => Yii::t('geo', 'plz')
         ];
     }
 
@@ -96,8 +98,13 @@ class SettingsModel extends Model
             if (isset($imageId) && $imageId) {
                 $user->picture_id = $imageId;
             }
+            if(isset($this->plz)){
+                $geo = Geo::findOne(['plz' => $this->plz]);
+                $user->geo_id = $geo->id;
+            }
             $user->email = $this->email;
             $user->visibility = $this->visibility;
+
             if (!empty($this->password)) {
                 $user->setPassword($this->password);
             }

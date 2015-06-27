@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\behaviours\BodyClassBehaviour;
+use frontend\models\Geo;
 use Yii;
 use frontend\models\Job;
 use frontend\models\Company;
@@ -11,6 +12,9 @@ use frontend\models\Application;
 use common\models\User;
 use frontend\models\JobSearch;
 use frontend\models\ApplyBtn;
+use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
+use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -86,7 +90,7 @@ class JobController extends Controller
      * Lists all Job models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($dist = null)
     {
         if (Yii::$app->user->identity->isRecruiter()) {
             $companyId = Yii::$app->user->identity->getCompanyId();
@@ -105,13 +109,16 @@ class JobController extends Controller
             ]);
 
         } else {
-
-            $jobs = new JobSearch();
-            $dataProvider = $jobs->search(['JobSearch']);
+            if (isset(Yii::$app->user->identity->geo_id)) {
+                $jobs = $this->findJobRadius($dist)->all();
+                $dataProvider = new ArrayDataProvider(['allModels' => $jobs]);
+            } else {
+                $jobs = Job::find();
+                $dataProvider = new ActiveDataProvider(['query' => $jobs]);
+            }
 
             return $this->render('index', [
-                'indiTitle' => "Nur für dich, " . Yii::$app->user->identity->getName() . " <3",
-                'provider'  => $dataProvider,
+                'provider' => $dataProvider,
             ]);
 
         }
@@ -175,20 +182,20 @@ class JobController extends Controller
 
     }
 
-     public function actionSaveCover() {
+    public function actionSaveCover()
+    {
 
-         if (Yii::$app->request->isAjax) {
+        if (Yii::$app->request->isAjax) {
 
-              $model = new CoverCreateForm();
-              $model->app = Yii::$app->request->get('app');
-              $text = Yii::$app->request->get('text');
-              $model->text = $text;
-              if($model->create() == true) {
+            $model = new CoverCreateForm();
+            $model->app = Yii::$app->request->get('app');
+            $text = Yii::$app->request->get('text');
+            $model->text = $text;
+            if ($model->create() == true) {
                 return "Deine Bewerbung wurde gespeichert.";
-              }
-              else {
+            } else {
                 return "Leider gab es einen Fehler beim Speichern der Bewerbung.";
-              }
+            }
         }
     }
     
@@ -351,8 +358,6 @@ class JobController extends Controller
        
         $this->renderAjax("sentAppData");
         $this->renderAjax("possibleAppData");
-
-
     }
 
     public function actionApply($key, $user)
@@ -689,5 +694,54 @@ class JobController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function findJobRadius($dist)
+    {
+        $earthRadius = 6371;
+        $geo = Geo::findOne(['id' => Yii::$app->user->identity->geo_id]);
+
+        $lat = $geo->lat;
+        $lon = $geo->lon;
+
+
+        if (isset($dist)) {
+            // first-cut bounding box (in degrees)
+            $maxLat = $lat + rad2deg($dist / $earthRadius);
+            $minLat = $lat - rad2deg($dist / $earthRadius);
+
+            // compensate for degrees longitude getting smaller with increasing latitude
+            $maxLon = $lon + rad2deg($dist / $earthRadius / cos(deg2rad($lat)));
+            $minLon = $lon - rad2deg($dist / $earthRadius / cos(deg2rad($lat)));
+        }
+
+        $lat = deg2rad($lat);
+        $lon = deg2rad($lon);
+
+
+        if (isset($dist)) {
+            $distQuery = (new Query())
+                ->select(['plz', 'city', "distance" => "acos(sin($lat)*sin(radians(lat)) + cos($lat)*cos(radians(lat))*cos(radians(lon)-$lon)) * $earthRadius"])
+                ->from(['firstCut' => (new Query())
+                    ->select(['id', 'plz', 'city', 'lat', 'lon'])
+                    ->from('geo')
+                    ->where(['and', ['between', 'lat', $minLat, $maxLat], ['between', 'lon', $minLon, $maxLon]])])
+                ->where("acos(sin($lat)*sin(radians(lat)) + cos($lat)*cos(radians(lat))*cos(radians(lon)-$lon)) * $earthRadius < $dist");
+        } else {
+            $distQuery = (new Query())
+                ->select(['plz', 'city', "distance" => "acos(sin($lat)*sin(radians(lat)) + cos($lat)*cos(radians(lat))*cos(radians(lon)-$lon)) * $earthRadius"])
+                ->from('geo');
+        }
+
+        return (new Query())
+            ->from('job')
+            ->leftJoin(
+                [
+                    "dist" => $distQuery
+                ]
+                , 'dist.plz = job.zip')
+            ->select(['job.*', 'dist.distance', 'dist.city'])
+            ->orderBy('distance');
+
     }
 }

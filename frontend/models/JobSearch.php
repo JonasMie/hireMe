@@ -8,22 +8,21 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\Job;
 use frontend\models\Application;
+use yii\db\Query;
 
 /**
- * JobSearch represents the model behind the search form about `frontend\models\Job`.
- * JobSearch represents the model behind the search form about `frontend\models\Job`.
- *
  * JobSearch represents the model behind the search form about `frontend\models\Job`.
  */
 class JobSearch extends Job
 {
+    public $distance;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
+            [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated', 'distance'], 'integer'],
             [['description', 'job_begin', 'job_end', 'zip', 'created_at', 'updated_at', 'city'], 'safe'],
         ];
     }
@@ -58,12 +57,6 @@ class JobSearch extends Job
                 'id',
                 'title',
                 'job_begin',
-
-//                'senderName' => [                            // TODO: Fix order by sender
-//                    'asc' => ['user.lastName' => SORT_ASC],
-//                    'desc' => ['user.lastName' => SORT_DESC],
-//                    'label' => 'Von'
-//                ]
             ]
         ]);
 

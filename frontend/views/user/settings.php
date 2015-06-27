@@ -8,8 +8,11 @@
  */
 
 use frontend\assets\ImageAssetBundle;
+use kartik\typeahead\Typeahead;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 
@@ -45,7 +48,7 @@ ImageAssetBundle::register($this);
 
             <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-            <div class="col-sm-4 col-sm-offset-1" id="imgPreviewWrap"  >
+            <div class="col-sm-4 col-sm-offset-1" id="imgPreviewWrap">
                 <h2>Profilbild</h2>
                 <?= $form->field($model, 'picture')->fileInput()->label(false); ?>
 
@@ -75,6 +78,26 @@ ImageAssetBundle::register($this);
                 </div>
 
                 <?= $form->field($model, 'email', ['options' => ['class' => 'allowPrefill']])->textInput()->label('Neue Email-Adresse') ?>
+
+
+                <?
+                $template =
+                    '<p>{{plz}}  -  {{city}}</p>';
+
+                echo $form->field($model, 'plz')->widget(Typeahead::className(), [
+                    'name'         => 'companyAddressCity',
+                    'dataset'      => [
+                        [
+                            'remote'    => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
+                            'limit'     => 10,
+                            'templates' => [
+                                'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
+                                'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                            ],
+                            'displayKey' => 'plz',
+                        ],
+                    ],
+                ])->label('PLZ') ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Speichern', ['class' => 'btn btn-success', 'name' => 'settings-button']) ?>
