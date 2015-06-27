@@ -1172,23 +1172,36 @@ body.action-login .site-login #form-signup .field-signupform-companysector.has-s
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 248, ../sass/_login.scss */
+/* line 246, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-search {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+/* line 250, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-results {
+  padding-top: 0px;
+}
+/* line 253, ../sass/_login.scss */
 .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li:nth-of-type(1) {
   padding: 0;
 }
-/* line 251, ../sass/_login.scss */
+/* line 256, ../sass/_login.scss */
 .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
+/* line 260, ../sass/_login.scss */
+.select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option--highlighted {
+  background-color: rgba(93, 202, 136, 0.2);
+}
 
-/* line 262, ../sass/_login.scss */
+/* line 269, ../sass/_login.scss */
 .select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
   background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
   color: #5dca88;
 }
 
-/* line 267, ../sass/_login.scss */
+/* line 274, ../sass/_login.scss */
 .select2-container--krajee.select2-container--open .select2-selection {
   box-shadow: none;
 }

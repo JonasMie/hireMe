@@ -243,7 +243,12 @@ body.action-login {
     }
   }
   .select2-dropdown.kv-hide-search {
+    .select2-search {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
     .select2-results {
+      padding-top: 0px;
       #select2-signupform-companyemployees-results {
         > li:nth-of-type(1) {
           padding: 0;
@@ -252,7 +257,9 @@ body.action-login {
           background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
           color: #fff;
         }
-
+        > li.select2-results__option--highlighted {
+          background-color: $green20;
+        }
       }
     }
   }
