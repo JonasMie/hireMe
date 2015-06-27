@@ -29,13 +29,17 @@ $this->title = "Stellenanzeigen";
 
 ?>
 
-    <div class="_myjobs">
+    
 
 
         <h1><?= Html::encode($this->title) ?></h1>
-
+		
+		
+		
         <? if (Yii::$app->user->identity->isRecruiter()): ?>
-
+		
+		<div class="jobsRecruiter">
+		<div class="row">
             <?=
             ListView::widget([
                 'dataProvider' => $provider,
@@ -43,11 +47,12 @@ $this->title = "Stellenanzeigen";
                     return $this->render('jobItem', [
                         'model'       => $data,
                         'subProvider' => ApplicationController::getApplicationDataForJob($data['id']),
-
                     ]);
-                }
+                },
+				'options' => ['class' => 'list-view'],
             ]);
             ?>
+		</div>
             <?= Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>") ?>
             <?= GridView::widget([
                 'id'           => 'jobList',
@@ -85,10 +90,11 @@ $this->title = "Stellenanzeigen";
                 'caption'      => Html::decode("<a href='/job/create'><button>Neue Stellenanzeige</button></a>")
             ]);
             ?>
-
+		</div>
 
         <? else: ?>
-
+		<div class="jobsApplicant">
+		
             <?= GridView::widget([
                 'dataProvider' => $provider,
                 'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'jobListTable'],

@@ -231,7 +231,7 @@ class ApplicationController extends Controller
         $job = Job::find()->where(['id' => $app->job_id])->one();
 
         $message = new Message();
-        $message->subject = "Deine Bewerbung auf: ".$job->title;
+        $message->subject = "Deine Bewerbung als: ".$job->title;
         $message->sender_id = $user->id;
         $message->receiver_id = $app->user_id;
 
@@ -256,7 +256,7 @@ class ApplicationController extends Controller
             //Archived application :(
         $app->archived = 1;
         if($app->save()) {
-            $message->content = "Hey do Loser, du warst einfach zu schlecht, hab die Bewerbung sofort gelöscht.... Du penner!";
+            $message->content = "Leider hat sich das Unternehmen nicht für deine Bewerbung entschieden.";
             if($message->save()) {
             $this->redirect("/application");
             }

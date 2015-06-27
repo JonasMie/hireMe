@@ -1,4 +1,84 @@
+.controller-job.action-index{
+
+	// Applicant Stylings
+	
+	div.summary{
+		display:none;
+	}
+	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+	
+	// Recruiter Stylings
+	div.jobsRecruiter{
+		h1{
+			margin-top:0px;
+		}
+		
+		div.list-view{
+			
+			div.list-view{
+				margin-top:10px;
+			}
+			
+			div.jobItem {
+				margin-bottom: 20px;
+				
+				div.info{
+					text-align: center;
+					span.top{
+						display:block;
+						font-size:$fontbase*1.8;
+					}
+					span.glyphicon{
+						font-size:$fontbase*1.4;
+					}
+					
+					span.bottom{
+						display:block;
+					}
+				}
+				
+				@media screen and (max-width:768px){
+					div.info{
+						text-align: left;
+						span.top{
+							display:inline;
+							font-size:$fontbase*1.6;
+						}
+						span.glyphicon{
+							font-size:$fontbase*1.4;
+						}
+						
+						span.bottom{
+							display:inline;
+						}
+					}
+				}
+				
+				div.jobSubItem{
+				
+					span.info.profilePicture{
+						display:block;
+						float:left;
+						margin-right: 10px;
+						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+		
+	}
+}
+
 .controller-job.action-view{
+	
+	// Applicant Stylings
 	
 	div.apply{
 		text-align: right;
@@ -22,18 +102,4 @@
 		}
 	}
 	
-}
-
-.controller-job.action-index{
-	div.summary{
-		display:none;
-	}
-	
-	.footable .footable-row-detail .footable-row-detail-inner{
-		border: none;
-	}
-	
-	.footable-row-detail-cell{
-		border-bottom: 1px solid #dddddd;
-	}
 }
