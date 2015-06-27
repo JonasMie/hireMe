@@ -12,11 +12,6 @@ use yii\web\JsExpression;
 /* @var $loginModel \common\models\LoginForm */
 /* @var $signupModel frontend\models\SignupForm */
 
-
-// Include JS //
-$this->registerJsFile("https://apis.google.com/js/platform.js", array('async' => '', 'defer' => ''));//, 'position'=>'POS_BEGIN'));
-// Include Meta-Tags //
-$this->registerMetaTag(array('name' => 'google-signin-client_id', 'content' => '58721707988-v5app0rim8mk4pqan11dq8hh95nvph2o.apps.googleusercontent.com'));
 $this->title = 'Login';
 
 // SignUp //
@@ -73,7 +68,7 @@ include Yii::getAlias('@helper/companySignup.php');
             <!-- Additional Information for recruiter signups -->
 
 
-            <div class="companySetup" style="display: none">    <? //STYLE: display in css?>
+            <div class="companySetup" style="display: none">
                 <?= $form->field($signupModel, 'companyName')->widget(Typeahead::className(), [
                     'name'       => 'companyName',
                     'dataset'    => [
