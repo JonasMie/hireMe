@@ -31,8 +31,9 @@ $attributes = [
                 ],
 
             ],
-            'options'       => ['id' => 'typeahead-' . $model->id, 'value' => $model->company->name]
-        ]
+            'options'       => ['id' => 'typeahead-' . $model->id, 'value' => $model->company->name, 'class'=>'allowPrefill']
+        ],
+		'inputContainer' => ['class'=>'allowPrefill'],
     ],
     [
         'label'         => 'Von',
@@ -42,8 +43,9 @@ $attributes = [
         'widgetOptions' => [
             'class'   => DateControl::classname(),
             'type'    => DateControl::FORMAT_DATE,
-            'options' => ['id' => 'job-date-begin-' . $model->id]
-        ]
+            'options' => ['id' => 'job-date-begin-' . $model->id, 'class'=>'allowPrefill']
+        ],
+		'inputContainer' => ['class'=>'allowPrefill'],
     ],
     [
         'label'         => 'Bis',
@@ -53,8 +55,9 @@ $attributes = [
         'widgetOptions' => [
             'class'   => DateControl::classname(),
             'type'    => DateControl::FORMAT_DATE,
-            'options' => ['id' => 'job-date-end-' . $model->id]
-        ]
+            'options' => ['id' => 'job-date-end-' . $model->id, 'class'=>'allowPrefill']
+        ],
+		'inputContainer' => ['class'=>'allowPrefill'],
     ],
     [    // TODO: add possibility to remove file
         'label'     => '',
@@ -88,11 +91,12 @@ echo DetailView::widget([
     'attributes'     => $attributes,
     'panel'          => [
         'heading' => $model->type,
-        'type'    => DetailView::TYPE_DEFAULT      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
+        'type'    => DetailView::TYPE_SUCCESS      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
     ],
     'deleteOptions'  => [
         'params' => ['id' => $model->id, 'type' => 'job'],
         'url'    => ['delete'],
+		'label'  => '<span class="glyphicon glyphicon-remove"></span>',
     ],
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
