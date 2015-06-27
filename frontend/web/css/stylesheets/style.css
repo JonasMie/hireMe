@@ -1096,32 +1096,32 @@ body.action-login .site-login #form-signup .field-signupform-companysector div.i
 body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-selection__arrow {
   border: 0px;
 }
-/* line 148, ../sass/_login.scss */
+/* line 147, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companysector.has-success div.input-group span.select2-container--krajee span.selection span.select2-selection {
   border-bottom: 2px solid #5dca88;
 }
 
-/* line 165, ../sass/_login.scss */
+/* line 161, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 171, ../sass/_login.scss */
+/* line 167, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
 }
 
-/* line 182, ../sass/_login.scss */
+/* line 178, ../sass/_login.scss */
 .select2-container .select2-dropdown {
   border: none;
   border-radius: 0px;
   background-color: rgba(45, 49, 47, 0.95);
   box-shadow: 0 0 5px 1px #9c9c9c;
 }
-/* line 188, ../sass/_login.scss */
+/* line 184, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-search input.select2-search__field {
   border-radius: 0px;
   border: 0px;
@@ -1129,38 +1129,42 @@ body.action-login .site-login #form-signup .field-signupform-companysector.has-s
   background: transparent url("/images/search.png") no-repeat scroll right 10px top 7px;
   color: #fff;
 }
-/* line 196, ../sass/_login.scss */
+/* line 192, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results {
   padding: 4px;
 }
-/* line 199, ../sass/_login.scss */
+/* line 195, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 202, ../sass/_login.scss */
+/* line 198, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > strong.select2-results__group {
   background-color: #5dca88;
   border: none;
   color: #fff;
 }
-/* line 208, ../sass/_login.scss */
+/* line 204, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 212, ../sass/_login.scss */
+/* line 208, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li[aria-selected="true"] {
   color: #5dca88;
 }
+/* line 211, ../sass/_login.scss */
+.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li.select2-results__option--highlighted {
+  background-color: rgba(93, 202, 136, 0.2);
+}
 
-/* line 222, ../sass/_login.scss */
+/* line 221, ../sass/_login.scss */
 .select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
   background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
   color: #5dca88;
 }
 
-/* line 227, ../sass/_login.scss */
+/* line 226, ../sass/_login.scss */
 .select2-container--krajee.select2-container--open .select2-selection {
   box-shadow: none;
 }

@@ -140,7 +140,6 @@ body.action-login {
           }
         }
       }
-
       .field-signupform-companysector.has-success {
         div.input-group {
           span.select2-container--krajee {
@@ -152,10 +151,7 @@ body.action-login {
           }
         }
       }
-
       // END SIGNUP SELECTS
-
-
     }
   }
 }
@@ -211,6 +207,9 @@ body.action-login {
             }
             > li[aria-selected="true"] {
               color: $green;
+            }
+            > li.select2-results__option--highlighted {
+              background-color: $green20;
             }
           }
         }
