@@ -1426,6 +1426,11 @@ body.controller-dashboard #DashboardMessages tbody tr td:nth-of-type(3) div.mess
   margin-top: 20px;
 }
 
+/* line 54, ../sass/_user.scss */
+.controller-user.action-settings button.save {
+  float: right;
+}
+
 /* line 3, ../sass/_message.scss */
 body.controller-message .btn-newMessage {
   float: right;
