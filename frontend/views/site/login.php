@@ -21,7 +21,6 @@ $this->title = 'Login';
 
 // SignUp //
 include Yii::getAlias('@helper/companySignup.php');
-$values = array_values(array_values($sectors));
 ?>
 <div class="site-login">
 
