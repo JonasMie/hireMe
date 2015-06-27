@@ -5,19 +5,18 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\PasswordResetRequestForm */
-$this->title = "Reset Password";
+$this->title = "Passwort zurücksetzen";
 ?>
 <div class="site-request-password-reset">
-    <h1><?= Html::encode("Passwort zurücksetzen") ?></h1>
-
-    <p>Bitte trage deine Email-Adresse ein. An diese Adresse wird dann dein neues Passwort gesendet.</p>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-sm-5">
+			<p>Bitte trage deine Email-Adresse ein. Wir schicken dir einen Code zu, über den du dein Passwort zurücksetzen kannst.</p>
             <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
                 <?= $form->field($model, 'email') ?>
                 <div class="form-group">
-                    <?= Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Passwort zurücksetzen', ['class' => 'btn btn-success']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>
