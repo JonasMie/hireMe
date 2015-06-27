@@ -104,14 +104,12 @@ class ApplicationController extends Controller
         // For displaying applier data
 
 
-    
-
         $applications = new ApplicationSearch(); 
-        $sql = "SELECT j.title, j.id as jobID, a.created_at, a.id, u.fullName,u.userName, u.id as userID from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, j.id as jobID, a.score, a.created_at, a.id , u.fullName,u.userName, u.id as userID from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and d.id = ".Yii::$app->user->identity->company_id;
         $indiTitle = "Alle Bewerbungen";
         
         if ($new != null) {
-        $sql = "SELECT j.title, j.id as jobID, a.created_at, a.id, u.fullName,u.userName, u.id as userID from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
+        $sql = "SELECT j.title, j.id as jobID, a.score,a.created_at, a.id , u.fullName,u.userName, u.id as userID from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
         $indiTitle = "Neue Bewerbungen";
         }
        
@@ -151,11 +149,23 @@ class ApplicationController extends Controller
         }
     }
 
+    public function actionChangeScore() {
+
+          if (Yii::$app->request->isAjax) {
+            $score = Yii::$app->request->get('score');
+            $appID = Yii::$app->request->get('app');
+            $app = Application::findOne($appID);
+            $app->score = $score;
+            $app->save();
+        }
+    }
+
     /**
      * Displays a single Application model.
      * @param integer $id
      * @return mixed
      */
+
     public function actionView($id)
     {
 
@@ -188,7 +198,6 @@ class ApplicationController extends Controller
         $model["user"] = $applier;
         $model["created"] = $app->created_at;
         $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
-
         $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
 
           return $this->render('view', [

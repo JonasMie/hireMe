@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\Tabs;
+use frontend\controllers\JobController;
+use frontend\assets\DataHandlingAsset;
+
+DataHandlingAsset::register($this);
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\JobSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -9,29 +13,30 @@ use yii\bootstrap\Tabs;
 $this->title = 'Jetzt bewerben - mit hireMe';
 ?>
 
+<?
+$key = Yii::$app->request->get("key");
+Yii::trace("Key: ".$key);
+?>
+
 <div class="col-xs-12">
 Logo
+<p class="hidden" id="user"><?= $userID ?></p>
 </div>
 
+<?
+$key = Yii::$app->request->get("key");
+Yii::trace("Key: ".$key);
+
+?>
+
+
 <?php
+
 echo Tabs::widget([
     'items' => [
         [
             'label' => 'Bewerben',
-            'content' => ''.'
-				<div class="col-xs-12"><h1>Stellenanzeige Titel</h1></div>
-				<div class="col-xs-12">
-					<h2>Anschreiben</h2>
-					<textarea rows="4" cols="50">Anschreiben</textarea>
-				</div>
-				<div class="col-xs-12">
-					<h2>Anlagen ausw&auml;hlen<h2>
-					<p>Anlagen</p>
-				</div>
-				<div class="col-xs-12">
-					Jetzt bewerben
-				</div>
-			'.'',
+            'content' =>  Yii::$app->controller->createAndEdit(Yii::$app->request->get("key"),$userID),//enderPartial("buttonAddData"),
             'active' => true
         ],
         [
@@ -49,4 +54,5 @@ echo Tabs::widget([
         ],
     ],
 ]);
+
 ?>

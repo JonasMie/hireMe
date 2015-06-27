@@ -8,11 +8,12 @@ use frontend\controllers\UserController;
 use frontend\models\Job;
 use yii\widgets\ListView;
 use common\models\User;
+use frontend\assets\ScoreAsset;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\ApplicationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
+ScoreAsset::register($this);
 $this->title = 'Bewerbungen';
 ?>
 
@@ -52,7 +53,7 @@ $this->title = 'Bewerbungen';
 
 			<?= GridView::widget([
 				'dataProvider' => $provider,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'applicationTable'],
+				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow allowPrefill', 'id' => 'applicationTable'],
 				'columns'      => [
 					[
 							'attribute' => 'fullName',
@@ -64,7 +65,17 @@ $this->title = 'Bewerbungen';
 							'headerOptions'  => ['class' => 'first-col'],
 							'contentOptions' => ['class' => 'first-col'],
 					], 
+
 					 'title:text:Stelle',
+					 [
+							'attribute' => 'score',
+							'label' => 'Score',
+							'format' => 'raw',
+							'value'  => function ($data) {
+								return Html::textinput($data['id'],Html::encode($data["score"]),['id' => 'scoreInput','name' => $data["id"]]);
+							},
+							'contentOptions' => ['class' => 'allowPrefill'],
+					],
 					 [
 							'attribute' => 'created_at',
 							'label' => 'Beworben am',
@@ -79,7 +90,7 @@ $this->title = 'Bewerbungen';
 							'label'  => '',
 							'format' => 'raw',
 							'value'  => function ($data) {
-								return Html::a(["Ansehen"],['/application/view?id='.$data['id']]);
+								return Html::a("Ansehen",['/application/view?id='.$data['id']]);
 							},
 							'headerOptions'  => ['class' => 'third-col','data-hide' => 'xsmall,phone'],
 							'contentOptions' => ['class' => 'third-col'],
@@ -195,4 +206,6 @@ $this->title = 'Bewerbungen';
 
 		</div>
 	</div>
+
+
 </div>

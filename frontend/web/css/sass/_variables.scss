@@ -132,5 +132,9 @@ transition: color 0.2s ease-in-out;
 	th{
 		padding-right:50px;
 		color: lighten($greyFont, 20%);
+		vertical-align: top;
+	}
+	td{
+		vertical-align:top;
 	}
 }

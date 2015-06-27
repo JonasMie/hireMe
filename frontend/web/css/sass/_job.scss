@@ -1,0 +1,39 @@
+.controller-job.action-view{
+	
+	div.apply{
+		text-align: right;
+		margin-top: 20px;
+	}
+
+	table.detail-view{
+	
+		width:100%;
+		
+		th{
+			color: lighten($greyFont, 20%);
+			padding: 3px 10px 3px 0px;
+			vertical-align:top;
+			width: 25%;
+		}
+		
+		td{
+			padding: 3px 0px;
+			vertical-align:top;
+		}
+	}
+	
+}
+
+.controller-job.action-index{
+	div.summary{
+		display:none;
+	}
+	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+}

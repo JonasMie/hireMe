@@ -13,8 +13,26 @@ use frontend\models\Company;
 /* @var $model frontend\models\Application */
 
 ?>
-<div class="application-view">
 
+<!-- Initializing Foo Tables -->
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
+                mediaSmall: 960
+
+            }
+        });
+    });");
+
+?>
+
+<div class="application-view">
+	
+	<? /* View as Recruiter */ ?>
 
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
     <?
@@ -120,7 +138,8 @@ use frontend\models\Company;
                 'value'  => function ($data) {
                     return Html::a("Ansehen","/application/show-file?id=".$data->report_id,['target' => '_blank']);
                 }
-            ], 
+            ],
+			
         ],
     ]);  
     ?>
@@ -129,15 +148,21 @@ use frontend\models\Company;
     <br>   
     <h2>
     Gesendete Anlagen
-</h2>
+	</h2>
+	
+	<? /* View as Recruiter */ ?>
+	
     <? else: ?>
-     <h2>Meine Bewerbung auf: <?= $model['job']->title ?></h2>
-    <h3>Anschreiben:</h3>
+	
+	<? /* View as User */ ?>
+	
+    <h1>Bewerbung auf Stellenanzeige: <?= Html::a($model['job']->title,"/job/view?id=".$model['job']->id) ?></h1>
+    <h2>Anschreiben:</h2>
     <p>
     <?= $model['coverText']; ?>
     </p>
     <br>   
-    <h3> Gesendete Anlagen:</h3>
+    <h2>Gesendete Anlagen</h2>
     <? endif; ?>
 
     <?= GridView::widget([
@@ -151,18 +176,32 @@ use frontend\models\Company;
                 'format' => 'raw',
                 'value'  => function ($data) {
                     return  ApplicationController::getFileTitle($data->file_id);
-                }
+                },				
+				'headerOptions'  => ['class' => 'first-col'],
+				'contentOptions' => ['class' => 'first-col'],
             ], 
             [
 
-                'label'  => 'Info',
+                'label'  => '',
                 'format' => 'raw',
                 'value'  => function ($data) {
-                    return Html::a("Ansehen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
-                }
+                    return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
+                },
+				'headerOptions'  => ['class' => 'second-col','data-hide' => 'xsmall, phone'],
+				'contentOptions' => ['class' => 'second-col'],
             ],
+			[
+				'class'          => 'yii\grid\Column',
+				'headerOptions'  => ['data-toggle' => 'true'],
+				'contentOptions' => ['data-title' => 'data-toggle'],
+			],
         ],
-    ]); ?>  
+    ]); ?>
+	
+	<? /* View as User End */ ?>
+	
+	<? /* View as Recruiter */ ?>
+	
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
     
     <?= Html::a(Html::button("Nachricht senden"),"/message/create?rec=".$model["user"]->id); ?>
@@ -172,4 +211,6 @@ use frontend\models\Company;
 
     <? endif; ?>
 
+	<? /* View as Recruiter Emd */ ?>
+	
 </div>
