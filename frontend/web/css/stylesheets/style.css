@@ -2113,51 +2113,39 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
 .controller-job.action-index div.jobsRecruiter h1 {
   margin-top: 0px;
 }
-/* line 25, ../sass/_job.scss */
+/* line 26, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.list-view {
   margin-top: 10px;
 }
-/* line 29, ../sass/_job.scss */
+/* line 30, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem {
   margin-bottom: 20px;
 }
-/* line 32, ../sass/_job.scss */
-.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info {
-  text-align: center;
-}
 /* line 34, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
-  display: block;
   font-size: 28.8px;
 }
-/* line 38, ../sass/_job.scss */
+/* line 37, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
   font-size: 22.4px;
 }
-/* line 42, ../sass/_job.scss */
-.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
-  display: block;
-}
 @media screen and (max-width: 768px) {
-  /* line 48, ../sass/_job.scss */
-  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info {
-    text-align: left;
-  }
-  /* line 50, ../sass/_job.scss */
+  /* line 47, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
     display: inline;
     font-size: 25.6px;
+    min-width: 30px;
   }
-  /* line 54, ../sass/_job.scss */
+  /* line 52, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
     font-size: 22.4px;
   }
-  /* line 58, ../sass/_job.scss */
+  /* line 56, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
     display: inline;
   }
 }
-/* line 66, ../sass/_job.scss */
+/* line 64, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.jobSubItem span.info.profilePicture {
   display: block;
   float: left;
@@ -2165,23 +2153,23 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   margin-bottom: 10px;
 }
 
-/* line 83, ../sass/_job.scss */
+/* line 81, ../sass/_job.scss */
 .controller-job.action-view div.apply {
   text-align: right;
   margin-top: 20px;
 }
-/* line 88, ../sass/_job.scss */
+/* line 86, ../sass/_job.scss */
 .controller-job.action-view table.detail-view {
   width: 100%;
 }
-/* line 92, ../sass/_job.scss */
+/* line 90, ../sass/_job.scss */
 .controller-job.action-view table.detail-view th {
   color: #d0d0d0;
   padding: 3px 10px 3px 0px;
   vertical-align: top;
   width: 25%;
 }
-/* line 99, ../sass/_job.scss */
+/* line 97, ../sass/_job.scss */
 .controller-job.action-view table.detail-view td {
   padding: 3px 0px;
   vertical-align: top;

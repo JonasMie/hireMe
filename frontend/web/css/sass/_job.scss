@@ -22,7 +22,8 @@
 		
 		div.list-view{
 			
-			div.list-view{
+	
+		div.list-view{
 				margin-top:10px;
 			}
 			
@@ -30,9 +31,7 @@
 				margin-bottom: 20px;
 				
 				div.info{
-					text-align: center;
 					span.top{
-						display:block;
 						font-size:$fontbase*1.8;
 					}
 					span.glyphicon{
@@ -40,16 +39,15 @@
 					}
 					
 					span.bottom{
-						display:block;
 					}
 				}
 				
 				@media screen and (max-width:768px){
 					div.info{
-						text-align: left;
 						span.top{
 							display:inline;
 							font-size:$fontbase*1.6;
+							min-width: 30px;
 						}
 						span.glyphicon{
 							font-size:$fontbase*1.4;
