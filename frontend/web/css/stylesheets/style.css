@@ -1088,7 +1088,7 @@ body.action-login .site-login #form-signup .field-signupform-companysector div.i
   border-bottom: 2px solid #dddddd;
 }
 /* line 131, ../sass/_login.scss */
-body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-signupform-companysector-container {
+body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection #select2-signupform-companysector-container {
   font-size: 16px;
   color: #fff;
 }
