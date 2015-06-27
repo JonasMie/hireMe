@@ -16,7 +16,7 @@ $this->title = Yii::t('app', 'Lebenslauf');
 
     <h1><?= Html::encode($this->title) ?></h1>
 		<div class="row second">
-			<div class="col-sm-4 fullJob">
+			<div class="col-sm-5 fullJob">
 				<?
 				// only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
 
@@ -33,7 +33,7 @@ $this->title = Yii::t('app', 'Lebenslauf');
 					]);
 				?>
 			</div>
-			<div class="col-sm-4 col-sm-offset-2 fullSchool">
+			<div class="col-sm-5 col-sm-offset-1 fullSchool">
 				<?
 				// only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
 

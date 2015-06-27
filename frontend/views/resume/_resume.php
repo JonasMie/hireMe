@@ -22,6 +22,9 @@
 use yii\helpers\Html;
 
 ?>
+
+<? /* Most Recent Job/Jobs */ ?>
+
 <?php if ($order=='currentJob'): ?>
 
 <?php
@@ -36,9 +39,14 @@ if ($currentJobs) {
         'dataProvider' => $currentJobsDataProvider,
         'itemView'     => '_resumeJob',
         'viewParams'   => ['edit' => $edit],
+		'options' => [
+			'class' => 'allowPrefill list-view',
+		],
     ]);
 }
 ?>
+
+<? /* Most Recent Graduation/Highest Qualification */ ?>
 
 <?php elseif ($order=='currentSchool'): ?>
 
@@ -54,9 +62,14 @@ if ($currentSchools) {
         'dataProvider' => $currentSchoolsDataProvider,
         'itemView'     => '_resumeSchool',
         'viewParams'   => ['edit' => $edit],
+		'options' => [
+			'class' => 'allowPrefill list-view',
+		],
     ]);
 }
 ?>
+
+<? /* Full List of Jobs */ ?>
 
 <?php elseif ($order=='fullJob'): ?>
 
@@ -70,12 +83,16 @@ echo \yii\widgets\ListView::widget([
     'dataProvider' => $jobDataProvider,
     'itemView'     => '_resumeJob',
     'viewParams'   => ['edit' => $edit],
+	'options' => [
+		'class' => 'allowPrefill list-view',
+	],
 ]);
 ?>
-<p>
-    <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
-</p>
+<div class="insertJobData">
+    <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple insertJobData']) ?>
+</div>
 
+<? /* Full List of Education */ ?>
 
 <?php elseif ($order=='fullSchool'): ?>
 
@@ -89,11 +106,16 @@ echo \yii\widgets\ListView::widget([
     'dataProvider' => $schoolDataProvider,
     'itemView'     => '_resumeSchool',
     'viewParams'   => ['edit' => $edit],
+	'options' => [
+		'class' => 'allowPrefill list-view',
+	],
 ]);
 ?>
-<p>
-    <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple']) ?>
-</p>
+<div class="insertSchoolData">
+    <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple insertSchoolData']) ?>
+</div>
+
+<? /* Default Fallback View for Resume when none of the options (order=...) above is selected */ ?>
 
 <?php else: ?>
 
