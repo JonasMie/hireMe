@@ -157,17 +157,17 @@ class JobController extends Controller
 
     }
 
-    public function actionSaveFavorit($key, $user)
+    public function actionSaveFavorit()
     {
+        if(Yii::$app->request->isAjax) {
 
         $fav = new Favourites();
 
         $thisBtn = ApplyBtn::find()
-            ->where(['key' => $key])
+            ->where(['key' => Yii::$app->request->get('key')])
             ->one();
+
         $job = Job::findOne($thisBtn->job_id);
-
-
         $favs = Favourites::find()->orderBy('id')->all();
         if (count($favs) == 0) {
             $fav->id = 0;
@@ -176,41 +176,82 @@ class JobController extends Controller
             $fav->id = $highestID->id + 1;
         }
         $fav->job_id = $job->id;
-        $fav->user_id = $user;
-        $fav->save();
-        return $this->renderPartial("savedFavourite");
+        $fav->user_id = Yii::$app->request->get("user");
+        if($fav->save()) {
+        return "Die Stellenanzeige wurde deinen Favoriten hinzugefügt";
+        }
+
+        }
 
     }
 
-    public function actionSaveCover()
-    {
+    public function actionCreateApp() {
 
         if (Yii::$app->request->isAjax) {
 
+            if(Yii::$app->request->get("appID") == "false") {
+
+                $app = new Application();
+                $apps = Application::find()->orderBy('id')->all();
+                if (count($apps) == 0) {
+                    $app->id = 0;
+                } else {
+                    $highestID = $apps[count($apps) - 1];
+                    $app->id = $highestID->id + 1;
+                }
+            }
+            else {
+            $app = Application::findOne(Yii::$app->request->get("appID"));
+            }
+
+            $key = Yii::$app->request->get("key");
+            $user = Yii::$app->user->identity;
+            $appData = Yii::$app->request->get("appData");
+
+            $thisBtn = ApplyBtn::find()
+                ->where(['key' => $key])
+                ->one();
+
+            $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+            $app->user_id = $user->id;
+            $app->company_id = $job->company_id;
+            $app->job_id = $job->id;
+            $app->state = "Gespeichert";
+            $app->btn_id = $thisBtn->id;
+            $app->save();
+
+            ApplicationData::deleteAll(['application_id' => $app->id]);
+
+            for ($i=0; $i < count($appData) ; $i++) { 
+                 $tmpFile = $appData[$i];
+
+                 $data = new ApplicationData();
+                  $appDatas = ApplicationData::find()->orderBy('id')->all();
+                    if (count($appDatas) == 0) {
+                    $data->id = 0;
+                } else {
+                    $highestID = $appDatas[count($appDatas) - 1];
+                    $data->id = $highestID->id + 1;
+                }
+                $data->application_id = $app->id;
+                $data->file_id = $tmpFile;
+                $data->save();
+            }
+
             $model = new CoverCreateForm();
-            $model->app = Yii::$app->request->get('app');
+            $model->app = $app->id;
             $text = Yii::$app->request->get('text');
             $model->text = $text;
             if ($model->create() == true) {
-                return "Deine Bewerbung wurde gespeichert.";
+                return $app->id;
             } else {
                 return "Leider gab es einen Fehler beim Speichern der Bewerbung.";
             }
         }
+
     }
     
-    public  function createAndEdit($key,$user) {
-
-        $app = new Application();
-
-        $apps = Application::find()->orderBy('id')->all();
-        if (count($apps) == 0) {
-            $app->id = 0;
-        } else {
-            $highestID = $apps[count($apps) - 1];
-            $app->id = $highestID->id + 1;
-        }
-
+    public  function createApplyForm($key,$user) {
 
         $thisBtn = ApplyBtn::find()
             ->where(['key' => $key])
@@ -218,16 +259,11 @@ class JobController extends Controller
 
         $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
         Yii::trace("Job ID: " . $job->id);
-        $app->user_id = $user;
-        $app->company_id = $job->company_id;
-        $app->job_id = $job->id;
-        $app->state = "Gespeichert";
-        $app->btn_id = $thisBtn->id;
-        $app->save();
         $user = Yii::$app->user->identity;
 
         $newSQL = "SELECT f.title, f.id from file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = ".$user->id;
         Yii::trace("User ID: ".$user->id);
+
         $provider = new SqlDataProvider([
             'sql' => $newSQL,
             'sort' => [
@@ -240,124 +276,26 @@ class JobController extends Controller
             ],
         ]);
 
-        $sentSQL = "SELECT f.title, ad.id from file f, application_data ad, application a WHERE a.user_id = ".$user->id." and ad.application_id = a.id and ad.file_id = f.id and a.id =".$app->id;
-        $sentProvider = new SqlDataProvider([
-            'sql' => $sentSQL,
-            'sort' => [
-                'attributes' => [
-                'title'
-            ],
-            'defaultOrder' => [
-                'title' => SORT_ASC,   
-            ]
-            ],
-        ]);
-
-        $model = new CoverCreateForm();
-        $model->app = $app->id;
-        $possibleFile = File::find()
-        ->where(['title' => 'cover_'.$app->id,'user_id' => $user->id])->one();
-
-        if (count($possibleFile) ==1) {
-
-            $model->text = file_get_contents('uploads'.$possibleFile->path.'.txt');          
-        }
         return $this->render('addData', [
-            'model' => $model,
-            'appId' => $app->id,
             'job' => $job,
             'provider' => $provider,
-            'sentProvider' => $sentProvider
         ]);
     }
 
-     public function actionSend($id) {
+     public function actionSend() {
+        
+        if (Yii::$app->request->isAjax) {
 
-        $app = Application::findOne($id);
+        $app = Application::findOne(Yii::$app->request->get("appID"));
         $app->state = "Versendet";
         $app->sent = 1;
-        $app->save();
-        $this->redirect("/application");
-    }
+        if($app->save()) {
 
-    public function actionDataHandler() {
-
-         if (Yii::$app->request->isAjax) { 
-
-        if(Yii::$app->request->get("direction") == 1) {
-        $file = File::findOne(Yii::$app->request->get('fileID'));
-        $id = $file->id;
-        $app = Application::findOne(Yii::$app->request->get('app'));
-        $appData = new ApplicationData();
-
-         $appDatas = ApplicationData::find()->orderBy('id')->all();
-            if (count($appDatas) == 0) {
-                $appData->id = 0;
-            }
-            else {
-                $highestID = $appDatas[count($appDatas)-1];
-                $appData->id = $highestID->id+1;
-            } 
-
-        $appData->application_id = $app->id;
-        $appData->file_id = $id;
-        $appData->save();
+            return "Vielen Dank, deine Bewerbung wurde versandt :)";
         }
-        else {
-        $app = Application::findOne(Yii::$app->request->get('app'));
-        $appData = ApplicationData::findOne(Yii::$app->request->get('fileID'));
-        $appData->delete();
-        }
-
-        $user = Yii::$app->user->identity;
-        
-        $newSQL = "SELECT f.title, f.id from file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = ".$user->id;
-        Yii::trace("User ID: ".$user->id);
-        $provider = new SqlDataProvider([
-            'sql' => $newSQL,
-            'sort' => [
-                'attributes' => [
-                'title'
-            ],
-            'defaultOrder' => [
-                'title' => SORT_ASC,   
-            ]
-            ],
-        ]);
-
-        $sentSQL = "SELECT f.title, ad.id from file f, application_data ad, application a WHERE a.user_id = ".$user->id." and ad.application_id = a.id and ad.file_id = f.id and a.id =".$app->id;
-        $sentProvider = new SqlDataProvider([
-            'sql' => $sentSQL,
-            'sort' => [
-                'attributes' => [
-                'title'
-            ],
-            'defaultOrder' => [
-                'title' => SORT_ASC,   
-            ]
-            ],
-        ]);
-
-        return $this->renderPartial("fileSection",[
-            'sentProvider' => $sentProvider,
-            'provider' => $provider,
-            'appId' => $app->id,
-            'updated' => "updated"
-
-            ]);
-
-
-       // $this->renderAjax("possibleAppData");
 
         }
 
-    }
-
-    public function actionRemoveData($id,$appID) {
-
-       
-        $this->renderAjax("sentAppData");
-        $this->renderAjax("possibleAppData");
     }
 
     public function actionApply($key, $user)
@@ -622,6 +560,7 @@ class JobController extends Controller
         return $this->render('buttonPopupWindow', [
             'userID'  => $userID,
             'applied' => $hasApplied,
+            'key' => $key,
         ]);
 
     }

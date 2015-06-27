@@ -5,13 +5,6 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 use frontend\models\ApplicationData;
 use yii\widgets\ActiveForm;
-use frontend\assets\DataHandlingAsset;
-use frontend\assets\CreateCoverAsset;
-
-DataHandlingAsset::register($this);
-CreateCoverAsset::register($this);
-
-
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
 
@@ -20,29 +13,17 @@ CreateCoverAsset::register($this);
 
     <h3>Persönliches Anschreiben:</h3>
 
-    <?php $form = ActiveForm::begin(['id' => 'form-createCover']); ?>
-    <?= $form->field($model, 'text')->textarea() ?>   
+    <?= Html::textarea("Anschreiben","",['id' => 'coverText','rows' => 10,'cols' => 100]) ?>    
     <div id="files">
     <?=     
-
     Yii::$app->controller->renderPartial("fileSection",[
         'provider' => $provider,
-        'sentProvider' => $sentProvider,
-        'appId' => $appId,
-        ]);
+        ],false,false);
     ?>
-
-        <div class="col-sm-3 saveBtn">
-                    <p class="hidden" id="hiddenApp"><?= $appId ?></p>
-     
-
+        <?= Html::button('<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Bewerbung speichern', ['class' => 'btn btn-success', 'name' => 'create-button','id' => "saveApplication"]) ?>
     </div>
-    <br>
-    <br>
-   <?php ActiveForm::end(); ?>
-        <?= Html::button('<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;sdsd speichern', ['class' => 'btn btn-success', 'name' => 'create-button','id' => "saveCover"]) ?>
-                </div>
-    <?= Html::a(Html::button("Bewerbung senden"),'/job/send?id='.$appId,['target' => '_blank','id' => "sendIt"]) ?>
+
+    <?= Html::button("Bewerbung senden",['id' => "sendApp"]) ?>
 
 
 

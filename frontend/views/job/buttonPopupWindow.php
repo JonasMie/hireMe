@@ -3,40 +3,28 @@
 use yii\helpers\Html;
 use yii\bootstrap\Tabs;
 use frontend\controllers\JobController;
-use frontend\assets\DataHandlingAsset;
+use frontend\assets\ApplyFormAsset;
 
-DataHandlingAsset::register($this);
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\JobSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+ApplyFormAsset::register($this);
 
 $this->title = 'Jetzt bewerben - mit hireMe';
-?>
-
-<?
-$key = Yii::$app->request->get("key");
-Yii::trace("Key: ".$key);
 ?>
 
 <div class="col-xs-12">
 Logo
 <p class="hidden" id="user"><?= $userID ?></p>
+<p class="hidden" id="key"><?= $key ?></p>
 </div>
 
-<?
-$key = Yii::$app->request->get("key");
-Yii::trace("Key: ".$key);
-
-?>
-
-
-<?php
-
-echo Tabs::widget([
+<?=
+    Tabs::widget([
     'items' => [
         [
             'label' => 'Bewerben',
-            'content' =>  Yii::$app->controller->createAndEdit(Yii::$app->request->get("key"),$userID),//enderPartial("buttonAddData"),
+            'content' =>  Yii::$app->controller->createApplyForm($key,$userID),
             'active' => true
         ],
         [
@@ -48,7 +36,7 @@ echo Tabs::widget([
 					<p>Du kannst diese Stellenanzeige auch als Favorit speichern und dich sp&auml;ter auf hireMe auf diese Stelle bewerben.</p>
 				</div>
 				<div class="col-xs-12">
-					Als Favorit speichern
+					<button id="addFavourite" onclick="addFav()">Als Favorit speichern</button>
 				</div>
 			',
         ],

@@ -5,12 +5,13 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 use frontend\models\ApplicationData;
 use yii\widgets\ActiveForm;
-use frontend\assets\CreateCoverAsset;
+use frontend\assets\ApplyFormAsset;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
 
-CreateCoverAsset::register($this);
+ApplyFormAsset::register($this);
+
 ?>
 
 <!-- Initializing Foo Tables -->
@@ -140,8 +141,7 @@ CreateCoverAsset::register($this);
 				</div>
 		<div class="col-sm-9"></div>
 		<div class="col-sm-3 sendBtn">
-			<?= Html::button('<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;sdsd speichern', ['class' => 'btn btn-success', 'name' => 'create-button','id' => "saveCover"]) ?>
-
+			<?= Html::button('<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Bewerbung speichern', ['class' => 'btn btn-success', 'name' => 'create-button','id' => "saveCover"]) ?>
 			<?= Html::a('<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Bewerbung verschicken','/application/send?id='.$appId,['class' => 'btn btn-success ripple sendBtn','id' => 'sendApp']) ?> 
 		</div>
 	</div>
