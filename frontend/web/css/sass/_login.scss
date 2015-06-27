@@ -140,7 +140,33 @@ body.action-login {
           }
         }
       }
-      .field-signupform-companysector.has-success {
+
+      .field-signupform-companyemployees {
+        label[for="signupform-companyemployees"] {
+        }
+        div.input-group {
+          span.select2-container--krajee {
+            span.selection {
+              span.select2-selection {
+                padding-left: 5px;
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                border: 0px;
+                border-radius: 0;
+                border-bottom: $FormBorderNonFocused;
+                #select2-signupform-companysector-container {
+                  font-size: 16px;
+                  color: #fff;
+                }
+                span.select2-selection__arrow {
+                  border: 0px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .field-signupform-companysector.has-success, .field-signupform-companyemployees.has-success {
         div.input-group {
           span.select2-container--krajee {
             span.selection {

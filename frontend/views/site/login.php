@@ -150,7 +150,7 @@ $values = array_values(array_values($sectors));
                 ])->label('Branche') ?>
                 <?= $form->field($signupModel, 'companyEmployees')->widget(\kartik\select2\Select2::className(), [
                     'data' => $employeeAmount,
-                    'options' => ['prompt' => 'Anzahl der Beschäftigten'],
+                    'options' => ['prompt' => ''],
                     'hideSearch' => true,
                 ])->label('Anzahl der Mitarbeiter') ?>
             </div>
