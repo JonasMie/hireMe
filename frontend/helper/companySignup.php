@@ -159,8 +159,8 @@ $sectors = [
 
 
 $employeeAmount = array(
-    "< 10",
-    "10 - 100",
-    "100 - 1000",
-    "> 1000",
+    "weniger als 10",
+    "10 bis 100",
+    "100 bis 1.000",
+    "mehr als 1.000",
 );
