@@ -94,7 +94,6 @@ class AttachementController extends Controller
     	$user = Yii::$app->user->identity;
   		$sql = "SELECT title,id from file WHERE NOT (title LIKE '%cover%') AND user_id =".$user->id;
   		$model = new UploadForm();
-
   		$fileDataProvider = new SqlDataProvider([
             'sql' => $sql,
             'sort' => [
