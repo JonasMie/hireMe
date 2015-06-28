@@ -14,6 +14,8 @@ body {
 
   //Dropdown Action Buttons
   #bulkActions {
+    margin-top:15px;
+
     button {
       span.caret {
         border-bottom: 4px solid transparent;
@@ -47,9 +49,7 @@ body {
       }
     }
   }
-  #bulkActions.open {
 
-  }
 
   //END Dropdown Action Buttons
 
@@ -364,7 +364,8 @@ body {
   .form-group.field-messagecreate-attachment,
   .form-group.field-resumeschool-current,
   .form-group.field-resumeschool-report_id,
-  .field-settingsmodel-visibility {
+  .field-settingsmodel-visibility,
+  .form-group.field-jobcreateform-checklocationbased {
     position: static;
     label {
       position: static;
@@ -495,24 +496,118 @@ body {
     &:hover {
       background: $DefaultThumbnailHover;
     }
-
   }
-
   div.profile-picture-thumbnail + div.message-sender {
     margin-top: 14px;
     margin-left: 60px;
   }
-
   /*END PROFILE PICTURE */
-  
-  /* Bulk Action Dropdown */
-  div#bulkActions{
-	margin-top:15px;
-  }
-  
+
   .highlight{
-	color: $green;
+    color: $green; // TODO: Finf out what this is
   }
+
+  //DATEPICKER Popup
+  div.datepicker-dropdown {
+    padding: 0;
+    table.table-condensed {
+      color: $greyFont;
+      thead {
+        tr:nth-of-type(1) {
+          background-color: $green;
+          color: #fff;
+          th {
+            border-radius: 0px;
+            &:hover {
+              background-color: darken($green, 20);
+              border-radius: 0px;
+            }
+          }
+        }
+        tr:nth-of-type(2) {
+          background-color: $black;
+        }
+      }
+      tbody {
+        background-color: #fff;
+        tr {
+          td.selected {
+            background-color: #fff;
+            color: $greyFont;
+            font-weight: lighter;
+          }
+          td.today {
+            border-radius: 50%;
+            background-color: $borderGrey;
+            color: #fff;
+          }
+          td.day:not(.today):not(.active),
+          td.selected:not(.today):not(.active),
+          span.month:not(.active),
+          span.year:not(.active) {
+            &:hover {
+              background-color: $borderGrey;
+              color: #fff;
+              border-radius: 50%;
+            }
+          }
+          td.active, span.active {
+            border-radius: 50%;
+            background-color: $green;
+            color: #fff;
+          }
+
+          td {
+            padding: 10px;
+          }
+        }
+      }
+    }
+    div.datepicker-months, div.datepicker-years {
+      table {
+        tbody {
+          tr {
+            td {
+              width: 250px;
+            }
+          }
+        }
+      }
+    }
+  } //END DATEPICKER Popup
+
+  // DATEPICKER Input
+  .input-group.input-daterange {
+    span.input-group-addon.kv-field-separator {
+      display: none; //TODO: remove this in template
+    }
+    >.field-resumejob-begin,
+    > field-resumejob-end,
+    .field-resumeschool-begin,
+    .field-resumeschool-end {
+      box-shadow: none;
+      max-width: 250px;
+      input {
+        max-width: 250px;
+      }
+    }
+    .field-resumejob-begin,
+    .field-resumeschool-begin {
+      margin-right: 20px;
+    }
+    @media (max-width: 767px) {
+      .field-resumejob-begin,
+      .field-resumeschool-begin {
+        max-width: 100%;
+      }
+      .field-resumejob-end,
+      .field-resumeschool-end {
+        margin-top: 50px;
+      }
+    }
+
+  }
+  //END DATEPICKER Input
 
 }
 
