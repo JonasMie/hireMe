@@ -13,7 +13,7 @@ body.action-login {
 
     .login-field {
       @media (max-width: 767px) {
-        height: 530px;
+        height: 570px;
       }
     }
 
@@ -99,7 +99,7 @@ body.action-login {
     //   color: $placeholderColor;
     //}
 
-    .login-field {
+    .login-field, .signup-field {
       text-align: center;
       background-color: rgba(45, 49, 47, 0.8);
       @include border-radius(6px);

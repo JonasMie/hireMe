@@ -51,7 +51,7 @@ include Yii::getAlias('@helper/companySignup.php');
 
         </div>
 
-        <div class="col-sm-4 col-sm-offset-2 login-field">
+        <div class="col-sm-4 col-sm-offset-2 signup-field">
 
             <h2>Registrierung</h2>
             <? // Signup Form //?>
