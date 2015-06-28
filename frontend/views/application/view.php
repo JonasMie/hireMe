@@ -46,7 +46,7 @@ use frontend\models\Company;
     <h4>Score: <?= $model['app']->score ?></h4>
      <h2>Anschreiben: </h2>
     <p>
-    <?= $model['coverText']; ?>
+    <?= Html::decode("<pre>".$model['coverText']."</pre>"); ?>
     </p>
     <h2>Lebenslauf:</h2>
     <p>
