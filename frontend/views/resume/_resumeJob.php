@@ -14,15 +14,15 @@ use yii\helpers\Url;
 
 
 $attributes = [
-	
-	
+
+
     [
-        'attribute'     => 'company_id',
-        'label'         => 'Unternehmen',
-        'format'        => 'raw',
-        'value'         => Html::a($model->company->name, ['/company/view', 'id' => $model->company->id]), // TODO: check company url
-        'type'          => DetailView::INPUT_TYPEAHEAD,
-        'widgetOptions' => [
+        'attribute'      => 'company_id',
+        'label'          => 'Unternehmen',
+        'format'         => 'raw',
+        'value'          => Html::a($model->company->name, ['/company/view', 'id' => $model->company->id]), // TODO: check company url
+        'type'           => DetailView::INPUT_TYPEAHEAD,
+        'widgetOptions'  => [
             'pluginOptions' => ['highlight' => true],
             'dataset'       => [
                 [
@@ -31,36 +31,37 @@ $attributes = [
                 ],
 
             ],
-            'options'       => ['id' => 'typeahead-' . $model->id, 'value' => $model->company->name, 'class'=>'allowPrefill']
+            'options'       => ['id' => 'typeahead-' . $model->id, 'value' => $model->company->name, 'class' => 'allowPrefill'],
+            'container' => ['class' => 'allowPrefill'],
         ],
-		'inputContainer' => ['class'=>'allowPrefill'],
     ],
     [
-        'label'         => 'Von',
-        'attribute'     => 'begin',
-        'format'        => ['date', 'php:d.m.Y'],
-        'type'          => DetailView::INPUT_WIDGET,
-        'widgetOptions' => [
+        'label'          => 'Von',
+        'attribute'      => 'begin',
+        'format'         => ['date', 'php:d.m.Y'],
+        'type'           => DetailView::INPUT_WIDGET,
+        'widgetOptions'  => [
             'class'   => DateControl::classname(),
             'type'    => DateControl::FORMAT_DATE,
             'options' => [
-                'options' => ['id' => 'job-date-begin-', 'class'=>'form-control allowPrefill'],
-            ]
+                'options' => ['id' => 'job-date-begin-', 'class' => 'form-control allowPrefill'],
+            ],
+
 
         ],
-		'inputContainer' => ['class'=>'allowPrefill'],
+        'inputContainer' => ['class' => 'allowPrefill'],
     ],
     [
-        'label'         => 'Bis',
-        'format'        => ['date', 'php:d.m.Y'],
-        'attribute'     => 'end',
-        'type'          => DetailView::INPUT_WIDGET,
-        'widgetOptions' => [
+        'label'          => 'Bis',
+        'format'         => ['date', 'php:d.m.Y'],
+        'attribute'      => 'end',
+        'type'           => DetailView::INPUT_WIDGET,
+        'widgetOptions'  => [
             'class'   => DateControl::classname(),
             'type'    => DateControl::FORMAT_DATE,
-            'options' => ['id' => 'job-date-end-' . $model->id, 'class'=>'allowPrefill']
+            'options' => ['id' => 'job-date-end-' . $model->id, 'class' => 'allowPrefill']
         ],
-		'inputContainer' => ['class'=>'allowPrefill'],
+        'inputContainer' => ['class' => 'allowPrefill'],
     ],
     [    // TODO: add possibility to remove file
         'label'     => '',
@@ -77,19 +78,19 @@ $attributes = [
         'type'       => DetailView::INPUT_HIDDEN
     ],
     [
-        'attribute' => 'current',
-        'rowOptions' => ['class'=>'kv-view-hidden'],
-        'type' => DetailView::INPUT_CHECKBOX,
+        'attribute'  => 'current',
+        'rowOptions' => ['class' => 'kv-view-hidden'],
+        'type'       => DetailView::INPUT_CHECKBOX,
     ],
-	[
+    [
         'attribute' => 'description',
         'type'      => 'textArea',
         'label'     => 'Beschreibung'
-	],
+    ],
 ];
 
 echo DetailView::widget([
-	'bootstrap' => false,
+    'bootstrap'      => false,
     'model'          => $model,
     'attributes'     => $attributes,
     'panel'          => [
@@ -99,10 +100,10 @@ echo DetailView::widget([
     'deleteOptions'  => [
         'params' => ['id' => $model->id, 'type' => 'job'],
         'url'    => ['delete'],
-		'label'  => '<span class="glyphicon glyphicon-remove"></span>',
+        'label'  => '<span class="glyphicon glyphicon-remove"></span>',
     ],
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
     'enableEditMode' => $edit,
-	'hAlign' => DetailView::ALIGN_LEFT,
+    'hAlign'         => DetailView::ALIGN_LEFT,
 ]);

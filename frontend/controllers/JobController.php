@@ -159,37 +159,38 @@ class JobController extends Controller
 
     public function actionSaveFavorit()
     {
-        if(Yii::$app->request->isAjax) {
+        if (Yii::$app->request->isAjax) {
 
-        $fav = new Favourites();
+            $fav = new Favourites();
 
-        $thisBtn = ApplyBtn::find()
-            ->where(['key' => Yii::$app->request->get('key')])
-            ->one();
+            $thisBtn = ApplyBtn::find()
+                ->where(['key' => Yii::$app->request->get('key')])
+                ->one();
 
-        $job = Job::findOne($thisBtn->job_id);
-        $favs = Favourites::find()->orderBy('id')->all();
-        if (count($favs) == 0) {
-            $fav->id = 0;
-        } else {
-            $highestID = $favs[count($favs) - 1];
-            $fav->id = $highestID->id + 1;
-        }
-        $fav->job_id = $job->id;
-        $fav->user_id = Yii::$app->request->get("user");
-        if($fav->save()) {
-        return "Die Stellenanzeige wurde deinen Favoriten hinzugefügt";
-        }
+            $job = Job::findOne($thisBtn->job_id);
+            $favs = Favourites::find()->orderBy('id')->all();
+            if (count($favs) == 0) {
+                $fav->id = 0;
+            } else {
+                $highestID = $favs[count($favs) - 1];
+                $fav->id = $highestID->id + 1;
+            }
+            $fav->job_id = $job->id;
+            $fav->user_id = Yii::$app->request->get("user");
+            if ($fav->save()) {
+                return "Die Stellenanzeige wurde deinen Favoriten hinzugefügt";
+            }
 
         }
 
     }
 
-    public function actionCreateApp() {
+    public function actionCreateApp()
+    {
 
         if (Yii::$app->request->isAjax) {
 
-            if(Yii::$app->request->get("appID") == "false") {
+            if (Yii::$app->request->get("appID") == "false") {
 
                 $app = new Application();
                 $apps = Application::find()->orderBy('id')->all();
@@ -199,9 +200,8 @@ class JobController extends Controller
                     $highestID = $apps[count($apps) - 1];
                     $app->id = $highestID->id + 1;
                 }
-            }
-            else {
-            $app = Application::findOne(Yii::$app->request->get("appID"));
+            } else {
+                $app = Application::findOne(Yii::$app->request->get("appID"));
             }
 
             $key = Yii::$app->request->get("key");
@@ -222,12 +222,12 @@ class JobController extends Controller
 
             ApplicationData::deleteAll(['application_id' => $app->id]);
 
-            for ($i=0; $i < count($appData) ; $i++) { 
-                 $tmpFile = $appData[$i];
+            for ($i = 0; $i < count($appData); $i++) {
+                $tmpFile = $appData[$i];
 
-                 $data = new ApplicationData();
-                  $appDatas = ApplicationData::find()->orderBy('id')->all();
-                    if (count($appDatas) == 0) {
+                $data = new ApplicationData();
+                $appDatas = ApplicationData::find()->orderBy('id')->all();
+                if (count($appDatas) == 0) {
                     $data->id = 0;
                 } else {
                     $highestID = $appDatas[count($appDatas) - 1];
@@ -250,8 +250,9 @@ class JobController extends Controller
         }
 
     }
-    
-    public  function createApplyForm($key,$user) {
+
+    public function createApplyForm($key, $user)
+    {
 
         $thisBtn = ApplyBtn::find()
             ->where(['key' => $key])
@@ -261,38 +262,39 @@ class JobController extends Controller
         Yii::trace("Job ID: " . $job->id);
         $user = Yii::$app->user->identity;
 
-        $newSQL = "SELECT f.title, f.id from file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = ".$user->id;
-        Yii::trace("User ID: ".$user->id);
+        $newSQL = "SELECT f.title, f.id FROM file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = " . $user->id;
+        Yii::trace("User ID: " . $user->id);
 
         $provider = new SqlDataProvider([
-            'sql' => $newSQL,
+            'sql'  => $newSQL,
             'sort' => [
-                'attributes' => [
-                'title'
-            ],
-            'defaultOrder' => [
-                'title' => SORT_ASC,   
-            ]
+                'attributes'   => [
+                    'title'
+                ],
+                'defaultOrder' => [
+                    'title' => SORT_ASC,
+                ]
             ],
         ]);
 
         return $this->render('addData', [
-            'job' => $job,
+            'job'      => $job,
             'provider' => $provider,
         ]);
     }
 
-     public function actionSend() {
-        
+    public function actionSend()
+    {
+
         if (Yii::$app->request->isAjax) {
 
-        $app = Application::findOne(Yii::$app->request->get("appID"));
-        $app->state = "Versendet";
-        $app->sent = 1;
-        if($app->save()) {
+            $app = Application::findOne(Yii::$app->request->get("appID"));
+            $app->state = "Versendet";
+            $app->sent = 1;
+            if ($app->save()) {
 
-            return "Vielen Dank, deine Bewerbung wurde versandt :)";
-        }
+                return "Vielen Dank, deine Bewerbung wurde versandt :)";
+            }
 
         }
 
@@ -330,9 +332,10 @@ class JobController extends Controller
 
     }
 
-    public function getAppIDByKeyAndUser($key,$user) {
+    public function getAppIDByKeyAndUser($key, $user)
+    {
 
-         $app = new Application();
+        $app = new Application();
 
         $apps = Application::find()->orderBy('id')->all();
         if (count($apps) == 0) {
@@ -560,7 +563,7 @@ class JobController extends Controller
         return $this->render('buttonPopupWindow', [
             'userID'  => $userID,
             'applied' => $hasApplied,
-            'key' => $key,
+            'key'     => $key,
         ]);
 
     }
