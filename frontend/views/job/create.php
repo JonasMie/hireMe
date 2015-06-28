@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use frontend\assets\CreateJobAsset;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
@@ -23,8 +24,24 @@ $this->title = 'Create Job';
                 <?= $form->field($model, 'title')->label('Titel')?>
                 
                 <?= $form->field($model, 'description')->textarea() ?>
-                <?= $form->field($model, 'job_begin')->label() ?>
-                <?= $form->field($model, 'job_end')->label() ?>
+                <?
+                echo DatePicker::widget([
+                    'model'         => $model,
+                    'attribute'     => 'job_begin',
+                    'attribute2'    => 'job_end',
+                    'options'       => ['placeholder' => 'Von'],
+                    'options2'      => ['placeholder' => 'Bis'],
+                    'type'          => DatePicker::TYPE_RANGE,
+                    'form'          => $form,
+                    'language'      => 'de',
+                    'separator'     => 'bis',
+                    'pluginOptions' => [
+                        'format'         => 'dd.mm.yyyy',
+                        'autoclose'      => true,
+                        'todayHighlight' => true,
+                    ]
+                ]);
+                ?>
                 <?= $form->field($model, 'sector')->label("Sektor wählen") ?>
                 <?= $form->field($model, 'type')->label("Type") ?>
                 <?= $form->field($model, 'time')->label("time") ?>
