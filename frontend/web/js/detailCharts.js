@@ -48,6 +48,15 @@ $(document).ready(function () {
         
         var obj = jQuery.parseJSON(response);
 
+        var viewClickNull = false;
+        if(obj.viewCount == 0) {viewClickNull = true;}
+
+        var clickApplyIsNull = false;
+        if(obj.clickCount == 0 && obj.applierCount == 0) {clickApplyIsNull = true;}
+
+        var interviewApplyIsNull = false;
+        if(obj.applierCount == 0 &&  obj.interviewCount == 0) {interviewApplyIsNull = true;}
+
         var viewClickData = {
             labels: ["Views", "Clicks"],
             datasets: [
@@ -152,11 +161,21 @@ $(document).ready(function () {
 
         for (var i = 0; i < obj.compareData.length; i++) {
                 var tmp = obj.compareData[i];
+
                 var subObject = '{';
-                subObject += '"value":'+(tmp.views/obj.viewCount).toFixed(2)*100+',';
-                subObject += '"color": "'+getRandomHipsterColor()+'",';
-                subObject += '"highlight": "rgba(93,202,136,1.0)",';
-                subObject += '"label": "'+tmp.site+'"';
+                var value = (tmp.views / obj.viewCount).toFixed(2) * 100;
+                if(jQuery.isNumeric(value)) {
+                subObject += '"value":' + value + ',';
+                }
+                else {subObject += '"value":0,';}
+                if (i % 2 == 0) {
+                    subObject += '"color": "rgba(93,202,136,0.5)",';
+                    subObject += '"highlight": "rgba(93,202,136,1.0)",';
+                } else {
+                    subObject += '"color": "rgba(157,157,157,0.5)",';
+                    subObject += '"highlight": "rgba(157,157,157,1.0)",';
+                }
+                subObject += '"label": "' + tmp.title + '"';
                 subObject += '}';
                 console.log(subObject);
                 compareViewsData.push($.parseJSON(subObject));
@@ -167,10 +186,19 @@ $(document).ready(function () {
         for (var i = 0; i < obj.compareData.length; i++) {
                 var tmp = obj.compareData[i];
                 var subObject = '{';
-                subObject += '"value":'+(tmp.clicks/obj.clickCount).toFixed(2)*100+',';
-                subObject += '"color": "'+getRandomHipsterColor()+'",';
-                subObject += '"highlight": "rgba(93,202,136,1.0)",';
-                subObject += '"label": "'+tmp.site+'"';
+                var value = (tmp.clicks / obj.clickCount).toFixed(2) * 100;
+                if(jQuery.isNumeric(value)) {
+                subObject += '"value":' + value + ',';
+                }
+                else {subObject += '"value":0,';}
+                if (i % 2 == 0) {
+                    subObject += '"color": "rgba(93,202,136,0.5)",';
+                    subObject += '"highlight": "rgba(93,202,136,1.0)",';
+                } else {
+                    subObject += '"color": "rgba(157,157,157,0.5)",';
+                    subObject += '"highlight": "rgba(157,157,157,1.0)",';
+                }
+                subObject += '"label": "' + tmp.title + '"';
                 subObject += '}';
                 console.log(subObject);
                 compareClicksData.push($.parseJSON(subObject));
@@ -180,6 +208,7 @@ $(document).ready(function () {
 
 
         // VIEWS CLICKS + INTEREST RATE
+        if(!viewClickNull) {
         var ctx1 = document.getElementById("viewClickChart").getContext("2d");
         ctx1.canvas.width = 200;
         ctx1.canvas.height = 100;
@@ -187,8 +216,12 @@ $(document).ready(function () {
         var ctx2 = document.getElementById("interestRateChart").getContext("2d");
         var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
         var interestRate = new Chart(ctx2).Doughnut(interestRateData, options);
+        $("#viewClickIsNull").addClass("hidden");
+        }
+        
 
         // CLICKS APPLICAIONS + APPLICATION RATE
+        if(!clickApplyIsNull) {
         var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
         ctx3.canvas.width = 200;
         ctx3.canvas.height = 100;
@@ -196,7 +229,10 @@ $(document).ready(function () {
         var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
         var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
         var applicationRate = new Chart(ctx4).Doughnut(applicationRateData, options);
+        $("#clickApplyIsNull").addClass("hidden");
+        }
 
+        if(!interviewApplyIsNull) {
         // APPLICATIONS INTERVIEWS + INTERVIEW RATE
         var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");
         ctx5.canvas.width = 200;
@@ -205,6 +241,8 @@ $(document).ready(function () {
         var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
         var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
         var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
+        $("#interviewApplyIsNull").addClass("hidden");
+        }
        
         var ctx8 = document.getElementById("viewCompareChart").getContext("2d");
         var views = new Chart(ctx8).Doughnut(compareViewsData, options);
