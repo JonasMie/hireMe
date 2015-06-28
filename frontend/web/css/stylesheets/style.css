@@ -2097,135 +2097,150 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   padding: 10px 10px 10px 140px;
 }
 
-/* line 5, ../sass/_job.scss */
+/* line 7, ../sass/_job.scss */
+.controller-job.action-index #jobListTable .footable-visible span.glyphicon {
+  padding: 20px 5px;
+}
+@media screen and (max-width: 768px) {
+  /* line 13, ../sass/_job.scss */
+  .controller-job.action-index #jobListTable .footable-visible span.glyphicon {
+    padding: 10px 5px;
+  }
+}
+/* line 20, ../sass/_job.scss */
 .controller-job.action-index a {
   color: #5dca88;
 }
-/* line 7, ../sass/_job.scss */
+/* line 22, ../sass/_job.scss */
 .controller-job.action-index a:hover, .controller-job.action-index a:focus, .controller-job.action-index a:active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 12, ../sass/_job.scss */
+/* line 27, ../sass/_job.scss */
+.controller-job.action-index div#searchDistance {
+  float: right;
+  margin-bottom: 10px;
+}
+/* line 32, ../sass/_job.scss */
 .controller-job.action-index div.summary {
   display: none;
 }
-/* line 16, ../sass/_job.scss */
+/* line 36, ../sass/_job.scss */
 .controller-job.action-index .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 20, ../sass/_job.scss */
+/* line 40, ../sass/_job.scss */
 .controller-job.action-index .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 26, ../sass/_job.scss */
+/* line 46, ../sass/_job.scss */
 .controller-job.action-index a.btn {
   color: #fff;
 }
-/* line 28, ../sass/_job.scss */
+/* line 48, ../sass/_job.scss */
 .controller-job.action-index a.btn:hover, .controller-job.action-index a.btn:focus, .controller-job.action-index a.btn:active {
   color: #fff;
 }
-/* line 37, ../sass/_job.scss */
+/* line 57, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a {
   color: #5dca88;
 }
-/* line 39, ../sass/_job.scss */
+/* line 59, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a:hover, .controller-job.action-index div.jobsRecruiter a:focus, .controller-job.action-index div.jobsRecruiter a:active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 44, ../sass/_job.scss */
+/* line 64, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter h1 {
   margin-top: 0px;
 }
-/* line 48, ../sass/_job.scss */
+/* line 68, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.empty {
   display: none;
 }
-/* line 53, ../sass/_job.scss */
+/* line 73, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.jobCreate a.btn {
   float: right;
 }
-/* line 57, ../sass/_job.scss */
+/* line 77, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a.btn {
   color: #fff;
 }
-/* line 59, ../sass/_job.scss */
+/* line 79, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a.btn:hover, .controller-job.action-index div.jobsRecruiter a.btn:focus, .controller-job.action-index div.jobsRecruiter a.btn:active {
   color: #fff;
 }
-/* line 67, ../sass/_job.scss */
+/* line 87, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.list-view {
   margin-top: 10px;
 }
-/* line 71, ../sass/_job.scss */
+/* line 91, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem {
   margin-bottom: 20px;
 }
-/* line 74, ../sass/_job.scss */
+/* line 94, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.totalApplicants span.top {
   font-weight: 400;
 }
-/* line 80, ../sass/_job.scss */
+/* line 100, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.newApplicants span.top {
   font-weight: 400;
 }
 @media screen and (max-width: 768px) {
-  /* line 87, ../sass/_job.scss */
+  /* line 107, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info {
     margin-bottom: 5px;
   }
-  /* line 89, ../sass/_job.scss */
+  /* line 109, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
     display: inline;
     font-size: 32px;
     min-width: 30px;
   }
-  /* line 94, ../sass/_job.scss */
+  /* line 114, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
     font-size: 28.8px;
   }
-  /* line 98, ../sass/_job.scss */
+  /* line 118, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
     display: inline;
     margin-left: 10px;
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 107, ../sass/_job.scss */
+  /* line 127, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
     display: block;
     text-align: center;
     min-width: 30px;
     font-size: 32px;
   }
-  /* line 113, ../sass/_job.scss */
+  /* line 133, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
     font-size: 28.8px;
   }
-  /* line 117, ../sass/_job.scss */
+  /* line 137, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
     display: block;
     text-align: center;
   }
 }
 @media screen and (min-width: 1200px) {
-  /* line 126, ../sass/_job.scss */
+  /* line 146, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
     font-size: 28.8px;
     display: inline;
     text-align: left;
   }
-  /* line 131, ../sass/_job.scss */
+  /* line 151, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
     font-size: 22.4px;
   }
-  /* line 135, ../sass/_job.scss */
+  /* line 155, ../sass/_job.scss */
   .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
     display: inline;
     text-align: left;
   }
 }
-/* line 144, ../sass/_job.scss */
+/* line 164, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.jobSubItem span.info.profilePicture {
   display: block;
   float: left;
@@ -2233,69 +2248,69 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   margin-bottom: 10px;
 }
 
-/* line 160, ../sass/_job.scss */
+/* line 180, ../sass/_job.scss */
 .controller-job.action-view a {
   color: #5dca88;
 }
-/* line 162, ../sass/_job.scss */
+/* line 182, ../sass/_job.scss */
 .controller-job.action-view a:hover, .controller-job.action-view a:focus, .controller-job.action-view a:active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 167, ../sass/_job.scss */
+/* line 187, ../sass/_job.scss */
 .controller-job.action-view a.btn {
   color: #fff;
 }
-/* line 169, ../sass/_job.scss */
+/* line 189, ../sass/_job.scss */
 .controller-job.action-view a.btn:hover, .controller-job.action-view a.btn:focus, .controller-job.action-view a.btn:active {
   color: #fff;
 }
-/* line 176, ../sass/_job.scss */
+/* line 196, ../sass/_job.scss */
 .controller-job.action-view #jobViewTable .footable-row-detail-row span.glyphicon {
   padding: 20px 5px;
 }
-/* line 184, ../sass/_job.scss */
+/* line 204, ../sass/_job.scss */
 .controller-job.action-view div.apply {
   text-align: right;
   margin-top: 20px;
 }
-/* line 189, ../sass/_job.scss */
+/* line 209, ../sass/_job.scss */
 .controller-job.action-view strong {
   font-weight: 400;
 }
-/* line 193, ../sass/_job.scss */
+/* line 213, ../sass/_job.scss */
 .controller-job.action-view table.detail-view {
   width: 100%;
 }
-/* line 197, ../sass/_job.scss */
+/* line 217, ../sass/_job.scss */
 .controller-job.action-view table.detail-view th {
   color: #d0d0d0;
   padding: 3px 10px 3px 0px;
   vertical-align: top;
   width: 25%;
 }
-/* line 204, ../sass/_job.scss */
+/* line 224, ../sass/_job.scss */
 .controller-job.action-view table.detail-view td {
   padding: 3px 0px;
   vertical-align: top;
 }
-/* line 212, ../sass/_job.scss */
+/* line 232, ../sass/_job.scss */
 .controller-job.action-view div.summary {
   display: none;
 }
-/* line 216, ../sass/_job.scss */
+/* line 236, ../sass/_job.scss */
 .controller-job.action-view div.row.hireme a.btn {
   float: right;
 }
-/* line 220, ../sass/_job.scss */
+/* line 240, ../sass/_job.scss */
 .controller-job.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 224, ../sass/_job.scss */
+/* line 244, ../sass/_job.scss */
 .controller-job.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
 
-/* line 231, ../sass/_job.scss */
+/* line 251, ../sass/_job.scss */
 .controller-job.action-create #form-createJob {
   margin-top: 30px;
 }

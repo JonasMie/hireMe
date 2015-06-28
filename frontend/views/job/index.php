@@ -107,6 +107,25 @@ $this->title = "Stellenanzeigen";
 <?/* Applicant View */?>
 
 <? else: ?>
+<div class="dropdown" id="searchDistance">
+		<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"
+				class="btn btn-success" <? if (!isset(Yii::$app->user->identity->geo_id)) echo "disabled" ?>>
+			Nach Umkreis suchen
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dLabel">
+			<li class="bulkDelete">
+				<a href="/job?dist=10" tabindex="-1">10 km</a>
+				<a href="/job?dist=20" tabindex="-1">20 km</a>
+				<a href="/job?dist=30" tabindex="-1">30 km</a>
+				<a href="/job?dist=50" tabindex="-1">50 km</a>
+				<a href="/job?dist=100" tabindex="-1">100 km</a>
+				<a href="/job?dist=200" tabindex="-1">200 km</a>
+			</li>
+		</ul>
+	</div>
+	
 <div class="jobsApplicant">
 
 	<?= GridView::widget([
@@ -128,7 +147,7 @@ $this->title = "Stellenanzeigen";
 				'label'          => 'Verfügbar ab',
 				'format'         => 'date',
 				'value'          => 'job_begin',
-				'headerOptions'  => ['class' => 'second-col'],
+				'headerOptions'  => ['class' => 'second-col', 'data-hide' => 'mediaXXsmall,mediaXsmall,phone'],
 				'contentOptions' => ['class' => 'second-col'],
 			],
 			[
@@ -139,13 +158,13 @@ $this->title = "Stellenanzeigen";
 				'label'          => 'Entfernung',
 				// only show column is user has set his personal plz (otherwise no distance computation possible)
 				'visible'        => isset(Yii::$app->user->identity->geo_id),
-				'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,phone'],
+				'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,mediaXsmall,phone'],
 				'contentOptions' => ['class' => 'third-col'],
 			],
 			[
 				'attribute'      => 'city',
 				'label'          => 'Stadt',
-				'headerOptions'  => ['class' => 'fourth-col', 'data-hide' => 'mediaXXsmall,phone'],
+				'headerOptions'  => ['class' => 'fourth-col'],
 				'contentOptions' => ['class' => 'fourth-col'],
 			],
 			[
@@ -159,7 +178,9 @@ $this->title = "Stellenanzeigen";
 							return Html::a('<span class="glyphicon glyphicon-star"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen')]);
 						}
 					],
-				'template' => '{view}{update}'
+				'template' => '{view}{update}',
+				'headerOptions'  => ['class' => 'fifth-col'],
+				'contentOptions' => ['class' => 'fifth-col'],
 			],
 			[
 
@@ -171,26 +192,6 @@ $this->title = "Stellenanzeigen";
 		],
 	]);
 	?>
-
-
-	<div class="dropdown" id="searchDistance">
-		<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"
-				class="btn btn-success" <? if (!isset(Yii::$app->user->identity->geo_id)) echo "disabled" ?>>
-			Nach Umkreis suchen
-			<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu" aria-labelledby="dLabel">
-			<li class="bulkDelete">
-				<a href="/job?dist=10" tabindex="-1">10 km</a>
-				<a href="/job?dist=20" tabindex="-1">20 km</a>
-				<a href="/job?dist=30" tabindex="-1">30 km</a>
-				<a href="/job?dist=50" tabindex="-1">50 km</a>
-				<a href="/job?dist=100" tabindex="-1">100 km</a>
-				<a href="/job?dist=200" tabindex="-1">200 km</a>
-			</li>
-		</ul>
-	</div>
 <? endif; ?>
 <?/* Applicant View END */?>
 </div>

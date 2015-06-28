@@ -2,11 +2,31 @@
 	
 	// General Styling
 	
+	#jobListTable{
+		.footable-visible{
+			span.glyphicon{
+				padding:20px 5px;
+			}
+		}
+		@media screen and (max-width:768px){
+			.footable-visible{
+				span.glyphicon{
+					padding:10px 5px;
+				}
+			}
+		}
+	}
+	
 	a{
 		color:$green;
 		&:hover,&:focus,&:active{
 			color: $green50;
 		}
+	}
+	
+	div#searchDistance{
+		float:right;
+		margin-bottom:10px;
 	}
 	
 	div.summary{
