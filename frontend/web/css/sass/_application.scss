@@ -21,6 +21,16 @@
 }
 
 .controller-application.action-index{
+
+	div.resume-index{
+		a:not(.btn){
+			color:$green;
+			&:hover,&:focus,&:active{
+				color:$green50;
+			}
+		}
+	}
+	
 	div.summary{
 		display:none;
 	}
@@ -35,7 +45,21 @@
 // Create and edit application
 .controller-application.action-add-data{
 	
-	div.saveBtn {
+	div.application-create{
+		a:not(.btn){
+			color:$green;
+			&:hover,&:focus,&:active{
+				color:$green50;
+			}
+		}
+	}
+	
+	div.saveBtn{
+		margin-top: 15px;
+		text-align: right;
+	}
+	
+	div.sendBtn {
 		margin-top: 15px;
 		text-align: right;
 	}

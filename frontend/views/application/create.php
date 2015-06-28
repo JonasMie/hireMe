@@ -134,14 +134,14 @@ ApplyFormAsset::register($this);
 				</div>
 			</div>
 		</div>
-			<div class="col-sm-3"></div>
-				<div class="col-sm-3 saveBtn">
-					<p class="hidden" id="hiddenApp"><?= $appId ?></p>
+		<div class="hidden" id="hiddenApp"><?= $appId ?></div>
 		<?php ActiveForm::end(); ?>
-				</div>
+		<div class="col-sm-9"></div>
+		<div class="col-sm-3 saveBtn">
+		<?= Html::button('<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Bewerbung speichern', ['class' => 'btn btn-success', 'name' => 'create-button','id' => "saveCover"]) ?>
+		</div>
 		<div class="col-sm-9"></div>
 		<div class="col-sm-3 sendBtn">
-			<?= Html::button('<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Bewerbung speichern', ['class' => 'btn btn-success', 'name' => 'create-button','id' => "saveCover"]) ?>
 			<?= Html::a('<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Bewerbung verschicken','/application/send?id='.$appId,['class' => 'btn btn-success ripple sendBtn','id' => 'sendApp']) ?> 
 		</div>
 	</div>
