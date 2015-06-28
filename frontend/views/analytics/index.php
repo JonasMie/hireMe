@@ -103,7 +103,7 @@ $this->title = "Analytics für";
                         Interesst Rate
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
-                              title="Beschreibt prozentual den Anteil der Leute, die auf einen Button geklickt haben zu denen, die ihn insgesamt gesehen haben. "></span>
+                              title="Beschreibt prozentual den Anteil der Leute, die auf einen Button geklickt haben zu denen, die sie insgesamt gesehen haben. "></span>
                     </div>
                     <canvas id="interestRateChart" class="chart"></canvas>
                 </div>
@@ -115,7 +115,7 @@ $this->title = "Analytics für";
                         Klicks und Bewerbungen
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
-                              title="Zeigt die Klicks auf einen der Buttons, sowie die daraus herausgegangenen Bewerbungen"></span>
+                              title="Zeigt die Klicks auf einen der Buttons, sowie die daraus ergangenen Bewerbungen"></span>
                     </div>
                     <div id="clickApplyIsNull" class="no-chart-data no-chart-data-row-1-col-2">Keine Daten verfügbar</div>
                     <canvas id="clicksApplicationChart" class="chart"></canvas>
