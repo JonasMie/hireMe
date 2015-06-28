@@ -36,12 +36,9 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
 
     <div class="myjobs">
 
-        <? if (!(Yii::$app->user->identity->isRecruiter())) {
-            if (!($inFavourites)) {
-                echo('<div class="favouriteAlert"></div>');
-            }
-        }
-        ?>
+        <? if (!(Yii::$app->user->identity->isRecruiter())): ?>
+                <div class="favouriteAlert"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Der Job wurde deinen Favoriten hinzugefügt. <a href="#" class="alert-link">Hier kannst du deine Favoriten ansehen.</a></div></div>
+        <? endif; ?>
 
 
         <h1><?= Html::encode($this->title) ?></h1>
@@ -158,7 +155,7 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
                             [
                                 'update' => function ($url, $model, $key) {
                                     if (Favourites::find()->where(['job_id' => $model["id"], 'user_id' => Yii::$app->user->getId()])->count() == 0) {
-                                        return Html::a('<span class="glyphicon glyphicon-star"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen'),'data-job' => $model["id"], 'id' =>"toggleFavourite"]);
+                                        return Html::a('<span class="glyphicon glyphicon-star"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen'),'data-job' => $model["id"], 'class' =>"toggleFavourite"]);
                                     } else return '';
                                 }
                             ],
@@ -200,5 +197,28 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
     </div>
 
 <? // TODO: message if error
-$this->registerJs("jQuery('#toggleFavourite').click(function (e) {e.preventDefault(); \$this = jQuery(this);jQuery.post('/favourites/toggle', {id: \$this.data('job')}, function (res) {if (res.success) {\$this.remove();jQuery('.favouriteAlert').html('<div class=\"alert alert-success alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Der Job wurde deinen Favoriten hinzugefügt. <a href=\"#\" class=\"alert-link\">Hier kannst du deine Favoriten ansehen.</a></div>')} else {\$this.remove();}});});");
+$this->registerJs("
+jQuery('#jobListTable').on( 'click', '.toggleFavourite', 
+	function (e) {
+		e.preventDefault();
+		\$this = jQuery(this);
+		jQuery.post('/favourites/toggle', {
+			id: \$this.data('job')
+		},	function (res) {
+				if (res.success) {
+					\$this.replaceWith('<span class=\"glyphicon glyphicon-ok\"></span>');
+					jQuery('.favouriteAlert').css('display','block').delay(1500).fadeOut(2000, function() {
+							$(this).css('display','none'); 
+						}
+					);
+					window.scrollTo(0, 0);
+				} 
+				else {
+					\$this.remove();
+				}
+			}
+		);
+	}
+);
+");
 ?>

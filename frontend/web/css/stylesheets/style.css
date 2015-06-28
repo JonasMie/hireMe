@@ -1982,3 +1982,7 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
 .controller-job.action-index .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
+/* line 40, ../sass/_job.scss */
+.controller-job.action-index div.favouriteAlert {
+  display: none;
+}
