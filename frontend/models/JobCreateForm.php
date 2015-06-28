@@ -40,9 +40,10 @@ class JobCreateForm extends Model
             ['sector', 'required'],
             [['sector','time','zip'], 'integer'],
             ['city','string'],
-            ['type', 'required'],
             ['type', 'integer'],  
-          
+            ['job_begin','safe'],
+            ['job_end','safe'],
+
             [['city', 'zip'], 'required', 'when' => function ($model) {
                 return $model->checkLocationBased == true;
             }, 'whenClient' => 'function(attribute,value){
@@ -85,7 +86,6 @@ class JobCreateForm extends Model
                 $job->id = $highestID->id+1;
             }
            
-
             $job->description = $this->description;
             $job->job_begin = $this->job_begin;
             $job->job_end = $this->job_end;
@@ -93,26 +93,11 @@ class JobCreateForm extends Model
             $job->company_id = $user->company_id;
             $job->active = 0;
             $job->title = $this->title;
-            $job->type = $this->type;
+            $job->type = 0;
             $job->allocated = 0;
-            $job->time = $this->time;
-            $job->zip = 12;
-            $job->city = "asd";
-
-            Yii::trace("ID: ".$job->id);
-            Yii::trace("desc: ".$job->description);
-            Yii::trace("begin: ".$job->job_begin);
-            Yii::trace("end: ".$job->job_end);
-            Yii::trace("sec: ".$job->sector);
-            Yii::trace("comp: ".$job->company_id);
-            Yii::trace("act: ".$job->active);
-            Yii::trace("title: ".$job->title);
-            Yii::trace("alloc: ".$job->allocated);
-            Yii::trace("time: ".$job->time);
-            Yii::trace("zip: ".$job->zip);
-            Yii::trace("city: ".$job->city);
-
-
+            $job->time = 0;
+            $job->zip = $this->zip;
+            $job->city = $this->city;
 
 
             if($this->checkLocationBased) {

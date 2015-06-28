@@ -6,6 +6,9 @@ use frontend\assets\CreateJobAsset;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
 use kartik\date\DatePicker;
+use kartik\typeahead\Typeahead;
+
+include Yii::getAlias('@helper/companySignup.php');
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
@@ -42,10 +45,12 @@ $this->title = 'Create Job';
                     ]
                 ]);
                 ?>
-                <?= $form->field($model, 'sector')->label("Sektor wählen") ?>
-                <?= $form->field($model, 'type')->label("Type") ?>
-                <?= $form->field($model, 'time')->label("time") ?>
-                
+
+                 <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
+                    'data' => $sectors,
+                    'options' => ['prompt' => ''],
+                ])->label('Branche auswählen') ?>
+
                 <?= $form->field($model, 'checkLocationBased')->checkbox(array('id'=>'checkLocationBased'))->label('Ortsbasiert') ?>
 
                 <div class="locationDiv" style="display: none">    <? //STYLE: display in css?>

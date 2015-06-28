@@ -59,7 +59,7 @@ class ApplicationController extends Controller
 
     public static function getApplicationDataForJob($id) {
 
-       $sql = "SELECT u.fullName, u.id from user u, application a WHERE a.job_id = ".$id." and u.id = a.user_id";
+       $sql = "SELECT u.fullName, u.id from user u, application a WHERE a.job_id = ".$id." and u.id = a.user_id and a.state = 'Versendet'";
        
        $dataProvider = new SqlDataProvider([
             'sql' => $sql,
