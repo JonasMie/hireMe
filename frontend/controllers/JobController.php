@@ -42,9 +42,16 @@ class JobController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        'allow'         => false,
+                        'actions'       => ['create'],
+                        'matchCallback' => function () {
+                            return Yii::$app->user->isGuest || !Yii::$app->user->identity->isRecruiter();
+                        }
+                    ],
+                    [
                         'allow' => true,
                         'roles' => ['@']
-                    ]
+                    ],
                 ],
             ],
             'verbs'       => [
