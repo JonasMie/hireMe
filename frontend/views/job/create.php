@@ -15,14 +15,16 @@ include Yii::getAlias('@helper/companySignup.php');
 /* @var $form yii\widgets\ActiveForm */
 CreateJobAsset::register($this);
 
-$this->title = 'Create Job';
+$this->title = 'Stellenanzeige erstellen';
 /* @var $model frontend\models\Job */
 
 ?>
 <div class="job-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-			
+	<div class="col-sm-6">
+
+		<h1><?= Html::encode($this->title) ?></h1>
+
 			<?php $form = ActiveForm::begin(['id' => 'form-createJob']); ?>
                 <?= $form->field($model, 'title')->label('Titel')?>
                 
@@ -59,7 +61,7 @@ $this->title = 'Create Job';
                 </div>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Erstellen', ['class' => 'btn btn-primary', 'name' => 'create-button']) ?>
+                    <?= Html::submitButton('Erstellen', ['class' => 'btn btn-success', 'name' => 'create-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
 
@@ -77,4 +79,5 @@ $this->title = 'Create Job';
 
  </div>
 
+</div>
 </div>

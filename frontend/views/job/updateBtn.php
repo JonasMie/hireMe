@@ -1,11 +1,11 @@
-<?php
+﻿<?php
 
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ApplyBtn */
 
-$this->title = 'Update Apply Btn: ' . ' ' . $model->id;
+$this->title = 'Beschreibung für hireMe-Button ändern: '.$model->site;
 ?>
 <div class="apply-btn-update">
 

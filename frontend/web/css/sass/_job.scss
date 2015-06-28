@@ -1,8 +1,219 @@
+.controller-job.action-index{
+	
+	// General Styling
+	
+	#jobListTable{
+		.footable-visible{
+			span.glyphicon{
+				padding:20px 5px;
+			}
+		}
+		@media screen and (max-width:768px){
+			.footable-visible{
+				span.glyphicon{
+					padding:10px 5px;
+				}
+			}
+		}
+	}
+	
+	a{
+		color:$green;
+		&:hover,&:focus,&:active{
+			color: $green50;
+		}
+	}
+	
+	div#searchDistance{
+		float:right;
+		margin-bottom:10px;
+	}
+	
+	div.summary{
+		display:none;
+	}
+	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+	
+	// Applicant Stylings
+	
+	a.btn{
+		color:#fff;
+		&:hover,&:focus,&:active{
+			color:#fff;
+		}
+	}
+	
+	
+	// Recruiter Stylings
+	div.jobsRecruiter{
+		
+		a{
+			color:$green;
+			&:hover,&:focus,&:active{
+				color: $green50;
+			}
+		}
+		
+		h1{
+			margin-top:0px;
+		}
+		
+		div.empty{
+			display:none;
+		}
+		
+		div.jobCreate{
+			a.btn{
+				float:right;
+			}
+		}
+		a.btn{
+			color:#fff;
+			&:hover,&:focus,&:active{
+				color:#fff;
+			}
+		}
+		
+		div.list-view{
+			
+	
+		div.list-view{
+				margin-top:10px;
+			}
+			
+			div.jobItem {
+				margin-bottom: 20px;
+				div.totalApplicants{
+					span.top{
+						font-weight: 400;
+					}
+				}
+				
+				div.newApplicants{
+					span.top{
+						font-weight: 400;
+					}
+				}
+				
+				
+				@media screen and (max-width:768px){
+					div.info{
+						margin-bottom: 5px;
+						span.top{
+							display:inline;
+							font-size:$fontbase*2;
+							min-width: 30px;
+						}
+						span.glyphicon{
+							font-size:$fontbase*1.8;
+						}
+						
+						span.bottom{
+							display:inline;
+							margin-left:10px;
+						}
+					}
+				}
+				
+				@media screen and (min-width:768px){
+					div.info{
+						span.top{
+							display:block;
+							text-align: center;
+							min-width: 30px;
+							font-size:$fontbase*2;
+						}
+						span.glyphicon{
+							font-size:$fontbase*1.8;
+						}
+						
+						span.bottom{
+							display:block;
+							text-align: center;
+						}
+					}
+				}
+				
+				@media screen and (min-width:1200px){
+					div.info{
+					span.top{
+						font-size:$fontbase*1.8;
+						display:inline;
+						text-align:left;
+					}
+					span.glyphicon{
+						font-size:$fontbase*1.4;
+					}
+					
+					span.bottom{
+						display:inline;
+						text-align:left;
+					}
+				}
+				}
+				
+				div.jobSubItem{
+				
+					span.info.profilePicture{
+						display:block;
+						float:left;
+						margin-right: 10px;
+						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+		
+	}
+}
+
 .controller-job.action-view{
+	
+	// General Stylings
+	a{
+		color:$green;
+		&:hover,&:focus,&:active{
+			color: $green50;
+		}
+	}
+	
+	div.jobCreate{
+		a.btn{
+			float:right;
+		}
+	}
+	
+	a.btn{
+		color:#fff;
+		&:hover,&:focus,&:active{
+			color:#fff;
+		}
+	}
+	
+	#jobViewTable{
+		.footable-row-detail-row{
+			span.glyphicon{
+				padding:20px 5px;
+			}
+		}
+	}
+	
+	// Applicant Stylings
 	
 	div.apply{
 		text-align: right;
 		margin-top: 20px;
+	}
+	
+	strong{
+		font-weight:400;
 	}
 
 	table.detail-view{
@@ -22,11 +233,20 @@
 		}
 	}
 	
-}
-
-.controller-job.action-index{
+	// Recruiter Stylings
+	
+	div.btnInstructions{
+		h3{
+			margin-top:0px;
+		}
+	}
+	
 	div.summary{
 		display:none;
+	}
+	
+	div.row.hireme a.btn{
+		float:right;
 	}
 	
 	.footable .footable-row-detail .footable-row-detail-inner{
@@ -36,7 +256,7 @@
 	.footable-row-detail-cell{
 		border-bottom: 1px solid #dddddd;
 	}
-	
+
 	#jobListTable{	
 		.footable-row-detail-row{
 			.glyphicon{
@@ -47,5 +267,10 @@
 	
 	div.favouriteAlert{
 		display:none;
+	}
+}
+.controller-job.action-create{
+	#form-createJob{
+		margin-top:30px;
 	}
 }

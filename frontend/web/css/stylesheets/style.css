@@ -617,7 +617,7 @@ body a:focus {
   outline: none !important;
 }
 /* line 10, ../sass/_basicTemplate.scss */
-body a:hover {
+body a:hover, body a:focus, body a:active {
   text-decoration: none;
 }
 /* line 18, ../sass/_basicTemplate.scss */
@@ -862,40 +862,28 @@ body .icheckbox_flat-green.checked.disabled {
 body .iradio_flat-green.checked.disabled {
   background-position: -154px 0;
 }
-/* line 247, ../sass/_basicTemplate.scss */
+/* line 293, ../sass/_basicTemplate.scss */
 body .radio label, body .checkbox label {
   font-weight: 300;
 }
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-<<<<<<< HEAD
-  /* line 295, ../sass/_basicTemplate.scss */
-=======
-  /* line 253, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+  /* line 299, ../sass/_basicTemplate.scss */
   body .icheckbox_flat-green, body .iradio_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
-<<<<<<< HEAD
-/* line 305, ../sass/_basicTemplate.scss */
-=======
-/* line 262, ../sass/_basicTemplate.scss */
+/* line 308, ../sass/_basicTemplate.scss */
 body legend {
   color: #9d9d9d;
 }
-/* line 267, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 313, ../sass/_basicTemplate.scss */
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
-<<<<<<< HEAD
-/* line 309, ../sass/_basicTemplate.scss */
-=======
-/* line 271, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 317, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -909,19 +897,11 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-<<<<<<< HEAD
-/* line 318, ../sass/_basicTemplate.scss */
+/* line 326, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 323, ../sass/_basicTemplate.scss */
-=======
-/* line 280, ../sass/_basicTemplate.scss */
-body .form-group input[type="text"]:focus {
-  outline: none;
-}
-/* line 285, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 331, ../sass/_basicTemplate.scss */
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -934,21 +914,13 @@ body .form-group textarea {
   font-size: 16px;
   resize: none;
 }
-<<<<<<< HEAD
-/* line 330, ../sass/_basicTemplate.scss */
-=======
-/* line 292, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 338, ../sass/_basicTemplate.scss */
 body .form-group textarea:focus {
   box-shadow: none;
   border-bottom: 2px solid #5dca88;
   border-top: 2px solid #5dca88;
 }
-<<<<<<< HEAD
-/* line 337, ../sass/_basicTemplate.scss */
-=======
-/* line 300, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 346, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -959,11 +931,7 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-<<<<<<< HEAD
-/* line 350, ../sass/_basicTemplate.scss */
-=======
-/* line 313, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 359, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-settingsmodel-picture,
@@ -975,11 +943,7 @@ body .form-group.field-resumeschool-report_id,
 body .field-settingsmodel-visibility {
   position: static;
 }
-<<<<<<< HEAD
-/* line 360, ../sass/_basicTemplate.scss */
-=======
-/* line 323, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 369, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-settingsmodel-picture label,
@@ -991,61 +955,33 @@ body .form-group.field-resumeschool-report_id label,
 body .field-settingsmodel-visibility label {
   position: static;
 }
-<<<<<<< HEAD
-/* line 371, ../sass/_basicTemplate.scss */
+/* line 380, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 374, ../sass/_basicTemplate.scss */
-=======
-/* line 334, ../sass/_basicTemplate.scss */
-body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
-  border-bottom: 2px solid #5dca88;
-}
-/* line 337, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 383, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-<<<<<<< HEAD
-/* line 379, ../sass/_basicTemplate.scss */
-body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
-  border-color: #5dca88 !important;
-}
-/* line 381, ../sass/_basicTemplate.scss */
-body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
-  box-shadow: none !important;
-}
 /* line 388, ../sass/_basicTemplate.scss */
-body .has-error > label {
-  color: #a94442 !important;
-}
-/* line 398, ../sass/_basicTemplate.scss */
-body .typeahead-validation .has-success input {
-  border-bottom: 2px solid #5dca88 !important;
-}
-/* line 404, ../sass/_basicTemplate.scss */
-=======
-/* line 342, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 344, ../sass/_basicTemplate.scss */
+/* line 390, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 351, ../sass/_basicTemplate.scss */
+/* line 397, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 361, ../sass/_basicTemplate.scss */
+/* line 407, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 367, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 413, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -1056,37 +992,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-<<<<<<< HEAD
-/* line 416, ../sass/_basicTemplate.scss */
-=======
-/* line 379, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 425, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-<<<<<<< HEAD
-/* line 424, ../sass/_basicTemplate.scss */
+/* line 433, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 427, ../sass/_basicTemplate.scss */
+/* line 436, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 431, ../sass/_basicTemplate.scss */
-=======
-/* line 387, ../sass/_basicTemplate.scss */
-body .twitter-typeahead pre {
-  display: none;
-}
-/* line 390, ../sass/_basicTemplate.scss */
-body .twitter-typeahead input.tt-hint {
-  display: none !important;
-}
-/* line 394, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 440, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -1096,111 +1016,63 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-<<<<<<< HEAD
-/* line 436, ../sass/_basicTemplate.scss */
+/* line 445, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 441, ../sass/_basicTemplate.scss */
+/* line 450, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 443, ../sass/_basicTemplate.scss */
-=======
-/* line 399, ../sass/_basicTemplate.scss */
-body .twitter-typeahead input.tt-input:focus {
-  border-bottom: 2px solid #5dca88;
-}
-/* line 404, ../sass/_basicTemplate.scss */
-body .twitter-typeahead .tt-dropdown-menu {
-  padding: 0px;
-}
-/* line 406, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 452, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-<<<<<<< HEAD
-/* line 447, ../sass/_basicTemplate.scss */
-=======
-/* line 410, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 456, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-<<<<<<< HEAD
-/* line 457, ../sass/_basicTemplate.scss */
-=======
-/* line 420, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 466, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-<<<<<<< HEAD
-/* line 465, ../sass/_basicTemplate.scss */
+/* line 474, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 473, ../sass/_basicTemplate.scss */
-=======
-/* line 428, ../sass/_basicTemplate.scss */
-body .has-error input[type="text"] {
-  border-color: #a94442 !important;
-}
-/* line 436, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 482, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-<<<<<<< HEAD
-/* line 479, ../sass/_basicTemplate.scss */
-=======
-/* line 442, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 488, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-<<<<<<< HEAD
-/* line 486, ../sass/_basicTemplate.scss */
+/* line 495, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 492, ../sass/_basicTemplate.scss */
-=======
-/* line 449, ../sass/_basicTemplate.scss */
-body div.profile-picture-thumbnail:hover {
-  background: url("/uploads/profile/default-hover.png") no-repeat top;
-}
-/* line 455, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 501, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-<<<<<<< HEAD
-/* line 500, ../sass/_basicTemplate.scss */
+/* line 509, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
-/* line 504, ../sass/_basicTemplate.scss */
-=======
-/* line 463, ../sass/_basicTemplate.scss */
-body div#bulkActions {
-  margin-top: 15px;
-}
-/* line 467, ../sass/_basicTemplate.scss */
->>>>>>> feature/frontendStuffAndFixes
+/* line 513, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
@@ -2451,47 +2323,238 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   padding: 10px 10px 10px 140px;
 }
 
-/* line 3, ../sass/_job.scss */
+/* line 7, ../sass/_job.scss */
+.controller-job.action-index #jobListTable .footable-visible span.glyphicon {
+  padding: 20px 5px;
+}
+@media screen and (max-width: 768px) {
+  /* line 13, ../sass/_job.scss */
+  .controller-job.action-index #jobListTable .footable-visible span.glyphicon {
+    padding: 10px 5px;
+  }
+}
+/* line 20, ../sass/_job.scss */
+.controller-job.action-index a {
+  color: #5dca88;
+}
+/* line 22, ../sass/_job.scss */
+.controller-job.action-index a:hover, .controller-job.action-index a:focus, .controller-job.action-index a:active {
+  color: rgba(93, 202, 136, 0.5);
+}
+/* line 27, ../sass/_job.scss */
+.controller-job.action-index div#searchDistance {
+  float: right;
+  margin-bottom: 10px;
+}
+/* line 32, ../sass/_job.scss */
+.controller-job.action-index div.summary {
+  display: none;
+}
+/* line 36, ../sass/_job.scss */
+.controller-job.action-index .footable .footable-row-detail .footable-row-detail-inner {
+  border: none;
+}
+/* line 40, ../sass/_job.scss */
+.controller-job.action-index .footable-row-detail-cell {
+  border-bottom: 1px solid #dddddd;
+}
+/* line 46, ../sass/_job.scss */
+.controller-job.action-index a.btn {
+  color: #fff;
+}
+/* line 48, ../sass/_job.scss */
+.controller-job.action-index a.btn:hover, .controller-job.action-index a.btn:focus, .controller-job.action-index a.btn:active {
+  color: #fff;
+}
+/* line 57, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a {
+  color: #5dca88;
+}
+/* line 59, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a:hover, .controller-job.action-index div.jobsRecruiter a:focus, .controller-job.action-index div.jobsRecruiter a:active {
+  color: rgba(93, 202, 136, 0.5);
+}
+/* line 64, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter h1 {
+  margin-top: 0px;
+}
+/* line 68, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.empty {
+  display: none;
+}
+/* line 73, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.jobCreate a.btn {
+  float: right;
+}
+/* line 77, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a.btn {
+  color: #fff;
+}
+/* line 79, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a.btn:hover, .controller-job.action-index div.jobsRecruiter a.btn:focus, .controller-job.action-index div.jobsRecruiter a.btn:active {
+  color: #fff;
+}
+/* line 87, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.list-view {
+  margin-top: 10px;
+}
+/* line 91, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem {
+  margin-bottom: 20px;
+}
+/* line 94, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.totalApplicants span.top {
+  font-weight: 400;
+}
+/* line 100, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.newApplicants span.top {
+  font-weight: 400;
+}
+@media screen and (max-width: 768px) {
+  /* line 107, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info {
+    margin-bottom: 5px;
+  }
+  /* line 109, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
+    display: inline;
+    font-size: 32px;
+    min-width: 30px;
+  }
+  /* line 114, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
+    font-size: 28.8px;
+  }
+  /* line 118, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
+    display: inline;
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 127, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
+    display: block;
+    text-align: center;
+    min-width: 30px;
+    font-size: 32px;
+  }
+  /* line 133, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
+    font-size: 28.8px;
+  }
+  /* line 137, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
+    display: block;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 146, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.top {
+    font-size: 28.8px;
+    display: inline;
+    text-align: left;
+  }
+  /* line 151, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
+    font-size: 22.4px;
+  }
+  /* line 155, ../sass/_job.scss */
+  .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.bottom {
+    display: inline;
+    text-align: left;
+  }
+}
+/* line 164, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.jobSubItem span.info.profilePicture {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 180, ../sass/_job.scss */
+.controller-job.action-view a {
+  color: #5dca88;
+}
+/* line 182, ../sass/_job.scss */
+.controller-job.action-view a:hover, .controller-job.action-view a:focus, .controller-job.action-view a:active {
+  color: rgba(93, 202, 136, 0.5);
+}
+/* line 188, ../sass/_job.scss */
+.controller-job.action-view div.jobCreate a.btn {
+  float: right;
+}
+/* line 193, ../sass/_job.scss */
+.controller-job.action-view a.btn {
+  color: #fff;
+}
+/* line 195, ../sass/_job.scss */
+.controller-job.action-view a.btn:hover, .controller-job.action-view a.btn:focus, .controller-job.action-view a.btn:active {
+  color: #fff;
+}
+/* line 202, ../sass/_job.scss */
+.controller-job.action-view #jobViewTable .footable-row-detail-row span.glyphicon {
+  padding: 20px 5px;
+}
+/* line 210, ../sass/_job.scss */
 .controller-job.action-view div.apply {
   text-align: right;
   margin-top: 20px;
 }
-/* line 8, ../sass/_job.scss */
+/* line 215, ../sass/_job.scss */
+.controller-job.action-view strong {
+  font-weight: 400;
+}
+/* line 219, ../sass/_job.scss */
 .controller-job.action-view table.detail-view {
   width: 100%;
 }
-/* line 12, ../sass/_job.scss */
+/* line 223, ../sass/_job.scss */
 .controller-job.action-view table.detail-view th {
   color: #d0d0d0;
   padding: 3px 10px 3px 0px;
   vertical-align: top;
   width: 25%;
 }
-/* line 19, ../sass/_job.scss */
+/* line 230, ../sass/_job.scss */
 .controller-job.action-view table.detail-view td {
   padding: 3px 0px;
   vertical-align: top;
 }
-
-/* line 28, ../sass/_job.scss */
-.controller-job.action-index div.summary {
+/* line 239, ../sass/_job.scss */
+.controller-job.action-view div.btnInstructions h3 {
+  margin-top: 0px;
+}
+/* line 244, ../sass/_job.scss */
+.controller-job.action-view div.summary {
   display: none;
 }
-/* line 32, ../sass/_job.scss */
-.controller-job.action-index .footable .footable-row-detail .footable-row-detail-inner {
+/* line 248, ../sass/_job.scss */
+.controller-job.action-view div.row.hireme a.btn {
+  float: right;
+}
+/* line 252, ../sass/_job.scss */
+.controller-job.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 36, ../sass/_job.scss */
-.controller-job.action-index .footable-row-detail-cell {
+/* line 256, ../sass/_job.scss */
+.controller-job.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 42, ../sass/_job.scss */
-.controller-job.action-index #jobListTable .footable-row-detail-row .glyphicon {
+/* line 262, ../sass/_job.scss */
+.controller-job.action-view #jobListTable .footable-row-detail-row .glyphicon {
   padding: 15px;
 }
-/* line 48, ../sass/_job.scss */
-.controller-job.action-index div.favouriteAlert {
+/* line 268, ../sass/_job.scss */
+.controller-job.action-view div.favouriteAlert {
   display: none;
+}
+
+/* line 273, ../sass/_job.scss */
+.controller-job.action-create #form-createJob {
+  margin-top: 30px;
 }
 
 /* line 2, ../sass/_attachment.scss */
