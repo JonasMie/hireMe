@@ -1,5 +1,6 @@
 ﻿<?php
 
+use frontend\models\Favourites;
 use yii\helpers\Html;
 use yii\widgets\ListView;
 use yii\grid\GridView;
@@ -10,10 +11,10 @@ use frontend\controllers\ApplicationController;
 /* @var $model frontend\models\Job */
 
 $this->title = "Stellenanzeigen";
-
+$inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provider->id, 'user_id' => Yii::$app->user->getId()])->count() > 0;
 ?>
 
-    <!-- Initializing Foo Tables -->
+<!-- Initializing Foo Tables -->
 <? $this->registerJS(
     "$(function () {
         $('.footable').footable({
@@ -29,7 +30,15 @@ $this->title = "Stellenanzeigen";
 
 ?>
 
-    <div class="_myjobs">
+<?
+
+?>
+
+    <div class="myjobs">
+
+        <? if (!(Yii::$app->user->identity->isRecruiter())): ?>
+                <div class="favouriteAlert"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Der Job wurde deinen Favoriten hinzugefügt. <a href="#" class="alert-link">Hier kannst du deine Favoriten ansehen.</a></div></div>
+        <? endif; ?>
 
 
         <h1><?= Html::encode($this->title) ?></h1>
@@ -88,7 +97,6 @@ $this->title = "Stellenanzeigen";
 
 
         <? else: ?>
-
             <?= GridView::widget([
                 'dataProvider' => $provider,
                 'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'jobListTable'],
@@ -129,29 +137,43 @@ $this->title = "Stellenanzeigen";
                         'contentOptions' => ['class' => 'fourth-col'],
                     ],
                     [
-                        'class'    => \yii\grid\ActionColumn::className(),
-                        'buttons'  =>
+                        'class'          => \yii\grid\ActionColumn::className(),
+                        'buttons'        =>
                             [
-                                'view'   => function ($url, $model, $key) {
+                                'view' => function ($url, $model, $key) {
                                     return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 'job/view?id=' . $model["id"], ['title' => Yii::t('app', 'Ansehen')]);
                                 },
+                            ],
+                        'template'       => '{view}',
+                        'headerOptions'  => ['class' => 'fifth-col', 'data-hide' => 'mediaXXsmall,phone'],
+                        'contentOptions' => ['class' => 'fifth-col'],
+                    ],
+
+                    [
+                        'class'          => \yii\grid\ActionColumn::className(),
+                        'buttons'        =>
+                            [
                                 'update' => function ($url, $model, $key) {
-                                    return Html::a('<span class="glyphicon glyphicon-star"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen')]);
+                                    if (Favourites::find()->where(['job_id' => $model["id"], 'user_id' => Yii::$app->user->getId()])->count() == 0) {
+                                        return Html::a('<span class="glyphicon glyphicon-star"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen'),'data-job' => $model["id"], 'class' =>"toggleFavourite"]);
+                                    } else return '';
                                 }
                             ],
-                        'template' => '{view}{update}'
+                        'template'       => '{update}',
+                        'headerOptions'  => ['class' => 'sixth-col', 'data-hide' => 'mediaXXsmall,phone'],
+                        'contentOptions' => ['class' => 'sixth-col'],
                     ],
+
                     [
 
                         'class'          => 'yii\grid\Column',
                         'headerOptions'  => ['data-toggle' => 'true'],
-                        'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
+                        'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'seventh-col'],
 
                     ],
                 ],
             ]);
             ?>
-
 
             <div class="dropdown" id="searchDistance">
                 <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -173,5 +195,30 @@ $this->title = "Stellenanzeigen";
             </div>
         <? endif; ?>
     </div>
-<?
 
+<? // TODO: message if error
+$this->registerJs("
+jQuery('#jobListTable').on( 'click', '.toggleFavourite', 
+	function (e) {
+		e.preventDefault();
+		\$this = jQuery(this);
+		jQuery.post('/favourites/toggle', {
+			id: \$this.data('job')
+		},	function (res) {
+				if (res.success) {
+					\$this.replaceWith('<span class=\"glyphicon glyphicon-ok\"></span>');
+					jQuery('.favouriteAlert').css('display','block').delay(1500).fadeOut(2000, function() {
+							$(this).css('display','none'); 
+						}
+					);
+					window.scrollTo(0, 0);
+				} 
+				else {
+					\$this.remove();
+				}
+			}
+		);
+	}
+);
+");
+?>

@@ -1674,6 +1674,11 @@ body.controller-dashboard #DashboardMessages tbody tr td:nth-of-type(3) div.mess
   margin-top: 20px;
 }
 
+/* line 54, ../sass/_user.scss */
+.controller-user.action-settings button.save {
+  float: right;
+}
+
 /* line 3, ../sass/_message.scss */
 body.controller-message .btn-newMessage {
   float: right;
@@ -2224,4 +2229,8 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
 /* line 36, ../sass/_job.scss */
 .controller-job.action-index .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
+}
+/* line 40, ../sass/_job.scss */
+.controller-job.action-index div.favouriteAlert {
+  display: none;
 }
