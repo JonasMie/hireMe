@@ -698,78 +698,80 @@ body table.hireMeTable tbody tr td {
   height: 72px;
   border: none;
   padding: 8px;
+  font-weight: 300;
 }
-/* line 110, ../sass/_basicTemplate.scss */
+/* line 111, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a {
   color: #9d9d9d;
   text-decoration: none;
+  font-weight: 300;
 }
-/* line 113, ../sass/_basicTemplate.scss */
+/* line 115, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a:hover {
   color: #5dca88;
 }
-/* line 118, ../sass/_basicTemplate.scss */
+/* line 120, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a.btn:hover {
   color: #fff;
 }
-/* line 132, ../sass/_basicTemplate.scss */
+/* line 134, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
   cursor: pointer;
   font-family: 'Glyphicons Halflings';
   content: "\e258";
 }
-/* line 137, ../sass/_basicTemplate.scss */
+/* line 139, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:hover {
   color: #5dca88;
 }
-/* line 142, ../sass/_basicTemplate.scss */
+/* line 144, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
   content: "\e259";
 }
-/* line 149, ../sass/_basicTemplate.scss */
+/* line 151, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner {
   border-bottom: 1px solid #dddddd;
   padding-bottom: 10px;
 }
-/* line 154, ../sass/_basicTemplate.scss */
+/* line 156, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row {
   display: block;
 }
-/* line 157, ../sass/_basicTemplate.scss */
+/* line 159, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-name {
   display: inline;
   color: #5dca88;
 }
-/* line 161, ../sass/_basicTemplate.scss */
+/* line 163, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-value {
   display: inline;
   float: right;
 }
-/* line 173, ../sass/_basicTemplate.scss */
+/* line 175, ../sass/_basicTemplate.scss */
 body ul.pagination li a {
   border-color: #dddddd;
   color: #5dca88;
 }
-/* line 176, ../sass/_basicTemplate.scss */
+/* line 178, ../sass/_basicTemplate.scss */
 body ul.pagination li a:hover {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 183, ../sass/_basicTemplate.scss */
+/* line 185, ../sass/_basicTemplate.scss */
 body ul.pagination li.active a, body ul.pagination li.active a:hover {
   background-color: #5dca88;
   border-color: #dddddd;
   color: #fff;
 }
-/* line 190, ../sass/_basicTemplate.scss */
+/* line 192, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled a {
   color: #9d9d9d;
 }
-/* line 193, ../sass/_basicTemplate.scss */
+/* line 195, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled span {
   color: #9d9d9d;
 }
-/* line 201, ../sass/_basicTemplate.scss */
+/* line 203, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green, body .iradio_flat-green {
   display: inline-block;
   *display: inline;
@@ -783,50 +785,50 @@ body .icheckbox_flat-green, body .iradio_flat-green {
   cursor: pointer;
   background-position: 0 0;
 }
-/* line 215, ../sass/_basicTemplate.scss */
+/* line 217, ../sass/_basicTemplate.scss */
 body .iradio_flat-green {
   background-position: -88px 0;
 }
-/* line 219, ../sass/_basicTemplate.scss */
+/* line 221, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked {
   background-position: -22px 0;
 }
-/* line 223, ../sass/_basicTemplate.scss */
+/* line 225, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked {
   background-position: -110px 0;
 }
-/* line 227, ../sass/_basicTemplate.scss */
+/* line 229, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.disabled {
   background-position: -44px 0;
   cursor: default;
 }
-/* line 232, ../sass/_basicTemplate.scss */
+/* line 234, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.disabled {
   background-position: -132px 0;
   cursor: default;
 }
-/* line 237, ../sass/_basicTemplate.scss */
+/* line 239, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked.disabled {
   background-position: -66px 0;
 }
-/* line 241, ../sass/_basicTemplate.scss */
+/* line 243, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked.disabled {
   background-position: -154px 0;
 }
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-  /* line 247, ../sass/_basicTemplate.scss */
+  /* line 249, ../sass/_basicTemplate.scss */
   body .icheckbox_flat-green, body .iradio_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
-/* line 257, ../sass/_basicTemplate.scss */
+/* line 259, ../sass/_basicTemplate.scss */
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
-/* line 261, ../sass/_basicTemplate.scss */
+/* line 263, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -840,11 +842,11 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-/* line 270, ../sass/_basicTemplate.scss */
+/* line 272, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 275, ../sass/_basicTemplate.scss */
+/* line 277, ../sass/_basicTemplate.scss */
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -856,13 +858,13 @@ body .form-group textarea {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 282, ../sass/_basicTemplate.scss */
+/* line 284, ../sass/_basicTemplate.scss */
 body .form-group textarea:focus {
   box-shadow: none;
   border-bottom: 2px solid #5dca88;
   border-top: 2px solid #5dca88;
 }
-/* line 289, ../sass/_basicTemplate.scss */
+/* line 291, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -873,7 +875,7 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 302, ../sass/_basicTemplate.scss */
+/* line 304, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-settingsmodel-picture,
@@ -885,7 +887,7 @@ body .form-group.field-resumeschool-report_id,
 body .field-settingsmodel-visibility {
   position: static;
 }
-/* line 312, ../sass/_basicTemplate.scss */
+/* line 314, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-settingsmodel-picture label,
@@ -897,33 +899,33 @@ body .form-group.field-resumeschool-report_id label,
 body .field-settingsmodel-visibility label {
   position: static;
 }
-/* line 323, ../sass/_basicTemplate.scss */
+/* line 325, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 326, ../sass/_basicTemplate.scss */
+/* line 328, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 331, ../sass/_basicTemplate.scss */
+/* line 333, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 333, ../sass/_basicTemplate.scss */
+/* line 335, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 340, ../sass/_basicTemplate.scss */
+/* line 342, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 350, ../sass/_basicTemplate.scss */
+/* line 352, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 356, ../sass/_basicTemplate.scss */
+/* line 358, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -934,21 +936,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 368, ../sass/_basicTemplate.scss */
+/* line 370, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 376, ../sass/_basicTemplate.scss */
+/* line 378, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 379, ../sass/_basicTemplate.scss */
+/* line 381, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 383, ../sass/_basicTemplate.scss */
+/* line 385, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -958,63 +960,63 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 388, ../sass/_basicTemplate.scss */
+/* line 390, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 393, ../sass/_basicTemplate.scss */
+/* line 395, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 395, ../sass/_basicTemplate.scss */
+/* line 397, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 399, ../sass/_basicTemplate.scss */
+/* line 401, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 409, ../sass/_basicTemplate.scss */
+/* line 411, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 417, ../sass/_basicTemplate.scss */
+/* line 419, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 425, ../sass/_basicTemplate.scss */
+/* line 427, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 431, ../sass/_basicTemplate.scss */
+/* line 433, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 438, ../sass/_basicTemplate.scss */
+/* line 440, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 444, ../sass/_basicTemplate.scss */
+/* line 446, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 452, ../sass/_basicTemplate.scss */
+/* line 454, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
-/* line 456, ../sass/_basicTemplate.scss */
+/* line 458, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
