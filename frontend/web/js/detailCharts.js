@@ -244,12 +244,17 @@ $(document).ready(function () {
         $("#interviewApplyIsNull").addClass("hidden");
         }
        
+        if(obj.viewCount != 0) {
         var ctx8 = document.getElementById("viewCompareChart").getContext("2d");
         var views = new Chart(ctx8).Doughnut(compareViewsData, options);
+        $("#viewComparisonIsNull").addClass("hidden");
+        }   
 
+        if(obj.clickCount != 0) {
         var ctx9 = document.getElementById("clickCompareChart").getContext("2d");
         var views = new Chart(ctx9).Doughnut(compareClicksData, options);
-
+        $("#clickComparisonIsNull").addClass("hidden");
+        }
 
     });
 
