@@ -17,8 +17,8 @@ use yii\web\UploadedFile;
 // set image dimension constants
 define("IMGWIDHT", 500);
 define("IMGHEIGHT", 500);
-define("THUMBHEIGHT", 150);
-define("THUMBWIDTH", 150);
+define("THUMBHEIGHT", 50);
+define("THUMBWIDTH", 50);
 
 class SettingsModel extends Model
 {
@@ -98,7 +98,7 @@ class SettingsModel extends Model
             if (isset($imageId) && $imageId) {
                 $user->picture_id = $imageId;
             }
-            if(isset($this->plz)){
+            if(isset($this->plz) && !empty($this->plz)){
                 $geo = Geo::findOne(['plz' => $this->plz]);
                 $user->geo_id = $geo->id;
             }
@@ -127,7 +127,7 @@ class SettingsModel extends Model
             $profilePic->extension = $model->picture->extension;
             $profilePic->size = $model->picture->size;
             $profilePic->title = $model->picture->baseName;
-            if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path . "." . $profilePic->extension, $param) && $this->saveThumbnail($profilePic->path)) {
+            if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path, $profilePic->extension, $param) && $this->saveThumbnail($profilePic->path)) {
                 return $profilePic->id;
             }
             return false;
@@ -135,9 +135,9 @@ class SettingsModel extends Model
         return false;
     }
 
-    private function cropImage($path, $param)
+    private function cropImage($path,$extension, $param)
     {
-        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path;
+        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path ."." .$extension;
         $imagesize = getimagesize($imagefile);
         $imagetype = $imagesize[2];
         switch ($imagetype) {
@@ -161,7 +161,7 @@ class SettingsModel extends Model
         imagecopyresampled($vDstImg, $image, 0, 0, $param['x'], $param['y'], IMGWIDHT, IMGHEIGHT, $param['w'], $param['h']);
 
         // define a result image filename
-        $sResultFileName = Yii::getAlias('@webroot') . '/uploads/profile' . $path;
+        $sResultFileName = Yii::getAlias('@webroot') . '/uploads/profile' . $path .".jpg";
 
         // output image to file
         imagejpeg($vDstImg, $sResultFileName);

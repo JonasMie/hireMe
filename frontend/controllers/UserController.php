@@ -120,11 +120,6 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->update()) {
                 $this->redirect('/user');
-//                return $this->render('settings', [
-//                    'model'   => $model,
-//                    'success' => true,
-//                    'image' => isset(Yii::$app->user->identity->picture)?"/uploads/profile".Yii::$app->user->identity->picture->path.".jpg":"/uploads/profile/default.png"
-//                ]);
             } else {
                 return $this->render('settings', [
                     'model'   => $model,
@@ -141,7 +136,7 @@ class UserController extends Controller
         if(isset(Yii::$app->user->identity->picture)){
             $image = "/uploads/profile".Yii::$app->user->identity->picture->path.".jpg";
         } else {
-            $image = "/uploads/profile/default.png";
+            $image = "";
         }
 
         return $this->render('settings', [
