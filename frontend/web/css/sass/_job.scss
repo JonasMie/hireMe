@@ -184,6 +184,12 @@
 		}
 	}
 	
+	div.jobCreate{
+		a.btn{
+			float:right;
+		}
+	}
+	
 	a.btn{
 		color:#fff;
 		&:hover,&:focus,&:active{
@@ -228,6 +234,12 @@
 	}
 	
 	// Recruiter Stylings
+	
+	div.btnInstructions{
+		h3{
+			margin-top:0px;
+		}
+	}
 	
 	div.summary{
 		display:none;

@@ -32,7 +32,11 @@ $this->title = 'Stellenanzeige';
     <div class="job-view">
 
         <h1><?= Html::encode($this->title) ?></h1>
-
+		<? if (Yii::$app->user->identity->isRecruiter()): ?>
+			<div class="col-sm-9"></div>
+			<div class="col-sm-3 jobCreate"><?= Html::a("<span class='glyphicon glyphicon-pencil'></span>&nbsp;&nbsp;Stellenanzeige bearbeiten", '/job/update-job?id='.$model->id,['class' => 'btn btn-success default']) ?></div>
+		<? endif; ?>
+		
         <? /* View as Recruiter */ ?>
 
         <?
@@ -250,7 +254,7 @@ $this->title = 'Stellenanzeige';
 						],
 					]); ?>
 				</div>
-				<div class="col-sm-5">
+				<div class="col-sm-5 btnInstructions">
 					<h3>hireMe-Button einbinden</h3>
 					<p>Um den hireMe-Button auf Ihrer Website einzubinden,fügen Sie folgenden Code ein:</p>
 					<p><h4>Vor dem abschliessenden &lt;/head&gt;-Tag:</h4></p>
