@@ -38,7 +38,7 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
 
         <? if (!(Yii::$app->user->identity->isRecruiter())) {
             if (!($inFavourites)) {
-                echo('<div class="col-sm-12 favouriteAlert"></div>');
+                echo('<div class="favouriteAlert"></div>');
             }
         }
         ?>
