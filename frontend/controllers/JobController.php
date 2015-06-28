@@ -26,6 +26,7 @@ use frontend\models\CoverCreateForm;
 use yii\data\SqlDataProvider;
 use frontend\models\File;
 use frontend\models\ApplicationData;
+use yii\helpers\Html;
 
 /**
  * JobController implements the CRUD actions for Job model.
@@ -264,6 +265,20 @@ class JobController extends Controller
 
     }
 
+    public function createFavoritSection($key,$user) {
+
+        $thisBtn = ApplyBtn::find()
+        ->where(['key' => $key])
+        ->one();
+
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: " . $job->id);
+        $user = Yii::$app->user->identity;
+
+        if($user->isRecruiter()) {return $this->render('favoritError',['message' => "<p>Als Recruiter kannst du keine Favoriten erstellen. Das tut uns sehr leid.<br>Zur Entschädigung haben wir hier".Html::a("Zurück zu HireMe","/dashboard")." "]);}
+        return $this->render('favoritSection');
+    }
+
     public function createApplyForm($key, $user)
     {
 
@@ -279,7 +294,8 @@ class JobController extends Controller
         ->where(['user_id' => $user->id, 'job_id' => $job->id])
         ->one();
 
-        if(count($possibleApp) == 1) {return $this->render('applied');}
+        if($user->isRecruiter()) {return $this->render('applyError',['message' => "<p>Als Recruiter kannst du dich nicht auf eine Stelle bewerben.<br><br>Logge dich für eine Bewerbung als Bewerber ein.<br><br>".Html::a("Zurück zu HireMe","/dashboard")." "]);}
+        if(count($possibleApp) == 1) {return $this->render('applyError',['message' => "Du hast dich bereits auf diese Stelle beworben.<br>".Html::a("Bewerbungen ansehen","/application")." "]);}
         $newSQL = "SELECT f.title, f.id FROM file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = " . $user->id;
         Yii::trace("User ID: " . $user->id);
 
