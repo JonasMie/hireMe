@@ -38,7 +38,7 @@ ApplyFormAsset::register($this);
 			<div class="row">
 				<div class="col-sm-7">
 					<h2>Anschreiben</h2>
-					<?= $form->field($model, 'text')->textarea() ?>
+					<?= $form->field($model, 'text',['inputOptions' => ['class' => 'form-control']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15])->label(false) ?>
 				</div>
 				<div class="col-sm-5">
 					<h2>Anlagen</h2>
