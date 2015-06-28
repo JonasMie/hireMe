@@ -26,19 +26,24 @@ use yii\widgets\ActiveForm;
             '<img src="/uploads/profile/{{image}}.jpg"/>' .
             '<p>{{value}}</p>';
 
-        echo $form->field($model, 'receiver')->widget(Typeahead::className(), [
-            'name' => 'receiver_name',
-            'dataset' => [
-                [
-                    'remote' => Url::to(['site/user-search' . '?q=%QUERY']),
-                    'limit' => 10,
-                    'templates' => [
-                        'empty' => '<div class="text-error">Es wurde leider kein Nutzer gefunden.</div>',
-                        'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
-                    ]
+        echo $form->field($model, 'receiver', ['options' => ['class' => 'allowPrefill']])
+            ->widget(Typeahead::className(), [
+                'name'     => 'receiver_name',
+                'dataset'  => [
+                    [
+                        'remote'    => Url::to(['site/user-search' . '?q=%QUERY']),
+                        'limit'     => 10,
+                        'templates' => [
+                            'empty'      => '<div class="text-error">Es wurde leider kein Nutzer gefunden.</div>',
+                            'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                        ]
+                    ],
                 ],
-            ],
-        ])->label('Empfänger') ?>
+                'options' => [
+                    'class' => 'allowPrefill',
+                ]
+            ])
+            ->label('Empfänger') ?>
     </div>
 
     <div class="message-create-second-row">
@@ -48,7 +53,7 @@ use yii\widgets\ActiveForm;
     </div>
 
 
-    <?= $form->field($model, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15]) ->label(false) ?>
+    <?= $form->field($model, 'content', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Nachricht...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15])->label(false) ?>
 
 
 
