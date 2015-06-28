@@ -2269,56 +2269,84 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   display: none;
 }
 
-/* line 32, ../sass/_application.scss */
+/* line 33, ../sass/_application.scss */
+.controller-application.action-index .footable .footable-row-detail .footable-row-detail-inner {
+  border: none;
+}
+/* line 37, ../sass/_application.scss */
+.controller-application.action-index .footable-row-detail-cell {
+  border-bottom: 1px solid #dddddd;
+}
+/* line 41, ../sass/_application.scss */
+.controller-application.action-index .footable-row-detail-row {
+  padding: 5px 0px;
+}
+/* line 46, ../sass/_application.scss */
+.controller-application.action-index table#applicationsTable img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+/* line 51, ../sass/_application.scss */
+.controller-application.action-index table#applicationsTable .scoreInput {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: #5d6461 1px solid;
+  background-color: transparent;
+  text-align: center;
+  font-size: 25.6px;
+  color: #5dca88;
+}
+/* line 66, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn) {
   color: #5dca88;
 }
-/* line 34, ../sass/_application.scss */
+/* line 68, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn):hover, .controller-application.action-index div.resume-index a:not(.btn):focus, .controller-application.action-index div.resume-index a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 40, ../sass/_application.scss */
+/* line 74, ../sass/_application.scss */
 .controller-application.action-index div.summary {
   display: none;
 }
-/* line 44, ../sass/_application.scss */
+/* line 78, ../sass/_application.scss */
 .controller-application.action-index div.searchBtn {
   margin-top: 15px;
   text-align: right;
 }
 
-/* line 61, ../sass/_application.scss */
+/* line 95, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn) {
   color: #5dca88;
 }
-/* line 63, ../sass/_application.scss */
+/* line 97, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn):hover, .controller-application.action-add-data div.application-create a:not(.btn):focus, .controller-application.action-add-data div.application-create a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 69, ../sass/_application.scss */
+/* line 103, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 74, ../sass/_application.scss */
+/* line 108, ../sass/_application.scss */
 .controller-application.action-add-data div.sendBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 79, ../sass/_application.scss */
+/* line 113, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 83, ../sass/_application.scss */
+/* line 117, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
   height: 40vh;
 }
-/* line 88, ../sass/_application.scss */
+/* line 122, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 92, ../sass/_application.scss */
+/* line 126, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
 }

@@ -37,9 +37,11 @@ $this->title = 'Bewerbungen';
 	<div class="col-sm-12">
 		<h1><?= Html::encode($this->title) ?></h1>
 	</div>
+	<? if (!(Yii::$app->user->identity->isRecruiter())): ?>
 	<div class="col-sm-12 searchBtn">
 		<?= Html::a(Yii::t('app', 'Stellenanzeigen suchen'), ['/job'], ['class' => 'btn btn-success ripple']) ?>
 	</div>
+	<? endif; ?>
 </div>
 <div class="row">
 	<div class="application-index">
@@ -48,25 +50,29 @@ $this->title = 'Bewerbungen';
 			<? /* Recruiter View */ ?>
 			
 			 <? if (Yii::$app->user->identity->isRecruiter()): ?>
-			   
-				 <h1><?= Html::encode($title) ?></h1>
 
 			<?= GridView::widget([
 				'dataProvider' => $provider,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow allowPrefill', 'id' => 'applicationTable'],
+				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow allowPrefill', 'id' => 'applicationsTable'],
 				'columns'      => [
 					[
 							'attribute' => 'fullName',
 							'label' => 'Name',
 							'format' => 'raw',
 							'value'  => function ($data) {
-								return User::findOne($data["userID"])->getProfilePicture(true)."".Html::a($data['fullName'],'/user?un='.$data['userName']);
+								return Html::a(User::findOne($data["userID"])->getProfilePicture(true),'/application/view?id='.$data['id'])."".Html::a($data['fullName'],'/application/view?id='.$data['id']);
 							},
 							'headerOptions'  => ['class' => 'first-col'],
 							'contentOptions' => ['class' => 'first-col'],
 					], 
-
-					 'title:text:Stelle',
+					
+					[
+							'attribute' => 'title',
+							'label' => 'Stelle',
+							'format' => 'raw',
+							'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXXsmall,phone'],
+							'contentOptions' => ['class' => 'second-col'],
+					], 
 					 [
 							'attribute' => 'score',
 							'label' => 'Score',
@@ -74,7 +80,8 @@ $this->title = 'Bewerbungen';
 							'value'  => function ($data) {
 								return Html::textinput($data['id'],Html::encode($data["score"]),['class' => 'scoreInput', 'id' => 'score_'.$data['id'],'name' => $data["id"]]);
 							},
-							'contentOptions' => ['class' => 'allowPrefill'],
+							'headerOptions'  => ['class' => 'third-col'],
+							'contentOptions' => ['class' => 'third-col allowPrefill'],
 					],
 					 [
 							'attribute' => 'created_at',
@@ -83,22 +90,22 @@ $this->title = 'Bewerbungen';
 							'value'  => function ($data) {
 								return Html::encode($data['created_at']);
 							},
-							'headerOptions'  => ['class' => 'second-col'],
-							'contentOptions' => ['class' => 'second-col'],
+							'headerOptions'  => ['class' => 'fourth-col','data-hide' => 'mediaXXsmall,mediaXsmall,mediaSmall,phone'],
+							'contentOptions' => ['class' => 'fourth-col'],
 					], 
 					[
 							'label'  => '',
 							'format' => 'raw',
 							'value'  => function ($data) {
-								return Html::a("Ansehen",['/application/view?id='.$data['id']]);
+								return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen",['/application/view?id='.$data['id']]);
 							},
-							'headerOptions'  => ['class' => 'third-col','data-hide' => 'xsmall,phone'],
-							'contentOptions' => ['class' => 'third-col'],
+							'headerOptions'  => ['class' => 'fifth-col','data-hide' => 'mediaXXsmall,mediaXsmall,mediaSmall,phone'],
+							'contentOptions' => ['class' => 'fifth-col'],
 					],
 					[
 						'class'          => 'yii\grid\Column',
 						'headerOptions'  => ['data-toggle' => 'true'],
-						'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'fifth-col']
+						'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
 					],
 				],
 
@@ -202,7 +209,7 @@ $this->title = 'Bewerbungen';
 				],
 
 			]); ?>
-			
+			<? /* Bewerber View END*/ ?>
 			<? endif; ?>
 
 		</div>
