@@ -37,6 +37,14 @@
 		border-bottom: 1px solid #dddddd;
 	}
 	
+	#jobListTable{	
+		.footable-row-detail-row{
+			.glyphicon{
+				padding: 15px;
+			}
+		}
+	}
+	
 	div.favouriteAlert{
 		display:none;
 	}

@@ -156,7 +156,10 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
                                 'update' => function ($url, $model, $key) {
                                     if (Favourites::find()->where(['job_id' => $model["id"], 'user_id' => Yii::$app->user->getId()])->count() == 0) {
                                         return Html::a('<span class="glyphicon glyphicon-star"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen'),'data-job' => $model["id"], 'class' =>"toggleFavourite"]);
-                                    } else return '';
+                                    } 
+									elseif (Favourites::find()->where(['job_id' => $model["id"], 'user_id' => Yii::$app->user->getId()])->count() == 1){
+										return '<span title="Bereits in Favoriten gespeichert\ class="glyphicon glyphicon-ok"></span>';
+									}
                                 }
                             ],
                         'template'       => '{update}',
@@ -206,7 +209,7 @@ jQuery('#jobListTable').on( 'click', '.toggleFavourite',
 			id: \$this.data('job')
 		},	function (res) {
 				if (res.success) {
-					\$this.replaceWith('<span class=\"glyphicon glyphicon-ok\"></span>');
+					\$this.replaceWith('<span title=\"Bereits in Favoriten gespeichert\" class=\"highlight glyphicon glyphicon-ok\"></span>');
 					jQuery('.favouriteAlert').css('display','block').delay(1500).fadeOut(2000, function() {
 							$(this).css('display','none'); 
 						}
