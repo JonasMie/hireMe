@@ -47,7 +47,8 @@ function fileSelectHandler() {
     // prepare HTML5 FileReader
     var oReader = new FileReader();
     oReader.onload = function(e) {
-
+        // remove class 'img-responsive', because it causes a miscalculation of scaled images
+        $('#current-img').hide();
         // e.target.result contains the DataURL which we can use as a source of the image
         oImage.src = e.target.result;
 

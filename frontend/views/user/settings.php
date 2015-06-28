@@ -53,7 +53,8 @@ ImageAssetBundle::register($this);
                 <?= $form->field($model, 'picture')->fileInput()->label(false); ?>
 
                 <div>
-                    <img id="settingsmodel-picture-jcrop" src="" style="display: none">
+                    <img id="current-img" src="<?=$image?>" class="img-responsive">
+                    <img id="settingsmodel-picture-jcrop" src="<?=$image?>" style="display: none;">
                     <input type="text" id="w" name="w" style="display: none"/>
                     <input type="text" id="h" name="h" style="display: none"/>
                     <input type="text" id="x" name="x" style="display: none"/>
@@ -84,13 +85,15 @@ ImageAssetBundle::register($this);
                 $template =
                     '<p>{{plz}}  -  {{city}}</p>';
 
-                echo $form->field($model, 'plz')->widget(Typeahead::className(), [
-                    'name'         => 'companyAddressCity',
-                    'dataset'      => [
+                echo $form->field($model, 'plz', ['options' => [
+                    'class' => 'allowPrefill'
+                ]])->widget(Typeahead::className(), [
+                    'name'    => 'companyAddressCity',
+                    'dataset' => [
                         [
-                            'remote'    => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
-                            'limit'     => 10,
-                            'templates' => [
+                            'remote'     => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
+                            'limit'      => 10,
+                            'templates'  => [
                                 'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
                                 'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
                             ],
