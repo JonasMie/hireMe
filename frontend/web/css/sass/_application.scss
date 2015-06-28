@@ -7,6 +7,13 @@
 		}
 	}
 	
+	a:not(.btn){
+		color:$green;
+		&:hover,&:focus,&:active{
+			color:$green50;
+		}
+	}
+	
 	.footable .footable-row-detail .footable-row-detail-inner{
 		border: none;
 	}
