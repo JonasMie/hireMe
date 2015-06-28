@@ -17,7 +17,7 @@ Yii::$app->getSession()->getFlash('error');
     </div>
 </div>
 
-<? if($currentJobsProvider->count() > 0  || $currentSchoolsProvider->count() > 0 ): ?>
+<? if($currentJobsDataProvider->getCount() > 0  || $currentSchoolsDataProvider->getCount() > 0 ): ?>
 
 <div class="row first">
     <div class="col-sm-4 user-picture">
@@ -117,9 +117,27 @@ Yii::$app->getSession()->getFlash('error');
 <? else: ?>
 
 <div class="row first">
-    <div class="col-sm-4 user-picture">
-        <?= $user->getProfilePicture() ?>
-    </div>
+	<div class="col-sm-4">
+		<div class="row">
+			<div class="col-sm-12 user-picture">
+				<?= $user->getProfilePicture() ?>
+			</div>
+			<div class="col-sm-12 userProfileSettings">
+				<div class="row">
+					<? if ($user->id !== Yii::$app->user->identity->getId()) {
+						echo Html::a('Nachricht senden', '/message/create?rec=' . $user->id, ['class' => 'btn btn-success ripple']);
+					} else {
+						echo Html::a('Profil-Einstellungen', '/user/settings', ['class' => 'btn btn-success ripple']);
+					}
+					?>
+					<? if ($user->id == Yii::$app->user->identity->getId()) {
+						echo Html::a('Lebenslauf bearbeiten', '/resume', ['class' => 'btn btn-success ripple']);
+					}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
     <div class="col-sm-4 fullJob">
         <?
         // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
