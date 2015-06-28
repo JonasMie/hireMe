@@ -12,6 +12,23 @@ $GLOBALS['sectorList'] = $sectorList;
 $this->title = 'Stellenanzeige';
 
 ?>
+
+<!-- Initializing Foo Tables -->
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
+                mediaSmall: 960
+
+            }
+        });
+    });");
+
+?>
+
     <div class="job-view">
 
         <h1><?= Html::encode($this->title) ?></h1>
@@ -43,55 +60,55 @@ $this->title = 'Stellenanzeige';
         <div class="row">
 
             <div class="col-sm-7">
-
-                <? if (Application::existsApplicationFromUser(Yii::$app->user->identity->id, $model->id) == true): ?>
-                    <? switch (Application::getApplicationStatByUserAndJob(Yii::$app->user->identity->id, $model->id)) {
-                        case "Gespeichert":
-                            echo(
-                            '<div class="alert alert-success alert-dismissible" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    Du hast bereits eine Bewerbung für diese Stellenanzeige erstellt.
-                                    <a href="#" class="alert-link">Hier kannst du sie bearbeiten.</a>
-                                </div>'
-                            );
-                            break;
-                        case "Versendet":
-                            echo(
-                            '<div class="alert alert-success alert-dismissible" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    Du hast dich bereits auf diese Stellenanzeige beworben.
-                                    <a href="#" class="alert-link">Hier kannst du deine Bewerbung ansehen.</a>
-                                </div>'
-                            );
-                            break;
-                        case "Vorstellungsgespräch":
-                            echo(
-                                '<div class="alert alert-success alert-dismissible" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    Herzlichen Glückwunsch! Du wurdest bereits zu einem Bewerbungsgespräch zu dieser Stelle eingeladen.
-                                </div>'
-                            );
-                            break;
-                        case "Absage":
-                            echo(
-                                '<div class="alert alert-warning alert-dismissible" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    Schade, bei dieser Bewerbung hat es nicht geklappt. Kein Problem, ein passendes Unternehmen
-                                    <a href="#" class="alert-link">wartet schon auf dich!</a>
-                                </div>'
-                            );
-                            break;
-                    }
-                    ?>
-
+				<? if (!(Yii::$app->user->identity->isRecruiter())): ?>
+					<? if (Application::existsApplicationFromUser(Yii::$app->user->identity->id, $model->id) == true): ?>
+						<? switch (Application::getApplicationStatByUserAndJob(Yii::$app->user->identity->id, $model->id)) {
+							case "Gespeichert":
+								echo(
+								'<div class="alert alert-success alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										Du hast bereits eine Bewerbung für diese Stellenanzeige erstellt.
+										<a href="#" class="alert-link">Hier kannst du sie bearbeiten.</a>
+									</div>'
+								);
+								break;
+							case "Versendet":
+								echo(
+								'<div class="alert alert-success alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										Du hast dich bereits auf diese Stellenanzeige beworben.
+										<a href="#" class="alert-link">Hier kannst du deine Bewerbung ansehen.</a>
+									</div>'
+								);
+								break;
+							case "Vorstellungsgespräch":
+								echo(
+									'<div class="alert alert-success alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										Herzlichen Glückwunsch! Du wurdest bereits zu einem Bewerbungsgespräch zu dieser Stelle eingeladen.
+									</div>'
+								);
+								break;
+							case "Absage":
+								echo(
+									'<div class="alert alert-warning alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										Schade, bei dieser Bewerbung hat es nicht geklappt. Kein Problem, ein passendes Unternehmen
+										<a href="#" class="alert-link">wartet schon auf dich!</a>
+									</div>'
+								);
+								break;
+						}
+						?>
+					<? endif; ?>
                 <? endif; ?>
 
                 <div class="row">
@@ -187,33 +204,56 @@ $this->title = 'Stellenanzeige';
             </div>
 
         </div>
+		
+		<? /* View Job Detail as User and Recruiter End */ ?>
 
-        <div class="row">
+		<? /* View as Recruiter */ ?>
 
-            <? /* View Job Detail as User and Recruiter End */ ?>
-
-            <? /* View as Recruiter */ ?>
-
-            <? if (Yii::$app->user->identity->isRecruiter()): ?>
-                <?= GridView::widget([
-                    'dataProvider' => $dataProvider,
-                    'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
-                    'columns'      => [
-                        ['class' => 'yii\grid\SerialColumn'],
-                        'key:ntext',
-                        'site:ntext',
-                        [
-                            'class'    => 'yii\grid\ActionColumn',
-                            'template' => '{update}{delete}',
-                        ],
-                    ],
-                    'caption'      => Html::a("Neuen Key generieren", '/job/create-btn?id=' . $model->id),
-                ]); ?>
-
-                <? /* View as Recruiter End */ ?>
-
-            <? endif; ?>
-        </div>
+		<? if (Yii::$app->user->identity->isRecruiter()): ?>
+			<div class="row">
+				<div class="col-sm-12"><h2>hireMe-Button</h2></div>
+				<div class="col-sm-7">
+					<div class="row hireme">
+						<div class="col-sm-8"><p>Mit dem hireMe-Button bieten Sie Bewerbern auf Ihrer Website die Möglichkeit, sich mit nur einem Klick auf Ihre Stellenanzeige bei hireMe zu bewerben.</p></div>
+						<div class="col-sm-4"><?= Html::a("Neuen Key generieren", '/job/create-btn?id=' . $model->id,['class' => 'btn btn-success ripple']) ?></div>
+					</div>
+					<?= GridView::widget([
+						'dataProvider' => $dataProvider,
+						'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'jobViewTable'],
+						'columns'      => [
+							['class' => 'yii\grid\SerialColumn'],
+							[
+								'label'  => 'Beschreibung',
+								'format' => 'raw',
+								'value'  => 'site',
+								'headerOptions'  => ['class' => 'second-col'],
+                                'contentOptions' => ['class' => 'second-col'],
+							],
+							[
+								'class'    => 'yii\grid\ActionColumn',
+								'template' => '{update}&nbsp;'.Html::a("Bearbeiten", '/job/update?id='.$model->btn_id).'&nbsp;&nbsp;{delete}&nbsp;Löschen',
+								'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,phone'],
+                                'contentOptions' => ['class' => 'third-col'],
+							],
+							[
+								'class'          => 'yii\grid\Column',
+								'headerOptions'  => ['data-toggle' => 'true'],
+								'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
+							],
+						],
+					]); ?>
+				</div>
+				<div class="col-sm-5">
+					<h3>hireMe-Button einbinden</h3>
+					<p>Um den hireMe-Button auf Ihrer Website einzubinden,fügen Sie folgenden Code ein:</p>
+					<p><h4>Vor dem abschliessenden &lt;/head&gt;-Tag:</h4></p>
+					<div class="well">&lt;script src='http://frontend/js/applier.js'&gt;&lt;/script&gt;</div>
+					<p><h4>An der Stelle, an der der Button angezeigt werden soll:</h4></p>
+					<div class="well">&lt;div id='ac' name=' <span class="highlight"><strong>hier den generierten Code einfügen</strong></span> '&gt;&lt;/div&gt;</div>
+				</div>
+			</div>
+		<? endif; ?>
+		<? /* View as Recruiter End */ ?>
     </div>
 
 <? // TODO: message if error
