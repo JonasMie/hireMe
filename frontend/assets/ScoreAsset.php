@@ -20,4 +20,8 @@ class ScoreAsset extends AssetBundle{
     public $js = [
         'js/scoreJS.js',
     ];
+     public $depends = [
+        'yii\web\JqueryAsset',
+    ];
+
 }
