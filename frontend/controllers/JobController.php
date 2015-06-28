@@ -90,6 +90,7 @@ class JobController extends Controller
      * Lists all Job models.
      * @return mixed
      */
+
     public function actionIndex($dist = null)
     {
         if (Yii::$app->user->identity->isRecruiter()) {
@@ -190,13 +191,15 @@ class JobController extends Controller
 
         if (Yii::$app->request->isAjax) {
 
+            $appData = Yii::$app->request->get("appData");
+
             if (Yii::$app->request->get("appID") == "false") {
 
-                $app = new Application();
-                $apps = Application::find()->orderBy('id')->all();
-                if (count($apps) == 0) {
+            $app = new Application();
+            $apps = Application::find()->orderBy('id')->all();
+            if (count($apps) == 0) {
                     $app->id = 0;
-                } else {
+            } else {
                     $highestID = $apps[count($apps) - 1];
                     $app->id = $highestID->id + 1;
                 }
@@ -204,14 +207,22 @@ class JobController extends Controller
                 $app = Application::findOne(Yii::$app->request->get("appID"));
             }
 
+            if(Yii::$app->request->get('intern') == 'true') {
+
+                $job = Job::find()->where(['id' => Yii::$app->request->get('job')])->one();
+                $app->user_id = Yii::$app->user->identity->id;
+                $app->company_id = $job->company_id;
+                $app->job_id = $job->id;
+                $app->state = "Gespeichert";
+                $app->save();
+            }
+            else {
+
             $key = Yii::$app->request->get("key");
             $user = Yii::$app->user->identity;
-            $appData = Yii::$app->request->get("appData");
-
             $thisBtn = ApplyBtn::find()
                 ->where(['key' => $key])
                 ->one();
-
             $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
             $app->user_id = $user->id;
             $app->company_id = $job->company_id;
@@ -220,6 +231,8 @@ class JobController extends Controller
             $app->btn_id = $thisBtn->id;
             $app->save();
 
+            }
+    
             ApplicationData::deleteAll(['application_id' => $app->id]);
 
             for ($i = 0; $i < count($appData); $i++) {
@@ -262,6 +275,11 @@ class JobController extends Controller
         Yii::trace("Job ID: " . $job->id);
         $user = Yii::$app->user->identity;
 
+        $possibleApp = Application::find()
+        ->where(['user_id' => $user->id, 'job_id' => $job->id])
+        ->one();
+
+        if(count($possibleApp) == 1) {return $this->render('applied');}
         $newSQL = "SELECT f.title, f.id FROM file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = " . $user->id;
         Yii::trace("User ID: " . $user->id);
 
@@ -280,6 +298,7 @@ class JobController extends Controller
         return $this->render('addData', [
             'job'      => $job,
             'provider' => $provider,
+            'controller' => 'extern',
         ]);
     }
 
@@ -302,7 +321,6 @@ class JobController extends Controller
 
     public function actionApply($key, $user)
     {
-
         $app = new Application();
 
         $apps = Application::find()->orderBy('id')->all();
@@ -312,8 +330,6 @@ class JobController extends Controller
             $highestID = $apps[count($apps) - 1];
             $app->id = $highestID->id + 1;
         }
-
-
         $thisBtn = ApplyBtn::find()
             ->where(['key' => $key])
             ->one();
@@ -327,7 +343,6 @@ class JobController extends Controller
         $app->state = "Gespeichert";
         $app->btn_id = $thisBtn->id;
         $app->save();
-        //return $this->render('applied');
         $this->redirect(["./application/add-data?id=" . $app->id]);
 
     }
@@ -371,24 +386,27 @@ class JobController extends Controller
 
         $job = Job::findOne($id);
 
-        $apps = Application::find()->orderBy('id')->all();
-        if (count($apps) == 0) {
-            $app->id = 0;
-        } else {
-            $highestID = $apps[count($apps) - 1];
-            $app->id = $highestID->id + 1;
-        }
+         $newSQL = "SELECT f.title, f.id FROM file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = " . $user->id;
+        Yii::trace("User ID: " . $user->id);
 
-        $app->user_id = $user->id;
-        $app->company_id = $job->company_id;
-        $app->job_id = $id;
-        $app->state = "Gespeichert";
-        $app->sent = 0;
-        $app->read = 0;
-        $app->archived = 0;
-        $app->save();
+        $provider = new SqlDataProvider([
+            'sql'  => $newSQL,
+            'sort' => [
+                'attributes'   => [
+                    'title'
+                ],
+                'defaultOrder' => [
+                    'title' => SORT_ASC,
+                ]
+            ],
+        ]);
+        return $this->render('addData', [
+            'job'      => $job,
+            'provider' => $provider,
+            'controller' => "intern",
+        ]);
+        
 
-        $this->redirect(["./application/add-data?id=" . $app->id]);
 
     }
 
@@ -522,51 +540,24 @@ class JobController extends Controller
 
     }
 
-    public function getSomething()
-    {
-
-        return 10;
-    }
-
-    public function actionViewCount()
-    {
-
-
-        return $this->renderPartial('viewCountIFrame');
-    }
+    public function actionViewCount() {return $this->renderPartial('viewCountIFrame');}
 
     public function actionButtonPopup($key)
     {
-        $hasApplied = 0;
-
-        // $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
         if (Yii::$app->user->isGuest) {
             $userID = "NA";
         } else {
             $this->layout = 'empty';
             $userID = Yii::$app->user->identity->id;
-            $btn = ApplyBtn::find()
-                ->where(['key' => $key])
-                ->one();
-            $job = Job::findOne($btn->job_id);
-
-            $possibleApp = Application::find()
-                ->where(['job_id' => $job->id, 'user_id' => $userID])
-                ->all();
-            if (count($possibleApp) == 1) {
-                $hasApplied = 1;
-            } else {
-                $hasApplied = 0;
-            }
         }
-
         return $this->render('buttonPopupWindow', [
             'userID'  => $userID,
-            'applied' => $hasApplied,
             'key'     => $key,
         ]);
 
     }
+
+    
 
     public function actionUpdate($id)
     {
