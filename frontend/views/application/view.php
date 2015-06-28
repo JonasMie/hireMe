@@ -8,10 +8,10 @@ use frontend\controllers\ApplicationController;
 use frontend\models\ResumeJob;
 use frontend\models\ResumeSchool;
 use frontend\models\Company;
-
+use frontend\assets\ScoreAsset;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
-
+ScoreAsset::register($this);
 ?>
 
 <!-- Initializing Foo Tables -->
@@ -43,10 +43,12 @@ use frontend\models\Company;
     <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
     <p> Beworben am: <?= $model["created"];?></p>
     <br>
-    <h4>Score: <?= $model['app']->score ?></h4>
+    <h4 class="allowPrefill">Score:
+    <?= Html::textinput($model['app']->id,Html::encode($model["app"]->score),['class' => 'scoreInput', 'id' => 'score_'.$model['app']->score,'name' => $model["app"]->score]); ?>
+    </h4>
      <h2>Anschreiben: </h2>
     <p>
-    <?= $model['coverText']; ?>
+    <?= Html::decode("<pre>".$model['coverText']."</pre>"); ?>
     </p>
     <h2>Lebenslauf:</h2>
     <p>
