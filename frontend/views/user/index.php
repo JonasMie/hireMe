@@ -3,6 +3,8 @@
 /* @var $user common\models\User */
 /* @var $jobDataProvider \yii\data\ActiveDataProvider */
 /* @var $schoolDataProvider \yii\data\ActiveDataProvider */
+/* @var $currentSchoolsDataProvider \yii\data\ActiveDataProvider */
+/* @var $currentJobsDataProvider \yii\data\ActiveDataProvider */
 
 use yii\helpers\Html;
 
