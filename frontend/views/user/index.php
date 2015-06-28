@@ -16,6 +16,9 @@ Yii::$app->getSession()->getFlash('error');
         <h1><?= $user->fullName ?></h1>
     </div>
 </div>
+
+<? if($currentJobsProvider->count() > 0  || $currentSchoolsProvider->count() > 0 ): ?>
+
 <div class="row first">
     <div class="col-sm-4 user-picture">
         <?= $user->getProfilePicture() ?>
@@ -39,7 +42,7 @@ Yii::$app->getSession()->getFlash('error');
         ]);
         ?>
     </div>
-    <div class="col-sm-3 currentSchool">
+    <div class="col-sm-4 currentSchool">
         <?
         echo $this->render('/resume/_resume', [
             'jobDataProvider'            => $jobDataProvider,
@@ -111,3 +114,49 @@ Yii::$app->getSession()->getFlash('error');
     </div>
 </div>
 
+<? else: ?>
+
+<div class="row first">
+    <div class="col-sm-4 user-picture">
+        <?= $user->getProfilePicture() ?>
+    </div>
+    <div class="col-sm-4 fullJob">
+        <?
+        // only show profile details, if its my own profile, if user set visibility to 'everyone' or i'm recruiter and user set visibility to 'recruiter only'
+        if ($user->getId() == Yii::$app->user->identity->getId() || $user->visibility == 2 || $user->visibility == 1 && Yii::$app->user->identity->isRecruiter()) {
+        echo $this->render('/resume/_resume', [
+            'jobDataProvider'            => $jobDataProvider,
+            'schoolDataProvider'         => $schoolDataProvider,
+            'currentJobsDataProvider'    => $currentJobsDataProvider,
+            'currentSchoolsDataProvider' => $currentSchoolsDataProvider,
+            'edit'                       => false,
+            'label'                      => 'Bearbeiten',
+            'url1'                       => ['/resume'],
+            'url2'                       => ['/resume'],
+            'order'                      => 'fullJob',
+            'showButtons'                => $user->getId() == Yii::$app->user->identity->getId()
+        ]);
+        ?>
+    </div>
+    <div class="col-sm-4 fullSchool">
+        <?
+        echo $this->render('/resume/_resume', [
+            'jobDataProvider'            => $jobDataProvider,
+            'schoolDataProvider'         => $schoolDataProvider,
+            'currentJobsDataProvider'    => $currentJobsDataProvider,
+            'currentSchoolsDataProvider' => $currentSchoolsDataProvider,
+            'edit'                       => false,
+            'label'                      => 'Bearbeiten',
+            'url1'                       => ['/resume'],
+            'url2'                       => ['/resume'],
+            'order'                      => 'fullSchool',
+            'showButtons'                => $user->getId() == Yii::$app->user->identity->getId()
+        ]);
+        } else {
+            echo "<p>Der Nutzer hat seine Informationen nicht veröffentlicht.";
+        }
+        ?>
+    </div>
+</div>
+
+<? endif; ?>
