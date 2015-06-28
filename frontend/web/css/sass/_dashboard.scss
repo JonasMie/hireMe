@@ -240,6 +240,10 @@ body.controller-dashboard{
 
   .userDashboardFavoritesHeader {
     margin-top: 50px;
+    color: $green;
+    &:hover {
+      color: $green50; // TODO: Change hover color
+    }
   }
 
   // FIX for Profile Picture
@@ -264,10 +268,19 @@ body.controller-dashboard{
         }
       }
 
-      .footable-row-detail-row {
-        height: 60px;
-        .message-sender {
-          display: inline-block;
+      .footable-row-detail-cell {
+        height: auto;
+
+        .footable-row-detail-row:nth-of-type(1) {
+          height: 60px;
+          .message-sender {
+            display: inline-block;
+            @media (max-width: 511px) {
+              margin-left: 10px;
+              margin-top: 18px;
+              vertical-align: top;
+            }
+          }
         }
       }
 

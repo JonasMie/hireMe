@@ -1585,29 +1585,46 @@ body.controller-dashboard .userDashboardMessagesHeader:hover {
 /* line 241, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardFavoritesHeader {
   margin-top: 50px;
+  color: #5dca88;
+}
+/* line 244, ../sass/_dashboard.scss */
+body.controller-dashboard .userDashboardFavoritesHeader:hover {
+  color: rgba(93, 202, 136, 0.5);
 }
 @media (max-width: 767px) {
-  /* line 249, ../sass/_dashboard.scss */
+  /* line 253, ../sass/_dashboard.scss */
   body.controller-dashboard #DashboardMessages thead th:nth-of-type(3) {
     width: 50%;
   }
 }
-/* line 257, ../sass/_dashboard.scss */
+/* line 261, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody tr td:nth-of-type(3) img {
   float: left;
 }
-/* line 260, ../sass/_dashboard.scss */
+/* line 264, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody tr td:nth-of-type(3) div.message-sender {
   margin-left: 60px;
   margin-top: 14px;
 }
-/* line 267, ../sass/_dashboard.scss */
-body.controller-dashboard #DashboardMessages tbody .footable-row-detail-row {
+/* line 271, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell {
+  height: auto;
+}
+/* line 274, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .footable-row-detail-row:nth-of-type(1) {
   height: 60px;
 }
-/* line 269, ../sass/_dashboard.scss */
-body.controller-dashboard #DashboardMessages tbody .footable-row-detail-row .message-sender {
+/* line 276, ../sass/_dashboard.scss */
+body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .footable-row-detail-row:nth-of-type(1) .message-sender {
   display: inline-block;
+}
+@media (max-width: 511px) {
+  /* line 276, ../sass/_dashboard.scss */
+  body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .footable-row-detail-row:nth-of-type(1) .message-sender {
+    margin-left: 10px;
+    margin-top: 18px;
+    vertical-align: top;
+  }
 }
 
 @media (min-width: 992px) {
