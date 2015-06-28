@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\File */
 
-$this->title = 'Anhang bearbeiten';
+$this->title = 'Anlage bearbeiten';
 
 ?>
 <div class="file-update">

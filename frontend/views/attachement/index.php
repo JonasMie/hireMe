@@ -82,7 +82,7 @@ $this->title = 'Anlagen';
 	</div>
 	
 	<div class="col-sm-4">
-	<h2>Anhang hochladen</h2>
+	<h2>Anlage hochladen</h2>
 		<div id="data">
 			<?= Yii::$app->controller->renderPartial("uploadSection", ['model' =>$model, 'provider' => $provider]) ?>
 		</div>
