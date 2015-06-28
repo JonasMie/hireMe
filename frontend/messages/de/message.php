@@ -12,4 +12,10 @@ return [
     'Read'     => 'Gelesen',
     'Deleted'  => 'Gelöscht',
     'Archived' => 'Archviert',
+    'Subject'  => 'Betreff',
+    'Content'  => 'Nachricht',
+    'Sent At'  => 'Gesendet',
+    'Flow'     => 'Flow',
+    'Receiver' => 'Empfänger',
+    'Sender'   => 'Sender',
 ];
