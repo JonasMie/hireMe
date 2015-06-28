@@ -2,10 +2,12 @@
  * Created by Simon
  */
 
-$("#scoreInput").focusout(function(e) {
+$(".scoreInput").focusout(function(e) {
 
-score = $("#scoreInput").val();
-app = $("#scoreInput").attr("name");
+var id = $(this).attr("id");
+var score = $("#"+id).val();
+var app = $("#"+id).attr("name");
+
   jQuery.get("/application/change-score",{app:app,score:score} ,function (res) {
 });   
 

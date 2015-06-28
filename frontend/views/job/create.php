@@ -5,6 +5,10 @@ use yii\widgets\ActiveForm;
 use frontend\assets\CreateJobAsset;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
+use kartik\date\DatePicker;
+use kartik\typeahead\Typeahead;
+
+include Yii::getAlias('@helper/companySignup.php');
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
@@ -23,12 +27,30 @@ $this->title = 'Create Job';
                 <?= $form->field($model, 'title')->label('Titel')?>
                 
                 <?= $form->field($model, 'description')->textarea() ?>
-                <?= $form->field($model, 'job_begin')->label() ?>
-                <?= $form->field($model, 'job_end')->label() ?>
-                <?= $form->field($model, 'sector')->label("Sektor wählen") ?>
-                <?= $form->field($model, 'type')->label("Type") ?>
-                <?= $form->field($model, 'time')->label("time") ?>
-                
+                <?
+                echo DatePicker::widget([
+                    'model'         => $model,
+                    'attribute'     => 'job_begin',
+                    'attribute2'    => 'job_end',
+                    'options'       => ['placeholder' => 'Von'],
+                    'options2'      => ['placeholder' => 'Bis'],
+                    'type'          => DatePicker::TYPE_RANGE,
+                    'form'          => $form,
+                    'language'      => 'de',
+                    'separator'     => 'bis',
+                    'pluginOptions' => [
+                        'format'         => 'dd.mm.yyyy',
+                        'autoclose'      => true,
+                        'todayHighlight' => true,
+                    ]
+                ]);
+                ?>
+
+                 <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
+                    'data' => $sectors,
+                    'options' => ['prompt' => ''],
+                ])->label('Branche auswählen') ?>
+
                 <?= $form->field($model, 'checkLocationBased')->checkbox(array('id'=>'checkLocationBased'))->label('Ortsbasiert') ?>
 
                 <div class="locationDiv" style="display: none">    <? //STYLE: display in css?>

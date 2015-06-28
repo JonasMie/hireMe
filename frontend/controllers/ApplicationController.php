@@ -59,7 +59,7 @@ class ApplicationController extends Controller
 
     public static function getApplicationDataForJob($id) {
 
-       $sql = "SELECT u.fullName, u.id from user u, application a WHERE a.job_id = ".$id." and u.id = a.user_id";
+       $sql = "SELECT u.fullName, u.id from user u, application a WHERE a.job_id = ".$id." and u.id = a.user_id and a.state = 'Versendet'";
        
        $dataProvider = new SqlDataProvider([
             'sql' => $sql,
@@ -117,11 +117,12 @@ class ApplicationController extends Controller
             'sql' => $sql,
             'sort' => [
                 'attributes' => [
-                'title','fullName'
+                'title','fullName','score',
             ],
             'defaultOrder' => [
                 'title' => SORT_ASC,
-                'fullName' => SORT_ASC
+                'fullName' => SORT_ASC,
+                'score' => SORT_DESC,
             ]
             ],
         ]);

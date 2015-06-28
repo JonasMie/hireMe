@@ -72,7 +72,7 @@ $this->title = 'Bewerbungen';
 							'label' => 'Score',
 							'format' => 'raw',
 							'value'  => function ($data) {
-								return Html::textinput($data['id'],Html::encode($data["score"]),['id' => 'scoreInput','name' => $data["id"]]);
+								return Html::textinput($data['id'],Html::encode($data["score"]),['class' => 'scoreInput', 'id' => 'score_'.$data['id'],'name' => $data["id"]]);
 							},
 							'contentOptions' => ['class' => 'allowPrefill'],
 					],
