@@ -48,6 +48,12 @@
 	div.row.second{
 		margin-top:20px;
 	}
+	
+	div.insertJobData, div.insertSchoolData{
+		a.btn{
+			float:right;
+		}
+	}
 }
 
 .controller-user.action-settings{
