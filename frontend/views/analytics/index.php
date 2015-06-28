@@ -92,6 +92,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
                     </div>
+                    <div id="viewClickIsNull" class="no-chart-data no-chart-data-row-1-col-1">Keine Daten verfügbar</div>
                     <canvas id="viewClickChart" class="chart"></canvas>
                 </div>
             </div>
@@ -116,6 +117,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
                     </div>
+                    <div id="clickApplyIsNull" class="no-chart-data no-chart-data-row-1-col-2">Keine Daten verfügbar</div>
                     <canvas id="clicksApplicationChart" class="chart"></canvas>
                 </div>
             </div>
@@ -143,6 +145,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
                     </div>
+                    <div id="interviewApplyIsNull" class="no-chart-data no-chart-data-row-2-col-1">Keine Daten verfügbar</div>
                     <canvas id="interviewApplicationChart" class="chart"></canvas>
                 </div>
             </div>
@@ -167,6 +170,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
                     </div>
+                    <div id="applyHiredIsNull" class="no-chart-data no-chart-data-row-2-col-2">Keine Daten verfügbar</div>
                     <canvas id="applicationHiredChart" class="chart"></canvas>
                 </div>
             </div>
@@ -302,6 +306,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
                 </div>
+                <div id="viewComparisonIsNull" class="no-chart-data no-chart-data-row-3-col-1">Keine Daten verfügbar</div>
                 <canvas id="viewCompareChart" class="chart"></canvas>
             </div>
         </div>
@@ -314,6 +319,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
                 </div>
+                 <div id="clickComparisonIsNull" class="no-chart-data no-chart-data-row-3-col-2">Keine Daten verfügbar</div>
                 <canvas id="clickCompareChart" class="chart"></canvas>
             </div>
         </div>
