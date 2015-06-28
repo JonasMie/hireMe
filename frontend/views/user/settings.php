@@ -67,21 +67,9 @@ ImageAssetBundle::register($this);
 
                 <h2>Allgemein</h2>
 
-                <?= $form->field($model, 'visibility')->radioList([0 => 'Keiner kann das Profil sehen', 1 => 'Recruiter können das Profil sehen', 2 => 'Jeder kann das Profil sehen'])->label('Sichtbarkeit des Profils') ?>
-
-                <div class="password-inputs">
-                    <fieldset>
-                        <legend>Passwort ändern</legend>
-                        <?= $form->field($model, 'oldPassword')->passwordInput()->label('Altes Passwort') ?>
-                        <?= $form->field($model, 'password')->passwordInput()->label('Neues Passwort') ?>
-                        <?= $form->field($model, 'password_repeat')->passwordInput()->label('Neues Passwort wiederholen') ?>
-                    </fieldset>
-                </div>
-
-                <?= $form->field($model, 'email', ['options' => ['class' => 'allowPrefill']])->textInput()->label('Neue Email-Adresse') ?>
-
-
-                <?
+                <?= $form->field($model, 'visibility')->radioList([0 => 'Keiner kann das Profil sehen', 1 => 'Recruiter können das Profil sehen', 2 => 'Jeder kann das Profil sehen'])->label('<h3>Sichtbarkeit des Profils</h3>') ?>
+				
+				<?
                 $template =
                     '<p>{{plz}}  -  {{city}}</p>';
 
@@ -100,7 +88,18 @@ ImageAssetBundle::register($this);
                             'displayKey' => 'plz',
                         ],
                     ],
-                ])->label('PLZ') ?>
+                ])->label('<h3>Postleitzahl</h3>') ?>
+				
+                <div class="password-inputs">
+                    <fieldset>
+                        <h3><legend>Passwort ändern</legend></h3>
+                        <?= $form->field($model, 'oldPassword')->passwordInput()->label('Altes Passwort') ?>
+                        <?= $form->field($model, 'password')->passwordInput()->label('Neues Passwort') ?>
+                        <?= $form->field($model, 'password_repeat')->passwordInput()->label('Neues Passwort wiederholen') ?>
+                    </fieldset>
+                </div>
+
+                <?= $form->field($model, 'email', ['options' => ['class' => 'allowPrefill']])->textInput()->label('<h3>Neue Email-Adresse</h3>') ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Einstellungen Speichern', ['class' => 'btn btn-success save', 'name' => 'settings-button']) ?>

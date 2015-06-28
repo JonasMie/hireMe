@@ -289,6 +289,10 @@ body {
   .iradio_flat-green.checked.disabled {
     background-position: -154px 0;
   }
+  
+  .radio label, .checkbox label {
+    font-weight: 300;
+  }
 
   /* HighDPI support */
   @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
@@ -301,6 +305,10 @@ body {
   //END iCheck plugin Flat skin, green
 
   /* BASIC FORM STYLING */
+  legend{
+	color:$greyFont;
+  }
+  
   /* UNFOCUSED INPUT */
   .form-group {
     position: relative;
@@ -332,6 +340,7 @@ body {
         border-bottom: $FormBorderFocused;
         border-top: $FormBorderFocused;
       }
+	  resize:none;
     }
 
     label {

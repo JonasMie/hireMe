@@ -862,20 +862,40 @@ body .icheckbox_flat-green.checked.disabled {
 body .iradio_flat-green.checked.disabled {
   background-position: -154px 0;
 }
+/* line 247, ../sass/_basicTemplate.scss */
+body .radio label, body .checkbox label {
+  font-weight: 300;
+}
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+<<<<<<< HEAD
   /* line 295, ../sass/_basicTemplate.scss */
+=======
+  /* line 253, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
   body .icheckbox_flat-green, body .iradio_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
+<<<<<<< HEAD
 /* line 305, ../sass/_basicTemplate.scss */
+=======
+/* line 262, ../sass/_basicTemplate.scss */
+body legend {
+  color: #9d9d9d;
+}
+/* line 267, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
+<<<<<<< HEAD
 /* line 309, ../sass/_basicTemplate.scss */
+=======
+/* line 271, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -889,11 +909,19 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
+<<<<<<< HEAD
 /* line 318, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
 /* line 323, ../sass/_basicTemplate.scss */
+=======
+/* line 280, ../sass/_basicTemplate.scss */
+body .form-group input[type="text"]:focus {
+  outline: none;
+}
+/* line 285, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -904,14 +932,23 @@ body .form-group textarea {
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
+  resize: none;
 }
+<<<<<<< HEAD
 /* line 330, ../sass/_basicTemplate.scss */
+=======
+/* line 292, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .form-group textarea:focus {
   box-shadow: none;
   border-bottom: 2px solid #5dca88;
   border-top: 2px solid #5dca88;
 }
+<<<<<<< HEAD
 /* line 337, ../sass/_basicTemplate.scss */
+=======
+/* line 300, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -922,7 +959,11 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
+<<<<<<< HEAD
 /* line 350, ../sass/_basicTemplate.scss */
+=======
+/* line 313, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-settingsmodel-picture,
@@ -934,7 +975,11 @@ body .form-group.field-resumeschool-report_id,
 body .field-settingsmodel-visibility {
   position: static;
 }
+<<<<<<< HEAD
 /* line 360, ../sass/_basicTemplate.scss */
+=======
+/* line 323, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-settingsmodel-picture label,
@@ -946,16 +991,25 @@ body .form-group.field-resumeschool-report_id label,
 body .field-settingsmodel-visibility label {
   position: static;
 }
+<<<<<<< HEAD
 /* line 371, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
 /* line 374, ../sass/_basicTemplate.scss */
+=======
+/* line 334, ../sass/_basicTemplate.scss */
+body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
+  border-bottom: 2px solid #5dca88;
+}
+/* line 337, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
+<<<<<<< HEAD
 /* line 379, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
@@ -973,6 +1027,25 @@ body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
 /* line 404, ../sass/_basicTemplate.scss */
+=======
+/* line 342, ../sass/_basicTemplate.scss */
+body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
+  border-color: #5dca88 !important;
+}
+/* line 344, ../sass/_basicTemplate.scss */
+body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
+  box-shadow: none !important;
+}
+/* line 351, ../sass/_basicTemplate.scss */
+body .has-error > label {
+  color: #a94442 !important;
+}
+/* line 361, ../sass/_basicTemplate.scss */
+body .typeahead-validation .has-success input {
+  border-bottom: 2px solid #5dca88 !important;
+}
+/* line 367, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -983,12 +1056,17 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
+<<<<<<< HEAD
 /* line 416, ../sass/_basicTemplate.scss */
+=======
+/* line 379, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
+<<<<<<< HEAD
 /* line 424, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
@@ -998,6 +1076,17 @@ body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
 /* line 431, ../sass/_basicTemplate.scss */
+=======
+/* line 387, ../sass/_basicTemplate.scss */
+body .twitter-typeahead pre {
+  display: none;
+}
+/* line 390, ../sass/_basicTemplate.scss */
+body .twitter-typeahead input.tt-hint {
+  display: none !important;
+}
+/* line 394, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -1007,6 +1096,7 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
+<<<<<<< HEAD
 /* line 436, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
@@ -1016,54 +1106,101 @@ body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
 /* line 443, ../sass/_basicTemplate.scss */
+=======
+/* line 399, ../sass/_basicTemplate.scss */
+body .twitter-typeahead input.tt-input:focus {
+  border-bottom: 2px solid #5dca88;
+}
+/* line 404, ../sass/_basicTemplate.scss */
+body .twitter-typeahead .tt-dropdown-menu {
+  padding: 0px;
+}
+/* line 406, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
+<<<<<<< HEAD
 /* line 447, ../sass/_basicTemplate.scss */
+=======
+/* line 410, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
+<<<<<<< HEAD
 /* line 457, ../sass/_basicTemplate.scss */
+=======
+/* line 420, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
+<<<<<<< HEAD
 /* line 465, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
 /* line 473, ../sass/_basicTemplate.scss */
+=======
+/* line 428, ../sass/_basicTemplate.scss */
+body .has-error input[type="text"] {
+  border-color: #a94442 !important;
+}
+/* line 436, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
+<<<<<<< HEAD
 /* line 479, ../sass/_basicTemplate.scss */
+=======
+/* line 442, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
+<<<<<<< HEAD
 /* line 486, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
 /* line 492, ../sass/_basicTemplate.scss */
+=======
+/* line 449, ../sass/_basicTemplate.scss */
+body div.profile-picture-thumbnail:hover {
+  background: url("/uploads/profile/default-hover.png") no-repeat top;
+}
+/* line 455, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
+<<<<<<< HEAD
 /* line 500, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
 /* line 504, ../sass/_basicTemplate.scss */
+=======
+/* line 463, ../sass/_basicTemplate.scss */
+body div#bulkActions {
+  margin-top: 15px;
+}
+/* line 467, ../sass/_basicTemplate.scss */
+>>>>>>> feature/frontendStuffAndFixes
 body .highlight {
   color: #5dca88;
 }
@@ -1759,6 +1896,14 @@ body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .fo
 /* line 54, ../sass/_user.scss */
 .controller-user.action-settings button.save {
   float: right;
+}
+/* line 58, ../sass/_user.scss */
+.controller-user.action-settings .radio label {
+  margin-left: -20px;
+}
+/* line 63, ../sass/_user.scss */
+.controller-user.action-settings .password-inputs h3 {
+  margin-bottom: 30px;
 }
 
 /* line 3, ../sass/_message.scss */
