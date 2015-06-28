@@ -14,7 +14,7 @@ use frontend\controllers\ApplicationController;
 	<?= $form->field($model, 'title') ?>
 
 	<div class="form-group">
-		<?= Html::submitButton("<span class='glyphicon glyphicon-upload'></span>&nbsp;&nbsp;Hochladen",['class' => 'btn btn-success']) ?>
+		<?= Html::submitButton("<span class='glyphicon glyphicon-upload'></span>&nbsp;&nbsp;Hochladen",['class' => 'btn btn-success upload']) ?>
 	</div>
 
 <?php ActiveForm::end(); ?>
