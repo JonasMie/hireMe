@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\behaviours\BodyClassBehaviour;
+use frontend\models\Geo;
 use frontend\models\ResumeJob;
 use frontend\models\ResumeSchool;
 use frontend\models\SettingsModel;
@@ -57,8 +58,8 @@ class UserController extends Controller
         }
         $jobQuery = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()]);
         $schoolQuery = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()]);
-        $currentJobs = $jobQuery->andWhere(['current' => 1]);
-        $currentSchools = $schoolQuery->andWhere(['current' => 1]);
+        $currentJobs = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()])->andWhere(['current' => 1]);
+        $currentSchools = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()])->andWhere(['current' => 1]);
         $jobDataProvider = new ActiveDataProvider([
             'query' => $jobQuery,
             'sort'  => [
@@ -118,21 +119,34 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->update()) {
-                return $this->render('settings', [
-                    'model'   => $model,
-                    'success' => true,
-                ]);
+                $this->redirect('/user');
+//                return $this->render('settings', [
+//                    'model'   => $model,
+//                    'success' => true,
+//                    'image' => isset(Yii::$app->user->identity->picture)?"/uploads/profile".Yii::$app->user->identity->picture->path.".jpg":"/uploads/profile/default.png"
+//                ]);
             } else {
                 return $this->render('settings', [
                     'model'   => $model,
                     'success' => false,
+                    'image' => isset(Yii::$app->user->identity->picture)?"/uploads/profile".Yii::$app->user->identity->picture->path.".jpg":"/uploads/profile/default.png"
                 ]);
             }
         }
         $model->visibility = Yii::$app->user->identity->visibility;
         $model->email = Yii::$app->user->identity->email;
+        if(isset(Yii::$app->user->identity->geo_id)){
+            $model->plz = Geo::findOne(['id' => Yii::$app->user->identity->geo_id])->plz;
+        }
+        if(isset(Yii::$app->user->identity->picture)){
+            $image = "/uploads/profile".Yii::$app->user->identity->picture->path.".jpg";
+        } else {
+            $image = "/uploads/profile/default.png";
+        }
+
         return $this->render('settings', [
             'model' => $model,
+            'image' => $image,
         ]);
     }
 

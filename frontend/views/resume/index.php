@@ -29,7 +29,8 @@ $this->title = Yii::t('app', 'Lebenslauf');
 						'label' => 'Eintrag hinzufügen',
 						'url1' => ['create', 'type'=>'job'],
 						'url2' => ['create', 'type'=>'school'],
-						'order' => 'fullJob'
+						'order' => 'fullJob',
+                        'showButtons' => true,
 					]);
 				?>
 			</div>
@@ -46,7 +47,8 @@ $this->title = Yii::t('app', 'Lebenslauf');
 						'label' => 'Eintrag hinzufügen',
 						'url1' => ['create', 'type'=>'job'],
 						'url2' => ['create', 'type'=>'school'],
-						'order' => 'fullSchool'
+						'order' => 'fullSchool',
+                        'showButtons' => true,
 					]);
 				?>
 			</div>

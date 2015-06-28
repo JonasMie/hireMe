@@ -43,7 +43,10 @@ $attributes = [
         'widgetOptions' => [
             'class'   => DateControl::classname(),
             'type'    => DateControl::FORMAT_DATE,
-            'options' => ['id' => 'job-date-begin-' . $model->id, 'class'=>'allowPrefill']
+            'options' => [
+                'options' => ['id' => 'job-date-begin-', 'class'=>'form-control allowPrefill'],
+            ]
+
         ],
 		'inputContainer' => ['class'=>'allowPrefill'],
     ],

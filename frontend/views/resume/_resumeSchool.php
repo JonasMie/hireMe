@@ -50,6 +50,11 @@ $attributes = [
 		'inputContainer' => ['class'=>'allowPrefill'],
     ],
     [
+        'attribute' => 'current',
+        'rowOptions' => ['class'=>'kv-view-hidden'],
+        'type' => DetailView::INPUT_CHECKBOX,
+    ],
+    [
         'label'     => 'Anhänge',
         'attribute' => 'report_id',
         'value' =>     $model->report? Html::a($model->report->title . "." . $model->report->extension, "/uploads/reports" . $model->report->path . "." . $model->report->extension,['target'=>'_blank']):null,
