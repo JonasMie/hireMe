@@ -32,7 +32,7 @@ class AnalyticsController extends Controller
     public function actionJsonDetail($id) {
 
         $analytics = new Analytics();
-        $applier = count($analytics->getAppliesForJob($id));
+        $applier = $analytics->getAppliesForJob($id);
 
         $data= Yii::$app->db->createCommand("SELECT  sum(b.viewCount) as views, sum(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
                         FROM job j
@@ -174,10 +174,6 @@ class AnalyticsController extends Controller
 
  }
 
-   
-
- 
-
 
     public function actionDetail($id) {
 
@@ -187,7 +183,7 @@ class AnalyticsController extends Controller
         $viewCount = $viewClickData[0];
         $clickCount = $viewClickData[1];
         if ($clickCount == 0) {$applicationRate = 0;}
-        else { $applicationRate = round((count($applier)/$clickCount)*100,2);}        
+        else { $applicationRate = round(($applier/$clickCount)*100,2);}        
         $job = Job::findOne($id);
         $jobName = $job->title;
         if ($viewCount == 0) {$interestRate = 0;}
@@ -213,7 +209,7 @@ class AnalyticsController extends Controller
             'id' => $job->company_id,
             'jobID' => $job->id,
             'jobTitle' =>  $jobName,
-            'applyCount' => count($applier),
+            'applyCount' => $applier,
             'viewCount' =>  $viewCount,
             'clickCount' => $clickCount,
             'interestRate' => $interestRate,
