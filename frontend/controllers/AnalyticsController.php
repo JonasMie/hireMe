@@ -51,7 +51,10 @@ class AnalyticsController extends Controller
         $jobData["clickCount"] = intval($data[0]['clicks']);
         $jobData["applierCount"] = $applier;
         $jobData["interestRate"] = floatval($data[0]['interestRate']);
+        if($jobData["clickCount"] == 0) { $jobData["applicationRate"] = 0;}
+        else {
         $jobData["applicationRate"] = round($applier/$jobData["clickCount"]*100,2);
+        }
         $jobData["interviewRate"] = $analytics->getInterviewRateForJob($id);
         $jobData["interviewCount"] = $analytics->getInterviewsForJob($id);
 

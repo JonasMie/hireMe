@@ -178,8 +178,13 @@ $(document).ready(function () {
 
         for (var i = 0; i < obj.viewArray.length; i++) {
             var tmp = obj.viewArray[i];
+
             var subObject = '{';
-            subObject += '"value":' + (tmp.views / obj.viewCount).toFixed(2) * 100 + ',';
+             var value = (tmp.views / obj.viewCount).toFixed(2) * 100;
+            if(jQuery.isNumeric(value)) {
+            subObject += '"value":' + value + ',';
+            }
+            else {subObject += '"value":0,';}
             if (i % 2 == 0) {
                 subObject += '"color": "rgba(93,202,136,0.5)",';
                 subObject += '"highlight": "rgba(93,202,136,1.0)",';
@@ -190,6 +195,7 @@ $(document).ready(function () {
             subObject += '"label": "' + tmp.title + '"';
             subObject += '}';
             // console.log(subObject);
+            console.log(subObject);
             compareViewsData.push($.parseJSON(subObject));
         }
 
@@ -198,7 +204,11 @@ $(document).ready(function () {
         for (var i = 0; i < obj.clickArray.length; i++) {
             var tmp = obj.clickArray[i];
             var subObject = '{';
-            subObject += '"value":' + (tmp.clicks / obj.clickCount).toFixed(2) * 100 + ',';
+            var value = (tmp.clicks / obj.clickCount).toFixed(2) * 100;
+            if(jQuery.isNumeric(value)) {
+            subObject += '"value":' + value + ',';
+            }
+            else {subObject += '"value":0,';}
             if (i % 2 == 0) {
                 subObject += '"color": "rgba(93,202,136,0.5)",';
                 subObject += '"highlight": "rgba(93,202,136,1.0)",';
@@ -208,7 +218,7 @@ $(document).ready(function () {
             }
             subObject += '"label": "' + tmp.title + '"';
             subObject += '}';
-            // console.log(subObject);
+             console.log(subObject);
             compareClicksData.push($.parseJSON(subObject));
         }
 
