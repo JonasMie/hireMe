@@ -34,6 +34,10 @@ body.controller-message {
         }
         div.message-sender {
           margin-top: 18px;
+          @media (max-width: 511px) {
+            vertical-align: top;
+            margin-left: 10px;
+          }
         }
         a:hover {
           div.profile-picture-thumbnail {

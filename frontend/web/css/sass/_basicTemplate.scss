@@ -148,21 +148,25 @@ body {
 
   .footable .footable-row-detail {
 
-    .footable-row-detail-inner {
+    .footable-row-detail-cell {
+      padding-bottom: 0px; // Border fix
 
-      border-bottom: 1px solid $borderGrey;
-      padding-bottom: 10px;
+      .footable-row-detail-inner {
+        height: 100%; //Border fix
+        border-bottom: 1px solid $borderGrey;
+        padding-bottom: 10px;
 
-      .footable-row-detail-row {
-        display: block;
+        .footable-row-detail-row {
+          display: block;
 
-        .footable-row-detail-name {
-          display: inline;
-          color: $green;
-        }
-        .footable-row-detail-value {
-          display: inline;
-          float: right;
+          .footable-row-detail-name {
+            display: inline;
+            color: $green;
+          }
+          .footable-row-detail-value {
+            display: inline;
+            float: right;
+          }
         }
       }
     }
