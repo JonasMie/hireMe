@@ -17,6 +17,7 @@
  * @var $currentJobsDataProvider \yii\data\ActiveDataProvider
  * @var $currentSchoolsDataProvider \yii\data\ActiveDataProvider
  * @var $order String
+ * @var $showButtons boolean
  */
 
 use yii\helpers\Html;
@@ -72,7 +73,15 @@ use yii\helpers\Html;
     <? /* Full List of Jobs */ ?>
 
 <?php elseif ($order == 'fullJob'): ?>
+
+    <? if ($showButtons): ?>
+        <div class="insertJobData">
+            <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple insertJobData']) ?>
+        </div>
+    <? endif ?>
+
     <h2>Berufserfahrung</h2>
+
     <?php
     echo \yii\widgets\ListView::widget([
         'dataProvider' => $jobDataProvider,
@@ -84,11 +93,7 @@ use yii\helpers\Html;
         ]);
     ?>
 
-    <? if ($showButtons): ?>
-        <div class="insertJobData">
-            <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple insertJobData']) ?>
-        </div>
-    <? endif ?>
+
     <? /* Full List of Education */ ?>
 
 <?php elseif ($order == 'fullSchool'): ?>
@@ -97,7 +102,15 @@ use yii\helpers\Html;
     $currentJobs = $currentJobsDataProvider->getCount();
     $currentSchools = $currentSchoolsDataProvider->getCount();
     ?>
+
+    <? if ($showButtons): ?>
+        <div class="insertSchoolData">
+            <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple insertSchoolData']) ?>
+        </div>
+    <? endif ?>
+
     <h2>Ausbildung</h2>
+
     <?php
     echo \yii\widgets\ListView::widget([
         'dataProvider' => $schoolDataProvider,
@@ -108,11 +121,6 @@ use yii\helpers\Html;
         ],
     ]);
     ?>
-    <? if ($showButtons): ?>
-        <div class="insertSchoolData">
-            <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple insertSchoolData']) ?>
-        </div>
-    <? endif ?>
 
     <? /* Default Fallback View for Resume when none of the options (order=...) above is selected */ ?>
 
@@ -157,6 +165,7 @@ use yii\helpers\Html;
     <? endif ?>
 
     <h2>Ausbildung</h2>
+
     <?php
     echo \yii\widgets\ListView::widget([
         'dataProvider' => $schoolDataProvider,

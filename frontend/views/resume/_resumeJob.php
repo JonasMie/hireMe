@@ -17,12 +17,12 @@ $attributes = [
 
 
     [
-        'attribute'      => 'company_id',
-        'label'          => 'Unternehmen',
-        'format'         => 'raw',
-        'value'          => Html::a($model->company->name, ['/company/view', 'id' => $model->company->id]), // TODO: check company url
-        'type'           => DetailView::INPUT_TYPEAHEAD,
-        'widgetOptions'  => [
+        'attribute'     => 'company_id',
+        'label'         => 'Unternehmen',
+        'format'        => 'raw',
+        'value'         => Html::a($model->company->name, ['/company/view', 'id' => $model->company->id]), // TODO: check company url
+        'type'          => DetailView::INPUT_TYPEAHEAD,
+        'widgetOptions' => [
             'pluginOptions' => ['highlight' => true],
             'dataset'       => [
                 [
@@ -32,7 +32,7 @@ $attributes = [
 
             ],
             'options'       => ['id' => 'typeahead-' . $model->id, 'value' => $model->company->name, 'class' => 'allowPrefill'],
-            'container' => ['class' => 'allowPrefill'],
+            'container'     => ['class' => 'allowPrefill'],
         ],
     ],
     [
@@ -84,8 +84,9 @@ $attributes = [
     ],
     [
         'attribute' => 'description',
+        'format'    => 'ntext',
         'type'      => 'textArea',
-        'label'     => 'Beschreibung'
+        'label'     => 'Beschreibung',
     ],
 ];
 
