@@ -53,8 +53,8 @@ ImageAssetBundle::register($this);
                 <?= $form->field($model, 'picture')->fileInput()->label(false); ?>
 
                 <div>
-                    <img id="current-img" src="<?=$image?>" class="img-responsive">
-                    <img id="settingsmodel-picture-jcrop" src="<?=$image?>" style="display: none;">
+                    <img id="current-img" src="<?= $image ?>" class="img-responsive">
+                    <img id="settingsmodel-picture-jcrop" src="<?= $image ?>" style="display: none;">
                     <input type="text" id="w" name="w" style="display: none"/>
                     <input type="text" id="h" name="h" style="display: none"/>
                     <input type="text" id="x" name="x" style="display: none"/>
@@ -68,8 +68,8 @@ ImageAssetBundle::register($this);
                 <h2>Allgemein</h2>
 
                 <?= $form->field($model, 'visibility')->radioList([0 => 'Keiner kann das Profil sehen', 1 => 'Recruiter können das Profil sehen', 2 => 'Jeder kann das Profil sehen'])->label('<h3>Sichtbarkeit des Profils</h3>') ?>
-				
-				<?
+
+                <?
                 $template =
                     '<p>{{plz}}  -  {{city}}</p>';
 
@@ -77,6 +77,7 @@ ImageAssetBundle::register($this);
                     'class' => 'allowPrefill'
                 ]])->widget(Typeahead::className(), [
                     'name'    => 'companyAddressCity',
+                    'container' => ['class' => 'allowPrefill'],
                     'dataset' => [
                         [
                             'remote'     => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
@@ -89,10 +90,12 @@ ImageAssetBundle::register($this);
                         ],
                     ],
                 ])->label('<h3>Postleitzahl</h3>') ?>
-				
+
                 <div class="password-inputs">
                     <fieldset>
-                        <h3><legend>Passwort ändern</legend></h3>
+                        <h3>
+                            <legend>Passwort ändern</legend>
+                        </h3>
                         <?= $form->field($model, 'oldPassword')->passwordInput()->label('Altes Passwort') ?>
                         <?= $form->field($model, 'password')->passwordInput()->label('Neues Passwort') ?>
                         <?= $form->field($model, 'password_repeat')->passwordInput()->label('Neues Passwort wiederholen') ?>
