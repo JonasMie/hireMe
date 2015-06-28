@@ -118,7 +118,13 @@ class JobController extends Controller
         } else {
             if (isset(Yii::$app->user->identity->geo_id)) {
                 $jobs = $this->findJobRadius($dist)->all();
-                $dataProvider = new ArrayDataProvider(['allModels' => $jobs]);
+                $dataProvider = new ArrayDataProvider(
+                    [
+                        'allModels' => $jobs,
+                        'sort' => [
+                            'attributes' => ['title', 'job_begin', 'distance' ,'city', ],
+                        ]
+                    ]);
             } else {
                 $jobs = Job::find();
                 $dataProvider = new ActiveDataProvider(['query' => $jobs]);
