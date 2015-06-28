@@ -42,7 +42,7 @@ var options =
 $(document).ready(function () {
 
     $.get("/analytics/json", function (response, status) {
-        
+
         var obj = jQuery.parseJSON(response);
 
         var viewClickData = {
@@ -163,46 +163,56 @@ $(document).ready(function () {
 
         var lastValue;
 
-        function getRandomHipsterColor() {
+        //function getRandomHipsterColor() {
+        //
+        //    var hue = 'rgba('
+        //        + (Math.floor(Math.random() * 256)) + ','
+        //        + (Math.floor(Math.random() * 256)) + ','
+        //        + (Math.floor(Math.random() * 256)) + ','
+        //        + (Math.floor(Math.random() * 100) / 100 + 0.2) + ')';
+        //    // console.log(hue);
+        //    return hue;
+        //}
 
-            var hue = 'rgba('
-            + (Math.floor(Math.random() * 256)) + ','
-            + (Math.floor(Math.random() * 256)) + ','
-            + (Math.floor(Math.random() * 256)) + ','
-            + (Math.floor(Math.random() * 100)/100+0.2) + ')';
-            console.log(hue);
-            return hue;
-        }
-
-        var compareViewsData =  [];
+        var compareViewsData = [];
 
         for (var i = 0; i < obj.viewArray.length; i++) {
-                var tmp = obj.viewArray[i];
-                var subObject = '{';
-                subObject += '"value":'+(tmp.views/obj.viewCount).toFixed(2)*100+',';
-                subObject += '"color": "'+getRandomHipsterColor()+'",';
+            var tmp = obj.viewArray[i];
+            var subObject = '{';
+            subObject += '"value":' + (tmp.views / obj.viewCount).toFixed(2) * 100 + ',';
+            if (i % 2 == 0) {
+                subObject += '"color": "rgba(93,202,136,0.5)",';
                 subObject += '"highlight": "rgba(93,202,136,1.0)",';
-                subObject += '"label": "'+tmp.title+'"';
-                subObject += '}';
-                console.log(subObject);
-                compareViewsData.push($.parseJSON(subObject));
+            } else {
+                subObject += '"color": "rgba(157,157,157,0.5)",';
+                subObject += '"highlight": "rgba(157,157,157,1.0)",';
+            }
+            subObject += '"label": "' + tmp.title + '"';
+            subObject += '}';
+            // console.log(subObject);
+            compareViewsData.push($.parseJSON(subObject));
         }
 
-        var compareClicksData =  [];
+        var compareClicksData = [];
 
         for (var i = 0; i < obj.clickArray.length; i++) {
-                var tmp = obj.clickArray[i];
-                var subObject = '{';
-                subObject += '"value":'+(tmp.clicks/obj.clickCount).toFixed(2)*100+',';
-                subObject += '"color": "'+getRandomHipsterColor()+'",';
+            var tmp = obj.clickArray[i];
+            var subObject = '{';
+            subObject += '"value":' + (tmp.clicks / obj.clickCount).toFixed(2) * 100 + ',';
+            if (i % 2 == 0) {
+                subObject += '"color": "rgba(93,202,136,0.5)",';
                 subObject += '"highlight": "rgba(93,202,136,1.0)",';
-                subObject += '"label": "'+tmp.title+'"';
-                subObject += '}';
-                console.log(subObject);
-                compareClicksData.push($.parseJSON(subObject));
+            } else {
+                subObject += '"color": "rgba(157,157,157,0.5)",';
+                subObject += '"highlight": "rgba(157,157,157,1.0)",';
+            }
+            subObject += '"label": "' + tmp.title + '"';
+            subObject += '}';
+            // console.log(subObject);
+            compareClicksData.push($.parseJSON(subObject));
         }
-    
-        
+
+
         // VIEWS CLICKS + INTEREST RATE
         var ctx1 = document.getElementById("viewClickChart").getContext("2d");
         ctx1.canvas.width = 200;

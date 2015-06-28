@@ -84,7 +84,7 @@ $this->title = "Analytics für";
     <div id="analyticsCharts">
 
         <div id="charts-first-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile first-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Views und Clicks
@@ -96,7 +96,7 @@ $this->title = "Analytics für";
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile second-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Interesst Rate
@@ -107,10 +107,8 @@ $this->title = "Analytics für";
                     <canvas id="interestRateChart" class="chart"></canvas>
                 </div>
             </div>
-        </div>
 
-        <div id="charts-second-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile third-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Clicks und Bewerbungen
@@ -122,7 +120,7 @@ $this->title = "Analytics für";
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile fourth-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Application Rate
@@ -135,8 +133,9 @@ $this->title = "Analytics für";
             </div>
         </div>
 
-        <div id="charts-third-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+
+        <div id="charts-second-row" class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile first-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Bewerbungen und Interviews
@@ -148,7 +147,7 @@ $this->title = "Analytics für";
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile second-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Interview Rate
@@ -159,10 +158,8 @@ $this->title = "Analytics für";
                     <canvas id="interviewRateChart" class="chart"></canvas>
                 </div>
             </div>
-        </div>
 
-        <div id="charts-fourth-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile third-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Was des Digga?
@@ -174,7 +171,7 @@ $this->title = "Analytics für";
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile fourth-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Was des Digga?
@@ -187,37 +184,9 @@ $this->title = "Analytics für";
             </div>
         </div>
 
-
-   <div id="charts-fifth-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
-                <div class="background-wrapper">
-                    <div class="header">
-                        Job Views prozentual
-                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
-                              data-placement="left"
-                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
-                    </div>
-                    <canvas id="viewCompareChart" class="chart"></canvas>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
-                <div class="background-wrapper">
-                    <div class="header">
-                        Job Clicks prozentual
-                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
-                              data-placement="left"
-                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
-                    </div>
-                    <canvas id="clickCompareChart" class="chart"></canvas>
-                </div>
-            </div>
-        </div>
-
-       
-
     </div>
 
+    <h2 class="detailHeader">Detaillierte Ansicht pro Stellenanzeige</h2>
 
     <?= GridView::widget([
         'dataProvider' => $provider,
@@ -226,8 +195,8 @@ $this->title = "Analytics für";
             [
                 'label' => 'Titel',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'first-col', 'data-hide'=>''],
-                'contentOptions' => ['class'=>'first-col'],
+                'headerOptions' => ['class' => 'first-col', 'data-hide' => ''],
+                'contentOptions' => ['class' => 'first-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode($data['title']);
                 }
@@ -235,8 +204,8 @@ $this->title = "Analytics für";
             [
                 'label' => 'Views',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'second-col', 'data-hide'=>'phone,mediaXXsmall,mediaXsmall'],
-                'contentOptions' => ['class'=>'second-col'],
+                'headerOptions' => ['class' => 'second-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall'],
+                'contentOptions' => ['class' => 'second-col'],
                 'value' => function ($data) {
                     if ($data['views'] == 0) {
                         return \yii\helpers\Html::encode("0");
@@ -247,8 +216,8 @@ $this->title = "Analytics für";
             [
                 'label' => 'Clicks',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'third-col', 'data-hide'=>'phone,mediaXXsmall,mediaXsmall'],
-                'contentOptions' => ['class'=>'third-col'],
+                'headerOptions' => ['class' => 'third-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall'],
+                'contentOptions' => ['class' => 'third-col'],
                 'value' => function ($data) {
                     if ($data['clicks'] == 0) {
                         return \yii\helpers\Html::encode("0");
@@ -259,8 +228,8 @@ $this->title = "Analytics für";
             [
                 'label' => 'Bewerber',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'fourth-col', 'data-hide'=>'mediaXXsmall,phone'],
-                'contentOptions' => ['class'=>'fourth-col'],
+                'headerOptions' => ['class' => 'fourth-col', 'data-hide' => 'mediaXXsmall,phone'],
+                'contentOptions' => ['class' => 'fourth-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode(Analytics::getAppliesForJob($data['id']));
                 }
@@ -268,8 +237,8 @@ $this->title = "Analytics für";
             [
                 'label' => 'InterestRate',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'fifth-col', 'data-hide'=>'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
-                'contentOptions' => ['class'=>'fifth-col'],
+                'headerOptions' => ['class' => 'fifth-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
+                'contentOptions' => ['class' => 'fifth-col'],
                 'value' => function ($data) {
                     if ($data['interestRate'] == null) {
                         return \yii\helpers\Html::encode("0 %");
@@ -280,33 +249,33 @@ $this->title = "Analytics für";
             [
                 'label' => 'ApplicationRate',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'sixth-col', 'data-hide'=>'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
-                'contentOptions' => ['class'=>'sixth-col'],
+                'headerOptions' => ['class' => 'sixth-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
+                'contentOptions' => ['class' => 'sixth-col'],
                 'value' => function ($data) {
                     if ($data['clicks'] == 0) {
                         return \yii\helpers\Html::encode("0 %");
                     }
-                    return \yii\helpers\Html::encode(round(100 * Analytics::getAppliesForJob($data['id']) / $data['clicks'],2) . " %");
+                    return \yii\helpers\Html::encode(round(100 * Analytics::getAppliesForJob($data['id']) / $data['clicks'], 2) . " %");
                 }
             ],
             [
                 'label' => 'InterviewRate',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'seventh-col', 'data-hide'=>'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
-                'contentOptions' => ['class'=>'seventh-col'],
+                'headerOptions' => ['class' => 'seventh-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
+                'contentOptions' => ['class' => 'seventh-col'],
                 'value' => function ($data) {
                     $interviews = Analytics::getInterviewsForJob($data['id']);
                     if ($interviews == 0) {
                         return \yii\helpers\Html::encode("0 %");
                     }
-                    return \yii\helpers\Html::encode(round(100 * Analytics::getInterviewsForJob($data['id']) / Analytics::getAppliesForJob($data['id']),2) . " %");
+                    return \yii\helpers\Html::encode(round(100 * Analytics::getInterviewsForJob($data['id']) / Analytics::getAppliesForJob($data['id']), 2) . " %");
                 }
             ],
             [
                 'label' => 'Ansehen',
                 'format' => 'raw',
-                'headerOptions' => ['class'=>'eight-col', 'data-hide'=>''],
-                'contentOptions' => ['class'=>'eight-col'],
+                'headerOptions' => ['class' => 'eight-col', 'data-hide' => ''],
+                'contentOptions' => ['class' => 'eight-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::a("<span class='glyphicon glyphicon-eye-open'></span>", "/analytics/detail?id=" . $data['id']);
                 }
@@ -322,6 +291,34 @@ $this->title = "Analytics für";
     ]);
 
     ?>
+
+
+    <div id="charts-third-row" class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+            <div class="background-wrapper">
+                <div class="header">
+                    Views im Vergleich
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                </div>
+                <canvas id="viewCompareChart" class="chart"></canvas>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="background-wrapper">
+                <div class="header">
+                    Clicks im Vergleich
+                        <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
+                              data-placement="left"
+                              title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."></span>
+                </div>
+                <canvas id="clickCompareChart" class="chart"></canvas>
+            </div>
+        </div>
+    </div>
+
 
 
 </div>

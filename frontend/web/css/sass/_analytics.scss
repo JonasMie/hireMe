@@ -81,9 +81,8 @@ body.controller-analytics {
       }
     }
 
-
     div.analytics-tile-2 {
-      @media (max-width: 511px){
+      @media (max-width: 511px) {
         margin-top: 20px;
       }
       div.subtile-right {
@@ -98,7 +97,7 @@ body.controller-analytics {
     }
 
     div.analytics-tile-3 {
-      @media (max-width: 511px){
+      @media (max-width: 511px) {
         margin-top: 20px;
       }
       div.subtile-right {
@@ -127,12 +126,16 @@ body.controller-analytics {
         }
       }
     }
-  }// END TILES
+  }
+  // END TILES
 
   // CHARTS
   #analyticsCharts {
-
     margin-bottom: 50px;
+  }
+
+  #charts-first-row, #charts-second-row, #charts-third-row {
+    margin-top: 50px;
 
     .background-wrapper {
       background-color: $greyBG;
@@ -151,16 +154,17 @@ body.controller-analytics {
       }
     }
 
-    .first-col {
+    .first-col, .third-col {
       .background-wrapper {
         .header {
           background-color: $green;
         }
-        canvas {}
+        canvas {
+        }
       }
     }
 
-    .second-col {
+    .second-col, .fourth-col {
       @media (max-width: 767px) {
         margin-top: 50px;
       }
@@ -168,14 +172,34 @@ body.controller-analytics {
         .header {
           background-color: $black;
         }
-        canvas {}
+        canvas {
+        }
       }
     }
 
-    #charts-first-row, #charts-second-row, #charts-third-row, #charts-fourth-row {
-      margin-top: 50px;
+    .third-col, .fourth-col {
+      @media (max-width: 991px) {
+        margin-top: 50px;
+      }
     }
-  }// END CHARTS
+  }
+
+  #charts-third-row{
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  // END CHARTS
+
+
+  h2.detailHeader {
+    margin-bottom: 30px;
+  }
+
+  #w0 {
+    div.summary {
+      display: none; // TODO: Prevent Rendering in Code
+    }
+  }
 
   #analyticsTable {
     tr {
@@ -225,7 +249,6 @@ body.controller-analytics {
           margin-top: 8px;
         }
       }
-
 
     }
   }
