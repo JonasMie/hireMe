@@ -607,7 +607,7 @@ body a:focus {
   outline: none !important;
 }
 /* line 10, ../sass/_basicTemplate.scss */
-body a:hover {
+body a:hover, body a:focus, body a:active {
   text-decoration: none;
 }
 /* line 16, ../sass/_basicTemplate.scss */
@@ -2250,48 +2250,52 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   color: #fff;
 }
 /* line 176, ../sass/_job.scss */
+.controller-job.action-view #jobViewTable .footable-row-detail-row span.glyphicon {
+  padding: 20px 5px;
+}
+/* line 184, ../sass/_job.scss */
 .controller-job.action-view div.apply {
   text-align: right;
   margin-top: 20px;
 }
-/* line 181, ../sass/_job.scss */
+/* line 189, ../sass/_job.scss */
 .controller-job.action-view strong {
   font-weight: 400;
 }
-/* line 185, ../sass/_job.scss */
+/* line 193, ../sass/_job.scss */
 .controller-job.action-view table.detail-view {
   width: 100%;
 }
-/* line 189, ../sass/_job.scss */
+/* line 197, ../sass/_job.scss */
 .controller-job.action-view table.detail-view th {
   color: #d0d0d0;
   padding: 3px 10px 3px 0px;
   vertical-align: top;
   width: 25%;
 }
-/* line 196, ../sass/_job.scss */
+/* line 204, ../sass/_job.scss */
 .controller-job.action-view table.detail-view td {
   padding: 3px 0px;
   vertical-align: top;
 }
-/* line 204, ../sass/_job.scss */
+/* line 212, ../sass/_job.scss */
 .controller-job.action-view div.summary {
   display: none;
 }
-/* line 208, ../sass/_job.scss */
+/* line 216, ../sass/_job.scss */
 .controller-job.action-view div.row.hireme a.btn {
   float: right;
 }
-/* line 212, ../sass/_job.scss */
+/* line 220, ../sass/_job.scss */
 .controller-job.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 216, ../sass/_job.scss */
+/* line 224, ../sass/_job.scss */
 .controller-job.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
 
-/* line 223, ../sass/_job.scss */
+/* line 231, ../sass/_job.scss */
 .controller-job.action-create #form-createJob {
   margin-top: 30px;
 }

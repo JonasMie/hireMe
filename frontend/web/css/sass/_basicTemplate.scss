@@ -7,7 +7,7 @@ body {
     &:focus {
       outline: none !important; //Removes the dotted line around each Anchor when clicking on it
     }
-    &:hover {
+    &:hover, &:focus, &:active {
       text-decoration: none;
     }
   }
