@@ -2290,3 +2290,8 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
 .controller-job.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
+
+/* line 223, ../sass/_job.scss */
+.controller-job.action-create #form-createJob {
+  margin-top: 30px;
+}

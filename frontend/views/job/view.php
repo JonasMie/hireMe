@@ -214,7 +214,7 @@ $this->title = 'Stellenanzeige';
 				<div class="col-sm-12"><h2>hireMe-Button</h2></div>
 				<div class="col-sm-7">
 					<div class="row hireme">
-						<div class="col-sm-8"><p>Mit dem hireMe-Button bieten Sie Bewerbern auf Ihrer Website die Möglichkeit, sich mit nur einem Klick auf Ihre Stellenanzeige bei hireMe zu bewerben.</p></div>
+						<div class="col-sm-8"><p>Mit dem hireMe-Button bieten Sie Bewerbern auf Ihrer Website die Möglichkeit, sich mit nur einem Klick auf diese Stellenanzeige zu bewerben.</p></div>
 						<div class="col-sm-4"><?= Html::a("Neuen Key generieren", '/job/create-btn?id=' . $model->id,['class' => 'btn btn-success ripple']) ?></div>
 					</div>
 					<?= GridView::widget([
@@ -223,16 +223,23 @@ $this->title = 'Stellenanzeige';
 						'columns'      => [
 							['class' => 'yii\grid\SerialColumn'],
 							[
+								'label'  => 'Key',
+								'format' => 'raw',
+								'value'  => 'key',
+								'headerOptions'  => ['class' => 'first-col'],
+                                'contentOptions' => ['class' => 'first-col'],
+							],
+							[
 								'label'  => 'Beschreibung',
 								'format' => 'raw',
 								'value'  => 'site',
-								'headerOptions'  => ['class' => 'second-col'],
+								'headerOptions'  => ['class' => 'second-col', 'data-hide' => 'mediaXXsmall,phone'],
                                 'contentOptions' => ['class' => 'second-col'],
 							],
 							[
 								'class'    => 'yii\grid\ActionColumn',
-								'template' => '{update}&nbsp;'.Html::a("Bearbeiten", '/job/update?id='.$model->btn_id).'&nbsp;&nbsp;{delete}&nbsp;Löschen',
-								'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,phone'],
+								'template' => '{update}&nbsp;&nbsp;&nbsp;{delete}',
+								'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,mediaXsmall,phone'],
                                 'contentOptions' => ['class' => 'third-col'],
 							],
 							[
@@ -249,7 +256,7 @@ $this->title = 'Stellenanzeige';
 					<p><h4>Vor dem abschliessenden &lt;/head&gt;-Tag:</h4></p>
 					<div class="well">&lt;script src='http://frontend/js/applier.js'&gt;&lt;/script&gt;</div>
 					<p><h4>An der Stelle, an der der Button angezeigt werden soll:</h4></p>
-					<div class="well">&lt;div id='ac' name=' <span class="highlight"><strong>hier den generierten Code einfügen</strong></span> '&gt;&lt;/div&gt;</div>
+					<div class="well">&lt;div id='ac' name='<span class="highlight"><strong>hier den generierten Key einfügen</strong></span>'&gt;&lt;/div&gt;</div>
 				</div>
 			</div>
 		<? endif; ?>
