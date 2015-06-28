@@ -32,9 +32,9 @@ $(document).ready(function(){
     });
 
 
-    // TODO: This is a temporary hack, to prevent prefilled forms by browser which break our styling
+    // TODO: This is a temporary "hack", to prevent prefilled forms by browser which break our styling
     // Clear Form Fields
-    $(':not(.allowPrefill) > input[type=text], :not(.allowPrefill) > input[type=password]').val('');
+    $(':not(.allowPrefill, .input-group.date) > input[type=text], :not(.allowPrefill) > input[type=password]').val('');
 
 });
 

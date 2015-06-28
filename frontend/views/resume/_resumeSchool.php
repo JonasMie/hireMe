@@ -53,6 +53,7 @@ $attributes = [
         'attribute' => 'current',
         'rowOptions' => ['class'=>'kv-view-hidden'],
         'type' => DetailView::INPUT_CHECKBOX,
+        'label' => 'Letzte Ausbildungsstätte'
     ],
     [
         'label'     => 'Anhänge',
