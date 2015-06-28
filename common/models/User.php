@@ -308,7 +308,7 @@ class User extends ActiveRecord implements IdentityInterface
             ->all();
         $out = [];
         foreach ($query as $user) {
-            $out[] = ['value' => $user->fullName, 'image' => isset($user->picture)?'thumbnails'.$user->picture->path:'default'];
+            $out[] = ['value' => $user->fullName, 'image' => isset($user->picture)?'thumbnails/'.$user->picture->path:'default'];
         }
         return Json::encode($out);
     }
@@ -357,7 +357,7 @@ class User extends ActiveRecord implements IdentityInterface
         if (isset($this->picture)) {
             $path = $this->picture->path;
             if ($thumbnail) {
-                return Html::img("/uploads/profile/thumbnails/" . $path . ".jpg");
+                return Html::img("/uploads/profile/thumbnails/" . $path . ".jpg", ['class' => 'profile-picture-thumbnail img-circle']);
             }
             return Html::img("/uploads/profile".$path.".jpg", ['class'=>'img-circle profile']);
         }
