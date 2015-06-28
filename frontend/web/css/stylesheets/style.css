@@ -1147,36 +1147,34 @@ body .input-group.input-daterange span.input-group-addon.kv-field-separator {
   display: none;
 }
 /* line 584, ../sass/_basicTemplate.scss */
-body .input-group.input-daterange > .field-resumejob-begin,
-body .input-group.input-daterange > field-resumejob-end,
-body .input-group.input-daterange .field-resumeschool-begin,
-body .input-group.input-daterange .field-resumeschool-end {
+body .input-group.input-daterange .kv-container-from,
+body .input-group.input-daterange .kv-container-to {
   box-shadow: none;
   max-width: 250px;
 }
-/* line 590, ../sass/_basicTemplate.scss */
-body .input-group.input-daterange > .field-resumejob-begin input,
-body .input-group.input-daterange > field-resumejob-end input,
-body .input-group.input-daterange .field-resumeschool-begin input,
-body .input-group.input-daterange .field-resumeschool-end input {
+/* line 588, ../sass/_basicTemplate.scss */
+body .input-group.input-daterange .kv-container-from input,
+body .input-group.input-daterange .kv-container-to input {
   max-width: 250px;
 }
-/* line 594, ../sass/_basicTemplate.scss */
-body .input-group.input-daterange .field-resumejob-begin,
-body .input-group.input-daterange .field-resumeschool-begin {
+/* line 592, ../sass/_basicTemplate.scss */
+body .input-group.input-daterange .kv-container-from,
+body .input-group.input-daterange .kv-container-to {
   margin-right: 20px;
 }
 @media (max-width: 767px) {
-  /* line 599, ../sass/_basicTemplate.scss */
-  body .input-group.input-daterange .field-resumejob-begin,
-  body .input-group.input-daterange .field-resumeschool-begin {
+  /* line 597, ../sass/_basicTemplate.scss */
+  body .input-group.input-daterange .kv-container-from {
     max-width: 100%;
   }
-  /* line 603, ../sass/_basicTemplate.scss */
-  body .input-group.input-daterange .field-resumejob-end,
-  body .input-group.input-daterange .field-resumeschool-end {
+  /* line 600, ../sass/_basicTemplate.scss */
+  body .input-group.input-daterange .kv-container-to {
     margin-top: 50px;
   }
+}
+/* line 610, ../sass/_basicTemplate.scss */
+body form:not(#form-signup) .select2-container--krajee {
+  display: none;
 }
 
 /* line 5, ../sass/_login.scss */

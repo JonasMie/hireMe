@@ -581,33 +581,39 @@ body {
     span.input-group-addon.kv-field-separator {
       display: none; //TODO: remove this in template
     }
-    >.field-resumejob-begin,
-    > field-resumejob-end,
-    .field-resumeschool-begin,
-    .field-resumeschool-end {
+    .kv-container-from,
+    .kv-container-to {
       box-shadow: none;
       max-width: 250px;
       input {
         max-width: 250px;
       }
     }
-    .field-resumejob-begin,
-    .field-resumeschool-begin {
+    .kv-container-from,
+    .kv-container-to {
       margin-right: 20px;
     }
     @media (max-width: 767px) {
-      .field-resumejob-begin,
-      .field-resumeschool-begin {
+      .kv-container-from {
         max-width: 100%;
       }
-      .field-resumejob-end,
-      .field-resumeschool-end {
+      .kv-container-to {
         margin-top: 50px;
       }
     }
-
   }
   //END DATEPICKER Input
+
+
+  // Selct2 Krajee
+  form:not(#form-signup) { // Exclude Login Page
+    .select2-container--krajee{
+      display: none;
+    }
+
+  }
+  // Selct2 Krajee
+
 
 }
 
