@@ -1,6 +1,12 @@
 @import "compass/css3/border-radius";
 
 body.action-login {
+
+  h2.socialLoginHeader {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
   .site-login {
 
     //Social Login
@@ -73,10 +79,7 @@ body.action-login {
         }
       }
     }
-
     //END Social Login
-
-
 
     //$placeholderColor: #fff;
     //
@@ -136,6 +139,11 @@ body.action-login {
       .field-loginform-rememberme {
         label[for="loginform-rememberme"] {
           padding-left: 0px;
+          font-weight: 300;
+          .icheckbox_flat-green {
+            margin-right: 2px;
+            margin-bottom: 2px;
+          }
         }
       }
     }
@@ -146,9 +154,15 @@ body.action-login {
     }
 
     #form-signup {
+
       .field-signupform-checkcompanysignup {
         label[for="checkCompanySignup"] {
           padding-left: 0px;
+          font-weight: 300;
+          .icheckbox_flat-green {
+            margin-right: 2px;
+            margin-bottom: 2px;
+          }
         }
       }
 

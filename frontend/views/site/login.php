@@ -29,7 +29,7 @@ include Yii::getAlias('@helper/companySignup.php');
 
             <?= $form->field($loginModel, 'email', ['inputOptions' => ['class' => 'form-control typeStart']])->label('E-Mail'); ?>
             <?= $form->field($loginModel, 'password')->passwordInput()->label('Passwort'); ?>
-            <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
+            <?= $form->field($loginModel, 'rememberMe')->checkbox()->label('Angemeldet bleiben'); ?>
 
 
             <div class="form-group SubmitLogin">
@@ -41,6 +41,8 @@ include Yii::getAlias('@helper/companySignup.php');
             </div>
 
             <?php ActiveForm::end(); ?>
+
+            <h2 class="socialLoginHeader">Oder melde dich an mit:</h2>
 
             <?= yii\authclient\widgets\AuthChoice::widget([
                 'baseAuthUrl' => ['site/auth'],

@@ -1018,36 +1018,41 @@ body .highlight {
   color: #5dca88;
 }
 
+/* line 5, ../sass/_login.scss */
+body.action-login h2.socialLoginHeader {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
 @media (max-width: 767px) {
-  /* line 8, ../sass/_login.scss */
+  /* line 14, ../sass/_login.scss */
   body.action-login .site-login .login-field {
     height: 530px;
   }
 }
-/* line 14, ../sass/_login.scss */
+/* line 20, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients {
   float: right;
   position: relative;
   left: -50%;
   text-align: left;
 }
-/* line 19, ../sass/_login.scss */
+/* line 25, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients {
   list-style: none;
   position: relative;
   left: 50%;
 }
-/* line 23, ../sass/_login.scss */
+/* line 29, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients li.auth-client {
   margin-bottom: 20px;
 }
-/* line 25, ../sass/_login.scss */
+/* line 31, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients li.auth-client a {
   float: left;
   text-align: center;
   white-space: nowrap;
 }
-/* line 29, ../sass/_login.scss */
+/* line 35, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients li.auth-client a .auth-icon {
   background-attachment: scroll;
   background-clip: border-box;
@@ -1060,7 +1065,7 @@ body.action-login .site-login div.auth-clients ul.auth-clients li.auth-client a 
   height: 32px;
   width: 32px;
 }
-/* line 41, ../sass/_login.scss */
+/* line 47, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients li.auth-client a .auth-title {
   color: #fff;
   font-size: 13px;
@@ -1070,31 +1075,31 @@ body.action-login .site-login div.auth-clients ul.auth-clients li.auth-client a 
   -o-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
 }
-/* line 54, ../sass/_login.scss */
+/* line 60, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients li:hover a .auth-icon {
   background-image: url("/images/authchoiceHover.png");
 }
-/* line 57, ../sass/_login.scss */
+/* line 63, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients li:hover a .auth-title {
   color: #5dca88;
 }
-/* line 62, ../sass/_login.scss */
+/* line 68, ../sass/_login.scss */
 body.action-login .site-login div.auth-clients ul.auth-clients li:nth-of-type(4) {
   margin-right: 0px;
 }
 @media (min-width: 768px) and (max-width: 959px) {
-  /* line 19, ../sass/_login.scss */
+  /* line 25, ../sass/_login.scss */
   body.action-login .site-login div.auth-clients ul.auth-clients {
     padding-left: 19%;
     padding-right: 19%;
   }
-  /* line 69, ../sass/_login.scss */
+  /* line 75, ../sass/_login.scss */
   body.action-login .site-login div.auth-clients ul.auth-clients li:nth-of-type(2), body.action-login .site-login div.auth-clients ul.auth-clients li:nth-of-type(4) {
     margin-right: 0px;
     float: right;
   }
 }
-/* line 99, ../sass/_login.scss */
+/* line 102, ../sass/_login.scss */
 body.action-login .site-login .login-field {
   text-align: center;
   background-color: rgba(45, 49, 47, 0.8);
@@ -1104,15 +1109,15 @@ body.action-login .site-login .login-field {
   padding: 10px 20px;
   margin-top: 20px;
 }
-/* line 107, ../sass/_login.scss */
+/* line 110, ../sass/_login.scss */
 body.action-login .site-login .login-button {
   padding: 10px 60px;
 }
-/* line 111, ../sass/_login.scss */
+/* line 114, ../sass/_login.scss */
 body.action-login .site-login input {
   color: #fff;
 }
-/* line 116, ../sass/_login.scss */
+/* line 119, ../sass/_login.scss */
 body.action-login .site-login #login-form input {
   background: transparent;
   border-width: 0px 0px 2px 0px;
@@ -1120,69 +1125,81 @@ body.action-login .site-login #login-form input {
   -webkit-box-shadow: none;
   border-radius: 0px;
 }
-/* line 123, ../sass/_login.scss */
+/* line 126, ../sass/_login.scss */
 body.action-login .site-login #login-form .SubmitLogin {
   margin-bottom: 10px;
 }
-/* line 126, ../sass/_login.scss */
+/* line 129, ../sass/_login.scss */
 body.action-login .site-login #login-form .requestNewPassword {
   margin-bottom: 50px;
 }
-/* line 128, ../sass/_login.scss */
+/* line 131, ../sass/_login.scss */
 body.action-login .site-login #login-form .requestNewPassword a {
   color: #fff;
   font-size: 13px;
 }
-/* line 131, ../sass/_login.scss */
+/* line 134, ../sass/_login.scss */
 body.action-login .site-login #login-form .requestNewPassword a:hover {
   color: #5dca88;
 }
-/* line 137, ../sass/_login.scss */
+/* line 140, ../sass/_login.scss */
 body.action-login .site-login #login-form .field-loginform-rememberme label[for="loginform-rememberme"] {
   padding-left: 0px;
+  font-weight: 300;
 }
 /* line 143, ../sass/_login.scss */
+body.action-login .site-login #login-form .field-loginform-rememberme label[for="loginform-rememberme"] .icheckbox_flat-green {
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+/* line 151, ../sass/_login.scss */
 body.action-login .site-login .auth-clients {
   overflow: inherit;
   min-height: 100px;
 }
-/* line 150, ../sass/_login.scss */
+/* line 159, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-checkcompanysignup label[for="checkCompanySignup"] {
   padding-left: 0px;
+  font-weight: 300;
 }
-/* line 155, ../sass/_login.scss */
+/* line 162, ../sass/_login.scss */
+body.action-login .site-login #form-signup .field-signupform-checkcompanysignup label[for="checkCompanySignup"] .icheckbox_flat-green {
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+/* line 169, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup {
   margin-top: 60px;
 }
-/* line 158, ../sass/_login.scss */
+/* line 172, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees {
   text-align: left;
 }
-/* line 160, ../sass/_login.scss */
+/* line 174, ../sass/_login.scss */
 body.action-login .site-login #form-signup .companySetup .field-signupform-companysector select, body.action-login .site-login #form-signup .companySetup .field-signupform-companyemployees select {
   margin-top: 10px;
 }
-/* line 168, ../sass/_login.scss */
+/* line 182, ../sass/_login.scss */
 body.action-login .site-login #form-signup span.twitter-typeahead span.tt-dropdown-menu {
   border-radius: 0px;
   background-color: rgba(45, 49, 47, 0.95);
   box-shadow: 0 0 5px 1px #9c9c9c;
 }
-/* line 172, ../sass/_login.scss */
+/* line 186, ../sass/_login.scss */
 body.action-login .site-login #form-signup span.twitter-typeahead span.tt-dropdown-menu div.tt-suggestion {
   text-align: left;
 }
-/* line 174, ../sass/_login.scss */
+/* line 188, ../sass/_login.scss */
 body.action-login .site-login #form-signup span.twitter-typeahead span.tt-dropdown-menu div.tt-suggestion > p {
   color: #fff;
 }
-/* line 186, ../sass/_login.scss */
+/* line 200, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companyname.has-success > div > .twitter-typeahead input,
 body.action-login .site-login #form-signup .field-signupform-companyaddresszip.has-success > div > .twitter-typeahead input,
 body.action-login .site-login #form-signup .field-signupform-companyaddresscity.has-success > div > .twitter-typeahead input {
   border-bottom: 2px solid #5dca88;
 }
-/* line 201, ../sass/_login.scss */
+/* line 215, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection {
   padding-left: 5px;
   background: transparent none repeat scroll 0 0;
@@ -1190,16 +1207,16 @@ body.action-login .site-login #form-signup .field-signupform-companysector div.i
   border-radius: 0;
   border-bottom: 2px solid #dddddd;
 }
-/* line 207, ../sass/_login.scss */
+/* line 221, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection #select2-signupform-companysector-container {
   font-size: 16px;
   color: #fff;
 }
-/* line 211, ../sass/_login.scss */
+/* line 225, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companysector div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-selection__arrow {
   border: 0px;
 }
-/* line 226, ../sass/_login.scss */
+/* line 240, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companyemployees div.input-group span.select2-container--krajee span.selection span.select2-selection {
   padding-left: 5px;
   background: transparent none repeat scroll 0 0;
@@ -1207,41 +1224,41 @@ body.action-login .site-login #form-signup .field-signupform-companyemployees di
   border-radius: 0;
   border-bottom: 2px solid #dddddd;
 }
-/* line 232, ../sass/_login.scss */
+/* line 246, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companyemployees div.input-group span.select2-container--krajee span.selection span.select2-selection #select2-signupform-companyemployees-container {
   font-size: 16px;
   color: #fff;
 }
-/* line 236, ../sass/_login.scss */
+/* line 250, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companyemployees div.input-group span.select2-container--krajee span.selection span.select2-selection span.select2-selection__arrow {
   border: 0px;
 }
-/* line 249, ../sass/_login.scss */
+/* line 263, ../sass/_login.scss */
 body.action-login .site-login #form-signup .field-signupform-companysector.has-success div.input-group span.select2-container--krajee span.selection span.select2-selection, body.action-login .site-login #form-signup .field-signupform-companyemployees.has-success div.input-group span.select2-container--krajee span.selection span.select2-selection {
   border-bottom: 2px solid #5dca88;
 }
 
-/* line 263, ../sass/_login.scss */
+/* line 277, ../sass/_login.scss */
 .action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
-/* line 269, ../sass/_login.scss */
+/* line 283, ../sass/_login.scss */
 .action-login .wrap h1, .action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
 }
 
-/* line 280, ../sass/_login.scss */
+/* line 294, ../sass/_login.scss */
 .select2-container .select2-dropdown {
   border: none;
   border-radius: 0px;
   background-color: rgba(45, 49, 47, 0.95);
   box-shadow: 0 0 5px 1px #9c9c9c;
 }
-/* line 286, ../sass/_login.scss */
+/* line 300, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-search input.select2-search__field {
   border-radius: 0px;
   border: 0px;
@@ -1249,64 +1266,64 @@ body.action-login .site-login #form-signup .field-signupform-companysector.has-s
   background: transparent url("/images/search.png") no-repeat scroll right 10px top 7px;
   color: #fff;
 }
-/* line 294, ../sass/_login.scss */
+/* line 308, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results {
   padding: 4px;
 }
-/* line 297, ../sass/_login.scss */
+/* line 311, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 300, ../sass/_login.scss */
+/* line 314, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > strong.select2-results__group {
   background-color: #5dca88;
   border: none;
   color: #fff;
 }
-/* line 306, ../sass/_login.scss */
+/* line 320, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 310, ../sass/_login.scss */
+/* line 324, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li[aria-selected="true"] {
   color: #5dca88;
 }
-/* line 313, ../sass/_login.scss */
+/* line 327, ../sass/_login.scss */
 .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 322, ../sass/_login.scss */
+/* line 336, ../sass/_login.scss */
 .select2-container .select2-dropdown.kv-hide-search .select2-search {
   padding-top: 0px;
   padding-bottom: 0px;
 }
-/* line 326, ../sass/_login.scss */
+/* line 340, ../sass/_login.scss */
 .select2-container .select2-dropdown.kv-hide-search .select2-results {
   padding-top: 0px;
 }
-/* line 329, ../sass/_login.scss */
+/* line 343, ../sass/_login.scss */
 .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li:nth-of-type(1) {
   padding: 0;
 }
-/* line 332, ../sass/_login.scss */
+/* line 346, ../sass/_login.scss */
 .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 336, ../sass/_login.scss */
+/* line 350, ../sass/_login.scss */
 .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
 
-/* line 345, ../sass/_login.scss */
+/* line 359, ../sass/_login.scss */
 .select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
   background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
   color: #5dca88;
 }
 
-/* line 350, ../sass/_login.scss */
+/* line 364, ../sass/_login.scss */
 .select2-container--krajee.select2-container--open .select2-selection {
   box-shadow: none;
 }
