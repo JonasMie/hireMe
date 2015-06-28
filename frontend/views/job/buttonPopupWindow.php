@@ -3,12 +3,10 @@
 use yii\helpers\Html;
 use yii\bootstrap\Tabs;
 use frontend\controllers\JobController;
-use frontend\assets\ApplyFormAsset;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\JobSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-ApplyFormAsset::register($this);
 
 $this->title = 'Jetzt bewerben - mit hireMe';
 ?>

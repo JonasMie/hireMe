@@ -142,7 +142,7 @@ ApplyFormAsset::register($this);
 		</div>
 		<div class="col-sm-9"></div>
 		<div class="col-sm-3 sendBtn">
-			<?= Html::a('<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Bewerbung verschicken','/application/send?id='.$appId,['class' => 'btn btn-success ripple sendBtn','id' => 'sendApp']) ?> 
+			<?= Html::a('<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Bewerbung verschicken','/application/send?id='.$appId,['class' => 'btn btn-success ripple sendBtn']) ?> 
 		</div>
 	</div>
 
