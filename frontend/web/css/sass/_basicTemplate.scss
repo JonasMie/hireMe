@@ -19,6 +19,7 @@ body {
     -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    font-weight: 300;
     &:focus {
       outline: none !important; //Removes the dotted line around each Button when clicking on it
     }
@@ -105,10 +106,12 @@ body {
           height: 72px;
           border: none;
           padding: 8px;
+          font-weight: 300;
 
           a {
             color: $greyFont;
             text-decoration: none;
+            font-weight: 300;
             &:hover {
               color: $green;
             }
