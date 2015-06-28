@@ -137,4 +137,11 @@ transition: color 0.2s ease-in-out;
 	td{
 		vertical-align:top;
 	}
+	
+	a:not(.btn){
+		color:$green;
+		&:hover,&:focus,&:active{
+			color:$green50;
+		}
+	}
 }
