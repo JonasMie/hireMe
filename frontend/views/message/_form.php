@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
                         ]
                     ],
                 ],
-                'options' => [
+                'container' => [
                     'class' => 'allowPrefill',
                 ]
             ])

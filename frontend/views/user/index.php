@@ -71,9 +71,8 @@ Yii::$app->getSession()->getFlash('error');
             ?>
             <? if ($user->id == Yii::$app->user->identity->getId()) {
                 echo Html::a('Lebenslauf bearbeiten', '/resume', ['class' => 'btn btn-success ripple']);
+                echo "Deine Profil-Url: " .Html::a("http://hireme.mi.hdm-stuttgart.de/user/" .Yii::$app->user->identity->username,"http://hireme.mi.hdm-stuttgart.de/user/" .Yii::$app->user->identity->username );
             }
-
-            echo "Deine Profil-Url: " .Html::a("http://hireme.mi.hdm-stuttgart.de/user/" .Yii::$app->user->identity->username,"http://hireme.mi.hdm-stuttgart.de/user/" .Yii::$app->user->identity->username );
             ?>
         </div>
     </div>

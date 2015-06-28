@@ -36,6 +36,12 @@ $attributes = [
         ],
     ],
     [
+        'attribute' => 'description',
+        'format'    => 'ntext',
+        'type'      => 'textArea',
+        'label'     => 'Beschreibung',
+    ],
+    [
         'label'          => 'Von',
         'attribute'      => 'begin',
         'format'         => ['date', 'php:d.m.Y'],
@@ -81,12 +87,6 @@ $attributes = [
         'attribute'  => 'current',
         'rowOptions' => ['class' => 'kv-view-hidden'],
         'type'       => DetailView::INPUT_CHECKBOX,
-    ],
-    [
-        'attribute' => 'description',
-        'format'    => 'ntext',
-        'type'      => 'textArea',
-        'label'     => 'Beschreibung',
     ],
 ];
 
