@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'jonasmied@gmail.com', // TODO: ändern, nur zum testen
-    'supportEmail' => 'support@example.com',
+    'adminEmail' => 'admin@hireme.com',
+    'supportEmail' => 'support@hireme.com',
     'user.passwordResetTokenExpire' => 3600,
 ];

@@ -59,7 +59,7 @@ return [
             'showScriptName' => false,
         ],
         'formatter'  => [
-//            'defaultTimeZone' => 'CEST',
+            'defaultTimeZone' => 'EET',
             'timeZone'        => 'Europe/Berlin',
         ]
     ],

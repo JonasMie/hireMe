@@ -53,7 +53,7 @@ ImageAssetBundle::register($this);
                 <?= $form->field($model, 'picture')->fileInput()->label(false); ?>
 
                 <div>
-                    <img id="current-img" src="<?= $image ?>" class="img-responsive">
+                    <img id="current-img" src="<?= $image ?>" class="img-responsive img-circle">
                     <img id="settingsmodel-picture-jcrop" src="<?= $image ?>" style="display: none;">
                     <input type="text" id="w" name="w" style="display: none"/>
                     <input type="text" id="h" name="h" style="display: none"/>

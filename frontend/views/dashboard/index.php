@@ -186,6 +186,7 @@ use yii\helpers\Html;
                 'class' => 'yii\grid\CheckboxColumn',
             ],
             [
+                'attribute' => 'subject',
                 'label'  => 'Betreff',
                 'format' => 'raw',
                 'value'  => function ($data) {
