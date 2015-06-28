@@ -59,7 +59,7 @@ $this->title = 'Stellenanzeige erstellen';
             <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
                 'data' => $sectors,
                 'options' => ['prompt' => ''],
-            ])->label('Branche auswählen') ?>
+            ])->label('Branche') ?>
 
             <?= $form->field($model, 'checkLocationBased')->checkbox(array('id' => 'checkLocationBased'))->label('Ortsbasiert') ?>
 

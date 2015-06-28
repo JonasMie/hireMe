@@ -655,7 +655,7 @@ body #bulkActions ul.dropdown-menu > li a {
 body #bulkActions ul.dropdown-menu > li a:hover {
   background: none;
 }
-/* line 57, ../sass/_basicTemplate.scss */
+/* line 56, ../sass/_basicTemplate.scss */
 body .btn {
   border-radius: 0;
   border: none;
@@ -664,31 +664,31 @@ body .btn {
   box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
   font-weight: 300;
 }
-/* line 64, ../sass/_basicTemplate.scss */
+/* line 63, ../sass/_basicTemplate.scss */
 body .btn:focus {
   outline: none !important;
 }
-/* line 67, ../sass/_basicTemplate.scss */
+/* line 66, ../sass/_basicTemplate.scss */
 body .btn:active {
   box-shadow: none;
 }
-/* line 72, ../sass/_basicTemplate.scss */
+/* line 71, ../sass/_basicTemplate.scss */
 body .btn.btn-success,
 body .btn.btn-success:active {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 77, ../sass/_basicTemplate.scss */
+/* line 76, ../sass/_basicTemplate.scss */
 body .btn.btn-default,
 body .btn.btn-default:active {
   background-color: #2d312f;
   color: #fff;
 }
-/* line 85, ../sass/_basicTemplate.scss */
+/* line 84, ../sass/_basicTemplate.scss */
 body .ripple {
   position: relative;
 }
-/* line 87, ../sass/_basicTemplate.scss */
+/* line 86, ../sass/_basicTemplate.scss */
 body .ripple svg {
   position: absolute;
   top: 0;
@@ -696,11 +696,11 @@ body .ripple svg {
   width: 100%;
   height: 100%;
 }
-/* line 94, ../sass/_basicTemplate.scss */
+/* line 93, ../sass/_basicTemplate.scss */
 body .ripple circle {
   fill: rgba(255, 255, 255, 0.1);
 }
-/* line 101, ../sass/_basicTemplate.scss */
+/* line 100, ../sass/_basicTemplate.scss */
 body table.hireMeTable {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
@@ -710,34 +710,34 @@ body table.hireMeTable {
   border: 1px solid #dddddd;
   width: 100%;
 }
-/* line 113, ../sass/_basicTemplate.scss */
+/* line 112, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th {
   border-bottom: 1px solid #dddddd;
   padding: 8px;
   text-align: left;
 }
-/* line 118, ../sass/_basicTemplate.scss */
+/* line 117, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a {
   color: #9d9d9d;
   text-decoration: none;
 }
-/* line 121, ../sass/_basicTemplate.scss */
+/* line 120, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a:hover {
   color: #5dca88;
 }
-/* line 126, ../sass/_basicTemplate.scss */
+/* line 125, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.asc::after {
   content: "\e093";
 }
-/* line 131, ../sass/_basicTemplate.scss */
+/* line 130, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.desc::after {
   content: "\e094";
 }
-/* line 142, ../sass/_basicTemplate.scss */
+/* line 141, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr:hover {
   background-color: rgba(93, 202, 136, 0.2) !important;
 }
-/* line 146, ../sass/_basicTemplate.scss */
+/* line 145, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td {
   vertical-align: middle;
   height: 72px;
@@ -745,83 +745,83 @@ body table.hireMeTable tbody tr td {
   padding: 8px;
   font-weight: 300;
 }
-/* line 153, ../sass/_basicTemplate.scss */
+/* line 152, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a {
   color: #9d9d9d;
   text-decoration: none;
   font-weight: 300;
 }
-/* line 157, ../sass/_basicTemplate.scss */
+/* line 156, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a:hover {
   color: #5dca88;
 }
-/* line 162, ../sass/_basicTemplate.scss */
+/* line 161, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a.btn:hover {
   color: #fff;
 }
-/* line 176, ../sass/_basicTemplate.scss */
+/* line 175, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
   cursor: pointer;
   font-family: 'Glyphicons Halflings';
   content: "\e258";
 }
-/* line 181, ../sass/_basicTemplate.scss */
+/* line 180, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:hover {
   color: #5dca88;
 }
-/* line 186, ../sass/_basicTemplate.scss */
+/* line 185, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
   content: "\e259";
 }
-/* line 193, ../sass/_basicTemplate.scss */
+/* line 192, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell {
   padding-bottom: 0px;
 }
-/* line 196, ../sass/_basicTemplate.scss */
+/* line 195, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner {
   height: 100%;
   border-bottom: 1px solid #dddddd;
   padding-bottom: 10px;
 }
-/* line 201, ../sass/_basicTemplate.scss */
+/* line 200, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row {
   display: block;
 }
-/* line 204, ../sass/_basicTemplate.scss */
+/* line 203, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-name {
   display: inline;
   color: #5dca88;
 }
-/* line 208, ../sass/_basicTemplate.scss */
+/* line 207, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-value {
   display: inline;
   float: right;
 }
-/* line 221, ../sass/_basicTemplate.scss */
+/* line 220, ../sass/_basicTemplate.scss */
 body ul.pagination li a {
   border-color: #dddddd;
   color: #5dca88;
 }
-/* line 224, ../sass/_basicTemplate.scss */
+/* line 223, ../sass/_basicTemplate.scss */
 body ul.pagination li a:hover {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 231, ../sass/_basicTemplate.scss */
+/* line 230, ../sass/_basicTemplate.scss */
 body ul.pagination li.active a, body ul.pagination li.active a:hover {
   background-color: #5dca88;
   border-color: #dddddd;
   color: #fff;
 }
-/* line 238, ../sass/_basicTemplate.scss */
+/* line 237, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled a {
   color: #9d9d9d;
 }
-/* line 241, ../sass/_basicTemplate.scss */
+/* line 240, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled span {
   color: #9d9d9d;
 }
-/* line 249, ../sass/_basicTemplate.scss */
+/* line 248, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green, body .iradio_flat-green {
   display: inline-block;
   *display: inline;
@@ -835,58 +835,58 @@ body .icheckbox_flat-green, body .iradio_flat-green {
   cursor: pointer;
   background-position: 0 0;
 }
-/* line 263, ../sass/_basicTemplate.scss */
+/* line 262, ../sass/_basicTemplate.scss */
 body .iradio_flat-green {
   background-position: -88px 0;
 }
-/* line 267, ../sass/_basicTemplate.scss */
+/* line 266, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked {
   background-position: -22px 0;
 }
-/* line 271, ../sass/_basicTemplate.scss */
+/* line 270, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked {
   background-position: -110px 0;
 }
-/* line 275, ../sass/_basicTemplate.scss */
+/* line 274, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.disabled {
   background-position: -44px 0;
   cursor: default;
 }
-/* line 280, ../sass/_basicTemplate.scss */
+/* line 279, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.disabled {
   background-position: -132px 0;
   cursor: default;
 }
-/* line 285, ../sass/_basicTemplate.scss */
+/* line 284, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked.disabled {
   background-position: -66px 0;
 }
-/* line 289, ../sass/_basicTemplate.scss */
+/* line 288, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked.disabled {
   background-position: -154px 0;
 }
-/* line 293, ../sass/_basicTemplate.scss */
+/* line 292, ../sass/_basicTemplate.scss */
 body .radio label, body .checkbox label {
   font-weight: 300;
 }
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-  /* line 299, ../sass/_basicTemplate.scss */
+  /* line 298, ../sass/_basicTemplate.scss */
   body .icheckbox_flat-green, body .iradio_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
-/* line 308, ../sass/_basicTemplate.scss */
+/* line 307, ../sass/_basicTemplate.scss */
 body legend {
   color: #9d9d9d;
 }
-/* line 313, ../sass/_basicTemplate.scss */
+/* line 312, ../sass/_basicTemplate.scss */
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
-/* line 317, ../sass/_basicTemplate.scss */
+/* line 316, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -900,11 +900,11 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-/* line 326, ../sass/_basicTemplate.scss */
+/* line 325, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 331, ../sass/_basicTemplate.scss */
+/* line 330, ../sass/_basicTemplate.scss */
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -917,13 +917,13 @@ body .form-group textarea {
   font-size: 16px;
   resize: none;
 }
-/* line 338, ../sass/_basicTemplate.scss */
+/* line 337, ../sass/_basicTemplate.scss */
 body .form-group textarea:focus {
   box-shadow: none;
   border-bottom: 2px solid #5dca88;
   border-top: 2px solid #5dca88;
 }
-/* line 346, ../sass/_basicTemplate.scss */
+/* line 345, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -934,7 +934,7 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 359, ../sass/_basicTemplate.scss */
+/* line 358, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-settingsmodel-picture,
@@ -947,7 +947,7 @@ body .field-settingsmodel-visibility,
 body .form-group.field-jobcreateform-checklocationbased {
   position: static;
 }
-/* line 370, ../sass/_basicTemplate.scss */
+/* line 369, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-settingsmodel-picture label,
@@ -960,33 +960,33 @@ body .field-settingsmodel-visibility label,
 body .form-group.field-jobcreateform-checklocationbased label {
   position: static;
 }
-/* line 381, ../sass/_basicTemplate.scss */
+/* line 379, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 384, ../sass/_basicTemplate.scss */
+/* line 382, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 389, ../sass/_basicTemplate.scss */
+/* line 387, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 391, ../sass/_basicTemplate.scss */
+/* line 389, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 398, ../sass/_basicTemplate.scss */
+/* line 396, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 408, ../sass/_basicTemplate.scss */
+/* line 406, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 414, ../sass/_basicTemplate.scss */
+/* line 412, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -997,21 +997,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 426, ../sass/_basicTemplate.scss */
+/* line 424, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 434, ../sass/_basicTemplate.scss */
+/* line 432, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 437, ../sass/_basicTemplate.scss */
+/* line 435, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 441, ../sass/_basicTemplate.scss */
+/* line 439, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -1021,105 +1021,105 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 446, ../sass/_basicTemplate.scss */
+/* line 444, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 451, ../sass/_basicTemplate.scss */
+/* line 449, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 453, ../sass/_basicTemplate.scss */
+/* line 451, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 457, ../sass/_basicTemplate.scss */
+/* line 455, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 467, ../sass/_basicTemplate.scss */
+/* line 465, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 475, ../sass/_basicTemplate.scss */
+/* line 473, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 483, ../sass/_basicTemplate.scss */
+/* line 480, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 489, ../sass/_basicTemplate.scss */
+/* line 486, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 496, ../sass/_basicTemplate.scss */
+/* line 493, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 500, ../sass/_basicTemplate.scss */
+/* line 497, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 506, ../sass/_basicTemplate.scss */
+/* line 503, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
-/* line 511, ../sass/_basicTemplate.scss */
+/* line 508, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown {
   padding: 0;
 }
-/* line 513, ../sass/_basicTemplate.scss */
+/* line 510, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed {
   color: #9d9d9d;
 }
-/* line 516, ../sass/_basicTemplate.scss */
+/* line 513, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 519, ../sass/_basicTemplate.scss */
+/* line 516, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th {
   border-radius: 0px;
 }
-/* line 521, ../sass/_basicTemplate.scss */
+/* line 518, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th:hover {
   background-color: #309156;
   border-radius: 0px;
 }
-/* line 527, ../sass/_basicTemplate.scss */
+/* line 524, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(2) {
   background-color: #2d312f;
 }
-/* line 531, ../sass/_basicTemplate.scss */
+/* line 528, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody {
   background-color: #fff;
 }
-/* line 534, ../sass/_basicTemplate.scss */
+/* line 531, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.selected {
   background-color: #fff;
   color: #9d9d9d;
   font-weight: lighter;
 }
-/* line 539, ../sass/_basicTemplate.scss */
+/* line 536, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.today {
   border-radius: 50%;
   background-color: #dddddd;
   color: #fff;
 }
-/* line 548, ../sass/_basicTemplate.scss */
+/* line 545, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.day:not(.today):not(.active):hover,
 body div.datepicker-dropdown table.table-condensed tbody tr td.selected:not(.today):not(.active):hover,
 body div.datepicker-dropdown table.table-condensed tbody tr span.month:not(.active):hover,
@@ -1128,53 +1128,122 @@ body div.datepicker-dropdown table.table-condensed tbody tr span.year:not(.activ
   color: #fff;
   border-radius: 50%;
 }
-/* line 554, ../sass/_basicTemplate.scss */
+/* line 551, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.active, body div.datepicker-dropdown table.table-condensed tbody tr span.active {
   border-radius: 50%;
   background-color: #5dca88;
   color: #fff;
 }
-/* line 560, ../sass/_basicTemplate.scss */
+/* line 557, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td {
   padding: 10px;
 }
-/* line 570, ../sass/_basicTemplate.scss */
+/* line 567, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown div.datepicker-months table tbody tr td, body div.datepicker-dropdown div.datepicker-years table tbody tr td {
   width: 250px;
 }
-/* line 581, ../sass/_basicTemplate.scss */
+/* line 579, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange span.input-group-addon.kv-field-separator {
   display: none;
 }
-/* line 584, ../sass/_basicTemplate.scss */
+/* line 582, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from,
 body .input-group.input-daterange .kv-container-to {
   box-shadow: none;
   max-width: 250px;
 }
-/* line 588, ../sass/_basicTemplate.scss */
+/* line 586, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from input,
 body .input-group.input-daterange .kv-container-to input {
   max-width: 250px;
+  border-bottom: 2px solid #dddddd;
 }
-/* line 592, ../sass/_basicTemplate.scss */
-body .input-group.input-daterange .kv-container-from,
-body .input-group.input-daterange .kv-container-to {
+/* line 591, ../sass/_basicTemplate.scss */
+body .input-group.input-daterange .kv-container-from {
   margin-right: 20px;
 }
 @media (max-width: 767px) {
-  /* line 597, ../sass/_basicTemplate.scss */
+  /* line 595, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from {
     max-width: 100%;
   }
-  /* line 600, ../sass/_basicTemplate.scss */
+  /* line 598, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 50px;
   }
 }
-/* line 610, ../sass/_basicTemplate.scss */
-body form:not(#form-signup) .select2-container--krajee {
-  display: none;
+/* line 611, ../sass/_basicTemplate.scss */
+body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #dddddd;
+  background: none;
+}
+/* line 619, ../sass/_basicTemplate.scss */
+body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(1) {
+  color: #9d9d9d;
+}
+/* line 622, ../sass/_basicTemplate.scss */
+body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) {
+  border: 0;
+}
+/* line 624, ../sass/_basicTemplate.scss */
+body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) b {
+  border-color: #9d9d9d transparent transparent;
+}
+/* line 632, ../sass/_basicTemplate.scss */
+body form:not(#form-signup) .form-group .select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #9d9d9d !important;
+}
+/* line 640, ../sass/_basicTemplate.scss */
+body form:not(#form-signup) .form-group.has-success .select2-selection {
+  border-bottom: 2px solid #5dca88 !important;
+}
+
+/* line 653, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  border: 0;
+}
+/* line 659, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown .select2-search {
+  padding-top: 10px;
+}
+/* line 661, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown .select2-search input.select2-search__field {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 2px solid #dddddd;
+  color: #9d9d9d;
+  box-shadow: none;
+}
+/* line 671, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option {
+  background: transparent none repeat scroll 0 0;
+  color: #9d9d9d;
+}
+/* line 674, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option strong {
+  background-color: #5dca88;
+  color: #fff;
+}
+/* line 679, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option {
+  color: #9d9d9d;
+}
+/* line 682, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option--highlighted {
+  background-color: rgba(93, 202, 136, 0.2);
+}
+/* line 685, ../sass/_basicTemplate.scss */
+body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li[aria-selected="true"] {
+  color: #5dca88;
+  background: transparent none repeat scroll 0 0;
 }
 
 /* line 5, ../sass/_login.scss */
@@ -1398,92 +1467,89 @@ body.action-login .site-login #form-signup .field-signupform-companysector.has-s
 }
 
 /* line 277, ../sass/_login.scss */
-.action-login .wrap {
+body.action-login .wrap {
   background: url("../../images/loginBG2.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   background-attachment: fixed;
 }
 /* line 283, ../sass/_login.scss */
-.action-login .wrap h1, .action-login .wrap h2 {
+body.action-login .wrap h1, body.action-login .wrap h2 {
   color: #fff;
   margin-bottom: 40px;
 }
-
-/* line 294, ../sass/_login.scss */
-.select2-container .select2-dropdown {
+/* line 291, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown {
   border: none;
   border-radius: 0px;
   background-color: rgba(45, 49, 47, 0.95);
   box-shadow: 0 0 5px 1px #9c9c9c;
 }
-/* line 300, ../sass/_login.scss */
-.select2-container .select2-dropdown .select2-search input.select2-search__field {
+/* line 297, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown .select2-search input.select2-search__field {
   border-radius: 0px;
   border: 0px;
   border-bottom: 2px solid #dddddd;
   background: transparent url("/images/search.png") no-repeat scroll right 10px top 7px;
   color: #fff;
 }
-/* line 308, ../sass/_login.scss */
-.select2-container .select2-dropdown .select2-results {
+/* line 305, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown .select2-results {
   padding: 4px;
 }
-/* line 311, ../sass/_login.scss */
-.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option {
+/* line 308, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 314, ../sass/_login.scss */
-.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > strong.select2-results__group {
+/* line 311, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > strong.select2-results__group {
   background-color: #5dca88;
   border: none;
   color: #fff;
 }
-/* line 320, ../sass/_login.scss */
-.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li {
+/* line 317, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 324, ../sass/_login.scss */
-.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li[aria-selected="true"] {
+/* line 321, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li[aria-selected="true"] {
   color: #5dca88;
 }
-/* line 327, ../sass/_login.scss */
-.select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li.select2-results__option--highlighted {
+/* line 324, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown .select2-results #select2-signupform-companysector-results > li.select2-results__option > ul.select2-results__options > li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 336, ../sass/_login.scss */
-.select2-container .select2-dropdown.kv-hide-search .select2-search {
+/* line 333, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown.kv-hide-search .select2-search {
   padding-top: 0px;
   padding-bottom: 0px;
 }
-/* line 340, ../sass/_login.scss */
-.select2-container .select2-dropdown.kv-hide-search .select2-results {
+/* line 337, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown.kv-hide-search .select2-results {
   padding-top: 0px;
 }
-/* line 343, ../sass/_login.scss */
-.select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li:nth-of-type(1) {
+/* line 340, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li:nth-of-type(1) {
   padding: 0;
 }
-/* line 346, ../sass/_login.scss */
-.select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option {
+/* line 343, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #fff;
 }
-/* line 350, ../sass/_login.scss */
-.select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option--highlighted {
+/* line 347, ../sass/_login.scss */
+body.action-login .select2-container .select2-dropdown.kv-hide-search .select2-results #select2-signupform-companyemployees-results > li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-
-/* line 359, ../sass/_login.scss */
-.select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
+/* line 355, ../sass/_login.scss */
+body.action-login .select2-container--krajee .select2-results__option.loading-results, body.action-login .select2-container--krajee .load-more {
   background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
   color: #5dca88;
 }
-
-/* line 364, ../sass/_login.scss */
-.select2-container--krajee.select2-container--open .select2-selection {
+/* line 360, ../sass/_login.scss */
+body.action-login .select2-container--krajee.select2-container--open .select2-selection {
   box-shadow: none;
 }
 
@@ -2563,25 +2629,33 @@ body.controller-job.action-view div.favouriteAlert {
   display: none;
 }
 
-/* line 270, ../sass/_job.scss */
+/* line 271, ../sass/_job.scss */
 body.controller-job.action-create h1 {
   padding-left: 15px;
 }
-/* line 274, ../sass/_job.scss */
+/* line 275, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob {
   margin-top: 50px;
 }
-/* line 276, ../sass/_job.scss */
+/* line 277, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob .col-2nd {
   margin-top: 0px;
 }
-/* line 280, ../sass/_job.scss */
+/* line 281, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob > div > div {
   margin-bottom: 50px;
 }
-/* line 283, ../sass/_job.scss */
+/* line 284, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob div.form-group.field-submit {
   margin-bottom: 100px;
+}
+/* line 288, ../sass/_job.scss */
+body.controller-job.action-create #form-createJob div.field-jobcreateform-sector {
+  max-width: 520px;
+}
+/* line 292, ../sass/_job.scss */
+body.controller-job.action-create #form-createJob div.input-daterange {
+  margin-top: 52px;
 }
 
 /* line 2, ../sass/_attachment.scss */

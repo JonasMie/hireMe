@@ -14,7 +14,7 @@ body {
 
   //Dropdown Action Buttons
   #bulkActions {
-    margin-top:15px;
+    margin-top: 15px;
 
     button {
       span.caret {
@@ -49,7 +49,6 @@ body {
       }
     }
   }
-
 
   //END Dropdown Action Buttons
 
@@ -158,11 +157,11 @@ body {
               color: $green;
             }
           }
-		  a.btn{
-		      &:hover {
-		        color: #fff;
-		      }
-			}
+          a.btn {
+            &:hover {
+              color: #fff;
+            }
+          }
         }
       }
     }
@@ -289,7 +288,7 @@ body {
   .iradio_flat-green.checked.disabled {
     background-position: -154px 0;
   }
-  
+
   .radio label, .checkbox label {
     font-weight: 300;
   }
@@ -305,10 +304,10 @@ body {
   //END iCheck plugin Flat skin, green
 
   /* BASIC FORM STYLING */
-  legend{
-	color:$greyFont;
+  legend {
+    color: $greyFont;
   }
-  
+
   /* UNFOCUSED INPUT */
   .form-group {
     position: relative;
@@ -340,7 +339,7 @@ body {
         border-bottom: $FormBorderFocused;
         border-top: $FormBorderFocused;
       }
-	  resize:none;
+      resize: none;
     }
 
     label {
@@ -372,7 +371,6 @@ body {
     }
   }
   /*END Fix for Checkboxes and other inputs with a label */
-
 
   /* END UNFOCUSED INPUT */
 
@@ -478,7 +476,6 @@ body {
   }
   /* END Background color does not work for class .has-error anymore. This is a temporary fix */
 
-
   /*PROFILE PICTURE */
   img.profile-picture-thumbnail {
     width: 50px;
@@ -503,7 +500,7 @@ body {
   }
   /*END PROFILE PICTURE */
 
-  .highlight{
+  .highlight {
     color: $green; // TODO: Finf out what this is
   }
 
@@ -574,7 +571,8 @@ body {
         }
       }
     }
-  } //END DATEPICKER Popup
+  }
+  //END DATEPICKER Popup
 
   // DATEPICKER Input
   .input-group.input-daterange {
@@ -587,10 +585,10 @@ body {
       max-width: 250px;
       input {
         max-width: 250px;
+        border-bottom: $FormBorderNonFocused;
       }
     }
-    .kv-container-from,
-    .kv-container-to {
+    .kv-container-from {
       margin-right: 20px;
     }
     @media (max-width: 767px) {
@@ -604,19 +602,96 @@ body {
   }
   //END DATEPICKER Input
 
+  // Select2 Krajee INPUT
+  form:not(#form-signup) {
+    // Exclude Login Page
+    .form-group {
+      .select2-container--krajee {
+        .selection {
+          .select2-selection {
+            border: 0;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border-bottom: $FormBorderNonFocused;
+            background: none;
+            span:nth-of-type(1) {
+              color: $greyFont;
+            }
+            span:nth-of-type(2) {
+              border: 0;
+              b {
+                border-color: $greyFont transparent transparent;
+              }
+            }
+          }
+        }
+      }
 
-  // Selct2 Krajee
-  form:not(#form-signup) { // Exclude Login Page
-    .select2-container--krajee{
-      display: none;
+      .select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: transparent transparent $greyFont !important;
+      }
+    }
+
+
+
+    .form-group.has-success {
+      .select2-selection {
+        border-bottom: $FormBorderFocused !important;
+      }
     }
 
   }
-  // Selct2 Krajee
-
-
+  // END Select2 Krajee INPUT
 }
 
 
+// Excluding LoginPage
+body:not(.action-login) {
+  // Select2 Krajee DROPDOWN
+  .select2-dropdown {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+
+    border: 0;
+    .select2-search {
+      padding-top: 10px;
+      input.select2-search__field {
+        border: 0;
+        border-radius: 0;
+        border-bottom: $FormBorderNonFocused;
+        color: $greyFont;
+        box-shadow: none;
+      }
+    }
+    .select2-results {
+      ul.select2-results__options {
+        li.select2-results__option {
+          background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+          color: $greyFont;
+          strong {
+            background-color: $green;
+            color: #fff;
+          }
+          ul.select2-results__options {
+            li.select2-results__option {
+              color: $greyFont;
+            }
+            li.select2-results__option--highlighted {
+              background-color: $green20;
+            }
+            li[aria-selected="true"] {
+              color: $green;
+              background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  // Select2 Krajee DROPDOWN
+}
 
 

@@ -267,6 +267,7 @@ body.controller-job.action-view {
 }
 
 body.controller-job.action-create {
+
   h1 {
     padding-left: 15px;
   }
@@ -283,6 +284,16 @@ body.controller-job.action-create {
     div.form-group.field-submit {
       margin-bottom: 100px;
     }
+
+    div.field-jobcreateform-sector {
+      max-width: 520px;
+    }
+
+	div.input-daterange {
+	  margin-top: 52px;
+	}
+
+
 
 
   }
