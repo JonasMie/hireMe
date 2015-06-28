@@ -265,6 +265,20 @@ class JobController extends Controller
 
     }
 
+    public function createFavoritSection($key,$user) {
+
+        $thisBtn = ApplyBtn::find()
+        ->where(['key' => $key])
+        ->one();
+
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: " . $job->id);
+        $user = Yii::$app->user->identity;
+
+        if($user->isRecruiter()) {return $this->render('favoritError',['message' => "<p>Als Recruiter kannst du keine Favoriten erstellen. Das tut uns sehr leid.<br>Zur Entschädigung haben wir hier".Html::a("Zurück zu HireMe","/dashboard")." "]);}
+        return $this->render('favoritSection');
+    }
+
     public function createApplyForm($key, $user)
     {
 

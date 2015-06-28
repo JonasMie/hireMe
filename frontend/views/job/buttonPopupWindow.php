@@ -27,16 +27,8 @@ Logo
         ],
         [
             'label' => 'Favoriten',
-            'content' => '
-				<div class="col-xs-12"><h1>Stellenanzeige Titel</h1></div>
-				<div class="col-xs-12">
-					<h2>Als Favorit speichern</h2>
-					<p>Du kannst diese Stellenanzeige auch als Favorit speichern und dich sp&auml;ter auf hireMe auf diese Stelle bewerben.</p>
-				</div>
-				<div class="col-xs-12">
-					<button id="addFavourite" onclick="addFav()">Als Favorit speichern</button>
-				</div>
-			',
+            'content' => Yii::$app->controller->createFavoritSection($key,$userID),
+            'active' => false
         ],
     ],
 ]);
