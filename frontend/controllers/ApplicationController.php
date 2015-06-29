@@ -119,7 +119,7 @@ class ApplicationController extends Controller
             'sql' => $sql,
             'sort' => [
                 'attributes' => [
-                'title','fullName','score',
+                'title','fullName','score', 'created_at',
             ],
             'defaultOrder' => [
                 'title' => SORT_ASC,

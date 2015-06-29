@@ -34,15 +34,15 @@ use yii\helpers\Html;
 
     <!-- TILES -->
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"
-             onclick="window.location='./application/index?new=true';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green ripple"
+             href="/application/?new=true">
 
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($newApplications, "/application/index?new=true"); ?>
+                    <?= Html::a($newApplications, "/application/?new=true"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a('neue Bewerbungen', "/application/index?new=true"); ?>
+                    <?= Html::a('neue Bewerbungen', "/application/?new=true"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -50,7 +50,7 @@ use yii\helpers\Html;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-2 tile-black ripple"
-             onclick="window.location='/message';">
+             href="/message">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a($messages, "/message"); ?>
@@ -64,7 +64,7 @@ use yii\helpers\Html;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-3 tile-green ripple"
-             onclick="window.location='./job';">
+             href="/job">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a(count($jobs), '/job') ?>
@@ -77,8 +77,8 @@ use yii\helpers\Html;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-4 tile-black"
-             onclick="window.location='./application';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-4 tile-black ripple"
+             href="/application">
 
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
