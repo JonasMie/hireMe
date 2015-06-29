@@ -483,16 +483,18 @@ class JobController extends Controller
     }
 
     //count clicks
-    public function actionClickUp($btnKey)
+    public function actionClickUp($btnKey=null)
     {
-      
-      if(Yii::$app->user->identity->isRecruiter() == false) {
-         $btn = ApplyBtn::find()
+     // if(Yii::$app->user->identity->isRecruiter() == false) {
+        $key = Yii::$app->request->get("key");
+        $btn = ApplyBtn::find()
             ->where(['key' => $btnKey])
             ->one();
         $btn->clickCount = $btn->clickCount + 1;
-        $btn->save();
+        if($btn->save()) {
+            return "Hat geklappt :)";
         }
+     //   }
     }
 
     /**
@@ -608,6 +610,12 @@ class JobController extends Controller
 
     public function actionButtonPopup($key)
     {
+        $btn = ApplyBtn::find()
+            ->where(['key' => $key])
+            ->one();
+        $btn->clickCount = $btn->clickCount + 1;
+        $btn->save();
+
         if (Yii::$app->user->isGuest) {
             $userID = "NA";
         } else {
