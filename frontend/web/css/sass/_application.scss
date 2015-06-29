@@ -1,6 +1,16 @@
 // Applications overview
 .controller-application{
 	
+	// General Stylings
+	
+	pre{
+		background-color:transparent;
+		color:$greyFont;
+		overflow:visible;
+		border-radius:0px;
+		-webkit-border-radius:0px;
+	}
+	
 	// Recruiter Stylings
 	
 	
@@ -88,6 +98,45 @@
 	}
 }
 
+// View Application
+
+.controller-application.action-view{
+
+	// Recruiter View
+	
+	div.row.first{
+		margin-top:20px;
+		h2:first-child{
+			margin-top:0px;
+		}
+		
+		div.profileInfo{
+			text-align:center;
+			h2{
+				margin-top:20px;
+			}
+		}
+		
+		.scoreInput{
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			max-width:100%;
+			max-height:100%;
+			border: $grey 1px solid;
+			background-color: transparent;
+			text-align: center;
+			font-size: $fontbase*3;
+			color: $green;
+			&:focus{
+				outline: none;
+			}
+		}
+	}
+	
+	
+
+}
 
 // Create and edit application
 .controller-application.action-add-data{

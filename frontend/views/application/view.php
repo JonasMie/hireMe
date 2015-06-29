@@ -11,7 +11,14 @@ use frontend\models\Company;
 use frontend\assets\ScoreAsset;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Application */
+/* @var $currentSchoolsDataProvider \yii\data\ActiveDataProvider */
+/* @var $currentJobsDataProvider \yii\data\ActiveDataProvider */
 ScoreAsset::register($this);
+
+if (Yii::$app->user->identity->isRecruiter()){
+	$this->title = 'Bewerbung von '.$model["user"]->fullName;
+}
+
 ?>
 
 <!-- Initializing Foo Tables -->
@@ -39,8 +46,87 @@ ScoreAsset::register($this);
         $model["app"]->read = 1;
         $model["app"]->save();
     ?>
-    <h2><?= $model["job"]->title ?> </h2>
-    <h2><?= $model["user"]->getProfilePicture(true) ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Bewerbung von <?= $model["user"]->fullName .' als '.Html::a($model['job']->title,"/job/view?id=".$model['job']->id); ?></h1>
+		</div>
+	</div>
+	
+	<div class="row first">
+	
+		<div class="col-sm-4 profileInfo">
+		
+			<div class="row">
+			
+				<div class="col-sm-12">
+				
+					<?= $model["user"]->getProfilePicture() ?>
+				
+				</div>
+				
+				<div class="col-sm-12">
+					<h3>Score</h3>
+					<div class="allowPrefill">
+						<?= Html::textinput($model['app']->id,Html::encode($model["app"]->score),['class' => 'scoreInput', 'id' => 'score_'.$model['app']->score,'name' => $model["app"]->score]); ?>
+					</div>
+				</div>
+			
+			</div>
+		
+		</div>
+		
+		<div class="row">
+		
+			<?/* Show Current Job and School if Available */?>
+			<? if($currentJobsDataProvider->getCount() > 0  || $currentSchoolsDataProvider->getCount() > 0 ): ?>
+				<div class="col-sm-4 currentJob">
+					<?
+					
+
+					echo $this->render('/resume/_resume', [
+						'jobDataProvider'            => $jobDataProvider,
+						'schoolDataProvider'         => $schoolDataProvider,
+						'currentJobsDataProvider'    => $currentJobsDataProvider,
+						'currentSchoolsDataProvider' => $currentSchoolsDataProvider,
+						'edit'                       => false,
+						'label'                      => 'Bearbeiten',
+						'url1'                       => ['/resume'],
+						'url2'                       => ['/resume'],
+						'order'                      => 'currentJob',
+						'showButtons'                => $user->getId() == Yii::$app->user->identity->getId()
+					]);
+					?>
+				</div>
+				<div class="col-sm-4 currentSchool">
+					<?
+					echo $this->render('/resume/_resume', [
+						'jobDataProvider'            => $jobDataProvider,
+						'schoolDataProvider'         => $schoolDataProvider,
+						'currentJobsDataProvider'    => $currentJobsDataProvider,
+						'currentSchoolsDataProvider' => $currentSchoolsDataProvider,
+						'edit'                       => false,
+						'label'                      => 'Bearbeiten',
+						'url1'                       => ['/resume'],
+						'url2'                       => ['/resume'],
+						'order'                      => 'currentSchool',
+						'showButtons'                => $user->getId() == Yii::$app->user->identity->getId()
+					]);
+					?>
+				</div>
+			<? endif; ?>
+		
+			<div class="col-sm-8">
+				<h2>Anschreiben</h2>
+				<?= Html::decode("<pre>".$model['coverText']."</pre>"); ?>
+			</div>
+		</div>
+	
+	</div>
+	
+	
+	
+    
+    <h2><?= $model["user"]->getProfilePicture() ?><?= $model["user"]->fullName ?>'s Bewerbung:</h2>
     <p> Beworben am: <?= $model["created"];?></p>
     <br>
     <h4 class="allowPrefill">Score:
@@ -159,7 +245,7 @@ ScoreAsset::register($this);
 	
 	<? /* View as User */ ?>
 	
-    <h1>Bewerbung auf Stellenanzeige: <?= Html::a($model['job']->title,"/job/view?id=".$model['job']->id) ?></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
     <h2>Anschreiben:</h2>
     <p>
     <?= $model['coverText']; ?>

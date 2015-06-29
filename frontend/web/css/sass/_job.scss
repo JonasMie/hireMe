@@ -2,6 +2,14 @@
 	
 	// General Styling
 	
+	pre{
+		background-color:transparent;
+		color:$greyFont;
+		overflow:visible;
+		border-radius:0px;
+		-webkit-border-radius:0px;
+	}
+	
 	div.favouriteAlert{
 		display:none;
 	}
@@ -157,6 +165,15 @@
 .controller-job.action-view{
 	
 	// General Stylings
+	
+	pre{
+		background-color:transparent;
+		color:$greyFont;
+		overflow:visible;
+		border-radius:0px;
+		-webkit-border-radius:0px;
+	}
+	
 	a{
 		color:$green;
 		&:hover,&:focus,&:active{
