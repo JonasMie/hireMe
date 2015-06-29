@@ -9,11 +9,13 @@ use frontend\models\Job;
 use yii\widgets\ListView;
 use common\models\User;
 use frontend\assets\ScoreAsset;
+use frontend\assets\ApplicationActionAsset;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\ApplicationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 ScoreAsset::register($this);
+ApplicationActionAsset::register($this);
 $this->title = 'Bewerbungen';
 ?>
 
@@ -55,6 +57,11 @@ $this->title = 'Bewerbungen';
 				'dataProvider' => $provider,
 				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow allowPrefill', 'id' => 'applicationsTable'],
 				'columns'      => [
+					[
+		                'class'          => 'yii\grid\CheckboxColumn',
+		                'headerOptions'  => ['class' => 'first-col'],
+		                'contentOptions' => ['class' => 'first-col']
+		            ],
 					[
 							'attribute' => 'fullName',
 							'label' => 'Name',
@@ -107,9 +114,40 @@ $this->title = 'Bewerbungen';
 						'headerOptions'  => ['data-toggle' => 'true'],
 						'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
 					],
+					[
+						'attribute' => 'id',
+						'label' => '',
+						'format' => 'raw',
+						'value'  => function ($data) {
+								return Html::encode($data['id']);
+						},
+						'headerOptions'  => ['class' => 'seventh-col','data-hide' => 'mediaXXsmall,mediaXsmall,mediaSmall,phone'],
+						'contentOptions' => ['class' => 'seventh-col appID'],
+					], 
+
 				],
 
 			]); ?>  
+			<? if ($provider->count > 0): ?>
+		    <div class="dropdown" id="appAction" data-index="0">
+		        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+		                class="btn btn-success">
+		            Aktion
+		            <span class="caret"></span>
+		        </button>
+		        <ul class="dropdown-menu" aria-labelledby="dLabel">
+		            <li class="action_archive">
+		                <a href="#" tabindex="-1">Archivieren</a>
+		            </li>
+		            <li class="action_invite">
+		                <a href="#" tabindex="-1">Zum Gespräch einladen</a>
+		            </li>
+		            <li class="action_hire">
+		                <a href="#" tabindex="-1">Stelle besetzen</a>
+		            </li>
+		        </ul>
+		    </div>
+			<? endif; ?>
 			<? /* Recruiter View End */ ?>
 			
 			<? /* Bewerber View */ ?>
