@@ -60,7 +60,7 @@ class JobCreateForm extends Model
     public function attributeLabels()
     {
         return [
-            'checkLocationBased' => '',
+            'checkLocationBased' => 'Ortsbasiert',
         ];
     }
 

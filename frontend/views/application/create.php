@@ -30,6 +30,8 @@ ApplyFormAsset::register($this);
 
 ?>
 
+    <? if (Yii::$app->user->identity->isRecruiter() == false): ?>
+
 <div class="application-create">
 	<div class="row">
 		<div class="col-sm-12">
@@ -145,5 +147,7 @@ ApplyFormAsset::register($this);
 			<?= Html::a('<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Bewerbung verschicken','/application/send?id='.$appId,['class' => 'btn btn-success ripple sendBtn']) ?> 
 		</div>
 	</div>
-
+    <? else: ?>
+    <? Yii::$app->controller->redirect("/application");?>
+	<? endif; ?>
 </div>

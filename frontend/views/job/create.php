@@ -7,13 +7,13 @@ use yii\widgets\Pjax;
 use yii\helpers\Url;
 use kartik\date\DatePicker;
 use kartik\typeahead\Typeahead;
+CreateJobAsset::register($this);
 
 include Yii::getAlias('@helper/companySignup.php');
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
 /* @var $form yii\widgets\ActiveForm */
-CreateJobAsset::register($this);
 
 $this->title = 'Stellenanzeige erstellen';
 /* @var $model frontend\models\Job */
@@ -29,8 +29,8 @@ $this->title = 'Stellenanzeige erstellen';
                 <?= $form->field($model, 'title')->label('Titel')?>
                 
                 <?= $form->field($model, 'description')->textarea() ?>
-                <?
-                echo DatePicker::widget([
+                <?=
+                DatePicker::widget([
                     'model'         => $model,
                     'attribute'     => 'job_begin',
                     'attribute2'    => 'job_end',
@@ -47,20 +47,19 @@ $this->title = 'Stellenanzeige erstellen';
                     ]
                 ]);
                 ?>
-
-                 <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
-                    'data' => $sectors,
-                    'options' => ['prompt' => ''],
-                ])->label('Branche auswählen') ?>
-
-                <?= $form->field($model, 'checkLocationBased')->checkbox(array('id'=>'checkLocationBased'))->label('Ortsbasiert') ?>
-
+                <?= $form->field($model, 'checkLocationBased')->checkbox(['id'=>'checkLocationBased']) ?>
                 <div class="locationDiv" style="display: none">    <? //STYLE: display in css?>
                 <?= $form->field($model, 'zip')->label('Postleitzahl') ?>
                 <?= $form->field($model, 'city')->label('Stadt') ?>
                 </div>
-
+                 <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
+                    'data' => $sectors,
+                ])->label('Branche auswählen') ?>
+              
                 <div class="form-group">
+                    <br>
+                    <br>
+                    <br>
                     <?= Html::submitButton('Erstellen', ['class' => 'btn btn-success', 'name' => 'create-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
