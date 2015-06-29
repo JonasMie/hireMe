@@ -7,7 +7,8 @@ GiphyAsset::register($this);
 
 ?>
 <div class="job-index">
-
+<div class="col-sm-12">
+<h1>Bewerbung nicht möglich</h1>
     <p>
       Als Recruiter kannst du keine Favoriten hinzufügen.
       <br><br>
@@ -18,5 +19,5 @@ GiphyAsset::register($this);
       <br><br>
       <a href="/dashboard">Zurück zu HireMe</a>
     </p>
-
+</div>
 </div>

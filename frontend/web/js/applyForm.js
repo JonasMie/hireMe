@@ -19,7 +19,7 @@ function save() {
         console.log(jobID);
         jQuery.get("/job/create-app",{intern:'true',text:text,appData:appData,appID:appID,job:jobID} ,function (res) {
          if(jQuery.isNumeric(res)) {
-			$("#saveApplication").empty();
+			$("#saveApplication").remove();
             $(".save").append("<span class='highlight glyphicon glyphicon-ok'></span>&nbsp;Bewerbung gespeichert");
 			window.scrollTo(0, 0);
 			$('.saveAlert').css('display','block');
@@ -33,7 +33,7 @@ function save() {
 
        jQuery.get("/job/create-app",{key:key,user:user,text:text,appData:appData,appID:appID} ,function (res) {
          if(jQuery.isNumeric(res)) {
-			$("#saveApplication").empty();
+			$("#saveApplication").remove();
             $(".save").append("<span class='highlight glyphicon glyphicon-ok'></span>&nbsp;Bewerbung gespeichert");
 			window.scrollTo(0, 0);
 			$('.saveAlert').css('display','block');
