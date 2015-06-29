@@ -62,6 +62,7 @@ class JobController extends Controller
 
     public function actionCreateBtn($id)
     {
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $model = new ApplyBtn();
 
@@ -82,6 +83,8 @@ class JobController extends Controller
 
     public function actionDelete($id)
     {
+         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
+
         $btn = ApplyBtn::findOne($id);
         $btn->delete();
         return $this->redirect(['index']);
@@ -128,6 +131,7 @@ class JobController extends Controller
 
     public function actionGeneration($id)
     { //expecting job id
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
         Yii::trace("called");
         $key = $this->generateBtn($id);
         $text = "//Copy this code in your header(ask your freaky programmer for that!)\n<script src='http://frontend/js/applier.js'></script>\n//Copy this code wherever you want the HireMe Button\n<div id='ac' name='" . $key . "'></div>";
@@ -161,6 +165,8 @@ class JobController extends Controller
 
     public function actionSaveFavorit()
     {
+
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/job");}
         if (Yii::$app->request->isAjax) {
 
             $fav = new Favourites();
@@ -189,6 +195,7 @@ class JobController extends Controller
 
     public function actionCreateApp()
     {
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         if (Yii::$app->request->isAjax) {
 
@@ -320,6 +327,7 @@ class JobController extends Controller
 
     public function actionSend()
     {
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         if (Yii::$app->request->isAjax) {
 
@@ -337,6 +345,9 @@ class JobController extends Controller
 
     public function actionApply($key, $user)
     {
+
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
         $app = new Application();
 
         $apps = Application::find()->orderBy('id')->all();
@@ -365,6 +376,7 @@ class JobController extends Controller
 
     public function getAppIDByKeyAndUser($key, $user)
     {
+    if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/application");}
 
         $app = new Application();
 
@@ -395,6 +407,7 @@ class JobController extends Controller
 
     public function actionApplyIntern($id)
     { // expected job id
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $user = Yii::$app->user->identity;
 
@@ -441,14 +454,14 @@ class JobController extends Controller
     //count clicks
     public function actionClickUp($btnKey)
     {
-
-        $btn = ApplyBtn::find()
+      
+      if(Yii::$app->user->identity->isRecruiter() == false) {
+         $btn = ApplyBtn::find()
             ->where(['key' => $btnKey])
             ->one();
-
         $btn->clickCount = $btn->clickCount + 1;
         $btn->save();
-
+        }
     }
 
     /**
@@ -459,6 +472,8 @@ class JobController extends Controller
 
     public function actionCreate()
     {
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
         $model = new JobCreateForm();
 
         $jobId = 0;
@@ -574,9 +589,10 @@ class JobController extends Controller
     }
 
     
-
+/*
     public function actionUpdate($id)
     {
+    if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $model = ApplyBtn::findOne($id);
 
@@ -589,7 +605,7 @@ class JobController extends Controller
         }
 
     }
-
+*/
     /**
      * Updates an existing Job model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -601,6 +617,8 @@ class JobController extends Controller
 
     public function actionUpdateJob($id)
     {
+    if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -622,6 +640,7 @@ class JobController extends Controller
      */
     public function actionDeleteJob($id)
     {
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
