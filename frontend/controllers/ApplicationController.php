@@ -140,7 +140,7 @@ class ApplicationController extends Controller
 
         $applications = new ApplicationSearch();        
         $savedProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Gespeichert']]);
-        $sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Versendet']]);
+        $sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Versendet','state' => 'Vorstellungsgespräch','state'=>'Absage']]);
 
        return $this->render('index', [
             'savedProvider' => $savedProvider,
