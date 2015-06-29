@@ -112,7 +112,6 @@ class JobController extends Controller
 
             $jobs = new JobSearch();
             $dataProvider = $jobs->search(['JobSearch' => ['company_id' => $companyId]]);
-
             return $this->render('index', [
                 'indiTitle' => "Stellenanzeigen von " . Company::getNameById($companyId),
                 'id'        => $companyId,
@@ -493,7 +492,7 @@ class JobController extends Controller
     {
     if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
-    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+    if(Yii::$app->user->identity->isRecruiter()==false) {$this->redirect("/application");}
 
         $model = new JobCreateForm();
 

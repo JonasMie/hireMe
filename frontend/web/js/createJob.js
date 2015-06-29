@@ -2,25 +2,15 @@
  * Created by Simon
  */
 
- $(document).ready(function() {
 
- 	console.log("loaded");
+$('#checkLocationBased').on('ifChecked', function(event){
+     $('.locationDiv').show();
+});
 
- })
-
-$('#checkLocationBased').on('mouseover', function (e) {
-	alert("clicked");
+$("#checkLocationBased").on('ifUnchecked',function(event) {
+	 $('.locationDiv').hide();
 })
 
-
-$('#checkLocationBased').change(function(){
-
-    if(this.checked){
-        $('.locationDiv').show();
-    } else {
-        $('.locationDiv').hide();
-    }
-});
 
 if($("#checkLocationBased").prop("checked")){
     $('.locationDiv').show();
