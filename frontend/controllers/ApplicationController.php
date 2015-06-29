@@ -142,7 +142,7 @@ class ApplicationController extends Controller
 
      else {
         
-        $newSQL = "SELECT a.id, a.created_at, a.state, j.id as jobID from application a, job j WHERE a.job_id = j.id and a.user_id =".Yii::$app->user->identity->id;
+        $newSQL = "SELECT a.id, a.created_at, a.state, j.id as jobID from application a, job j WHERE a.job_id = j.id and a.state != 'Gespeichert' and a.user_id =".Yii::$app->user->identity->id;
         $sentProvider = new SqlDataProvider([
             'sql' => $newSQL,
             'sort' => [
