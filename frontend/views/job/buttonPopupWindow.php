@@ -11,10 +11,10 @@ use frontend\controllers\JobController;
 $this->title = 'Jetzt bewerben - mit hireMe';
 ?>
 
-<div class="col-xs-12">
-Logo
-<p class="hidden" id="user"><?= $userID ?></p>
-<p class="hidden" id="key"><?= $key ?></p>
+<div class="col-sm-12 logo">
+<img id="navbar-logo" src="/images/hireMe-Web.png"/>
+<span class="hidden" id="user"><?= $userID ?></span>
+<span class="hidden" id="key"><?= $key ?></span>
 </div>
 
 <?=

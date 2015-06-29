@@ -1,0 +1,67 @@
+.controller-job.action-button-popup{
+
+	// General Stylings
+	
+	div.logo{
+		img{
+			width: 100px;
+		}
+		
+		background-color:$black;
+		padding: 20px;
+		margin-bottom:20px;
+	}
+	
+	ul.nav.nav-tabs{
+		li.active{
+			a{
+				&:hover,&:active,&:focus{
+					color: $green;
+				}
+			}
+		}
+		
+		li:not(.active){
+			
+			
+			a{
+				&:hover,&:focus,&:active{
+					background-color:$green;
+					color:#fff;
+					transition: background-color 0.2s ease-in-out;
+				}
+			}
+		}
+	}
+
+	a:not(.btn){
+		color:$green;
+		&:hover,&:focus,&:active{
+			color:$green50;
+		}
+	}
+	
+	div.summary{
+		display:none;
+	}
+	
+	div.save{
+		text-align:right;
+		margin-top:10px;
+	}
+	
+	div.send{
+		text-align:right;
+		margin-top: 10px;
+		margin-bottom: 30px;
+	}
+	
+	div.sendAlert, div.saveAlert{
+		display:none;
+	}
+	
+	div.saveFav{
+		margin-top:10px;
+	}
+
+}

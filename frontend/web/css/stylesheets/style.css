@@ -2608,3 +2608,55 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
 .controller-attachement.action-update div.file-update .btn {
   float: right;
 }
+
+/* line 5, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup div.logo {
+  background-color: #2d312f;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+/* line 6, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup div.logo img {
+  width: 100px;
+}
+/* line 18, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup ul.nav.nav-tabs li.active a:hover, .controller-job.action-button-popup ul.nav.nav-tabs li.active a:active, .controller-job.action-button-popup ul.nav.nav-tabs li.active a:focus {
+  color: #5dca88;
+}
+/* line 28, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup ul.nav.nav-tabs li:not(.active) a:hover, .controller-job.action-button-popup ul.nav.nav-tabs li:not(.active) a:focus, .controller-job.action-button-popup ul.nav.nav-tabs li:not(.active) a:active {
+  background-color: #5dca88;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
+}
+/* line 37, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup a:not(.btn) {
+  color: #5dca88;
+}
+/* line 39, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup a:not(.btn):hover, .controller-job.action-button-popup a:not(.btn):focus, .controller-job.action-button-popup a:not(.btn):active {
+  color: rgba(93, 202, 136, 0.5);
+}
+/* line 44, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup div.summary {
+  display: none;
+}
+/* line 48, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup div.save {
+  text-align: right;
+  margin-top: 10px;
+}
+/* line 53, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup div.send {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+/* line 59, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup div.sendAlert, .controller-job.action-button-popup div.saveAlert {
+  display: none;
+}
+/* line 63, ../sass/_buttonPopup.scss */
+.controller-job.action-button-popup div.saveFav {
+  margin-top: 10px;
+}
