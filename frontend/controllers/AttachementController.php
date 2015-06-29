@@ -51,6 +51,8 @@ class AttachementController extends Controller
 
     public function actionUpdate($id) {
 
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
         $model = File::find()
         ->where(['id' => $id])
         ->one();
@@ -66,6 +68,8 @@ class AttachementController extends Controller
     
 
     public function actionDeleteFile($id) {
+
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $model = File::find()
         ->where(['id' => $id])
@@ -91,6 +95,8 @@ class AttachementController extends Controller
 
     public function actionIndex()
     {
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+        
     	$user = Yii::$app->user->identity;
   		$sql = "SELECT title,id from file WHERE NOT (title LIKE '%cover%') AND user_id =".$user->id;
   		$model = new UploadForm();
