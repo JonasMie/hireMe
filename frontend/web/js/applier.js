@@ -30,13 +30,13 @@ loadScript("http://code.jquery.com/jquery-1.11.3.min.js", function () {
 		/* Apply Button */
 
 		var key = $("#ac").attr('name');
-		var html = '<iframe src="http://frontend/job/view-count" width="0" height="0" id="hireMeFrame" scrolling="no" frameBorder="0" name="'+key+'">';
+		var html = '<iframe src="http://bewerbung.local/job/view-count" width="0" height="0" id="hireMeFrame" scrolling="no" frameBorder="0" name="'+key+'">';
 		$("#ac").html(html);
-		$("#ac").append("<span title='Mit hireMe bewerben' alt='Mit hireMe bewerben' id='applyBtn' class='ripple' onclick='clicked();'><img src='http://frontend/images/button/hireMe-Button-1-transp.png' witdh='50'></span>"); // ToDo: jquery tooltip http://www.codechewing.com/library/create-simple-tooltip-jquery/
+		$("#ac").append("<span title='Mit hireMe bewerben' alt='Mit hireMe bewerben' id='applyBtn' class='ripple' onclick='clicked();'><img src='http://bewerbung.local/images/button/hireMe-Button-1-transp.png' witdh='50'></span>"); // ToDo: jquery tooltip http://www.codechewing.com/library/create-simple-tooltip-jquery/
 		$("#applyBtn").css({"width":"50px","height":"50px","cursor":"pointer"});
 		$('#applyBtn').css({"background-size":"cover"});
 		/* On-Page Hover Modal
-		$("#ac").append('<div style="width:400px; height:400px; border:1px solid;" id="hoverInfo"><iframe id="hoverInfoFrame" src="http://frontend/job/button-popup?key='+key+'" width="400" height="400" scrolling="no" frameBorder="0" name="'+key+'"></div>');
+		$("#ac").append('<div style="width:400px; height:400px; border:1px solid;" id="hoverInfo"><iframe id="hoverInfoFrame" src="http://bewerbung.local/job/button-popup?key='+key+'" width="400" height="400" scrolling="no" frameBorder="0" name="'+key+'"></div>');
 		*/
 		var btn = $( "#ac" ).children()[1];
 		console.log(btn);
@@ -62,7 +62,7 @@ loadScript("http://code.jquery.com/jquery-1.11.3.min.js", function () {
 
 			var left = ((width / 2) - (w / 2)) + dualScreenLeft;
 			var top = ((height / 2) - (h / 2)) + dualScreenTop;
-			var newWindow = window.open('http://frontend/job/button-popup?key='+key+'','_blank', 'toolbar=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+			var newWindow = window.open('http://bewerbung.local/job/button-popup?key='+key+'','_blank', 'toolbar=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
 
 			// Puts focus on the newWindow
 			if (window.focus) {

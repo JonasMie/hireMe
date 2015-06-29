@@ -41,7 +41,8 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
 <div class="row">
 	<div class="col-sm-9"></div>
 	<div class="col-sm-3 jobCreate"><?= Html::a("Neue Stellenanzeige", '/job/create',['class' => 'btn btn-success ripple']) ?></div>
-
+</div>
+<div class="row">
 	<?=
 	ListView::widget([
 		'dataProvider' => $provider,
@@ -54,6 +55,8 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
 		'options' => ['class' => 'list-view'],
 	]);
 	?>
+</div>
+<div class="row">
 	<div class="col-sm-9"></div>
 	<div class="col-sm-3 jobCreate"><?= Html::a("Neue Stellenanzeige", '/job/create',['class' => 'btn btn-success ripple']) ?></div>
 </div>
