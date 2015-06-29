@@ -12,4 +12,5 @@ return [
     'Path' => 'Pfad',
     'Extension' => 'Dateiendung',
     'Size' => 'Größe',
+    'File' => 'Datei',
 ];

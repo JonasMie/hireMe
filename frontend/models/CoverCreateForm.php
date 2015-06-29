@@ -36,7 +36,7 @@ class CoverCreateForm extends Model
    public function attributeLabels()
     {
         return [
-            'text' => Yii::t('app', 'Anschreiben'),
+            'text' => Yii::t('application', 'Text'),
             'created_at' => Yii::t('app', 'Created At'),
         ];
     }

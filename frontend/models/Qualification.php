@@ -41,8 +41,8 @@ class Qualification extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'description' => Yii::t('app', 'Description'),
-            'file' => Yii::t('app', 'File'),
+            'description' => Yii::t('resume', 'Description'),
+            'file' => Yii::t('file', 'File'),
         ];
     }
 

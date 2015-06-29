@@ -7,47 +7,58 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\CompanySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Companies');
+$this->title = Yii::t('company', 'Company');
 ?>
 <div class="company-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
 
-<? include Yii::getAlias('@helper/companySignup.php');
-$GLOBALS['sectors'] = $sectorList;
-$GLOBALS['employees'] = $employeeAmount;?>
+    <? include Yii::getAlias('@helper/companySignup.php');
+    $GLOBALS['sectors'] = $sectorList;
+    $GLOBALS['employees'] = $employeeAmount; ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-//        'filterModel' => $searchModel,
+        'emptyCell'    => '&nbsp;',
         'columns'      => [
             [
                 'attribute' => 'name',
-                'format' => 'raw',
-                'value' => function($data){
+                'format'    => 'raw',
+                'value'     => function ($data) {
                     return Html::a($data->name, ['/company/view', 'id' => $data->id]);
                 }
             ],
-//            'street',
-//            'houseno',
-//            'zip',
-            'city',
             [
-                'attribute' => 'sector',
-                'value' => function($data) {
-                    return $GLOBALS['sectors'][$data->sector];
+                'attribute' => 'city',
+                'value' => function ($data){
+                    if($data->city){
+                        return $data->city;
+                    }
+                    return '';
                 }
             ],
             [
+                'attribute' => 'sector',
+                'value'     => function ($data) {
+                    if ($data->sector) {
+                        return $GLOBALS['sectors'][$data->sector];
+                    }
+                    return '';
+                },
+            ],
+            [
                 'attribute' => 'employeeAmount',
-                'value'  => function($data){
-                    return $GLOBALS['employees'][$data->employeeAmount];
+                'value'     => function ($data) {
+                    if ($data->employeeAmount) {
+                        return $GLOBALS['employees'][$data->employeeAmount];
+                    }
+                    return '';
                 }
             ],
 
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class'    => 'yii\grid\ActionColumn',
                 'template' => '{view}'
             ],
         ],

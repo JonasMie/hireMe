@@ -54,7 +54,7 @@ class File extends \yii\db\ActiveRecord
                 'path' => Yii::t('file', 'Path'),
                 'extension' => Yii::t('file', 'Extension'),
                 'size' => Yii::t('file', 'Size'),
-                'title' => Yii::t('file', 'Titel'),
+                'title' => Yii::t('file', 'Title'),
             ];
     
     }

@@ -76,12 +76,12 @@ class SettingsModel extends Model
     public function attributeLabels()
     {
         return [
-            'visibility'      => 'Sichtbarkeit',
-            'oldPassword'     => 'Altes Passwort',
-            'password'        => 'Neues Passwort',
-            'password_repeat' => 'Passwort-Bestätigung',
-            'picture'         => 'Profilbild',
-            'plz'             => Yii::t('geo', 'plz')
+            'visibility'      => Yii::t('settings', 'Visibility'),
+            'oldPassword'     => Yii::t('settings', 'Old Password'),
+            'password'        => Yii::t('settings', 'Password'),
+            'password_repeat' => Yii::t('settings', 'Password Repeat'),
+            'picture'         => Yii::t('settings', 'Picture'),
+            'plz'             => Yii::t('geo', 'Plz')
         ];
     }
 

@@ -57,9 +57,27 @@ class JobCreateForm extends Model
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attributeLabels()
     {
         return [
+            'id'          => 'ID',
+            'description' => Yii::t('job', 'Description'),
+            'job_begin'   => Yii::t('job', 'Job Begin'),
+            'job_end'     => Yii::t('job', 'Job End'),
+            'zip'         => Yii::t('geo', 'Zip'),
+            'sector'      => Yii::t('company', 'Sector'),
+            'company_id'  => Yii::t('company', 'Company ID'),
+            'active'      => Yii::t('job', 'Active'),
+            'created_at'  => Yii::t('job', 'Created At'),
+            'updated_at'  => Yii::t('job', 'Updated At'),
+            'title'       => Yii::t('job', 'Title'),
+            'type'        => Yii::t('job', 'Type'),
+            'city'        => Yii::t('geo', 'City'),
+            'time'        => Yii::t('job', 'Time'),
+            'allocated'   => Yii::t('job', 'Allocated'),
             'checkLocationBased' => 'Ortsbasiert',
         ];
     }

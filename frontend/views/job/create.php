@@ -12,11 +12,11 @@ CreateJobAsset::register($this);
 include Yii::getAlias('@helper/companySignup.php');
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Job */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $model frontend\models\JobCreateForm */
+
 
 $this->title = 'Stellenanzeige erstellen';
-/* @var $model frontend\models\Job */
 
 ?>
 <div class="job-create">
