@@ -282,6 +282,7 @@ class ApplicationController extends Controller
         else {
             //Archived application :(
         $app->archived = 1;
+        $app->state="Absage";
         if($app->save()) {
             $message->content = "Leider hat sich das Unternehmen nicht für deine Bewerbung entschieden.";
             if($message->save()) {
