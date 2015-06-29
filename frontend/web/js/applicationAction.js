@@ -8,6 +8,7 @@
 
 jQuery('#appAction.dropdown').on('click', '.action_archive, .action_invite, .action_hire', function (e) {
     e.preventDefault();
+    identifiers = [];
     var $_this = jQuery(this);
     $gridView = $('#w' + $_this.closest("div #appAction").data('index'));
     $gridView.bulkAction($_this,"application");
