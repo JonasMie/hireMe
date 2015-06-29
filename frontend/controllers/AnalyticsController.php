@@ -31,6 +31,7 @@ class AnalyticsController extends Controller
     }
     public function actionJsonDetail($id) {
 
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect('/dashboard');}
         $analytics = new Analytics();
         $applier = $analytics->getAppliesForJob($id);
 
@@ -63,6 +64,7 @@ class AnalyticsController extends Controller
 
     public function actionJson() {
 
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect('/dashboard');}
          $id = Yii::$app->user->identity->company_id;
          $analytics = new Analytics();
          $applier = $analytics->getApplier($id);
@@ -127,6 +129,7 @@ class AnalyticsController extends Controller
 
     public function actionIndex()
     {
+         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect('/dashboard');}
          $id = Yii::$app->user->identity->company_id;
          Yii::trace("Company: ".$id);
     	 $analytics = new Analytics();
@@ -176,7 +179,8 @@ class AnalyticsController extends Controller
 
 
     public function actionDetail($id) {
-
+        
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect('/dashboard');}
         $analytics = new Analytics();
         $applier = $analytics->getAppliesForJob($id);
         $viewClickData =  $analytics->getAllViewsAndClicksForJob($id);
