@@ -6,7 +6,7 @@
 
  var identifiers = [];
 
-jQuery('#appAction.dropdown').on('click', '.action_archive, .action_invite, .action_hire', function (e) {
+jQuery('#appAction.dropdown').on('click', '.action_archive, .action_invite, .action_hire, .action_read, .action_unread', function (e) {
     e.preventDefault();
     identifiers = [];
     var $_this = jQuery(this);
@@ -62,6 +62,32 @@ jQuery('#appAction.dropdown').on('click', '.action_archive, .action_invite, .act
                     jQuery.ajax({
                         url: "/" + page + "/dropdown-action",
                         data: {ids: identifiers,action:"hire"},
+                        type: 'POST',
+                        async: false
+                });
+                break;
+            case "action_read":
+                keys.forEach(function (key) {
+                   var realID = jQuery("tr[data-key='" + key + "']").children('td.footable-last-column').text();
+                   identifiers.push(realID);
+                });
+                console.log("identifiers: "+identifiers);
+                    jQuery.ajax({
+                        url: "/" + page + "/dropdown-action",
+                        data: {ids: identifiers,action:"read"},
+                        type: 'POST',
+                        async: false
+                });
+                break;
+            case "action_unread":
+                keys.forEach(function (key) {
+                   var realID = jQuery("tr[data-key='" + key + "']").children('td.footable-last-column').text();
+                   identifiers.push(realID);
+                });
+                console.log("identifiers: "+identifiers);
+                    jQuery.ajax({
+                        url: "/" + page + "/dropdown-action",
+                        data: {ids: identifiers,action:"unread"},
                         type: 'POST',
                         async: false
                 });

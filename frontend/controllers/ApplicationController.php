@@ -132,6 +132,8 @@ class ApplicationController extends Controller
             'id' => $companyId,
             'title' => $indiTitle,
             'provider' => $dataProvider,
+            'new' => $new,
+
         ]);
 
      } 
@@ -478,10 +480,20 @@ class ApplicationController extends Controller
             else if($action == "hire") {
             $message->content = "Herzlichen Glückwunsch! Soeben wurdest du von ".$applier->fullName. " für den Job ". $job->title." eingestellt.";
             }
-            $message->save();
-
+            if(($action != "read") && ($action != "unread")) {$message->save();}
+            else {
+                if($action == "read") {
+                    $app->read = 1;
+                    $app->save();
+                }
+                else if($action == "unread"){
+                    $app->read = 0;
+                    $app->save();
+                }
+            }
         }
-        $this->redirect("/application");
+        if($action == "read" || $action == "unread") {$this->redirect("/application?new=true");}
+        else {$this->redirect("/application");}
     }
 
     /**

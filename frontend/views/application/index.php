@@ -122,7 +122,7 @@ $this->title = 'Bewerbungen';
 								return Html::encode($data['id']);
 						},
 						'headerOptions'  => ['class' => 'seventh-col','data-hide' => 'mediaXXsmall,mediaXsmall,mediaSmall,phone'],
-						'contentOptions' => ['class' => 'seventh-col appID'],
+						'contentOptions' => ['class' => 'seventh-col appID hidden'],
 					], 
 
 				],
@@ -146,6 +146,15 @@ $this->title = 'Bewerbungen';
 		            <li class="action_hire">
 		                <a href="#" tabindex="-1">Stelle besetzen</a>
 		            </li>
+		           <? if ($new == true): ?>
+		           <li class="action_read">
+		                <a href="#" tabindex="-1">Als gelesen markieren</a>
+		            </li>
+		           <? else: ?>
+		            <li class="action_unread">
+		                <a href="#" tabindex="-1">Als ungelesen markieren</a>
+		            </li>
+		           <? endif; ?>
 		        </ul>
 		    </div>
 			<? endif; ?>
