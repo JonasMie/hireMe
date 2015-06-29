@@ -449,6 +449,27 @@ class ApplicationController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionDeleteApp() {
+        $ids = Yii::$app->request->post('ids');
+        for ($i=0; $i < count($ids); $i++) { 
+            $tmpID = $ids[$i];
+
+            $app = Application::findOne($tmpID);
+            $job = Job::findOne($app->job_id);
+            $user = Yii::$app->user->identity;
+
+            $message = new Message();
+            $message->subject = "Deine Bewerbung als: ".$job->title;
+            $message->sender_id = $user->id;
+            $message->receiver_id = $app->user_id;
+            $message->content = "Leider hat sich das Unternehmen nicht für deine Bewerbung entschieden.";
+            $message->save();
+            $app->delete();
+
+        }
+        $this->redirect("/application");
+    }
+
     /**
      * Finds the Application model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
