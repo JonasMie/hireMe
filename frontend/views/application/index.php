@@ -128,6 +128,7 @@ $this->title = 'Bewerbungen';
 				],
 
 			]); ?>  
+			<br>
 			<? if ($provider->count > 0): ?>
 		    <div class="dropdown" id="appAction" data-index="0">
 		        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

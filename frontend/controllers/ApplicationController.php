@@ -449,22 +449,36 @@ class ApplicationController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionDeleteApp() {
+    public function actionDropdownAction() {
+
         $ids = Yii::$app->request->post('ids');
+        $action = Yii::$app->request->post('action');
+
         for ($i=0; $i < count($ids); $i++) { 
             $tmpID = $ids[$i];
-
             $app = Application::findOne($tmpID);
             $job = Job::findOne($app->job_id);
             $user = Yii::$app->user->identity;
+            $applier = User::findOne($app->user_id);
 
             $message = new Message();
             $message->subject = "Deine Bewerbung als: ".$job->title;
             $message->sender_id = $user->id;
-            $message->receiver_id = $app->user_id;
-            $message->content = "Leider hat sich das Unternehmen nicht für deine Bewerbung entschieden.";
-            $message->save();
+            $message->receiver_id = $applier->id;
+            
+            if($action == "archive") {
             $app->delete();
+            $message->content = "Leider hat sich das Unternehmen nicht für deine Bewerbung entschieden.";
+            }
+            else if($action == "invite") {
+            $app->state = "Vorstellungsgespräch";
+            $app->save();
+            $message->content = "Herzlichen Glückwunsch, du wurdest zu einem Vorstellungsgespräch eingeladen. Kontaktiere nun den Rercuiter um weitere Informationen zu erhalten";  
+            }
+            else if($action == "hire") {
+            $message->content = "Herzlichen Glückwunsch! Soeben wurdest du von ".$applier->fullName. " für den Job ". $job->title." eingestellt.";
+            }
+            $message->save();
 
         }
         $this->redirect("/application");

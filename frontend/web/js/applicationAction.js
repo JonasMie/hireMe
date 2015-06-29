@@ -31,8 +31,8 @@ jQuery('#appAction.dropdown').on('click', '.action_archive, .action_invite, .act
                 console.log("identifiers: "+identifiers);
                 if (r === true) {
                     jQuery.ajax({
-                        url: "/" + page + "/delete-app",
-                        data: {ids: identifiers},
+                        url: "/" + page + "/dropdown-action",
+                        data: {ids: identifiers,action:"archive"},
                         type: 'POST',
                         async: false
                     });
@@ -41,13 +41,29 @@ jQuery('#appAction.dropdown').on('click', '.action_archive, .action_invite, .act
                 }
                 break;
             case "action_invite":
-                jQuery.get("/message/read", {keys: keys, type: 'unread'}, function (res) {
-                    changeClasses(keys, type, res);
+                keys.forEach(function (key) {
+                   var realID = jQuery("tr[data-key='" + key + "']").children('td.footable-last-column').text();
+                   identifiers.push(realID);
+                });
+                console.log("identifiers: "+identifiers);
+                    jQuery.ajax({
+                        url: "/" + page + "/dropdown-action",
+                        data: {ids: identifiers,action:"invite"},
+                        type: 'POST',
+                        async: false
                 });
                 break;
             case "action_hire":
-                jQuery.get("/message/read", {keys: keys, type: 'read'}, function (res) {
-                    changeClasses(keys, type, res)
+                keys.forEach(function (key) {
+                   var realID = jQuery("tr[data-key='" + key + "']").children('td.footable-last-column').text();
+                   identifiers.push(realID);
+                });
+                console.log("identifiers: "+identifiers);
+                    jQuery.ajax({
+                        url: "/" + page + "/dropdown-action",
+                        data: {ids: identifiers,action:"hire"},
+                        type: 'POST',
+                        async: false
                 });
                 break;
         }
