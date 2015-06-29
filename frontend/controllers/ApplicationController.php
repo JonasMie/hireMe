@@ -89,7 +89,6 @@ class ApplicationController extends Controller
         ->where(["id" => $id])->one();
         Yii::trace("file title: ".$file->title);
         $user_id = $file->user_id;
-        
         $this->redirect("/uploads".$file->path.'.'.$file->extension);
         
     }
@@ -155,13 +154,9 @@ class ApplicationController extends Controller
             ]
             ],
         ]);
-        
 
         $applications = new ApplicationSearch();        
         $savedProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Gespeichert']]);
-        //$sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id]]);
-
-
 
        return $this->render('index', [
             'savedProvider' => $savedProvider,
@@ -173,6 +168,7 @@ class ApplicationController extends Controller
 
     public function actionChangeScore() {
 
+    if(Yii::$app->user->identity->isRecruiter()) {
           if (Yii::$app->request->isAjax) {
             $score = Yii::$app->request->get('score');
             $appID = Yii::$app->request->get('app');
@@ -180,6 +176,8 @@ class ApplicationController extends Controller
             $app->score = $score;
             $app->save();
         }
+    }
+    else {$this->redirect("/dashboard");}
     }
 
     /**
@@ -249,6 +247,9 @@ class ApplicationController extends Controller
 
     public function actionAppAction($app,$act) {
         $user = Yii::$app->user->identity;
+
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/application");}
+
         $app = Application::findOne($app);
         $job = Job::find()->where(['id' => $app->job_id])->one();
 
@@ -289,6 +290,8 @@ class ApplicationController extends Controller
 
     public function actionDataHandler($id,$appID,$direction) { // expects app data id.
 
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
         Yii::trace("file id:".$id);
         $app = Application::findOne($appID);
 
@@ -323,14 +326,29 @@ class ApplicationController extends Controller
      */
     public function actionSend($id) {
 
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
         $app = Application::findOne($id);
         $app->state = "Versendet";
         $app->sent = 1;
         $app->save();
 
+        $newSQL = "SELECT a.id, a.created_at, a.state, j.id as jobID from application a, job j WHERE a.job_id = j.id and a.state != 'Gespeichert' and a.user_id =".Yii::$app->user->identity->id;
+        $sentProvider = new SqlDataProvider([
+            'sql' => $newSQL,
+            'sort' => [
+                'attributes' => [
+                'title','created_at','state'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,   
+                'created_at' => SORT_ASC,
+            ]
+            ],
+        ]);
+
         $applications = new ApplicationSearch();        
         $savedProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Gespeichert']]);
-        $sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Versendet']]);
 
        return $this->render('index', [
             'savedProvider' => $savedProvider,
@@ -340,6 +358,8 @@ class ApplicationController extends Controller
 
     public function actionAddData($id)
     {
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
         $user = Yii::$app->user->identity;
 
         $app = Application::findOne($id);
@@ -393,6 +413,8 @@ class ApplicationController extends Controller
 
     public function actionSaveCover() {
 
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
          if (Yii::$app->request->isAjax) {
 
               $model = new CoverCreateForm();
@@ -411,7 +433,7 @@ class ApplicationController extends Controller
     }
 
     public static function getFileTitle($id) { //expected app data id
-
+        
         $file = File::findOne($id);
         return $file->title;
 
@@ -432,31 +454,6 @@ class ApplicationController extends Controller
 
     }
 
-    public function actionUpdateApplicationData() {
-
-    $appDatas = new ApplicationDataSearch();
-    $provider = $appDatas->search(['ApplicationDataSearch']);
-    }
-
-    /**
-     * Updates an existing Application model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-    }
-
     /**
      * Deletes an existing Application model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -471,6 +468,8 @@ class ApplicationController extends Controller
     }
 
     public function actionDropdownAction() {
+
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/application");}
 
         $ids = Yii::$app->request->post('ids');
         $action = Yii::$app->request->post('action');
