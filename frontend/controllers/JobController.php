@@ -62,6 +62,8 @@ class JobController extends Controller
 
     public function actionCreateBtn($id)
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $model = new ApplyBtn();
@@ -83,6 +85,8 @@ class JobController extends Controller
 
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
          if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $btn = ApplyBtn::findOne($id);
@@ -97,6 +101,8 @@ class JobController extends Controller
 
     public function actionIndex($dist = null)
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         if (Yii::$app->user->identity->isRecruiter()) {
             $companyId = Yii::$app->user->identity->getCompanyId();
             Yii::trace("Company ID: " . $companyId);
@@ -131,6 +137,8 @@ class JobController extends Controller
 
     public function actionGeneration($id)
     { //expecting job id
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
         Yii::trace("called");
         $key = $this->generateBtn($id);
@@ -148,6 +156,8 @@ class JobController extends Controller
 
     public function actionView($id)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         $query = ApplyBtn::find()
             ->where(['job_id' => $id])
             ->orderBy('id');
@@ -165,6 +175,7 @@ class JobController extends Controller
 
     public function actionSaveFavorit()
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
     if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/job");}
         if (Yii::$app->request->isAjax) {
@@ -195,6 +206,8 @@ class JobController extends Controller
 
     public function actionCreateApp()
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         if (Yii::$app->request->isAjax) {
@@ -327,6 +340,8 @@ class JobController extends Controller
 
     public function actionSend()
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
     if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         if (Yii::$app->request->isAjax) {
@@ -345,7 +360,7 @@ class JobController extends Controller
 
     public function actionApply($key, $user)
     {
-
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
     if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $app = new Application();
@@ -376,6 +391,8 @@ class JobController extends Controller
 
     public function getAppIDByKeyAndUser($key, $user)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
     if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/application");}
 
         $app = new Application();
@@ -407,6 +424,8 @@ class JobController extends Controller
 
     public function actionApplyIntern($id)
     { // expected job id
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
     if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $user = Yii::$app->user->identity;
@@ -472,6 +491,8 @@ class JobController extends Controller
 
     public function actionCreate()
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
     if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $model = new JobCreateForm();
@@ -617,6 +638,8 @@ class JobController extends Controller
 
     public function actionUpdateJob($id)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
     if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $model = $this->findModel($id);
@@ -640,6 +663,8 @@ class JobController extends Controller
      */
     public function actionDeleteJob($id)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
         $this->findModel($id)->delete();
 

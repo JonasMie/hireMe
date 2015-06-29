@@ -95,6 +95,7 @@ class ApplicationController extends Controller
     
     public function actionIndex($new=null)
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         if (Yii::$app->user->identity->isRecruiter()) {
         
@@ -167,7 +168,7 @@ class ApplicationController extends Controller
     }
 
     public function actionChangeScore() {
-
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
     if(Yii::$app->user->identity->isRecruiter()) {
           if (Yii::$app->request->isAjax) {
             $score = Yii::$app->request->get('score');
@@ -188,6 +189,7 @@ class ApplicationController extends Controller
 
     public function actionView($id)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         $app = Application::findOne($id);
         Yii::trace("Bewerbung: ".$app->id);
@@ -246,6 +248,8 @@ class ApplicationController extends Controller
     }
 
     public function actionAppAction($app,$act) {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         $user = Yii::$app->user->identity;
 
         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/application");}
@@ -289,6 +293,7 @@ class ApplicationController extends Controller
     }
 
     public function actionDataHandler($id,$appID,$direction) { // expects app data id.
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
     if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
@@ -325,6 +330,7 @@ class ApplicationController extends Controller
      * @return mixed
      */
     public function actionSend($id) {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
@@ -358,6 +364,8 @@ class ApplicationController extends Controller
 
     public function actionAddData($id)
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $user = Yii::$app->user->identity;
@@ -412,6 +420,7 @@ class ApplicationController extends Controller
     }
 
     public function actionSaveCover() {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
     if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
@@ -468,6 +477,7 @@ class ApplicationController extends Controller
     }
 
     public function actionDropdownAction() {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/application");}
 

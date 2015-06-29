@@ -40,6 +40,7 @@ class AttachementController extends Controller
     }
 
     public function actionShowFile($id) {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         $file = File::find()
         ->where(["id" => $id])->one();
@@ -50,6 +51,7 @@ class AttachementController extends Controller
     }
 
     public function actionUpdate($id) {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
@@ -68,6 +70,7 @@ class AttachementController extends Controller
     
 
     public function actionDeleteFile($id) {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
@@ -95,6 +98,8 @@ class AttachementController extends Controller
 
     public function actionIndex()
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
         
     	$user = Yii::$app->user->identity;
