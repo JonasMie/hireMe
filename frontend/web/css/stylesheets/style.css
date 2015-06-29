@@ -1041,89 +1041,93 @@ body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 465, ../sass/_basicTemplate.scss */
+/* line 462, ../sass/_basicTemplate.scss */
+body .has-success .twitter-typeahead .tt-input, body .has-success .twitter-typeahead .tt-hint {
+  border-bottom: 2px solid #5dca88;
+}
+/* line 471, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 473, ../sass/_basicTemplate.scss */
+/* line 479, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 480, ../sass/_basicTemplate.scss */
+/* line 486, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 486, ../sass/_basicTemplate.scss */
+/* line 492, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 493, ../sass/_basicTemplate.scss */
+/* line 499, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 497, ../sass/_basicTemplate.scss */
+/* line 503, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 503, ../sass/_basicTemplate.scss */
+/* line 509, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
-/* line 508, ../sass/_basicTemplate.scss */
+/* line 514, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown {
   padding: 0;
 }
-/* line 510, ../sass/_basicTemplate.scss */
+/* line 516, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed {
   color: #9d9d9d;
 }
-/* line 513, ../sass/_basicTemplate.scss */
+/* line 519, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 516, ../sass/_basicTemplate.scss */
+/* line 522, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th {
   border-radius: 0px;
 }
-/* line 518, ../sass/_basicTemplate.scss */
+/* line 524, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th:hover {
   background-color: #309156;
   border-radius: 0px;
 }
-/* line 524, ../sass/_basicTemplate.scss */
+/* line 530, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(2) {
   background-color: #2d312f;
 }
-/* line 526, ../sass/_basicTemplate.scss */
+/* line 532, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(2) th {
   border-radius: 0px;
 }
-/* line 531, ../sass/_basicTemplate.scss */
+/* line 537, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody {
   background-color: #fff;
 }
-/* line 534, ../sass/_basicTemplate.scss */
+/* line 540, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.selected {
   background-color: #fff;
   color: #9d9d9d;
   font-weight: lighter;
 }
-/* line 539, ../sass/_basicTemplate.scss */
+/* line 545, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.today {
   border-radius: 50%;
   background-color: #dddddd;
   color: #fff;
 }
-/* line 548, ../sass/_basicTemplate.scss */
+/* line 554, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.day:not(.today):not(.active):hover,
 body div.datepicker-dropdown table.table-condensed tbody tr td.selected:not(.today):not(.active):hover,
 body div.datepicker-dropdown table.table-condensed tbody tr span.month:not(.active):hover,
@@ -1132,73 +1136,73 @@ body div.datepicker-dropdown table.table-condensed tbody tr span.year:not(.activ
   color: #fff;
   border-radius: 50%;
 }
-/* line 554, ../sass/_basicTemplate.scss */
+/* line 560, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.active, body div.datepicker-dropdown table.table-condensed tbody tr span.active {
   border-radius: 50%;
   background-color: #5dca88;
   color: #fff;
 }
-/* line 560, ../sass/_basicTemplate.scss */
+/* line 566, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td {
   padding: 10px;
 }
-/* line 570, ../sass/_basicTemplate.scss */
+/* line 576, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown div.datepicker-months table tbody tr td, body div.datepicker-dropdown div.datepicker-years table tbody tr td {
   width: 250px;
 }
-/* line 582, ../sass/_basicTemplate.scss */
+/* line 588, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange span.input-group-addon.kv-field-separator {
   display: none;
 }
-/* line 585, ../sass/_basicTemplate.scss */
+/* line 591, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from,
 body .input-group.input-daterange .kv-container-to {
   box-shadow: none;
   max-width: 250px;
 }
-/* line 589, ../sass/_basicTemplate.scss */
+/* line 595, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from input,
 body .input-group.input-daterange .kv-container-to input {
   max-width: 250px;
   border-bottom: 2px solid #dddddd;
 }
 @media (max-width: 767px) {
-  /* line 585, ../sass/_basicTemplate.scss */
+  /* line 591, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from,
   body .input-group.input-daterange .kv-container-to {
     width: 250px;
     margin-top: 0px;
   }
 }
-/* line 598, ../sass/_basicTemplate.scss */
+/* line 604, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from {
   margin-right: 20px;
 }
 @media (max-width: 767px) {
-  /* line 598, ../sass/_basicTemplate.scss */
+  /* line 604, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from {
     margin-right: 20px;
     margin-bottom: 50px;
   }
 }
 @media (max-width: 767px) {
-  /* line 606, ../sass/_basicTemplate.scss */
+  /* line 612, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from {
     max-width: 100%;
   }
-  /* line 609, ../sass/_basicTemplate.scss */
+  /* line 615, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 50px;
   }
 }
 @media (max-width: 767px) and (max-width: 767px) {
-  /* line 609, ../sass/_basicTemplate.scss */
+  /* line 615, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 0px;
   }
 }
 
-/* line 625, ../sass/_basicTemplate.scss */
+/* line 631, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection {
   border: 0;
   -webkit-border-radius: 0;
@@ -1208,39 +1212,39 @@ body form:not(#form-signup) .form-group .select2-container--krajee .selection .s
   border-bottom: 2px solid #dddddd;
   background: none;
 }
-/* line 633, ../sass/_basicTemplate.scss */
+/* line 639, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(1) {
   color: #9d9d9d;
 }
-/* line 636, ../sass/_basicTemplate.scss */
+/* line 642, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) {
   border: 0;
 }
-/* line 638, ../sass/_basicTemplate.scss */
+/* line 644, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) b {
   border-color: #9d9d9d transparent transparent;
 }
-/* line 646, ../sass/_basicTemplate.scss */
+/* line 652, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b {
   border-color: transparent transparent #9d9d9d !important;
 }
-/* line 652, ../sass/_basicTemplate.scss */
+/* line 658, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group.has-success .select2-selection {
   border-bottom: 2px solid #5dca88 !important;
 }
 
-/* line 665, ../sass/_basicTemplate.scss */
+/* line 671, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   border: 0;
 }
-/* line 671, ../sass/_basicTemplate.scss */
+/* line 677, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search {
   padding-top: 10px;
 }
-/* line 673, ../sass/_basicTemplate.scss */
+/* line 679, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search input.select2-search__field {
   border: 0;
   border-radius: 0;
@@ -1248,25 +1252,25 @@ body:not(.action-login) .select2-dropdown .select2-search input.select2-search__
   color: #9d9d9d;
   box-shadow: none;
 }
-/* line 683, ../sass/_basicTemplate.scss */
+/* line 689, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #9d9d9d;
 }
-/* line 686, ../sass/_basicTemplate.scss */
+/* line 692, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option strong {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 691, ../sass/_basicTemplate.scss */
+/* line 697, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option {
   color: #9d9d9d;
 }
-/* line 694, ../sass/_basicTemplate.scss */
+/* line 700, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 697, ../sass/_basicTemplate.scss */
+/* line 703, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li[aria-selected="true"] {
   color: #5dca88;
   background: transparent none repeat scroll 0 0;

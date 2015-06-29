@@ -458,6 +458,12 @@ body {
       }
     }
   }
+
+  .has-success .twitter-typeahead .tt-input, .has-success .twitter-typeahead .tt-hint { // BECAUSE TYPEAHEAD SUCKS AND WONT LET ME TO OVERWRITE THE BORDER-COLOR
+    border-bottom: $FormBorderFocused;
+  }
+
+
   /*END Typeahead Fix and Styling*/
   /* END BASIC FORM STYLING */
 
