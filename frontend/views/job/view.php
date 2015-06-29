@@ -121,7 +121,9 @@ $this->title = 'Stellenanzeige';
 
                 <div class="row">
                     <div class="col-sm-12">
+                        <pre>
                         <?= ($model->description) ?>
+                        </pre>
                     </div>
                     <div class="col-sm-12 apply">
                         <? if (!(Yii::$app->user->identity->isRecruiter())) {

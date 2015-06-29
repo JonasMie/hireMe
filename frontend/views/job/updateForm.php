@@ -2,7 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use frontend\assets\CreateJobAsset;
+use kartik\date\DatePicker;
+use kartik\typeahead\Typeahead;
+CreateJobAsset::register($this);
 
+include Yii::getAlias('@helper/companySignup.php');
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Job */
 /* @var $form yii\widgets\ActiveForm */
@@ -12,19 +17,43 @@ use yii\widgets\ActiveForm;
 
 <div class="job-form">
 
-     <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-                <?= $form->field($model, 'title')->label('Titel')?>
+    <div class="col-sm-6">
+            <?php $form = ActiveForm::begin(['id' => 'form-createJob']); ?>
+                <?= $form->field($model, 'title')->label('Titel')?>    
                 <?= $form->field($model, 'description')->textarea() ?>
-                <?= $form->field($model, 'job_begin')->label() ?>
-                <?= $form->field($model, 'job_end')->label() ?>
-                <?= $form->field($model, 'sector')->label("Sektor wählen") ?>
-                <?= $form->field($model, 'type')->label("Type") ?>
-                <?= $form->field($model, 'time')->label("time") ?>
+                <?=
+                DatePicker::widget([
+                    'model'         => $model,
+                    'attribute'     => 'job_begin',
+                    'attribute2'    => 'job_end',
+                    'options'       => ['placeholder' => 'Von'],
+                    'options2'      => ['placeholder' => 'Bis'],
+                    'type'          => DatePicker::TYPE_RANGE,
+                    'form'          => $form,
+                    'language'      => 'de',
+                    'separator'     => 'bis',
+                    'pluginOptions' => [
+                        'format'         => 'dd.mm.yyyy',
+                        'autoclose'      => true,
+                        'todayHighlight' => true,
+                    ]
+                ]);
+                ?>
                 <?= $form->field($model, 'zip')->label('Postleitzahl') ?>
                 <?= $form->field($model, 'city')->label('Stadt') ?>
+                 <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
+                    'data' => $sectors,
+                ])->label('Branche auswählen') ?>
+              
                 <div class="form-group">
-                    <?= Html::submitButton('Speichern', ['class' => 'btn btn-primary', 'name' => 'create-button']) ?>
+                    <br>
+                    <br>
+                    <br>
+                    <?= Html::submitButton('Speichern', ['class' => 'btn btn-success', 'name' => 'create-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
+
+
+</div>
 
 </div>
