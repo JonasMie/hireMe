@@ -112,6 +112,8 @@ class ApplicationController extends Controller
         $sql = "SELECT j.title, j.id as jobID, a.score,a.created_at, a.id , u.fullName,u.userName, u.id as userID from job j ,user u ,application a, company d where a.job_id = j.id and a.company_id = j.company_id and a.user_id = u.id and a.company_id = d.id and a.sent = 1 and a.archived = 0 and a.read = 0 and d.id = ".Yii::$app->user->identity->company_id;
         $indiTitle = "Neue Bewerbungen";
         }
+
+
        
         $dataProvider = new SqlDataProvider([
             'sql' => $sql,
@@ -139,10 +141,27 @@ class ApplicationController extends Controller
      } 
 
      else {
+        
+        $newSQL = "SELECT a.id, a.created_at, a.state, j.id as jobID from application a, job j WHERE a.job_id = j.id and a.user_id =".Yii::$app->user->identity->id;
+        $sentProvider = new SqlDataProvider([
+            'sql' => $newSQL,
+            'sort' => [
+                'attributes' => [
+                'title','created_at','state'
+            ],
+            'defaultOrder' => [
+                'title' => SORT_ASC,   
+                'created_at' => SORT_ASC,
+            ]
+            ],
+        ]);
+        
 
         $applications = new ApplicationSearch();        
         $savedProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Gespeichert']]);
-        $sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id,'state' => 'Versendet','Vorstellungsgespräch']]);
+        //$sentProvider = $applications->search(['ApplicationSearch' =>['user_id' => Yii::$app->user->identity->id]]);
+
+
 
        return $this->render('index', [
             'savedProvider' => $savedProvider,

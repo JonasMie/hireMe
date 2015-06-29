@@ -216,7 +216,7 @@ $this->title = 'Bewerbungen';
 						'label'  => 'Stellenanzeige',
 						'format' => 'raw',
 						'value'  => function ($data) {
-							return Job::getTitle($data->job_id);
+							return Job::getTitle($data['jobID']);
 						},
 						'headerOptions'  => ['class' => 'first-col'],
 						'contentOptions' => ['class' => 'first-col']
@@ -226,7 +226,7 @@ $this->title = 'Bewerbungen';
 						'label'  => 'Bewerbungsdatum',
 						'format' => 'raw',
 						'value'  => function ($data) {
-							return Html::encode($data->created_at);
+							return Html::encode($data['created_at']);
 						},
 						'headerOptions'  => ['class' => 'second-col','data-hide' => 'xsmall,phone'],
 						'contentOptions' => ['class' => 'second-col']
@@ -235,7 +235,7 @@ $this->title = 'Bewerbungen';
 						'label'  => 'Status',
 						'format' => 'raw',
 						'value'  => function ($data) {
-							return Html::encode($data->state);
+							return Html::encode($data['state']);
 						},
 						'headerOptions'  => ['class' => 'third-col','data-hide' => 'small,phone'],
 						'contentOptions' => ['class' => 'third-col']
@@ -244,7 +244,7 @@ $this->title = 'Bewerbungen';
 						'label'  => '',
 						'format' => 'raw',
 						'value'  => function ($data) {
-							return Html::a("<span class='glyphicon glyphicon-eye-open'></span>",'/application/view?id='.$data->id);
+							return Html::a("<span class='glyphicon glyphicon-eye-open'></span>",'/application/view?id='.$data['id']);
 						},
 						'headerOptions'  => ['class' => 'fourth-col'],
 						'contentOptions' => ['class' => 'fourth-col'],
