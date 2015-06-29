@@ -523,6 +523,9 @@ body {
         }
         tr:nth-of-type(2) {
           background-color: $black;
+          th {
+            border-radius: 0px;
+          }
         }
       }
       tbody {
@@ -633,8 +636,6 @@ body {
         border-color: transparent transparent $greyFont !important;
       }
     }
-
-
 
     .form-group.has-success {
       .select2-selection {
