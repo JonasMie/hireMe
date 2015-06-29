@@ -293,10 +293,29 @@ body.controller-job.action-create {
 	  margin-top: 52px;
 	}
 
+    div.kv-container-from , div.kv-container-to {
+      @media (min-width: 768px) {
+        width: 45%;
+      }
+    }
 
-
-
+    div.kv-container-from {
+      @media (min-width: 768px) {
+        margin-right: 10%;
+      }
+    }
   }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

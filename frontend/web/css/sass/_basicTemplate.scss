@@ -590,9 +590,17 @@ body {
         max-width: 250px;
         border-bottom: $FormBorderNonFocused;
       }
+      @media (max-width: 767px){
+        width: 250px;
+        margin-top: 0px;
+      }
     }
     .kv-container-from {
       margin-right: 20px;
+      @media (max-width: 767px) {
+        margin-right: 20px;
+        margin-bottom: 50px;
+      }
     }
     @media (max-width: 767px) {
       .kv-container-from {
@@ -600,6 +608,9 @@ body {
       }
       .kv-container-to {
         margin-top: 50px;
+        @media (max-width: 767px){
+          margin-top: 0px;
+        }
       }
     }
   }
