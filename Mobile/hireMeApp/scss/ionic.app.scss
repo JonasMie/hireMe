@@ -1,0 +1,110 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+$dark:							  #2d312f !default;
+$green:							  #5dca88;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+body{
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+}
+
+/* Empty. Add your own CSS if you like */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.menu{
+	background-color:$dark;
+	height: 100%;
+}
+
+.item{
+	border:none;
+}
+
+.item-complex .item-content, .item-radio .item-content,.item-complex .item-content:active, .item-radio .item-content:active,.item-complex .item-content:hover, .item-radio .item-content:hover,.item-complex .item-content:focus, .item-radio .item-content:focus{
+	background-color:$dark;
+	color:#fff;
+}
+
+.scroll{
+	height:100%;
+}
+
+ion-header-bar.bar-dark.bar.bar-header.disable-user-behavior{
+	border:none;
+}
+.menu-content{
+	background-color:$light;
+}
+
+.menu-content ion-view[view-title]{
+	padding:20px;
+}
+
+#advertisment {
+
+	margin-top: 0px;
+	height: 10%;
+}
+
+.bar-footer {
+	margin-top: 0px;
+	padding:0px;
+	height:10%;
+	background-color: blue;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.bar-dark{
+	img{
+		max-height:100%;
+		text-align: left;
+	}
+}
+
+a[href]:hover{
+	color: $green;
+	text-decoration:none;
+}
+
+
+#applyBtn {
+
+	
+	
+}
+
+pane[view-title="Home"]{
+	padding:0px;
+}
+
+div.card {
+	box-shadow:none;
+	-webkit-box-shadow:none;
+}

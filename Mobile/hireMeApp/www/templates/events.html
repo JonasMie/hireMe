@@ -1,0 +1,14 @@
+<ion-view view-title="Events">
+  <ion-content class="content">
+  <div class="list">
+    <a class="item item-avatar item-icon-right" href="#/app/events/{{event.id}}" ng-repeat="event in events">
+      <img src="img/logoSmall.png">
+    <h2>{{event.title}}</h2>
+    <p>Beginnt: {{event.begin}}</p>
+        <i class="icon ion-arrow-right-b"></i>
+    </a>
+</div>
+<button ng-click="sendData()">Senden</button>
+  </ion-content>
+</ion-view>
+
