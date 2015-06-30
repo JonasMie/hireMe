@@ -3,14 +3,15 @@ body {
   @include font-standard();
   background-color: #ffffff;
 
-  a {
-    color: $green;
+  a 
+  {
+  color:$green;
     &:focus {
       outline: none !important; //Removes the dotted line around each Anchor when clicking on it
     }
     &:hover, &:focus, &:active {
       text-decoration: none;
-      color: $green20;
+	  color: $green50;
     }
   }
 

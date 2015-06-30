@@ -128,7 +128,7 @@ use yii\helpers\Html;
                 'label'          => 'Stelle',
                 'format'         => 'raw',
                 'value'          => function ($data) {
-                    return Html::a($data->job->title, '../job/' . $data->job->title);
+                    return Html::a($data->job->title, '/job/view?id=' . $data->job->id);
                 },
                 'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'Ad'],
@@ -150,7 +150,6 @@ use yii\helpers\Html;
                     ],
                 'template'       => '{view}',
                 'headerOptions'  => ['data-hide' => 'phone'],
-                'contentOptions' => ['data-title' => 'View'],
             ],
             [
 

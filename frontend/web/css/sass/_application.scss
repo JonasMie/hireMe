@@ -1,6 +1,16 @@
 // Applications overview
 .controller-application{
 	
+	// General Stylings
+	
+	pre{
+		background-color:transparent;
+		color:$greyFont;
+		overflow:visible;
+		border-radius:0px;
+		-webkit-border-radius:0px;
+	}
+	
 	// Recruiter Stylings
 	
 	
@@ -10,13 +20,6 @@
 	a.btn{
 		&:hover{
 			color:#fff;
-		}
-	}
-	
-	a:not(.btn){
-		color:$green;
-		&:hover,&:focus,&:active{
-			color:$green50;
 		}
 	}
 	
@@ -37,6 +40,30 @@
 	
 	// Recruiter Stylings
 	
+	
+	@media screen and (max-width: 786px) {
+		#applicationsTable{
+			.footable-row-detail-row:first-of-type{
+				margin-bottom:40px;
+			}
+		}
+	}
+	
+	@media screen and (max-width: 530px) {
+		#applicationsTable{
+			.footable-row-detail-row:nth-of-type(2){
+				margin-bottom:40px;
+			}
+			.footable-row-detail-row:first-of-type{
+				margin-bottom:0px;
+			}
+		}
+	}
+	
+	div.dropdown{
+		margin-bottom:50px;
+	}
+	
 	.footable .footable-row-detail .footable-row-detail-inner{
 		border: none;
 	}
@@ -47,6 +74,9 @@
 	
 	.footable-row-detail-row{
 		padding:5px 0px;
+		a{
+			padding-top:10px;
+		}
 	}
 	
 	table#applicationsTable{
@@ -55,7 +85,7 @@
 			margin-right:8px;
 		}
 		
-		.scoreInput{
+		input.scoreInput{
 			border-radius: 50%;
 			width: 50px;
 			height: 50px;
@@ -64,6 +94,9 @@
 			text-align: center;
 			font-size: $fontbase*1.6;
 			color: $green;
+			&:focus{
+				outline: none;
+			}
 		}
 	}
 	
@@ -88,6 +121,79 @@
 	}
 }
 
+// View Application
+
+.controller-application.action-view{
+
+	// Recruiter View
+	
+	@media screen and (max-width: 630px) {
+		div.actionButtons{
+			.btn{
+				display:block;
+			}
+		}
+	}
+	
+	div.actionButtons{
+		text-align:right;
+		margin-top:10px;
+		margin-bottom:20px;
+		.btn{
+			margin-left:5px;
+			margin-right:5px;
+			margin-bottom:10px;
+		}
+	}
+	
+	div.row.first{
+		margin-top:20px;
+		
+		div.profileInfo{
+			text-align:center;
+			h2{
+				margin-top:20px;
+			}
+			img{
+				max-width:100%;
+			}
+			
+			p.date{
+				margin-top:20px;
+				margin-bottom:20px;
+			}
+		}
+		
+		input.scoreInput{
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			max-width:100%;
+			max-height:100%;
+			border: $grey 1px solid;
+			background-color: transparent;
+			text-align: center;
+			font-size: $fontbase*3;
+			color: $green;
+			&:focus{
+				outline: none;
+			}
+			
+		}
+	}
+	
+	// Applicant View
+	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+	
+
+}
 
 // Create and edit application
 .controller-application.action-add-data{
@@ -123,7 +229,6 @@
 	
 	#covercreateform-text{
 		margin-top: 20px;
-		height: 40vh;
 	}
 	
 	span.attached{
