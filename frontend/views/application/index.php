@@ -87,8 +87,8 @@ $this->title = 'Bewerbungen';
 							'value'  => function ($data) {
 								return Html::textinput($data['id'],Html::encode($data["score"]),['class' => 'scoreInput', 'id' => 'score_'.$data['id'],'name' => $data["id"]]);
 							},
-							'headerOptions'  => ['class' => 'third-col'],
-							'contentOptions' => ['class' => 'third-col allowPrefill'],
+							'headerOptions'  => ['class' => 'third-col','data-hide' => 'mediaXXsmall,mediaXsmall,phone'],
+							'contentOptions' => ['class' => 'third-col allowPrefill scoreInput'],
 					],
 					 [
 							'attribute' => 'created_at',

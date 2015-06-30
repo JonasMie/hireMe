@@ -128,7 +128,7 @@ use yii\helpers\Html;
                 'label'          => 'Stelle',
                 'format'         => 'raw',
                 'value'          => function ($data) {
-                    return Html::a($data->job->title, '../job/' . $data->job->title);
+                    return Html::a($data->job->title, '/job/view?id=' . $data->job->id);
                 },
                 'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'Ad'],
@@ -140,10 +140,13 @@ use yii\helpers\Html;
                 'headerOptions'  => ['data-hide' => 'xsmall,phone'],
                 'contentOptions' => ['data-title' => 'Date']
             ],
-            [
-                'class'          => 'yii\grid\ActionColumn',
-                'template'       => '{view}',
-                'headerOptions'  => ['data-hide' => 'phone'],
+			[
+				'format'         => 'raw',
+                'label'          => '',
+				'value'          => function ($data) {
+                    return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', '/application/view?id=' . $data->id);
+                },
+				'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'View'],
             ],
             [

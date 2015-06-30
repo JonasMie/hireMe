@@ -29,13 +29,6 @@
 		}
 	}
 	
-	a{
-		color:$green;
-		&:hover,&:focus,&:active{
-			color: $green50;
-		}
-	}
-	
 	div#searchDistance{
 		float:right;
 		margin-bottom:10px;

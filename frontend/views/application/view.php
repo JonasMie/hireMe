@@ -62,6 +62,8 @@ if (Yii::$app->user->identity->isRecruiter()){
 				
 					<?= $model["user"]->getProfilePicture() ?>
 				
+				<p class="date">Datum: <?= $model["created"];?></p>
+				
 				</div>
 				
 				<div class="col-sm-12">
@@ -69,44 +71,6 @@ if (Yii::$app->user->identity->isRecruiter()){
 					<div class="allowPrefill">
 						<?= Html::textinput($model['app']->id,Html::encode($model["app"]->score),['class' => 'scoreInput', 'id' => 'score_'.$model['app']->score,'name' => $model["app"]->score]); ?>
 					</div>
-				</div>
-				
-				<div class="col-sm-12 attachments">
-		
-					<h2>Anlagen</h2>
-					<?= GridView::widget([
-						'dataProvider' => $appDataProvider,
-						'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'uploadedRecruiterView'],
-						'id' => "uploadedGrid",
-						'columns'      => [
-								[
-								'label'  => 'Titel',
-								'format' => 'raw',
-								'value'  => function ($data) {
-									return  ApplicationController::getFileTitle($data->file_id);
-								},				
-								'headerOptions'  => ['class' => 'first-col'],
-								'contentOptions' => ['class' => 'first-col'],
-								], 
-								[
-								'label'  => '',
-								'format' => 'raw',
-								'value'  => function ($data) {
-									return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
-								},
-								'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
-									'contentOptions' => ['class' => 'second-col'],
-								],
-								[
-								'class'          => 'yii\grid\Column',
-								'headerOptions'  => ['data-toggle' => 'true'],
-								'contentOptions' => ['data-title' => 'data-toggle'],
-								],
-							],
-						]);
-					
-					?>
-				
 				</div>
 				
 			</div>
@@ -159,20 +123,19 @@ if (Yii::$app->user->identity->isRecruiter()){
 		
 		
 		
-		<div class="col-sm-7">
-			<p>Datum: <?= $model["created"];?></p>
+		<div class="col-sm-8">
 			<h2>Anschreiben</h2>
 			<?= Html::decode("<pre>".$model['coverText']."</pre>"); ?>
 		</div>
 		
-		<div class="col-sm-7">
+		<div class="col-sm-8">
 		
 			<div class="row second">
 				<div class="col-sm-12">
 					<h2>Lebenslauf</h2>
 				</div>
 			
-				<div class="col-sm-6">
+				<div class="col-md-6">
 				<h3>Beruflich</h3>
 					<?= GridView::widget([
 						'dataProvider' => $jobProvider,
@@ -239,7 +202,7 @@ if (Yii::$app->user->identity->isRecruiter()){
 				
 				
 				
-				<div class="col-sm-6">
+				<div class="col-md-6">
 				<h3>Schulisch</h3>					
 					<?= GridView::widget([
 						'dataProvider' => $schoolProvider,
@@ -302,6 +265,44 @@ if (Yii::$app->user->identity->isRecruiter()){
 					]);  
 					?>
 							
+				</div>
+				
+				<div class="col-sm-12 attachments">
+		
+					<h2>Anlagen</h2>
+					<?= GridView::widget([
+						'dataProvider' => $appDataProvider,
+						'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'uploadedRecruiterView'],
+						'id' => "uploadedGrid",
+						'columns'      => [
+								[
+								'label'  => 'Titel',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  ApplicationController::getFileTitle($data->file_id);
+								},				
+								'headerOptions'  => ['class' => 'first-col'],
+								'contentOptions' => ['class' => 'first-col'],
+								], 
+								[
+								'label'  => '',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
+								},
+								'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
+								'contentOptions' => ['class' => 'second-col'],
+								],
+								[
+								'class'          => 'yii\grid\Column',
+								'headerOptions'  => ['data-toggle' => 'true'],
+								'contentOptions' => ['data-title' => 'data-toggle'],
+								],
+							],
+						]);
+					
+					?>
+				
 				</div>
 			
 			</div>
@@ -374,12 +375,14 @@ if (Yii::$app->user->identity->isRecruiter()){
 	<? /* View as Recruiter */ ?>
 	
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
-    
-    <?= Html::a(Html::button("Nachricht senden"),"/message/create?rec=".$model["user"]->id); ?>
-    <?= Html::a(Html::button("Zum Gespräch einladen"),"/application/app-action?app=".$model["app"]->id."&act=0"); ?>
-    <?= Html::a(Html::button("Stelle besetzen"),"/application/app-action?app=".$model["app"]->id."&act=1"); ?>
-    <?= Html::a(Html::button("Archivieren"),"/application/app-action?app=".$model["app"]->id."&act=2"); ?>
-
+    <div class="row">
+	<div class="col-sm-8 col-sm-offset-4 actionButtons">
+		<?= Html::a("Archivieren","/application/app-action?app=".$model["app"]->id."&act=2",['class' => 'btn btn-success']); ?>
+		<?= Html::a("Nachricht senden","/message/create?rec=".$model["user"]->id,['class' => 'btn btn-success']); ?>
+		<?= Html::a("Zum Gespräch einladen","/application/app-action?app=".$model["app"]->id."&act=0",['class' => 'btn btn-success']); ?>
+		<?= Html::a("Stelle besetzen","/application/app-action?app=".$model["app"]->id."&act=1",['class' => 'btn btn-success']); ?>
+	</div>
+	</div>
     <? endif; ?>
 
 	<? /* View as Recruiter Emd */ ?>

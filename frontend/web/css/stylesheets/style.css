@@ -612,47 +612,52 @@ body {
   /*END PROFILE PICTURE */
   /* Bulk Action Dropdown */
 }
-/* line 7, ../sass/_basicTemplate.scss */
+/* line 6, ../sass/_basicTemplate.scss */
+body a {
+  color: #5dca88;
+}
+/* line 9, ../sass/_basicTemplate.scss */
 body a:focus {
   outline: none !important;
 }
-/* line 10, ../sass/_basicTemplate.scss */
+/* line 12, ../sass/_basicTemplate.scss */
 body a:hover, body a:focus, body a:active {
   text-decoration: none;
+  color: rgba(93, 202, 136, 0.5);
 }
-/* line 18, ../sass/_basicTemplate.scss */
+/* line 21, ../sass/_basicTemplate.scss */
 body #bulkActions button span.caret {
   border-bottom: 4px solid transparent;
   border-top: 4px solid transparent;
   border-left: 4px solid #fff;
 }
-/* line 25, ../sass/_basicTemplate.scss */
+/* line 28, ../sass/_basicTemplate.scss */
 body #bulkActions button[aria-expanded="true"] span.caret {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #fff;
 }
-/* line 31, ../sass/_basicTemplate.scss */
+/* line 34, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu {
   padding-bottom: 0px;
   padding-top: 0px;
   border-radius: 0px;
   border: 1px solid #dddddd;
 }
-/* line 37, ../sass/_basicTemplate.scss */
+/* line 40, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu > li:hover {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 40, ../sass/_basicTemplate.scss */
+/* line 43, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu > li a {
   font-weight: 300;
   color: #9d9d9d;
 }
-/* line 43, ../sass/_basicTemplate.scss */
+/* line 46, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu > li a:hover {
   background: none;
 }
-/* line 57, ../sass/_basicTemplate.scss */
+/* line 60, ../sass/_basicTemplate.scss */
 body .btn {
   border-radius: 0;
   border: none;
@@ -661,31 +666,31 @@ body .btn {
   box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
   font-weight: 300;
 }
-/* line 64, ../sass/_basicTemplate.scss */
+/* line 67, ../sass/_basicTemplate.scss */
 body .btn:focus {
   outline: none !important;
 }
-/* line 67, ../sass/_basicTemplate.scss */
+/* line 70, ../sass/_basicTemplate.scss */
 body .btn:active {
   box-shadow: none;
 }
-/* line 72, ../sass/_basicTemplate.scss */
+/* line 75, ../sass/_basicTemplate.scss */
 body .btn.btn-success,
 body .btn.btn-success:active {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 77, ../sass/_basicTemplate.scss */
+/* line 80, ../sass/_basicTemplate.scss */
 body .btn.btn-default,
 body .btn.btn-default:active {
   background-color: #2d312f;
   color: #fff;
 }
-/* line 85, ../sass/_basicTemplate.scss */
+/* line 88, ../sass/_basicTemplate.scss */
 body .ripple {
   position: relative;
 }
-/* line 87, ../sass/_basicTemplate.scss */
+/* line 90, ../sass/_basicTemplate.scss */
 body .ripple svg {
   position: absolute;
   top: 0;
@@ -693,11 +698,11 @@ body .ripple svg {
   width: 100%;
   height: 100%;
 }
-/* line 94, ../sass/_basicTemplate.scss */
+/* line 97, ../sass/_basicTemplate.scss */
 body .ripple circle {
   fill: rgba(255, 255, 255, 0.1);
 }
-/* line 101, ../sass/_basicTemplate.scss */
+/* line 104, ../sass/_basicTemplate.scss */
 body table.hireMeTable {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
@@ -707,34 +712,34 @@ body table.hireMeTable {
   border: 1px solid #dddddd;
   width: 100%;
 }
-/* line 113, ../sass/_basicTemplate.scss */
+/* line 116, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th {
   border-bottom: 1px solid #dddddd;
   padding: 8px;
   text-align: left;
 }
-/* line 118, ../sass/_basicTemplate.scss */
+/* line 121, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a {
   color: #9d9d9d;
   text-decoration: none;
 }
-/* line 121, ../sass/_basicTemplate.scss */
+/* line 124, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a:hover {
   color: #5dca88;
 }
-/* line 126, ../sass/_basicTemplate.scss */
+/* line 129, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.asc::after {
   content: "\e093";
 }
-/* line 131, ../sass/_basicTemplate.scss */
+/* line 134, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.desc::after {
   content: "\e094";
 }
-/* line 142, ../sass/_basicTemplate.scss */
+/* line 145, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr:hover {
   background-color: rgba(93, 202, 136, 0.2) !important;
 }
-/* line 146, ../sass/_basicTemplate.scss */
+/* line 149, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td {
   vertical-align: middle;
   height: 72px;
@@ -742,83 +747,83 @@ body table.hireMeTable tbody tr td {
   padding: 8px;
   font-weight: 300;
 }
-/* line 153, ../sass/_basicTemplate.scss */
+/* line 156, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a {
   color: #9d9d9d;
   text-decoration: none;
   font-weight: 300;
 }
-/* line 157, ../sass/_basicTemplate.scss */
+/* line 160, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a:hover {
   color: #5dca88;
 }
-/* line 162, ../sass/_basicTemplate.scss */
+/* line 165, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a.btn:hover {
   color: #fff;
 }
-/* line 176, ../sass/_basicTemplate.scss */
+/* line 179, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
   cursor: pointer;
   font-family: 'Glyphicons Halflings';
   content: "\e258";
 }
-/* line 181, ../sass/_basicTemplate.scss */
+/* line 184, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:hover {
   color: #5dca88;
 }
-/* line 186, ../sass/_basicTemplate.scss */
+/* line 189, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
   content: "\e259";
 }
-/* line 193, ../sass/_basicTemplate.scss */
+/* line 196, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell {
   padding-bottom: 0px;
 }
-/* line 196, ../sass/_basicTemplate.scss */
+/* line 199, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner {
   height: 100%;
   border-bottom: 1px solid #dddddd;
   padding-bottom: 10px;
 }
-/* line 201, ../sass/_basicTemplate.scss */
+/* line 204, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row {
   display: block;
 }
-/* line 204, ../sass/_basicTemplate.scss */
+/* line 207, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-name {
   display: inline;
   color: #5dca88;
 }
-/* line 208, ../sass/_basicTemplate.scss */
+/* line 211, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-value {
   display: inline;
   float: right;
 }
-/* line 221, ../sass/_basicTemplate.scss */
+/* line 224, ../sass/_basicTemplate.scss */
 body ul.pagination li a {
   border-color: #dddddd;
   color: #5dca88;
 }
-/* line 224, ../sass/_basicTemplate.scss */
+/* line 227, ../sass/_basicTemplate.scss */
 body ul.pagination li a:hover {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 231, ../sass/_basicTemplate.scss */
+/* line 234, ../sass/_basicTemplate.scss */
 body ul.pagination li.active a, body ul.pagination li.active a:hover {
   background-color: #5dca88;
   border-color: #dddddd;
   color: #fff;
 }
-/* line 238, ../sass/_basicTemplate.scss */
+/* line 241, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled a {
   color: #9d9d9d;
 }
-/* line 241, ../sass/_basicTemplate.scss */
+/* line 244, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled span {
   color: #9d9d9d;
 }
-/* line 249, ../sass/_basicTemplate.scss */
+/* line 252, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green, body .iradio_flat-green {
   display: inline-block;
   *display: inline;
@@ -832,58 +837,58 @@ body .icheckbox_flat-green, body .iradio_flat-green {
   cursor: pointer;
   background-position: 0 0;
 }
-/* line 263, ../sass/_basicTemplate.scss */
+/* line 266, ../sass/_basicTemplate.scss */
 body .iradio_flat-green {
   background-position: -88px 0;
 }
-/* line 267, ../sass/_basicTemplate.scss */
+/* line 270, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked {
   background-position: -22px 0;
 }
-/* line 271, ../sass/_basicTemplate.scss */
+/* line 274, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked {
   background-position: -110px 0;
 }
-/* line 275, ../sass/_basicTemplate.scss */
+/* line 278, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.disabled {
   background-position: -44px 0;
   cursor: default;
 }
-/* line 280, ../sass/_basicTemplate.scss */
+/* line 283, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.disabled {
   background-position: -132px 0;
   cursor: default;
 }
-/* line 285, ../sass/_basicTemplate.scss */
+/* line 288, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked.disabled {
   background-position: -66px 0;
 }
-/* line 289, ../sass/_basicTemplate.scss */
+/* line 292, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked.disabled {
   background-position: -154px 0;
 }
-/* line 293, ../sass/_basicTemplate.scss */
+/* line 296, ../sass/_basicTemplate.scss */
 body .radio label, body .checkbox label {
   font-weight: 300;
 }
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-  /* line 299, ../sass/_basicTemplate.scss */
+  /* line 302, ../sass/_basicTemplate.scss */
   body .icheckbox_flat-green, body .iradio_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
-/* line 308, ../sass/_basicTemplate.scss */
+/* line 311, ../sass/_basicTemplate.scss */
 body legend {
   color: #9d9d9d;
 }
-/* line 313, ../sass/_basicTemplate.scss */
+/* line 316, ../sass/_basicTemplate.scss */
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
-/* line 317, ../sass/_basicTemplate.scss */
+/* line 320, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -897,11 +902,11 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-/* line 326, ../sass/_basicTemplate.scss */
+/* line 329, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 331, ../sass/_basicTemplate.scss */
+/* line 334, ../sass/_basicTemplate.scss */
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -914,13 +919,13 @@ body .form-group textarea {
   font-size: 16px;
   resize: none;
 }
-/* line 338, ../sass/_basicTemplate.scss */
+/* line 341, ../sass/_basicTemplate.scss */
 body .form-group textarea:focus {
   box-shadow: none;
   border-bottom: 2px solid #5dca88;
   border-top: 2px solid #5dca88;
 }
-/* line 346, ../sass/_basicTemplate.scss */
+/* line 349, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -931,7 +936,7 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 359, ../sass/_basicTemplate.scss */
+/* line 362, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-settingsmodel-picture,
@@ -943,7 +948,7 @@ body .form-group.field-resumeschool-report_id,
 body .field-settingsmodel-visibility {
   position: static;
 }
-/* line 369, ../sass/_basicTemplate.scss */
+/* line 372, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-settingsmodel-picture label,
@@ -955,33 +960,33 @@ body .form-group.field-resumeschool-report_id label,
 body .field-settingsmodel-visibility label {
   position: static;
 }
-/* line 380, ../sass/_basicTemplate.scss */
+/* line 383, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
   border-bottom: 2px solid #5dca88;
 }
-/* line 383, ../sass/_basicTemplate.scss */
+/* line 386, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 388, ../sass/_basicTemplate.scss */
+/* line 391, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 390, ../sass/_basicTemplate.scss */
+/* line 393, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 397, ../sass/_basicTemplate.scss */
+/* line 400, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 407, ../sass/_basicTemplate.scss */
+/* line 410, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 413, ../sass/_basicTemplate.scss */
+/* line 416, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -992,21 +997,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 425, ../sass/_basicTemplate.scss */
+/* line 428, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 433, ../sass/_basicTemplate.scss */
+/* line 436, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 436, ../sass/_basicTemplate.scss */
+/* line 439, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 440, ../sass/_basicTemplate.scss */
+/* line 443, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -1016,63 +1021,63 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 445, ../sass/_basicTemplate.scss */
+/* line 448, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 450, ../sass/_basicTemplate.scss */
+/* line 453, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 452, ../sass/_basicTemplate.scss */
+/* line 455, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 456, ../sass/_basicTemplate.scss */
+/* line 459, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 466, ../sass/_basicTemplate.scss */
+/* line 469, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 474, ../sass/_basicTemplate.scss */
+/* line 477, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 482, ../sass/_basicTemplate.scss */
+/* line 485, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 488, ../sass/_basicTemplate.scss */
+/* line 491, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 495, ../sass/_basicTemplate.scss */
+/* line 498, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 501, ../sass/_basicTemplate.scss */
+/* line 504, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 509, ../sass/_basicTemplate.scss */
+/* line 512, ../sass/_basicTemplate.scss */
 body div#bulkActions {
   margin-top: 15px;
 }
-/* line 513, ../sass/_basicTemplate.scss */
+/* line 516, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
@@ -2269,45 +2274,61 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   color: #fff;
 }
 /* line 26, ../sass/_application.scss */
-.controller-application a:not(.btn) {
-  color: #5dca88;
-}
-/* line 28, ../sass/_application.scss */
-.controller-application a:not(.btn):hover, .controller-application a:not(.btn):focus, .controller-application a:not(.btn):active {
-  color: rgba(93, 202, 136, 0.5);
-}
-/* line 33, ../sass/_application.scss */
 .controller-application .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 37, ../sass/_application.scss */
+/* line 30, ../sass/_application.scss */
 .controller-application .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 41, ../sass/_application.scss */
+/* line 34, ../sass/_application.scss */
 .controller-application div.summary {
   display: none;
 }
 
-/* line 50, ../sass/_application.scss */
+@media screen and (max-width: 786px) {
+  /* line 46, ../sass/_application.scss */
+  .controller-application.action-index #applicationsTable .footable-row-detail-row:first-of-type {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 530px) {
+  /* line 54, ../sass/_application.scss */
+  .controller-application.action-index #applicationsTable .footable-row-detail-row:nth-of-type(2) {
+    margin-bottom: 40px;
+  }
+  /* line 57, ../sass/_application.scss */
+  .controller-application.action-index #applicationsTable .footable-row-detail-row:first-of-type {
+    margin-bottom: 0px;
+  }
+}
+/* line 63, ../sass/_application.scss */
+.controller-application.action-index div.dropdown {
+  margin-bottom: 50px;
+}
+/* line 67, ../sass/_application.scss */
 .controller-application.action-index .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 54, ../sass/_application.scss */
+/* line 71, ../sass/_application.scss */
 .controller-application.action-index .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 58, ../sass/_application.scss */
+/* line 75, ../sass/_application.scss */
 .controller-application.action-index .footable-row-detail-row {
   padding: 5px 0px;
 }
-/* line 63, ../sass/_application.scss */
+/* line 77, ../sass/_application.scss */
+.controller-application.action-index .footable-row-detail-row a {
+  padding-top: 10px;
+}
+/* line 83, ../sass/_application.scss */
 .controller-application.action-index table#applicationsTable img {
   vertical-align: middle;
   margin-right: 8px;
 }
-/* line 68, ../sass/_application.scss */
-.controller-application.action-index table#applicationsTable .scoreInput {
+/* line 88, ../sass/_application.scss */
+.controller-application.action-index table#applicationsTable input.scoreInput {
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -2317,50 +2338,69 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   font-size: 25.6px;
   color: #5dca88;
 }
-/* line 77, ../sass/_application.scss */
-.controller-application.action-index table#applicationsTable .scoreInput:focus {
+/* line 97, ../sass/_application.scss */
+.controller-application.action-index table#applicationsTable input.scoreInput:focus {
   outline: none;
 }
-/* line 86, ../sass/_application.scss */
+/* line 106, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn) {
   color: #5dca88;
 }
-/* line 88, ../sass/_application.scss */
+/* line 108, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn):hover, .controller-application.action-index div.resume-index a:not(.btn):focus, .controller-application.action-index div.resume-index a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 94, ../sass/_application.scss */
+/* line 114, ../sass/_application.scss */
 .controller-application.action-index div.summary {
   display: none;
 }
-/* line 98, ../sass/_application.scss */
+/* line 118, ../sass/_application.scss */
 .controller-application.action-index div.searchBtn {
   margin-top: 15px;
   text-align: right;
 }
 
-/* line 110, ../sass/_application.scss */
+@media screen and (max-width: 630px) {
+  /* line 132, ../sass/_application.scss */
+  .controller-application.action-view div.actionButtons .btn {
+    display: block;
+  }
+}
+/* line 138, ../sass/_application.scss */
+.controller-application.action-view div.actionButtons {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/* line 142, ../sass/_application.scss */
+.controller-application.action-view div.actionButtons .btn {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+/* line 149, ../sass/_application.scss */
 .controller-application.action-view div.row.first {
   margin-top: 20px;
 }
-/* line 113, ../sass/_application.scss */
+/* line 152, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo {
   text-align: center;
 }
-/* line 115, ../sass/_application.scss */
+/* line 154, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo h2 {
   margin-top: 20px;
 }
-/* line 118, ../sass/_application.scss */
+/* line 157, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo img {
   max-width: 100%;
 }
-/* line 122, ../sass/_application.scss */
-.controller-application.action-view div.row.first div.profileInfo div.attachments {
-  text-align: left;
+/* line 161, ../sass/_application.scss */
+.controller-application.action-view div.row.first div.profileInfo p.date {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-/* line 127, ../sass/_application.scss */
-.controller-application.action-view div.row.first .scoreInput {
+/* line 167, ../sass/_application.scss */
+.controller-application.action-view div.row.first input.scoreInput {
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -2372,50 +2412,50 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   font-size: 48px;
   color: #5dca88;
 }
-/* line 138, ../sass/_application.scss */
-.controller-application.action-view div.row.first .scoreInput:focus {
+/* line 178, ../sass/_application.scss */
+.controller-application.action-view div.row.first input.scoreInput:focus {
   outline: none;
 }
-/* line 146, ../sass/_application.scss */
+/* line 187, ../sass/_application.scss */
 .controller-application.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 150, ../sass/_application.scss */
+/* line 191, ../sass/_application.scss */
 .controller-application.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
 
-/* line 166, ../sass/_application.scss */
+/* line 208, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn) {
   color: #5dca88;
 }
-/* line 168, ../sass/_application.scss */
+/* line 210, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn):hover, .controller-application.action-add-data div.application-create a:not(.btn):focus, .controller-application.action-add-data div.application-create a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 174, ../sass/_application.scss */
+/* line 216, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 179, ../sass/_application.scss */
+/* line 221, ../sass/_application.scss */
 .controller-application.action-add-data div.sendBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 184, ../sass/_application.scss */
+/* line 226, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 188, ../sass/_application.scss */
+/* line 230, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
 }
-/* line 192, ../sass/_application.scss */
+/* line 234, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 196, ../sass/_application.scss */
+/* line 238, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
 }
@@ -2443,95 +2483,87 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   }
 }
 /* line 32, ../sass/_job.scss */
-.controller-job.action-index a {
-  color: #5dca88;
-}
-/* line 34, ../sass/_job.scss */
-.controller-job.action-index a:hover, .controller-job.action-index a:focus, .controller-job.action-index a:active {
-  color: rgba(93, 202, 136, 0.5);
-}
-/* line 39, ../sass/_job.scss */
 .controller-job.action-index div#searchDistance {
   float: right;
   margin-bottom: 10px;
 }
-/* line 44, ../sass/_job.scss */
+/* line 37, ../sass/_job.scss */
 .controller-job.action-index div.summary {
   display: none;
 }
-/* line 48, ../sass/_job.scss */
+/* line 41, ../sass/_job.scss */
 .controller-job.action-index .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 52, ../sass/_job.scss */
+/* line 45, ../sass/_job.scss */
 .controller-job.action-index .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 58, ../sass/_job.scss */
+/* line 51, ../sass/_job.scss */
 .controller-job.action-index a.btn {
   color: #fff;
 }
-/* line 60, ../sass/_job.scss */
+/* line 53, ../sass/_job.scss */
 .controller-job.action-index a.btn:hover, .controller-job.action-index a.btn:focus, .controller-job.action-index a.btn:active {
   color: #fff;
 }
-/* line 70, ../sass/_job.scss */
+/* line 63, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a {
   color: #5dca88;
 }
-/* line 72, ../sass/_job.scss */
+/* line 65, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a:hover, .controller-job.action-index div.jobsRecruiter a:focus, .controller-job.action-index div.jobsRecruiter a:active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 77, ../sass/_job.scss */
+/* line 70, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter h1 {
   margin-top: 0px;
 }
-/* line 81, ../sass/_job.scss */
+/* line 74, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.empty {
   display: none;
 }
-/* line 86, ../sass/_job.scss */
+/* line 79, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.jobCreate a.btn {
   float: right;
 }
-/* line 90, ../sass/_job.scss */
+/* line 83, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a.btn {
   color: #fff;
 }
-/* line 92, ../sass/_job.scss */
+/* line 85, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter a.btn:hover, .controller-job.action-index div.jobsRecruiter a.btn:focus, .controller-job.action-index div.jobsRecruiter a.btn:active {
   color: #fff;
 }
-/* line 100, ../sass/_job.scss */
+/* line 93, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.list-view {
   margin-top: 10px;
 }
-/* line 104, ../sass/_job.scss */
+/* line 97, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem {
   margin-bottom: 20px;
 }
-/* line 107, ../sass/_job.scss */
+/* line 100, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.totalApplicants .tile-left {
   font-weight: 400;
   font-size: 19.2px;
 }
-/* line 114, ../sass/_job.scss */
+/* line 107, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.newApplicants .tile-left {
   font-weight: 400;
   font-size: 20.8px;
 }
-/* line 121, ../sass/_job.scss */
+/* line 114, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info {
   margin-bottom: 5px;
   display: table;
   min-width: 240px;
 }
-/* line 125, ../sass/_job.scss */
+/* line 118, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
   font-size: 14.4px;
 }
-/* line 128, ../sass/_job.scss */
+/* line 121, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info div.tile-left {
   display: table-cell;
   vertical-align: middle;
@@ -2541,7 +2573,7 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   background-color: #65bf85;
   color: #fff;
 }
-/* line 138, ../sass/_job.scss */
+/* line 131, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info div.tile-right {
   display: table-cell;
   vertical-align: middle;
@@ -2551,7 +2583,7 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   color: #fff;
   padding: 0px 10px;
 }
-/* line 152, ../sass/_job.scss */
+/* line 145, ../sass/_job.scss */
 .controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.jobSubItem span.info.profilePicture {
   display: block;
   float: left;
@@ -2559,7 +2591,7 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   margin-bottom: 10px;
 }
 
-/* line 169, ../sass/_job.scss */
+/* line 162, ../sass/_job.scss */
 .controller-job.action-view pre {
   background-color: transparent;
   color: #9d9d9d;
@@ -2567,85 +2599,85 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   border-radius: 0px;
   -webkit-border-radius: 0px;
 }
-/* line 177, ../sass/_job.scss */
+/* line 170, ../sass/_job.scss */
 .controller-job.action-view a {
   color: #5dca88;
 }
-/* line 179, ../sass/_job.scss */
+/* line 172, ../sass/_job.scss */
 .controller-job.action-view a:hover, .controller-job.action-view a:focus, .controller-job.action-view a:active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 185, ../sass/_job.scss */
+/* line 178, ../sass/_job.scss */
 .controller-job.action-view div.jobCreate a.btn {
   float: right;
 }
-/* line 190, ../sass/_job.scss */
+/* line 183, ../sass/_job.scss */
 .controller-job.action-view a.btn {
   color: #fff;
 }
-/* line 192, ../sass/_job.scss */
+/* line 185, ../sass/_job.scss */
 .controller-job.action-view a.btn:hover, .controller-job.action-view a.btn:focus, .controller-job.action-view a.btn:active {
   color: #fff;
 }
-/* line 199, ../sass/_job.scss */
+/* line 192, ../sass/_job.scss */
 .controller-job.action-view #jobViewTable .footable-row-detail-row span.glyphicon {
   padding: 20px 5px;
 }
-/* line 207, ../sass/_job.scss */
+/* line 200, ../sass/_job.scss */
 .controller-job.action-view div.apply {
   text-align: right;
   margin-top: 20px;
 }
-/* line 212, ../sass/_job.scss */
+/* line 205, ../sass/_job.scss */
 .controller-job.action-view strong {
   font-weight: 400;
 }
-/* line 216, ../sass/_job.scss */
+/* line 209, ../sass/_job.scss */
 .controller-job.action-view table.detail-view {
   width: 100%;
 }
-/* line 220, ../sass/_job.scss */
+/* line 213, ../sass/_job.scss */
 .controller-job.action-view table.detail-view th {
   color: #d0d0d0;
   padding: 3px 10px 3px 0px;
   vertical-align: top;
   width: 25%;
 }
-/* line 227, ../sass/_job.scss */
+/* line 220, ../sass/_job.scss */
 .controller-job.action-view table.detail-view td {
   padding: 3px 0px;
   vertical-align: top;
 }
-/* line 236, ../sass/_job.scss */
+/* line 229, ../sass/_job.scss */
 .controller-job.action-view div.btnInstructions h3 {
   margin-top: 0px;
 }
-/* line 241, ../sass/_job.scss */
+/* line 234, ../sass/_job.scss */
 .controller-job.action-view div.summary {
   display: none;
 }
-/* line 245, ../sass/_job.scss */
+/* line 238, ../sass/_job.scss */
 .controller-job.action-view div.row.hireme a.btn {
   float: right;
 }
-/* line 249, ../sass/_job.scss */
+/* line 242, ../sass/_job.scss */
 .controller-job.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 253, ../sass/_job.scss */
+/* line 246, ../sass/_job.scss */
 .controller-job.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 259, ../sass/_job.scss */
+/* line 252, ../sass/_job.scss */
 .controller-job.action-view #jobListTable .footable-row-detail-row .glyphicon {
   padding: 15px;
 }
-/* line 265, ../sass/_job.scss */
+/* line 258, ../sass/_job.scss */
 .controller-job.action-view div.favouriteAlert {
   display: none;
 }
 
-/* line 270, ../sass/_job.scss */
+/* line 263, ../sass/_job.scss */
 .controller-job.action-create #form-createJob {
   margin-top: 30px;
 }
