@@ -57,19 +57,23 @@ $this->title = 'Stellenanzeige erstellen';
                 ]
             ]);
             ?>
-            <?= $form->field($model, 'checkLocationBased')->checkbox(array('id' => 'checkLocationBased'))->label('Ortsbasiert') ?>
+
+
+            <?= $form->field($model, 'checkLocationBased')->checkbox(array('id' => 'checkLocationBased')) ?>
+
+
             <div class="locationDiv" style="display: none">    <? //STYLE: display in css?>
                 <?= $form->field($model, 'zip')->label('Postleitzahl') ?>
                 <?= $form->field($model, 'city')->label('Stadt') ?>
             </div>
+
             <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
                 'data' => $sectors,
-            ])->label('Branche auswählen') ?>
+                'options' => ['prompt' => ''],
+            ])->label('Branche') ?>
+
 
             <div class="form-group field-submit">
-                <br>
-                <br>
-                <br>
                 <?= Html::submitButton('Erstellen', ['class' => 'btn btn-success', 'name' => 'create-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>

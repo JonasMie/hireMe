@@ -239,7 +239,7 @@ body.controller-job.action-view {
   }
 }
 
-body.controller-job.action-create {
+body.controller-job.action-create, body.controller-job.action-update-job {
 
   h1 {
     padding-left: 15px;
@@ -264,6 +264,10 @@ body.controller-job.action-create {
 
     div.input-daterange {
       margin-top: 52px;
+      margin-bottom: 0px;
+      @media (min-width: 768px){
+        margin-bottom: 50px;
+      }
     }
 
     div.kv-container-from, div.kv-container-to {
@@ -276,6 +280,10 @@ body.controller-job.action-create {
       @media (min-width: 768px) {
         margin-right: 10%;
       }
+    }
+
+    div.locationDiv {
+      max-width: 520px;
     }
   }
 }
