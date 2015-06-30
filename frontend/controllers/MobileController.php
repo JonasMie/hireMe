@@ -77,6 +77,13 @@ class MobileController extends \yii\web\Controller
         $company = Company::findOne($job->company_id);
 
         $app = new Application();
+        $apps = Application::find()->orderBy('id')->all();
+        if (count($apps) == 0) {$app->id = 0;} 
+        else {
+        $highestID = $apps[count($apps) - 1];
+        $app->id = $highestID->id + 1;
+        }
+
         $app->user_id = $usr->id;
         $app->job_id = $job->id;
         $app->company_id = $company->id;
@@ -86,8 +93,8 @@ class MobileController extends \yii\web\Controller
         $app->read = 0;
         $app->archived = 0;
         $app->created_at = 0;
-      //  if($app->save()) {return "Deine Bewerbung wurde erfolgreich gespeichert";}
-       // return "Leider gab es einen Fehler beim Speichern deiner Bewerbung";
+        if($app->save()) {return "Deine Bewerbung wurde erfolgreich gespeichert";}
+        return "Leider gab es einen Fehler beim Speichern deiner Bewerbung";
     }
 
     public function actionApply($user,$job) {

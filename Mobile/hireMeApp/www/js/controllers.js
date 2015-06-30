@@ -227,6 +227,21 @@ angular.module('starter.controllers', [])
   
       $ionicSideMenuDelegate.canDragContent(true);
 
+      $scope.appData = [];
+
+      var url = "http://frontend/mobile/get-app-data?user=7";
+      var appDataRequest = $http.get(url);
+        console.log(url);
+                appDataRequest.success(function(data, status, headers, config) {
+                    alert(data);
+                    for (var i = 0; i < data.length; i++) {
+                     var tmpObj = data[i];
+                     $scope.appData.push({title:tmpObj.title,checked:false});
+                    };
+                });
+                appDataRequest.error(function(data, status, headers, config) {
+                });
+
        $scope.openLink = function(link) {
 
       navigator.app.loadUrl(link, { openExternal:true });
@@ -237,7 +252,7 @@ angular.module('starter.controllers', [])
         $scope.job = jobReceived;
       }, function (response) {
           // our q.reject gets the reponse and you can handle an error
-          console.log("Rejected connection for JobService");
+          console.log("Rejected connection for JobService "+response);
       });
 
        $scope.apply = function(id) {
@@ -246,7 +261,7 @@ angular.module('starter.controllers', [])
          var responsePromise = $http.get(url);
         console.log(url);
                 responsePromise.success(function(data, status, headers, config) {
-                    alert(status);
+                    alert(data);
                 });
                 responsePromise.error(function(data, status, headers, config) {
                 });

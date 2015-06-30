@@ -13,9 +13,13 @@
       {{job.description}}
     </p>
   </div>
+</div>
+<h2>Deine Bewerbungsdaten:</h2>
+
+<checkbox ng-repeat="data in appData" ng-model="data.checked">{{data.title}}</checkbox>
 <button class="button button-block button-balanced" ng-click="apply(job.id)">
 Jetzt bewerben
 </button>
-</div>
+
   </ion-content>
 </ion-view>
