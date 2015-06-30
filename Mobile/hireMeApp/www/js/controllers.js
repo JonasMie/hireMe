@@ -22,6 +22,7 @@ angular.module('starter.controllers', [])
 
 
 		$ionicSideMenuDelegate.canDragContent(false);
+    $rootScope.$apply();
 		      
         var myLatlng = new google.maps.LatLng(48.775846,9.182932);
  
@@ -37,11 +38,6 @@ angular.module('starter.controllers', [])
         function errorOnUpdating(err) {
 
         	alert("hat nicht geklappt");
-        }
-
-        function applyTo(jobID) {
-
-        	alert("applied to: "+jobID);
         }
 
         function loadIt(pos) {
@@ -81,7 +77,7 @@ angular.module('starter.controllers', [])
        		for (var i = 0; i < data.length; i++) {
 
        			var job = data[i];
-       			var contentString = "<div><h2>"+job.title+"</h2><p>"+job.description+"</p><button id='applyBtn'>Jetzt bewerben</button></div>";
+       			var contentString = "<div><h2>"+job.title+"</h2><p>"+job.description+"</p><a href='#/app/liste/"+job.id+"'><button id='applyBtn'>Jetzt bewerben</button></a></div>";
                 var compiled = $compile(contentString)($scope);
   				  var infowindow = new google.maps.InfoWindow({
                     content: compiled[0]
@@ -98,7 +94,7 @@ angular.module('starter.controllers', [])
        			markers.push(jobPosition);
 				if (i==0) {$rootScope.marker1 = jobPosition;}
 				else if(i==1) {$rootScope.marker2 = jobPosition;}       			
-       			$rootScope.$apply();
+       		//	$rootScope.$apply();
 
        			}
        		}
@@ -113,26 +109,15 @@ angular.module('starter.controllers', [])
                  infowindow.open(map, this);
          	 });
 
-         	 google.maps.event.addListener(infowindow, 'domready', function() {
-				   var btn = document.getElementById("applyBtn");
-				   google.maps.event.addDomListener(btn,"click",function() {
-			       	
-
-			       	// TODO: APPLY HERE!!!
-
-			    });
-			});
-
        		 }
        		 $rootScope.markers = markers;
        		 $scope.map = map;  
-			$rootScope.map = map;
-			$rootScope.$apply();
+			     $rootScope.map = map;
 
        });
 
-
 })
+
 .controller('ListCtrl',['$scope','$ionicSideMenuDelegate','JobService', function($scope,$ionicSideMenuDelegate, JobService){
 
   		$ionicSideMenuDelegate.canDragContent(true);
@@ -146,7 +131,6 @@ angular.module('starter.controllers', [])
           console.log("Rejected connection for JobService");
       })
 
-
      $scope.doRefresh = function() {
            JobService.getAllItems().then(function (jobs) {
           $scope.jobs = jobs;     
@@ -157,7 +141,6 @@ angular.module('starter.controllers', [])
             $scope.$broadcast('scroll.refreshComplete');
           })
       }
-  
 }])
 
 .controller('EventCtrl', function($scope,$ionicSideMenuDelegate,$http,$ionicModal,EventService) {
@@ -256,6 +239,14 @@ angular.module('starter.controllers', [])
           // our q.reject gets the reponse and you can handle an error
           console.log("Rejected connection for JobService");
       });
+
+       $scope.apply = function(id) {
+
+        
+
+       
+      }
+  
 
 })
 
