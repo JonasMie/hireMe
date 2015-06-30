@@ -11,7 +11,7 @@ use frontend\models\Application;
 use frontend\models\ApplicationData;
 use frontend\models\Cover;
 use frontend\models\Company;
-
+use yii\db\Query;
 class MobileController extends \yii\web\Controller
 {
     public function actionGetJobs($event_id = false)
@@ -65,8 +65,13 @@ class MobileController extends \yii\web\Controller
 
     public function actionGetAppData($user) {
 
-
-
+       // $appDatas = "SELECT f.title, f.id FROM file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = " . $user;
+       $rows = (new \yii\db\Query())
+        ->select(['file.title','file.id'])
+        ->from('file')
+        ->where(['file.user_id' => $user])
+        ->all();
+        return BaseJson::encode($rows);
 
     }
 

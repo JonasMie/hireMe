@@ -14,12 +14,18 @@
     </p>
   </div>
 </div>
-<h2>Deine Bewerbungsdaten:</h2>
-
-<checkbox ng-repeat="data in appData" ng-model="data.checked">{{data.title}}</checkbox>
+<h2>Persönliches Bewerbungsschreiben:</h2>
+<textarea name="cover" id="cover-textarea" 
+      ng-model="cover" cols="100" rows="10">
+  </textarea>
+<h2>Auswählbare Anhänge:</h2>
+<ion-checkbox ng-repeat="data in appData" ng-model="data.checked">{{data.title}}</ion-checkbox>
 <button class="button button-block button-balanced" ng-click="apply(job.id)">
 Jetzt bewerben
 </button>
-
+<br>
+<br>
+<br>
+<br>
   </ion-content>
 </ion-view>

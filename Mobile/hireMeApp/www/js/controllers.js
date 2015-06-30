@@ -228,16 +228,18 @@ angular.module('starter.controllers', [])
       $ionicSideMenuDelegate.canDragContent(true);
 
       $scope.appData = [];
+      $scope.cover = "Dein Bewerbungsschreiben";
 
       var url = "http://frontend/mobile/get-app-data?user=7";
       var appDataRequest = $http.get(url);
         console.log(url);
                 appDataRequest.success(function(data, status, headers, config) {
-                    alert(data);
                     for (var i = 0; i < data.length; i++) {
                      var tmpObj = data[i];
-                     $scope.appData.push({title:tmpObj.title,checked:false});
-                    };
+                     if(tmpObj.title.indexOf("cover") > -1)  {}
+                      else  {$scope.appData.push({title:tmpObj.title,checked:false,fileID:tmpObj.id});}
+                    }
+                    console.log($scope.appData);
                 });
                 appDataRequest.error(function(data, status, headers, config) {
                 });
@@ -256,7 +258,16 @@ angular.module('starter.controllers', [])
       });
 
        $scope.apply = function(id) {
-        var data = [1,2];
+        var data = [];
+
+        for (var i = 0; i < $scope.appData.length; i++) {
+           var tmp = $scope.appData[i];
+           if(tmp.checked) {
+            console.log("checked: "+tmp.fileID);
+            data.push(tmp.fileID);
+           }
+        };
+
         var url = "http://frontend/mobile/save-app?user=7&jobID="+id+"&data="+data+"&cover=blablablabla";
          var responsePromise = $http.get(url);
         console.log(url);
