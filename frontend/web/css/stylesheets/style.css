@@ -2666,54 +2666,54 @@ body.controller-job.action-view div.favouriteAlert {
 }
 
 /* line 244, ../sass/_job.scss */
-body.controller-job.action-create h1 {
+body.controller-job.action-create h1, body.controller-job.action-update-job h1 {
   padding-left: 15px;
 }
 /* line 248, ../sass/_job.scss */
-body.controller-job.action-create #form-createJob {
+body.controller-job.action-create #form-createJob, body.controller-job.action-update-job #form-createJob {
   margin-top: 50px;
 }
 /* line 250, ../sass/_job.scss */
-body.controller-job.action-create #form-createJob .col-2nd {
+body.controller-job.action-create #form-createJob .col-2nd, body.controller-job.action-update-job #form-createJob .col-2nd {
   margin-top: 0px;
 }
 /* line 254, ../sass/_job.scss */
-body.controller-job.action-create #form-createJob > div > div {
+body.controller-job.action-create #form-createJob > div > div, body.controller-job.action-update-job #form-createJob > div > div {
   margin-bottom: 50px;
 }
 /* line 257, ../sass/_job.scss */
-body.controller-job.action-create #form-createJob div.form-group.field-submit {
+body.controller-job.action-create #form-createJob div.form-group.field-submit, body.controller-job.action-update-job #form-createJob div.form-group.field-submit {
   margin-bottom: 100px;
 }
 /* line 261, ../sass/_job.scss */
-body.controller-job.action-create #form-createJob div.field-jobcreateform-sector {
+body.controller-job.action-create #form-createJob div.field-jobcreateform-sector, body.controller-job.action-update-job #form-createJob div.field-jobcreateform-sector {
   max-width: 520px;
 }
 /* line 265, ../sass/_job.scss */
-body.controller-job.action-create #form-createJob div.input-daterange {
+body.controller-job.action-create #form-createJob div.input-daterange, body.controller-job.action-update-job #form-createJob div.input-daterange {
   margin-top: 52px;
   margin-bottom: 0px;
 }
 @media (min-width: 768px) {
   /* line 265, ../sass/_job.scss */
-  body.controller-job.action-create #form-createJob div.input-daterange {
+  body.controller-job.action-create #form-createJob div.input-daterange, body.controller-job.action-update-job #form-createJob div.input-daterange {
     margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) {
   /* line 273, ../sass/_job.scss */
-  body.controller-job.action-create #form-createJob div.kv-container-from, body.controller-job.action-create #form-createJob div.kv-container-to {
+  body.controller-job.action-create #form-createJob div.kv-container-from, body.controller-job.action-create #form-createJob div.kv-container-to, body.controller-job.action-update-job #form-createJob div.kv-container-from, body.controller-job.action-update-job #form-createJob div.kv-container-to {
     width: 45%;
   }
 }
 @media (min-width: 768px) {
   /* line 279, ../sass/_job.scss */
-  body.controller-job.action-create #form-createJob div.kv-container-from {
+  body.controller-job.action-create #form-createJob div.kv-container-from, body.controller-job.action-update-job #form-createJob div.kv-container-from {
     margin-right: 10%;
   }
 }
 /* line 285, ../sass/_job.scss */
-body.controller-job.action-create #form-createJob div.locationDiv {
+body.controller-job.action-create #form-createJob div.locationDiv, body.controller-job.action-update-job #form-createJob div.locationDiv {
   max-width: 520px;
 }
 

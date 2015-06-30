@@ -74,9 +74,6 @@ $this->title = 'Stellenanzeige erstellen';
 
 
             <div class="form-group field-submit">
-                <br>
-                <br>
-                <br>
                 <?= Html::submitButton('Erstellen', ['class' => 'btn btn-success', 'name' => 'create-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
