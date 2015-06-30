@@ -94,7 +94,7 @@ $this->title = Yii::t('app', 'Favoriten');
 					],
 				],
 			]); ?>
-
+            <? if ($dataProvider->count > 0): ?>
 			<div class="dropdown" id="bulkActions" data-index="0">
 				<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success">
 					Aktion
@@ -106,6 +106,7 @@ $this->title = Yii::t('app', 'Favoriten');
 					</li>
 				</ul>
 			</div>
+            <? endif ?>
 		</div>
 	</div>
 </div>

@@ -108,8 +108,6 @@ class JobController extends Controller
 
     public function actionIndex($dist = null)
     {
-        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
-
         if (Yii::$app->user->identity->isRecruiter()) {
             $companyId = Yii::$app->user->identity->getCompanyId();
             Yii::trace("Company ID: " . $companyId);
@@ -717,6 +715,10 @@ class JobController extends Controller
         $lat = $geo->lat;
         $lon = $geo->lon;
 
+        $minLat = $lat;
+        $maxLat = $lat;
+        $minLon = $lon;
+        $maxLon = $lon;
 
         if (isset($dist)) {
             // first-cut bounding box (in degrees)
