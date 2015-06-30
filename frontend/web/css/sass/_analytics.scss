@@ -102,7 +102,7 @@ body.controller-analytics {
       }
       div.subtile-right {
         background-image: url("/images/dashboard-stellenanzeigen.png");
-        background-size: 25% auto;
+        background-size: auto 70%;
         @media (max-width: 991px) {
           background-size: 25% auto;
         }
