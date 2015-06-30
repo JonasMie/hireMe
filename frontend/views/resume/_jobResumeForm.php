@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
         ]
     ])->label('Unternehmen') ?>
 
-    <?= $form->field($model, 'description', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Beschreibung der Tätigkeit...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 5]) ->label(false) ?>
+    <?= $form->field($model, 'description', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Beschreibung der Tätigkeit...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 7]) ->label(false) ?>
 
     <?= $form->field($model, 'current')->checkbox() ?>
 
@@ -38,11 +38,12 @@ use yii\widgets\ActiveForm;
         'model'         => $model,
         'attribute'     => 'begin',
         'attribute2'    => 'end',
-        'options'       => ['placeholder' => 'Beginn'],
-        'options2'      => ['placeholder' => 'Ende'],
+        'options'       => ['placeholder' => 'Von'],
+        'options2'      => ['placeholder' => 'Bis'],
         'type'          => DatePicker::TYPE_RANGE,
         'form'          => $form,
         'language'      => 'de',
+        'separator'     => 'bis',
         'pluginOptions' => [
             'format'         => 'dd.mm.yyyy',
             'autoclose'      => true,
@@ -52,10 +53,10 @@ use yii\widgets\ActiveForm;
     ?>
 
 
-    <?= $form->field($model, 'report_id')->fileInput()?>
+    <?= $form->field($model, 'report_id')->fileInput()->label('Anhang hinzufügen')?>
 
     <div class="form-group form-group-submit">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Speichern') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', '<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;&nbsp;Speichern') : Yii::t('app', '<span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

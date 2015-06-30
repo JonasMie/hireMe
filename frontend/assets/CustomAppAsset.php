@@ -21,7 +21,7 @@ class CustomAppAsset extends AssetBundle
         'js/icheck.min.js',
         'js/customScript.js',
 		'js/jquery.fadethis.js',
-		'js/jquery.easing.min.js'
+		'js/jquery.easing.min.js',
 
     ];
     public $depends = [

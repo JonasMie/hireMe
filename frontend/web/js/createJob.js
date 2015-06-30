@@ -2,14 +2,18 @@
  * Created by Simon
  */
 
-$('#checkLocationBased').change(function(){
-    if(this.checked){
-        $('.locationDiv').show();
-    } else {
-        $('.locationDiv').hide();
-    }
+
+$('#checkLocationBased').on('ifChecked', function(event){
+     $('.locationDiv').show();
 });
+
+$("#checkLocationBased").on('ifUnchecked',function(event) {
+	 $('.locationDiv').hide();
+})
+
 
 if($("#checkLocationBased").prop("checked")){
     $('.locationDiv').show();
 }
+
+

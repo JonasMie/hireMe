@@ -34,15 +34,15 @@ use yii\helpers\Html;
 
     <!-- TILES -->
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green"
-             onclick="window.location='./application/index?new=true';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-1 tile-green ripple"
+             href="/application/?new=true">
 
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <?= Html::a($newApplications, "/application/index?new=true"); ?>
+                    <?= Html::a($newApplications, "/application/?new=true"); ?>
                 </div>
                 <div class="tile-value tile-string">
-                    <?= Html::a('neue Bewerbungen', "/application/index?new=true"); ?>
+                    <?= Html::a('neue Bewerbungen', "/application/?new=true"); ?>
                 </div>
             </div>
             <div class="subtile subtile-right">
@@ -50,7 +50,7 @@ use yii\helpers\Html;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-2 tile-black ripple"
-             onclick="window.location='/message';">
+             href="/message">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a($messages, "/message"); ?>
@@ -64,7 +64,7 @@ use yii\helpers\Html;
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-3 tile-green ripple"
-             onclick="window.location='./job';">
+             href="/job">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a(count($jobs), '/job') ?>
@@ -77,8 +77,8 @@ use yii\helpers\Html;
 
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-4 tile-black"
-             onclick="window.location='./application';">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 dashboard-tile dashboard-tile-4 tile-black ripple"
+             href="/application">
 
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
@@ -100,7 +100,6 @@ use yii\helpers\Html;
 
     <?= GridView::widget([
         'dataProvider' => $applicationProvider,
-        //    'filterModel'  => $searchModel,
         'tableOptions' => [
             'class' => 'table table-hover footable toggle-arrow hireMeTable',
             'id'    => 'NewestApplicationsTable',
@@ -142,7 +141,13 @@ use yii\helpers\Html;
                 'contentOptions' => ['data-title' => 'Date']
             ],
             [
-                'class'          => 'yii\grid\ActionColumn',
+                'class'          => \yii\grid\ActionColumn::className(),
+                'buttons'        =>
+                    [
+                        'view' => function ($url, $model, $key) {
+                            return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['application/view', 'id' =>$model->id], ['title' => Yii::t('app', 'Ansehen')]);
+                        },
+                    ],
                 'template'       => '{view}',
                 'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'View'],
@@ -170,34 +175,24 @@ use yii\helpers\Html;
             'class' => 'table table-hover footable toggle-arrow hireMeTable',
             'id'    => 'DashboardMessages',
         ],
-        'options' => [
+        'options'      => [
             'data-type' => 'message',
-            'class' => 'grid-view'
+            'class'     => 'grid-view'
         ],
+        'rowOptions'   => function ($model) {
+            $role = $model->receiver_id == Yii::$app->user->getId() ? 'receiver' : 'sender';
+            if ($model->read == 0 && $model->receiver_id == Yii::$app->user->getId()) {
+                return ['class' => 'unread ' . $role];
+            }
+            return ['class' => $role];
+
+        },
         'columns'      => [
             [
-                'class'  => 'yii\grid\CheckboxColumn',
-                'footer' =>
-
-                    '<div class="dropdown" id="bulkActions">
-        <a href="#" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Aktion
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="dLabel">
-            <li class="bulkRead">
-                <a href="#" tabindex="-1">Als gelesen markieren</a>
-            </li>
-            <li class="bulkUnread">
-                <a href="#" tabindex="-1">Als ungelesen markieren</a>
-            </li>
-            <li class="bulkDelete">
-                <a href="#" tabindex="-1">Löschen</a>
-            </li>
-        </ul>
-    </div>',
+                'class' => 'yii\grid\CheckboxColumn',
             ],
             [
+                'attribute' => 'subject',
                 'label'  => 'Betreff',
                 'format' => 'raw',
                 'value'  => function ($data) {
@@ -219,10 +214,10 @@ use yii\helpers\Html;
 
             ],
             [
-                'attribute'      => 'sent_at',
-                'format'         => 'text',
-                'label'          => 'Gesendet',
-                'value'          => function ($data) {
+                'attribute'     => 'sent_at',
+                'format'        => 'text',
+                'label'         => 'Gesendet',
+                'value'         => function ($data) {
                     return \frontend\helper\Setup::verboseDate($data->sent_at);
                 },
                 'headerOptions' => ['data-hide' => 'xsmall,phone'],
@@ -233,8 +228,29 @@ use yii\helpers\Html;
                 'contentOptions' => ['data-title' => 'data-toggle']
             ],
         ],
-        'showFooter'   => true,
-    ]); ?>
+    ]);
+
+
+    if ($messageDP->count > 0): ?>
+        <div class="dropdown" id="bulkActions" data-index="0">
+            <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    class="btn btn-success">
+                Aktion
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <li class="bulkRead">
+                    <a href="#" tabindex="-1">Als gelesen markieren</a>
+                </li>
+                <li class="bulkUnread">
+                    <a href="#" tabindex="-1">Als ungelesen markieren</a>
+                </li>
+                <li class="bulkDelete">
+                    <a href="#" tabindex="-1">Löschen</a>
+                </li>
+            </ul>
+        </div>
+    <? endif; ?>
 
     <h2><a class="userDashboardFavoritesHeader" href="/favourites">Favoriten</a></h2>
 
@@ -245,25 +261,13 @@ use yii\helpers\Html;
             'class' => 'table table-hover footable toggle-arrow hireMeTable',
             'id'    => 'DashboardFavorites',
         ],
-        'options' => [
+        'options'      => [
             'data-type' => 'favourites',
-            'class' => 'grid-view'
+            'class'     => 'grid-view'
         ],
         'columns'      => [
             [
-                'class'  => 'yii\grid\CheckboxColumn',
-                'footer' =>
-                    '<div class="dropdown" id="bulkActions">
-                        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Aktion
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dLabel">
-                            <li class="bulkDelete">
-                                <a href="#" tabindex="-1">Löschen</a>
-                            </li>
-                        </ul>
-                    </div>'
+                'class' => 'yii\grid\CheckboxColumn',
             ],
             [
                 'attribute' => 'jobDescription',
@@ -299,9 +303,22 @@ use yii\helpers\Html;
 
             ],
         ],
-        'showFooter' => true,
-    ]); ?>
+    ]);
 
 
+    if ($favouritesDP->count > 0): ?>
+        <div class="dropdown" id="bulkActions" data-index="1">
+            <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    class="btn btn-success">
+                Aktion
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <li class="bulkDelete">
+                    <a href="#" tabindex="-1">Löschen</a>
+                </li>
+            </ul>
+        </div>
 
+    <? endif; ?>
 <? endif; ?>

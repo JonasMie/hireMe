@@ -12,16 +12,10 @@ use yii\web\JsExpression;
 /* @var $loginModel \common\models\LoginForm */
 /* @var $signupModel frontend\models\SignupForm */
 
-
-// Include JS //
-$this->registerJsFile("https://apis.google.com/js/platform.js", array('async' => '', 'defer' => ''));//, 'position'=>'POS_BEGIN'));
-// Include Meta-Tags //
-$this->registerMetaTag(array('name' => 'google-signin-client_id', 'content' => '58721707988-v5app0rim8mk4pqan11dq8hh95nvph2o.apps.googleusercontent.com'));
 $this->title = 'Login';
 
 // SignUp //
 include Yii::getAlias('@helper/companySignup.php');
-$values = array_values(array_values($sectors));
 ?>
 <div class="site-login">
 
@@ -35,7 +29,7 @@ $values = array_values(array_values($sectors));
 
             <?= $form->field($loginModel, 'email', ['inputOptions' => ['class' => 'form-control typeStart']])->label('E-Mail'); ?>
             <?= $form->field($loginModel, 'password')->passwordInput()->label('Passwort'); ?>
-            <!--<?= $form->field($loginModel, 'rememberMe')->checkbox() ?>-->
+            <?= $form->field($loginModel, 'rememberMe')->checkbox()->label('Angemeldet bleiben'); ?>
 
 
             <div class="form-group SubmitLogin">
@@ -48,6 +42,8 @@ $values = array_values(array_values($sectors));
 
             <?php ActiveForm::end(); ?>
 
+            <h2 class="socialLoginHeader">Oder melde dich an mit:</h2>
+
             <?= yii\authclient\widgets\AuthChoice::widget([
                 'baseAuthUrl' => ['site/auth'],
                 'popupMode'   => false
@@ -55,7 +51,7 @@ $values = array_values(array_values($sectors));
 
         </div>
 
-        <div class="col-sm-4 col-sm-offset-2 login-field">
+        <div class="col-sm-4 col-sm-offset-2 signup-field">
 
             <h2>Registrierung</h2>
             <? // Signup Form //?>
@@ -74,7 +70,7 @@ $values = array_values(array_values($sectors));
             <!-- Additional Information for recruiter signups -->
 
 
-            <div class="companySetup" style="display: none">    <? //STYLE: display in css?>
+            <div class="companySetup" style="display: none">
                 <?= $form->field($signupModel, 'companyName')->widget(Typeahead::className(), [
                     'name'       => 'companyName',
                     'dataset'    => [
@@ -117,7 +113,7 @@ $values = array_values(array_values($sectors));
                         ],
                     ],
                     'pluginEvents' => [
-                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresscity").val(val.city) }'
+                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresscity").typeahead("val",val.city); jQuery(".field-signupform-companyaddresscity").addClass("has-success"); }'
                     ],
                 ])->label('PLZ') ?>
 
@@ -139,18 +135,18 @@ $values = array_values(array_values($sectors));
                         ],
                     ],
                     'pluginEvents' => [
-                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresszip").val(val.plz) }'
+                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresszip").typeahead("val",val.plz);jQuery(".field-signupform-companyaddresszip").addClass("has-success"); }'
                     ],
                 ])->label('Ort') ?>
 
 
                 <?= $form->field($signupModel, 'companySector')->widget(\kartik\select2\Select2::className(), [
                     'data' => $sectors,
-                    'options' => ['prompt' => 'Branche wählen'],
+                    'options' => ['prompt' => ''],
                 ])->label('Branche') ?>
                 <?= $form->field($signupModel, 'companyEmployees')->widget(\kartik\select2\Select2::className(), [
                     'data' => $employeeAmount,
-                    'options' => ['prompt' => 'Anzahl der Beschäftigten'],
+                    'options' => ['prompt' => ''],
                     'hideSearch' => true,
                 ])->label('Anzahl der Mitarbeiter') ?>
             </div>

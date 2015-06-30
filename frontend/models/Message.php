@@ -56,15 +56,15 @@ class Message extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'subject' => 'Betreff',
-            'content' => 'Nachricht',
+            'subject' => Yii::t('message', 'Subject'),
+            'content' => Yii::t('message','Content'),
             'sender_id' => 'Sender ID',
             'receiver_id' => 'Receiver ID',
-            'sent_at' => 'Gesendet',
-            'deleted_sender' => 'Gelöscht',
-            'deleted_receiver' => 'Gelöscht',
-            'read' => 'Gelesen',
-            'flow' => 'Flow'
+            'sent_at' => Yii::t('message', 'Sent'),
+            'deleted_sender' => Yii::t('message', 'Deleted'),
+            'deleted_receiver' => Yii::t('message', 'Deleted'),
+            'read' => Yii::t('message', 'Read'),
+            'flow' => Yii::t('message','Flow'),
         ];
     }
 

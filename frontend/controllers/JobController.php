@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\behaviours\BodyClassBehaviour;
+use frontend\models\Geo;
 use Yii;
 use frontend\models\Job;
 use frontend\models\Company;
@@ -11,6 +12,9 @@ use frontend\models\Application;
 use common\models\User;
 use frontend\models\JobSearch;
 use frontend\models\ApplyBtn;
+use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
+use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -18,6 +22,11 @@ use yii\filters\VerbFilter;
 use frontend\models\JobCreateForm;
 use frontend\models\ApplyBtnSearch;
 use frontend\models\Favourites;
+use frontend\models\CoverCreateForm;
+use yii\data\SqlDataProvider;
+use frontend\models\File;
+use frontend\models\ApplicationData;
+use yii\helpers\Html;
 
 /**
  * JobController implements the CRUD actions for Job model.
@@ -34,9 +43,16 @@ class JobController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        'allow'         => false,
+                        'actions'       => ['create'],
+                        'matchCallback' => function () {
+                            return Yii::$app->user->isGuest || !Yii::$app->user->identity->isRecruiter();
+                        }
+                    ],
+                    [
                         'allow' => true,
                         'roles' => ['@']
-                    ]
+                    ],
                 ],
             ],
             'verbs'       => [
@@ -53,6 +69,9 @@ class JobController extends Controller
 
     public function actionCreateBtn($id)
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $model = new ApplyBtn();
 
@@ -73,6 +92,10 @@ class JobController extends Controller
 
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+         if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
+
         $btn = ApplyBtn::findOne($id);
         $btn->delete();
         return $this->redirect(['index']);
@@ -82,7 +105,8 @@ class JobController extends Controller
      * Lists all Job models.
      * @return mixed
      */
-    public function actionIndex()
+
+    public function actionIndex($dist = null)
     {
         if (Yii::$app->user->identity->isRecruiter()) {
             $companyId = Yii::$app->user->identity->getCompanyId();
@@ -93,7 +117,6 @@ class JobController extends Controller
 
             $jobs = new JobSearch();
             $dataProvider = $jobs->search(['JobSearch' => ['company_id' => $companyId]]);
-
             return $this->render('index', [
                 'indiTitle' => "Stellenanzeigen von " . Company::getNameById($companyId),
                 'id'        => $companyId,
@@ -101,13 +124,22 @@ class JobController extends Controller
             ]);
 
         } else {
-
-            $jobs = new JobSearch();
-            $dataProvider = $jobs->search(['JobSearch']);
+            if (isset(Yii::$app->user->identity->geo_id)) {
+                $jobs = $this->findJobRadius($dist)->all();
+                $dataProvider = new ArrayDataProvider(
+                    [
+                        'allModels' => $jobs,
+                        'sort' => [
+                            'attributes' => ['title', 'job_begin', 'distance' ,'city', ],
+                        ]
+                    ]);
+            } else {
+                $jobs = Job::find();
+                $dataProvider = new ActiveDataProvider(['query' => $jobs]);
+            }
 
             return $this->render('index', [
-                'indiTitle' => "Nur für dich, " . Yii::$app->user->identity->getName() . " <3",
-                'provider'  => $dataProvider,
+                'provider' => $dataProvider,
             ]);
 
         }
@@ -115,6 +147,9 @@ class JobController extends Controller
 
     public function actionGeneration($id)
     { //expecting job id
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
         Yii::trace("called");
         $key = $this->generateBtn($id);
         $text = "//Copy this code in your header(ask your freaky programmer for that!)\n<script src='http://frontend/js/applier.js'></script>\n//Copy this code wherever you want the HireMe Button\n<div id='ac' name='" . $key . "'></div>";
@@ -131,6 +166,8 @@ class JobController extends Controller
 
     public function actionView($id)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
         $query = ApplyBtn::find()
             ->where(['job_id' => $id])
             ->orderBy('id');
@@ -146,33 +183,195 @@ class JobController extends Controller
 
     }
 
-    public function actionSaveFavorit($key, $user)
+    public function actionSaveFavorit()
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
-        $fav = new Favourites();
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/job");}
+        if (Yii::$app->request->isAjax) {
+
+            $fav = new Favourites();
+
+            $thisBtn = ApplyBtn::find()
+                ->where(['key' => Yii::$app->request->get('key')])
+                ->one();
+
+            $job = Job::findOne($thisBtn->job_id);
+            $favs = Favourites::find()->orderBy('id')->all();
+            if (count($favs) == 0) {
+                $fav->id = 0;
+            } else {
+                $highestID = $favs[count($favs) - 1];
+                $fav->id = $highestID->id + 1;
+            }
+            $fav->job_id = $job->id;
+            $fav->user_id = Yii::$app->request->get("user");
+            if ($fav->save()) {
+                return "Die Stellenanzeige wurde deinen Favoriten hinzugefügt";
+            }
+
+        }
+
+    }
+
+    public function actionCreateApp()
+    {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
+        if (Yii::$app->request->isAjax) {
+
+            $appData = Yii::$app->request->get("appData");
+
+            if (Yii::$app->request->get("appID") == "false") {
+
+            $app = new Application();
+            $apps = Application::find()->orderBy('id')->all();
+            if (count($apps) == 0) {
+                    $app->id = 0;
+            } else {
+                    $highestID = $apps[count($apps) - 1];
+                    $app->id = $highestID->id + 1;
+                }
+            } else {
+                $app = Application::findOne(Yii::$app->request->get("appID"));
+            }
+
+            if(Yii::$app->request->get('intern') == 'true') {
+
+                $job = Job::find()->where(['id' => Yii::$app->request->get('job')])->one();
+                $app->user_id = Yii::$app->user->identity->id;
+                $app->company_id = $job->company_id;
+                $app->job_id = $job->id;
+                $app->state = "Gespeichert";
+                $app->save();
+            }
+            else {
+
+            $key = Yii::$app->request->get("key");
+            $user = Yii::$app->user->identity;
+            $thisBtn = ApplyBtn::find()
+                ->where(['key' => $key])
+                ->one();
+            $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+            $app->user_id = $user->id;
+            $app->company_id = $job->company_id;
+            $app->job_id = $job->id;
+            $app->state = "Gespeichert";
+            $app->btn_id = $thisBtn->id;
+            $app->save();
+
+            }
+    
+            ApplicationData::deleteAll(['application_id' => $app->id]);
+
+            for ($i = 0; $i < count($appData); $i++) {
+                $tmpFile = $appData[$i];
+
+                $data = new ApplicationData();
+                $appDatas = ApplicationData::find()->orderBy('id')->all();
+                if (count($appDatas) == 0) {
+                    $data->id = 0;
+                } else {
+                    $highestID = $appDatas[count($appDatas) - 1];
+                    $data->id = $highestID->id + 1;
+                }
+                $data->application_id = $app->id;
+                $data->file_id = $tmpFile;
+                $data->save();
+            }
+
+            $model = new CoverCreateForm();
+            $model->app = $app->id;
+            $text = Yii::$app->request->get('text');
+            $model->text = $text;
+            if ($model->create() == true) {
+                return $app->id;
+            } else {
+                return "Leider gab es einen Fehler beim Speichern der Bewerbung.";
+            }
+        }
+
+    }
+
+    public function createFavoritSection($key,$user) {
+
+        $thisBtn = ApplyBtn::find()
+        ->where(['key' => $key])
+        ->one();
+
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: " . $job->id);
+        $user = Yii::$app->user->identity;
+
+        if($user->isRecruiter()) {return $this->render('favoritError',['message' => "<p>Als Recruiter kannst du keine Favoriten erstellen. Das tut uns sehr leid.<br>Zur Entschädigung haben wir hier".Html::a("Zurück zu HireMe","/dashboard")." "]);}
+        return $this->render('favoritSection');
+    }
+
+    public function createApplyForm($key, $user)
+    {
 
         $thisBtn = ApplyBtn::find()
             ->where(['key' => $key])
             ->one();
-        $job = Job::findOne($thisBtn->job_id);
 
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: " . $job->id);
+        $user = Yii::$app->user->identity;
 
-        $favs = Favourites::find()->orderBy('id')->all();
-        if (count($favs) == 0) {
-            $fav->id = 0;
-        } else {
-            $highestID = $favs[count($favs) - 1];
-            $fav->id = $highestID->id + 1;
+        $possibleApp = Application::find()
+        ->where(['user_id' => $user->id, 'job_id' => $job->id])
+        ->one();
+
+        if($user->isRecruiter()) {return $this->render('applyError',['message' => "<p>Als Recruiter kannst du dich nicht auf eine Stelle bewerben.<br><br>Logge dich für eine Bewerbung als Bewerber ein.<br><br>".Html::a("Zurück zu HireMe","/dashboard")." "]);}
+        if(count($possibleApp) == 1) {return $this->render('applyError',['message' => "Du hast dich bereits auf diese Stelle beworben.<br>".Html::a("Bewerbungen ansehen","/application")." "]);}
+        $newSQL = "SELECT f.title, f.id FROM file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = " . $user->id;
+        Yii::trace("User ID: " . $user->id);
+
+        $provider = new SqlDataProvider([
+            'sql'  => $newSQL,
+            'sort' => [
+                'attributes'   => [
+                    'title'
+                ],
+                'defaultOrder' => [
+                    'title' => SORT_ASC,
+                ]
+            ],
+        ]);
+
+        return $this->render('addData', [
+            'job'      => $job,
+            'provider' => $provider,
+            'controller' => 'extern',
+        ]);
+    }
+
+    public function actionSend()
+    {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
+        if (Yii::$app->request->isAjax) {
+
+            $app = Application::findOne(Yii::$app->request->get("appID"));
+            $app->state = "Versendet";
+            $app->sent = 1;
+            if ($app->save()) {
+
+                return "Vielen Dank, deine Bewerbung wurde versandt :)";
+            }
+
         }
-        $fav->job_id = $job->id;
-        $fav->user_id = $user;
-        $fav->save();
-        return $this->renderPartial("savedFavourite");
 
     }
 
     public function actionApply($key, $user)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $app = new Application();
 
@@ -183,8 +382,6 @@ class JobController extends Controller
             $highestID = $apps[count($apps) - 1];
             $app->id = $highestID->id + 1;
         }
-
-
         $thisBtn = ApplyBtn::find()
             ->where(['key' => $key])
             ->one();
@@ -198,19 +395,17 @@ class JobController extends Controller
         $app->state = "Gespeichert";
         $app->btn_id = $thisBtn->id;
         $app->save();
-        //return $this->render('applied');
         $this->redirect(["./application/add-data?id=" . $app->id]);
 
     }
 
-    public function actionApplyIntern($id)
-    { // expected job id
+    public function getAppIDByKeyAndUser($key, $user)
+    {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
-        $user = Yii::$app->user->identity;
+    if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/application");}
 
         $app = new Application();
-
-        $job = Job::findOne($id);
 
         $apps = Application::find()->orderBy('id')->all();
         if (count($apps) == 0) {
@@ -220,16 +415,56 @@ class JobController extends Controller
             $app->id = $highestID->id + 1;
         }
 
-        $app->user_id = $user->id;
+        $thisBtn = ApplyBtn::find()
+            ->where(['key' => $key])
+            ->one();
+
+        $job = Job::find()->where(['id' => $thisBtn->job_id])->one();
+        Yii::trace("Job ID: " . $job->id);
+        $app->user_id = $user;
         $app->company_id = $job->company_id;
-        $app->job_id = $id;
+        $app->job_id = $job->id;
         $app->state = "Gespeichert";
-        $app->sent = 0;
-        $app->read = 0;
-        $app->archived = 0;
+        $app->btn_id = $thisBtn->id;
         $app->save();
 
-        $this->redirect(["./application/add-data?id=" . $app->id]);
+        return $app->id;
+
+    }
+
+    public function actionApplyIntern($id)
+    { // expected job id
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+    if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+
+        $user = Yii::$app->user->identity;
+
+        $app = new Application();
+
+        $job = Job::findOne($id);
+
+         $newSQL = "SELECT f.title, f.id FROM file f WHERE NOT (f.title LIKE '%cover%') AND f.user_id = " . $user->id;
+        Yii::trace("User ID: " . $user->id);
+
+        $provider = new SqlDataProvider([
+            'sql'  => $newSQL,
+            'sort' => [
+                'attributes'   => [
+                    'title'
+                ],
+                'defaultOrder' => [
+                    'title' => SORT_ASC,
+                ]
+            ],
+        ]);
+        return $this->render('addData', [
+            'job'      => $job,
+            'provider' => $provider,
+            'controller' => "intern",
+        ]);
+        
+
 
     }
 
@@ -246,16 +481,18 @@ class JobController extends Controller
     }
 
     //count clicks
-    public function actionClickUp($btnKey)
+    public function actionClickUp($btnKey=null)
     {
-
+     // if(Yii::$app->user->identity->isRecruiter() == false) {
+        $key = Yii::$app->request->get("key");
         $btn = ApplyBtn::find()
             ->where(['key' => $btnKey])
             ->one();
-
         $btn->clickCount = $btn->clickCount + 1;
-        $btn->save();
-
+        if($btn->save()) {
+            return "Hat geklappt :)";
+        }
+     //   }
     }
 
     /**
@@ -266,6 +503,10 @@ class JobController extends Controller
 
     public function actionCreate()
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+    if(Yii::$app->user->identity->isRecruiter()==false) {$this->redirect("/application");}
+
         $model = new JobCreateForm();
 
         $jobId = 0;
@@ -363,53 +604,34 @@ class JobController extends Controller
 
     }
 
-    public function getSomething()
-    {
-
-        return 10;
-    }
-
-    public function actionViewCount()
-    {
-
-
-        return $this->renderPartial('viewCountIFrame');
-    }
+    public function actionViewCount() {return $this->renderPartial('viewCountIFrame');}
 
     public function actionButtonPopup($key)
     {
-        $hasApplied = 0;
+        $btn = ApplyBtn::find()
+            ->where(['key' => $key])
+            ->one();
+        $btn->clickCount = $btn->clickCount + 1;
+        $btn->save();
 
-        // $cookie = Yii::$app->request->cookies->getValue('usr_', 'NA');
         if (Yii::$app->user->isGuest) {
             $userID = "NA";
         } else {
             $this->layout = 'empty';
             $userID = Yii::$app->user->identity->id;
-            $btn = ApplyBtn::find()
-                ->where(['key' => $key])
-                ->one();
-            $job = Job::findOne($btn->job_id);
-
-            $possibleApp = Application::find()
-                ->where(['job_id' => $job->id, 'user_id' => $userID])
-                ->all();
-            if (count($possibleApp) == 1) {
-                $hasApplied = 1;
-            } else {
-                $hasApplied = 0;
-            }
         }
-
-        return $this->render('buttonPopup', [
+        return $this->render('buttonPopupWindow', [
             'userID'  => $userID,
-            'applied' => $hasApplied,
+            'key'     => $key,
         ]);
 
     }
 
+    
+/*
     public function actionUpdate($id)
     {
+    if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $model = ApplyBtn::findOne($id);
 
@@ -422,7 +644,7 @@ class JobController extends Controller
         }
 
     }
-
+*/
     /**
      * Updates an existing Job model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -434,6 +656,10 @@ class JobController extends Controller
 
     public function actionUpdateJob($id)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+    if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -455,6 +681,9 @@ class JobController extends Controller
      */
     public function actionDeleteJob($id)
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+        if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -476,5 +705,58 @@ class JobController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function findJobRadius($dist)
+    {
+        $earthRadius = 6371;
+        $geo = Geo::findOne(['id' => Yii::$app->user->identity->geo_id]);
+
+        $lat = $geo->lat;
+        $lon = $geo->lon;
+
+        $minLat = $lat;
+        $maxLat = $lat;
+        $minLon = $lon;
+        $maxLon = $lon;
+
+        if (isset($dist)) {
+            // first-cut bounding box (in degrees)
+            $maxLat = $lat + rad2deg($dist / $earthRadius);
+            $minLat = $lat - rad2deg($dist / $earthRadius);
+
+            // compensate for degrees longitude getting smaller with increasing latitude
+            $maxLon = $lon + rad2deg($dist / $earthRadius / cos(deg2rad($lat)));
+            $minLon = $lon - rad2deg($dist / $earthRadius / cos(deg2rad($lat)));
+        }
+
+        $lat = deg2rad($lat);
+        $lon = deg2rad($lon);
+
+
+        if (isset($dist)) {
+            $distQuery = (new Query())
+                ->select(['plz', 'city', "distance" => "acos(sin($lat)*sin(radians(lat)) + cos($lat)*cos(radians(lat))*cos(radians(lon)-$lon)) * $earthRadius"])
+                ->from(['firstCut' => (new Query())
+                    ->select(['id', 'plz', 'city', 'lat', 'lon'])
+                    ->from('geo')
+                    ->where(['and', ['between', 'lat', $minLat, $maxLat], ['between', 'lon', $minLon, $maxLon]])])
+                ->where("acos(sin($lat)*sin(radians(lat)) + cos($lat)*cos(radians(lat))*cos(radians(lon)-$lon)) * $earthRadius < $dist");
+        } else {
+            $distQuery = (new Query())
+                ->select(['plz', 'city', "distance" => "acos(sin($lat)*sin(radians(lat)) + cos($lat)*cos(radians(lat))*cos(radians(lon)-$lon)) * $earthRadius"])
+                ->from('geo');
+        }
+
+        return (new Query())
+            ->from('job')
+            ->leftJoin(
+                [
+                    "dist" => $distQuery
+                ]
+                , 'dist.plz = job.zip')
+            ->select(['job.*', 'dist.distance', 'dist.city'])
+            ->orderBy('distance');
+
     }
 }

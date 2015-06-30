@@ -48,4 +48,26 @@
 	div.row.second{
 		margin-top:20px;
 	}
+	
+	div.insertJobData, div.insertSchoolData{
+		a.btn{
+			float:right;
+		}
+	}
+}
+
+.controller-user.action-settings{
+	button.save{
+		float:right;
+	}
+	
+	.radio label{
+		margin-left:-20px;
+	}
+	
+	.password-inputs{
+		h3{
+			margin-bottom:30px;
+		}
+	}
 }

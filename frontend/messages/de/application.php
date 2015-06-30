@@ -9,7 +9,8 @@
 
 return [
     'State' => 'Status',
-    'Key' => 'Key',
-    'Site' => 'Seite',
+    'Key'   => 'Key',
+    'Site'  => 'Seite',
     'Title' => 'Titel',
+    'Text'  => 'Anschreiben',
 ];

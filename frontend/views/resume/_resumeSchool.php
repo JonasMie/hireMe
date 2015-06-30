@@ -15,9 +15,17 @@ use yii\helpers\Html;
 
 
 $attributes = [
-    'graduation:text:Abschluss',
-    'schoolname:text:Schule',
     [
+        'label'     => 'Abschluss',
+        'attribute' => 'graduation',
+		'inputContainer' => ['class'=>'allowPrefill'],
+    ],
+	[
+        'label'     => 'Einrichtung',
+        'attribute' => 'schoolname',
+		'inputContainer' => ['class'=>'allowPrefill'],
+    ],
+	[
         'label'     => 'Von',
         'attribute' => 'begin',
         'format'=>['date', 'php:d.m.Y'],
@@ -25,8 +33,9 @@ $attributes = [
         'widgetOptions'=>[
             'class'=>DateControl::classname(),
             'type'=>DateControl::FORMAT_DATE,
-            'options' => ['id' => 'school-date-begin-' . $model->id]
-        ]
+            'options' => ['id' => 'school-date-begin-' . $model->id, 'class'=>'allowPrefill']
+        ],
+		'inputContainer' => ['class'=>'allowPrefill'],
     ],
     [
         'label'     => 'Bis',
@@ -36,8 +45,15 @@ $attributes = [
         'widgetOptions'=>[
             'class'=>DateControl::classname(),
             'type'=>DateControl::FORMAT_DATE,
-            'options' => ['id' => 'school-date-end-' . $model->id]
-        ]
+            'options' => ['id' => 'school-date-end-' . $model->id, 'class'=>'allowPrefill']
+        ],
+		'inputContainer' => ['class'=>'allowPrefill'],
+    ],
+    [
+        'attribute' => 'current',
+        'rowOptions' => ['class'=>'kv-view-hidden'],
+        'type' => DetailView::INPUT_CHECKBOX,
+        'label' => 'Letzte Ausbildungsstätte'
     ],
     [
         'label'     => 'Anhänge',
@@ -62,11 +78,12 @@ echo DetailView::widget([
     'attributes'     => $attributes,
     'panel'          => [
         'heading' => $model->graduation,
-        'type'    => DetailView::TYPE_DEFAULT      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
+        'type'    => DetailView::TYPE_SUCCESS      // STYLE: Panel-Style ist mit den Bootstrap-Context-Types anpassbar (z.B. TYPE_PRIMARY)
     ],
     'deleteOptions'  => [
         'params' => ['id' => $model->id, 'type' => 'school'],
         'url'    => ['delete'],
+		'label'  => '<span class="glyphicon glyphicon-remove"></span>',
     ],
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],

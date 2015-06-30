@@ -18,4 +18,6 @@ return [
     'Company Employees'      => 'Anzahl der Beschäftigten',
     'Sector'                 => 'Branche',
     'Company ID'             => 'Unternehmens-ID',
+    'Employee Amount'        => 'Anzahl der Beschäftigten',
+    'Company'                => 'Unternehmen',
 ];

@@ -30,19 +30,19 @@ $this->title = Yii::t('app', 'Favoriten');
 <div class="favourites-index">
 
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-1">
+		<div class="col-sm-12">
 			<h1><?= Html::encode($this->title) ?></h1>
 		</div>
-		<div class="col-sm-2 searchBtn">
-			<?= Html::a(Yii::t('app', 'Nach Jobs suchen'), ['/job'], ['class' => 'btn btn-success']) ?>
+		<div class="col-sm-12 searchBtn">
+			<?= Html::a(Yii::t('app', 'Stellenanzeigen suchen'), ['/job'], ['class' => 'btn btn-success ripple']) ?>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
+		<div class="col-sm-12">
 			<?= GridView::widget([
 				'dataProvider' => $dataProvider,
 		//        'filterModel'  => $searchModel,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'favouritesTable'],
 				'options' => [
 					'data-type' => 'favourites',
 					'class' => 'grid-view'
@@ -93,12 +93,9 @@ $this->title = Yii::t('app', 'Favoriten');
 						'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'fifth-col']
 					],
 				],
-				/*'showFooter' => true,*/
 			]); ?>
-			
-			<? // TODO: (analog message/index.php) check functionality when correctly arranged ?>
-
-			<div class="dropdown" id="bulkActions">
+            <? if ($dataProvider->count > 0): ?>
+			<div class="dropdown" id="bulkActions" data-index="0">
 				<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success">
 					Aktion
 					<span class="caret"></span>
@@ -109,6 +106,7 @@ $this->title = Yii::t('app', 'Favoriten');
 					</li>
 				</ul>
 			</div>
+            <? endif ?>
 		</div>
 	</div>
 </div>

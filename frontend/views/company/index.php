@@ -7,33 +7,60 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\CompanySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Companies');
+$this->title = Yii::t('company', 'Company');
 ?>
 <div class="company-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Company'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
+    <? include Yii::getAlias('@helper/companySignup.php');
+    $GLOBALS['sectors'] = $sectorList;
+    $GLOBALS['employees'] = $employeeAmount; ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+        'emptyCell'    => '&nbsp;',
+        'columns'      => [
+            [
+                'attribute' => 'name',
+                'format'    => 'raw',
+                'value'     => function ($data) {
+                    return Html::a($data->name, ['/company/view', 'id' => $data->id]);
+                }
+            ],
+            [
+                'attribute' => 'city',
+                'value' => function ($data){
+                    if($data->city){
+                        return $data->city;
+                    }
+                    return '';
+                }
+            ],
+            [
+                'attribute' => 'sector',
+                'value'     => function ($data) {
+                    if ($data->sector) {
+                        return $GLOBALS['sectors'][$data->sector];
+                    }
+                    return '';
+                },
+            ],
+            [
+                'attribute' => 'employeeAmount',
+                'value'     => function ($data) {
+                    if ($data->employeeAmount) {
+                        return $GLOBALS['employees'][$data->employeeAmount];
+                    }
+                    return '';
+                }
+            ],
 
-            'id',
-            'name',
-            'street',
-            'houseno',
-            'zip',
-            // 'city',
-            // 'sector',
-            // 'employeeAmount',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class'    => 'yii\grid\ActionColumn',
+                'template' => '{view}'
+            ],
         ],
     ]); ?>
 

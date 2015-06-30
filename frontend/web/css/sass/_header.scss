@@ -180,12 +180,14 @@
           .icon-bar:nth-of-type(2){
             width: $hamburger-button-size/1.8;
             transform: rotate3d(0,0,1,-40deg);
+            -webkit-transform: rotate3d(0,0,1,-40deg); //iOs fix
             top: 15px;
             left: 9px;
           }
           .icon-bar:nth-of-type(4) {
             width: $hamburger-button-size/1.8;
             transform: rotate3d(0,0,1,40deg);
+            -webkit-transform: rotate3d(0,0,1,40deg); //iOs fix
             top: 19px;
             left:9px;
           }

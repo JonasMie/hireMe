@@ -57,7 +57,7 @@ class MessageCreate extends Model
             [['receiver_id', 'read', 'flow'], 'integer'],
             [['sent_at'], 'safe'],
             [['subject'], 'string', 'max' => 255],
-            [['attachment'], 'file', 'extensions' => ['png', 'pdf', 'jpg']],
+            [['attachment'], 'file', 'extensions' => ['png', 'pdf', 'jpg', 'jpeg']],
         ];
     }
 
@@ -68,16 +68,16 @@ class MessageCreate extends Model
     {
         return [
             'id'          => 'ID',
-            'subject'     => 'Betreff',
-            'content'     => 'Nachricht',
+            'subject'     => Yii::t('message', 'Subject'),
+            'content'     => Yii::t('message', 'Content'),
             'sender_id'   => 'Sender ID',
             'receiver_id' => 'Receiver ID',
-            'receiver'    => 'Empfänger',
-            'sent_at'     => 'Gesendet',
-            'deleted_sender'     => 'Gelöscht',
-            'deleted_receiver'     => 'Gelöscht',
-            'read'        => 'Gelesen',
-            'flow'        => 'Flow'
+            'receiver'    => Yii::t('message', 'Receiver'),
+            'sent_at'     => Yii::t('message', 'Sent'),
+            'deleted_sender'     => Yii::t('message', 'Deleted'),
+            'deleted_receiver'     => Yii::t('message', 'Deleted'),
+            'read'        => Yii::t('message', 'Read'),
+            'flow'        => Yii::t('message', 'Flow'),
         ];
     }
 

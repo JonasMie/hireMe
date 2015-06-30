@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use common\models\User;
 use frontend\helper\Setup;
 use Yii;
 
@@ -52,12 +53,12 @@ class ResumeSchool extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'user_id' => Yii::t('app', 'User ID'),
-            'begin' => Yii::t('app', 'Begin'),
-            'end' => Yii::t('app', 'End'),
-            'current' => Yii::t('app', 'Current'),
-            'schoolname' => Yii::t('app', 'Schoolname'),
-            'report_id' => Yii::t('app', 'Report ID'),
-            'graduation' => Yii::t('app', 'Graduation'),
+            'begin' => Yii::t('resume', 'Begin'),
+            'end' => Yii::t('resume', 'End'),
+            'current' => Yii::t('resume', 'Current'),
+            'schoolname' => Yii::t('resume', 'Schoolname'),
+            'report_id' => Yii::t('resume', 'Report ID'),
+            'graduation' => Yii::t('resume', 'Graduation'),
         ];
     }
 

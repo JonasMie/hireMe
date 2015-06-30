@@ -1,21 +1,59 @@
+body.controller-resume{
+	.list-view .panel-heading .btn-xs{
+		padding:6px 12px;
+	}
+	
+	a.btn.insertSchoolData, a.btn.insertJobData {
+		float: right;
+		margin-bottom: 20px;
+	}
+}
+
+body.controller-resume.action-index{
+
+	div.summary{
+		display:none;
+	}
+
+}
+
 body.controller-resume.action-create {
   #w0 {
     > div {
       margin-top: 50px;
       margin-bottom: 0px;
 
-      label[for="resumejob-report_id"] {
+      label[for="resumejob-report_id"], label[for="resumeschool-report_id"] {
         margin-bottom: 10px;
       }
 
       textarea {
         resize: none;
       }
+
+      #resumejob-type, #resumeschool-schoolname, #resumeschool-graduation {
+        max-width: 500px;
+      }
+
+      #resumejob-description {
+        max-width: 1000px;
+      }
+    }
+
+    .field-resumejob-current, .field-resumeschool-current {
+      label {
+        font-weight: 300;
+        padding-left: 0px;
+        .icheckbox_flat-green {
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+    div.field-resumejob-company_id {
+      span.twitter-typeahead {
+        max-width: 500px;
+      }
     }
   }
-
-
-
-
-
 }

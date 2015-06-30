@@ -14,7 +14,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ResumeJob */
 
-$this->title = Yii::t('app', 'Abschluss hinzufügen');
+$this->title = Yii::t('app', 'Ausbildung hinzufügen');
 ?>
 <div class="resume-school-create">
 

@@ -40,6 +40,7 @@ class AttachementController extends Controller
     }
 
     public function actionShowFile($id) {
+        if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
 
         $file = File::find()
         ->where(["id" => $id])->one();
@@ -50,6 +51,9 @@ class AttachementController extends Controller
     }
 
     public function actionUpdate($id) {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $model = File::find()
         ->where(['id' => $id])
@@ -66,6 +70,9 @@ class AttachementController extends Controller
     
 
     public function actionDeleteFile($id) {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
 
         $model = File::find()
         ->where(['id' => $id])
@@ -91,10 +98,13 @@ class AttachementController extends Controller
 
     public function actionIndex()
     {
+    if (Yii::$app->user->isGuest) {$this->redirect("/site/login");}
+
+        if(Yii::$app->user->identity->isRecruiter()) {$this->redirect("/application");}
+        
     	$user = Yii::$app->user->identity;
   		$sql = "SELECT title,id from file WHERE NOT (title LIKE '%cover%') AND user_id =".$user->id;
   		$model = new UploadForm();
-
   		$fileDataProvider = new SqlDataProvider([
             'sql' => $sql,
             'sort' => [
@@ -116,12 +126,13 @@ class AttachementController extends Controller
                 $file = new File();
                 // Firstly, create file, then reference it by application_data 
                 $files = File::find()->orderBy('id')->all();
-                $file->path = "/appData/AD_".md5($user->id.'_'.$file->id);
                 $file->extension = $model->file->extension;
                 $file->size = $model->file->size;
                 $file->title = $model->title;
                 $file->user_id = $user->id;
                 if($file->save()) {
+                $file->path = "/appData/AD_".md5($user->id.'_'.$file->id);
+                $file->save();
                 $model->file->saveAs("uploads".$file->path.'.' . $model->file->extension);                
                 Yii::trace("Saved file");
                 }

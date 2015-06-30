@@ -1,8 +1,8 @@
 // Basic colors
 
-$black: rgb(45,49,47);
+$black: rgb(45,49,47); //#2D312F
 
-$green: rgb(93,202,136);
+$green: rgb(93,202,136); // #5CCA88
 $green50: rgba(93,202,136,0.5);
 $green20: rgba(93,202,136,0.2);
 
@@ -10,7 +10,7 @@ $grey:  rgb(93,100,97);
 
 $greyBG: #edf0f0;
 
-$greyFont:  rgb(157,157,157);
+$greyFont:  rgb(157,157,157); // #9D9D9D
 
 $borderGrey: rgb(221,221,221);
 
@@ -132,5 +132,16 @@ transition: color 0.2s ease-in-out;
 	th{
 		padding-right:50px;
 		color: lighten($greyFont, 20%);
+		vertical-align: top;
+	}
+	td{
+		vertical-align:top;
+	}
+	
+	a:not(.btn){
+		color:$green;
+		&:hover,&:focus,&:active{
+			color:$green50;
+		}
 	}
 }

@@ -17,8 +17,8 @@ use yii\web\UploadedFile;
 // set image dimension constants
 define("IMGWIDHT", 500);
 define("IMGHEIGHT", 500);
-define("THUMBHEIGHT", 150);
-define("THUMBWIDTH", 150);
+define("THUMBHEIGHT", 50);
+define("THUMBWIDTH", 50);
 
 class SettingsModel extends Model
 {
@@ -29,7 +29,7 @@ class SettingsModel extends Model
     public $password_repeat;
     public $oldPassword;
     public $picture;
-
+    public $plz;
 
     /**
      * @inheritdoc
@@ -46,12 +46,13 @@ class SettingsModel extends Model
 
 
             ['password', 'string', 'min' => 6],
-            ['password', 'compare'],
+//            ['password', 'compare'],
             ['password_repeat', 'required', 'when' => function ($model) {
                 return !empty($model->password);
             }, 'whenClient'                        => "function(attribute,value){
                     return $('#settingsmodel-password').val()!='';
             }"],
+            ['password_repeat', 'compare', 'compareAttribute' => 'password'],
             ['oldPassword', 'required', 'when' => function ($model) {
                 return !empty($model->password);
             }, 'whenClient'                    => "function(attribute,value){
@@ -64,7 +65,8 @@ class SettingsModel extends Model
             }],
 
             ['visibility', 'in', 'range' => [0, 1, 2]],
-            ['picture', 'file', 'extensions' => ['jpg', 'png']],
+            ['picture', 'file', 'extensions' => ['jpg', 'png', 'jpeg']],
+            ['plz', 'exist', 'targetClass' => Geo::className(), 'targetAttribute' => 'plz'],
         ];
     }
 
@@ -74,11 +76,12 @@ class SettingsModel extends Model
     public function attributeLabels()
     {
         return [
-            'visibility'      => 'Sichtbarkeit',
-            'oldPassword'     => 'Altes Passwort',
-            'password'        => 'Neues Passwort',
-            'password_repeat' => 'Passwort-Bestätigung',
-            'picture'         => 'Profilbild',
+            'visibility'      => Yii::t('settings', 'Visibility'),
+            'oldPassword'     => Yii::t('settings', 'Old Password'),
+            'password'        => Yii::t('settings', 'Password'),
+            'password_repeat' => Yii::t('settings', 'Password Repeat'),
+            'picture'         => Yii::t('settings', 'Picture'),
+            'plz'             => Yii::t('geo', 'Plz')
         ];
     }
 
@@ -94,9 +97,16 @@ class SettingsModel extends Model
             $imageId = $this->uploadImage($this);
             if (isset($imageId) && $imageId) {
                 $user->picture_id = $imageId;
+            } else if (isset($imageId) && !$imageId) {
+                return false;
+            }
+            if (isset($this->plz) && !empty($this->plz)) {
+                $geo = Geo::findOne(['plz' => $this->plz]);
+                $user->geo_id = $geo->id;
             }
             $user->email = $this->email;
             $user->visibility = $this->visibility;
+
             if (!empty($this->password)) {
                 $user->setPassword($this->password);
             }
@@ -113,23 +123,27 @@ class SettingsModel extends Model
     {
         $model->picture = UploadedFile::getInstance($model, 'picture');
         $param = Yii::$app->request->post();
-        if ($model->picture && $model->validate()) {
-            $profilePic = new File();
-            $profilePic->path = "/" . uniqid("profile_");
-            $profilePic->extension = $model->picture->extension;
-            $profilePic->size = $model->picture->size;
-            $profilePic->title = $model->picture->baseName;
-            if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path . "." . $profilePic->extension,$param) && $this->saveThumbnail($profilePic->path)) {
-                return $profilePic->id;
+        if ($model->picture) {
+            if ($model->validate()) {
+                $profilePic = new File();
+                $profilePic->path = "/" . uniqid("profile_");
+                $profilePic->extension = $model->picture->extension;
+                $profilePic->size = $model->picture->size;
+                $profilePic->title = $model->picture->baseName;
+                if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path, $profilePic->extension, $param) && $this->saveThumbnail($profilePic->path)) {
+                    return $profilePic->id;
+                }
+                return false;
             }
             return false;
         }
-        return false;
+        return null;
     }
 
-    private function cropImage($path,$param)
+    private
+    function cropImage($path, $extension, $param)
     {
-        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path;
+        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path . "." . $extension;
         $imagesize = getimagesize($imagefile);
         $imagetype = $imagesize[2];
         switch ($imagetype) {
@@ -153,7 +167,7 @@ class SettingsModel extends Model
         imagecopyresampled($vDstImg, $image, 0, 0, $param['x'], $param['y'], IMGWIDHT, IMGHEIGHT, $param['w'], $param['h']);
 
         // define a result image filename
-        $sResultFileName = Yii::getAlias('@webroot') . '/uploads/profile' . $path;
+        $sResultFileName = Yii::getAlias('@webroot') . '/uploads/profile' . $path . ".jpg";
 
         // output image to file
         imagejpeg($vDstImg, $sResultFileName);
@@ -162,9 +176,10 @@ class SettingsModel extends Model
         return true;
     }
 
-    private function saveThumbnail($path)
+    private
+    function saveThumbnail($path)
     {
-        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile' . $path.".jpg";
+        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile' . $path . ".jpg";
         $imagesize = getimagesize($imagefile);
         $imagewidth = $imagesize[0];
         $imageheight = $imagesize[1];
@@ -197,7 +212,7 @@ class SettingsModel extends Model
         );
 
 
-        imagejpeg($thumb, Yii::getAlias('@webroot') . '/uploads/profile/thumbnails' . $path .".jpg");
+        imagejpeg($thumb, Yii::getAlias('@webroot') . '/uploads/profile/thumbnails' . $path . ".jpg");
         imagedestroy($thumb);
         return true;
     }

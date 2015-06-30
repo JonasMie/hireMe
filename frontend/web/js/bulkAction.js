@@ -7,7 +7,7 @@
 jQuery('#bulkActions.dropdown').on('click', '.bulkRead, .bulkUnread, .bulkDelete', function (e) {
     e.preventDefault();
     var $_this = jQuery(this);
-    $gridView = $_this.closest('div.grid-view');
+    $gridView = $('#w' + $_this.closest("div #bulkActions").data('index'));
     $gridView.bulkAction($_this, $gridView.data('type'));
 });
 

@@ -1,7 +1,85 @@
 @import "compass/css3/border-radius";
 
 body.action-login {
+
+  h2.socialLoginHeader {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
   .site-login {
+
+    //Social Login
+
+    .login-field {
+      @media (max-width: 767px) {
+        height: 570px;
+      }
+    }
+
+    div.auth-clients {
+      float: right;
+      position: relative;
+      left: -50%;
+      text-align: left;
+      ul.auth-clients {
+        list-style: none;
+        position: relative;
+        left: 50%;
+        li.auth-client {
+          margin-bottom: 20px;
+          a {
+            float: left;
+            text-align: center;
+            white-space: nowrap;
+            .auth-icon {
+              background-attachment: scroll;
+              background-clip: border-box;
+              background-color: transparent;
+              background-image: url("/images/authchoice.png");
+              background-origin: padding-box;
+              background-repeat: no-repeat;
+              background-size: auto auto;
+              display: block;
+              height: 32px;
+              width: 32px;
+            }
+            .auth-title {
+              color: #fff;
+              font-size: 13px;
+              -webkit-transition: color 0.2s ease-in-out;
+              -moz-transition: color 0.2s ease-in-out;
+              -ms-transition: color 0.2s ease-in-out;
+              -o-transition: color 0.2s ease-in-out;
+              transition: color 0.2s ease-in-out;
+            }
+          }
+        }
+        li:hover {
+          a {
+            .auth-icon {
+              background-image: url("/images/authchoiceHover.png");
+            }
+            .auth-title {
+              color: $green;
+            }
+          }
+        }
+        li:nth-of-type(4) {
+          margin-right: 0px;
+        }
+
+        @media (min-width: 768px) and (max-width: 959px) {
+          padding-left: 19%;
+          padding-right: 19%;
+          li:nth-of-type(2), li:nth-of-type(4) {
+            margin-right: 0px;
+            float: right;
+          }
+        }
+      }
+    }
+    //END Social Login
 
     //$placeholderColor: #fff;
     //
@@ -21,7 +99,7 @@ body.action-login {
     //   color: $placeholderColor;
     //}
 
-    .login-field {
+    .login-field, .signup-field {
       text-align: center;
       background-color: rgba(45, 49, 47, 0.8);
       @include border-radius(6px);
@@ -52,15 +130,22 @@ body.action-login {
         margin-bottom: 50px;
         a {
           color: #fff;
+          font-size: 13px;
           &:hover {
             color: $green;
           }
         }
       }
-	  $FormBorderNonFocused: 2px solid $borderGrey;
-	  $FormBorderFocused: 2px solid $green;
-
-
+      .field-loginform-rememberme {
+        label[for="loginform-rememberme"] {
+          padding-left: 0px;
+          font-weight: 300;
+          .icheckbox_flat-green {
+            margin-right: 2px;
+            margin-bottom: 2px;
+          }
+        }
+      }
     }
 
     .auth-clients {
@@ -69,9 +154,15 @@ body.action-login {
     }
 
     #form-signup {
-      .field-signupform-checkcompanysignup{
-        .icheckbox_flat-green {
-          margin-right: 10px;
+
+      .field-signupform-checkcompanysignup {
+        label[for="checkCompanySignup"] {
+          padding-left: 0px;
+          font-weight: 300;
+          .icheckbox_flat-green {
+            margin-right: 2px;
+            margin-bottom: 2px;
+          }
         }
       }
 
@@ -85,14 +176,103 @@ body.action-login {
           }
         }
       }
+
+      // SIGNUPFORM TYPEAHEAD
+      span.twitter-typeahead {
+        span.tt-dropdown-menu {
+          border-radius: 0px;
+          background-color: rgba(45, 49, 47, 0.95);
+          box-shadow: 0 0 5px 1px rgba(156, 156, 156, 1);
+          div.tt-suggestion {
+            text-align: left;
+            > p {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      .field-signupform-companyname.has-success,
+      .field-signupform-companyaddresszip.has-success,
+      .field-signupform-companyaddresscity.has-success {
+        > div {
+          > .twitter-typeahead {
+            input {
+              border-bottom: $FormBorderFocused;
+            }
+          }
+        }
+      }
+      // END SIGNUPFORM TYPEAHEAD
+
+      // SIGNUP SELECTS
+      .field-signupform-companysector {
+        label[for="signupform-companysector"] {
+        }
+        div.input-group {
+          span.select2-container--krajee {
+            span.selection {
+              span.select2-selection {
+                padding-left: 5px;
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                border: 0px;
+                border-radius: 0;
+                border-bottom: $FormBorderNonFocused;
+                #select2-signupform-companysector-container {
+                  font-size: 16px;
+                  color: #fff;
+                }
+                span.select2-selection__arrow {
+                  border: 0px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .field-signupform-companyemployees {
+        label[for="signupform-companyemployees"] {
+        }
+        div.input-group {
+          span.select2-container--krajee {
+            span.selection {
+              span.select2-selection {
+                padding-left: 5px;
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                border: 0px;
+                border-radius: 0;
+                border-bottom: $FormBorderNonFocused;
+                #select2-signupform-companyemployees-container {
+                  font-size: 16px;
+                  color: #fff;
+                }
+                span.select2-selection__arrow {
+                  border: 0px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .field-signupform-companysector.has-success, .field-signupform-companyemployees.has-success {
+        div.input-group {
+          span.select2-container--krajee {
+            span.selection {
+              span.select2-selection {
+                border-bottom: $FormBorderFocused;
+              }
+            }
+          }
+        }
+      }
+      // END SIGNUP SELECTS
     }
-
-
-
   }
 }
 
-.action-login {
+body.action-login {
 
   .wrap {
     background: url('../../images/loginBG2.jpg') center top no-repeat;
@@ -104,9 +284,81 @@ body.action-login {
       color: #fff;
       margin-bottom: 40px;
     }
-
   }
 
-}
+  // SIGNUPFORM DROPDOWN
+  .select2-container {
+    .select2-dropdown {
+      border: none;
+      border-radius: 0px;
+      background-color: rgba(45, 49, 47, 0.95);
+      box-shadow: 0 0 5px 1px rgba(156, 156, 156, 1);
+      .select2-search {
+        input.select2-search__field {
+          border-radius: 0px;
+          border: 0px;
+          border-bottom: $FormBorderNonFocused;
+          background: rgba(0, 0, 0, 0) url("/images/search.png") no-repeat scroll right 10px top 7px;
+          color: #fff;
+        }
+      }
+      .select2-results {
+        padding: 4px;
+        #select2-signupform-companysector-results {
+          > li.select2-results__option {
+            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            color: #fff;
+            > strong.select2-results__group {
+              background-color: $green;
+              border: none;
+              color: #fff;
+            }
+            > ul.select2-results__options {
+              > li {
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                color: #fff;
+              }
+              > li[aria-selected="true"] {
+                color: $green;
+              }
+              > li.select2-results__option--highlighted {
+                background-color: $green20;
+              }
+            }
+          }
+        }
+      }
+    }
+    .select2-dropdown.kv-hide-search {
+      .select2-search {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .select2-results {
+        padding-top: 0px;
+        #select2-signupform-companyemployees-results {
+          > li:nth-of-type(1) {
+            padding: 0;
+          }
+          > li.select2-results__option {
+            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            color: #fff;
+          }
+          > li.select2-results__option--highlighted {
+            background-color: $green20;
+          }
+        }
+      }
+    }
+    // END SIGNUPFORM DROPDOWN
+  }
+  .select2-container--krajee .select2-results__option.loading-results, .select2-container--krajee .load-more {
+    background: #fff url("/images/preloader.gif") no-repeat scroll right 10px center;
+    color: $green;
+  }
 
+  .select2-container--krajee.select2-container--open .select2-selection {
+    box-shadow: none;
+  }
+}
 

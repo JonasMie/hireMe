@@ -29,4 +29,18 @@ class UploadForm extends Model
 
         ];
     }
-}
+
+     public function attributeLabels()
+    {
+       
+           return [
+                'id' => Yii::t('app', 'ID'),
+                'path' => Yii::t('file', 'Path'),
+                'extension' => Yii::t('file', 'Extension'),
+                'size' => Yii::t('file', 'Size'),
+                'title' => Yii::t('file', 'Titel'),
+            ];
+    }
+
+
+  }

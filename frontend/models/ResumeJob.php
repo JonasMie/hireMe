@@ -54,13 +54,13 @@ class ResumeJob extends \yii\db\ActiveRecord
         return [
             'id'         => Yii::t('app', 'ID'),
             'user_id'    => Yii::t('app', 'User ID'),
-            'begin'      => Yii::t('app', 'Beginn'),
-            'end'        => Yii::t('app', 'Ende'),
-            'company_id' => Yii::t('app', 'Unternehmen'),
-            'type'       => Yii::t('app', 'Beruf'),
-            'description' => Yii::t('app', 'Beschreibung'),
-            'current'    => Yii::t('app', 'Aktuell'),
-            'report_id'  => Yii::t('app', 'Anlage'),
+            'begin'      => Yii::t('resume', 'Begin'),
+            'end'        => Yii::t('resume', 'End'),
+            'company_id' => Yii::t('company', 'Company Id'),
+            'type'       => Yii::t('resume', 'Type'),
+            'description' => Yii::t('resume', 'Description'),
+            'current'    => Yii::t('resume', 'Current'),
+            'report_id'  => Yii::t('resume', 'Report Id'),
         ];
     }
 

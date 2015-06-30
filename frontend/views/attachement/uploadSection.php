@@ -7,18 +7,14 @@ use frontend\controllers\ApplicationController;
 
 ?>
 
- <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-    <?= $form->field($model, 'file')->fileInput(['multiple' => false]) ?>
+	<?= $form->field($model, 'file')->fileInput(['multiple' => false]) ?>
 
-    <?= $form->field($model, 'title')->input("Titel:") ?>
+	<?= $form->field($model, 'title') ?>
 
-    <div class="form-group">
-        <?= Html::submitButton("Hochladen") ?>
-    </div>
+	<div class="form-group">
+		<?= Html::submitButton("<span class='glyphicon glyphicon-upload'></span>&nbsp;&nbsp;Hochladen",['class' => 'btn btn-success upload']) ?>
+	</div>
 
-    <?php ActiveForm::end(); ?>
-<hr>
-
-
-
+<?php ActiveForm::end(); ?>

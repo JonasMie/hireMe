@@ -17,130 +17,165 @@
  * @var $currentJobsDataProvider \yii\data\ActiveDataProvider
  * @var $currentSchoolsDataProvider \yii\data\ActiveDataProvider
  * @var $order String
+ * @var $showButtons boolean
  */
 
 use yii\helpers\Html;
 
 ?>
-<?php if ($order=='currentJob'): ?>
 
-<?php
-$currentJobs = $currentJobsDataProvider->getCount();
-$currentSchools = $currentSchoolsDataProvider->getCount();
+<? /* Most Recent Job/Jobs */ ?>
 
-if ($currentJobs > 0) {
-    echo "<h2>Aktuelle Beschäftigung</h2>";
-}
-if ($currentJobs) {
+<?php if ($order == 'currentJob'): ?>
+
+    <?php
+    $currentJobs = $currentJobsDataProvider->getCount();
+    $currentSchools = $currentSchoolsDataProvider->getCount();
+
+    if ($currentJobs > 0) {
+        echo "<h2>Aktuelle Beschäftigung</h2>";
+    }
+    if ($currentJobs) {
+        echo \yii\widgets\ListView::widget([
+            'dataProvider' => $currentJobsDataProvider,
+            'itemView'     => '_resumeJob',
+            'viewParams'   => ['edit' => $edit],
+            'options'      => [
+                'class' => 'allowPrefill list-view',
+            ],
+        ]);
+    }
+    ?>
+
+    <? /* Most Recent Graduation/Highest Qualification */ ?>
+
+<?php elseif ($order == 'currentSchool'): ?>
+
+    <?php
+    $currentJobs = $currentJobsDataProvider->getCount();
+    $currentSchools = $currentSchoolsDataProvider->getCount();
+
+    if ($currentSchools > 0) {
+        echo "<h2>Letzter Abschluss</h2>";
+    }
+    if ($currentSchools) {
+        echo \yii\widgets\ListView::widget([
+            'dataProvider' => $currentSchoolsDataProvider,
+            'itemView'     => '_resumeSchool',
+            'viewParams'   => ['edit' => $edit],
+            'options'      => [
+                'class' => 'allowPrefill list-view',
+            ],
+        ]);
+    }
+    ?>
+
+    <? /* Full List of Jobs */ ?>
+
+<?php elseif ($order == 'fullJob'): ?>
+
+    <? if ($showButtons): ?>
+        <div class="insertJobData">
+            <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple insertJobData']) ?>
+        </div>
+    <? endif ?>
+
+    <h2>Berufserfahrung</h2>
+
+    <?php
     echo \yii\widgets\ListView::widget([
-        'dataProvider' => $currentJobsDataProvider,
+        'dataProvider' => $jobDataProvider,
         'itemView'     => '_resumeJob',
         'viewParams'   => ['edit' => $edit],
-    ]);
-}
-?>
+        'options'      => [
+            'class' => 'allowPrefill list-view',
+        ],
+        ]);
+    ?>
 
-<?php elseif ($order=='currentSchool'): ?>
 
-<?php
-$currentJobs = $currentJobsDataProvider->getCount();
-$currentSchools = $currentSchoolsDataProvider->getCount();
+    <? /* Full List of Education */ ?>
 
-if ($currentSchools > 0) {
-    echo "<h2>Letzter Abschluss</h2>";
-}
-if ($currentSchools) {
+<?php elseif ($order == 'fullSchool'): ?>
+
+    <?php
+    $currentJobs = $currentJobsDataProvider->getCount();
+    $currentSchools = $currentSchoolsDataProvider->getCount();
+    ?>
+
+    <? if ($showButtons): ?>
+        <div class="insertSchoolData">
+            <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple insertSchoolData']) ?>
+        </div>
+    <? endif ?>
+
+    <h2>Ausbildung</h2>
+
+    <?php
     echo \yii\widgets\ListView::widget([
-        'dataProvider' => $currentSchoolsDataProvider,
+        'dataProvider' => $schoolDataProvider,
         'itemView'     => '_resumeSchool',
         'viewParams'   => ['edit' => $edit],
+        'options'      => [
+            'class' => 'allowPrefill list-view',
+        ],
     ]);
-}
-?>
+    ?>
 
-<?php elseif ($order=='fullJob'): ?>
-
-<?php
-$currentJobs = $currentJobsDataProvider->getCount();
-$currentSchools = $currentSchoolsDataProvider->getCount();
-?>
-<h2>Berufserfahrung</h2>
-<?php
-echo \yii\widgets\ListView::widget([
-    'dataProvider' => $jobDataProvider,
-    'itemView'     => '_resumeJob',
-    'viewParams'   => ['edit' => $edit],
-]);
-?>
-<p>
-    <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
-</p>
-
-
-<?php elseif ($order=='fullSchool'): ?>
-
-<?php
-$currentJobs = $currentJobsDataProvider->getCount();
-$currentSchools = $currentSchoolsDataProvider->getCount();
-?>
-<h2>Ausbildung</h2>
-<?php
-echo \yii\widgets\ListView::widget([
-    'dataProvider' => $schoolDataProvider,
-    'itemView'     => '_resumeSchool',
-    'viewParams'   => ['edit' => $edit],
-]);
-?>
-<p>
-    <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple']) ?>
-</p>
+    <? /* Default Fallback View for Resume when none of the options (order=...) above is selected */ ?>
 
 <?php else: ?>
 
-<?php
-$currentJobs = $currentJobsDataProvider->getCount();
-$currentSchools = $currentSchoolsDataProvider->getCount();
+    <?php
+    $currentJobs = $currentJobsDataProvider->getCount();
+    $currentSchools = $currentSchoolsDataProvider->getCount();
 
-if ($currentJobs + $currentSchools > 0) {
-    echo "<h2>Aktuell</h2>";
-}
-if ($currentJobs) {
+    if ($currentJobs + $currentSchools > 0) {
+        echo "<h2>Aktuell</h2>";
+    }
+    if ($currentJobs) {
+        echo \yii\widgets\ListView::widget([
+            'dataProvider' => $currentJobsDataProvider,
+            'itemView'     => '_resumeJob',
+            'viewParams'   => ['edit' => $edit],
+        ]);
+    }
+    if ($currentSchools) {
+        echo \yii\widgets\ListView::widget([
+            'dataProvider' => $currentSchoolsDataProvider,
+            'itemView'     => '_resumeSchool',
+            'viewParams'   => ['edit' => $edit],
+        ]);
+    }
+    ?>
+
+    <h2>Berufserfahrung</h2>
+    <?php
     echo \yii\widgets\ListView::widget([
-        'dataProvider' => $currentJobsDataProvider,
+        'dataProvider' => $jobDataProvider,
         'itemView'     => '_resumeJob',
         'viewParams'   => ['edit' => $edit],
     ]);
-}
-if ($currentSchools) {
+    ?>
+
+    <? if ($showButtons): ?>
+        <p>
+            <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
+        </p>
+    <? endif ?>
+
+    <h2>Ausbildung</h2>
+
+    <?php
     echo \yii\widgets\ListView::widget([
-        'dataProvider' => $currentSchoolsDataProvider,
+        'dataProvider' => $schoolDataProvider,
         'itemView'     => '_resumeSchool',
         'viewParams'   => ['edit' => $edit],
     ]);
-}
-?>
-
-<h2>Berufserfahrung</h2>
-<?php
-echo \yii\widgets\ListView::widget([
-    'dataProvider' => $jobDataProvider,
-    'itemView'     => '_resumeJob',
-    'viewParams'   => ['edit' => $edit],
-]);
-?>
-<p>
-    <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple']) ?>
-</p>
-<h2>Ausbildung</h2>
-<?php
-echo \yii\widgets\ListView::widget([
-    'dataProvider' => $schoolDataProvider,
-    'itemView'     => '_resumeSchool',
-    'viewParams'   => ['edit' => $edit],
-]);
-?>
-<p>
-    <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple']) ?>
-</p>
-
+    ?>
+    <? if ($showButtons): ?>
+        <p>
+            <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple']) ?>
+        </p>
+    <? endif ?>
 <?php endif; ?>

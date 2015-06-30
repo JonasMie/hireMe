@@ -28,13 +28,13 @@ $(document).ready(function(){
     /** INITIALIZING ICHECK **/
     $('input').iCheck({
         checkboxClass: 'icheckbox_flat-green',
-        radioClass: 'iradio_flat'
+        radioClass: 'iradio_flat-green'
     });
 
 
-    // TODO: This is a temporary hack, to prevent prefilled forms by browser which break our styling
+    // TODO: This is a temporary "hack", to prevent prefilled forms by browser which break our styling
     // Clear Form Fields
-    $(':not(.allowPrefill) > input[type=text], :not(.allowPrefill) > input[type=password]').val('');
+    $(':not(.allowPrefill, .input-group.date, .kv-container-from, .kv-container-to) > input[type=text], :not(.allowPrefill) > input[type=password]').val('');
 
 });
 
@@ -196,27 +196,9 @@ $('.select-on-check-all').on('ifUnchecked', function(event){
     $('#' + jQuery(this).closest('div.grid-view').attr('id') +' input[type=checkbox]').iCheck('uncheck');
 });
 
-/** END iCheck js select-on-check-all fix ++/
+/** END iCheck js select-on-check-all fix **/
 
 
- /** Demo Chart **/
-var data = [
-    {
-        value: 965,
-        color: "rgba(93,202,136,0.5)",
-        label: "Bewerbungen"
-    },
-    {
-        value: 84,
-        color: "rgb(221,221,221)",
-        label: "Stellenanzeigen"
-    }
-];
-
-
-var ctx = document.getElementById("DashboardChart").getContext("2d");
-var myNewChart = new Chart(ctx).Doughnut(data);
-/** END Demo**/
 
 
 

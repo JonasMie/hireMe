@@ -33,6 +33,15 @@ return [
                 'job'=> [
                     'class' => 'yii\i18n\PhpMessageSource',
                 ],
+                'resume'=> [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+                'message'=> [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+                'settings'=> [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
             ],
         ],
     ],
