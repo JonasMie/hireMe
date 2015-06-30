@@ -48,7 +48,7 @@ class Job extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'description', 'sector', 'company_id', 'active', 'type', 'time'], 'required'],
+            [['id', 'description', 'sector', 'company_id', 'active', 'type', 'time', 'title'], 'required'],
             [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
             [['job_begin', 'job_end', 'created_at', 'updated_at'], 'safe'],
             [['description', 'city'], 'string', 'max' => 255],

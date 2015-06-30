@@ -15,8 +15,8 @@ include Yii::getAlias('@helper/companySignup.php');
 /* @var $model frontend\models\Job */
 /* @var $form yii\widgets\ActiveForm */
 
-$model->job_begin = Yii::$app->formatter->asDate($model->job_begin);
-$model->job_end = Yii::$app->formatter->asDate($model->job_end);
+if($model->job_begin) $model->job_begin = Yii::$app->formatter->asDate($model->job_begin);
+if($model->job_end) $model->job_end = Yii::$app->formatter->asDate($model->job_end);
 ?>
 
 <div class="job-form">
