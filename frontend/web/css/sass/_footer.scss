@@ -1,0 +1,14 @@
+footer.footer {
+  background-color: $black;
+  color: $greyFont;
+  border: none;
+  p.pull-right {
+    margin-top: -2px; //The Bootstrap Glyphicon changes the position by 2 pixels
+    @media (max-width: 345px) {
+      display: none;
+    }
+    span.glyphicon-heart {
+      color: $green;
+    }
+  }
+}

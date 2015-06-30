@@ -1,0 +1,73 @@
+.controller-user.action-index{
+	
+	div.row.name{
+		text-align: center;
+		h1{
+			margin-bottom:20px;
+		}
+	}
+	
+	div.user-picture{
+		text-align: center;
+		a.btn{
+			display:block;
+			margin:20px auto;
+			max-width:200px;
+		}
+		img{
+		max-width:300px;
+		width:100%;
+		}
+	}
+	
+	div.userProfileSettings{
+		text-align: center;
+		a.btn{
+			display:block;
+			margin:20px auto;
+			max-width:200px;
+		}
+	}
+	
+	div.row.first{
+		h2{
+			margin-top:0px;
+			font-size:$fontbase * 1.2;
+		}
+		.panel-title{
+			font-size:$fontbase * 1.7;
+		}
+	}
+	
+	.list-view{
+		div.summary{
+			display:none;
+		}
+	}
+	
+	div.row.second{
+		margin-top:20px;
+	}
+	
+	div.insertJobData, div.insertSchoolData{
+		a.btn{
+			float:right;
+		}
+	}
+}
+
+.controller-user.action-settings{
+	button.save{
+		float:right;
+	}
+	
+	.radio label{
+		margin-left:-20px;
+	}
+	
+	.password-inputs{
+		h3{
+			margin-bottom:30px;
+		}
+	}
+}

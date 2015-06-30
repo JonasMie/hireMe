@@ -1,0 +1,18 @@
+.controller-favourites.action-index{
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
+
+	div.summary{
+		display:none;
+	}
+	
+	div.searchBtn {
+		margin-top: 15px;
+		text-align: right;
+	}
+}
