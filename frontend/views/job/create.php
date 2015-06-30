@@ -69,7 +69,9 @@ $this->title = 'Stellenanzeige erstellen';
 
             <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
                 'data' => $sectors,
+                'options' => ['prompt' => ''],
             ])->label('Branche') ?>
+
 
             <div class="form-group field-submit">
                 <br>

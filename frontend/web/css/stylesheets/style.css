@@ -1204,10 +1204,11 @@ body .input-group.input-daterange .kv-container-from {
   /* line 617, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 0px;
+    margin-bottom: 50px;
   }
 }
 
-/* line 633, ../sass/_basicTemplate.scss */
+/* line 634, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection {
   border: 0;
   -webkit-border-radius: 0;
@@ -1217,39 +1218,39 @@ body form:not(#form-signup) .form-group .select2-container--krajee .selection .s
   border-bottom: 2px solid #dddddd;
   background: none;
 }
-/* line 641, ../sass/_basicTemplate.scss */
+/* line 642, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(1) {
   color: #9d9d9d;
 }
-/* line 644, ../sass/_basicTemplate.scss */
+/* line 645, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) {
   border: 0;
 }
-/* line 646, ../sass/_basicTemplate.scss */
+/* line 647, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) b {
   border-color: #9d9d9d transparent transparent;
 }
-/* line 654, ../sass/_basicTemplate.scss */
+/* line 655, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b {
   border-color: transparent transparent #9d9d9d !important;
 }
-/* line 660, ../sass/_basicTemplate.scss */
+/* line 661, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group.has-success .select2-selection {
   border-bottom: 2px solid #5dca88 !important;
 }
 
-/* line 673, ../sass/_basicTemplate.scss */
+/* line 674, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   border: 0;
 }
-/* line 679, ../sass/_basicTemplate.scss */
+/* line 680, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search {
   padding-top: 10px;
 }
-/* line 681, ../sass/_basicTemplate.scss */
+/* line 682, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search input.select2-search__field {
   border: 0;
   border-radius: 0;
@@ -1257,25 +1258,25 @@ body:not(.action-login) .select2-dropdown .select2-search input.select2-search__
   color: #9d9d9d;
   box-shadow: none;
 }
-/* line 691, ../sass/_basicTemplate.scss */
+/* line 692, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #9d9d9d;
 }
-/* line 694, ../sass/_basicTemplate.scss */
+/* line 695, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option strong {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 699, ../sass/_basicTemplate.scss */
+/* line 700, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option {
   color: #9d9d9d;
 }
-/* line 702, ../sass/_basicTemplate.scss */
+/* line 703, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 705, ../sass/_basicTemplate.scss */
+/* line 706, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li[aria-selected="true"] {
   color: #5dca88;
   background: transparent none repeat scroll 0 0;
@@ -2691,18 +2692,29 @@ body.controller-job.action-create #form-createJob div.field-jobcreateform-sector
 /* line 265, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob div.input-daterange {
   margin-top: 52px;
+  margin-bottom: 0px;
 }
 @media (min-width: 768px) {
-  /* line 269, ../sass/_job.scss */
+  /* line 265, ../sass/_job.scss */
+  body.controller-job.action-create #form-createJob div.input-daterange {
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 768px) {
+  /* line 273, ../sass/_job.scss */
   body.controller-job.action-create #form-createJob div.kv-container-from, body.controller-job.action-create #form-createJob div.kv-container-to {
     width: 45%;
   }
 }
 @media (min-width: 768px) {
-  /* line 275, ../sass/_job.scss */
+  /* line 279, ../sass/_job.scss */
   body.controller-job.action-create #form-createJob div.kv-container-from {
     margin-right: 10%;
   }
+}
+/* line 285, ../sass/_job.scss */
+body.controller-job.action-create #form-createJob div.locationDiv {
+  max-width: 520px;
 }
 
 /* line 2, ../sass/_attachment.scss */
