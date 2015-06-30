@@ -106,9 +106,6 @@
 	
 	div.row.first{
 		margin-top:20px;
-		h2:first-child{
-			margin-top:0px;
-		}
 		
 		div.profileInfo{
 			text-align:center;
@@ -117,6 +114,10 @@
 			}
 			img{
 				max-width:100%;
+			}
+			
+			div.attachments{
+				text-align:left;
 			}
 		}
 		

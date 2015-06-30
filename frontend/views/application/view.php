@@ -65,10 +65,48 @@ if (Yii::$app->user->identity->isRecruiter()){
 				</div>
 				
 				<div class="col-sm-12">
-					<h3>Score</h3>
+					<h2>Score</h2>
 					<div class="allowPrefill">
 						<?= Html::textinput($model['app']->id,Html::encode($model["app"]->score),['class' => 'scoreInput', 'id' => 'score_'.$model['app']->score,'name' => $model["app"]->score]); ?>
 					</div>
+				</div>
+				
+				<div class="col-sm-12 attachments">
+		
+					<h2>Anlagen</h2>
+					<?= GridView::widget([
+						'dataProvider' => $appDataProvider,
+						'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'uploadedRecruiterView'],
+						'id' => "uploadedGrid",
+						'columns'      => [
+								[
+								'label'  => 'Titel',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  ApplicationController::getFileTitle($data->file_id);
+								},				
+								'headerOptions'  => ['class' => 'first-col'],
+								'contentOptions' => ['class' => 'first-col'],
+								], 
+								[
+								'label'  => '',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
+								},
+								'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
+									'contentOptions' => ['class' => 'second-col'],
+								],
+								[
+								'class'          => 'yii\grid\Column',
+								'headerOptions'  => ['data-toggle' => 'true'],
+								'contentOptions' => ['data-title' => 'data-toggle'],
+								],
+							],
+						]);
+					
+					?>
+				
 				</div>
 				
 			</div>
@@ -127,185 +165,149 @@ if (Yii::$app->user->identity->isRecruiter()){
 			<?= Html::decode("<pre>".$model['coverText']."</pre>"); ?>
 		</div>
 		
-	</div>
-	
-	<div class="row second">
-		<div class="col-sm-12">
-			<h2>Lebenslauf</h2>
-		</div>
-	
-		<div class="col-sm-6">
-		<h3>Beruflich</h3>
-			<?= GridView::widget([
-				'dataProvider' => $jobProvider,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
-				'id' => "schoolGrid",
-				'columns'      => [
+		<div class="col-sm-7">
+		
+			<div class="row second">
+				<div class="col-sm-12">
+					<h2>Lebenslauf</h2>
+				</div>
+			
+				<div class="col-sm-6">
+				<h3>Beruflich</h3>
+					<?= GridView::widget([
+						'dataProvider' => $jobProvider,
+						'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'inboxTable'],
+						'id' => "schoolGrid",
+						'columns'      => [
 
-					[
-						'label'  => 'Unternehmen',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  Company::findOne($data->company_id)->name;
-						},
-						'headerOptions'  => ['class' => 'first-col'],
-						'contentOptions' => ['class' => 'first-col'],
-					], 
-				   [
-						'label'  => 'Von',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  $data->begin;
-						},
-						'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
-						'contentOptions' => ['class' => 'second-col'],
-					], 
-					  [
-						'label'  => 'Bis',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  $data->end;
-						},
-						'headerOptions'  => ['class' => 'third-col','data-hide' => 'mediaXsmall, phone'],
-						'contentOptions' => ['class' => 'third-col'],
-					], 
-					 [
-						'label'  => 'Position',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  $data->type;
-						},
-						'headerOptions'  => ['class' => 'fourth-col'],
-						'contentOptions' => ['class' => 'fourth-col'],
-					], 
-					[
-						'label'  => 'Nachweis',
-						'format' => 'raw',
-						'visible' => isset($data->report_id),
-						'value'  => function ($data) {
-							return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->report_id,['target' => '_blank']);
-						},
-						'headerOptions'  => ['class' => 'fifth-col','data-hide' => 'mediaXsmall, phone'],
-						'contentOptions' => ['class' => 'fifth-col'],
-					],
-					[
-					'class'          => 'yii\grid\Column',
-					'headerOptions'  => ['data-toggle' => 'true'],
-					'contentOptions' => ['data-title' => 'data-toggle'],
-					],
-					
-				],
-			]);  
-			?>
-		</div>
-		
-		
-		
-		<div class="col-sm-6">
-		<h3>Schulisch</h3>					
-			<?= GridView::widget([
-				'dataProvider' => $schoolProvider,
-				'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'applicationSchoolTable'],
-				'id' => "schoolGrid",
-				'columns'      => [
+							[
+								'label'  => 'Unternehmen',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  Company::findOne($data->company_id)->name;
+								},
+								'headerOptions'  => ['class' => 'first-col'],
+								'contentOptions' => ['class' => 'first-col'],
+							], 
+						   [
+								'label'  => 'Von',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  $data->begin;
+								},
+								'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
+								'contentOptions' => ['class' => 'second-col'],
+							], 
+							  [
+								'label'  => 'Bis',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  $data->end;
+								},
+								'headerOptions'  => ['class' => 'third-col','data-hide' => 'mediaXsmall, phone'],
+								'contentOptions' => ['class' => 'third-col'],
+							], 
+							 [
+								'label'  => 'Position',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  $data->type;
+								},
+								'headerOptions'  => ['class' => 'fourth-col'],
+								'contentOptions' => ['class' => 'fourth-col'],
+							], 
+							[
+								'label'  => 'Nachweis',
+								'format' => 'raw',
+								'visible' => isset($data->report_id),
+								'value'  => function ($data) {
+									return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->report_id,['target' => '_blank']);
+								},
+								'headerOptions'  => ['class' => 'fifth-col','data-hide' => 'mediaXsmall, phone'],
+								'contentOptions' => ['class' => 'fifth-col'],
+							],
+							[
+							'class'          => 'yii\grid\Column',
+							'headerOptions'  => ['data-toggle' => 'true'],
+							'contentOptions' => ['data-title' => 'data-toggle'],
+							],
+							
+						],
+					]);  
+					?>
+				</div>
+				
+				
+				
+				<div class="col-sm-6">
+				<h3>Schulisch</h3>					
+					<?= GridView::widget([
+						'dataProvider' => $schoolProvider,
+						'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'applicationSchoolTable'],
+						'id' => "schoolGrid",
+						'columns'      => [
 
-					[
-						'label'  => 'Ausbildungsstätte',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  $data->schoolname;
-						},
-						'headerOptions'  => ['class' => 'first-col'],
-						'contentOptions' => ['class' => 'first-col'],
-					], 
-				   [
-						'label'  => 'Von',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  $data->begin;
-						},
-						'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
-						'contentOptions' => ['class' => 'second-col'],
-					], 
-					  [
-						'label'  => 'Bis',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  $data->end;
-						},
-						'headerOptions'  => ['class' => 'third-col','data-hide' => 'mediaXsmall, phone'],
-						'contentOptions' => ['class' => 'third-col'],
-					], 
-					[
-						'label'  => 'Abschluss',
-						'format' => 'raw',
-						'value'  => function ($data) {
-							return  $data->graduation;
-						},
-						'headerOptions'  => ['class' => 'fourth-col'],
-						'contentOptions' => ['class' => 'fourth-col'],
-					], 
-					[
-						'label'  => 'Nachweis',
-						'format' => 'raw',
-						'visible' => isset($data->report_id),
-						'value'  => function ($data) {
-							return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->report_id,['target' => '_blank']);
-						},
-						'headerOptions'  => ['class' => 'fifth-col','data-hide' => 'mediaXsmall, phone'],
-						'contentOptions' => ['class' => 'fifth-col'],
-					],
-					[
-					'class'          => 'yii\grid\Column',
-					'headerOptions'  => ['data-toggle' => 'true'],
-					'contentOptions' => ['data-title' => 'data-toggle'],
-					],
-				],
-			]);  
-			?>
-					
+							[
+								'label'  => 'Ausbildungsstätte',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  $data->schoolname;
+								},
+								'headerOptions'  => ['class' => 'first-col'],
+								'contentOptions' => ['class' => 'first-col'],
+							], 
+						   [
+								'label'  => 'Von',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  $data->begin;
+								},
+								'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
+								'contentOptions' => ['class' => 'second-col'],
+							], 
+							  [
+								'label'  => 'Bis',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  $data->end;
+								},
+								'headerOptions'  => ['class' => 'third-col','data-hide' => 'mediaXsmall, phone'],
+								'contentOptions' => ['class' => 'third-col'],
+							], 
+							[
+								'label'  => 'Abschluss',
+								'format' => 'raw',
+								'value'  => function ($data) {
+									return  $data->graduation;
+								},
+								'headerOptions'  => ['class' => 'fourth-col'],
+								'contentOptions' => ['class' => 'fourth-col'],
+							], 
+							[
+								'label'  => 'Nachweis',
+								'format' => 'raw',
+								'visible' => isset($data->report_id),
+								'value'  => function ($data) {
+									return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->report_id,['target' => '_blank']);
+								},
+								'headerOptions'  => ['class' => 'fifth-col','data-hide' => 'mediaXsmall, phone'],
+								'contentOptions' => ['class' => 'fifth-col'],
+							],
+							[
+							'class'          => 'yii\grid\Column',
+							'headerOptions'  => ['data-toggle' => 'true'],
+							'contentOptions' => ['data-title' => 'data-toggle'],
+							],
+						],
+					]);  
+					?>
+							
+				</div>
+			
+			</div>
+		
 		</div>
-	
-	</div>
-			
-			
-			
-	<div class="col-lg-3 col-sm-3">
 		
-		<h2>Anlagen</h2>
-		<?= GridView::widget([
-			'dataProvider' => $appDataProvider,
-			'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'uploadedRecruiterView'],
-			'id' => "uploadedGrid",
-			'columns'      => [
-					[
-					'label'  => 'Titel',
-					'format' => 'raw',
-					'value'  => function ($data) {
-						return  ApplicationController::getFileTitle($data->file_id);
-					},				
-					'headerOptions'  => ['class' => 'first-col'],
-					'contentOptions' => ['class' => 'first-col'],
-					], 
-					[
-					'label'  => '',
-					'format' => 'raw',
-					'value'  => function ($data) {
-						return Html::a("<span class='glyphicon glyphicon-eye-open'></span>&nbsp;Ansehen","/application/show-file?id=".$data->file_id,['target' => '_blank']);
-					},
-					'headerOptions'  => ['class' => 'second-col','data-hide' => 'mediaXsmall, phone'],
-						'contentOptions' => ['class' => 'second-col'],
-					],
-					[
-					'class'          => 'yii\grid\Column',
-					'headerOptions'  => ['data-toggle' => 'true'],
-					'contentOptions' => ['data-title' => 'data-toggle'],
-					],
-				],
-			]);
-		
-		?>
-	
 	</div>
 	
 </div>
