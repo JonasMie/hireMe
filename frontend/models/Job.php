@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use frontend\helper\Setup;
 use Yii;
 
 /**
@@ -47,7 +48,7 @@ class Job extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'description', 'sector', 'company_id', 'active', 'type', 'time'], 'required'],
+            [['id', 'description', 'sector', 'company_id', 'active', 'type', 'time', 'title'], 'required'],
             [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
             [['job_begin', 'job_end', 'created_at', 'updated_at'], 'safe'],
             [['description', 'city'], 'string', 'max' => 255],
@@ -126,5 +127,16 @@ class Job extends \yii\db\ActiveRecord
     public function getJobContacts()
     {
         return $this->hasMany(JobContacts::className(), ['job_id' => 'id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->job_begin= Setup::convert($this->job_begin);
+            $this->job_end = Setup::convert($this->job_end);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -141,7 +141,13 @@ use yii\helpers\Html;
                 'contentOptions' => ['data-title' => 'Date']
             ],
             [
-                'class'          => 'yii\grid\ActionColumn',
+                'class'          => \yii\grid\ActionColumn::className(),
+                'buttons'        =>
+                    [
+                        'view' => function ($url, $model, $key) {
+                            return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['application/view', 'id' =>$model->id], ['title' => Yii::t('app', 'Ansehen')]);
+                        },
+                    ],
                 'template'       => '{view}',
                 'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'View'],

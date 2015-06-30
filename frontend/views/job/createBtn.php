@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ApplyBtn */
 
-$this->title = 'Create Apply Btn';
+$this->title = 'hireMe-Button erstellen';
 ?>
 <div class="apply-btn-create">
 

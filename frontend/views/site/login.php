@@ -113,7 +113,7 @@ include Yii::getAlias('@helper/companySignup.php');
                         ],
                     ],
                     'pluginEvents' => [
-                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresscity").val(val.city) }'
+                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresscity").typeahead("val",val.city); jQuery(".field-signupform-companyaddresscity").addClass("has-success"); }'
                     ],
                 ])->label('PLZ') ?>
 
@@ -135,7 +135,7 @@ include Yii::getAlias('@helper/companySignup.php');
                         ],
                     ],
                     'pluginEvents' => [
-                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresszip").val(val.plz) }'
+                        'typeahead:selected' => 'function(e,val) { jQuery("#signupform-companyaddresszip").typeahead("val",val.plz);jQuery(".field-signupform-companyaddresszip").addClass("has-success"); }'
                     ],
                 ])->label('Ort') ?>
 
