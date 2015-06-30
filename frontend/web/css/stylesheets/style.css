@@ -1170,6 +1170,8 @@ body .input-group.input-daterange .kv-container-from input,
 body .input-group.input-daterange .kv-container-to input {
   max-width: 250px;
   border-bottom: 2px solid #dddddd;
+  color: #9d9d9d;
+  font-size: 16px;
 }
 @media (max-width: 767px) {
   /* line 593, ../sass/_basicTemplate.scss */
@@ -1179,36 +1181,36 @@ body .input-group.input-daterange .kv-container-to input {
     margin-top: 0px;
   }
 }
-/* line 606, ../sass/_basicTemplate.scss */
+/* line 608, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from {
   margin-right: 20px;
 }
 @media (max-width: 767px) {
-  /* line 606, ../sass/_basicTemplate.scss */
+  /* line 608, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from {
     margin-right: 20px;
     margin-bottom: 50px;
   }
 }
 @media (max-width: 767px) {
-  /* line 614, ../sass/_basicTemplate.scss */
+  /* line 616, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from {
     max-width: 100%;
   }
-  /* line 617, ../sass/_basicTemplate.scss */
+  /* line 619, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 50px;
   }
 }
 @media (max-width: 767px) and (max-width: 767px) {
-  /* line 617, ../sass/_basicTemplate.scss */
+  /* line 619, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 0px;
     margin-bottom: 50px;
   }
 }
 
-/* line 634, ../sass/_basicTemplate.scss */
+/* line 636, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection {
   border: 0;
   -webkit-border-radius: 0;
@@ -1218,39 +1220,39 @@ body form:not(#form-signup) .form-group .select2-container--krajee .selection .s
   border-bottom: 2px solid #dddddd;
   background: none;
 }
-/* line 642, ../sass/_basicTemplate.scss */
+/* line 644, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(1) {
   color: #9d9d9d;
 }
-/* line 645, ../sass/_basicTemplate.scss */
+/* line 647, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) {
   border: 0;
 }
-/* line 647, ../sass/_basicTemplate.scss */
+/* line 649, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) b {
   border-color: #9d9d9d transparent transparent;
 }
-/* line 655, ../sass/_basicTemplate.scss */
+/* line 657, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b {
   border-color: transparent transparent #9d9d9d !important;
 }
-/* line 661, ../sass/_basicTemplate.scss */
+/* line 663, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group.has-success .select2-selection {
   border-bottom: 2px solid #5dca88 !important;
 }
 
-/* line 674, ../sass/_basicTemplate.scss */
+/* line 676, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   border: 0;
 }
-/* line 680, ../sass/_basicTemplate.scss */
+/* line 682, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search {
   padding-top: 10px;
 }
-/* line 682, ../sass/_basicTemplate.scss */
+/* line 684, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search input.select2-search__field {
   border: 0;
   border-radius: 0;
@@ -1258,25 +1260,25 @@ body:not(.action-login) .select2-dropdown .select2-search input.select2-search__
   color: #9d9d9d;
   box-shadow: none;
 }
-/* line 692, ../sass/_basicTemplate.scss */
+/* line 694, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #9d9d9d;
 }
-/* line 695, ../sass/_basicTemplate.scss */
+/* line 697, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option strong {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 700, ../sass/_basicTemplate.scss */
+/* line 702, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option {
   color: #9d9d9d;
 }
-/* line 703, ../sass/_basicTemplate.scss */
+/* line 705, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 706, ../sass/_basicTemplate.scss */
+/* line 708, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li[aria-selected="true"] {
   color: #5dca88;
   background: transparent none repeat scroll 0 0;

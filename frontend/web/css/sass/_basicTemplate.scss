@@ -597,6 +597,8 @@ body {
       input {
         max-width: 250px;
         border-bottom: $FormBorderNonFocused;
+        color: $greyFont;
+        font-size: 16px;
       }
       @media (max-width: 767px){
         width: 250px;
