@@ -12,6 +12,7 @@ use frontend\models\ApplicationData;
 use frontend\models\Cover;
 use frontend\models\Company;
 use yii\db\Query;
+
 class MobileController extends \yii\web\Controller
 {
     public function actionGetJobs($event_id = false)
@@ -98,8 +99,25 @@ class MobileController extends \yii\web\Controller
         $app->read = 0;
         $app->archived = 0;
         $app->created_at = 0;
-        if($app->save()) {return "Deine Bewerbung wurde erfolgreich gespeichert";}
-        return "Leider gab es einen Fehler beim Speichern deiner Bewerbung";
+        if($app->save()) {
+
+            for ($i=0; $i < count($data); $i++) { 
+                
+                $tmp = new ApplicationData();
+                $appDatas = ApplicationData::find()->orderBy('id')->all();
+                if (count($appDatas) == 0) {$tmp->id = 0;} 
+                else {
+                $highestID = $appDatas[count($appDatas) - 1];
+                $tmp->id = $highestID->id + 1;
+                }
+                $tmp->application_id = $app->id;
+                $tmp->file_id = $data[$i];
+                $tmp->save();
+                                return "go in";
+
+            }
+
+        }
     }
 
     public function actionApply($user,$job) {
