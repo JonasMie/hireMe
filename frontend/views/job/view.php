@@ -171,12 +171,8 @@ $this->title = 'Stellenanzeige';
                                 ],
                                 [
                                     'label' => 'Standort',
-                                    'format' => 'raw',
-                                    'value' => function ($data) {
-                                        if (isset($data->zip)) {
-                                            return $data->zip; //. ', ' . $model->city;
-                                           }
-                                    }
+                                    'visible' => isset($model->zip),
+                                    'value' => $model->zip . ', ' . $model->city
                                 ],
                                 /* TODO: Arbeitszeit = Vollzeit, Praktikum, ...
                                 [
@@ -197,6 +193,7 @@ $this->title = 'Stellenanzeige';
                                 [
                                     'label' => 'Datum',
                                     'value' => $model->created_at,
+                                    'format' => 'date'
                                 ],
                                 [
                                     'label'  => 'Verfügbar ab',
