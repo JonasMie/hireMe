@@ -32,13 +32,13 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            ['$firstName', 'filter', 'filter' => 'trim'],
-            ['$firstName', 'required'],
-            ['$firstName', 'string', 'min' => 2, 'max' => 255],
+            ['firstName', 'filter', 'filter' => 'trim'],
+            ['firstName', 'required'],
+            ['firstName', 'string', 'min' => 2, 'max' => 255],
 
-            ['$lastName', 'filter', 'filter' => 'trim'],
-            ['$lastName', 'required'],
-            ['$lastName', 'string', 'min' => 2, 'max' => 255],
+            ['lastName', 'filter', 'filter' => 'trim'],
+            ['lastName', 'required'],
+            ['lastName', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
@@ -88,8 +88,8 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            '$firstName'            => Yii::t('user', 'First Name'),
-            '$lastName'             => Yii::t('user', 'Last Name'),
+            'firstName'            => Yii::t('user', 'First Name'),
+            'lastName'             => Yii::t('user', 'Last Name'),
             'email'                => Yii::t('user', 'Email'),
             'password'             => Yii::t('user', 'Password'),
             'checkCompanySignup'   => Yii::t('company', 'Check Company Signup'),
@@ -116,10 +116,10 @@ class SignupForm extends Model
         if ($this->validate()) {
 
             $user = new User();
-            $user->$firstName = $this->$firstName;
-            $user->$lastName = $this->$lastName;
-            $user->fullName = $this->$firstName . " " . $this->$lastName;
-            $user->username = $this->generateUsername($this->$firstName, $this->$lastName);
+            $user->firstName = $this->firstName;
+            $user->lastName = $this->lastName;
+            $user->fullName = $this->firstName . " " . $this->lastName;
+            $user->username = $this->generateUsername($this->firstName, $this->lastName);
             
 
             $user->email = $this->email;
