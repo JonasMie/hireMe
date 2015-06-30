@@ -137,6 +137,19 @@ body.controller-analytics {
   #charts-first-row, #charts-second-row, #charts-third-row, #charts-fourth-row {
     margin-top: 50px;
 
+    > .isHidden {
+      .background-wrapper {
+        background: none;
+        #isNull {
+          text-align: center;
+          margin-top: 20px;
+        }
+        canvas {
+          display: none;
+        }
+      }
+    }
+
     .background-wrapper {
       background-color: $greyBG;
 

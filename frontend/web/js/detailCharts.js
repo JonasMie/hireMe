@@ -228,9 +228,11 @@ $(document).ready(function () {
             var ctx2 = document.getElementById("interestRateChart").getContext("2d");
             var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
             var interestRate = new Chart(ctx2).Doughnut(interestRateData, options);
+            $("#charts-first-row > .first-col #isNull").addClass("hidden");
+            $("#charts-first-row > .second-col #isNull").addClass("hidden");
         } else {
-            $("#charts-first-row > .first-col").addClass("hidden");
-            $("#charts-first-row > .second-col").addClass("hidden");
+            $("#charts-first-row > .first-col").addClass("isHidden");
+            $("#charts-first-row > .second-col").addClass("isHidden");
         }
 
 
@@ -243,9 +245,11 @@ $(document).ready(function () {
             var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
             var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
             var applicationRate = new Chart(ctx4).Doughnut(applicationRateData, options);
+            $("#charts-first-row > .third-col #isNull").addClass("hidden");
+            $("#charts-first-row > .fourth-col #isNull").addClass("hidden");
         } else {
-            $("#charts-first-row > .third-col").addClass("hidden");
-            $("#charts-first-row > .fourth-col").addClass("hidden");
+            $("#charts-first-row > .third-col").addClass("isHidden");
+            $("#charts-first-row > .fourth-col").addClass("isHidden");
         }
 
         if (!interviewApplyIsNull) {
@@ -257,24 +261,27 @@ $(document).ready(function () {
             var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
             var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
             var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
+            $("#charts-second-row > .first-col #isNull").addClass("hidden");
+            $("#charts-second-row > .second-col #isNull").addClass("hidden");
         } else {
-            $("#charts-second-row > .first-col").addClass("hidden");
-            $("#charts-second-row > .second-col").addClass("hidden");
+            $("#charts-second-row > .first-col").addClass("isHidden");
+            $("#charts-second-row > .second-col").addClass("isHidden");
         }
 
         if (obj.viewCount != 0) {
             var ctx8 = document.getElementById("viewCompareChart").getContext("2d");
             var views = new Chart(ctx8).Doughnut(compareViewsData, options);
+            $("#charts-second-row > .third-col #isNull").addClass("hidden");
         } else {
-            $("#charts-second-row > .third-col").addClass("hidden");
+            $("#charts-second-row > .third-col").addClass("isHidden");
         }
 
         if (obj.clickCount != 0) {
             var ctx9 = document.getElementById("clickCompareChart").getContext("2d");
             var views = new Chart(ctx9).Doughnut(compareClicksData, options);
+            $("#charts-second-row > .fourth-col #isNull").addClass("hidden");
         } else {
-            $("#charts-second-row > .fourth-col").addClass("hidden");
+            $("#charts-second-row > .fourth-col").addClass("isHidden");
         }
     });
 });
-
