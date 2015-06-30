@@ -1,256 +1,294 @@
-.controller-job.action-index{
-	
-	// General Styling
-	
-	div.favouriteAlert{
-		display:none;
-	}
-	
-	#jobListTable{
-		.footable-visible{
-			span.glyphicon{
-				padding:20px 5px;
-			}
-		}
-		@media screen and (max-width:768px){
-			.footable-visible{
-				span.glyphicon{
-					padding:10px 5px;
-				}
-			}
-		}
-	}
-	
-	a{
-		color:$green;
-		&:hover,&:focus,&:active{
-			color: $green50;
-		}
-	}
-	
-	div#searchDistance{
-		float:right;
-		margin-bottom:10px;
-	}
-	
-	div.summary{
-		display:none;
-	}
-	
-	.footable .footable-row-detail .footable-row-detail-inner{
-		border: none;
-	}
-	
-	.footable-row-detail-cell{
-		border-bottom: 1px solid #dddddd;
-	}
-	
-	// Applicant Stylings
-	
-	a.btn{
-		color:#fff;
-		&:hover,&:focus,&:active{
-			color:#fff;
-		}
-	}
-	
-	
-	// Recruiter Stylings
-	
-	div.jobsRecruiter{
-		
-		a{
-			color:$green;
-			&:hover,&:focus,&:active{
-				color: $green50;
-			}
-		}
-		
-		h1{
-			margin-top:0px;
-		}
-		
-		div.empty{
-			display:none;
-		}
-		
-		div.jobCreate{
-			a.btn{
-				float:right;
-			}
-		}
-		a.btn{
-			color:#fff;
-			&:hover,&:focus,&:active{
-				color:#fff;
-			}
-		}
-		
-		div.list-view{
-			
-	
-		div.list-view{
-				margin-top:10px;
-			}
-			
-			div.jobItem {
-				margin-bottom: 20px;
-				div.totalApplicants{
-					.tile-left{
-						font-weight: 400;
-						font-size:$fontbase*1.2;
-					}
-				}
-				
-				div.newApplicants{
-					.tile-left{
-						font-weight: 400;
-						font-size:$fontbase*1.3;
-					}
-				}
-				
-				
-				div.info{
-					margin-bottom: 5px;
-					display:table;
-					min-width: 240px;
-					span.glyphicon{
-						font-size: $fontbase*0.9;
-					}
-					div.tile-left {
-						display: table-cell;
-						vertical-align: middle;
-						min-width: 40px;
-						height: 40px;
-						text-align: center;
-						background-color: rgb(101, 191, 133);
-						color: #fff;
-					}
-					
-					div.tile-right {
-						display: table-cell;
-						vertical-align: middle;
-						width: 200px;
-						height:40px;
-						background-color: rgb(45, 49, 47);
-						color: #fff;
-						padding: 0px 10px;
-					}
-					
-				}
-				
-				div.jobSubItem{
-				
-					span.info.profilePicture{
-						display:block;
-						float:left;
-						margin-right: 10px;
-						margin-bottom: 10px;
-					}
-				}
-			}
-		}
-		
-	}
+body.controller-job.action-index {
+
+  // General Styling
+
+  div.favouriteAlert {
+    display: none;
+  }
+
+  #jobListTable {
+    .footable-visible {
+      span.glyphicon {
+        padding: 20px 5px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .footable-visible {
+        span.glyphicon {
+          padding: 10px 5px;
+        }
+      }
+    }
+  }
+
+  div#searchDistance {
+    float: right;
+    margin-bottom: 10px;
+  }
+
+  div.summary {
+    display: none;
+  }
+
+  .footable .footable-row-detail .footable-row-detail-inner {
+    border: none;
+  }
+
+  .footable-row-detail-cell {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  // Applicant Stylings
+
+  a.btn {
+    color: #fff;
+    &:hover, &:focus, &:active {
+      color: #fff;
+    }
+  }
+
+  // Recruiter Stylings
+
+  div.jobsRecruiter {
+
+    a {
+      color: $green;
+      &:hover, &:focus, &:active {
+        color: $green50;
+      }
+    }
+
+    h1 {
+      margin-top: 0px;
+    }
+
+    div.empty {
+      display: none;
+    }
+
+    div.jobCreate {
+      a.btn {
+        float: right;
+      }
+    }
+    a.btn {
+      color: #fff;
+      &:hover, &:focus, &:active {
+        color: #fff;
+      }
+    }
+
+    div.list-view {
+
+      div.list-view {
+        margin-top: 10px;
+      }
+
+      div.jobItem {
+        margin-bottom: 20px;
+        div.totalApplicants {
+          .tile-left {
+            font-weight: 400;
+            font-size: $fontbase*1.2;
+          }
+        }
+
+        div.newApplicants {
+          .tile-left {
+            font-weight: 400;
+            font-size: $fontbase*1.3;
+          }
+        }
+
+        div.info {
+          margin-bottom: 5px;
+          display: table;
+          min-width: 240px;
+          span.glyphicon {
+            font-size: $fontbase*0.9;
+          }
+          div.tile-left {
+            display: table-cell;
+            vertical-align: middle;
+            min-width: 40px;
+            height: 40px;
+            text-align: center;
+            background-color: rgb(101, 191, 133);
+            color: #fff;
+          }
+
+          div.tile-right {
+            display: table-cell;
+            vertical-align: middle;
+            width: 200px;
+            height: 40px;
+            background-color: rgb(45, 49, 47);
+            color: #fff;
+            padding: 0px 10px;
+          }
+
+        }
+
+        div.jobSubItem {
+
+          span.info.profilePicture {
+            display: block;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
-.controller-job.action-view{
-	
-	// General Stylings
-	a{
-		color:$green;
-		&:hover,&:focus,&:active{
-			color: $green50;
-		}
-	}
-	
-	div.jobCreate{
-		a.btn{
-			float:right;
-		}
-	}
-	
-	a.btn{
-		color:#fff;
-		&:hover,&:focus,&:active{
-			color:#fff;
-		}
-	}
-	
-	#jobViewTable{
-		.footable-row-detail-row{
-			span.glyphicon{
-				padding:20px 5px;
-			}
-		}
-	}
-	
-	// Applicant Stylings
-	
-	div.apply{
-		text-align: right;
-		margin-top: 20px;
-	}
-	
-	strong{
-		font-weight:400;
-	}
+body.controller-job.action-view {
 
-	table.detail-view{
-	
-		width:100%;
-		
-		th{
-			color: lighten($greyFont, 20%);
-			padding: 3px 10px 3px 0px;
-			vertical-align:top;
-			width: 25%;
-		}
-		
-		td{
-			padding: 3px 0px;
-			vertical-align:top;
-		}
-	}
-	
-	// Recruiter Stylings
-	
-	div.btnInstructions{
-		h3{
-			margin-top:0px;
-		}
-	}
-	
-	div.summary{
-		display:none;
-	}
-	
-	div.row.hireme a.btn{
-		float:right;
-	}
-	
-	.footable .footable-row-detail .footable-row-detail-inner{
-		border: none;
-	}
-	
-	.footable-row-detail-cell{
-		border-bottom: 1px solid #dddddd;
-	}
+  // General Stylings
+  a {
+    color: $green;
+    &:hover, &:focus, &:active {
+      color: $green50;
+    }
+  }
 
-	#jobListTable{	
-		.footable-row-detail-row{
-			.glyphicon{
-				padding: 15px;
-			}
-		}
-	}
-	
-	div.favouriteAlert{
-		display:none;
-	}
+  div.jobCreate {
+    a.btn {
+      float: right;
+    }
+  }
+
+  a.btn {
+    color: #fff;
+    &:hover, &:focus, &:active {
+      color: #fff;
+    }
+  }
+
+  #jobViewTable {
+    .footable-row-detail-row {
+      span.glyphicon {
+        padding: 20px 5px;
+      }
+    }
+  }
+
+  // Applicant Stylings
+
+  div.apply {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  strong {
+    font-weight: 400;
+  }
+
+  table.detail-view {
+
+    width: 100%;
+
+    th {
+      color: lighten($greyFont, 20%);
+      padding: 3px 10px 3px 0px;
+      vertical-align: top;
+      width: 25%;
+    }
+
+    td {
+      padding: 3px 0px;
+      vertical-align: top;
+    }
+  }
+
+  // Recruiter Stylings
+
+  div.btnInstructions {
+    h3 {
+      margin-top: 0px;
+    }
+  }
+
+  div.summary {
+    display: none;
+  }
+
+  div.row.hireme a.btn {
+    float: right;
+  }
+
+  .footable .footable-row-detail .footable-row-detail-inner {
+    border: none;
+  }
+
+  .footable-row-detail-cell {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  #jobListTable {
+    .footable-row-detail-row {
+      .glyphicon {
+        padding: 15px;
+      }
+    }
+  }
+
+  div.favouriteAlert {
+    display: none;
+  }
 }
-.controller-job.action-create{
-	#form-createJob{
-		margin-top:30px;
-	}
+
+body.controller-job.action-create {
+
+  h1 {
+    padding-left: 15px;
+  }
+
+  #form-createJob {
+    margin-top: 50px;
+    .col-2nd {
+      margin-top: 0px;
+    }
+
+    > div > div {
+      margin-bottom: 50px;
+    }
+    div.form-group.field-submit {
+      margin-bottom: 100px;
+    }
+
+    div.field-jobcreateform-sector {
+      max-width: 520px;
+    }
+
+    div.input-daterange {
+      margin-top: 52px;
+    }
+
+    div.kv-container-from, div.kv-container-to {
+      @media (min-width: 768px) {
+        width: 45%;
+      }
+    }
+
+    div.kv-container-from {
+      @media (min-width: 768px) {
+        margin-right: 10%;
+      }
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

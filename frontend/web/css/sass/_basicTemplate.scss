@@ -4,16 +4,20 @@ body {
   background-color: #ffffff;
 
   a {
+    color: $green;
     &:focus {
       outline: none !important; //Removes the dotted line around each Anchor when clicking on it
     }
     &:hover, &:focus, &:active {
       text-decoration: none;
+      color: $green20;
     }
   }
 
   //Dropdown Action Buttons
   #bulkActions {
+    margin-top: 15px;
+
     button {
       span.caret {
         border-bottom: 4px solid transparent;
@@ -46,9 +50,6 @@ body {
         }
       }
     }
-  }
-  #bulkActions.open {
-
   }
 
   //END Dropdown Action Buttons
@@ -158,11 +159,11 @@ body {
               color: $green;
             }
           }
-		  a.btn{
-		      &:hover {
-		        color: #fff;
-		      }
-			}
+          a.btn {
+            &:hover {
+              color: #fff;
+            }
+          }
         }
       }
     }
@@ -289,7 +290,7 @@ body {
   .iradio_flat-green.checked.disabled {
     background-position: -154px 0;
   }
-  
+
   .radio label, .checkbox label {
     font-weight: 300;
   }
@@ -305,10 +306,10 @@ body {
   //END iCheck plugin Flat skin, green
 
   /* BASIC FORM STYLING */
-  legend{
-	color:$greyFont;
+  legend {
+    color: $greyFont;
   }
-  
+
   /* UNFOCUSED INPUT */
   .form-group {
     position: relative;
@@ -340,7 +341,7 @@ body {
         border-bottom: $FormBorderFocused;
         border-top: $FormBorderFocused;
       }
-	  resize:none;
+      resize: none;
     }
 
     label {
@@ -364,14 +365,14 @@ body {
   .form-group.field-messagecreate-attachment,
   .form-group.field-resumeschool-current,
   .form-group.field-resumeschool-report_id,
-  .field-settingsmodel-visibility {
+  .field-settingsmodel-visibility,
+  .form-group.field-jobcreateform-checklocationbased {
     position: static;
     label {
       position: static;
     }
   }
   /*END Fix for Checkboxes and other inputs with a label */
-
 
   /* END UNFOCUSED INPUT */
 
@@ -459,6 +460,12 @@ body {
       }
     }
   }
+
+  .has-success .twitter-typeahead .tt-input, .has-success .twitter-typeahead .tt-hint { // BECAUSE TYPEAHEAD SUCKS AND WONT LET ME TO OVERWRITE THE BORDER-COLOR
+    border-bottom: $FormBorderFocused;
+  }
+
+
   /*END Typeahead Fix and Styling*/
   /* END BASIC FORM STYLING */
 
@@ -477,7 +484,6 @@ body {
   }
   /* END Background color does not work for class .has-error anymore. This is a temporary fix */
 
-
   /*PROFILE PICTURE */
   img.profile-picture-thumbnail {
     width: 50px;
@@ -495,27 +501,217 @@ body {
     &:hover {
       background: $DefaultThumbnailHover;
     }
-
   }
-
   div.profile-picture-thumbnail + div.message-sender {
     margin-top: 14px;
     margin-left: 60px;
   }
-
   /*END PROFILE PICTURE */
-  
-  /* Bulk Action Dropdown */
-  div#bulkActions{
-	margin-top:15px;
-  }
-  
-  .highlight{
-	color: $green;
+
+  .highlight {
+    color: $green; // TODO: Finf out what this is
   }
 
+  //DATEPICKER Popup
+  div.datepicker-dropdown {
+    padding: 0;
+    table.table-condensed {
+      color: $greyFont;
+      thead {
+        tr:nth-of-type(1) {
+          background-color: $green;
+          color: #fff;
+          th {
+            border-radius: 0px;
+            &:hover {
+              background-color: darken($green, 20);
+              border-radius: 0px;
+            }
+          }
+        }
+        tr:nth-of-type(2) {
+          background-color: $black;
+          th {
+            border-radius: 0px;
+          }
+        }
+      }
+      tbody {
+        background-color: #fff;
+        tr {
+          td.selected {
+            background-color: #fff;
+            color: $greyFont;
+            font-weight: lighter;
+          }
+          td.today {
+            border-radius: 50%;
+            background-color: $borderGrey;
+            color: #fff;
+          }
+          td.day:not(.today):not(.active),
+          td.selected:not(.today):not(.active),
+          span.month:not(.active),
+          span.year:not(.active) {
+            &:hover {
+              background-color: $borderGrey;
+              color: #fff;
+              border-radius: 50%;
+            }
+          }
+          td.active, span.active {
+            border-radius: 50%;
+            background-color: $green;
+            color: #fff;
+          }
+
+          td {
+            padding: 10px;
+          }
+        }
+      }
+    }
+    div.datepicker-months, div.datepicker-years {
+      table {
+        tbody {
+          tr {
+            td {
+              width: 250px;
+            }
+          }
+        }
+      }
+    }
+  }
+  //END DATEPICKER Popup
+
+  // DATEPICKER Input
+  .input-group.input-daterange {
+    span.input-group-addon.kv-field-separator {
+      display: none; //TODO: remove this in template
+    }
+    .kv-container-from,
+    .kv-container-to {
+      box-shadow: none;
+      max-width: 250px;
+      input {
+        max-width: 250px;
+        border-bottom: $FormBorderNonFocused;
+      }
+      @media (max-width: 767px){
+        width: 250px;
+        margin-top: 0px;
+      }
+    }
+    .kv-container-from {
+      margin-right: 20px;
+      @media (max-width: 767px) {
+        margin-right: 20px;
+        margin-bottom: 50px;
+      }
+    }
+    @media (max-width: 767px) {
+      .kv-container-from {
+        max-width: 100%;
+      }
+      .kv-container-to {
+        margin-top: 50px;
+        @media (max-width: 767px){
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+  //END DATEPICKER Input
+
+  // Select2 Krajee INPUT
+  form:not(#form-signup) {
+    // Exclude Login Page
+    .form-group {
+      .select2-container--krajee {
+        .selection {
+          .select2-selection {
+            border: 0;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border-bottom: $FormBorderNonFocused;
+            background: none;
+            span:nth-of-type(1) {
+              color: $greyFont;
+            }
+            span:nth-of-type(2) {
+              border: 0;
+              b {
+                border-color: $greyFont transparent transparent;
+              }
+            }
+          }
+        }
+      }
+
+      .select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: transparent transparent $greyFont !important;
+      }
+    }
+
+    .form-group.has-success {
+      .select2-selection {
+        border-bottom: $FormBorderFocused !important;
+      }
+    }
+
+  }
+  // END Select2 Krajee INPUT
 }
 
 
+// Excluding LoginPage
+body:not(.action-login) {
+  // Select2 Krajee DROPDOWN
+  .select2-dropdown {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+
+    border: 0;
+    .select2-search {
+      padding-top: 10px;
+      input.select2-search__field {
+        border: 0;
+        border-radius: 0;
+        border-bottom: $FormBorderNonFocused;
+        color: $greyFont;
+        box-shadow: none;
+      }
+    }
+    .select2-results {
+      ul.select2-results__options {
+        li.select2-results__option {
+          background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+          color: $greyFont;
+          strong {
+            background-color: $green;
+            color: #fff;
+          }
+          ul.select2-results__options {
+            li.select2-results__option {
+              color: $greyFont;
+            }
+            li.select2-results__option--highlighted {
+              background-color: $green20;
+            }
+            li[aria-selected="true"] {
+              color: $green;
+              background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  // Select2 Krajee DROPDOWN
+}
 
 
