@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use frontend\helper\Setup;
 use Yii;
 
 /**
@@ -126,5 +127,16 @@ class Job extends \yii\db\ActiveRecord
     public function getJobContacts()
     {
         return $this->hasMany(JobContacts::className(), ['job_id' => 'id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->job_begin= Setup::convert($this->job_begin);
+            $this->job_end = Setup::convert($this->job_end);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

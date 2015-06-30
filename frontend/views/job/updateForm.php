@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 use frontend\assets\CreateJobAsset;
 use kartik\date\DatePicker;
@@ -13,6 +15,8 @@ include Yii::getAlias('@helper/companySignup.php');
 /* @var $model frontend\models\Job */
 /* @var $form yii\widgets\ActiveForm */
 
+$model->job_begin = Yii::$app->formatter->asDate($model->job_begin);
+$model->job_end = Yii::$app->formatter->asDate($model->job_end);
 ?>
 
 <div class="job-form">
@@ -25,9 +29,10 @@ include Yii::getAlias('@helper/companySignup.php');
 
             <?= $form->field($model, 'title', ['options' => ['class' => 'allowPrefill form-group has-success']])->label('Titel') ?>
 
-            <?= $form->field($model, 'description', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Beschreibung...']], ['options' => ['class' => 'form-control']])->textarea(['rows' => 15])->label(false) ?>
+            <?= $form->field($model, 'description', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Beschreibung...']], ['options' => ['class' => 'form-control has-success']])->textarea(['rows' => 15])->label(false) ?>
 
         </div>
+
 
         <div class="col-sm-6 col-2nd">
 
@@ -44,16 +49,61 @@ include Yii::getAlias('@helper/companySignup.php');
                 'language' => 'de',
                 'separator' => 'bis',
                 'pluginOptions' => [
-                    'format' => 'dd.mm.yyyy',
-                    'autoclose' => true,
+                    'format'         => 'dd.mm.yyyy',
                     'todayHighlight' => true,
+                    'convertFormat' =>true,
                 ]
             ]);
             ?>
 
-            <?= $form->field($model, 'zip', ['options' => ['class' => 'allowPrefill form-group has-success']])->label('Postleitzahl') ?>
+            <? if ($model->zip): ?>
+            <?
+            $template =
+                '<p>{{plz}}  -  {{city}}</p>';
 
-            <?= $form->field($model, 'city', ['options' => ['class' => 'allowPrefill form-group has-success']])->label('Stadt') ?>
+            echo $form->field($model, 'zip')->widget(Typeahead::className(), [
+                'name'         => 'zip',
+                'dataset'      => [
+                    [
+                        'remote'    => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
+                        'limit'     => 10,
+                        'templates' => [
+                            'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
+                            'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                        ],
+                        'displayKey' => 'plz',
+                    ],
+                ],
+                'pluginEvents' => [
+                    'typeahead:selected' => 'function(e,val) { jQuery("#job-city").val(val.city) }'
+                ],
+                'container' => ['class' => 'allowPrefill']
+            ]) ?>
+
+            <?
+            $template =
+                '<p>{{plz}}  -  {{city}}</p>';
+
+            echo $form->field($model, 'city')->widget(Typeahead::className(), [
+                'name'         => 'companyAddressCity',
+                'dataset'      => [
+                    [
+                        'remote'    => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
+                        'limit'     => 10,
+                        'templates' => [
+                            'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
+                            'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                        ],
+                        'displayKey' => 'city',
+                    ],
+                ],
+                'pluginEvents' => [
+                    'typeahead:selected' => 'function(e,val) { jQuery("#job-zip").val(val.plz) }'
+                ],
+                'container' => ['class' => 'allowPrefill']
+            ]) ?>
+
+            <? endif?>
 
             <?= $form->field($model, 'sector', ['options' => ['class' => 'form-group has-success']])->widget(\kartik\select2\Select2::className(), [
                 'data' => $sectors,
