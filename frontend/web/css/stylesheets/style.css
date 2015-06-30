@@ -1554,70 +1554,185 @@ body.controller-analytics #charts-third-row {
   margin-top: 20px;
   margin-bottom: 30px;
 }
-/* line 217, ../sass/_analytics.scss */
+/* line 216, ../sass/_analytics.scss */
 body.controller-analytics h2.detailHeader {
   margin-bottom: 30px;
 }
-/* line 222, ../sass/_analytics.scss */
+/* line 221, ../sass/_analytics.scss */
 body.controller-analytics #w0 div.summary {
   display: none;
 }
-/* line 229, ../sass/_analytics.scss */
+/* line 228, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.first-col, body.controller-analytics #analyticsTable tr th.first-col {
   width: 35%;
 }
-/* line 232, ../sass/_analytics.scss */
+/* line 231, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.second-col, body.controller-analytics #analyticsTable tr th.second-col {
   width: 10%;
   text-align: right;
 }
-/* line 236, ../sass/_analytics.scss */
+/* line 235, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.third-col, body.controller-analytics #analyticsTable tr th.third-col {
   width: 10%;
   text-align: right;
 }
-/* line 240, ../sass/_analytics.scss */
+/* line 239, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.fourth-col, body.controller-analytics #analyticsTable tr th.fourth-col {
   width: 10%;
   text-align: right;
 }
-/* line 244, ../sass/_analytics.scss */
+/* line 243, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.fifth-col, body.controller-analytics #analyticsTable tr th.fifth-col {
   width: 10%;
   text-align: right;
 }
-/* line 248, ../sass/_analytics.scss */
+/* line 247, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.sixth-col, body.controller-analytics #analyticsTable tr th.sixth-col {
   width: 10%;
   text-align: right;
 }
-/* line 252, ../sass/_analytics.scss */
+/* line 251, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.seventh-col, body.controller-analytics #analyticsTable tr th.seventh-col {
   width: 10%;
   text-align: right;
 }
-/* line 256, ../sass/_analytics.scss */
+/* line 255, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.eight-col, body.controller-analytics #analyticsTable tr th.eight-col {
   width: 5%;
   text-align: right;
 }
-/* line 260, ../sass/_analytics.scss */
+/* line 259, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
   width: 5%;
   text-align: right;
 }
 @media (min-width: 992px) {
-  /* line 260, ../sass/_analytics.scss */
+  /* line 259, ../sass/_analytics.scss */
   body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
     width: 0%;
     text-align: right;
   }
 }
-/* line 269, ../sass/_analytics.scss */
+/* line 268, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr .footable-row-detail-cell {
   padding-bottom: 0px;
 }
-/* line 271, ../sass/_analytics.scss */
+/* line 270, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr .footable-row-detail-cell .footable-row-detail-row {
   margin-top: 8px;
+}
+
+/* line 282, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-1 div.subtile-right {
+  background-image: url("/images/analytics/analytics-views.png") !important;
+  background-size: 55% auto;
+}
+@media (max-width: 767px) {
+  /* line 282, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-1 div.subtile-right {
+    background-size: 110px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 291, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-2 {
+    margin-top: 20px;
+  }
+}
+/* line 295, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-2 div.subtile-right {
+  background-image: url("/images/analytics/analytics-click.png") !important;
+  background-size: 35% auto;
+}
+@media (max-width: 991px) {
+  /* line 295, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-2 div.subtile-right {
+    background-size: 37% auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 306, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 {
+    margin-top: 20px;
+  }
+}
+/* line 310, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+  background-image: url("/images/dashboard-neue-bewerbungen.png") !important;
+  background-size: auto 55% !important;
+}
+@media (max-width: 991px) {
+  /* line 310, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 310, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+/* line 323, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+  background-image: url("/images/analytics/analytics-interrest.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 323, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 323, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 335, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 {
+    margin-top: 20px;
+  }
+}
+/* line 339, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+  background-image: url("/images/analytics/analytics-application.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 339, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 339, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 351, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-6 {
+    margin-top: 20px;
+  }
+}
+/* line 355, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
+  background-image: url("/images/analytics/analytics-interview.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 355, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 355, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
+    background-size: 50px auto;
+  }
 }

@@ -83,7 +83,7 @@ $this->title = "Analytics: Detail";
 
     <div class="row" id="analytics-tiles">
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-4 tile-green ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <div class="a-analytics"><?= $interestRate ?> %</div>
@@ -97,7 +97,7 @@ $this->title = "Analytics: Detail";
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-5 tile-black ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <div class="a-analytics"><?= $applicationRate ?> %</div>
@@ -111,7 +111,7 @@ $this->title = "Analytics: Detail";
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-6 tile-green ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <div class="a-analytics"><?= $interviewRate ?> %</div>
@@ -241,15 +241,18 @@ $this->title = "Analytics: Detail";
     </div>
 
 
-    <h2>Buttons:</h2>
+    <h2>Button Statistiken im Detail</h2>
 
 
     <?= GridView::widget([
         'dataProvider' => $provider,
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'analyticsTable'],
         'columns' => [
             [
                 'label' => 'Seite',
                 'format' => 'raw',
+                'headerOptions' => ['class' => 'first-col', 'data-hide' => ''],
+                'contentOptions' => ['class' => 'first-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->site);
                 }
@@ -257,6 +260,8 @@ $this->title = "Analytics: Detail";
             [
                 'label' => 'Key',
                 'format' => 'raw',
+                'headerOptions' => ['class' => 'second-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall'],
+                'contentOptions' => ['class' => 'second-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->key);
                 }
@@ -264,6 +269,8 @@ $this->title = "Analytics: Detail";
             [
                 'label' => 'Views',
                 'format' => 'raw',
+                'headerOptions' => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,phone'],
+                'contentOptions' => ['class' => 'third-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->viewCount);
                 }
@@ -271,6 +278,8 @@ $this->title = "Analytics: Detail";
             [
                 'label' => 'Clicks',
                 'format' => 'raw',
+                'headerOptions' => ['class' => 'fourth-col', 'data-hide' => 'mediaXXsmall,phone'],
+                'contentOptions' => ['class' => 'fourth-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->clickCount);
                 }
@@ -278,6 +287,8 @@ $this->title = "Analytics: Detail";
             [
                 'label' => 'Interest Rate',
                 'format' => 'raw',
+                'headerOptions' => ['class' => 'fifth-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
+                'contentOptions' => ['class' => 'fifth-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode(Analytics::getInterestRateForBtn($data->id) . " %");
                 }
@@ -285,6 +296,8 @@ $this->title = "Analytics: Detail";
             [
                 'label' => 'Interview Rate',
                 'format' => 'raw',
+                'headerOptions' => ['class' => 'sixth-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
+                'contentOptions' => ['class' => 'sixth-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode(Analytics::getInterviewRateForBtn($data->id) . " %");
                 }
@@ -292,9 +305,18 @@ $this->title = "Analytics: Detail";
             [
                 'label' => 'Application Rate',
                 'format' => 'raw',
+                'headerOptions' => ['class' => 'seventh-col', 'data-hide' => 'phone,mediaXXsmall,mediaXsmall,mediaSmall'],
+                'contentOptions' => ['class' => 'seventh-col'],
                 'value' => function ($data) {
                     return \yii\helpers\Html::encode(Analytics::getApplicationRateForBtn($data->id) . " %");
                 }
+            ],
+            [
+
+                'class' => 'yii\grid\Column',
+                'headerOptions' => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'ninth-col']
+
             ],
 
         ],
