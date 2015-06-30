@@ -2351,7 +2351,11 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
 .controller-application.action-view div.row.first div.profileInfo h2 {
   margin-top: 20px;
 }
-/* line 120, ../sass/_application.scss */
+/* line 118, ../sass/_application.scss */
+.controller-application.action-view div.row.first div.profileInfo img {
+  max-width: 100%;
+}
+/* line 123, ../sass/_application.scss */
 .controller-application.action-view div.row.first .scoreInput {
   border-radius: 50%;
   width: 100px;
@@ -2364,43 +2368,50 @@ body.controller-resume.action-create div.datepicker-dropdown div.datepicker-mont
   font-size: 48px;
   color: #5dca88;
 }
-/* line 131, ../sass/_application.scss */
+/* line 134, ../sass/_application.scss */
 .controller-application.action-view div.row.first .scoreInput:focus {
   outline: none;
 }
+/* line 142, ../sass/_application.scss */
+.controller-application.action-view .footable .footable-row-detail .footable-row-detail-inner {
+  border: none;
+}
+/* line 146, ../sass/_application.scss */
+.controller-application.action-view .footable-row-detail-cell {
+  border-bottom: 1px solid #dddddd;
+}
 
-/* line 151, ../sass/_application.scss */
+/* line 162, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn) {
   color: #5dca88;
 }
-/* line 153, ../sass/_application.scss */
+/* line 164, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn):hover, .controller-application.action-add-data div.application-create a:not(.btn):focus, .controller-application.action-add-data div.application-create a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 159, ../sass/_application.scss */
+/* line 170, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 164, ../sass/_application.scss */
+/* line 175, ../sass/_application.scss */
 .controller-application.action-add-data div.sendBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 169, ../sass/_application.scss */
+/* line 180, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 173, ../sass/_application.scss */
+/* line 184, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
-  height: 40vh;
 }
-/* line 178, ../sass/_application.scss */
+/* line 188, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 182, ../sass/_application.scss */
+/* line 192, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
 }

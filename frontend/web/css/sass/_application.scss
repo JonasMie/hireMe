@@ -115,6 +115,9 @@
 			h2{
 				margin-top:20px;
 			}
+			img{
+				max-width:100%;
+			}
 		}
 		
 		.scoreInput{
@@ -134,7 +137,15 @@
 		}
 	}
 	
+	// Applicant View
 	
+	.footable .footable-row-detail .footable-row-detail-inner{
+		border: none;
+	}
+	
+	.footable-row-detail-cell{
+		border-bottom: 1px solid #dddddd;
+	}
 
 }
 
@@ -172,7 +183,6 @@
 	
 	#covercreateform-text{
 		margin-top: 20px;
-		height: 40vh;
 	}
 	
 	span.attached{
