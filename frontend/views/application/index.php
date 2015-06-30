@@ -118,6 +118,7 @@ $this->title = 'Bewerbungen';
 						'attribute' => 'id',
 						'label' => '',
 						'format' => 'raw',
+						'visible'=>false,
 						'value'  => function ($data) {
 								return Html::encode($data['id']);
 						},

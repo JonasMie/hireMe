@@ -74,6 +74,9 @@
 			text-align: center;
 			font-size: $fontbase*1.6;
 			color: $green;
+			&:focus{
+				outline: none;
+			}
 		}
 	}
 	
