@@ -92,7 +92,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Die Anzahl der Leute, die einen deiner Buttons gesehen haben, sowie die Anzahl derer, die darauf geklickt haben."></span>
                     </div>
-                    <div id="viewClickIsNull" class="no-chart-data no-chart-data-row-1-col-1">Keine Daten verfügbar</div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="viewClickChart" class="chart"></canvas>
                 </div>
             </div>
@@ -105,6 +105,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Beschreibt prozentual den Anteil der Leute, die auf einen Button geklickt haben zu denen, die sie insgesamt gesehen haben. "></span>
                     </div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="interestRateChart" class="chart"></canvas>
                 </div>
             </div>
@@ -117,7 +118,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Zeigt die Klicks auf einen der Buttons, sowie die daraus ergangenen Bewerbungen"></span>
                     </div>
-                    <div id="clickApplyIsNull" class="no-chart-data no-chart-data-row-1-col-2">Keine Daten verfügbar</div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="clicksApplicationChart" class="chart"></canvas>
                 </div>
             </div>
@@ -130,6 +131,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Anteil derer, die sich beworben haben, zu denen die auf einen Button klickten."></span>
                     </div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="applicationRateChart" class="chart"></canvas>
                 </div>
             </div>
@@ -145,7 +147,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Bewerbungen insgesamt, sowie Bewerbungen, bei denen es zu einem persönlichen Gespräch kam."></span>
                     </div>
-                    <div id="interviewApplyIsNull" class="no-chart-data no-chart-data-row-2-col-1">Keine Daten verfügbar</div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="interviewApplicationChart" class="chart"></canvas>
                 </div>
             </div>
@@ -158,6 +160,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Anteil an persönlichen Gesprächen, gemessen an den Bewerbern."></span>
                     </div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="interviewRateChart" class="chart"></canvas>
                 </div>
             </div>
@@ -170,7 +173,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Alle Bewerbungen und Einstellungen absolut"></span>
                     </div>
-                    <div id="applyHiredIsNull" class="no-chart-data no-chart-data-row-2-col-2">Keine Daten verfügbar</div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="applicationHiredChart" class="chart"></canvas>
                 </div>
             </div>
@@ -183,6 +186,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Anteil derer, die eingestellt wurden gemessen an den Bewerbern"></span>
                     </div>
+                    <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                     <canvas id="conversionRateChart" class="chart"></canvas>
                 </div>
             </div>
@@ -306,7 +310,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Die Views der einzelnen Stellenanzeigen prozentual im Überblick"></span>
                 </div>
-                <div id="viewComparisonIsNull" class="no-chart-data no-chart-data-row-3-col-1">Keine Daten verfügbar</div>
+                <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                 <canvas id="viewCompareChart" class="chart"></canvas>
             </div>
         </div>
@@ -319,7 +323,7 @@ $this->title = "Analytics für";
                               data-placement="left"
                               title="Die Klicks der einzelnen Stellenanzeigen prozentual im Überblick"></span>
                 </div>
-                 <div id="clickComparisonIsNull" class="no-chart-data no-chart-data-row-3-col-2">Keine Daten verfügbar</div>
+                <div id="isNull" class="no-chart-data no-chart-data-row-1-col-1">Noch keine Daten verfügbar</div>
                 <canvas id="clickCompareChart" class="chart"></canvas>
             </div>
         </div>

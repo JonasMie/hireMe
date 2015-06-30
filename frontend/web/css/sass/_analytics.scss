@@ -143,6 +143,8 @@ body.controller-analytics {
         #isNull {
           text-align: center;
           margin-top: 20px;
+          color: $greyFont;
+          font-size: 16px;
         }
         canvas {
           display: none;
