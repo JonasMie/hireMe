@@ -87,7 +87,7 @@ $this->title = "Analytics für";
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile first-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Views und Klicks
+                        Interest
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Die Anzahl der Leute, die einen deiner Buttons gesehen haben, sowie die Anzahl derer, die darauf geklickt haben."></span>
@@ -112,7 +112,7 @@ $this->title = "Analytics für";
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile third-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Klicks und Bewerbungen
+                        Applications
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Zeigt die Klicks auf einen der Buttons, sowie die daraus ergangenen Bewerbungen"></span>
@@ -140,7 +140,7 @@ $this->title = "Analytics für";
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile first-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Bewerbungen und Gespräche
+                        Interviews
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Bewerbungen insgesamt, sowie Bewerbungen, bei denen es zu einem persönlichen Gespräch kam."></span>
@@ -165,7 +165,7 @@ $this->title = "Analytics für";
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile third-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Bewerbungen und Einstellungen
+                        Conversions
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Alle Bewerbungen und Einstellungen absolut"></span>

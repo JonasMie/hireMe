@@ -1487,116 +1487,122 @@ body.controller-analytics #analyticsCharts {
   margin-bottom: 50px;
 }
 /* line 137, ../sass/_analytics.scss */
-body.controller-analytics #charts-first-row, body.controller-analytics #charts-second-row, body.controller-analytics #charts-third-row {
+body.controller-analytics #charts-first-row, body.controller-analytics #charts-second-row, body.controller-analytics #charts-third-row, body.controller-analytics #charts-fourth-row {
   margin-top: 50px;
 }
 /* line 140, ../sass/_analytics.scss */
-body.controller-analytics #charts-first-row .background-wrapper, body.controller-analytics #charts-second-row .background-wrapper, body.controller-analytics #charts-third-row .background-wrapper {
+body.controller-analytics #charts-first-row .background-wrapper, body.controller-analytics #charts-second-row .background-wrapper, body.controller-analytics #charts-third-row .background-wrapper, body.controller-analytics #charts-fourth-row .background-wrapper {
   background-color: #edf0f0;
 }
 /* line 143, ../sass/_analytics.scss */
-body.controller-analytics #charts-first-row .background-wrapper .header, body.controller-analytics #charts-second-row .background-wrapper .header, body.controller-analytics #charts-third-row .background-wrapper .header {
+body.controller-analytics #charts-first-row .background-wrapper .header, body.controller-analytics #charts-second-row .background-wrapper .header, body.controller-analytics #charts-third-row .background-wrapper .header, body.controller-analytics #charts-fourth-row .background-wrapper .header {
   padding: 15px 20px;
   color: #fff;
 }
 /* line 146, ../sass/_analytics.scss */
-body.controller-analytics #charts-first-row .background-wrapper .header span, body.controller-analytics #charts-second-row .background-wrapper .header span, body.controller-analytics #charts-third-row .background-wrapper .header span {
+body.controller-analytics #charts-first-row .background-wrapper .header span, body.controller-analytics #charts-second-row .background-wrapper .header span, body.controller-analytics #charts-third-row .background-wrapper .header span, body.controller-analytics #charts-fourth-row .background-wrapper .header span {
   cursor: help;
 }
 /* line 151, ../sass/_analytics.scss */
-body.controller-analytics #charts-first-row .background-wrapper canvas, body.controller-analytics #charts-second-row .background-wrapper canvas, body.controller-analytics #charts-third-row .background-wrapper canvas {
+body.controller-analytics #charts-first-row .background-wrapper canvas, body.controller-analytics #charts-second-row .background-wrapper canvas, body.controller-analytics #charts-third-row .background-wrapper canvas, body.controller-analytics #charts-fourth-row .background-wrapper canvas {
   margin-top: 60px;
   margin-bottom: 30px;
 }
 /* line 159, ../sass/_analytics.scss */
-body.controller-analytics #charts-first-row .first-col .background-wrapper .header, body.controller-analytics #charts-first-row .third-col .background-wrapper .header, body.controller-analytics #charts-second-row .first-col .background-wrapper .header, body.controller-analytics #charts-second-row .third-col .background-wrapper .header, body.controller-analytics #charts-third-row .first-col .background-wrapper .header, body.controller-analytics #charts-third-row .third-col .background-wrapper .header {
+body.controller-analytics #charts-first-row .first-col .background-wrapper .header, body.controller-analytics #charts-first-row .third-col .background-wrapper .header, body.controller-analytics #charts-second-row .first-col .background-wrapper .header, body.controller-analytics #charts-second-row .third-col .background-wrapper .header, body.controller-analytics #charts-third-row .first-col .background-wrapper .header, body.controller-analytics #charts-third-row .third-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .first-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .third-col .background-wrapper .header {
   background-color: #5dca88;
 }
 @media (max-width: 767px) {
   /* line 167, ../sass/_analytics.scss */
-  body.controller-analytics #charts-first-row .second-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .second-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .second-col, body.controller-analytics #charts-third-row .fourth-col {
+  body.controller-analytics #charts-first-row .second-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .second-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .second-col, body.controller-analytics #charts-third-row .fourth-col, body.controller-analytics #charts-fourth-row .second-col, body.controller-analytics #charts-fourth-row .fourth-col {
     margin-top: 50px;
   }
 }
 /* line 172, ../sass/_analytics.scss */
-body.controller-analytics #charts-first-row .second-col .background-wrapper .header, body.controller-analytics #charts-first-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-second-row .second-col .background-wrapper .header, body.controller-analytics #charts-second-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-third-row .second-col .background-wrapper .header, body.controller-analytics #charts-third-row .fourth-col .background-wrapper .header {
+body.controller-analytics #charts-first-row .second-col .background-wrapper .header, body.controller-analytics #charts-first-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-second-row .second-col .background-wrapper .header, body.controller-analytics #charts-second-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-third-row .second-col .background-wrapper .header, body.controller-analytics #charts-third-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .second-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .fourth-col .background-wrapper .header {
   background-color: #2d312f;
 }
 @media (max-width: 991px) {
   /* line 180, ../sass/_analytics.scss */
-  body.controller-analytics #charts-first-row .third-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .third-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .third-col, body.controller-analytics #charts-third-row .fourth-col {
+  body.controller-analytics #charts-first-row .third-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .third-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .third-col, body.controller-analytics #charts-third-row .fourth-col, body.controller-analytics #charts-fourth-row .third-col, body.controller-analytics #charts-fourth-row .fourth-col {
     margin-top: 50px;
   }
 }
-/* line 187, ../sass/_analytics.scss */
+@media (max-width: 991px) {
+  /* line 188, ../sass/_analytics.scss */
+  body.controller-analytics #charts-fourth-row .third-col, body.controller-analytics #charts-fourth-row .fourth-col {
+    margin-top: 50px;
+  }
+}
+/* line 195, ../sass/_analytics.scss */
 body.controller-analytics #charts-third-row {
   margin-top: 20px;
   margin-bottom: 30px;
 }
-/* line 194, ../sass/_analytics.scss */
+/* line 202, ../sass/_analytics.scss */
 body.controller-analytics h2.detailHeader {
   margin-bottom: 30px;
 }
-/* line 199, ../sass/_analytics.scss */
+/* line 207, ../sass/_analytics.scss */
 body.controller-analytics #w0 div.summary {
   display: none;
 }
-/* line 206, ../sass/_analytics.scss */
+/* line 214, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.first-col, body.controller-analytics #analyticsTable tr th.first-col {
   width: 35%;
 }
-/* line 209, ../sass/_analytics.scss */
+/* line 217, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.second-col, body.controller-analytics #analyticsTable tr th.second-col {
   width: 10%;
   text-align: right;
 }
-/* line 213, ../sass/_analytics.scss */
+/* line 221, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.third-col, body.controller-analytics #analyticsTable tr th.third-col {
   width: 10%;
   text-align: right;
 }
-/* line 217, ../sass/_analytics.scss */
+/* line 225, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.fourth-col, body.controller-analytics #analyticsTable tr th.fourth-col {
   width: 10%;
   text-align: right;
 }
-/* line 221, ../sass/_analytics.scss */
+/* line 229, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.fifth-col, body.controller-analytics #analyticsTable tr th.fifth-col {
   width: 10%;
   text-align: right;
 }
-/* line 225, ../sass/_analytics.scss */
+/* line 233, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.sixth-col, body.controller-analytics #analyticsTable tr th.sixth-col {
   width: 10%;
   text-align: right;
 }
-/* line 229, ../sass/_analytics.scss */
+/* line 237, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.seventh-col, body.controller-analytics #analyticsTable tr th.seventh-col {
   width: 10%;
   text-align: right;
 }
-/* line 233, ../sass/_analytics.scss */
+/* line 241, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.eight-col, body.controller-analytics #analyticsTable tr th.eight-col {
   width: 5%;
   text-align: right;
 }
-/* line 237, ../sass/_analytics.scss */
+/* line 245, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
   width: 5%;
   text-align: right;
 }
 @media (min-width: 992px) {
-  /* line 237, ../sass/_analytics.scss */
+  /* line 245, ../sass/_analytics.scss */
   body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
     width: 0%;
     text-align: right;
   }
 }
-/* line 246, ../sass/_analytics.scss */
+/* line 254, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr .footable-row-detail-cell {
   padding-bottom: 0px;
 }
-/* line 248, ../sass/_analytics.scss */
+/* line 256, ../sass/_analytics.scss */
 body.controller-analytics #analyticsTable tr .footable-row-detail-cell .footable-row-detail-row {
   margin-top: 8px;
 }

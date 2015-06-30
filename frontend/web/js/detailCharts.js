@@ -42,20 +42,26 @@ var options =
 $(document).ready(function () {
 
     var hiddenJobId = $("#hiddenID").text();
-    var url = "/analytics/json-detail?id="+parseInt(hiddenJobId);
+    var url = "/analytics/json-detail?id=" + parseInt(hiddenJobId);
 
     $.get(url, function (response, status) {
-        
+
         var obj = jQuery.parseJSON(response);
 
         var viewClickNull = false;
-        if(obj.viewCount == 0) {viewClickNull = true;}
+        if (obj.viewCount == 0) {
+            viewClickNull = true;
+        }
 
         var clickApplyIsNull = false;
-        if(obj.clickCount == 0 && obj.applierCount == 0) {clickApplyIsNull = true;}
+        if (obj.clickCount == 0 && obj.applierCount == 0) {
+            clickApplyIsNull = true;
+        }
 
         var interviewApplyIsNull = false;
-        if(obj.applierCount == 0 &&  obj.interviewCount == 0) {interviewApplyIsNull = true;}
+        if (obj.applierCount == 0 && obj.interviewCount == 0) {
+            interviewApplyIsNull = true;
+        }
 
         var viewClickData = {
             labels: ["Views", "Clicks"],
@@ -76,13 +82,13 @@ $(document).ready(function () {
                 value: [obj.interestRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Clicks in Prozent"
             },
             {
                 value: 100 - [obj.interestRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Views in Prozent"
             }
         ]
 
@@ -105,13 +111,13 @@ $(document).ready(function () {
                 value: [obj.applicationRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             },
             {
                 value: 100 - [obj.applicationRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Clicks in Prozent"
             }
         ]
 
@@ -134,129 +140,141 @@ $(document).ready(function () {
                 value: [obj.interviewRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Gespräche in Prozent"
             },
             {
                 value: 100 - [obj.interviewRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             }
         ]
 
         var lastValue;
 
-        function getRandomHipsterColor() {
+        //function getRandomHipsterColor() {
+        //
+        //    var hue = 'rgba('
+        //        + (Math.floor(Math.random() * 256)) + ','
+        //        + (Math.floor(Math.random() * 256)) + ','
+        //        + (Math.floor(Math.random() * 256)) + ','
+        //        + (Math.floor(Math.random() * 100) / 100 + 0.2) + ')';
+        //    console.log(hue);
+        //    return hue;
+        //}
 
-            var hue = 'rgba('
-            + (Math.floor(Math.random() * 256)) + ','
-            + (Math.floor(Math.random() * 256)) + ','
-            + (Math.floor(Math.random() * 256)) + ','
-            + (Math.floor(Math.random() * 100)/100+0.2) + ')';
-            console.log(hue);
-            return hue;
-        }
-
-        var compareViewsData =  [];
-
-        for (var i = 0; i < obj.compareData.length; i++) {
-                var tmp = obj.compareData[i];
-
-                var subObject = '{';
-                var value = (tmp.views / obj.viewCount).toFixed(2) * 100;
-                if(jQuery.isNumeric(value)) {
-                subObject += '"value":' + value + ',';
-                }
-                else {subObject += '"value":0,';}
-                if (i % 2 == 0) {
-                    subObject += '"color": "rgba(93,202,136,0.5)",';
-                    subObject += '"highlight": "rgba(93,202,136,1.0)",';
-                } else {
-                    subObject += '"color": "rgba(157,157,157,0.5)",';
-                    subObject += '"highlight": "rgba(157,157,157,1.0)",';
-                }
-                subObject += '"label": "' + tmp.title + '"';
-                subObject += '}';
-                console.log(subObject);
-                compareViewsData.push($.parseJSON(subObject));
-        }
-
-        var compareClicksData =  [];
+        var compareViewsData = [];
 
         for (var i = 0; i < obj.compareData.length; i++) {
-                var tmp = obj.compareData[i];
-                var subObject = '{';
-                var value = (tmp.clicks / obj.clickCount).toFixed(2) * 100;
-                if(jQuery.isNumeric(value)) {
+            var tmp = obj.compareData[i];
+
+            var subObject = '{';
+            var value = (tmp.views / obj.viewCount).toFixed(2) * 100;
+            if (jQuery.isNumeric(value)) {
                 subObject += '"value":' + value + ',';
-                }
-                else {subObject += '"value":0,';}
-                if (i % 2 == 0) {
-                    subObject += '"color": "rgba(93,202,136,0.5)",';
-                    subObject += '"highlight": "rgba(93,202,136,1.0)",';
-                } else {
-                    subObject += '"color": "rgba(157,157,157,0.5)",';
-                    subObject += '"highlight": "rgba(157,157,157,1.0)",';
-                }
-                subObject += '"label": "' + tmp.title + '"';
-                subObject += '}';
-                console.log(subObject);
-                compareClicksData.push($.parseJSON(subObject));
+            }
+            else {
+                subObject += '"value":0,';
+            }
+            if (i % 2 == 0) {
+                subObject += '"color": "rgba(93,202,136,0.5)",';
+                subObject += '"highlight": "rgba(93,202,136,1.0)",';
+            } else {
+                subObject += '"color": "rgba(157,157,157,0.5)",';
+                subObject += '"highlight": "rgba(157,157,157,1.0)",';
+            }
+            subObject += '"label": "' + tmp.title + '"';
+            subObject += '}';
+            console.log(subObject);
+            compareViewsData.push($.parseJSON(subObject));
+        }
+
+        var compareClicksData = [];
+
+        for (var i = 0; i < obj.compareData.length; i++) {
+            var tmp = obj.compareData[i];
+            var subObject = '{';
+            var value = (tmp.clicks / obj.clickCount).toFixed(2) * 100;
+            if (jQuery.isNumeric(value)) {
+                subObject += '"value":' + value + ',';
+            }
+            else {
+                subObject += '"value":0,';
+            }
+            if (i % 2 == 0) {
+                subObject += '"color": "rgba(93,202,136,0.5)",';
+                subObject += '"highlight": "rgba(93,202,136,1.0)",';
+            } else {
+                subObject += '"color": "rgba(157,157,157,0.5)",';
+                subObject += '"highlight": "rgba(157,157,157,1.0)",';
+            }
+            subObject += '"label": "' + tmp.title + '"';
+            subObject += '}';
+            console.log(subObject);
+            compareClicksData.push($.parseJSON(subObject));
         }
 
         console.log(obj.compareData);
 
 
         // VIEWS CLICKS + INTEREST RATE
-        if(!viewClickNull) {
-        var ctx1 = document.getElementById("viewClickChart").getContext("2d");
-        ctx1.canvas.width = 200;
-        ctx1.canvas.height = 100;
+        console.log('asa');
 
-        var ctx2 = document.getElementById("interestRateChart").getContext("2d");
-        var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
-        var interestRate = new Chart(ctx2).Doughnut(interestRateData, options);
-        $("#viewClickIsNull").addClass("hidden");
+        if (!viewClickNull) {
+            var ctx1 = document.getElementById("viewClickChart").getContext("2d");
+            ctx1.canvas.width = 200;
+            ctx1.canvas.height = 100;
+
+            var ctx2 = document.getElementById("interestRateChart").getContext("2d");
+            var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
+            var interestRate = new Chart(ctx2).Doughnut(interestRateData, options);
+        } else {
+            $("#charts-first-row > .first-col").addClass("hidden");
+            $("#charts-first-row > .second-col").addClass("hidden");
         }
-        
+
 
         // CLICKS APPLICAIONS + APPLICATION RATE
-        if(!clickApplyIsNull) {
-        var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
-        ctx3.canvas.width = 200;
-        ctx3.canvas.height = 100;
+        if (!clickApplyIsNull) {
+            var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
+            ctx3.canvas.width = 200;
+            ctx3.canvas.height = 100;
 
-        var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
-        var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
-        var applicationRate = new Chart(ctx4).Doughnut(applicationRateData, options);
-        $("#clickApplyIsNull").addClass("hidden");
+            var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
+            var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
+            var applicationRate = new Chart(ctx4).Doughnut(applicationRateData, options);
+        } else {
+            $("#charts-first-row > .third-col").addClass("hidden");
+            $("#charts-first-row > .fourth-col").addClass("hidden");
         }
 
-        if(!interviewApplyIsNull) {
-        // APPLICATIONS INTERVIEWS + INTERVIEW RATE
-        var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");
-        ctx5.canvas.width = 200;
-        ctx5.canvas.height = 100;
+        if (!interviewApplyIsNull) {
+            // APPLICATIONS INTERVIEWS + INTERVIEW RATE
+            var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");
+            ctx5.canvas.width = 200;
+            ctx5.canvas.height = 100;
 
-        var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
-        var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
-        var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
-        $("#interviewApplyIsNull").addClass("hidden");
-        }
-       
-        if(obj.viewCount != 0) {
-        var ctx8 = document.getElementById("viewCompareChart").getContext("2d");
-        var views = new Chart(ctx8).Doughnut(compareViewsData, options);
-        $("#viewComparisonIsNull").addClass("hidden");
-        }   
-
-        if(obj.clickCount != 0) {
-        var ctx9 = document.getElementById("clickCompareChart").getContext("2d");
-        var views = new Chart(ctx9).Doughnut(compareClicksData, options);
-        $("#clickComparisonIsNull").addClass("hidden");
+            var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
+            var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
+            var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
+        } else {
+            $("#charts-second-row > .first-col").addClass("hidden");
+            $("#charts-second-row > .second-col").addClass("hidden");
         }
 
+        if (obj.viewCount != 0) {
+            var ctx8 = document.getElementById("viewCompareChart").getContext("2d");
+            var views = new Chart(ctx8).Doughnut(compareViewsData, options);
+        } else {
+            $("#charts-second-row > .third-col").addClass("hidden");
+        }
+
+        if (obj.clickCount != 0) {
+            var ctx9 = document.getElementById("clickCompareChart").getContext("2d");
+            var views = new Chart(ctx9).Doughnut(compareClicksData, options);
+        } else {
+            $("#charts-second-row > .fourth-col").addClass("hidden");
+        }
     });
-
 });
 

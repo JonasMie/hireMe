@@ -28,9 +28,10 @@ $this->title = "Analytics: Detail";
 ?>
 
 <div class="detail">
-	<h1>Statistiken von "<?= $jobTitle ?>"</h1>
+    <h1>Statistiken von "<?= $jobTitle ?>"</h1>
+
     <p class="hidden" id="hiddenID"><?= $jobID ?></p>
-<!-- FIRST ROW BEGIN-->
+    <!-- FIRST ROW BEGIN-->
 
     <div class="row" id="analytics-tiles">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-1 tile-black ripple">
@@ -50,7 +51,7 @@ $this->title = "Analytics: Detail";
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <div class="a-analytics"><?=$clickCount?></div>
+                    <div class="a-analytics"><?= $clickCount ?></div>
                 </div>
                 <div class="tile-value tile-string">
                     <div class="a-analytics">Clicks</div>
@@ -61,7 +62,8 @@ $this->title = "Analytics: Detail";
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-3 tile-black ripple" onclick="window.location='./job';">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-3 tile-black ripple"
+             onclick="window.location='./job';">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a($applyCount, "/#"); ?>
@@ -76,16 +78,15 @@ $this->title = "Analytics: Detail";
         </div>
 
     </div>
-<!-- FIRST ROW END-->
-<!-- SECOND ROW BEGIN-->
+    <!-- FIRST ROW END-->
+    <!-- SECOND ROW BEGIN-->
 
+    <div class="row" id="analytics-tiles">
 
- <div class="row" id="analytics-tiles">
- 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <div class="a-analytics"><?=$interestRate?> %</div>
+                    <div class="a-analytics"><?= $interestRate ?> %</div>
                 </div>
                 <div class="tile-value tile-string">
                     <div class="a-analytics">Interest Rate</div>
@@ -99,7 +100,7 @@ $this->title = "Analytics: Detail";
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <div class="a-analytics"><?=$applicationRate?> %</div>
+                    <div class="a-analytics"><?= $applicationRate ?> %</div>
                 </div>
                 <div class="tile-value tile-string">
                     <div class="a-analytics">Application Rate</div>
@@ -109,11 +110,11 @@ $this->title = "Analytics: Detail";
 
             </div>
         </div>
-        
+
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-2 tile-green ripple">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
-                    <div class="a-analytics"><?=$interviewRate?> %</div>
+                    <div class="a-analytics"><?= $interviewRate ?> %</div>
                 </div>
                 <div class="tile-value tile-string">
                     <div class="a-analytics">Interview Rate</div>
@@ -125,26 +126,25 @@ $this->title = "Analytics: Detail";
         </div>
 
     </div>
-<!-- SECOND ROW END-->
+    <!-- SECOND ROW END-->
 
 
- <div id="analyticsCharts">
+    <div id="analyticsCharts">
 
         <div id="charts-first-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile first-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Views und Klicks
+                        Interest
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Die Anzahl der Leute, die einen Button dieser Stellenanzeige gesehen haben, sowie die Anzahl derer, die darauf geklickt haben."></span>
                     </div>
-                    <div id="viewClickIsNull" class="no-chart-data no-chart-data-row-1-col-1">Keine Daten verfügbar</div>
                     <canvas id="viewClickChart" class="chart"></canvas>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile second-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Interesst Rate
@@ -155,23 +155,20 @@ $this->title = "Analytics: Detail";
                     <canvas id="interestRateChart" class="chart"></canvas>
                 </div>
             </div>
-        </div>
 
-        <div id="charts-second-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile third-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Klicks und Bewerbungen
+                        Applications
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Zeigt die Klicks auf einen der Buttons, sowie die daraus ergangenen Bewerbungen"></span>
                     </div>
-                    <div id="clickApplyIsNull" class="no-chart-data no-chart-data-row-2-col-1">Keine Daten verfügbar</div>
                     <canvas id="clicksApplicationChart" class="chart"></canvas>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile fourth-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Application Rate
@@ -184,21 +181,20 @@ $this->title = "Analytics: Detail";
             </div>
         </div>
 
-        <div id="charts-third-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+        <div id="charts-second-row" class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile first-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Bewerbungen und Gespräche
+                        Interviews
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Bewerbungen auf diese Stellenanzeige, sowie Bewerbungen, bei denen es zu einem persönlichen Gespräch kam."></span>
                     </div>
-                    <div id="interviewApplyIsNull" class="no-chart-data no-chart-data-row-3-col-1">Keine Daten verfügbar</div>
                     <canvas id="interviewApplicationChart" class="chart"></canvas>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile second-col">
                 <div class="background-wrapper">
                     <div class="header">
                         Interview Rate
@@ -209,31 +205,27 @@ $this->title = "Analytics: Detail";
                     <canvas id="interviewRateChart" class="chart"></canvas>
                 </div>
             </div>
-        </div>
 
-         <div id="charts-fourth-row" class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile first-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile third-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Button Views prozentual
+                        Button View Rate
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Die Views der einzelnen Buttons für diese Stellenanzeige prozentual im Überblick"></span>
                     </div>
-                    <div id="viewComparisonIsNull" class="no-chart-data no-chart-data-row-4-col-1">Keine Daten verfügbar</div>
                     <canvas id="viewCompareChart" class="chart"></canvas>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 chartTile second-col">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 chartTile fourth-col">
                 <div class="background-wrapper">
                     <div class="header">
-                        Button Klicks prozentual
+                        Button Klick Rate
                         <span class="glyphicon glyphicon-info-sign pull-right" data-toggle="tooltip"
                               data-placement="left"
                               title="Die Klicks der einzelnen Buttons für diese Stellenanzeige prozentual im Überblick"></span>
                     </div>
-                    <div id="clickComparisonIsNull" class="no-chart-data no-chart-data-row-4-col-2">Keine Daten verfügbar</div>
                     <canvas id="clickCompareChart" class="chart"></canvas>
                 </div>
             </div>
@@ -241,67 +233,67 @@ $this->title = "Analytics: Detail";
     </div>
 
 
-<h2>Buttons:</h2>
+    <h2>Buttons:</h2>
 
 
- <?= GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $provider,
-        'columns'      => [
-         [
-                'label'  => 'Seite',
+        'columns' => [
+            [
+                'label' => 'Seite',
                 'format' => 'raw',
-                'value'  => function ($data) {
+                'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->site);
                 }
-            ],       
-        [
-                'label'  => 'Key',
+            ],
+            [
+                'label' => 'Key',
                 'format' => 'raw',
-                'value'  => function ($data) {
+                'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->key);
                 }
-            ],    
-        [
-                'label'  => 'Views',
+            ],
+            [
+                'label' => 'Views',
                 'format' => 'raw',
-                'value'  => function ($data) {
+                'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->viewCount);
                 }
-            ],   
-        [
-                'label'  => 'Clicks',
+            ],
+            [
+                'label' => 'Clicks',
                 'format' => 'raw',
-                'value'  => function ($data) {
+                'value' => function ($data) {
                     return \yii\helpers\Html::encode($data->clickCount);
                 }
-            ], 
-        [
-                'label'  => 'Interest Rate',
+            ],
+            [
+                'label' => 'Interest Rate',
                 'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getInterestRateForBtn($data->id)." %");
-                }
-            ],     
-         [
-                'label'  => 'Interview Rate',
-                'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getInterviewRateForBtn($data->id)." %");
+                'value' => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getInterestRateForBtn($data->id) . " %");
                 }
             ],
-         [
-                'label'  => 'Application Rate',
+            [
+                'label' => 'Interview Rate',
                 'format' => 'raw',
-                'value'  => function ($data) {
-                    return \yii\helpers\Html::encode(Analytics::getApplicationRateForBtn($data->id)." %");
+                'value' => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getInterviewRateForBtn($data->id) . " %");
+                }
+            ],
+            [
+                'label' => 'Application Rate',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return \yii\helpers\Html::encode(Analytics::getApplicationRateForBtn($data->id) . " %");
                 }
             ],
 
         ],
-    ]); ?>  
+    ]); ?>
 
 
-<h4>
+    <h4>
 
 
 </div>

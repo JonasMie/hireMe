@@ -79,13 +79,13 @@ $(document).ready(function () {
                 value: [obj.interestRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Clicks in Prozent"
             },
             {
                 value: 100 - [obj.interestRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Views in Prozent"
             }
         ]
 
@@ -109,13 +109,13 @@ $(document).ready(function () {
                 value: [obj.applicationRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             },
             {
                 value: 100 - [obj.applicationRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Clicks in Prozent"
             }
         ]
 
@@ -138,13 +138,13 @@ $(document).ready(function () {
                 value: [obj.interviewRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Interviews in Prozent"
             },
             {
                 value: 100 - [obj.interviewRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             }
         ]
 
@@ -167,13 +167,13 @@ $(document).ready(function () {
                 value: [obj.conversionRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Eingestellt in Prozent"
             },
             {
                 value: 100 - [obj.conversionRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             }
         ]
 
