@@ -6,6 +6,11 @@ use Yii;
 use frontend\models\Job;
 use frontend\models\Event;
 use yii\helpers\BaseJson;
+use common\models\User;
+use frontend\models\Application;
+use frontend\models\ApplicationData;
+use frontend\models\Cover;
+use frontend\models\Company;
 
 class MobileController extends \yii\web\Controller
 {
@@ -56,6 +61,39 @@ class MobileController extends \yii\web\Controller
     	$ev->end = $event['end'];
     	$ev->save();
     */
+    }
+
+    public function actionGetAppData($user) {
+
+
+
+
+    }
+
+    public function actionSaveApp($user,$jobID,$data,$cover) {
+
+        $usr = User::findOne($user);
+        $job = Job::findOne($jobID);
+        $company = Company::findOne($job->company_id);
+
+        $app = new Application();
+        $app->user_id = $usr->id;
+        $app->job_id = $job->id;
+        $app->company_id = $company->id;
+        $app->score = 0;
+        $app->state = "Gespeichert";
+        $app->sent = 0;
+        $app->read = 0;
+        $app->archived = 0;
+        $app->created_at = 0;
+      //  if($app->save()) {return "Deine Bewerbung wurde erfolgreich gespeichert";}
+       // return "Leider gab es einen Fehler beim Speichern deiner Bewerbung";
+    }
+
+    public function actionApply($user,$job) {
+
+            return "User ".User::findOne($user)->fullName." hat sich auf ".Job::findOne($job)->title." beworben.";
+
     }
 
 }

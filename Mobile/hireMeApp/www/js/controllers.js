@@ -223,7 +223,7 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('ListDetailCtrl', function($scope,$ionicSideMenuDelegate,$stateParams, JobService) {
+.controller('ListDetailCtrl', function($scope,$ionicSideMenuDelegate,$stateParams, JobService,$http) {
   
       $ionicSideMenuDelegate.canDragContent(true);
 
@@ -241,12 +241,18 @@ angular.module('starter.controllers', [])
       });
 
        $scope.apply = function(id) {
-
-        
-
+        var data = [1,2];
+        var url = "http://frontend/mobile/save-app?user=7&jobID="+id+"&data="+data+"&cover=blablablabla";
+         var responsePromise = $http.get(url);
+        console.log(url);
+                responsePromise.success(function(data, status, headers, config) {
+                    alert(status);
+                });
+                responsePromise.error(function(data, status, headers, config) {
+                });
        
       }
-  
+      
 
 })
 
