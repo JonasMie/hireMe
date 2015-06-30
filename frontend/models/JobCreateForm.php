@@ -50,7 +50,7 @@ class JobCreateForm extends Model
                     return $("#checkLocationBased").prop("checked");
                 }'
             ],
-             ['visibility', 'default', 'value' => 0],
+            ['visibility', 'default', 'value' => 0],
             ['checkLocationBased', 'boolean'],
             ['checkLocationBased','default','value' => false],
 

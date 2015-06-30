@@ -3,17 +3,9 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-
 /* @var $model frontend\models\Job */
 
-$this->title = 'Update Job: ' . ' ' . $model->title;
-
-/* @var $model frontend\models\Job */
-
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Job',
-]) . ' ' . $model->title;
-
+$this->title = 'Stellenanzeige "' .$model->title .'" bearbeiten';
 ?>
 <div class="job-update">
 
