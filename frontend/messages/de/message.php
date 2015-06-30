@@ -18,4 +18,5 @@ return [
     'Flow'     => 'Flow',
     'Receiver' => 'Empfänger',
     'Sender'   => 'Sender',
+    'Are you sure you want to delete this item?' => 'Sind Sie sicher, dass Sie diese Nachricht löschen möchten?',
 ];

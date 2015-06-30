@@ -97,8 +97,10 @@ class SettingsModel extends Model
             $imageId = $this->uploadImage($this);
             if (isset($imageId) && $imageId) {
                 $user->picture_id = $imageId;
+            } else if (isset($imageId) && !$imageId) {
+                return false;
             }
-            if(isset($this->plz) && !empty($this->plz)){
+            if (isset($this->plz) && !empty($this->plz)) {
                 $geo = Geo::findOne(['plz' => $this->plz]);
                 $user->geo_id = $geo->id;
             }
@@ -121,23 +123,27 @@ class SettingsModel extends Model
     {
         $model->picture = UploadedFile::getInstance($model, 'picture');
         $param = Yii::$app->request->post();
-        if ($model->picture && $model->validate()) {
-            $profilePic = new File();
-            $profilePic->path = "/" . uniqid("profile_");
-            $profilePic->extension = $model->picture->extension;
-            $profilePic->size = $model->picture->size;
-            $profilePic->title = $model->picture->baseName;
-            if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path, $profilePic->extension, $param) && $this->saveThumbnail($profilePic->path)) {
-                return $profilePic->id;
+        if ($model->picture) {
+            if ($model->validate()) {
+                $profilePic = new File();
+                $profilePic->path = "/" . uniqid("profile_");
+                $profilePic->extension = $model->picture->extension;
+                $profilePic->size = $model->picture->size;
+                $profilePic->title = $model->picture->baseName;
+                if ($profilePic->save() && $model->picture->saveAs(Yii::getAlias('@webroot') . '/uploads/profile/temp' . $profilePic->path . '.' . $profilePic->extension) && $this->cropImage($profilePic->path, $profilePic->extension, $param) && $this->saveThumbnail($profilePic->path)) {
+                    return $profilePic->id;
+                }
+                return false;
             }
             return false;
         }
-        return false;
+        return null;
     }
 
-    private function cropImage($path,$extension, $param)
+    private
+    function cropImage($path, $extension, $param)
     {
-        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path ."." .$extension;
+        $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path . "." . $extension;
         $imagesize = getimagesize($imagefile);
         $imagetype = $imagesize[2];
         switch ($imagetype) {
@@ -161,7 +167,7 @@ class SettingsModel extends Model
         imagecopyresampled($vDstImg, $image, 0, 0, $param['x'], $param['y'], IMGWIDHT, IMGHEIGHT, $param['w'], $param['h']);
 
         // define a result image filename
-        $sResultFileName = Yii::getAlias('@webroot') . '/uploads/profile' . $path .".jpg";
+        $sResultFileName = Yii::getAlias('@webroot') . '/uploads/profile' . $path . ".jpg";
 
         // output image to file
         imagejpeg($vDstImg, $sResultFileName);
@@ -170,7 +176,8 @@ class SettingsModel extends Model
         return true;
     }
 
-    private function saveThumbnail($path)
+    private
+    function saveThumbnail($path)
     {
         $imagefile = Yii::getAlias('@webroot') . '/uploads/profile' . $path . ".jpg";
         $imagesize = getimagesize($imagefile);

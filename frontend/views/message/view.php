@@ -108,7 +108,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
             echo Html::a(Yii::t('app', '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Löschen'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-default ripple',
                 'data'  => [
-                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                    'confirm' => Yii::t('message', 'Are you sure you want to delete this item?'),
                     'method'  => 'post',
                 ],
             ]);
