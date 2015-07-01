@@ -254,7 +254,12 @@ $this->title = "Analytics: Detail";
                 'headerOptions' => ['class' => 'first-col', 'data-hide' => ''],
                 'contentOptions' => ['class' => 'first-col'],
                 'value' => function ($data) {
-                    return \yii\helpers\Html::encode($data->site);
+					if ($data->archived == 1) {
+						return \yii\helpers\Html::encode($data->site) . ' <span class="text-danger"><span class="glyphicon glyphicon-ban-circle" title="archiviert" alt="archiviert"></span></span>';
+					}
+					else {
+						return \yii\helpers\Html::encode($data->site);
+					}
                 }
             ],
             [

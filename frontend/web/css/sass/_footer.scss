@@ -10,5 +10,11 @@ footer.footer {
     span.glyphicon-heart {
       color: $green;
     }
+	a{
+		color:$greyFont;
+		&:hover,&:focus,&:active{
+			color:$green;
+		}
+	}
   }
 }
