@@ -100,8 +100,7 @@ class JobController extends Controller
         $btn = ApplyBtn::findOne($id);
         $btn->archived=1;
         $btn->save();
-        $jobID = Yii::$app->request->get("id");
-        return $this->redirect(['/job/view?id='.$jobID]);
+        return $this->redirect(['/job/view?id='.$btn->job_id]);
     }
 
     /**
