@@ -1,4 +1,4 @@
-/* line 5, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -2909,4 +2909,386 @@ body.controller-job.action-create #form-createJob div.locationDiv, body.controll
 /* line 62, ../sass/_buttonPopup.scss */
 .controller-job.action-button-popup div.saveFav {
   margin-top: 10px;
+}
+
+/* line 4, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles {
+  margin-top: 40px;
+}
+/* line 7, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile {
+  height: 130px;
+}
+@media (max-width: 511px) {
+  /* line 7, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile {
+    width: 100%;
+  }
+}
+/* line 12, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
+  height: 130px;
+  width: 50%;
+  float: left;
+  clear: right;
+}
+@media (min-width: 512px) and (max-width: 767px) {
+  /* line 12, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
+    width: 100%;
+  }
+}
+/* line 21, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value {
+  text-align: center;
+}
+/* line 23, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics {
+  color: #fff;
+  font-size: 17px;
+}
+/* line 26, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a:hover, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics:hover {
+  text-decoration: none;
+}
+/* line 31, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
+  padding: 25px 0px 2px 0px;
+}
+@media (max-width: 767px) {
+  /* line 31, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
+    padding-top: 35px;
+  }
+}
+/* line 36, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number .a-analytics {
+  font-size: 30px;
+}
+/* line 40, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-string {
+  padding: 0 5%;
+  line-height: 18px;
+}
+/* line 49, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-green div.subtile-left {
+  background-color: #5dca88;
+}
+/* line 53, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-green div.subtile-right {
+  background-color: rgba(93, 202, 136, 0.5);
+}
+/* line 60, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-black div.subtile-left {
+  background-color: #2d312f;
+}
+/* line 64, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-black div.subtile-right {
+  background-color: #5d6461;
+}
+/* line 70, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
+  background-image: url("/images/dashboard-bewerbungen.png");
+  background-size: 55% auto;
+}
+@media (max-width: 767px) {
+  /* line 70, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
+    background-size: 110px auto;
+  }
+}
+/* line 78, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile:hover {
+  cursor: pointer;
+}
+@media (max-width: 511px) {
+  /* line 84, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-2 {
+    margin-top: 20px;
+  }
+}
+/* line 88, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
+  background-image: url("/images/analytics-einstellungen.png");
+  background-size: 35% auto;
+}
+@media (max-width: 991px) {
+  /* line 88, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
+    background-size: 37% auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 99, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 {
+    margin-top: 20px;
+  }
+}
+/* line 103, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+  background-image: url("/images/dashboard-stellenanzeigen.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 103, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 103, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+/* line 114, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile:hover {
+  cursor: pointer;
+}
+/* line 121, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 512px) and (max-width: 767px) {
+  /* line 121, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right {
+    display: none;
+  }
+}
+/* line 133, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts {
+  margin-bottom: 50px;
+}
+/* line 137, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row, body.controller-analytics #charts-second-row, body.controller-analytics #charts-third-row, body.controller-analytics #charts-fourth-row {
+  margin-top: 50px;
+}
+/* line 141, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row > .isHidden .background-wrapper, body.controller-analytics #charts-second-row > .isHidden .background-wrapper, body.controller-analytics #charts-third-row > .isHidden .background-wrapper, body.controller-analytics #charts-fourth-row > .isHidden .background-wrapper {
+  background: none;
+}
+/* line 143, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row > .isHidden .background-wrapper #isNull, body.controller-analytics #charts-second-row > .isHidden .background-wrapper #isNull, body.controller-analytics #charts-third-row > .isHidden .background-wrapper #isNull, body.controller-analytics #charts-fourth-row > .isHidden .background-wrapper #isNull {
+  text-align: center;
+  margin-top: 20px;
+  color: #9d9d9d;
+  font-size: 16px;
+}
+/* line 149, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row > .isHidden .background-wrapper canvas, body.controller-analytics #charts-second-row > .isHidden .background-wrapper canvas, body.controller-analytics #charts-third-row > .isHidden .background-wrapper canvas, body.controller-analytics #charts-fourth-row > .isHidden .background-wrapper canvas {
+  display: none;
+}
+/* line 155, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper, body.controller-analytics #charts-second-row .background-wrapper, body.controller-analytics #charts-third-row .background-wrapper, body.controller-analytics #charts-fourth-row .background-wrapper {
+  background-color: #edf0f0;
+}
+/* line 158, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper .header, body.controller-analytics #charts-second-row .background-wrapper .header, body.controller-analytics #charts-third-row .background-wrapper .header, body.controller-analytics #charts-fourth-row .background-wrapper .header {
+  padding: 15px 20px;
+  color: #fff;
+}
+/* line 161, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper .header span, body.controller-analytics #charts-second-row .background-wrapper .header span, body.controller-analytics #charts-third-row .background-wrapper .header span, body.controller-analytics #charts-fourth-row .background-wrapper .header span {
+  cursor: help;
+}
+/* line 166, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper canvas, body.controller-analytics #charts-second-row .background-wrapper canvas, body.controller-analytics #charts-third-row .background-wrapper canvas, body.controller-analytics #charts-fourth-row .background-wrapper canvas {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+/* line 174, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .first-col .background-wrapper .header, body.controller-analytics #charts-first-row .third-col .background-wrapper .header, body.controller-analytics #charts-second-row .first-col .background-wrapper .header, body.controller-analytics #charts-second-row .third-col .background-wrapper .header, body.controller-analytics #charts-third-row .first-col .background-wrapper .header, body.controller-analytics #charts-third-row .third-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .first-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .third-col .background-wrapper .header {
+  background-color: #5dca88;
+}
+@media (max-width: 767px) {
+  /* line 182, ../sass/_analytics.scss */
+  body.controller-analytics #charts-first-row .second-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .second-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .second-col, body.controller-analytics #charts-third-row .fourth-col, body.controller-analytics #charts-fourth-row .second-col, body.controller-analytics #charts-fourth-row .fourth-col {
+    margin-top: 50px;
+  }
+}
+/* line 187, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .second-col .background-wrapper .header, body.controller-analytics #charts-first-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-second-row .second-col .background-wrapper .header, body.controller-analytics #charts-second-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-third-row .second-col .background-wrapper .header, body.controller-analytics #charts-third-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .second-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .fourth-col .background-wrapper .header {
+  background-color: #2d312f;
+}
+@media (max-width: 991px) {
+  /* line 195, ../sass/_analytics.scss */
+  body.controller-analytics #charts-first-row .third-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .third-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .third-col, body.controller-analytics #charts-third-row .fourth-col, body.controller-analytics #charts-fourth-row .third-col, body.controller-analytics #charts-fourth-row .fourth-col {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 991px) {
+  /* line 203, ../sass/_analytics.scss */
+  body.controller-analytics #charts-fourth-row .third-col, body.controller-analytics #charts-fourth-row .fourth-col {
+    margin-top: 50px;
+  }
+}
+/* line 210, ../sass/_analytics.scss */
+body.controller-analytics #charts-third-row {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+/* line 216, ../sass/_analytics.scss */
+body.controller-analytics h2.detailHeader {
+  margin-bottom: 30px;
+}
+/* line 221, ../sass/_analytics.scss */
+body.controller-analytics #w0 div.summary {
+  display: none;
+}
+/* line 228, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.first-col, body.controller-analytics #analyticsTable tr th.first-col {
+  width: 35%;
+}
+/* line 231, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.second-col, body.controller-analytics #analyticsTable tr th.second-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 235, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.third-col, body.controller-analytics #analyticsTable tr th.third-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 239, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.fourth-col, body.controller-analytics #analyticsTable tr th.fourth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 243, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.fifth-col, body.controller-analytics #analyticsTable tr th.fifth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 247, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.sixth-col, body.controller-analytics #analyticsTable tr th.sixth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 251, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.seventh-col, body.controller-analytics #analyticsTable tr th.seventh-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 255, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.eight-col, body.controller-analytics #analyticsTable tr th.eight-col {
+  width: 5%;
+  text-align: right;
+}
+/* line 259, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
+  width: 5%;
+  text-align: right;
+}
+@media (min-width: 992px) {
+  /* line 259, ../sass/_analytics.scss */
+  body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
+    width: 0%;
+    text-align: right;
+  }
+}
+/* line 268, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr .footable-row-detail-cell {
+  padding-bottom: 0px;
+}
+/* line 270, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr .footable-row-detail-cell .footable-row-detail-row {
+  margin-top: 8px;
+}
+
+/* line 282, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-1 div.subtile-right {
+  background-image: url("/images/analytics/analytics-views.png") !important;
+  background-size: 90px auto;
+}
+@media (max-width: 511px) {
+  /* line 288, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-2 {
+    margin-top: 20px;
+  }
+}
+/* line 292, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-2 div.subtile-right {
+  background-image: url("/images/analytics/analytics-click.png") !important;
+  background-size: 50px !important;
+}
+@media (max-width: 511px) {
+  /* line 298, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 {
+    margin-top: 20px;
+  }
+}
+/* line 302, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+  background-image: url("/images/dashboard-neue-bewerbungen.png") !important;
+  background-size: 70px auto !important;
+}
+@media (max-width: 991px) {
+  /* line 302, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 302, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 314, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 {
+    margin-top: -20px;
+  }
+}
+/* line 318, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+  background-image: url("/images/analytics/analytics-interrest.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 318, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+    background-size: 70px auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 318, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 330, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 {
+    margin-top: 20px;
+  }
+}
+/* line 334, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+  background-image: url("/images/analytics/analytics-application.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 334, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 334, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 346, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-6 {
+    margin-top: 20px;
+  }
+}
+/* line 350, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
+  background-image: url("/images/analytics/analytics-interview.png");
+  background-size: 80px auto;
 }

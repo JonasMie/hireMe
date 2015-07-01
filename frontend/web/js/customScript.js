@@ -31,6 +31,11 @@ $(document).ready(function(){
         radioClass: 'iradio_flat-green'
     });
 
+    /* Tooltip */
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    /* END Tooltip */
 
     // TODO: This is a temporary "hack", to prevent prefilled forms by browser which break our styling
     // Clear Form Fields
@@ -122,6 +127,7 @@ $(".ripple").on("click", function(e){
                     $.post($(box).attr('href'));
                 } else
                 location.href = $(box).attr('href');
+
             }
         }
     );
@@ -141,6 +147,7 @@ $('input[type=text], input[type=password]').focus(function () {
 /** END Helper Function for Input Forms **/
 
 
+/* TODO: CHECK IF NEEDED
 /** Replace all SVG images with inline SVG **/
 jQuery('img.svg').each(function(){
     var $img = jQuery(this);
@@ -197,7 +204,6 @@ $('.select-on-check-all').on('ifUnchecked', function(event){
 });
 
 /** END iCheck js select-on-check-all fix **/
-
 
 
 
