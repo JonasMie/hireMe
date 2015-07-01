@@ -221,6 +221,7 @@ class ApplicationController extends Controller
         $model["created"] = $app->created_at;
         $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
         $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
+        $model["coverText"] = nl2br($model["coverText"]);
         
           return $this->render('view', [
             'model' => $model,

@@ -125,7 +125,7 @@ if (Yii::$app->user->identity->isRecruiter()){
 		
 		<div class="col-sm-8">
 			<h2>Anschreiben</h2>
-			<?= Html::decode("<pre>".$model['coverText']."</pre>"); ?>
+			<?= Html::decode($model['coverText']) ?>
 		</div>
 		
 		<div class="col-sm-8">
