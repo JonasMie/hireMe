@@ -12,52 +12,105 @@ body.controller-company {
     }
   }
 
-
-
   #w0 {
     .summary {
       display: none;
     }
 
+    table#companyTable {
+      thead {
+        tr {
+          th {
 
-  table#companyTable {
+          }
+          th.first-col {
+            width: 50%;
+          }
+          th.second-col {
+            text-align: right;
+            width: 15%;
+          }
+          th.third-col {
+            text-align: right;
+            width: 15%;
+          }
+          th.fourth-col {
+            text-align: right;
+            width: 30%;
+          }
+          th.fifth-col {
+            width: 0%;
+            @media (max-width: 767px) {
+              width: 5%;
+            }
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+          }
+          td.first-col {
+          }
+          td.second-col {
+            text-align: right;
+          }
+          td.third-col {
+            text-align: right;
+          }
+          td.fourth-col {
+            text-align: right;
+          }
+          td.fifth-col {
+            text-align: right;
+          }
+        }
+      }
+
+      .footable-row-detail-inner {
+        @media (max-width: 551px) {
+          height: 82px;
+        }
+        .footable-row-detail-row {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+body.controller-company.action-index {
+
+  table#companyOverviewTable {
     thead {
       tr {
         th {
-
         }
         th.first-col {
-          width: 50%;
         }
         th.second-col {
-          text-align: right;
-          width: 15%;
         }
         th.third-col {
-          text-align: right;
-          width: 15%;
         }
         th.fourth-col {
-          text-align: right;
-          width: 30%;
         }
         th.fifth-col {
-          width: 0%;
-          @media (max-width: 767px) {
-            width: 5%;
-          }
+          width: 5%
+        }
+        th.sixth-col {
+          width: 0%
         }
       }
     }
     tbody {
       tr {
-        td {}
-        td.first-col {}
+        td {
+        }
+        td.first-col {
+        }
         td.second-col {
-          text-align: right;
         }
         td.third-col {
-          text-align: right;
         }
         td.fourth-col {
           text-align: right;
@@ -65,27 +118,18 @@ body.controller-company {
         td.fifth-col {
           text-align: right;
         }
+        td.sixth-col {
+          text-align: right;
+        }
       }
     }
-
     .footable-row-detail-inner {
       @media (max-width: 551px) {
-        height: 82px;
+        height: 105px;
       }
       .footable-row-detail-row {
         margin-bottom: 10px;
       }
     }
-
   }
-
-
-
-
-
-
-  }
-
-
-
 }
