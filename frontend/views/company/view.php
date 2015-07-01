@@ -12,49 +12,58 @@ include Yii::getAlias('@helper/companySignup.php');;
 
 $this->title = $model->name;
 ?>
+
+<!-- Initializing Foo Tables -->
+<? $this->registerJS(
+    "$(function () {
+        $('.footable').footable({
+            breakpoints: {
+                /* Somehow Footable misses the screen width by 31 Pixels */
+                mediaXXsmall: 480,
+                mediaXsmall: 736,
+                mediaSmall: 960
+
+            }
+        });
+    });");
+?>
+
 <div class="company-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <div class="company-name">
-        <?= $model->name ?>
+
+    <div class="row">
+        <div class="company-street col-lg-4">
+            <h2>Anschrift</h2>
+            <b><?= $model->street ?>&nbsp;<?= $model->houseno ?></b>
+            <br>
+            <?= $model->zip ?>&nbsp;<?= $model->city ?>
+        </div>
+
+        <div class="company-sector col-lg-4">
+            <h2>Branche</h2>
+            <?= $sectorList[$model->sector] ?>
+        </div>
+
+        <div class="company-employee-amaount col-lg-4">
+            <h2>Anzahl der Beschäftigten:</h2>
+            <?= $employeeAmount[$model->employeeAmount] ?>
+        </div>
     </div>
 
-    <div class="company-street">
-        <?= $model->street ?>
-    </div>
+    <h2 class="table-header">Stellenanzeigen</h2>
 
-    <div class="company-house-number">
-        <?= $model->houseno ?>
-    </div>
-
-    <div class="company-zip">
-        <?= $model->zip ?>
-    </div>
-
-    <div class="companycty">
-        <?= $model->city ?>
-    </div>
-
-    <di class="company-sector"v>
-        <p>Branche: <?= $sectorList[$model->sector] ?></p>
-    </div>
-
-    <div class="company-employee-amaount">
-        <p> Anzahl der Beschäftigten: <?= $employeeAmount[$model->employeeAmount] ?></p>
-    </div>
-</div>
-
-<div>
     <?=
     \yii\grid\GridView::widget([
         'dataProvider' => $jobDP,
-        'columns'      => [
+        'tableOptions' => ['class' => 'hireMeTable footable toggle-arrow', 'id' => 'companyTable'],
+        'columns' => [
             [
                 'attribute' => 'title',
                 'format' => 'raw',
-                'value' => function ($data){
-                    return Html::a($data->title, ['/job/view', 'id'=> $data->id]);
+                'value' => function ($data) {
+                    return Html::a($data->title, ['/job/view', 'id' => $data->id]);
                 }
             ],
             [
@@ -75,6 +84,13 @@ $this->title = $model->name;
 //                    return $sectorList[$data->sector];
 //                }
 //            ]
+            [
+
+                'class' => 'yii\grid\Column',
+                'headerOptions' => ['data-toggle' => 'true'],
+                'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
+
+            ],
         ]
     ])
     ?>

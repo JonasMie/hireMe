@@ -15,6 +15,11 @@ body {
     }
   }
 
+  b {
+    @include font-standard();
+    font-weight: 400;
+  }
+
   //Dropdown Action Buttons
   #bulkActions {
     margin-top: 15px;
