@@ -13,6 +13,7 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 
 \frontend\assets\BulkAction::register($this);
+$this->title = "Dashboard";
 ?>
 
     <!-- Initializing Foo Tables -->

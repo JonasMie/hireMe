@@ -9,7 +9,7 @@ use frontend\controllers\ApplicationController;
 
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-	<?= $form->field($model, 'file')->fileInput(['multiple' => false]) ?>
+	<?= $form->field($model, 'file')->fileInput(['multiple' => false])->label('') ?>
 
 	<?= $form->field($model, 'title') ?>
 

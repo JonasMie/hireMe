@@ -172,7 +172,7 @@ if ($model->receiver_id === Yii::$app->user->getId()) {
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
                 <?= Html::submitButton(Yii::t('app', '<span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Nachricht versenden'), ['class' => 'btn btn-success']) ?>
 
                 <?php ActiveForm::end(); ?>

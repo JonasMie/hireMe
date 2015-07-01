@@ -70,7 +70,7 @@ $this->title = Yii::t('app', 'Favoriten');
 						'value'     => function ($data) {
 							return Html::a($data->job->company->name, ['/company/view' ,'id'=> $data->job->company->id]);
 						},
-						'headerOptions'  => ['class' => 'third-col','data-hide' => 'xsmall,phone'],
+						'headerOptions'  => ['class' => 'third-col'],
 						'contentOptions' => ['class' => 'third-col']
 					],
 					[
@@ -80,12 +80,14 @@ $this->title = Yii::t('app', 'Favoriten');
 						'value' => function($data){
 							return $data->job->job_begin;
 						},
-						'headerOptions'  => ['class' => 'fourth-col','data-hide' => 'xsmall,phone'],
+						'headerOptions'  => ['class' => 'fourth-col','data-hide' => 'mediaXsmall,phone'],
 						'contentOptions' => ['class' => 'fourth-col']
 					],
 					[
 						'class' => 'yii\grid\ActionColumn',
-						'template' => '{delete}'
+						'template' => '{delete}',
+						'headerOptions'  => ['class' => 'fourth-col','data-hide' => 'mediaXsmall,phone'],
+						'contentOptions' => ['class' => 'fourth-col']
 					],
 					[
 						'class'          => 'yii\grid\Column',
