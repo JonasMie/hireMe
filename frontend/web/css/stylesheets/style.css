@@ -3317,3 +3317,38 @@ body.controller-company .container .company-view h2.table-header {
 body.controller-company #w0 .summary {
   display: none;
 }
+/* line 29, ../sass/_company.scss */
+body.controller-company #w0 table thead tr th.first-col {
+  width: 50%;
+}
+/* line 32, ../sass/_company.scss */
+body.controller-company #w0 table thead tr th.second-col {
+  text-align: right;
+  width: 15%;
+}
+/* line 36, ../sass/_company.scss */
+body.controller-company #w0 table thead tr th.third-col {
+  text-align: right;
+  width: 15%;
+}
+/* line 40, ../sass/_company.scss */
+body.controller-company #w0 table thead tr th.fourth-col {
+  text-align: right;
+  width: 30%;
+}
+/* line 44, ../sass/_company.scss */
+body.controller-company #w0 table thead tr th.fifth-col {
+  width: 0%;
+}
+/* line 53, ../sass/_company.scss */
+body.controller-company #w0 table tbody tr th.second-col {
+  text-align: right;
+}
+/* line 56, ../sass/_company.scss */
+body.controller-company #w0 table tbody tr th.third-col {
+  text-align: right;
+}
+/* line 59, ../sass/_company.scss */
+body.controller-company #w0 table tbody tr th.fourth-col {
+  text-align: right;
+}

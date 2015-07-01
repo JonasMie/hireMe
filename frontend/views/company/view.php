@@ -34,19 +34,19 @@ $this->title = $model->name;
 
 
     <div class="row">
-        <div class="company-street col-lg-4">
+        <div class="company-street col-sm-4 col-md-4 col-lg-4">
             <h2>Anschrift</h2>
             <b><?= $model->street ?>&nbsp;<?= $model->houseno ?></b>
             <br>
             <?= $model->zip ?>&nbsp;<?= $model->city ?>
         </div>
 
-        <div class="company-sector col-lg-4">
+        <div class="company-sector col-sm-4 col-md-4 col-lg-4">
             <h2>Branche</h2>
             <?= $sectorList[$model->sector] ?>
         </div>
 
-        <div class="company-employee-amaount col-lg-4">
+        <div class="company-employee-amaount col-sm-4 col-md-4 col-lg-4">
             <h2>Anzahl der Beschäftigten:</h2>
             <?= $employeeAmount[$model->employeeAmount] ?>
         </div>
@@ -62,20 +62,24 @@ $this->title = $model->name;
             [
                 'attribute' => 'title',
                 'format' => 'raw',
+                'headerOptions'  => ['class' => 'first-col'],
                 'value' => function ($data) {
                     return Html::a($data->title, ['/job/view', 'id' => $data->id]);
                 }
             ],
             [
                 'attribute' => 'job_begin',
-                'format' => 'date'
+                'format' => 'date',
+                'headerOptions'  => ['class' => 'second-col'],
             ],
             [
                 'attribute' => 'job_end',
-                'format' => 'date'
+                'format' => 'date',
+                'headerOptions'  => ['class' => 'third-col'],
             ],
             [
-                'attribute' => 'city'
+                'attribute' => 'city',
+                'headerOptions'  => ['class' => 'fourth-col'],
             ],
             // TODO: include is only available in global scope.. got no idea how to access it in method call
 //            [
@@ -87,7 +91,7 @@ $this->title = $model->name;
             [
 
                 'class' => 'yii\grid\Column',
-                'headerOptions' => ['data-toggle' => 'true'],
+                'headerOptions' => ['data-toggle' => 'true', 'class' => 'fifth-col'],
                 'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
 
             ],

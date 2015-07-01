@@ -18,6 +18,57 @@ body.controller-company {
     .summary {
       display: none;
     }
+
+
+  table {
+    thead {
+      tr {
+        th {
+
+        }
+        th.first-col {
+          width: 50%;
+        }
+        th.second-col {
+          text-align: right;
+          width: 15%;
+        }
+        th.third-col {
+          text-align: right;
+          width: 15%;
+        }
+        th.fourth-col {
+          text-align: right;
+          width: 30%;
+        }
+        th.fifth-col {
+          width: 0%;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {}
+        th.first-col {}
+        th.second-col {
+          text-align: right;
+        }
+        th.third-col {
+          text-align: right;
+        }
+        th.fourth-col {
+          text-align: right;
+        }
+        th.fifth-col {}
+      }
+    }
+  }
+
+
+
+
+
+
   }
 
 
