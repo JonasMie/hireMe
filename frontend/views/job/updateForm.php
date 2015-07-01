@@ -61,7 +61,7 @@ if($model->job_end) $model->job_end = Yii::$app->formatter->asDate($model->job_e
             $template =
                 '<p>{{plz}}  -  {{city}}</p>';
 
-            echo $form->field($model, 'zip')->widget(Typeahead::className(), [
+            echo $form->field($model, 'zip', ['options' =>['class' => 'allowPrefill has-success']])->widget(Typeahead::className(), [
                 'name'         => 'zip',
                 'dataset'      => [
                     [
@@ -75,16 +75,16 @@ if($model->job_end) $model->job_end = Yii::$app->formatter->asDate($model->job_e
                     ],
                 ],
                 'pluginEvents' => [
-                    'typeahead:selected' => 'function(e,val) { jQuery("#job-city").val(val.city) }'
+                    'typeahead:selected' => 'function(e,val) { jQuery("#job-city").typeahead("val",val.city);  jQuery(".field-job-city").addClass("has-success");   }'
                 ],
-                'container' => ['class' => 'allowPrefill']
+                'container' => ['class' => 'allowPrefill has-success']
             ]) ?>
 
             <?
             $template =
                 '<p>{{plz}}  -  {{city}}</p>';
 
-            echo $form->field($model, 'city')->widget(Typeahead::className(), [
+            echo $form->field($model, 'city', ['options' =>['class' => 'allowPrefill has-success']])->widget(Typeahead::className(), [
                 'name'         => 'companyAddressCity',
                 'dataset'      => [
                     [
@@ -98,9 +98,9 @@ if($model->job_end) $model->job_end = Yii::$app->formatter->asDate($model->job_e
                     ],
                 ],
                 'pluginEvents' => [
-                    'typeahead:selected' => 'function(e,val) { jQuery("#job-zip").val(val.plz) }'
+                    'typeahead:selected' => 'function(e,val) {jQuery("#job-zip").typeahead("val",val.plz); jQuery(".field-job-zip").addClass("has-success");  }'
                 ],
-                'container' => ['class' => 'allowPrefill']
+                'container' => ['class' => 'allowPrefill has-success']
             ]) ?>
 
             <? endif?>

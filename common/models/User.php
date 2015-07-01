@@ -362,6 +362,6 @@ class User extends ActiveRecord implements IdentityInterface
             return Html::img("/uploads/profile".$path.".jpg", ['class'=>'img-circle profile']);
         }
 
-        return "<div class = 'profile-picture-thumbnail pull-left'></div>";
+        return $thumbnail?"<div class = 'profile-picture-thumbnail pull-left'></div>":Html::img("/uploads/profile/default-big.png", ['class'=>'img-circle profile']);;
     }
 }
