@@ -48,16 +48,24 @@ $(document).ready(function () {
         // Check nulls
 
         var viewClickNull = false;
-        if(obj.viewCount == 0) {viewClickNull = true;}
+        if (obj.viewCount == 0) {
+            viewClickNull = true;
+        }
 
         var clickApplyIsNull = false;
-        if(obj.clickCount == 0 && obj.applierCount == 0) {clickApplyIsNull = true;}
+        if (obj.clickCount == 0 && obj.applierCount == 0) {
+            clickApplyIsNull = true;
+        }
 
         var interviewApplyIsNull = false;
-        if(obj.applierCount == 0 &&  obj.interviewCount == 0) {interviewApplyIsNull = true;}
+        if (obj.applierCount == 0 && obj.interviewCount == 0) {
+            interviewApplyIsNull = true;
+        }
 
         var applyHiredIsNull = false;
-        if(obj.applierCount == 0 &&  obj.hiredCount == 0) {applyHiredIsNull = true;}
+        if (obj.applierCount == 0 && obj.hiredCount == 0) {
+            applyHiredIsNull = true;
+        }
 
 
         var viewClickData = {
@@ -76,16 +84,16 @@ $(document).ready(function () {
         var interestRateData = [
 
             {
-                value: [obj.interestRate],
+                value: 0,
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Clicks in Prozent"
             },
             {
                 value: 100 - [obj.interestRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Views in Prozent"
             }
         ]
 
@@ -109,13 +117,13 @@ $(document).ready(function () {
                 value: [obj.applicationRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             },
             {
                 value: 100 - [obj.applicationRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Clicks in Prozent"
             }
         ]
 
@@ -138,13 +146,13 @@ $(document).ready(function () {
                 value: [obj.interviewRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Interviews in Prozent"
             },
             {
                 value: 100 - [obj.interviewRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             }
         ]
 
@@ -167,13 +175,13 @@ $(document).ready(function () {
                 value: [obj.conversionRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
-                label: ""
+                label: "Eingestellt in Prozent"
             },
             {
                 value: 100 - [obj.conversionRate],
                 color: "rgba(157,157,157,0.5)",
                 highlight: "rgba(157,157,157,1.0)",
-                label: ""
+                label: "Bewerbungen in Prozent"
             }
         ]
 
@@ -196,11 +204,13 @@ $(document).ready(function () {
             var tmp = obj.viewArray[i];
 
             var subObject = '{';
-             var value = (tmp.views / obj.viewCount).toFixed(2) * 100;
-            if(jQuery.isNumeric(value)) {
-            subObject += '"value":' + value + ',';
+            var value = (tmp.views / obj.viewCount).toFixed(2) * 100;
+            if (jQuery.isNumeric(value)) {
+                subObject += '"value":' + value + ',';
             }
-            else {subObject += '"value":0,';}
+            else {
+                subObject += '"value":0,';
+            }
             if (i % 2 == 0) {
                 subObject += '"color": "rgba(93,202,136,0.5)",';
                 subObject += '"highlight": "rgba(93,202,136,1.0)",';
@@ -222,10 +232,12 @@ $(document).ready(function () {
             var tmp = obj.clickArray[i];
             var subObject = '{';
             var value = (tmp.clicks / obj.clickCount).toFixed(2) * 100;
-            if(jQuery.isNumeric(value)) {
-            subObject += '"value":' + value + ',';
+            if (jQuery.isNumeric(value)) {
+                subObject += '"value":' + value + ',';
             }
-            else {subObject += '"value":0,';}
+            else {
+                subObject += '"value":0,';
+            }
             if (i % 2 == 0) {
                 subObject += '"color": "rgba(93,202,136,0.5)",';
                 subObject += '"highlight": "rgba(93,202,136,1.0)",';
@@ -235,67 +247,90 @@ $(document).ready(function () {
             }
             subObject += '"label": "' + tmp.title + '"';
             subObject += '}';
-             console.log(subObject);
+            console.log(subObject);
             compareClicksData.push($.parseJSON(subObject));
         }
 
 
         // VIEWS CLICKS + INTEREST RATE
-        if(!viewClickNull) {
-        var ctx1 = document.getElementById("viewClickChart").getContext("2d");
-        ctx1.canvas.width = 200;
-        ctx1.canvas.height = 100;
+        if (!viewClickNull) {
+            var ctx1 = document.getElementById("viewClickChart").getContext("2d");
+            ctx1.canvas.width = 200;
+            ctx1.canvas.height = 100;
 
-        var ctx2 = document.getElementById("interestRateChart").getContext("2d");
-        var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
-        var interestRate = new Chart(ctx2).Doughnut(interestRateData, options);
-        $("#viewClickIsNull").addClass("hidden");
-        }   
+            var ctx2 = document.getElementById("interestRateChart").getContext("2d");
+            var viewClicks = new Chart(ctx1).Bar(viewClickData, options);
+            var interestRate = new Chart(ctx2).Doughnut(interestRateData, options);
+            $("#charts-first-row > .first-col #isNull").addClass("hidden");
+            $("#charts-first-row > .second-col #isNull").addClass("hidden");
+        } else {
+            $("#charts-first-row > .first-col").addClass("isHidden");
+            $("#charts-first-row > .second-col").addClass("isHidden");
+        }
 
         // CLICKS APPLICAIONS + APPLICATION RATE
-        if(!clickApplyIsNull) {
-        var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
-        ctx3.canvas.width = 200;
-        ctx3.canvas.height = 100;
+        if (!clickApplyIsNull) {
+            var ctx3 = document.getElementById("clicksApplicationChart").getContext("2d");
+            ctx3.canvas.width = 200;
+            ctx3.canvas.height = 100;
 
-        var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
-        var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
-        var applicationRate = new Chart(ctx4).Doughnut(applicationRateData, options);
-        $("#clickApplyIsNull").addClass("hidden");
+            var ctx4 = document.getElementById("applicationRateChart").getContext("2d");
+            var clicksApplication = new Chart(ctx3).Bar(clickApplicationData, options);
+            var applicationRate = new Chart(ctx4).Doughnut(applicationRateData, options);
+            $("#charts-first-row > .third-col #isNull").addClass("hidden");
+            $("#charts-first-row > .fourth-col #isNull").addClass("hidden");
+        } else {
+            $("#charts-first-row > .third-col").addClass("isHidden");
+            $("#charts-first-row > .fourth-col").addClass("isHidden");
         }
 
-        if(!interviewApplyIsNull) {
-        // APPLICATIONS INTERVIEWS + INTERVIEW RATE
-        var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");
-        ctx5.canvas.width = 200;
-        ctx5.canvas.height = 100;
+        if (!interviewApplyIsNull) {
+            // APPLICATIONS INTERVIEWS + INTERVIEW RATE
+            var ctx5 = document.getElementById("interviewApplicationChart").getContext("2d");
+            ctx5.canvas.width = 200;
+            ctx5.canvas.height = 100;
 
-        var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
-        var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
-        var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
-        $("#interviewApplyIsNull").addClass("hidden");
+            var ctx6 = document.getElementById("interviewRateChart").getContext("2d");
+            var interviewApplication = new Chart(ctx5).Bar(interviewApplicationData, options);
+            var interviewRate = new Chart(ctx6).Doughnut(interviewRateData, options);
+            $("#charts-second-row > .first-col #isNull").addClass("hidden");
+            $("#charts-second-row > .second-col #isNull").addClass("hidden");
+        } else {
+            $("#charts-second-row > .first-col").addClass("isHidden");
+            $("#charts-second-row > .second-col").addClass("isHidden");
         }
 
-        if(!applyHiredIsNull) {
-        // APPLICATIONS HIRED + CONVERSION RATE
-        var ctx7 = document.getElementById("applicationHiredChart").getContext("2d");
-        ctx7.canvas.width = 200;
-        ctx7.canvas.height = 100;
-        var ctx8 = document.getElementById("conversionRateChart").getContext("2d");
-        var interviewApplication = new Chart(ctx7).Bar(applicationHiredData, options);
-        var interviewRate = new Chart(ctx8).Doughnut(conversionRateData, options);
-        $("#applyHiredIsNull").addClass("hidden");
+        if (!applyHiredIsNull) {
+            // APPLICATIONS HIRED + CONVERSION RATE
+            var ctx7 = document.getElementById("applicationHiredChart").getContext("2d");
+            ctx7.canvas.width = 200;
+            ctx7.canvas.height = 100;
+            var ctx8 = document.getElementById("conversionRateChart").getContext("2d");
+            var interviewApplication = new Chart(ctx7).Bar(applicationHiredData, options);
+            var interviewRate = new Chart(ctx8).Doughnut(conversionRateData, options);
+            $("#charts-second-row > .third-col #isNull").addClass("hidden");
+            $("#charts-second-row > .fourth-col #isNull").addClass("hidden");
+        } else {
+            $("#charts-second-row > .third-col").addClass("isHidden");
+            $("#charts-second-row > .fourth-col").addClass("isHidden");
         }
 
-        if(obj.viewCount != 0) {
-        var ctx9 = document.getElementById("viewCompareChart").getContext("2d");
-        var viewCompare = new Chart(ctx9).Doughnut(compareViewsData, options);
-        $("#viewComparisonIsNull").addClass("hidden");
+        if (obj.viewCount != 0) {
+            var ctx9 = document.getElementById("viewCompareChart").getContext("2d");
+            var viewCompare = new Chart(ctx9).Doughnut(compareViewsData, options);
+            $("#charts-third-row > .first-col #isNull").addClass("hidden");
+        } else {
+            $("#charts-third-row > .first-col").addClass("isHidden");
         }
-        if(obj.clickCount != 0) {
-        var ctx10 = document.getElementById("clickCompareChart").getContext("2d");
-        var clickCompare = new Chart(ctx10).Doughnut(compareClicksData, options);
-        $("#clickComparisonIsNull").addClass("hidden");
+
+
+        if (obj.clickCount != 0) {
+            var ctx10 = document.getElementById("clickCompareChart").getContext("2d");
+            var clickCompare = new Chart(ctx10).Doughnut(compareClicksData, options);
+            $("#charts-third-row > .second-col #isNull").addClass("hidden");
+        } else {
+            $("#charts-third-row > .second-col").addClass("isHidden");
+
         }
 
     });
