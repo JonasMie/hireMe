@@ -2343,38 +2343,47 @@ body.controller-resume a.btn.insertSchoolData, body.controller-resume a.btn.inse
 body.controller-resume.action-index div.summary {
   display: none;
 }
-
 /* line 22, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-view-mode .panel-success .panel-heading .kv-buttons-1 button.kv-btn-update {
+  box-shadow: none;
+}
+/* line 28, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-view-mode .panel-success .panel-heading .kv-buttons-1 a.kv-btn-delete {
+  background-color: #2d312f;
+  box-shadow: none;
+}
+
+/* line 44, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div {
   margin-top: 50px;
   margin-bottom: 0px;
 }
-/* line 26, ../sass/_lebenslauf.scss */
+/* line 48, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div label[for="resumejob-report_id"], body.controller-resume.action-create #w0 > div label[for="resumeschool-report_id"] {
   margin-bottom: 10px;
 }
-/* line 30, ../sass/_lebenslauf.scss */
+/* line 52, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div textarea {
   resize: none;
 }
-/* line 34, ../sass/_lebenslauf.scss */
+/* line 56, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div #resumejob-type, body.controller-resume.action-create #w0 > div #resumeschool-schoolname, body.controller-resume.action-create #w0 > div #resumeschool-graduation {
   max-width: 500px;
 }
-/* line 38, ../sass/_lebenslauf.scss */
+/* line 60, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div #resumejob-description {
   max-width: 1000px;
 }
-/* line 44, ../sass/_lebenslauf.scss */
+/* line 66, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 .field-resumejob-current label, body.controller-resume.action-create #w0 .field-resumeschool-current label {
   font-weight: 300;
   padding-left: 0px;
 }
-/* line 47, ../sass/_lebenslauf.scss */
+/* line 69, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 .field-resumejob-current label .icheckbox_flat-green, body.controller-resume.action-create #w0 .field-resumeschool-current label .icheckbox_flat-green {
   margin-bottom: 3px;
 }
-/* line 54, ../sass/_lebenslauf.scss */
+/* line 76, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twitter-typeahead {
   max-width: 500px;
 }

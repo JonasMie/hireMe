@@ -101,7 +101,7 @@ echo DetailView::widget([
     'deleteOptions'  => [
         'params' => ['id' => $model->id, 'type' => 'job'],
         'url'    => ['delete'],
-        'label'  => '<span class="glyphicon glyphicon-remove"></span>',
+        'label'  => '<span class="glyphicon glyphicon-trash"></span>',
     ],
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],

@@ -15,6 +15,28 @@ body.controller-resume.action-index{
 		display:none;
 	}
 
+    .kv-view-mode {
+      .panel-success {
+        .panel-heading {
+          .kv-buttons-1 {
+            button.kv-btn-update {
+              box-shadow: none;
+              i {
+
+              }
+            }
+            a.kv-btn-delete {
+              background-color: $black;
+              box-shadow: none;
+              span {
+
+              }
+            }
+          }
+        }
+      }
+    }
+
 }
 
 body.controller-resume.action-create {
