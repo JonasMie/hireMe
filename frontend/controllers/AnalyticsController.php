@@ -197,13 +197,13 @@ class AnalyticsController extends Controller
             ->where(['job_id' => $id])
             ->orderBy('id');
 
-        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, SUM(b.clickCount)/SUM(b.viewCount)*100 as interestRate 
+        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, SUM(b.clickCount)/SUM(b.viewCount)*100 as interestRate, b.archived 
                         FROM job j
                         LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
                         GROUP BY j.title";
 
 
-        $jobProvider = new ActiveDataProvider([
+        $buttonProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
                 'pageSize' => 20,],
@@ -219,7 +219,7 @@ class AnalyticsController extends Controller
             'interestRate' => $interestRate,
             'applicationRate' => $applicationRate,
             'interviewRate' => $analytics->getInterviewRateForJob($id),
-            'provider' => $jobProvider,
+            'provider' => $buttonProvider,
         ]);
 
 
