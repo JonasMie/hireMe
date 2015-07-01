@@ -18,7 +18,7 @@ class ApplyBtnSearch extends ApplyBtn
     public function rules()
     {
         return [
-            [['id', 'job_id', 'clickCount', 'viewCount'], 'integer'],
+            [['id', 'job_id', 'clickCount', 'viewCount','archived'], 'integer'],
             [['key', 'site'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class ApplyBtnSearch extends ApplyBtn
             'job_id' => $this->job_id,
             'clickCount' => $this->clickCount,
             'viewCount' => $this->viewCount,
+            'archived' => $this->archived,
         ]);
 
         $query->andFilterWhere(['like', 'key', $this->key])

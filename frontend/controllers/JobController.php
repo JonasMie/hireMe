@@ -80,6 +80,7 @@ class JobController extends Controller
             $model->viewCount = 0;
             $model->job_id = $id;
             $model->key = $this->generateBtn($id);
+            $model->archived = 0;
             $model->save();
             return $this->redirect(['view', 'id' => $id]);
         } else {
@@ -97,8 +98,10 @@ class JobController extends Controller
          if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $btn = ApplyBtn::findOne($id);
-        $btn->delete();
-        return $this->redirect(['index']);
+        $btn->archived=1;
+        $btn->save();
+        $jobID = Yii::$app->request->get("id");
+        return $this->redirect(['/job/view?id='.$jobID]);
     }
 
     /**
@@ -173,7 +176,7 @@ class JobController extends Controller
             ->orderBy('id');
 
         $searchModel = new ApplyBtnSearch();
-        $dataProvider = $searchModel->search(['ApplyBtnSearch' => ['job_id' => $id]]);
+        $dataProvider = $searchModel->search(['ApplyBtnSearch' => ['job_id' => $id,'archived' => 0]]);
 
         return $this->render('view', [
             'model'        => $this->findModel($id),
