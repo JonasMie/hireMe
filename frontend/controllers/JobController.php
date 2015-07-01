@@ -631,7 +631,7 @@ class JobController extends Controller
     }
 
     
-/*
+
     public function actionUpdate($id)
     {
     if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
@@ -647,7 +647,6 @@ class JobController extends Controller
         }
 
     }
-*/
     /**
      * Updates an existing Job model.
      * If update is successful, the browser will be redirected to the 'view' page.
