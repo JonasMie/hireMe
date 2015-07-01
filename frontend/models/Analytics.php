@@ -152,7 +152,7 @@ class Analytics extends \yii\base\Model
         $btn = ApplyBtn::findOne($id);
         if ($btn->clickCount == 0) $rate = 0;
         else $rate =  ($btn->clickCount/$btn->viewCount)*100;
-        return $rate;
+        return round($rate,2);
 
     }
 

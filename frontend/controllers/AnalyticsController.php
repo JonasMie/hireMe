@@ -197,7 +197,7 @@ class AnalyticsController extends Controller
         ->where(['job_id' => $id])
         ->orderBy('id');
 
-        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, round(SUM(b.clickCount)/SUM(b.viewCount)*100,2) as interestRate 
+        $sql = "SELECT j.title, j.id, SUM(b.viewCount) as views, SUM(b.clickCount) as clicks, SUM(b.clickCount)/SUM(b.viewCount)*100 as interestRate 
                         FROM job j
                         LEFT OUTER JOIN applyBtn b ON j.id = b.job_id
                         GROUP BY j.title";
