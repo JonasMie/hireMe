@@ -183,7 +183,7 @@ $(document).ready(function () {
                 subObject += '"color": "rgba(157,157,157,0.5)",';
                 subObject += '"highlight": "rgba(157,157,157,1.0)",';
             }
-            subObject += '"label": "' + tmp.title + '"';
+            subObject += '"label": "' + tmp.site + '"';
             subObject += '}';
             console.log(subObject);
             compareViewsData.push($.parseJSON(subObject));
@@ -208,7 +208,7 @@ $(document).ready(function () {
                 subObject += '"color": "rgba(157,157,157,0.5)",';
                 subObject += '"highlight": "rgba(157,157,157,1.0)",';
             }
-            subObject += '"label": "' + tmp.title + '"';
+            subObject += '"label": "' + tmp.site + '"';
             subObject += '}';
             console.log(subObject);
             compareClicksData.push($.parseJSON(subObject));

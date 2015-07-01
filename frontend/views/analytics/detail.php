@@ -43,7 +43,7 @@ $this->title = "Analytics: Detail";
                     <?= Html::a('Views', "/#"); ?>
                 </div>
             </div>
-            <div class="subtile subtile-right hidden-xs">
+            <div class="subtile subtile-right ">
 
             </div>
         </div>
@@ -57,7 +57,7 @@ $this->title = "Analytics: Detail";
                     <div class="a-analytics">Clicks</div>
                 </div>
             </div>
-            <div class="subtile subtile-right hidden-xs">
+            <div class="subtile subtile-right ">
 
             </div>
         </div>
@@ -72,7 +72,7 @@ $this->title = "Analytics: Detail";
                     <?= Html::a('Bewerber', "/#"); ?>
                 </div>
             </div>
-            <div class="subtile subtile-right hidden-xs">
+            <div class="subtile subtile-right ">
 
             </div>
         </div>
@@ -92,7 +92,7 @@ $this->title = "Analytics: Detail";
                     <div class="a-analytics">Interest Rate</div>
                 </div>
             </div>
-            <div class="subtile subtile-right hidden-xs">
+            <div class="subtile subtile-right ">
 
             </div>
         </div>
@@ -106,7 +106,7 @@ $this->title = "Analytics: Detail";
                     <div class="a-analytics">Application Rate</div>
                 </div>
             </div>
-            <div class="subtile subtile-right hidden-xs">
+            <div class="subtile subtile-right ">
 
             </div>
         </div>
@@ -120,7 +120,7 @@ $this->title = "Analytics: Detail";
                     <div class="a-analytics">Interview Rate</div>
                 </div>
             </div>
-            <div class="subtile subtile-right hidden-xs">
+            <div class="subtile subtile-right ">
 
             </div>
         </div>

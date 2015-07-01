@@ -1625,114 +1625,96 @@ body.controller-analytics #analyticsTable tr .footable-row-detail-cell .footable
 /* line 282, ../sass/_analytics.scss */
 body.controller-analytics.action-detail div.analytics-tile-1 div.subtile-right {
   background-image: url("/images/analytics/analytics-views.png") !important;
-  background-size: 55% auto;
-}
-@media (max-width: 767px) {
-  /* line 282, ../sass/_analytics.scss */
-  body.controller-analytics.action-detail div.analytics-tile-1 div.subtile-right {
-    background-size: 110px auto;
-  }
+  background-size: 90px auto;
 }
 @media (max-width: 511px) {
-  /* line 291, ../sass/_analytics.scss */
+  /* line 288, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-2 {
     margin-top: 20px;
   }
 }
-/* line 295, ../sass/_analytics.scss */
+/* line 292, ../sass/_analytics.scss */
 body.controller-analytics.action-detail div.analytics-tile-2 div.subtile-right {
   background-image: url("/images/analytics/analytics-click.png") !important;
-  background-size: 35% auto;
-}
-@media (max-width: 991px) {
-  /* line 295, ../sass/_analytics.scss */
-  body.controller-analytics.action-detail div.analytics-tile-2 div.subtile-right {
-    background-size: 37% auto;
-  }
+  background-size: 50px !important;
 }
 @media (max-width: 511px) {
-  /* line 306, ../sass/_analytics.scss */
+  /* line 298, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-3 {
     margin-top: 20px;
   }
 }
-/* line 310, ../sass/_analytics.scss */
+/* line 302, ../sass/_analytics.scss */
 body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
   background-image: url("/images/dashboard-neue-bewerbungen.png") !important;
-  background-size: auto 55% !important;
+  background-size: 70px auto !important;
 }
 @media (max-width: 991px) {
-  /* line 310, ../sass/_analytics.scss */
+  /* line 302, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
     background-size: 25% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 310, ../sass/_analytics.scss */
+  /* line 302, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
     background-size: 50px auto;
   }
 }
-/* line 323, ../sass/_analytics.scss */
+@media (max-width: 511px) {
+  /* line 314, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 {
+    margin-top: -20px;
+  }
+}
+/* line 318, ../sass/_analytics.scss */
 body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
   background-image: url("/images/analytics/analytics-interrest.png");
   background-size: auto 70%;
 }
 @media (max-width: 991px) {
-  /* line 323, ../sass/_analytics.scss */
+  /* line 318, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
-    background-size: 25% auto;
+    background-size: 70px auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 323, ../sass/_analytics.scss */
+  /* line 318, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
     background-size: 50px auto;
   }
 }
 @media (max-width: 511px) {
-  /* line 335, ../sass/_analytics.scss */
+  /* line 330, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-5 {
     margin-top: 20px;
   }
 }
-/* line 339, ../sass/_analytics.scss */
+/* line 334, ../sass/_analytics.scss */
 body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
   background-image: url("/images/analytics/analytics-application.png");
   background-size: auto 70%;
 }
 @media (max-width: 991px) {
-  /* line 339, ../sass/_analytics.scss */
+  /* line 334, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
-    background-size: 25% auto;
+    background-size: 50px auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 339, ../sass/_analytics.scss */
+  /* line 334, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
     background-size: 50px auto;
   }
 }
 @media (max-width: 511px) {
-  /* line 351, ../sass/_analytics.scss */
+  /* line 346, ../sass/_analytics.scss */
   body.controller-analytics.action-detail div.analytics-tile-6 {
     margin-top: 20px;
   }
 }
-/* line 355, ../sass/_analytics.scss */
+/* line 350, ../sass/_analytics.scss */
 body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
   background-image: url("/images/analytics/analytics-interview.png");
-  background-size: auto 70%;
-}
-@media (max-width: 991px) {
-  /* line 355, ../sass/_analytics.scss */
-  body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
-    background-size: 25% auto;
-  }
-}
-@media (max-width: 767px) {
-  /* line 355, ../sass/_analytics.scss */
-  body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
-    background-size: 50px auto;
-  }
+  background-size: 80px auto;
 }

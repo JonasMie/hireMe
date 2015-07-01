@@ -281,10 +281,7 @@ body.controller-analytics.action-detail {
   div.analytics-tile-1 {
     div.subtile-right {
       background-image: url("/images/analytics/analytics-views.png") !important;
-      background-size: 55% auto;
-      @media (max-width: 767px) {
-        background-size: 110px auto;
-      }
+      background-size: 90px auto;
     }
   }
 
@@ -294,12 +291,7 @@ body.controller-analytics.action-detail {
     }
     div.subtile-right {
       background-image: url("/images/analytics/analytics-click.png") !important;
-      background-size: 35% auto;
-      @media (max-width: 991px) {
-        background-size: 37% auto;
-      }
-      @media (max-width: 767px) {
-      }
+      background-size: 50px !important;
     }
   }
 
@@ -309,7 +301,7 @@ body.controller-analytics.action-detail {
     }
     div.subtile-right {
       background-image: url("/images/dashboard-neue-bewerbungen.png") !important;
-      background-size: auto 55% !important;
+      background-size: 70px auto !important;
       @media (max-width: 991px) {
         background-size: 25% auto;
       }
@@ -320,11 +312,14 @@ body.controller-analytics.action-detail {
   }
 
   div.analytics-tile-4 {
+    @media (max-width: 511px) {
+      margin-top: -20px;
+    }
     div.subtile-right {
       background-image: url("/images/analytics/analytics-interrest.png");
       background-size: auto 70%;
       @media (max-width: 991px) {
-        background-size: 25% auto;
+        background-size: 70px auto;
       }
       @media (max-width: 767px) {
         background-size: 50px auto;
@@ -340,7 +335,7 @@ body.controller-analytics.action-detail {
       background-image: url("/images/analytics/analytics-application.png");
       background-size: auto 70%;
       @media (max-width: 991px) {
-        background-size: 25% auto;
+        background-size: 50px auto;
       }
       @media (max-width: 767px) {
         background-size: 50px auto;
@@ -354,13 +349,7 @@ body.controller-analytics.action-detail {
     }
     div.subtile-right {
       background-image: url("/images/analytics/analytics-interview.png");
-      background-size: auto 70%;
-      @media (max-width: 991px) {
-        background-size: 25% auto;
-      }
-      @media (max-width: 767px) {
-        background-size: 50px auto;
-      }
+      background-size: 80px auto;
     }
   }
 }
