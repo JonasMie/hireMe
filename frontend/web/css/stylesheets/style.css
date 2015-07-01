@@ -731,7 +731,7 @@ body table.hireMeTable thead tr th {
 }
 /* line 125, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a {
-  color: #9d9d9d;
+  color: #9d9d9d !important;
   text-decoration: none;
 }
 /* line 128, ../sass/_basicTemplate.scss */
@@ -3318,37 +3318,57 @@ body.controller-company #w0 .summary {
   display: none;
 }
 /* line 29, ../sass/_company.scss */
-body.controller-company #w0 table thead tr th.first-col {
+body.controller-company #w0 table#companyTable thead tr th.first-col {
   width: 50%;
 }
 /* line 32, ../sass/_company.scss */
-body.controller-company #w0 table thead tr th.second-col {
+body.controller-company #w0 table#companyTable thead tr th.second-col {
   text-align: right;
   width: 15%;
 }
 /* line 36, ../sass/_company.scss */
-body.controller-company #w0 table thead tr th.third-col {
+body.controller-company #w0 table#companyTable thead tr th.third-col {
   text-align: right;
   width: 15%;
 }
 /* line 40, ../sass/_company.scss */
-body.controller-company #w0 table thead tr th.fourth-col {
+body.controller-company #w0 table#companyTable thead tr th.fourth-col {
   text-align: right;
   width: 30%;
 }
 /* line 44, ../sass/_company.scss */
-body.controller-company #w0 table thead tr th.fifth-col {
+body.controller-company #w0 table#companyTable thead tr th.fifth-col {
   width: 0%;
 }
-/* line 53, ../sass/_company.scss */
-body.controller-company #w0 table tbody tr th.second-col {
-  text-align: right;
+@media (max-width: 767px) {
+  /* line 44, ../sass/_company.scss */
+  body.controller-company #w0 table#companyTable thead tr th.fifth-col {
+    width: 5%;
+  }
 }
 /* line 56, ../sass/_company.scss */
-body.controller-company #w0 table tbody tr th.third-col {
+body.controller-company #w0 table#companyTable tbody tr td.second-col {
   text-align: right;
 }
 /* line 59, ../sass/_company.scss */
-body.controller-company #w0 table tbody tr th.fourth-col {
+body.controller-company #w0 table#companyTable tbody tr td.third-col {
   text-align: right;
+}
+/* line 62, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable tbody tr td.fourth-col {
+  text-align: right;
+}
+/* line 65, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable tbody tr td.fifth-col {
+  text-align: right;
+}
+@media (max-width: 551px) {
+  /* line 71, ../sass/_company.scss */
+  body.controller-company #w0 table#companyTable .footable-row-detail-inner {
+    height: 82px;
+  }
+}
+/* line 75, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable .footable-row-detail-inner .footable-row-detail-row {
+  margin-bottom: 10px;
 }

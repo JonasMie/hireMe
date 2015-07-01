@@ -20,7 +20,7 @@ body.controller-company {
     }
 
 
-  table {
+  table#companyTable {
     thead {
       tr {
         th {
@@ -43,25 +43,40 @@ body.controller-company {
         }
         th.fifth-col {
           width: 0%;
+          @media (max-width: 767px) {
+            width: 5%;
+          }
         }
       }
     }
     tbody {
       tr {
         td {}
-        th.first-col {}
-        th.second-col {
+        td.first-col {}
+        td.second-col {
           text-align: right;
         }
-        th.third-col {
+        td.third-col {
           text-align: right;
         }
-        th.fourth-col {
+        td.fourth-col {
           text-align: right;
         }
-        th.fifth-col {}
+        td.fifth-col {
+          text-align: right;
+        }
       }
     }
+
+    .footable-row-detail-inner {
+      @media (max-width: 551px) {
+        height: 82px;
+      }
+      .footable-row-detail-row {
+        margin-bottom: 10px;
+      }
+    }
+
   }
 
 

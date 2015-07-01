@@ -63,6 +63,7 @@ $this->title = $model->name;
                 'attribute' => 'title',
                 'format' => 'raw',
                 'headerOptions'  => ['class' => 'first-col'],
+                'contentOptions' => ['class' => 'first-col'],
                 'value' => function ($data) {
                     return Html::a($data->title, ['/job/view', 'id' => $data->id]);
                 }
@@ -70,16 +71,19 @@ $this->title = $model->name;
             [
                 'attribute' => 'job_begin',
                 'format' => 'date',
-                'headerOptions'  => ['class' => 'second-col'],
+                'headerOptions'  => ['class' => 'second-col', 'data-hide' => 'mediaXsmall,phone'],
+                'contentOptions' => ['class' => 'second-col'],
             ],
             [
                 'attribute' => 'job_end',
                 'format' => 'date',
-                'headerOptions'  => ['class' => 'third-col'],
+                'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXsmall,phone'],
+                'contentOptions' => ['class' => 'third-col']
             ],
             [
                 'attribute' => 'city',
-                'headerOptions'  => ['class' => 'fourth-col'],
+                'headerOptions'  => ['class' => 'fourth-col', 'data-hide' => 'mediaXXsmall,phone'],
+                'contentOptions' => ['class' => 'fourth-col']
             ],
             // TODO: include is only available in global scope.. got no idea how to access it in method call
 //            [
@@ -92,7 +96,7 @@ $this->title = $model->name;
 
                 'class' => 'yii\grid\Column',
                 'headerOptions' => ['data-toggle' => 'true', 'class' => 'fifth-col'],
-                'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'sixth-col']
+                'contentOptions' => ['data-title' => 'data-toggle', 'class' => 'fifth-col']
 
             ],
         ]
