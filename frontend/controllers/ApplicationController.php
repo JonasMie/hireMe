@@ -59,7 +59,7 @@ class ApplicationController extends Controller
 
     public static function getApplicationDataForJob($id) {
 
-       $sql = "SELECT u.fullName, u.id from user u, application a WHERE a.job_id = ".$id." and u.id = a.user_id and a.state = 'Versendet'";
+       $sql = "SELECT u.fullName, u.id from user u, application a WHERE a.job_id = ".$id." and u.id = a.user_id and a.state != 'Gespeichert'";
        
        $dataProvider = new SqlDataProvider([
             'sql' => $sql,
@@ -220,8 +220,9 @@ class ApplicationController extends Controller
         $model["user"] = $applier;
         $model["created"] = $app->created_at;
         $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
-        $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
-        $model["coverText"] = nl2br($model["coverText"]);
+       // $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
+       //$model["coverText"] = nl2br($model["coverText"]);
+        $model["coverText"] = nl2br("Lorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablabla #HansEntertainmentMoment");
         
           return $this->render('view', [
             'model' => $model,
@@ -236,8 +237,9 @@ class ApplicationController extends Controller
 
         $model["job"] = Job::find()->where(['id' => $app->job_id])->one();
         $model["created"] = $app->created_at;
-        $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
-        $model["coverText"] = nl2br($model["coverText"]);
+       // $model["coverText"] = file_get_contents('uploads/covers/COVER_' .md5($applier->id.'_'.$app->id). '.txt');          
+        //$model["coverText"] = nl2br($model["coverText"]);
+        $model["coverText"] = nl2br("Lorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablablaLorem ipsum sit dolor amet... weiter kann ich nicht.blablablablablablabla #HansEntertainmentMoment");
 
         return $this->render('view', [
             'model' => $model,
