@@ -13,6 +13,7 @@ use frontend\models\Message;
 use frontend\models\MessageSearch;
 use Yii;
 use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
 
 class DashboardController extends \yii\web\Controller
 {
@@ -44,8 +45,12 @@ class DashboardController extends \yii\web\Controller
             $messages = Message::find()->where(['receiver_id'=>Yii::$app->user->getId(), 'read'=> 0])->count();
 
             $searchModel =  new ApplicationSearch();
-            $applicationProvider = $searchModel->search(Yii::$app->request->queryParams,true);
-
+            //$applicationProvider = $searchModel->search(Yii::$app->request->queryParams,true);
+            
+            
+            $applicationProvider = new ActiveDataProvider([
+            'query' => Application::find()->where(['company_id' => Yii::$app->user->identity->company_id,'sent' => 1,'archived' => 0])->limit(1),
+             ]);
 
             $jobContacts = JobContacts::find()->where(['contact_id'=>Yii::$app->user->getId()]);
             $jobs = Job::find()->where(['company_id'=>Yii::$app->user->identity->company_id])->all();
