@@ -78,7 +78,7 @@ $this->title = Yii::t('app', 'Favoriten');
 						'format'        => 'date',
 						'label'         => 'Verfügbar ab',
 						'value' => function($data){
-							return Yii::$app->formatter->asDate($data->job->job_begin, "php: d.m.Y");
+							return $data->job->job_begin;
 						},
 						'headerOptions'  => ['class' => 'fourth-col','data-hide' => 'xsmall,phone'],
 						'contentOptions' => ['class' => 'fourth-col']

@@ -289,7 +289,7 @@ use yii\helpers\Html;
                 'format'        => 'date',
                 'label'         => 'Verfügbar ab',
                 'value'         => function ($data) {
-                    return Yii::$app->formatter->asDate($data->job->job_begin, "php: d.m.Y");
+                    return $data->job->job_begin;
                 },
                 'headerOptions' => ['data-hide' => 'xsmall,phone'],
 
