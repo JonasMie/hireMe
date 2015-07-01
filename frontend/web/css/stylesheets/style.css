@@ -1,4 +1,4 @@
-/* line 5, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -2534,46 +2534,51 @@ body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twi
   text-align: right;
 }
 
-@media screen and (max-width: 630px) {
-  /* line 132, ../sass/_application.scss */
-  .controller-application.action-view div.actionButtons .btn {
+@media screen and (max-width: 440px) {
+  /* line 131, ../sass/_application.scss */
+  .controller-application.action-view .doge {
+    width: 100%;
+  }
+  /* line 133, ../sass/_application.scss */
+  .controller-application.action-view .doge .btn {
     display: block;
   }
 }
-/* line 138, ../sass/_application.scss */
+/* line 139, ../sass/_application.scss */
 .controller-application.action-view div.actionButtons {
   text-align: right;
-  margin-top: 10px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
-/* line 142, ../sass/_application.scss */
+/* line 143, ../sass/_application.scss */
 .controller-application.action-view div.actionButtons .btn {
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
+  display: block;
 }
-/* line 149, ../sass/_application.scss */
+/* line 151, ../sass/_application.scss */
 .controller-application.action-view div.row.first {
   margin-top: 20px;
 }
-/* line 152, ../sass/_application.scss */
+/* line 154, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo {
   text-align: center;
 }
-/* line 154, ../sass/_application.scss */
+/* line 156, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo h2 {
   margin-top: 20px;
 }
-/* line 157, ../sass/_application.scss */
+/* line 159, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo img {
   max-width: 100%;
 }
-/* line 161, ../sass/_application.scss */
+/* line 163, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo p.date {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 167, ../sass/_application.scss */
+/* line 169, ../sass/_application.scss */
 .controller-application.action-view div.row.first input.scoreInput {
   border-radius: 50%;
   width: 100px;
@@ -2586,50 +2591,50 @@ body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twi
   font-size: 48px;
   color: #5dca88;
 }
-/* line 178, ../sass/_application.scss */
+/* line 180, ../sass/_application.scss */
 .controller-application.action-view div.row.first input.scoreInput:focus {
   outline: none;
 }
-/* line 187, ../sass/_application.scss */
+/* line 189, ../sass/_application.scss */
 .controller-application.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 191, ../sass/_application.scss */
+/* line 193, ../sass/_application.scss */
 .controller-application.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
 
-/* line 208, ../sass/_application.scss */
+/* line 210, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn) {
   color: #5dca88;
 }
-/* line 210, ../sass/_application.scss */
+/* line 212, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn):hover, .controller-application.action-add-data div.application-create a:not(.btn):focus, .controller-application.action-add-data div.application-create a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 216, ../sass/_application.scss */
+/* line 218, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 221, ../sass/_application.scss */
+/* line 223, ../sass/_application.scss */
 .controller-application.action-add-data div.sendBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 226, ../sass/_application.scss */
+/* line 228, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 230, ../sass/_application.scss */
+/* line 232, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
 }
-/* line 234, ../sass/_application.scss */
+/* line 236, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 238, ../sass/_application.scss */
+/* line 240, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
 }

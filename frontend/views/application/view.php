@@ -376,12 +376,20 @@ if (Yii::$app->user->identity->isRecruiter()){
 	
     <? if (Yii::$app->user->identity->isRecruiter()): ?>
     <div class="row">
-	<div class="col-sm-8 col-sm-offset-4 actionButtons">
-		<?= Html::a("Archivieren","/application/app-action?app=".$model["app"]->id."&act=2",['class' => 'btn btn-success']); ?>
-		<?= Html::a("Nachricht senden","/message/create?rec=".$model["user"]->id,['class' => 'btn btn-success']); ?>
-		<?= Html::a("Zum Gespräch einladen","/application/app-action?app=".$model["app"]->id."&act=0",['class' => 'btn btn-success']); ?>
-		<?= Html::a("Stelle besetzen","/application/app-action?app=".$model["app"]->id."&act=1",['class' => 'btn btn-success']); ?>
-	</div>
+		<div class="col-lg-4 col-sm-8 col-lg-offset-8 col-sm-offset-4 actionButtons">
+				<div class="col-xs-6 doge">
+					<div><?= Html::a("Archivieren","/application/app-action?app=".$model["app"]->id."&act=2",['class' => 'btn btn-default']); ?></div>
+				</div>
+				<div class="col-xs-6 doge">
+					<div><?= Html::a("Nachricht","/message/create?rec=".$model["user"]->id,['class' => 'btn btn-success']); ?></div>
+				</div>
+				<div class="col-xs-6 doge">
+					<div><?= Html::a("Bewerbungsgespräch","/application/app-action?app=".$model["app"]->id."&act=0",['class' => 'btn btn-success']); ?></div>
+				</div>
+				<div class="col-xs-6 doge">
+					<div><?= Html::a("Stelle besetzen","/application/app-action?app=".$model["app"]->id."&act=1",['class' => 'btn btn-success']); ?></div>
+				</div>
+		</div>
 	</div>
     <? endif; ?>
 
