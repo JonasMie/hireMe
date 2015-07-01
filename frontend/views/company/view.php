@@ -16,27 +16,31 @@ $this->title = $model->name;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <div>
+    <div class="company-name">
         <?= $model->name ?>
     </div>
 
-    <div>
+    <div class="company-street">
         <?= $model->street ?>
     </div>
-    <div>
+
+    <div class="company-house-number">
         <?= $model->houseno ?>
     </div>
-    <div>
+
+    <div class="company-zip">
         <?= $model->zip ?>
     </div>
-    <div>
+
+    <div class="companycty">
         <?= $model->city ?>
     </div>
 
-    <div>
+    <di class="company-sector"v>
         <p>Branche: <?= $sectorList[$model->sector] ?></p>
     </div>
-    <div>
+
+    <div class="company-employee-amaount">
         <p> Anzahl der Beschäftigten: <?= $employeeAmount[$model->employeeAmount] ?></p>
     </div>
 </div>
