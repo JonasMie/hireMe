@@ -55,11 +55,14 @@ class UserController extends Controller
                 return $this->redirect('/user');
             } else
                 $id = $user->id;
+        } else{
+            $id = Yii::$app->user->getId();
         }
-        $jobQuery = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()]);
-        $schoolQuery = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()]);
-        $currentJobs = ResumeJob::find()->where(['user_id' => Yii::$app->user->getId()])->andWhere(['current' => 1]);
-        $currentSchools = ResumeSchool::find()->where(['user_id' => Yii::$app->user->getId()])->andWhere(['current' => 1]);
+
+        $jobQuery = ResumeJob::find()->where(['user_id' => $id]);
+        $schoolQuery = ResumeSchool::find()->where(['user_id' => $id]);
+        $currentJobs = ResumeJob::find()->where(['user_id' => $id])->andWhere(['current' => 1]);
+        $currentSchools = ResumeSchool::find()->where(['user_id' => $id])->andWhere(['current' => 1]);
         $jobDataProvider = new ActiveDataProvider([
             'query' => $jobQuery,
             'sort'  => [

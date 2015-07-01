@@ -33,7 +33,7 @@ $this->title = "Analytics für";
 
     <div class="row" id="analytics-tiles">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-1 tile-black ripple"
-             onclick="window.location='./application';">
+             href="/application">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a($applyCount, "/bewerbungen"); ?>
@@ -62,7 +62,7 @@ $this->title = "Analytics für";
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 analytics-tile analytics-tile-3 tile-black ripple"
-             onclick="window.location='./job';">
+             href="/job">
             <div class="subtile subtile-left">
                 <div class="tile-value tile-number">
                     <?= Html::a($jobCount, "/job"); ?>

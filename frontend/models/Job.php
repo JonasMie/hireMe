@@ -54,6 +54,7 @@ class Job extends \yii\db\ActiveRecord
             [['description', 'city'], 'string', 'max' => 255],
             [['title'], 'string', 'max' => 100],
             [['id'], 'unique'],
+            ['zip', 'exist', 'targetClass' => Geo::className(), 'targetAttribute' => 'plz'],
         ];
     }
 

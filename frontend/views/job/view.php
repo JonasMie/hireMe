@@ -250,7 +250,13 @@ $this->title = 'Stellenanzeige';
                             ],
                             [
                                 'class'          => 'yii\grid\ActionColumn',
-                                'template'       => '{update}&nbsp;&nbsp;&nbsp;{delete}',
+                                'buttons'        =>
+                                    [
+//                                        'update' => function ($url, $model, $key) {
+//                                            return Html::a('<span class="glyphicon glyphicon-pencil"></span>', 'job/view?id=' . $model["id"], ['title' => Yii::t('app', 'Ansehen')]);
+//                                        },
+                                    ],
+                                'template'       => /*'{update}&nbsp;&nbsp;&nbsp;'*/'{delete}',
                                 'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,mediaXsmall,phone'],
                                 'contentOptions' => ['class' => 'third-col'],
                             ],
