@@ -303,7 +303,7 @@ footer.footer p.pull-right a:hover, footer.footer p.pull-right a:focus, footer.f
   padding: 3px 20px;
 }
 /* line 67, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:hover {
+#header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:hover, #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:focus, #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:active {
   background: none;
   color: #5dca88;
 }
@@ -2515,70 +2515,71 @@ body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twi
 /* line 97, ../sass/_application.scss */
 .controller-application.action-index table#applicationsTable input.scoreInput:focus {
   outline: none;
+  border-bottom: #5d6461 1px solid !important;
 }
-/* line 106, ../sass/_application.scss */
+/* line 107, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn) {
   color: #5dca88;
 }
-/* line 108, ../sass/_application.scss */
+/* line 109, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn):hover, .controller-application.action-index div.resume-index a:not(.btn):focus, .controller-application.action-index div.resume-index a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 114, ../sass/_application.scss */
+/* line 115, ../sass/_application.scss */
 .controller-application.action-index div.summary {
   display: none;
 }
-/* line 118, ../sass/_application.scss */
+/* line 119, ../sass/_application.scss */
 .controller-application.action-index div.searchBtn {
   margin-top: 15px;
   text-align: right;
 }
 
 @media screen and (max-width: 440px) {
-  /* line 131, ../sass/_application.scss */
+  /* line 132, ../sass/_application.scss */
   .controller-application.action-view .doge {
     width: 100%;
   }
-  /* line 133, ../sass/_application.scss */
+  /* line 134, ../sass/_application.scss */
   .controller-application.action-view .doge .btn {
     display: block;
   }
 }
-/* line 139, ../sass/_application.scss */
+/* line 140, ../sass/_application.scss */
 .controller-application.action-view div.actionButtons {
   text-align: right;
   margin-top: 40px;
   margin-bottom: 20px;
 }
-/* line 143, ../sass/_application.scss */
+/* line 144, ../sass/_application.scss */
 .controller-application.action-view div.actionButtons .btn {
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
   display: block;
 }
-/* line 151, ../sass/_application.scss */
+/* line 152, ../sass/_application.scss */
 .controller-application.action-view div.row.first {
   margin-top: 20px;
 }
-/* line 154, ../sass/_application.scss */
+/* line 155, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo {
   text-align: center;
 }
-/* line 156, ../sass/_application.scss */
+/* line 157, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo h2 {
   margin-top: 20px;
 }
-/* line 159, ../sass/_application.scss */
+/* line 160, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo img {
   max-width: 100%;
 }
-/* line 163, ../sass/_application.scss */
+/* line 164, ../sass/_application.scss */
 .controller-application.action-view div.row.first div.profileInfo p.date {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 169, ../sass/_application.scss */
+/* line 170, ../sass/_application.scss */
 .controller-application.action-view div.row.first input.scoreInput {
   border-radius: 50%;
   width: 100px;
@@ -2591,50 +2592,51 @@ body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twi
   font-size: 48px;
   color: #5dca88;
 }
-/* line 180, ../sass/_application.scss */
+/* line 181, ../sass/_application.scss */
 .controller-application.action-view div.row.first input.scoreInput:focus {
   outline: none;
+  border-bottom: #5d6461 1px solid !important;
 }
-/* line 189, ../sass/_application.scss */
+/* line 191, ../sass/_application.scss */
 .controller-application.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 193, ../sass/_application.scss */
+/* line 195, ../sass/_application.scss */
 .controller-application.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
 
-/* line 210, ../sass/_application.scss */
+/* line 212, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn) {
   color: #5dca88;
 }
-/* line 212, ../sass/_application.scss */
+/* line 214, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn):hover, .controller-application.action-add-data div.application-create a:not(.btn):focus, .controller-application.action-add-data div.application-create a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 218, ../sass/_application.scss */
+/* line 220, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 223, ../sass/_application.scss */
+/* line 225, ../sass/_application.scss */
 .controller-application.action-add-data div.sendBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 228, ../sass/_application.scss */
+/* line 230, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 232, ../sass/_application.scss */
+/* line 234, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
 }
-/* line 236, ../sass/_application.scss */
+/* line 238, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 240, ../sass/_application.scss */
+/* line 242, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
 }
