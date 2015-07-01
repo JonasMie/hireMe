@@ -52,6 +52,7 @@ function save() {
 
   $( "#sendApp" ).click(function(event) {
 
+
       event.preventDefault(); // Stop default behavior for submit button.
       controller = document.getElementById("controller").innerHTML;
       var text = $("#coverText").val();

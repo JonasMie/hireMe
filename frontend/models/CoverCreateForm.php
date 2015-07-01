@@ -83,7 +83,7 @@ class CoverCreateForm extends Model
             $file->user_id = $user->id;
             $file->save();
 
-            $writeFile =  "uploads/".$file->path. '.txt';
+            $writeFile =  "uploads".$file->path. '.txt';
             $handle = fopen($writeFile, 'w');
             $txt = $this->text;
             fwrite($handle,$txt);
