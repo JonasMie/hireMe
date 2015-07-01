@@ -2342,56 +2342,95 @@ body.controller-resume .list-view .panel-heading .btn-xs {
   padding: 6px 12px;
 }
 /* line 6, ../sass/_lebenslauf.scss */
+body.controller-resume div.insertSchoolData, body.controller-resume div.insertJobData {
+  text-align: right;
+}
+/* line 10, ../sass/_lebenslauf.scss */
 body.controller-resume a.btn.insertSchoolData, body.controller-resume a.btn.insertJobData {
-  float: right;
   margin-bottom: 20px;
 }
 
-/* line 14, ../sass/_lebenslauf.scss */
+/* line 17, ../sass/_lebenslauf.scss */
 body.controller-resume.action-index div.summary {
   display: none;
 }
 /* line 22, ../sass/_lebenslauf.scss */
-body.controller-resume.action-index .kv-view-mode .panel-success .panel-heading .kv-buttons-1 button.kv-btn-update {
-  box-shadow: none;
+body.controller-resume.action-index .kv-view-mode th {
+  font-weight: lighter;
 }
 /* line 28, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-view-mode .panel-success .panel-heading .kv-buttons-1 button.kv-btn-update {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+/* line 35, ../sass/_lebenslauf.scss */
 body.controller-resume.action-index .kv-view-mode .panel-success .panel-heading .kv-buttons-1 a.kv-btn-delete {
   background-color: #2d312f;
   box-shadow: none;
 }
+/* line 47, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-edit-mode th {
+  font-weight: lighter;
+  padding-top: 7px;
+}
+/* line 54, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-reset, body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-save {
+  box-shadow: none;
+}
+/* line 57, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-view, body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-reset {
+  background-color: #2d312f;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+/* line 68, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date {
+  width: 100%;
+}
+/* line 70, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date input {
+  text-align: center;
+}
+/* line 73, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date .kv-date-calendar {
+  display: none;
+}
+/* line 76, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date .kv-date-remove {
+  display: none;
+}
 
-/* line 44, ../sass/_lebenslauf.scss */
+/* line 85, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div {
   margin-top: 50px;
   margin-bottom: 0px;
 }
-/* line 48, ../sass/_lebenslauf.scss */
+/* line 89, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div label[for="resumejob-report_id"], body.controller-resume.action-create #w0 > div label[for="resumeschool-report_id"] {
   margin-bottom: 10px;
 }
-/* line 52, ../sass/_lebenslauf.scss */
+/* line 93, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div textarea {
   resize: none;
 }
-/* line 56, ../sass/_lebenslauf.scss */
+/* line 97, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div #resumejob-type, body.controller-resume.action-create #w0 > div #resumeschool-schoolname, body.controller-resume.action-create #w0 > div #resumeschool-graduation {
   max-width: 500px;
 }
-/* line 60, ../sass/_lebenslauf.scss */
+/* line 101, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div #resumejob-description {
   max-width: 1000px;
 }
-/* line 66, ../sass/_lebenslauf.scss */
+/* line 107, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 .field-resumejob-current label, body.controller-resume.action-create #w0 .field-resumeschool-current label {
   font-weight: 300;
   padding-left: 0px;
 }
-/* line 69, ../sass/_lebenslauf.scss */
+/* line 110, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 .field-resumejob-current label .icheckbox_flat-green, body.controller-resume.action-create #w0 .field-resumeschool-current label .icheckbox_flat-green {
   margin-bottom: 3px;
 }
-/* line 76, ../sass/_lebenslauf.scss */
+/* line 117, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twitter-typeahead {
   max-width: 500px;
 }

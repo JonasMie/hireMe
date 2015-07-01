@@ -74,13 +74,13 @@ use yii\helpers\Html;
 
 <?php elseif ($order == 'fullJob'): ?>
 
-    <? if ($showButtons): ?>
+    <h2>Berufserfahrung</h2>
+	
+	<? if ($showButtons): ?>
         <div class="insertJobData">
             <?= Html::a(Yii::t('app', $label), $url1, ['class' => 'btn btn-success ripple insertJobData']) ?>
         </div>
     <? endif ?>
-
-    <h2>Berufserfahrung</h2>
 
     <?php
     echo \yii\widgets\ListView::widget([
@@ -103,13 +103,13 @@ use yii\helpers\Html;
     $currentSchools = $currentSchoolsDataProvider->getCount();
     ?>
 
-    <? if ($showButtons): ?>
+    <h2>Ausbildung</h2>
+	
+	<? if ($showButtons): ?>
         <div class="insertSchoolData">
             <?= Html::a(Yii::t('app', $label), $url2, ['class' => 'btn btn-success ripple insertSchoolData']) ?>
         </div>
     <? endif ?>
-
-    <h2>Ausbildung</h2>
 
     <?php
     echo \yii\widgets\ListView::widget([

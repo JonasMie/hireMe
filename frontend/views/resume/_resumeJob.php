@@ -38,8 +38,9 @@ $attributes = [
     [
         'attribute' => 'description',
         'format'    => 'ntext',
-        'type'      => 'textArea',
+        'type'      => DetailView::INPUT_TEXTAREA,
         'label'     => 'Beschreibung',
+		'options' => ['rows' => '7'],
     ],
     [
         'label'          => 'Von',
@@ -85,6 +86,7 @@ $attributes = [
     ],
     [
         'attribute'  => 'current',
+		'label'		 => '',
         'rowOptions' => ['class' => 'kv-view-hidden'],
         'type'       => DetailView::INPUT_CHECKBOX,
     ],
@@ -103,8 +105,15 @@ echo DetailView::widget([
         'url'    => ['delete'],
         'label'  => '<span class="glyphicon glyphicon-trash"></span>',
     ],
+	'viewOptions'  => [
+		'label'  => '<span class="glyphicon glyphicon-arrow-left"></span>',
+	],
+	'resetOptions'  => [
+		'label'  => '<span class="glyphicon glyphicon-remove"></span>',
+	],
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
     'enableEditMode' => $edit,
     'hAlign'         => DetailView::ALIGN_LEFT,
+	'vAlign'		 => 'top',
 ]);

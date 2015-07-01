@@ -53,7 +53,7 @@ $attributes = [
         'attribute' => 'current',
         'rowOptions' => ['class'=>'kv-view-hidden'],
         'type' => DetailView::INPUT_CHECKBOX,
-        'label' => 'Letzte Ausbildungsstätte'
+        'label' => ''
     ],
     [
         'label'     => 'Anhänge',
@@ -83,10 +83,17 @@ echo DetailView::widget([
     'deleteOptions'  => [
         'params' => ['id' => $model->id, 'type' => 'school'],
         'url'    => ['delete'],
-		'label'  => '<span class="glyphicon glyphicon-remove"></span>',
+		'label'  => '<span class="glyphicon glyphicon-trash"></span>',
     ],
+	'viewOptions'  => [
+		'label'  => '<span class="glyphicon glyphicon-arrow-left"></span>',
+	],
+	'resetOptions'  => [
+		'label'  => '<span class="glyphicon glyphicon-remove"></span>',
+	],
     'hideIfEmpty'    => true,
     'formOptions'    => ['options' => ['enctype' => 'multipart/form-data']],
     'enableEditMode' => $edit,
 	'hAlign' => DetailView::ALIGN_LEFT,
+	'vAlign' => 'top',
 ]);
