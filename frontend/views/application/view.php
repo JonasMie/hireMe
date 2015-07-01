@@ -327,7 +327,7 @@ if (Yii::$app->user->identity->isRecruiter()){
     <h1><?= Html::encode($this->title) ?></h1>
     <h2>Anschreiben:</h2>
     <p>
-    <?= $model['coverText']; ?>
+    <?= Html::decode($model['coverText']); ?>
     </p>
     <br>   
     <h2>Gesendete Anlagen</h2>
