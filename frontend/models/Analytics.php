@@ -32,6 +32,17 @@ class Analytics extends \yii\base\Model
 
     }
 
+    public static function getUnreadApplicationsForJob($id) {
+
+        $job = Job::findOne($id);
+        $apps = Application::find()
+        ->where(["job_id" => $job->id])
+        ->all();
+
+        return count($job);
+
+    }
+
     //Overview
     public static function getApplier($id) {
 

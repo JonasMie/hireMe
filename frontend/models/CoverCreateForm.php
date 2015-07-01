@@ -62,35 +62,37 @@ class CoverCreateForm extends Model
 
             if (count($possibleFile) == 1) {
             Yii::trace("File created already");
-
-            $writeFile =  'uploads/covers/COVER_' .md5($user->id.'_'.$this->app). '.txt';
+            $writeFile = "uploads".$possibleFile->path.'.'.$possibleFile->extension;
             $handle = fopen($writeFile, 'w');
             $txt = $this->text;
             fwrite($handle,$txt);
             fclose($handle);
             return true;
-
                 
             }
             else {
             Yii::trace("First time... Creating file");
             
             $file = new File();
-            $file->path = '/covers/COVER_' .md5($user->id.'_'.$this->app);
+            $file->path = '/covers/COVER_'.md5($user->id.'_'.$this->app);
             $file->extension = "txt";
-            $file->size = 100;
+            $file->size = 100; 
             $file->title = "cover_".$this->app;
             $file->user_id = $user->id;
             $file->save();
 
-            $writeFile =  "uploads".$file->path. '.txt';
+            $writeFile =  "uploads/covers/COVER_".md5($user->id.'_'.$this->app).".txt";
             $handle = fopen($writeFile, 'w');
             $txt = $this->text;
             fwrite($handle,$txt);
             fclose($handle);
+            $cover->title = "COVER_FILE_".$file->id."_APP".$this->app;
             $cover->attachment_id = $file->id;
             if($cover->save()) {
                 return true;
+            }
+            else {
+                return false;
             }
 
             }
