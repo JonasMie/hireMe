@@ -638,7 +638,7 @@ class JobController extends Controller
         $model = ApplyBtn::findOne($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['/job/view?id='.$model->job_id]);
         } else {
             return $this->render('updateBtn', [
                 'model' => $model,
