@@ -158,7 +158,7 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
             [
                 'attribute'      => 'job_begin',
                 'label'          => 'Verfügbar ab',
-                'format'         => 'date',
+                'format'         => ['date', 'php:d.m.Y'],
                 'value'          => 'job_begin',
                 'headerOptions'  => ['class' => 'second-col', 'data-hide' => 'mediaXXsmall,mediaXsmall,phone'],
                 'contentOptions' => ['class' => 'second-col'],
