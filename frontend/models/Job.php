@@ -51,8 +51,9 @@ class Job extends \yii\db\ActiveRecord
             [['id', 'description', 'sector', 'company_id', 'active', 'type', 'time', 'title'], 'required'],
             [['id', 'sector', 'company_id', 'active', 'type', 'time', 'allocated'], 'integer'],
             [['job_begin', 'job_end', 'created_at', 'updated_at'], 'safe'],
-            [['description', 'city'], 'string', 'max' => 255],
+            [['city'], 'string', 'max' => 255],
             [['title'], 'string', 'max' => 100],
+            ['description','string'],
             [['id'], 'unique'],
             ['zip', 'exist', 'targetClass' => Geo::className(), 'targetAttribute' => 'plz'],
         ];
