@@ -6,8 +6,10 @@ $this->title = 'hireMe';
 <div class="row">
 	<div class="full first">
 		<div class="jumbotron">
-			<h1>hireMe: apply sexy!</h1>
-			<p>Mit hireMe wird die Bewerbung digital.</p>
+			<h1 class="titel-h1">hireMe</h1>
+			<h2 class="titel-h2">Bewerbung mit nur einem Klick</h2>
+			<p class="titel-p">Vergiss den Wechsel zwischen Stellenanzeige, Jobportal, Schreibprogramm, Anhängen und E-Mail. Mit dem hireMe-Button bewirbst du dich mit nur einem Klick.</p>
+			<a class="btn btn-success ripple" href="/site/login">Jetzt anmelden!</a>
 		</div>
 
 	</div>

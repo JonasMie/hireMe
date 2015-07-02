@@ -1927,7 +1927,7 @@ body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .fo
 }
 /* line 26, ../sass/_home.scss */
 .controller-site.action-index .full.first {
-  background: url("../../images/mouse.jpg") center top no-repeat;
+  background: url("../../images/intro-background.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   width: 100%;
@@ -1935,9 +1935,73 @@ body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .fo
   padding-top: 70px;
   margin-bottom: 10vh;
 }
-/* line 36, ../sass/_home.scss */
+@media (max-width: 511px) {
+  /* line 26, ../sass/_home.scss */
+  .controller-site.action-index .full.first {
+    background: url("../../images/intro-background-511.jpg") center top no-repeat;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 26, ../sass/_home.scss */
+  .controller-site.action-index .full.first {
+    background: url("../../images/intro-background-1200.jpg") center top no-repeat;
+  }
+}
+/* line 42, ../sass/_home.scss */
 .controller-site.action-index img.centered {
   margin: 0 auto;
+}
+/* line 46, ../sass/_home.scss */
+.controller-site.action-index h1.titel-h1 {
+  font-size: 50px;
+  margin: 0px;
+  color: #5dca88;
+}
+@media (max-width: 511px) {
+  /* line 46, ../sass/_home.scss */
+  .controller-site.action-index h1.titel-h1 {
+    font-size: 40px;
+  }
+}
+/* line 55, ../sass/_home.scss */
+.controller-site.action-index h2.titel-h2 {
+  font-size: 22px;
+  margin: 0;
+  color: #2d312f;
+  margin-bottom: 20px;
+}
+@media (max-width: 511px) {
+  /* line 55, ../sass/_home.scss */
+  .controller-site.action-index h2.titel-h2 {
+    font-size: 20px;
+    color: #fff;
+  }
+}
+/* line 66, ../sass/_home.scss */
+.controller-site.action-index p.titel-p {
+  font-size: 18px;
+  color: #fff;
+  line-height: normal;
+}
+@media (max-width: 511px) {
+  /* line 66, ../sass/_home.scss */
+  .controller-site.action-index p.titel-p {
+    font-size: 15px;
+  }
+}
+/* line 75, ../sass/_home.scss */
+.controller-site.action-index .jumbotron {
+  text-align: left;
+  padding-left: 5%;
+  padding-right: 57%;
+  margin-top: 18%;
+}
+@media (max-width: 511px) {
+  /* line 75, ../sass/_home.scss */
+  .controller-site.action-index .jumbotron {
+    margin-top: -20px;
+    padding-right: 6%;
+  }
 }
 
 /* line 3, ../sass/_user.scss */
