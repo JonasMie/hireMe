@@ -274,7 +274,7 @@ $this->title = 'Stellenanzeige';
                     <p>Um den hireMe-Button auf Ihrer Website einzubinden,fügen Sie folgenden Code ein:</p>
 
                     <p><h4>Vor dem abschliessenden &lt;/head&gt;-Tag:</h4></p>
-                    <div class="well">&lt;script src=' <script>document.write(location.host)</script>/js/applier.js'&gt;&lt;/script&gt;</div>
+                    <div class="well">&lt;script src='<script>document.write(location.host)</script>/js/applier.js'&gt;&lt;/script&gt;</div>
                     <p><h4>An der Stelle, an der der Button angezeigt werden soll:</h4></p>
                     <div class="well">&lt;div id='ac' name='<span class="highlight"><strong>hier den generierten Key
                                 einfügen</strong></span>'&gt;&lt;/div&gt;</div>

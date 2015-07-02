@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 use frontend\assets\CreateJobAsset;
 use yii\widgets\Pjax;
@@ -63,8 +64,54 @@ $this->title = 'Stellenanzeige erstellen';
 
 
             <div class="locationDiv" style="display: none">    <? //STYLE: display in css?>
-                <?= $form->field($model, 'zip')->label('Postleitzahl') ?>
-                <?= $form->field($model, 'city')->label('Stadt') ?>
+                <?//= $form->field($model, 'zip')->label('Postleitzahl') ?>
+                <?//= $form->field($model, 'city')->label('Stadt') ?>
+
+                    <?
+                    $template =
+                        '<p>{{plz}}  -  {{city}}</p>';
+
+                    echo $form->field($model, 'zip', ['options' =>['class' => 'allowPrefill']])->widget(Typeahead::className(), [
+                        'name'         => 'zip',
+                        'dataset'      => [
+                            [
+                                'remote'    => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
+                                'limit'     => 10,
+                                'templates' => [
+                                    'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
+                                    'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                                ],
+                                'displayKey' => 'plz',
+                            ],
+                        ],
+                        'pluginEvents' => [
+                            'typeahead:selected' => 'function(e,val) { jQuery("#jobcreateform-city").typeahead("val",val.city);  jQuery(".field-jobcreateform-city").addClass("has-success");   }'
+                        ],
+                        'container' => ['class' => 'allowPrefill']
+                    ]) ?>
+
+                    <?
+                    $template =
+                        '<p>{{plz}}  -  {{city}}</p>';
+
+                    echo $form->field($model, 'city', ['options' =>['class' => 'allowPrefill']])->widget(Typeahead::className(), [
+                        'name'         => 'companyAddressCity',
+                        'dataset'      => [
+                            [
+                                'remote'    => ['url' => Url::to(['site/geo-search' . '?q=%QUERY'])],
+                                'limit'     => 10,
+                                'templates' => [
+                                    'empty'      => '<div class="text-error">Es wurde leider kein Ort gefunden.</div>',
+                                    'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                                ],
+                                'displayKey' => 'city',
+                            ],
+                        ],
+                        'pluginEvents' => [
+                            'typeahead:selected' => 'function(e,val) {jQuery("#jobcreateform-zip").typeahead("val",val.plz); jQuery(".field-jobcreateform-zip").addClass("has-success");  }'
+                        ],
+                        'container' => ['class' => 'allowPrefill']
+                    ]) ?>
             </div>
 
             <?= $form->field($model, 'sector')->widget(\kartik\select2\Select2::className(), [
