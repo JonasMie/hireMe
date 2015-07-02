@@ -21,7 +21,7 @@ $this->title = 'Generated Code';
     		}
 
 			$( document ).ready(function() {
-					httpReq("http://frontend/job/view-up?btnKey="+window.name);
+					httpReq("http://hireme.mi.hdm-stuttgart.de/job/view-up?btnKey="+window.name);
 			});
 			
 		</script>
