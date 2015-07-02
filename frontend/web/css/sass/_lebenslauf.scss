@@ -3,8 +3,11 @@ body.controller-resume{
 		padding:6px 12px;
 	}
 	
+	div.insertSchoolData, div.insertJobData{
+		text-align: right;
+	}
+	
 	a.btn.insertSchoolData, a.btn.insertJobData {
-		float: right;
 		margin-bottom: 20px;
 	}
 }
@@ -14,7 +17,67 @@ body.controller-resume.action-index{
 	div.summary{
 		display:none;
 	}
+	
+    .kv-view-mode {
+	  th{
+		font-weight:lighter;
+	  }
+      .panel-success {
+        .panel-heading {
+          .kv-buttons-1 {
+            button.kv-btn-update {
+              box-shadow: none;
+			  -webkit-box-shadow:none;
+              i {
 
+              }
+            }
+            a.kv-btn-delete {
+              background-color: $black;
+              box-shadow: none;
+              span {
+
+              }
+            }
+          }
+        }
+      }
+    }
+	.kv-edit-mode {
+	  th{
+		font-weight:lighter;
+		padding-top:7px;
+	  }
+      .panel-success {
+        .panel-heading {
+		  .kv-buttons-2 {
+            button.kv-btn-reset, button.kv-btn-save {
+              box-shadow: none;
+            }
+            button.kv-btn-view, button.kv-btn-reset {
+              background-color: $black;
+              box-shadow: none;
+			  -webkit-box-shadow:none;
+            }
+          }
+		}
+	  }
+	 }
+	 
+	 .kv-form-attribute{
+		.input-group.date{
+			width: 100%;
+			input{
+				text-align:center;
+			}
+			.kv-date-calendar{
+				display:none;
+			}
+			.kv-date-remove{
+				display:none;
+			}
+		}
+	 }
 }
 
 body.controller-resume.action-create {

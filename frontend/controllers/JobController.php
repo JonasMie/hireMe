@@ -80,6 +80,7 @@ class JobController extends Controller
             $model->viewCount = 0;
             $model->job_id = $id;
             $model->key = $this->generateBtn($id);
+            $model->archived = 0;
             $model->save();
             return $this->redirect(['view', 'id' => $id]);
         } else {
@@ -97,8 +98,9 @@ class JobController extends Controller
          if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
 
         $btn = ApplyBtn::findOne($id);
-        $btn->delete();
-        return $this->redirect(['index']);
+        $btn->archived=1;
+        $btn->save();
+        return $this->redirect(['/job/view?id='.$btn->job_id]);
     }
 
     /**
@@ -173,7 +175,7 @@ class JobController extends Controller
             ->orderBy('id');
 
         $searchModel = new ApplyBtnSearch();
-        $dataProvider = $searchModel->search(['ApplyBtnSearch' => ['job_id' => $id]]);
+        $dataProvider = $searchModel->search(['ApplyBtnSearch' => ['job_id' => $id,'archived' => 0]]);
 
         return $this->render('view', [
             'model'        => $this->findModel($id),
@@ -628,7 +630,7 @@ class JobController extends Controller
     }
 
     
-/*
+
     public function actionUpdate($id)
     {
     if(Yii::$app->user->identity->isRecruiter() == false) {$this->redirect("/job");}
@@ -636,7 +638,7 @@ class JobController extends Controller
         $model = ApplyBtn::findOne($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['/job/view?id='.$model->job_id]);
         } else {
             return $this->render('updateBtn', [
                 'model' => $model,
@@ -644,7 +646,6 @@ class JobController extends Controller
         }
 
     }
-*/
     /**
      * Updates an existing Job model.
      * If update is successful, the browser will be redirected to the 'view' page.

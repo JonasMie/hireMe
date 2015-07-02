@@ -3,15 +3,21 @@ body {
   @include font-standard();
   background-color: #ffffff;
 
-  a {
-    color: $green;
+  a 
+  {
+  color:$green;
     &:focus {
       outline: none !important; //Removes the dotted line around each Anchor when clicking on it
     }
     &:hover, &:focus, &:active {
       text-decoration: none;
-      color: $green20;
+	  color: $green50;
     }
+  }
+
+  b {
+    @include font-standard();
+    font-weight: 400;
   }
 
   //Dropdown Action Buttons
@@ -117,7 +123,7 @@ body {
           text-align: left;
 
           a {
-            color: $greyFont;
+            color: $greyFont !important;
             text-decoration: none;
             &:hover {
               color: $green;
@@ -379,7 +385,7 @@ body {
   /* FOCUSED INPUT*/
   .input-in-focus, .has-success, .has-error {
     > input[type="text"], input[type="password"] {
-      border-bottom: $FormBorderFocused;
+      border-bottom: $FormBorderFocused !important;
     }
     > label {
       top: -20px;
@@ -397,6 +403,9 @@ body {
   .has-error {
     > label {
       color: #a94442 !important;
+    }
+    > input[type="text"], input[type="password"] {
+      border-color: #a94442 !important;
     }
   }
   /* END FOCUSED INPUT*/

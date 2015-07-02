@@ -32,7 +32,7 @@ loadScript("http://code.jquery.com/jquery-1.11.3.min.js", function () {
 		var key = $("#ac").attr('name');
 		var html = '<iframe src="http://frontend/job/view-count" width="0" height="0" id="hireMeFrame" scrolling="no" frameBorder="0" name="'+key+'">';
 		$("#ac").html(html);
-		$("#ac").append("<span title='Mit hireMe bewerben' alt='Mit hireMe bewerben' id='applyBtn' class='ripple'><img src='http://frontend/images/button/hireMe-Button-1-transp.png' witdh='50'></span>"); // ToDo: jquery tooltip http://www.codechewing.com/library/create-simple-tooltip-jquery/
+		$("#ac").append("<span title='Mit hireMe bewerben' alt='Mit hireMe bewerben' id='applyBtn' class='ripple'><img src='frontend/images/button/hireMe-Button-1-transp.png' witdh='50'></span>"); // ToDo: jquery tooltip http://www.codechewing.com/library/create-simple-tooltip-jquery/
 		$("#applyBtn").css({"width":"50px","height":"50px","cursor":"pointer"});
 		$('#applyBtn').css({"background-size":"cover"});
 		/* On-Page Hover Modal
@@ -51,7 +51,7 @@ loadScript("http://code.jquery.com/jquery-1.11.3.min.js", function () {
 
 		$(document).on('click', '#applyBtn', function(){ 
 			var key = $("#ac").attr('name');
-			//httpReq("http://frontend/job/click-up?btnKey=");
+			//httpReq("http://bewerbung.local/job/click-up?btnKey=");
 			// Fixes dual-screen position
 			var w = 650;
 			var h = 550;

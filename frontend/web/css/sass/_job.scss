@@ -1,6 +1,14 @@
-body.controller-job.action-index {
+.controller-job.action-index {
 
   // General Styling
+
+  pre {
+    background-color: transparent;
+    color: $greyFont;
+    overflow: visible;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+  }
 
   div.favouriteAlert {
     display: none;
@@ -140,12 +148,32 @@ body.controller-job.action-index {
         }
       }
     }
+
   }
 }
 
-body.controller-job.action-view {
+.controller-job.action-view {
 
   // General Stylings
+
+  .border-left {
+    border-left: $FormBorderNonFocused;
+  }
+
+  .header-hiremebutton {
+    @media (max-width: 767px) {
+      margin-top: 70px;
+    }
+  }
+
+  pre {
+    background-color: transparent;
+    color: $greyFont;
+    overflow: visible;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+  }
+
   a {
     color: $green;
     &:hover, &:focus, &:active {
@@ -205,9 +233,12 @@ body.controller-job.action-view {
   // Recruiter Stylings
 
   div.btnInstructions {
-    h3 {
-      margin-top: 0px;
+    @media (max-width: 767px) {
+      margin-top: 30px;
     }
+    h3 {
+    margin-top: 0px;
+  }
   }
 
   div.summary {
@@ -265,7 +296,7 @@ body.controller-job.action-create, body.controller-job.action-update-job {
     div.input-daterange {
       margin-top: 52px;
       margin-bottom: 0px;
-      @media (min-width: 768px){
+      @media (min-width: 768px) {
         margin-bottom: 50px;
       }
     }
@@ -287,16 +318,4 @@ body.controller-job.action-create, body.controller-job.action-update-job {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

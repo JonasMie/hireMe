@@ -35,7 +35,8 @@ class ApplyBtn extends \yii\db\ActiveRecord
         return [
             [['job_id'], 'required'],
             [['job_id', 'clickCount', 'viewCount'], 'integer'],
-            [['key', 'site'], 'string']
+            [['key', 'site'], 'string'],
+            ['archived','integer']
         ];
     }
 

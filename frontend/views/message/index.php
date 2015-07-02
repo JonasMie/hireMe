@@ -18,7 +18,7 @@ $this->title = Yii::t('app', 'Messages');
     "$(function () {
         $('.footable').footable({
             breakpoints: {
-                /* Somehow Footable misses the screen wdtdh by 31 Pixels */
+                /* Somehow Footable misses the screen width by 31 Pixels */
                 mediaXXsmall: 480,
                 mediaXsmall: 736,
                 mediaSmall: 960
@@ -26,7 +26,6 @@ $this->title = Yii::t('app', 'Messages');
             }
         });
     });");
-
 ?>
 
 

@@ -13,6 +13,7 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 
 \frontend\assets\BulkAction::register($this);
+$this->title = "Dashboard";
 ?>
 
     <!-- Initializing Foo Tables -->
@@ -128,7 +129,7 @@ use yii\helpers\Html;
                 'label'          => 'Stelle',
                 'format'         => 'raw',
                 'value'          => function ($data) {
-                    return Html::a($data->job->title, '../job/' . $data->job->title);
+                    return Html::a($data->job->title, '/job/view?id=' . $data->job->id);
                 },
                 'headerOptions'  => ['data-hide' => 'phone'],
                 'contentOptions' => ['data-title' => 'Ad'],
@@ -150,7 +151,6 @@ use yii\helpers\Html;
                     ],
                 'template'       => '{view}',
                 'headerOptions'  => ['data-hide' => 'phone'],
-                'contentOptions' => ['data-title' => 'View'],
             ],
             [
 
@@ -290,7 +290,7 @@ use yii\helpers\Html;
                 'format'        => 'date',
                 'label'         => 'Verfügbar ab',
                 'value'         => function ($data) {
-                    return Yii::$app->formatter->asDate($data->job->job_begin, "php: d.m.Y");
+                    return $data->job->job_begin;
                 },
                 'headerOptions' => ['data-hide' => 'xsmall,phone'],
 

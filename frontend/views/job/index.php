@@ -191,8 +191,8 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
 							if (Favourites::find()->where(['job_id' => $model["id"], 'user_id' => Yii::$app->user->getId()])->count() == 0) {
 								return Html::a('<span class="glyphicon glyphicon-star"></span>', '#', ['title' => Yii::t('app', 'Zu Favoriten hinzufügen'),'data-job' => $model["id"], 'class' =>"toggleFavourite"]);
 							} 
-							elseif (Favourites::find()->where(['job_id' => $model["id"], 'user_id' => Yii::$app->user->getId()])->count() == 1){
-								return '<span title="Bereits in Favoriten gespeichert\ class="glyphicon glyphicon-ok"></span>';
+							else {
+								return '<span title="Bereits in Favoriten gespeichert\" class="glyphicon glyphicon-ok"></span>';
 							}
 						}
 					],

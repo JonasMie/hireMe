@@ -15,4 +15,12 @@
 		margin-top: 15px;
 		text-align: right;
 	}
+	
+	@media screen and (max-width:786px){
+		.footable-row-detail-value{
+			span.glyphicon{
+				padding-top:10px;
+			}
+		}
+	}
 }

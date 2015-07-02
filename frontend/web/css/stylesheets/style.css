@@ -1,4 +1,4 @@
-/* line 5, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../../../usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -205,6 +205,14 @@ footer.footer p.pull-right {
 footer.footer p.pull-right span.glyphicon-heart {
   color: #5dca88;
 }
+/* line 13, ../sass/_footer.scss */
+footer.footer p.pull-right a {
+  color: #9d9d9d;
+}
+/* line 15, ../sass/_footer.scss */
+footer.footer p.pull-right a:hover, footer.footer p.pull-right a:focus, footer.footer p.pull-right a:active {
+  color: #5dca88;
+}
 
 /* line 1, ../sass/_header.scss */
 #header {
@@ -295,7 +303,7 @@ footer.footer p.pull-right span.glyphicon-heart {
   padding: 3px 20px;
 }
 /* line 67, ../sass/_header.scss */
-#header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:hover {
+#header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:hover, #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:focus, #header div.container #header-collapse ul.navbar-nav > li > ul.dropdown-menu li a:active {
   background: none;
   color: #5dca88;
 }
@@ -445,7 +453,7 @@ footer.footer p.pull-right span.glyphicon-heart {
     padding-bottom: 10px;
   }
   /* line 226, ../sass/_header.scss */
-  #header div.container #header-collapse ul.navbar-right li a:hover {
+  #header div.container #header-collapse ul.navbar-right li a:hover, #header div.container #header-collapse ul.navbar-right li a:active, #header div.container #header-collapse ul.navbar-right li a:focus {
     color: #5dca88;
   }
   /* line 232, ../sass/_header.scss */
@@ -457,7 +465,7 @@ footer.footer p.pull-right span.glyphicon-heart {
     background: none;
   }
   /* line 236, ../sass/_header.scss */
-  #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:focus, #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:hover {
+  #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:focus, #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:hover, #header div.container #header-collapse ul.navbar-right li.open a.dropdown-toggle:active {
     color: #5dca88 !important;
     background: none;
   }
@@ -487,25 +495,27 @@ footer.footer p.pull-right span.glyphicon-heart {
     margin: 10px 0px 0px 35px;
     padding: 0px 30px 0px 10px;
   }
-  /* line 265, ../sass/_header.scss */
-  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a {
-    color: #fff;
-  }
-  /* line 267, ../sass/_header.scss */
-  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:hover, #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:focus {
+  /* line 266, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:hover, #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:focus, #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li a:active {
     background: none !important;
     color: #5dca88;
   }
-  /* line 273, ../sass/_header.scss */
+  /* line 272, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown ul#w1 li:nth-child(1) {
     margin-left: 35px;
     margin-top: 0px;
   }
-  /* line 279, ../sass/_header.scss */
+  /* line 278, ../sass/_header.scss */
   #header div.container #header-collapse ul.navbar-right li.dropdown.open:after {
     display: none;
   }
-  /* line 285, ../sass/_header.scss */
+  /* line 281, ../sass/_header.scss */
+  #header div.container #header-collapse ul.navbar-right ul.dropdown-menu {
+    position: initial;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  /* line 289, ../sass/_header.scss */
   #header div.container #header-collapse.slidedout {
     max-height: none;
     top: 0px;
@@ -518,7 +528,7 @@ footer.footer p.pull-right span.glyphicon-heart {
     margin: 0;
     visibility: visible !important;
   }
-  /* line 297, ../sass/_header.scss */
+  /* line 301, ../sass/_header.scss */
   #header div.container #header-collapse.slidedout .slideout-helper {
     width: 250px;
     height: 100vh;
@@ -526,7 +536,7 @@ footer.footer p.pull-right span.glyphicon-heart {
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
   }
-  /* line 307, ../sass/_header.scss */
+  /* line 311, ../sass/_header.scss */
   #header div.container #header-collapse:not(.slidedout) {
     width: 0;
     max-height: none;
@@ -535,12 +545,12 @@ footer.footer p.pull-right span.glyphicon-heart {
   }
 }
 
-/* line 319, ../sass/_header.scss */
+/* line 323, ../sass/_header.scss */
 body.overflowx {
   overflow-x: hidden;
 }
 
-/* line 323, ../sass/_header.scss */
+/* line 327, ../sass/_header.scss */
 .wrap > .container {
   width: 100%;
   position: relative;
@@ -548,38 +558,38 @@ body.overflowx {
   transition: 0.3s;
 }
 
-/* line 330, ../sass/_header.scss */
+/* line 334, ../sass/_header.scss */
 .wrap > .container.out {
   left: 1px;
   padding-right: -1px;
 }
 
-/* line 338, ../sass/_header.scss */
+/* line 342, ../sass/_header.scss */
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #9d9d9d;
 }
 
-/* line 343, ../sass/_header.scss */
+/* line 347, ../sass/_header.scss */
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #9d9d9d;
 }
 
 @media (max-width: 991px) {
-  /* line 352, ../sass/_header.scss */
+  /* line 356, ../sass/_header.scss */
   #header > div.container {
     height: 1px;
   }
 }
-/* line 359, ../sass/_header.scss */
+/* line 363, ../sass/_header.scss */
 li.dropdown a b.caret {
   border-bottom: 4px solid transparent;
   border-top: 4px solid transparent;
   border-left: 4px solid #9d9d9d;
 }
 
-/* line 368, ../sass/_header.scss */
+/* line 372, ../sass/_header.scss */
 li.dropdown.open a b.caret {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
@@ -615,52 +625,60 @@ body {
 body a {
   color: #5dca88;
 }
-/* line 8, ../sass/_basicTemplate.scss */
+/* line 9, ../sass/_basicTemplate.scss */
 body a:focus {
   outline: none !important;
 }
-/* line 11, ../sass/_basicTemplate.scss */
+/* line 12, ../sass/_basicTemplate.scss */
 body a:hover, body a:focus, body a:active {
   text-decoration: none;
-  color: rgba(93, 202, 136, 0.2);
+  color: rgba(93, 202, 136, 0.5);
 }
 /* line 18, ../sass/_basicTemplate.scss */
+body b {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #9d9d9d;
+  font-size: 16px;
+  font-weight: 400;
+}
+/* line 24, ../sass/_basicTemplate.scss */
 body #bulkActions {
   margin-top: 15px;
 }
-/* line 22, ../sass/_basicTemplate.scss */
+/* line 28, ../sass/_basicTemplate.scss */
 body #bulkActions button span.caret {
   border-bottom: 4px solid transparent;
   border-top: 4px solid transparent;
   border-left: 4px solid #fff;
 }
-/* line 29, ../sass/_basicTemplate.scss */
+/* line 35, ../sass/_basicTemplate.scss */
 body #bulkActions button[aria-expanded="true"] span.caret {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #fff;
 }
-/* line 35, ../sass/_basicTemplate.scss */
+/* line 41, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu {
   padding-bottom: 0px;
   padding-top: 0px;
   border-radius: 0px;
   border: 1px solid #dddddd;
 }
-/* line 41, ../sass/_basicTemplate.scss */
+/* line 47, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu > li:hover {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 44, ../sass/_basicTemplate.scss */
+/* line 50, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu > li a {
   font-weight: 300;
   color: #9d9d9d;
 }
-/* line 47, ../sass/_basicTemplate.scss */
+/* line 53, ../sass/_basicTemplate.scss */
 body #bulkActions ul.dropdown-menu > li a:hover {
   background: none;
 }
-/* line 58, ../sass/_basicTemplate.scss */
+/* line 64, ../sass/_basicTemplate.scss */
 body .btn {
   border-radius: 0;
   border: none;
@@ -669,31 +687,31 @@ body .btn {
   box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
   font-weight: 300;
 }
-/* line 65, ../sass/_basicTemplate.scss */
+/* line 71, ../sass/_basicTemplate.scss */
 body .btn:focus {
   outline: none !important;
 }
-/* line 68, ../sass/_basicTemplate.scss */
+/* line 74, ../sass/_basicTemplate.scss */
 body .btn:active {
   box-shadow: none;
 }
-/* line 73, ../sass/_basicTemplate.scss */
+/* line 79, ../sass/_basicTemplate.scss */
 body .btn.btn-success,
 body .btn.btn-success:active {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 78, ../sass/_basicTemplate.scss */
+/* line 84, ../sass/_basicTemplate.scss */
 body .btn.btn-default,
 body .btn.btn-default:active {
   background-color: #2d312f;
   color: #fff;
 }
-/* line 86, ../sass/_basicTemplate.scss */
+/* line 92, ../sass/_basicTemplate.scss */
 body .ripple {
   position: relative;
 }
-/* line 88, ../sass/_basicTemplate.scss */
+/* line 94, ../sass/_basicTemplate.scss */
 body .ripple svg {
   position: absolute;
   top: 0;
@@ -701,11 +719,11 @@ body .ripple svg {
   width: 100%;
   height: 100%;
 }
-/* line 95, ../sass/_basicTemplate.scss */
+/* line 101, ../sass/_basicTemplate.scss */
 body .ripple circle {
   fill: rgba(255, 255, 255, 0.1);
 }
-/* line 102, ../sass/_basicTemplate.scss */
+/* line 108, ../sass/_basicTemplate.scss */
 body table.hireMeTable {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
@@ -715,34 +733,34 @@ body table.hireMeTable {
   border: 1px solid #dddddd;
   width: 100%;
 }
-/* line 114, ../sass/_basicTemplate.scss */
+/* line 120, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th {
   border-bottom: 1px solid #dddddd;
   padding: 8px;
   text-align: left;
 }
-/* line 119, ../sass/_basicTemplate.scss */
+/* line 125, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a {
-  color: #9d9d9d;
+  color: #9d9d9d !important;
   text-decoration: none;
 }
-/* line 122, ../sass/_basicTemplate.scss */
+/* line 128, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a:hover {
   color: #5dca88;
 }
-/* line 127, ../sass/_basicTemplate.scss */
+/* line 133, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.asc::after {
   content: "\e093";
 }
-/* line 132, ../sass/_basicTemplate.scss */
+/* line 138, ../sass/_basicTemplate.scss */
 body table.hireMeTable thead tr th a.desc::after {
   content: "\e094";
 }
-/* line 143, ../sass/_basicTemplate.scss */
+/* line 149, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr:hover {
   background-color: rgba(93, 202, 136, 0.2) !important;
 }
-/* line 147, ../sass/_basicTemplate.scss */
+/* line 153, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td {
   vertical-align: middle;
   height: 72px;
@@ -750,83 +768,83 @@ body table.hireMeTable tbody tr td {
   padding: 8px;
   font-weight: 300;
 }
-/* line 154, ../sass/_basicTemplate.scss */
+/* line 160, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a {
   color: #9d9d9d;
   text-decoration: none;
   font-weight: 300;
 }
-/* line 158, ../sass/_basicTemplate.scss */
+/* line 164, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a:hover {
   color: #5dca88;
 }
-/* line 163, ../sass/_basicTemplate.scss */
+/* line 169, ../sass/_basicTemplate.scss */
 body table.hireMeTable tbody tr td a.btn:hover {
   color: #fff;
 }
-/* line 177, ../sass/_basicTemplate.scss */
+/* line 183, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
   cursor: pointer;
   font-family: 'Glyphicons Halflings';
   content: "\e258";
 }
-/* line 182, ../sass/_basicTemplate.scss */
+/* line 188, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:hover {
   color: #5dca88;
 }
-/* line 187, ../sass/_basicTemplate.scss */
+/* line 193, ../sass/_basicTemplate.scss */
 body .footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
   content: "\e259";
 }
-/* line 194, ../sass/_basicTemplate.scss */
+/* line 200, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell {
   padding-bottom: 0px;
 }
-/* line 197, ../sass/_basicTemplate.scss */
+/* line 203, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner {
   height: 100%;
   border-bottom: 1px solid #dddddd;
   padding-bottom: 10px;
 }
-/* line 202, ../sass/_basicTemplate.scss */
+/* line 208, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row {
   display: block;
 }
-/* line 205, ../sass/_basicTemplate.scss */
+/* line 211, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-name {
   display: inline;
   color: #5dca88;
 }
-/* line 209, ../sass/_basicTemplate.scss */
+/* line 215, ../sass/_basicTemplate.scss */
 body .footable .footable-row-detail .footable-row-detail-cell .footable-row-detail-inner .footable-row-detail-row .footable-row-detail-value {
   display: inline;
   float: right;
 }
-/* line 222, ../sass/_basicTemplate.scss */
+/* line 228, ../sass/_basicTemplate.scss */
 body ul.pagination li a {
   border-color: #dddddd;
   color: #5dca88;
 }
-/* line 225, ../sass/_basicTemplate.scss */
+/* line 231, ../sass/_basicTemplate.scss */
 body ul.pagination li a:hover {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 232, ../sass/_basicTemplate.scss */
+/* line 238, ../sass/_basicTemplate.scss */
 body ul.pagination li.active a, body ul.pagination li.active a:hover {
   background-color: #5dca88;
   border-color: #dddddd;
   color: #fff;
 }
-/* line 239, ../sass/_basicTemplate.scss */
+/* line 245, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled a {
   color: #9d9d9d;
 }
-/* line 242, ../sass/_basicTemplate.scss */
+/* line 248, ../sass/_basicTemplate.scss */
 body ul.pagination li.disabled span {
   color: #9d9d9d;
 }
-/* line 250, ../sass/_basicTemplate.scss */
+/* line 256, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green, body .iradio_flat-green {
   display: inline-block;
   *display: inline;
@@ -840,58 +858,58 @@ body .icheckbox_flat-green, body .iradio_flat-green {
   cursor: pointer;
   background-position: 0 0;
 }
-/* line 264, ../sass/_basicTemplate.scss */
+/* line 270, ../sass/_basicTemplate.scss */
 body .iradio_flat-green {
   background-position: -88px 0;
 }
-/* line 268, ../sass/_basicTemplate.scss */
+/* line 274, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked {
   background-position: -22px 0;
 }
-/* line 272, ../sass/_basicTemplate.scss */
+/* line 278, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked {
   background-position: -110px 0;
 }
-/* line 276, ../sass/_basicTemplate.scss */
+/* line 282, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.disabled {
   background-position: -44px 0;
   cursor: default;
 }
-/* line 281, ../sass/_basicTemplate.scss */
+/* line 287, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.disabled {
   background-position: -132px 0;
   cursor: default;
 }
-/* line 286, ../sass/_basicTemplate.scss */
+/* line 292, ../sass/_basicTemplate.scss */
 body .icheckbox_flat-green.checked.disabled {
   background-position: -66px 0;
 }
-/* line 290, ../sass/_basicTemplate.scss */
+/* line 296, ../sass/_basicTemplate.scss */
 body .iradio_flat-green.checked.disabled {
   background-position: -154px 0;
 }
-/* line 294, ../sass/_basicTemplate.scss */
+/* line 300, ../sass/_basicTemplate.scss */
 body .radio label, body .checkbox label {
   font-weight: 300;
 }
 @media (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
-  /* line 300, ../sass/_basicTemplate.scss */
+  /* line 306, ../sass/_basicTemplate.scss */
   body .icheckbox_flat-green, body .iradio_flat-green {
     background-image: url(/images/icheck/green@2x.png);
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px;
   }
 }
-/* line 309, ../sass/_basicTemplate.scss */
+/* line 315, ../sass/_basicTemplate.scss */
 body legend {
   color: #9d9d9d;
 }
-/* line 314, ../sass/_basicTemplate.scss */
+/* line 320, ../sass/_basicTemplate.scss */
 body .form-group {
   position: relative;
   margin-bottom: 45px;
 }
-/* line 318, ../sass/_basicTemplate.scss */
+/* line 324, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -905,11 +923,11 @@ body .form-group input[type="text"] {
   -moz-transition: 0.2s ease border;
   -webkit-transition: 0.2s ease border;
 }
-/* line 327, ../sass/_basicTemplate.scss */
+/* line 333, ../sass/_basicTemplate.scss */
 body .form-group input[type="text"]:focus {
   outline: none;
 }
-/* line 332, ../sass/_basicTemplate.scss */
+/* line 338, ../sass/_basicTemplate.scss */
 body .form-group textarea {
   border: none;
   border-bottom: 2px solid #dddddd;
@@ -922,13 +940,13 @@ body .form-group textarea {
   font-size: 16px;
   resize: none;
 }
-/* line 339, ../sass/_basicTemplate.scss */
+/* line 345, ../sass/_basicTemplate.scss */
 body .form-group textarea:focus {
   box-shadow: none;
   border-bottom: 2px solid #5dca88;
   border-top: 2px solid #5dca88;
 }
-/* line 347, ../sass/_basicTemplate.scss */
+/* line 353, ../sass/_basicTemplate.scss */
 body .form-group label {
   color: #9d9d9d;
   font-size: 18px;
@@ -939,7 +957,7 @@ body .form-group label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 360, ../sass/_basicTemplate.scss */
+/* line 366, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup,
 body .form-group.field-loginform-rememberme,
 body .form-group.field-settingsmodel-picture,
@@ -952,7 +970,7 @@ body .field-settingsmodel-visibility,
 body .form-group.field-jobcreateform-checklocationbased {
   position: static;
 }
-/* line 371, ../sass/_basicTemplate.scss */
+/* line 377, ../sass/_basicTemplate.scss */
 body .form-group.field-signupform-checkcompanysignup label,
 body .form-group.field-loginform-rememberme label,
 body .form-group.field-settingsmodel-picture label,
@@ -965,33 +983,37 @@ body .field-settingsmodel-visibility label,
 body .form-group.field-jobcreateform-checklocationbased label {
   position: static;
 }
-/* line 381, ../sass/_basicTemplate.scss */
+/* line 387, ../sass/_basicTemplate.scss */
 body .input-in-focus > input[type="text"], body .input-in-focus input[type="password"], body .has-success > input[type="text"], body .has-success input[type="password"], body .has-error > input[type="text"], body .has-error input[type="password"] {
-  border-bottom: 2px solid #5dca88;
+  border-bottom: 2px solid #5dca88 !important;
 }
-/* line 384, ../sass/_basicTemplate.scss */
+/* line 390, ../sass/_basicTemplate.scss */
 body .input-in-focus > label, body .has-success > label, body .has-error > label {
   top: -20px;
   font-size: 15px;
   color: #5dca88 !important;
 }
-/* line 389, ../sass/_basicTemplate.scss */
+/* line 395, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea, body .has-success textarea, body .has-error textarea {
   border-color: #5dca88 !important;
 }
-/* line 391, ../sass/_basicTemplate.scss */
+/* line 397, ../sass/_basicTemplate.scss */
 body .input-in-focus textarea:focus, body .has-success textarea:focus, body .has-error textarea:focus {
   box-shadow: none !important;
 }
-/* line 398, ../sass/_basicTemplate.scss */
+/* line 404, ../sass/_basicTemplate.scss */
 body .has-error > label {
   color: #a94442 !important;
 }
-/* line 408, ../sass/_basicTemplate.scss */
+/* line 407, ../sass/_basicTemplate.scss */
+body .has-error > input[type="text"], body .has-error input[type="password"] {
+  border-color: #a94442 !important;
+}
+/* line 417, ../sass/_basicTemplate.scss */
 body .typeahead-validation .has-success input {
   border-bottom: 2px solid #5dca88 !important;
 }
-/* line 414, ../sass/_basicTemplate.scss */
+/* line 423, ../sass/_basicTemplate.scss */
 body label.typeahead-label {
   position: absolute;
   color: #9d9d9d;
@@ -1002,21 +1024,21 @@ body label.typeahead-label {
   -moz-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
   -webkit-transition: 0.2s ease color, 0.2s ease top, 0.2s ease font-size;
 }
-/* line 426, ../sass/_basicTemplate.scss */
+/* line 435, ../sass/_basicTemplate.scss */
 body label.typeahead-label-in-focus {
   color: #5dca88;
   top: -20px;
   font-size: 15px;
 }
-/* line 434, ../sass/_basicTemplate.scss */
+/* line 443, ../sass/_basicTemplate.scss */
 body .twitter-typeahead pre {
   display: none;
 }
-/* line 437, ../sass/_basicTemplate.scss */
+/* line 446, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-hint {
   display: none !important;
 }
-/* line 441, ../sass/_basicTemplate.scss */
+/* line 450, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input {
   position: static;
   border-bottom: 2px solid #dddddd;
@@ -1026,113 +1048,113 @@ body .twitter-typeahead input.tt-input {
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 446, ../sass/_basicTemplate.scss */
+/* line 455, ../sass/_basicTemplate.scss */
 body .twitter-typeahead input.tt-input:focus {
   border-bottom: 2px solid #5dca88;
 }
-/* line 451, ../sass/_basicTemplate.scss */
+/* line 460, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu {
   padding: 0px;
 }
-/* line 453, ../sass/_basicTemplate.scss */
+/* line 462, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #9d9d9d;
   font-size: 16px;
 }
-/* line 457, ../sass/_basicTemplate.scss */
+/* line 466, ../sass/_basicTemplate.scss */
 body .twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor {
   background-color: rgba(93, 202, 136, 0.2);
   color: #9d9d9d;
 }
-/* line 464, ../sass/_basicTemplate.scss */
+/* line 473, ../sass/_basicTemplate.scss */
 body .has-success .twitter-typeahead .tt-input, body .has-success .twitter-typeahead .tt-hint {
   border-bottom: 2px solid #5dca88;
 }
-/* line 473, ../sass/_basicTemplate.scss */
+/* line 482, ../sass/_basicTemplate.scss */
 body input:-webkit-autofill, body textarea:-webkit-autofill, body select:-webkit-autofill {
   background: none !important;
   color: #9d9d9d;
 }
-/* line 481, ../sass/_basicTemplate.scss */
+/* line 490, ../sass/_basicTemplate.scss */
 body .has-error input[type="text"] {
   border-color: #a94442 !important;
 }
-/* line 488, ../sass/_basicTemplate.scss */
+/* line 497, ../sass/_basicTemplate.scss */
 body img.profile-picture-thumbnail {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 494, ../sass/_basicTemplate.scss */
+/* line 503, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail {
   width: 50px;
   height: 50px;
   background: url("/uploads/profile/default.png") no-repeat top;
   transition: background 0.2s ease-in-out;
 }
-/* line 501, ../sass/_basicTemplate.scss */
+/* line 510, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail:hover {
   background: url("/uploads/profile/default-hover.png") no-repeat top;
 }
-/* line 505, ../sass/_basicTemplate.scss */
+/* line 514, ../sass/_basicTemplate.scss */
 body div.profile-picture-thumbnail + div.message-sender {
   margin-top: 14px;
   margin-left: 60px;
 }
-/* line 511, ../sass/_basicTemplate.scss */
+/* line 520, ../sass/_basicTemplate.scss */
 body .highlight {
   color: #5dca88;
 }
-/* line 516, ../sass/_basicTemplate.scss */
+/* line 525, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown {
   padding: 0;
 }
-/* line 518, ../sass/_basicTemplate.scss */
+/* line 527, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed {
   color: #9d9d9d;
 }
-/* line 521, ../sass/_basicTemplate.scss */
+/* line 530, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 524, ../sass/_basicTemplate.scss */
+/* line 533, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th {
   border-radius: 0px;
 }
-/* line 526, ../sass/_basicTemplate.scss */
+/* line 535, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(1) th:hover {
   background-color: #309156;
   border-radius: 0px;
 }
-/* line 532, ../sass/_basicTemplate.scss */
+/* line 541, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(2) {
   background-color: #2d312f;
 }
-/* line 534, ../sass/_basicTemplate.scss */
+/* line 543, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed thead tr:nth-of-type(2) th {
   border-radius: 0px;
 }
-/* line 539, ../sass/_basicTemplate.scss */
+/* line 548, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody {
   background-color: #fff;
 }
-/* line 542, ../sass/_basicTemplate.scss */
+/* line 551, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.selected {
   background-color: #fff;
   color: #9d9d9d;
   font-weight: lighter;
 }
-/* line 547, ../sass/_basicTemplate.scss */
+/* line 556, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.today {
   border-radius: 50%;
   background-color: #dddddd;
   color: #fff;
 }
-/* line 556, ../sass/_basicTemplate.scss */
+/* line 565, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.day:not(.today):not(.active):hover,
 body div.datepicker-dropdown table.table-condensed tbody tr td.selected:not(.today):not(.active):hover,
 body div.datepicker-dropdown table.table-condensed tbody tr span.month:not(.active):hover,
@@ -1141,31 +1163,31 @@ body div.datepicker-dropdown table.table-condensed tbody tr span.year:not(.activ
   color: #fff;
   border-radius: 50%;
 }
-/* line 562, ../sass/_basicTemplate.scss */
+/* line 571, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td.active, body div.datepicker-dropdown table.table-condensed tbody tr span.active {
   border-radius: 50%;
   background-color: #5dca88;
   color: #fff;
 }
-/* line 568, ../sass/_basicTemplate.scss */
+/* line 577, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown table.table-condensed tbody tr td {
   padding: 10px;
 }
-/* line 578, ../sass/_basicTemplate.scss */
+/* line 587, ../sass/_basicTemplate.scss */
 body div.datepicker-dropdown div.datepicker-months table tbody tr td, body div.datepicker-dropdown div.datepicker-years table tbody tr td {
   width: 250px;
 }
-/* line 590, ../sass/_basicTemplate.scss */
+/* line 599, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange span.input-group-addon.kv-field-separator {
   display: none;
 }
-/* line 593, ../sass/_basicTemplate.scss */
+/* line 602, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from,
 body .input-group.input-daterange .kv-container-to {
   box-shadow: none;
   max-width: 250px;
 }
-/* line 597, ../sass/_basicTemplate.scss */
+/* line 606, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from input,
 body .input-group.input-daterange .kv-container-to input {
   max-width: 250px;
@@ -1174,43 +1196,43 @@ body .input-group.input-daterange .kv-container-to input {
   font-size: 16px;
 }
 @media (max-width: 767px) {
-  /* line 593, ../sass/_basicTemplate.scss */
+  /* line 602, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from,
   body .input-group.input-daterange .kv-container-to {
     width: 250px;
     margin-top: 0px;
   }
 }
-/* line 608, ../sass/_basicTemplate.scss */
+/* line 617, ../sass/_basicTemplate.scss */
 body .input-group.input-daterange .kv-container-from {
   margin-right: 20px;
 }
 @media (max-width: 767px) {
-  /* line 608, ../sass/_basicTemplate.scss */
+  /* line 617, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from {
     margin-right: 20px;
     margin-bottom: 50px;
   }
 }
 @media (max-width: 767px) {
-  /* line 616, ../sass/_basicTemplate.scss */
+  /* line 625, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-from {
     max-width: 100%;
   }
-  /* line 619, ../sass/_basicTemplate.scss */
+  /* line 628, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 50px;
   }
 }
 @media (max-width: 767px) and (max-width: 767px) {
-  /* line 619, ../sass/_basicTemplate.scss */
+  /* line 628, ../sass/_basicTemplate.scss */
   body .input-group.input-daterange .kv-container-to {
     margin-top: 0px;
     margin-bottom: 50px;
   }
 }
 
-/* line 636, ../sass/_basicTemplate.scss */
+/* line 645, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection {
   border: 0;
   -webkit-border-radius: 0;
@@ -1220,39 +1242,39 @@ body form:not(#form-signup) .form-group .select2-container--krajee .selection .s
   border-bottom: 2px solid #dddddd;
   background: none;
 }
-/* line 644, ../sass/_basicTemplate.scss */
+/* line 653, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(1) {
   color: #9d9d9d;
 }
-/* line 647, ../sass/_basicTemplate.scss */
+/* line 656, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) {
   border: 0;
 }
-/* line 649, ../sass/_basicTemplate.scss */
+/* line 658, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee .selection .select2-selection span:nth-of-type(2) b {
   border-color: #9d9d9d transparent transparent;
 }
-/* line 657, ../sass/_basicTemplate.scss */
+/* line 666, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group .select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b {
   border-color: transparent transparent #9d9d9d !important;
 }
-/* line 663, ../sass/_basicTemplate.scss */
+/* line 672, ../sass/_basicTemplate.scss */
 body form:not(#form-signup) .form-group.has-success .select2-selection {
   border-bottom: 2px solid #5dca88 !important;
 }
 
-/* line 676, ../sass/_basicTemplate.scss */
+/* line 685, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   border: 0;
 }
-/* line 682, ../sass/_basicTemplate.scss */
+/* line 691, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search {
   padding-top: 10px;
 }
-/* line 684, ../sass/_basicTemplate.scss */
+/* line 693, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-search input.select2-search__field {
   border: 0;
   border-radius: 0;
@@ -1260,25 +1282,25 @@ body:not(.action-login) .select2-dropdown .select2-search input.select2-search__
   color: #9d9d9d;
   box-shadow: none;
 }
-/* line 694, ../sass/_basicTemplate.scss */
+/* line 703, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option {
   background: transparent none repeat scroll 0 0;
   color: #9d9d9d;
 }
-/* line 697, ../sass/_basicTemplate.scss */
+/* line 706, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option strong {
   background-color: #5dca88;
   color: #fff;
 }
-/* line 702, ../sass/_basicTemplate.scss */
+/* line 711, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option {
   color: #9d9d9d;
 }
-/* line 705, ../sass/_basicTemplate.scss */
+/* line 714, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li.select2-results__option--highlighted {
   background-color: rgba(93, 202, 136, 0.2);
 }
-/* line 708, ../sass/_basicTemplate.scss */
+/* line 717, ../sass/_basicTemplate.scss */
 body:not(.action-login) .select2-dropdown .select2-results ul.select2-results__options li.select2-results__option ul.select2-results__options li[aria-selected="true"] {
   color: #5dca88;
   background: transparent none repeat scroll 0 0;
@@ -2228,7 +2250,7 @@ body.controller-message.action-view .dateMessageView {
 /* line 216, ../sass/_message.scss */
 body.controller-message.action-view .subjectMessageView {
   border-top: 2px solid #dddddd;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 23px;
   padding: 10px 0;
 }
@@ -2308,101 +2330,179 @@ body.controller-message.action-view #replyModal form .field-messageattachments-f
   margin-top: 15px;
   text-align: right;
 }
+@media screen and (max-width: 786px) {
+  /* line 21, ../sass/_favourites.scss */
+  .controller-favourites.action-index .footable-row-detail-value span.glyphicon {
+    padding-top: 10px;
+  }
+}
 
 /* line 2, ../sass/_lebenslauf.scss */
 body.controller-resume .list-view .panel-heading .btn-xs {
   padding: 6px 12px;
 }
 /* line 6, ../sass/_lebenslauf.scss */
+body.controller-resume div.insertSchoolData, body.controller-resume div.insertJobData {
+  text-align: right;
+}
+/* line 10, ../sass/_lebenslauf.scss */
 body.controller-resume a.btn.insertSchoolData, body.controller-resume a.btn.insertJobData {
-  float: right;
   margin-bottom: 20px;
 }
 
-/* line 14, ../sass/_lebenslauf.scss */
+/* line 17, ../sass/_lebenslauf.scss */
 body.controller-resume.action-index div.summary {
   display: none;
 }
-
 /* line 22, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-view-mode th {
+  font-weight: lighter;
+}
+/* line 28, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-view-mode .panel-success .panel-heading .kv-buttons-1 button.kv-btn-update {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+/* line 35, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-view-mode .panel-success .panel-heading .kv-buttons-1 a.kv-btn-delete {
+  background-color: #2d312f;
+  box-shadow: none;
+}
+/* line 47, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-edit-mode th {
+  font-weight: lighter;
+  padding-top: 7px;
+}
+/* line 54, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-reset, body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-save {
+  box-shadow: none;
+}
+/* line 57, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-view, body.controller-resume.action-index .kv-edit-mode .panel-success .panel-heading .kv-buttons-2 button.kv-btn-reset {
+  background-color: #2d312f;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+/* line 68, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date {
+  width: 100%;
+}
+/* line 70, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date input {
+  text-align: center;
+}
+/* line 73, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date .kv-date-calendar {
+  display: none;
+}
+/* line 76, ../sass/_lebenslauf.scss */
+body.controller-resume.action-index .kv-form-attribute .input-group.date .kv-date-remove {
+  display: none;
+}
+
+/* line 85, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div {
   margin-top: 50px;
   margin-bottom: 0px;
 }
-/* line 26, ../sass/_lebenslauf.scss */
+/* line 89, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div label[for="resumejob-report_id"], body.controller-resume.action-create #w0 > div label[for="resumeschool-report_id"] {
   margin-bottom: 10px;
 }
-/* line 30, ../sass/_lebenslauf.scss */
+/* line 93, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div textarea {
   resize: none;
 }
-/* line 34, ../sass/_lebenslauf.scss */
+/* line 97, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div #resumejob-type, body.controller-resume.action-create #w0 > div #resumeschool-schoolname, body.controller-resume.action-create #w0 > div #resumeschool-graduation {
   max-width: 500px;
 }
-/* line 38, ../sass/_lebenslauf.scss */
+/* line 101, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 > div #resumejob-description {
   max-width: 1000px;
 }
-/* line 44, ../sass/_lebenslauf.scss */
+/* line 107, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 .field-resumejob-current label, body.controller-resume.action-create #w0 .field-resumeschool-current label {
   font-weight: 300;
   padding-left: 0px;
 }
-/* line 47, ../sass/_lebenslauf.scss */
+/* line 110, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 .field-resumejob-current label .icheckbox_flat-green, body.controller-resume.action-create #w0 .field-resumeschool-current label .icheckbox_flat-green {
   margin-bottom: 3px;
 }
-/* line 54, ../sass/_lebenslauf.scss */
+/* line 117, ../sass/_lebenslauf.scss */
 body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twitter-typeahead {
   max-width: 500px;
 }
 
-/* line 11, ../sass/_application.scss */
+/* line 6, ../sass/_application.scss */
+.controller-application pre {
+  background-color: transparent;
+  color: #9d9d9d;
+  overflow: visible;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+/* line 21, ../sass/_application.scss */
 .controller-application a.btn:hover {
   color: #fff;
 }
-/* line 16, ../sass/_application.scss */
-.controller-application a:not(.btn) {
-  color: #5dca88;
-}
-/* line 18, ../sass/_application.scss */
-.controller-application a:not(.btn):hover, .controller-application a:not(.btn):focus, .controller-application a:not(.btn):active {
-  color: rgba(93, 202, 136, 0.5);
-}
-/* line 23, ../sass/_application.scss */
+/* line 26, ../sass/_application.scss */
 .controller-application .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 27, ../sass/_application.scss */
+/* line 30, ../sass/_application.scss */
 .controller-application .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 31, ../sass/_application.scss */
+/* line 34, ../sass/_application.scss */
 .controller-application div.summary {
   display: none;
 }
 
-/* line 40, ../sass/_application.scss */
+@media screen and (max-width: 786px) {
+  /* line 46, ../sass/_application.scss */
+  .controller-application.action-index #applicationsTable .footable-row-detail-row:first-of-type {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 530px) {
+  /* line 54, ../sass/_application.scss */
+  .controller-application.action-index #applicationsTable .footable-row-detail-row:nth-of-type(2) {
+    margin-bottom: 40px;
+  }
+  /* line 57, ../sass/_application.scss */
+  .controller-application.action-index #applicationsTable .footable-row-detail-row:first-of-type {
+    margin-bottom: 0px;
+  }
+}
+/* line 63, ../sass/_application.scss */
+.controller-application.action-index div.dropdown {
+  margin-bottom: 50px;
+}
+/* line 67, ../sass/_application.scss */
 .controller-application.action-index .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 44, ../sass/_application.scss */
+/* line 71, ../sass/_application.scss */
 .controller-application.action-index .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 48, ../sass/_application.scss */
+/* line 75, ../sass/_application.scss */
 .controller-application.action-index .footable-row-detail-row {
   padding: 5px 0px;
 }
-/* line 53, ../sass/_application.scss */
+/* line 77, ../sass/_application.scss */
+.controller-application.action-index .footable-row-detail-row a {
+  padding-top: 10px;
+}
+/* line 83, ../sass/_application.scss */
 .controller-application.action-index table#applicationsTable img {
   vertical-align: middle;
   margin-right: 8px;
 }
-/* line 58, ../sass/_application.scss */
-.controller-application.action-index table#applicationsTable .scoreInput {
+/* line 88, ../sass/_application.scss */
+.controller-application.action-index table#applicationsTable input.scoreInput {
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -2412,157 +2512,240 @@ body.controller-resume.action-create #w0 div.field-resumejob-company_id span.twi
   font-size: 25.6px;
   color: #5dca88;
 }
-/* line 73, ../sass/_application.scss */
+/* line 97, ../sass/_application.scss */
+.controller-application.action-index table#applicationsTable input.scoreInput:focus {
+  outline: none;
+  border-bottom: #5d6461 1px solid !important;
+}
+/* line 107, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn) {
   color: #5dca88;
 }
-/* line 75, ../sass/_application.scss */
+/* line 109, ../sass/_application.scss */
 .controller-application.action-index div.resume-index a:not(.btn):hover, .controller-application.action-index div.resume-index a:not(.btn):focus, .controller-application.action-index div.resume-index a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 81, ../sass/_application.scss */
+/* line 115, ../sass/_application.scss */
 .controller-application.action-index div.summary {
   display: none;
 }
-/* line 85, ../sass/_application.scss */
+/* line 119, ../sass/_application.scss */
 .controller-application.action-index div.searchBtn {
   margin-top: 15px;
   text-align: right;
 }
 
-/* line 102, ../sass/_application.scss */
+@media screen and (max-width: 440px) {
+  /* line 132, ../sass/_application.scss */
+  .controller-application.action-view .doge {
+    width: 100%;
+  }
+  /* line 134, ../sass/_application.scss */
+  .controller-application.action-view .doge .btn {
+    display: block;
+  }
+}
+/* line 140, ../sass/_application.scss */
+.controller-application.action-view div.actionButtons {
+  text-align: right;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+/* line 144, ../sass/_application.scss */
+.controller-application.action-view div.actionButtons .btn {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  display: block;
+}
+/* line 152, ../sass/_application.scss */
+.controller-application.action-view div.row.first {
+  margin-top: 20px;
+}
+/* line 155, ../sass/_application.scss */
+.controller-application.action-view div.row.first div.profileInfo {
+  text-align: center;
+}
+/* line 157, ../sass/_application.scss */
+.controller-application.action-view div.row.first div.profileInfo h2 {
+  margin-top: 20px;
+}
+/* line 160, ../sass/_application.scss */
+.controller-application.action-view div.row.first div.profileInfo img {
+  max-width: 100%;
+}
+/* line 164, ../sass/_application.scss */
+.controller-application.action-view div.row.first div.profileInfo p.date {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 170, ../sass/_application.scss */
+.controller-application.action-view div.row.first input.scoreInput {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  max-width: 100%;
+  max-height: 100%;
+  border: #5d6461 1px solid;
+  background-color: transparent;
+  text-align: center;
+  font-size: 48px;
+  color: #5dca88;
+}
+/* line 181, ../sass/_application.scss */
+.controller-application.action-view div.row.first input.scoreInput:focus {
+  outline: none;
+  border-bottom: #5d6461 1px solid !important;
+}
+/* line 191, ../sass/_application.scss */
+.controller-application.action-view .footable .footable-row-detail .footable-row-detail-inner {
+  border: none;
+}
+/* line 195, ../sass/_application.scss */
+.controller-application.action-view .footable-row-detail-cell {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* line 212, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn) {
   color: #5dca88;
 }
-/* line 104, ../sass/_application.scss */
+/* line 214, ../sass/_application.scss */
 .controller-application.action-add-data div.application-create a:not(.btn):hover, .controller-application.action-add-data div.application-create a:not(.btn):focus, .controller-application.action-add-data div.application-create a:not(.btn):active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 110, ../sass/_application.scss */
+/* line 220, ../sass/_application.scss */
 .controller-application.action-add-data div.saveBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 115, ../sass/_application.scss */
+/* line 225, ../sass/_application.scss */
 .controller-application.action-add-data div.sendBtn {
   margin-top: 15px;
   text-align: right;
 }
-/* line 120, ../sass/_application.scss */
+/* line 230, ../sass/_application.scss */
 .controller-application.action-add-data .form-group {
   margin-bottom: 0px;
 }
-/* line 124, ../sass/_application.scss */
+/* line 234, ../sass/_application.scss */
 .controller-application.action-add-data #covercreateform-text {
   margin-top: 20px;
-  height: 40vh;
 }
-/* line 129, ../sass/_application.scss */
+/* line 238, ../sass/_application.scss */
 .controller-application.action-add-data span.attached {
   color: #5dca88;
 }
-/* line 133, ../sass/_application.scss */
+/* line 242, ../sass/_application.scss */
 .controller-application.action-add-data .footable-row-detail-value {
   padding: 10px 10px 10px 140px;
 }
 
 /* line 5, ../sass/_job.scss */
-body.controller-job.action-index div.favouriteAlert {
+.controller-job.action-index pre {
+  background-color: transparent;
+  color: #9d9d9d;
+  overflow: visible;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+/* line 13, ../sass/_job.scss */
+.controller-job.action-index div.favouriteAlert {
   display: none;
 }
-/* line 11, ../sass/_job.scss */
-body.controller-job.action-index #jobListTable .footable-visible span.glyphicon {
+/* line 19, ../sass/_job.scss */
+.controller-job.action-index #jobListTable .footable-visible span.glyphicon {
   padding: 20px 5px;
 }
 @media screen and (max-width: 768px) {
-  /* line 17, ../sass/_job.scss */
-  body.controller-job.action-index #jobListTable .footable-visible span.glyphicon {
+  /* line 25, ../sass/_job.scss */
+  .controller-job.action-index #jobListTable .footable-visible span.glyphicon {
     padding: 10px 5px;
   }
 }
-/* line 24, ../sass/_job.scss */
-body.controller-job.action-index div#searchDistance {
+/* line 32, ../sass/_job.scss */
+.controller-job.action-index div#searchDistance {
   float: right;
   margin-bottom: 10px;
 }
-/* line 29, ../sass/_job.scss */
-body.controller-job.action-index div.summary {
+/* line 37, ../sass/_job.scss */
+.controller-job.action-index div.summary {
   display: none;
 }
-/* line 33, ../sass/_job.scss */
-body.controller-job.action-index .footable .footable-row-detail .footable-row-detail-inner {
+/* line 41, ../sass/_job.scss */
+.controller-job.action-index .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 37, ../sass/_job.scss */
-body.controller-job.action-index .footable-row-detail-cell {
+/* line 45, ../sass/_job.scss */
+.controller-job.action-index .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 43, ../sass/_job.scss */
-body.controller-job.action-index a.btn {
+/* line 51, ../sass/_job.scss */
+.controller-job.action-index a.btn {
   color: #fff;
 }
-/* line 45, ../sass/_job.scss */
-body.controller-job.action-index a.btn:hover, body.controller-job.action-index a.btn:focus, body.controller-job.action-index a.btn:active {
+/* line 53, ../sass/_job.scss */
+.controller-job.action-index a.btn:hover, .controller-job.action-index a.btn:focus, .controller-job.action-index a.btn:active {
   color: #fff;
 }
-/* line 54, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter a {
+/* line 62, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a {
   color: #5dca88;
 }
-/* line 56, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter a:hover, body.controller-job.action-index div.jobsRecruiter a:focus, body.controller-job.action-index div.jobsRecruiter a:active {
+/* line 64, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a:hover, .controller-job.action-index div.jobsRecruiter a:focus, .controller-job.action-index div.jobsRecruiter a:active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 61, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter h1 {
+/* line 69, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter h1 {
   margin-top: 0px;
 }
-/* line 65, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.empty {
+/* line 73, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.empty {
   display: none;
 }
-/* line 70, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.jobCreate a.btn {
+/* line 78, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.jobCreate a.btn {
   float: right;
 }
-/* line 74, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter a.btn {
+/* line 82, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a.btn {
   color: #fff;
 }
-/* line 76, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter a.btn:hover, body.controller-job.action-index div.jobsRecruiter a.btn:focus, body.controller-job.action-index div.jobsRecruiter a.btn:active {
+/* line 84, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter a.btn:hover, .controller-job.action-index div.jobsRecruiter a.btn:focus, .controller-job.action-index div.jobsRecruiter a.btn:active {
   color: #fff;
 }
-/* line 83, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.list-view {
+/* line 91, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.list-view {
   margin-top: 10px;
 }
-/* line 87, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem {
+/* line 95, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem {
   margin-bottom: 20px;
 }
-/* line 90, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.totalApplicants .tile-left {
+/* line 98, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.totalApplicants .tile-left {
   font-weight: 400;
   font-size: 19.2px;
 }
-/* line 97, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.newApplicants .tile-left {
+/* line 105, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.newApplicants .tile-left {
   font-weight: 400;
   font-size: 20.8px;
 }
-/* line 103, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info {
+/* line 111, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info {
   margin-bottom: 5px;
   display: table;
   min-width: 240px;
 }
-/* line 107, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
+/* line 115, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info span.glyphicon {
   font-size: 14.4px;
 }
-/* line 110, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info div.tile-left {
+/* line 118, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info div.tile-left {
   display: table-cell;
   vertical-align: middle;
   min-width: 40px;
@@ -2571,8 +2754,8 @@ body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div
   background-color: #65bf85;
   color: #fff;
 }
-/* line 120, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info div.tile-right {
+/* line 128, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.info div.tile-right {
   display: table-cell;
   vertical-align: middle;
   width: 200px;
@@ -2581,140 +2764,164 @@ body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div
   color: #fff;
   padding: 0px 10px;
 }
-/* line 134, ../sass/_job.scss */
-body.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.jobSubItem span.info.profilePicture {
+/* line 142, ../sass/_job.scss */
+.controller-job.action-index div.jobsRecruiter div.list-view div.jobItem div.jobSubItem span.info.profilePicture {
   display: block;
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
 }
 
-/* line 149, ../sass/_job.scss */
-body.controller-job.action-view a {
+/* line 159, ../sass/_job.scss */
+.controller-job.action-view .border-left {
+  border-left: 2px solid #dddddd;
+}
+@media (max-width: 767px) {
+  /* line 163, ../sass/_job.scss */
+  .controller-job.action-view .header-hiremebutton {
+    margin-top: 70px;
+  }
+}
+/* line 169, ../sass/_job.scss */
+.controller-job.action-view pre {
+  background-color: transparent;
+  color: #9d9d9d;
+  overflow: visible;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+/* line 177, ../sass/_job.scss */
+.controller-job.action-view a {
   color: #5dca88;
 }
-/* line 151, ../sass/_job.scss */
-body.controller-job.action-view a:hover, body.controller-job.action-view a:focus, body.controller-job.action-view a:active {
+/* line 179, ../sass/_job.scss */
+.controller-job.action-view a:hover, .controller-job.action-view a:focus, .controller-job.action-view a:active {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 157, ../sass/_job.scss */
-body.controller-job.action-view div.jobCreate a.btn {
+/* line 185, ../sass/_job.scss */
+.controller-job.action-view div.jobCreate a.btn {
   float: right;
 }
-/* line 162, ../sass/_job.scss */
-body.controller-job.action-view a.btn {
+/* line 190, ../sass/_job.scss */
+.controller-job.action-view a.btn {
   color: #fff;
 }
-/* line 164, ../sass/_job.scss */
-body.controller-job.action-view a.btn:hover, body.controller-job.action-view a.btn:focus, body.controller-job.action-view a.btn:active {
+/* line 192, ../sass/_job.scss */
+.controller-job.action-view a.btn:hover, .controller-job.action-view a.btn:focus, .controller-job.action-view a.btn:active {
   color: #fff;
 }
-/* line 171, ../sass/_job.scss */
-body.controller-job.action-view #jobViewTable .footable-row-detail-row span.glyphicon {
+/* line 199, ../sass/_job.scss */
+.controller-job.action-view #jobViewTable .footable-row-detail-row span.glyphicon {
   padding: 20px 5px;
 }
-/* line 179, ../sass/_job.scss */
-body.controller-job.action-view div.apply {
+/* line 207, ../sass/_job.scss */
+.controller-job.action-view div.apply {
   text-align: right;
   margin-top: 20px;
 }
-/* line 184, ../sass/_job.scss */
-body.controller-job.action-view strong {
+/* line 212, ../sass/_job.scss */
+.controller-job.action-view strong {
   font-weight: 400;
 }
-/* line 188, ../sass/_job.scss */
-body.controller-job.action-view table.detail-view {
+/* line 216, ../sass/_job.scss */
+.controller-job.action-view table.detail-view {
   width: 100%;
 }
-/* line 192, ../sass/_job.scss */
-body.controller-job.action-view table.detail-view th {
+/* line 220, ../sass/_job.scss */
+.controller-job.action-view table.detail-view th {
   color: #d0d0d0;
   padding: 3px 10px 3px 0px;
   vertical-align: top;
   width: 25%;
 }
-/* line 199, ../sass/_job.scss */
-body.controller-job.action-view table.detail-view td {
+/* line 227, ../sass/_job.scss */
+.controller-job.action-view table.detail-view td {
   padding: 3px 0px;
   vertical-align: top;
 }
-/* line 208, ../sass/_job.scss */
-body.controller-job.action-view div.btnInstructions h3 {
+@media (max-width: 767px) {
+  /* line 235, ../sass/_job.scss */
+  .controller-job.action-view div.btnInstructions {
+    margin-top: 30px;
+  }
+}
+/* line 239, ../sass/_job.scss */
+.controller-job.action-view div.btnInstructions h3 {
   margin-top: 0px;
 }
-/* line 213, ../sass/_job.scss */
-body.controller-job.action-view div.summary {
+/* line 244, ../sass/_job.scss */
+.controller-job.action-view div.summary {
   display: none;
 }
-/* line 217, ../sass/_job.scss */
-body.controller-job.action-view div.row.hireme a.btn {
+/* line 248, ../sass/_job.scss */
+.controller-job.action-view div.row.hireme a.btn {
   float: right;
 }
-/* line 221, ../sass/_job.scss */
-body.controller-job.action-view .footable .footable-row-detail .footable-row-detail-inner {
+/* line 252, ../sass/_job.scss */
+.controller-job.action-view .footable .footable-row-detail .footable-row-detail-inner {
   border: none;
 }
-/* line 225, ../sass/_job.scss */
-body.controller-job.action-view .footable-row-detail-cell {
+/* line 256, ../sass/_job.scss */
+.controller-job.action-view .footable-row-detail-cell {
   border-bottom: 1px solid #dddddd;
 }
-/* line 231, ../sass/_job.scss */
-body.controller-job.action-view #jobListTable .footable-row-detail-row .glyphicon {
+/* line 262, ../sass/_job.scss */
+.controller-job.action-view #jobListTable .footable-row-detail-row .glyphicon {
   padding: 15px;
 }
-/* line 237, ../sass/_job.scss */
-body.controller-job.action-view div.favouriteAlert {
+/* line 268, ../sass/_job.scss */
+.controller-job.action-view div.favouriteAlert {
   display: none;
 }
 
-/* line 244, ../sass/_job.scss */
+/* line 275, ../sass/_job.scss */
 body.controller-job.action-create h1, body.controller-job.action-update-job h1 {
   padding-left: 15px;
 }
-/* line 248, ../sass/_job.scss */
+/* line 279, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob, body.controller-job.action-update-job #form-createJob {
   margin-top: 50px;
 }
-/* line 250, ../sass/_job.scss */
+/* line 281, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob .col-2nd, body.controller-job.action-update-job #form-createJob .col-2nd {
   margin-top: 0px;
 }
-/* line 254, ../sass/_job.scss */
+/* line 285, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob > div > div, body.controller-job.action-update-job #form-createJob > div > div {
   margin-bottom: 50px;
 }
-/* line 257, ../sass/_job.scss */
+/* line 288, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob div.form-group.field-submit, body.controller-job.action-update-job #form-createJob div.form-group.field-submit {
   margin-bottom: 100px;
 }
-/* line 261, ../sass/_job.scss */
+/* line 292, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob div.field-jobcreateform-sector, body.controller-job.action-update-job #form-createJob div.field-jobcreateform-sector {
   max-width: 520px;
 }
-/* line 265, ../sass/_job.scss */
+/* line 296, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob div.input-daterange, body.controller-job.action-update-job #form-createJob div.input-daterange {
   margin-top: 52px;
   margin-bottom: 0px;
 }
 @media (min-width: 768px) {
-  /* line 265, ../sass/_job.scss */
+  /* line 296, ../sass/_job.scss */
   body.controller-job.action-create #form-createJob div.input-daterange, body.controller-job.action-update-job #form-createJob div.input-daterange {
     margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) {
-  /* line 273, ../sass/_job.scss */
+  /* line 304, ../sass/_job.scss */
   body.controller-job.action-create #form-createJob div.kv-container-from, body.controller-job.action-create #form-createJob div.kv-container-to, body.controller-job.action-update-job #form-createJob div.kv-container-from, body.controller-job.action-update-job #form-createJob div.kv-container-to {
     width: 45%;
   }
 }
 @media (min-width: 768px) {
-  /* line 279, ../sass/_job.scss */
+  /* line 310, ../sass/_job.scss */
   body.controller-job.action-create #form-createJob div.kv-container-from, body.controller-job.action-update-job #form-createJob div.kv-container-from {
     margin-right: 10%;
   }
 }
-/* line 285, ../sass/_job.scss */
+/* line 316, ../sass/_job.scss */
 body.controller-job.action-create #form-createJob div.locationDiv, body.controller-job.action-update-job #form-createJob div.locationDiv {
   max-width: 520px;
 }
@@ -2801,4 +3008,485 @@ body.controller-job.action-create #form-createJob div.locationDiv, body.controll
 /* line 62, ../sass/_buttonPopup.scss */
 .controller-job.action-button-popup div.saveFav {
   margin-top: 10px;
+}
+
+/* line 4, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles {
+  margin-top: 40px;
+}
+/* line 7, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile {
+  height: 130px;
+}
+@media (max-width: 511px) {
+  /* line 7, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile {
+    width: 100%;
+  }
+}
+/* line 12, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
+  height: 130px;
+  width: 50%;
+  float: left;
+  clear: right;
+}
+@media (min-width: 512px) and (max-width: 767px) {
+  /* line 12, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile {
+    width: 100%;
+  }
+}
+/* line 21, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value {
+  text-align: center;
+}
+/* line 23, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics {
+  color: #fff;
+  font-size: 17px;
+}
+/* line 26, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value a:hover, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value .a-analytics:hover {
+  text-decoration: none;
+}
+/* line 31, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
+  padding: 25px 0px 2px 0px;
+}
+@media (max-width: 767px) {
+  /* line 31, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number {
+    padding-top: 35px;
+  }
+}
+/* line 36, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number a, body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-number .a-analytics {
+  font-size: 30px;
+}
+/* line 40, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile div.tile-value.tile-string {
+  padding: 0 5%;
+  line-height: 18px;
+}
+/* line 49, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-green div.subtile-left {
+  background-color: #5dca88;
+}
+/* line 53, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-green div.subtile-right {
+  background-color: rgba(93, 202, 136, 0.5);
+}
+/* line 60, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-black div.subtile-left {
+  background-color: #2d312f;
+}
+/* line 64, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.tile-black div.subtile-right {
+  background-color: #5d6461;
+}
+/* line 70, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
+  background-image: url("/images/dashboard-bewerbungen.png");
+  background-size: 55% auto;
+}
+@media (max-width: 767px) {
+  /* line 70, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile-right {
+    background-size: 110px auto;
+  }
+}
+/* line 78, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-1 div.subtile:hover {
+  cursor: pointer;
+}
+@media (max-width: 511px) {
+  /* line 84, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-2 {
+    margin-top: 20px;
+  }
+}
+/* line 88, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
+  background-image: url("/images/analytics-einstellungen.png");
+  background-size: 35% auto;
+}
+@media (max-width: 991px) {
+  /* line 88, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-2 div.subtile-right {
+    background-size: 37% auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 99, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 {
+    margin-top: 20px;
+  }
+}
+/* line 103, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+  background-image: url("/images/dashboard-stellenanzeigen.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 103, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 103, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+/* line 114, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile-3 div.subtile:hover {
+  cursor: pointer;
+}
+/* line 121, ../sass/_analytics.scss */
+body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 512px) and (max-width: 767px) {
+  /* line 121, ../sass/_analytics.scss */
+  body.controller-analytics #analytics-tiles div.analytics-tile div.subtile-right {
+    display: none;
+  }
+}
+/* line 133, ../sass/_analytics.scss */
+body.controller-analytics #analyticsCharts {
+  margin-bottom: 50px;
+}
+/* line 137, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row, body.controller-analytics #charts-second-row, body.controller-analytics #charts-third-row, body.controller-analytics #charts-fourth-row {
+  margin-top: 50px;
+}
+/* line 141, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row > .isHidden .background-wrapper, body.controller-analytics #charts-second-row > .isHidden .background-wrapper, body.controller-analytics #charts-third-row > .isHidden .background-wrapper, body.controller-analytics #charts-fourth-row > .isHidden .background-wrapper {
+  background: none;
+}
+/* line 143, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row > .isHidden .background-wrapper #isNull, body.controller-analytics #charts-second-row > .isHidden .background-wrapper #isNull, body.controller-analytics #charts-third-row > .isHidden .background-wrapper #isNull, body.controller-analytics #charts-fourth-row > .isHidden .background-wrapper #isNull {
+  text-align: center;
+  margin-top: 20px;
+  color: #9d9d9d;
+  font-size: 16px;
+}
+/* line 149, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row > .isHidden .background-wrapper canvas, body.controller-analytics #charts-second-row > .isHidden .background-wrapper canvas, body.controller-analytics #charts-third-row > .isHidden .background-wrapper canvas, body.controller-analytics #charts-fourth-row > .isHidden .background-wrapper canvas {
+  display: none;
+}
+/* line 155, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper, body.controller-analytics #charts-second-row .background-wrapper, body.controller-analytics #charts-third-row .background-wrapper, body.controller-analytics #charts-fourth-row .background-wrapper {
+  background-color: #edf0f0;
+}
+/* line 158, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper .header, body.controller-analytics #charts-second-row .background-wrapper .header, body.controller-analytics #charts-third-row .background-wrapper .header, body.controller-analytics #charts-fourth-row .background-wrapper .header {
+  padding: 15px 20px;
+  color: #fff;
+}
+/* line 161, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper .header span, body.controller-analytics #charts-second-row .background-wrapper .header span, body.controller-analytics #charts-third-row .background-wrapper .header span, body.controller-analytics #charts-fourth-row .background-wrapper .header span {
+  cursor: help;
+}
+/* line 166, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .background-wrapper canvas, body.controller-analytics #charts-second-row .background-wrapper canvas, body.controller-analytics #charts-third-row .background-wrapper canvas, body.controller-analytics #charts-fourth-row .background-wrapper canvas {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+/* line 174, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .first-col .background-wrapper .header, body.controller-analytics #charts-first-row .third-col .background-wrapper .header, body.controller-analytics #charts-second-row .first-col .background-wrapper .header, body.controller-analytics #charts-second-row .third-col .background-wrapper .header, body.controller-analytics #charts-third-row .first-col .background-wrapper .header, body.controller-analytics #charts-third-row .third-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .first-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .third-col .background-wrapper .header {
+  background-color: #5dca88;
+}
+@media (max-width: 767px) {
+  /* line 182, ../sass/_analytics.scss */
+  body.controller-analytics #charts-first-row .second-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .second-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .second-col, body.controller-analytics #charts-third-row .fourth-col, body.controller-analytics #charts-fourth-row .second-col, body.controller-analytics #charts-fourth-row .fourth-col {
+    margin-top: 50px;
+  }
+}
+/* line 187, ../sass/_analytics.scss */
+body.controller-analytics #charts-first-row .second-col .background-wrapper .header, body.controller-analytics #charts-first-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-second-row .second-col .background-wrapper .header, body.controller-analytics #charts-second-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-third-row .second-col .background-wrapper .header, body.controller-analytics #charts-third-row .fourth-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .second-col .background-wrapper .header, body.controller-analytics #charts-fourth-row .fourth-col .background-wrapper .header {
+  background-color: #2d312f;
+}
+@media (max-width: 991px) {
+  /* line 195, ../sass/_analytics.scss */
+  body.controller-analytics #charts-first-row .third-col, body.controller-analytics #charts-first-row .fourth-col, body.controller-analytics #charts-second-row .third-col, body.controller-analytics #charts-second-row .fourth-col, body.controller-analytics #charts-third-row .third-col, body.controller-analytics #charts-third-row .fourth-col, body.controller-analytics #charts-fourth-row .third-col, body.controller-analytics #charts-fourth-row .fourth-col {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 991px) {
+  /* line 203, ../sass/_analytics.scss */
+  body.controller-analytics #charts-fourth-row .third-col, body.controller-analytics #charts-fourth-row .fourth-col {
+    margin-top: 50px;
+  }
+}
+/* line 210, ../sass/_analytics.scss */
+body.controller-analytics #charts-third-row {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+/* line 216, ../sass/_analytics.scss */
+body.controller-analytics h2.detailHeader {
+  margin-bottom: 30px;
+}
+/* line 221, ../sass/_analytics.scss */
+body.controller-analytics #w0 div.summary {
+  display: none;
+}
+/* line 228, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.first-col, body.controller-analytics #analyticsTable tr th.first-col {
+  width: 35%;
+}
+/* line 231, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.second-col, body.controller-analytics #analyticsTable tr th.second-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 235, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.third-col, body.controller-analytics #analyticsTable tr th.third-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 239, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.fourth-col, body.controller-analytics #analyticsTable tr th.fourth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 243, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.fifth-col, body.controller-analytics #analyticsTable tr th.fifth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 247, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.sixth-col, body.controller-analytics #analyticsTable tr th.sixth-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 251, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.seventh-col, body.controller-analytics #analyticsTable tr th.seventh-col {
+  width: 10%;
+  text-align: right;
+}
+/* line 255, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.eight-col, body.controller-analytics #analyticsTable tr th.eight-col {
+  width: 5%;
+  text-align: right;
+}
+/* line 259, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
+  width: 5%;
+  text-align: right;
+}
+@media (min-width: 992px) {
+  /* line 259, ../sass/_analytics.scss */
+  body.controller-analytics #analyticsTable tr td.ninth-col, body.controller-analytics #analyticsTable tr th.ninth-col {
+    width: 0%;
+    text-align: right;
+  }
+}
+/* line 268, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr .footable-row-detail-cell {
+  padding-bottom: 0px;
+}
+/* line 270, ../sass/_analytics.scss */
+body.controller-analytics #analyticsTable tr .footable-row-detail-cell .footable-row-detail-row {
+  margin-top: 8px;
+}
+
+/* line 282, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-1 div.subtile-right {
+  background-image: url("/images/analytics/analytics-views.png") !important;
+  background-size: 90px auto;
+}
+@media (max-width: 511px) {
+  /* line 288, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-2 {
+    margin-top: 20px;
+  }
+}
+/* line 292, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-2 div.subtile-right {
+  background-image: url("/images/analytics/analytics-click.png") !important;
+  background-size: 50px !important;
+}
+@media (max-width: 511px) {
+  /* line 298, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 {
+    margin-top: 20px;
+  }
+}
+/* line 302, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+  background-image: url("/images/dashboard-neue-bewerbungen.png") !important;
+  background-size: 70px auto !important;
+}
+@media (max-width: 991px) {
+  /* line 302, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+    background-size: 25% auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 302, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-3 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 314, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 {
+    margin-top: -20px;
+  }
+}
+/* line 318, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+  background-image: url("/images/analytics/analytics-interrest.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 318, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+    background-size: 70px auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 318, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-4 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 330, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 {
+    margin-top: 20px;
+  }
+}
+/* line 334, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+  background-image: url("/images/analytics/analytics-application.png");
+  background-size: auto 70%;
+}
+@media (max-width: 991px) {
+  /* line 334, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 334, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-5 div.subtile-right {
+    background-size: 50px auto;
+  }
+}
+@media (max-width: 511px) {
+  /* line 346, ../sass/_analytics.scss */
+  body.controller-analytics.action-detail div.analytics-tile-6 {
+    margin-top: 20px;
+  }
+}
+/* line 350, ../sass/_analytics.scss */
+body.controller-analytics.action-detail div.analytics-tile-6 div.subtile-right {
+  background-image: url("/images/analytics/analytics-interview.png");
+  background-size: 80px auto;
+}
+
+/* line 5, ../sass/_company.scss */
+body.controller-company .container .company-view > div {
+  margin-top: 20px;
+}
+/* line 9, ../sass/_company.scss */
+body.controller-company .container .company-view h2.table-header {
+  margin-top: 60px;
+}
+/* line 16, ../sass/_company.scss */
+body.controller-company #w0 .summary {
+  display: none;
+}
+/* line 26, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable thead tr th.first-col {
+  width: 50%;
+}
+/* line 29, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable thead tr th.second-col {
+  text-align: right;
+  width: 15%;
+}
+/* line 33, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable thead tr th.third-col {
+  text-align: right;
+  width: 15%;
+}
+/* line 37, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable thead tr th.fourth-col {
+  text-align: right;
+  width: 30%;
+}
+/* line 41, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable thead tr th.fifth-col {
+  width: 0%;
+}
+@media (max-width: 767px) {
+  /* line 41, ../sass/_company.scss */
+  body.controller-company #w0 table#companyTable thead tr th.fifth-col {
+    width: 5%;
+  }
+}
+/* line 55, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable tbody tr td.second-col {
+  text-align: right;
+}
+/* line 58, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable tbody tr td.third-col {
+  text-align: right;
+}
+/* line 61, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable tbody tr td.fourth-col {
+  text-align: right;
+}
+/* line 64, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable tbody tr td.fifth-col {
+  text-align: right;
+}
+@media (max-width: 551px) {
+  /* line 70, ../sass/_company.scss */
+  body.controller-company #w0 table#companyTable .footable-row-detail-inner {
+    height: 82px;
+  }
+}
+/* line 74, ../sass/_company.scss */
+body.controller-company #w0 table#companyTable .footable-row-detail-inner .footable-row-detail-row {
+  margin-bottom: 10px;
+}
+
+/* line 97, ../sass/_company.scss */
+body.controller-company.action-index table#companyOverviewTable thead tr th.fifth-col {
+  width: 5%;
+}
+/* line 100, ../sass/_company.scss */
+body.controller-company.action-index table#companyOverviewTable thead tr th.sixth-col {
+  width: 0%;
+}
+/* line 115, ../sass/_company.scss */
+body.controller-company.action-index table#companyOverviewTable tbody tr td.fourth-col {
+  text-align: right;
+}
+/* line 118, ../sass/_company.scss */
+body.controller-company.action-index table#companyOverviewTable tbody tr td.fifth-col {
+  text-align: right;
+}
+/* line 121, ../sass/_company.scss */
+body.controller-company.action-index table#companyOverviewTable tbody tr td.sixth-col {
+  text-align: right;
+}
+@media (max-width: 551px) {
+  /* line 126, ../sass/_company.scss */
+  body.controller-company.action-index table#companyOverviewTable .footable-row-detail-inner {
+    height: 105px;
+  }
+}
+/* line 130, ../sass/_company.scss */
+body.controller-company.action-index table#companyOverviewTable .footable-row-detail-inner .footable-row-detail-row {
+  margin-bottom: 10px;
 }

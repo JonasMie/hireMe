@@ -123,9 +123,7 @@ $this->title = 'Stellenanzeige';
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <pre>
-                        <?= ($model->description) ?>
-                        </pre>
+                        <?= nl2br($model->description) ?>
                     </div>
                     <div class="col-sm-12 apply">
                         <? if (!(Yii::$app->user->identity->isRecruiter())) {
@@ -155,7 +153,7 @@ $this->title = 'Stellenanzeige';
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 border-left">
                         <p>
 
                         <h3 class="highlight"><?= Html::a($model->company->name, ['/company/view', 'id' => $model->company_id]) ?></h3></p>
@@ -223,7 +221,7 @@ $this->title = 'Stellenanzeige';
 
         <? if (Yii::$app->user->identity->isRecruiter()): ?>
             <div class="row">
-                <div class="col-sm-12"><h2>hireMe-Button</h2></div>
+                <div class="col-sm-12"><h2 class="header-hiremebutton">hireMe-Button</h2></div>
                 <div class="col-sm-7">
                     <div class="row hireme">
                         <div class="col-sm-8"><p>Mit dem hireMe-Button bieten Sie Bewerbern auf Ihrer Website die
@@ -252,7 +250,13 @@ $this->title = 'Stellenanzeige';
                             ],
                             [
                                 'class'          => 'yii\grid\ActionColumn',
-                                'template'       => '{update}&nbsp;&nbsp;&nbsp;{delete}',
+                                'buttons'        =>
+                                    [
+//                                        'update' => function ($url, $model, $key) {
+//                                            return Html::a('<span class="glyphicon glyphicon-pencil"></span>', 'job/view?id=' . $model["id"], ['title' => Yii::t('app', 'Ansehen')]);
+//                                        },
+                                    ],
+                                'template'       => /*'{update}&nbsp;&nbsp;&nbsp;'*/'{delete}',
                                 'headerOptions'  => ['class' => 'third-col', 'data-hide' => 'mediaXXsmall,mediaXsmall,phone'],
                                 'contentOptions' => ['class' => 'third-col'],
                             ],
@@ -264,7 +268,7 @@ $this->title = 'Stellenanzeige';
                         ],
                     ]); ?>
                 </div>
-                <div class="col-sm-5 btnInstructions">
+                <div class="col-sm-5 btnInstructions border-left">
                     <h3>hireMe-Button einbinden</h3>
 
                     <p>Um den hireMe-Button auf Ihrer Website einzubinden,fügen Sie folgenden Code ein:</p>
