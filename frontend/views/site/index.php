@@ -3,7 +3,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 $this->title = 'hireMe';
 ?>
-<div class="row">
+<div class="row jumbo">
 	<div class="full first">
 		<div class="jumbotron">
 			<h1 class="titel-h1">hireMe</h1>
@@ -15,7 +15,7 @@ $this->title = 'hireMe';
 	</div>
 </div>
 
-<div class="row">
+<div class="row green">
 	<div class="full second">
 		<div class="col-sm-5 col-sm-offset-1 slide-left">
 			<h2>Bewerbung mit nur einem Klick</h2>
@@ -30,10 +30,10 @@ $this->title = 'hireMe';
 
 </div>
 
-<div class="row">
+<div class="row black">
 	<div class="full second">
 		<div class="col-sm-5 col-sm-offset-1 slide-left">
-			<?=Html::img("../../images/iMac-Mockup-Recruiter-Dashboard.png", ['class'=>'img-responsive centered']);?>
+			<?=Html::img("../../images/landingpage/zentrale-datenablage.png", ['class'=>'img-responsive centered']);?>
 		</div>
 	
 		<div class="col-sm-5 slide-right">
@@ -44,7 +44,7 @@ $this->title = 'hireMe';
 
 </div>
 
-<div class="row">
+<div class="row green">
 	<div class="full second">
 		<div class="col-sm-5 col-sm-offset-1 slide-left">
 			<h2>hireMe-Button</h2>
@@ -58,10 +58,10 @@ $this->title = 'hireMe';
 
 </div>
 
-<div class="row">
+<div class="row black">
 	<div class="full second">
 		<div class="col-sm-5 col-sm-offset-1 slide-left">
-			<?=Html::img("../../images/iMac-Mockup-Recruiter-Dashboard.png", ['class'=>'img-responsive centered']);?>
+			<?=Html::img("../../images/landingpage/analytics.png", ['class'=>'img-responsive centered']);?>
 		</div>
 	
 		<div class="col-sm-5 slide-right">
@@ -72,7 +72,7 @@ $this->title = 'hireMe';
 
 </div>
 
-<div class="row">
+<div class="row green">
 	<div class="full second">
 		<div class="col-sm-5 col-sm-offset-1 slide-left">
 			<h2>Jetzt loslegen!</h2>

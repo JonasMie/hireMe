@@ -1690,6 +1690,12 @@ body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile
   background-image: url("/images/dashboard-neue-bewerbungen.png");
   background-size: 55% auto;
 }
+@media (min-width: 1200px) {
+  /* line 71, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
+    background-size: 45% auto;
+  }
+}
 @media (max-width: 991px) {
   /* line 71, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile-right {
@@ -1703,198 +1709,204 @@ body.controller-dashboard div.container div.row div.dashboard-tile-1 div.subtile
   }
 }
 @media (max-width: 511px) {
-  /* line 82, ../sass/_dashboard.scss */
+  /* line 85, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-2 {
     margin-top: 20px;
   }
 }
-/* line 86, ../sass/_dashboard.scss */
+/* line 89, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
   background-image: url("/images/dashboard-nachrichten.png");
   background-size: 50% auto;
 }
 @media (max-width: 991px) {
-  /* line 86, ../sass/_dashboard.scss */
+  /* line 89, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
     background-size: 45% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 86, ../sass/_dashboard.scss */
+  /* line 89, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-2 div.subtile-right {
     background-size: 90px auto;
   }
 }
-/* line 98, ../sass/_dashboard.scss */
+/* line 101, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
   background-image: url("/images/dashboard-stellenanzeigen.png");
   background-size: 35% auto;
 }
+@media (min-width: 1200px) {
+  /* line 101, ../sass/_dashboard.scss */
+  body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
+    background-size: 20% auto;
+  }
+}
 @media (max-width: 991px) {
-  /* line 98, ../sass/_dashboard.scss */
+  /* line 101, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
     background-size: 25% auto;
   }
 }
 @media (max-width: 767px) {
-  /* line 98, ../sass/_dashboard.scss */
+  /* line 101, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-3 div.subtile-right {
     background-size: 50px auto;
   }
 }
-/* line 110, ../sass/_dashboard.scss */
+/* line 116, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
   background-image: url("/images/dashboard-bewerbungen.png");
   background-size: 55% auto;
 }
 @media (max-width: 767px) {
-  /* line 110, ../sass/_dashboard.scss */
+  /* line 116, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-4 div.subtile-right {
     background-size: 110px auto;
   }
 }
-/* line 120, ../sass/_dashboard.scss */
+/* line 126, ../sass/_dashboard.scss */
 body.controller-dashboard div.container div.row div.dashboard-tile div.subtile-right {
   background-position: center;
   background-repeat: no-repeat;
 }
 @media (max-width: 991px) {
-  /* line 126, ../sass/_dashboard.scss */
+  /* line 132, ../sass/_dashboard.scss */
   body.controller-dashboard div.container div.row div.dashboard-tile-3, body.controller-dashboard div.container div.row div.dashboard-tile-4 {
     margin-top: 20px;
   }
 }
-/* line 141, ../sass/_dashboard.scss */
+/* line 147, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(4), body.controller-dashboard #NewestApplicationsTable thead tr th:nth-of-type(5) {
   text-align: right;
 }
-/* line 151, ../sass/_dashboard.scss */
+/* line 157, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td img {
   width: 50px;
   height: auto;
   border-radius: 25px;
   cursor: pointer;
 }
-/* line 157, ../sass/_dashboard.scss */
+/* line 163, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open {
   cursor: pointer;
 }
-/* line 159, ../sass/_dashboard.scss */
+/* line 165, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td span.glyphicon-eye-open:hover {
   color: #5dca88;
 }
-/* line 164, ../sass/_dashboard.scss */
+/* line 170, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Picture"] {
   width: 10%;
 }
-/* line 167, ../sass/_dashboard.scss */
+/* line 173, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Name"] {
   width: 30%;
 }
-/* line 170, ../sass/_dashboard.scss */
+/* line 176, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Ad"] {
   width: 34%;
 }
-/* line 173, ../sass/_dashboard.scss */
+/* line 179, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="Date"] {
   width: 16%;
   text-align: right;
 }
-/* line 177, ../sass/_dashboard.scss */
+/* line 183, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="View"] {
   width: 10%;
   text-align: right;
 }
-/* line 181, ../sass/_dashboard.scss */
+/* line 187, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr td[data-title="data-toggle"] {
   text-align: right;
   width: 5%;
 }
-/* line 187, ../sass/_dashboard.scss */
+/* line 193, ../sass/_dashboard.scss */
 body.controller-dashboard #NewestApplicationsTable tbody tr.footable-row-detail div.footable-row-detail-inner {
   padding-bottom: 25px;
   height: auto;
 }
-/* line 198, ../sass/_dashboard.scss */
+/* line 204, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages thead th:nth-of-type(1), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(1) {
   width: 5%;
 }
-/* line 201, ../sass/_dashboard.scss */
+/* line 207, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages thead th:nth-of-type(2), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(2) {
   width: 40%;
 }
-/* line 204, ../sass/_dashboard.scss */
+/* line 210, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages thead th:nth-of-type(3), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(3) {
   width: 30%;
 }
-/* line 207, ../sass/_dashboard.scss */
+/* line 213, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages thead th:nth-of-type(4), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(4) {
   width: 20%;
 }
-/* line 210, ../sass/_dashboard.scss */
+/* line 216, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages thead th:nth-of-type(5), body.controller-dashboard #DashboardFavorites thead th:nth-of-type(5) {
   width: 20%;
 }
 @media (max-width: 767px) {
-  /* line 215, ../sass/_dashboard.scss */
+  /* line 221, ../sass/_dashboard.scss */
   body.controller-dashboard #DashboardMessages thead th.footable-last-column, body.controller-dashboard #DashboardFavorites thead th.footable-last-column {
     width: 5%;
   }
 }
-/* line 222, ../sass/_dashboard.scss */
+/* line 228, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody td.footable-last-column, body.controller-dashboard #DashboardFavorites tbody td.footable-last-column {
   text-align: right;
 }
-/* line 226, ../sass/_dashboard.scss */
+/* line 232, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody td div.empty, body.controller-dashboard #DashboardFavorites tbody td div.empty {
   text-align: left;
 }
-/* line 234, ../sass/_dashboard.scss */
+/* line 240, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardMessagesHeader {
   color: #5dca88;
 }
-/* line 236, ../sass/_dashboard.scss */
+/* line 242, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardMessagesHeader:hover {
   color: rgba(93, 202, 136, 0.5);
 }
-/* line 241, ../sass/_dashboard.scss */
+/* line 247, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardFavoritesHeader {
   margin-top: 50px;
   color: #5dca88;
 }
-/* line 244, ../sass/_dashboard.scss */
+/* line 250, ../sass/_dashboard.scss */
 body.controller-dashboard .userDashboardFavoritesHeader:hover {
   color: rgba(93, 202, 136, 0.5);
 }
 @media (max-width: 767px) {
-  /* line 253, ../sass/_dashboard.scss */
+  /* line 259, ../sass/_dashboard.scss */
   body.controller-dashboard #DashboardMessages thead th:nth-of-type(3) {
     width: 50%;
   }
 }
-/* line 261, ../sass/_dashboard.scss */
+/* line 267, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody tr td:nth-of-type(3) img {
   float: left;
 }
-/* line 264, ../sass/_dashboard.scss */
+/* line 270, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody tr td:nth-of-type(3) div.message-sender {
   margin-left: 60px;
   margin-top: 14px;
 }
-/* line 271, ../sass/_dashboard.scss */
+/* line 277, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell {
   height: auto;
 }
-/* line 274, ../sass/_dashboard.scss */
+/* line 280, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .footable-row-detail-row:nth-of-type(1) {
   height: 60px;
 }
-/* line 276, ../sass/_dashboard.scss */
+/* line 282, ../sass/_dashboard.scss */
 body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .footable-row-detail-row:nth-of-type(1) .message-sender {
   display: inline-block;
 }
 @media (max-width: 511px) {
-  /* line 276, ../sass/_dashboard.scss */
+  /* line 282, ../sass/_dashboard.scss */
   body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .footable-row-detail-row:nth-of-type(1) .message-sender {
     margin-left: 10px;
     margin-top: 18px;
@@ -1906,64 +1918,61 @@ body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .fo
   /* line 3, ../sass/_home.scss */
   .controller-site.action-index #header {
     background: rgba(45, 49, 47, 0.8);
-    border: 1px solid #414141;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
   }
 }
-/* line 13, ../sass/_home.scss */
+/* line 9, ../sass/_home.scss */
 .controller-site.action-index .navbar-inverse {
   background: none;
 }
-/* line 17, ../sass/_home.scss */
+/* line 13, ../sass/_home.scss */
 .controller-site.action-index .wrap > .container {
   padding: 0px;
 }
-/* line 21, ../sass/_home.scss */
+/* line 17, ../sass/_home.scss */
 .controller-site.action-index .row {
   margin-left: 0px;
   margin-right: 0px;
 }
-/* line 26, ../sass/_home.scss */
+/* line 22, ../sass/_home.scss */
 .controller-site.action-index .full.first {
-  background: url("../../images/intro-background.jpg") center top no-repeat;
+  background: url("../../images/landingpage/intro-background.jpg") center top no-repeat;
   background-size: cover;
   color: #fff;
   width: 100%;
   height: 100vh;
   padding-top: 70px;
-  margin-bottom: 10vh;
 }
 @media (max-width: 511px) {
-  /* line 26, ../sass/_home.scss */
+  /* line 22, ../sass/_home.scss */
   .controller-site.action-index .full.first {
-    background: url("../../images/intro-background-511.jpg") center top no-repeat;
+    background: url("../../images/landingpage/intro-background-511.jpg") center top no-repeat;
+    background-size: cover;
   }
 }
 @media (min-width: 1200px) {
-  /* line 26, ../sass/_home.scss */
+  /* line 22, ../sass/_home.scss */
   .controller-site.action-index .full.first {
-    background: url("../../images/intro-background-1200.jpg") center top no-repeat;
+    background: url("../../images/landingpage/intro-background-1200.jpg") center top no-repeat;
+    background-size: cover;
   }
 }
-/* line 42, ../sass/_home.scss */
+/* line 39, ../sass/_home.scss */
 .controller-site.action-index img.centered {
   margin: 0 auto;
 }
-/* line 46, ../sass/_home.scss */
+/* line 43, ../sass/_home.scss */
 .controller-site.action-index h1.titel-h1 {
   font-size: 50px;
   margin: 0px;
   color: #5dca88;
 }
 @media (max-width: 511px) {
-  /* line 46, ../sass/_home.scss */
+  /* line 43, ../sass/_home.scss */
   .controller-site.action-index h1.titel-h1 {
     font-size: 40px;
   }
 }
-/* line 55, ../sass/_home.scss */
+/* line 52, ../sass/_home.scss */
 .controller-site.action-index h2.titel-h2 {
   font-size: 22px;
   margin: 0;
@@ -1971,25 +1980,25 @@ body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .fo
   margin-bottom: 20px;
 }
 @media (max-width: 511px) {
-  /* line 55, ../sass/_home.scss */
+  /* line 52, ../sass/_home.scss */
   .controller-site.action-index h2.titel-h2 {
     font-size: 20px;
     color: #fff;
   }
 }
-/* line 66, ../sass/_home.scss */
+/* line 63, ../sass/_home.scss */
 .controller-site.action-index p.titel-p {
   font-size: 18px;
   color: #fff;
   line-height: normal;
 }
 @media (max-width: 511px) {
-  /* line 66, ../sass/_home.scss */
+  /* line 63, ../sass/_home.scss */
   .controller-site.action-index p.titel-p {
     font-size: 15px;
   }
 }
-/* line 75, ../sass/_home.scss */
+/* line 72, ../sass/_home.scss */
 .controller-site.action-index .jumbotron {
   text-align: left;
   padding-left: 5%;
@@ -1997,11 +2006,57 @@ body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .fo
   margin-top: 18%;
 }
 @media (max-width: 511px) {
-  /* line 75, ../sass/_home.scss */
+  /* line 72, ../sass/_home.scss */
   .controller-site.action-index .jumbotron {
     margin-top: -20px;
     padding-right: 6%;
   }
+}
+/* line 83, ../sass/_home.scss */
+.controller-site.action-index .green, .controller-site.action-index .black {
+  height: 100vh;
+}
+/* line 87, ../sass/_home.scss */
+.controller-site.action-index .row.green {
+  background-color: #5dca88;
+}
+/* line 89, ../sass/_home.scss */
+.controller-site.action-index .row.green .slide-left {
+  margin-top: 25vh;
+  line-height: normal;
+}
+/* line 92, ../sass/_home.scss */
+.controller-site.action-index .row.green .slide-left h2 {
+  color: #2d312f;
+}
+/* line 95, ../sass/_home.scss */
+.controller-site.action-index .row.green .slide-left p {
+  color: #fff;
+}
+/* line 99, ../sass/_home.scss */
+.controller-site.action-index .row.green .slide-right {
+  margin-top: 25vh;
+}
+/* line 106, ../sass/_home.scss */
+.controller-site.action-index .row.black {
+  background-color: #2d312f;
+}
+/* line 109, ../sass/_home.scss */
+.controller-site.action-index .row.black .slide-right {
+  margin-top: 25vh;
+  line-height: normal;
+}
+/* line 112, ../sass/_home.scss */
+.controller-site.action-index .row.black .slide-right h2 {
+  color: #5dca88;
+}
+/* line 115, ../sass/_home.scss */
+.controller-site.action-index .row.black .slide-right p {
+  color: #fff;
+}
+/* line 119, ../sass/_home.scss */
+.controller-site.action-index .row.black .slide-left {
+  margin-top: 25vh;
 }
 
 /* line 3, ../sass/_user.scss */
