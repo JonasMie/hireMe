@@ -35,7 +35,7 @@ class JobCreateForm extends Model
             ['title', 'string', 'min' => 2, 'max' => 255],
 
             ['description', 'required'],
-            ['description', 'string', 'min' => 2, 'max' => 500],
+            ['description', 'string', 'min' => 2, 'max' => 10000],
 
             ['sector', 'required'],
             [['sector','time','zip'], 'integer'],
