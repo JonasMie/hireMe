@@ -84,7 +84,7 @@ $(document).ready(function () {
         var interestRateData = [
 
             {
-                value: 0,
+                value: [obj.interestRate],
                 color: "rgba(93,202,136,0.5)",
                 highlight: "rgba(93,202,136,1.0)",
                 label: "Clicks in Prozent"
