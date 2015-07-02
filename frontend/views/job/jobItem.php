@@ -13,7 +13,7 @@ use frontend\models\Analytics;
 	</h2>
 	<div class="row">
 				<div class="col-xs-2 info totalApplicants">
-					<div class="tile-left"><?= Html::encode(count(Analytics::getAppliesForJob($model['id']))) ?></div>
+					<div class="tile-left"><?= Html::encode(Analytics::getAppliesForJob($model['id'])) ?></div>
 					<div class="tile-right">Bewerbungen</div>
 				</div>
 				<div class="col-xs-2 info newApplicants">

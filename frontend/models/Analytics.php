@@ -36,10 +36,10 @@ class Analytics extends \yii\base\Model
 
         $job = Job::findOne($id);
         $apps = Application::find()
-        ->where(["job_id" => $job->id])
+        ->where(["job_id" => $job->id,'read' => 0,'sent' => 1])
         ->all();
 
-        return count($job);
+        return count($apps);
 
     }
 
