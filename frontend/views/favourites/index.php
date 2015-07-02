@@ -58,7 +58,7 @@ $this->title = Yii::t('app', 'Favoriten');
 						'label'     => 'Job',
 						'format'    => 'raw',
 						'value'     => function ($data) {
-							return Html::a($data->job->description, ['/job/view','id' => $data->job->id]);
+							return Html::a($data->job->title, ['/job/view','id' => $data->job->id]);
 						},
 						'headerOptions'  => ['class' => 'second-col'],
 						'contentOptions' => ['class' => 'second-col']
