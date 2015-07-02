@@ -80,6 +80,45 @@
     }
   }
 
+  .btn-default {
+    margin-top: 15px;
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  #mce-EMAIL {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 2px;
+    margin-top: 20px;
+    max-width: 300px;
+    &:focus, &:active, &:hover {
+      color: #fff;
+      border-bottom: 2px solid #fff;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 1 !important; /* for chrome */
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+  }
+
+  :-ms-input-placeholder {
+    color: #fff;
+  }
+
   .green, .black {
     height: 100vh;
   }
@@ -98,8 +137,13 @@
     }
     .slide-right {
       margin-top: 25vh;
+      h2 {
+        color: $black;
+      }
+      p {
+        color: #fff;
+      }
     }
-
 
   }
 
@@ -120,6 +164,40 @@
       margin-top: 25vh;
     }
 
+  }
+
+  .analytics-pic {
+    margin-top: 30vh;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .green {
+      .slide-left.left, .slide-right.right {
+        margin-top: 35vh !important;
+      }
+    }
+    .black {
+      .slide-left.left, .slide-right.right {
+        margin-top: 35vh !important;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .green {
+      .slide-right.right {
+        margin-top: 90px !important;
+      }
+    }
+    .black {
+      .slide-right.right {
+        margin-top: 90px !important;
+      }
+    }
+  }
+
+  .margin10 {
+    margin-top: 10px !important;
   }
 
 }

@@ -2013,50 +2013,127 @@ body.controller-dashboard #DashboardMessages tbody .footable-row-detail-cell .fo
   }
 }
 /* line 83, ../sass/_home.scss */
+.controller-site.action-index .btn-default {
+  margin-top: 15px;
+}
+/* line 87, ../sass/_home.scss */
+.controller-site.action-index .align-right {
+  text-align: right;
+}
+/* line 91, ../sass/_home.scss */
+.controller-site.action-index #mce-EMAIL {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
+  margin-top: 20px;
+  max-width: 300px;
+}
+/* line 97, ../sass/_home.scss */
+.controller-site.action-index #mce-EMAIL:focus, .controller-site.action-index #mce-EMAIL:active, .controller-site.action-index #mce-EMAIL:hover {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+/* line 103, ../sass/_home.scss */
+.controller-site.action-index ::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 1 !important;
+  /* for chrome */
+}
+/* line 108, ../sass/_home.scss */
+.controller-site.action-index :-moz-placeholder {
+  /* Firefox 18- */
+  color: #fff;
+}
+/* line 113, ../sass/_home.scss */
+.controller-site.action-index ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff;
+}
+/* line 118, ../sass/_home.scss */
+.controller-site.action-index :-ms-input-placeholder {
+  color: #fff;
+}
+/* line 122, ../sass/_home.scss */
 .controller-site.action-index .green, .controller-site.action-index .black {
   height: 100vh;
 }
-/* line 87, ../sass/_home.scss */
+/* line 126, ../sass/_home.scss */
 .controller-site.action-index .row.green {
   background-color: #5dca88;
 }
-/* line 89, ../sass/_home.scss */
+/* line 128, ../sass/_home.scss */
 .controller-site.action-index .row.green .slide-left {
   margin-top: 25vh;
   line-height: normal;
 }
-/* line 92, ../sass/_home.scss */
+/* line 131, ../sass/_home.scss */
 .controller-site.action-index .row.green .slide-left h2 {
   color: #2d312f;
 }
-/* line 95, ../sass/_home.scss */
+/* line 134, ../sass/_home.scss */
 .controller-site.action-index .row.green .slide-left p {
   color: #fff;
 }
-/* line 99, ../sass/_home.scss */
+/* line 138, ../sass/_home.scss */
 .controller-site.action-index .row.green .slide-right {
   margin-top: 25vh;
 }
-/* line 106, ../sass/_home.scss */
+/* line 140, ../sass/_home.scss */
+.controller-site.action-index .row.green .slide-right h2 {
+  color: #2d312f;
+}
+/* line 143, ../sass/_home.scss */
+.controller-site.action-index .row.green .slide-right p {
+  color: #fff;
+}
+/* line 150, ../sass/_home.scss */
 .controller-site.action-index .row.black {
   background-color: #2d312f;
 }
-/* line 109, ../sass/_home.scss */
+/* line 153, ../sass/_home.scss */
 .controller-site.action-index .row.black .slide-right {
   margin-top: 25vh;
   line-height: normal;
 }
-/* line 112, ../sass/_home.scss */
+/* line 156, ../sass/_home.scss */
 .controller-site.action-index .row.black .slide-right h2 {
   color: #5dca88;
 }
-/* line 115, ../sass/_home.scss */
+/* line 159, ../sass/_home.scss */
 .controller-site.action-index .row.black .slide-right p {
   color: #fff;
 }
-/* line 119, ../sass/_home.scss */
+/* line 163, ../sass/_home.scss */
 .controller-site.action-index .row.black .slide-left {
   margin-top: 25vh;
+}
+/* line 169, ../sass/_home.scss */
+.controller-site.action-index .analytics-pic {
+  margin-top: 30vh;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 175, ../sass/_home.scss */
+  .controller-site.action-index .green .slide-left.left, .controller-site.action-index .green .slide-right.right {
+    margin-top: 35vh !important;
+  }
+  /* line 180, ../sass/_home.scss */
+  .controller-site.action-index .black .slide-left.left, .controller-site.action-index .black .slide-right.right {
+    margin-top: 35vh !important;
+  }
+}
+@media (max-width: 767px) {
+  /* line 188, ../sass/_home.scss */
+  .controller-site.action-index .green .slide-right.right {
+    margin-top: 90px !important;
+  }
+  /* line 193, ../sass/_home.scss */
+  .controller-site.action-index .black .slide-right.right {
+    margin-top: 90px !important;
+  }
+}
+/* line 199, ../sass/_home.scss */
+.controller-site.action-index .margin10 {
+  margin-top: 10px !important;
 }
 
 /* line 3, ../sass/_user.scss */
