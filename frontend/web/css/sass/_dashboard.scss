@@ -70,6 +70,9 @@ body.controller-dashboard{
       div.dashboard-tile-1 {
         div.subtile-right {
           background-image: url("/images/dashboard-neue-bewerbungen.png");
+          @media (min-width: 1200px) {
+            background-size: 45% auto;
+          }
           background-size: 55% auto;
           @media (max-width: 991px) {
             background-size: 40% auto;
@@ -97,6 +100,9 @@ body.controller-dashboard{
       div.dashboard-tile-3 {
         div.subtile-right {
           background-image: url("/images/dashboard-stellenanzeigen.png");
+          @media (min-width: 1200px) {
+            background-size: 20% auto;
+          }
           background-size: 35% auto;
           @media (max-width: 991px) {
             background-size: 25% auto;

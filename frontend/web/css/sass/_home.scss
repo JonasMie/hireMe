@@ -1,40 +1,235 @@
 .controller-site.action-index {
 
-	#header{
-		@media (min-width: 992px) {
-			background: rgba(45, 49, 47, 0.8);
-			border: 1px solid #414141;
-			border-left: 0px;
-			border-right: 0px;
-			border-top: 0px;
-		}
-	}
+  #header {
+    @media (min-width: 992px) {
+      background: rgba(45, 49, 47, 0.8);
+    }
+  }
 
-	.navbar-inverse{
-		background:none;
-	}
-	
-	.wrap > .container{
-		padding:0px;
-	}
-	
-	.row {
-		margin-left:0px;
-		margin-right:0px;
-	}
-	
-	.full.first{
-		background: url("../../images/mouse.jpg") center top no-repeat;
-		background-size: cover;
-		color: #fff;
-		width: 100%;
-		height: 100vh;
-		padding-top:70px;
-		margin-bottom: 10vh;
-	}
-	
-	img.centered{
-		margin: 0 auto;
-	}
-	
+  .navbar-inverse {
+    background: none;
+  }
+
+  .wrap > .container {
+    padding: 0px;
+  }
+
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .full.first {
+    background: url("../../images/landingpage/intro-background.jpg") center top no-repeat;
+    @media(max-width: 511px) {
+      background: url("../../images/landingpage/intro-background-511.jpg") center top no-repeat;
+      background-size: cover;
+    }
+    @media(min-width: 1200px) {
+      background: url("../../images/landingpage/intro-background-1200.jpg") center top no-repeat;
+      background-size: cover;
+    }
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    padding-top: 70px;
+  }
+
+  img.centered {
+    margin: 0 auto;
+  }
+
+  h1.titel-h1 {
+    font-size: 50px;
+    margin: 0px;
+    color: $green;
+    @media (max-width: 511px) {
+      font-size: 40px;
+    }
+  }
+
+  h2.titel-h2 {
+    font-size: 22px;
+    margin: 0;
+    color: $black;
+    margin-bottom: 20px;
+    @media(max-width: 511px) {
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+
+  p.titel-p {
+    font-size: 18px;
+    color: #fff;
+    line-height: normal;
+    @media (max-width: 511px) {
+      font-size: 15px;
+    }
+  }
+
+  .jumbotron {
+    text-align: left;
+    padding-left: 5%;
+    padding-right: 57%;
+    margin-top: 18%;
+    @media(max-width: 511px) {
+      margin-top: -20px;
+      padding-right: 6%;
+    }
+  }
+
+  .btn-default {
+    margin-top: 15px;
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  #mce-EMAIL {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 2px;
+    margin-top: 20px;
+    max-width: 300px;
+    &:focus, &:active, &:hover {
+      color: #fff;
+      border-bottom: 2px solid #fff;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 1 !important; /* for chrome */
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+  }
+
+  :-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .green, .black {
+    height: 100vh;
+  }
+
+  .row.green {
+    background-color: $green;
+    .slide-left {
+      margin-top: 25vh;
+      line-height: normal;
+      h2 {
+        color: $black;
+      }
+      p {
+        color: #fff;
+      }
+    }
+    .slide-right {
+      margin-top: 25vh;
+      h2 {
+        color: $black;
+      }
+      p {
+        color: #fff;
+      }
+    }
+
+  }
+
+  .row.black {
+    background-color: $black;
+
+    .slide-right {
+      margin-top: 25vh;
+      line-height: normal;
+      h2 {
+        color: $green;
+      }
+      p {
+        color: #fff;
+      }
+    }
+    .slide-left {
+      margin-top: 25vh;
+    }
+
+  }
+
+  .analytics-pic {
+    margin-top: 30vh;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .green {
+      .slide-left.left, .slide-right.right {
+        margin-top: 35vh !important;
+      }
+    }
+    .black {
+      .slide-left.left, .slide-right.right {
+        margin-top: 35vh !important;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .green {
+      .slide-right.right {
+        margin-top: 90px !important;
+      }
+    }
+    .black {
+      .slide-right.right {
+        margin-top: 90px !important;
+      }
+    }
+  }
+
+  .margin10 {
+    margin-top: 10px !important;
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
