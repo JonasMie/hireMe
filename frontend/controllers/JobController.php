@@ -749,15 +749,27 @@ class JobController extends Controller
                 ->from('geo');
         }
 
-        return (new Query())
+        if(isset($dist)){
+            return (new Query())
             ->from('job')
-            ->leftJoin(
-                [
-                    "dist" => $distQuery
-                ]
-                , 'dist.plz = job.zip')
-            ->select(['job.*', 'dist.distance', 'dist.city'])
-            ->orderBy('distance');
+                ->innerJoin(
+                    [
+                        "dist" => $distQuery
+                    ]
+                    , 'dist.plz = job.zip')
+                ->select(['job.*', 'dist.distance', 'dist.city'])
+                ->orderBy('distance');
+        } else {
+            return (new Query())
+            ->from('job')
+                ->leftJoin(
+                    [
+                        "dist" => $distQuery
+                    ]
+                    , 'dist.plz = job.zip')
+                ->select(['job.*', 'dist.distance', 'dist.city'])
+                ->orderBy('distance');
+        }
 
     }
 }

@@ -166,7 +166,7 @@ $inFavourites = \frontend\models\Favourites::find()->where(['job_id' => $provide
             [
                 'attribute'      => 'distance',
                 'value'          => function ($data) {
-                    return round($data["distance"]) . " km";
+                    return isset($data["distance"])?round($data["distance"]) . " km":null;
                 },
                 'label'          => 'Entfernung',
                 // only show column is user has set his personal plz (otherwise no distance computation possible)
