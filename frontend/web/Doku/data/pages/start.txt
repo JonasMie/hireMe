@@ -1,0 +1,7 @@
+====== hireMe - Apply Sexy ======
+
+Die Entwicklung von hireMe wurde in 3 grundlegende Bereiche eingeteilt: 
+
+  * [[frontend:frontend-index|Frontend]]
+  * [[backend:backend-index|Backend]]
+  * [[projektmanagement:pm-index|Projektmanagement]]
