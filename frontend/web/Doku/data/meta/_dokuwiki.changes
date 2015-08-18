@@ -1,27 +1,20 @@
-1439894135	::1	C	start		angelegt	
-1439894149	::1	C	frontend:frontend-index		angelegt	
-1439894163	::1	C	backend:backend-index		angelegt	
-1439894176	::1	C	projektmanagement:pm-index		angelegt	
-1439895432	::1	E	backend:backend-index			
-1439895450	::1	C	backend:apply-button:button-beschreibung		angelegt	
-1439903075	::1	E	backend:apply-button:button-beschreibung			
-1439903286	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903319	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903491	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903542	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903571	::1	E	backend:apply-button:button-beschreibung		[HireMe-Button für Recruiter] 	
-1439903629	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903682	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903728	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903759	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903799	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903815	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903827	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903884	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903894	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439903958	::1	E	backend:apply-button:button-beschreibung		[HireMe-Button für Recruiter] 	
-1439903977	::1	E	backend:apply-button:button-beschreibung		[HireMe-Button für Bewerber] 	
-1439903981	::1	E	backend:apply-button:button-beschreibung		[HireMe-Button Funktionalität und Prozess] 	
-1439904025	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439904038	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
-1439904050	::1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
+1439908720	127.0.0.1	C	start		angelegt	
+1439908754	127.0.0.1	E	start			
+1439908786	127.0.0.1	C	frontend:frontend-index		angelegt	
+1439908840	127.0.0.1	E	start			
+1439908847	127.0.0.1	E	start			
+1439908856	127.0.0.1	C	backend:backend-index		angelegt	
+1439908869	127.0.0.1	C	projektmanagement:pm-index		angelegt	
+1439908907	127.0.0.1	E	backend:backend-index			
+1439908942	127.0.0.1	C	backend:apply-button:button-beschreibung		angelegt	
+1439909026	127.0.0.1	E	backend:apply-button:button-beschreibung			
+1439909090	127.0.0.1	E	backend:apply-button:button-beschreibung		[Allgemein] 	
+1439909129	127.0.0.1	E	backend:apply-button:button-beschreibung		[HireMe-Button für Recruiter] 	
+1439909575	127.0.0.1	E	backend:apply-button:button-beschreibung			
+1439909594	127.0.0.1	C	backend:apply-button:button-recruiter		angelegt	
+1439909613	127.0.0.1	C	backend:apply-button:button-bewerber		angelegt	
+1439909633	127.0.0.1	C	backend:apply-button:button-logic		angelegt	
+1439909656	127.0.0.1	E	backend:apply-button:button-beschreibung		[HireMe-Button für Recruiter] 	
+1439909670	127.0.0.1	E	backend:apply-button:button-recruiter			
+1439909689	127.0.0.1	E	backend:apply-button:button-beschreibung		[HireMe-Button für Bewerber] 	
+1439909694	127.0.0.1	E	backend:apply-button:button-beschreibung		[HireMe-Button Funktionalität und Prozess] 	

@@ -1,0 +1,4 @@
+<span class="sc-1">&lt;!-- Codezeile zum Laden des Skripts --&gt;</span>
+<span class="sc2">&lt;<a href="http://december.com/html/4/element/script.html"><span class="kw2">script</span></a> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">'hireme.mi.hdm-stuttgart.de/js/applier.js'</span>&gt;&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/script.html"><span class="kw2">script</span></a>&gt;</span>
+<span class="sc-1">&lt;!-- Codezeile zum Einbinden des Buttons --&gt;</span>
+<span class="sc2">&lt;<a href="http://december.com/html/4/element/div.html"><span class="kw2">div</span></a> <span class="kw3">id</span><span class="sy0">=</span><span class="st0">'ac'</span> <span class="kw3">name</span><span class="sy0">=</span><span class="st0">'245de80cc0fae337e92fbe65a09c38a1'</span>&gt;&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/div.html"><span class="kw2">div</span></a>&gt;</span>
