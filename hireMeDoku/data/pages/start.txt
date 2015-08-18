@@ -1,5 +1,0 @@
-====== hireMe Dokumentation ======
-
-Hier am besten irgendeine Einführung...
-
-Ich hab das jetzt mal in [[Frontend:index|Frontend]], [[Backend:index|Backend]] und [[Projektmanagement:index|Projektmanagement]] unterteilt. 
