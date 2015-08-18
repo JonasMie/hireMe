@@ -8,3 +8,8 @@ backend:backend-index
 backend:apply-button:button-recruiter
 backend:apply-button:button-bewerber
 backend:apply-button:button-logic
+playground:playground
+wiki:pagename
+some:namespaces
+wiki:nonexisting
+wiki:dokuwiki

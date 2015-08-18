@@ -1,1 +1,44 @@
 ====== HireMe-Button Funktionalität und Prozess ======
+
+Der wohl interessanteste Punkt des HireMe-Buttons ist die Funktionalität sowie der Bewerbungsprozess. Beide Aspekte werden auf dieser Seite beschreiben.\\
+
+===== Bewerbungsprozess =====
+
+  - Bewerber ruft Seite mit HireMe-Button auf:
+
+Sobald der Nutzer die Seite mit dem Button aufruft wird die Datei applier.js geladen. Da man nicht davon ausgehen kann, dass die Webseite, auf der der Button erscheint, jQuery selbst schon lädt, muss zuerst jQuery geladen werden.
+
+Dazu wurde von [[http://www.sitepoint.com/dynamically-load-jquery-library-javascript/|Sitepoint]] ein Code-Snippet benutzt\\ 
+
+Nachdem nun jQuery verfügbar ist, kann mit dem "Tracken" des Buttons angefangen werden. Dazu wird er zuerst identifiziert. Da sich der Button in einem <div></div> Block befindet, kann sehr einfach Content hinzugefügt werden.\\
+Dies geschieht mit dem View-Count iFrame als erstes:\\
+<code javascript>
+
+// applier.js
+// Zeile 33ff.
+var html = '<iframe src="http://hireme.mi.hdm-stuttgart.de/job/view-count" width="0" height="0" id="hireMeFrame" scrolling="no" frameBorder="0" name="'+key+'">';
+$("#ac").html(html);
+</code>
+
+Genau hier befindet sich auch die "Schnittstelle" zwischen den Domains. Der Key auf der anzuzeigenden Seite wird ausgelesen und als Name des iFrames festgelegt. Dies hat den Grund, dass der iFrame nun Zugriff auf den Key hat und somit auch Daten zur Verarbeitung senden kann. Der iFrame soll nicht sichtbar sein, deshalb wurden Breite und Höhe einfach auf 0 gesetzt\\
+Der iFrame ruft zuerst folgende action im JobController auf:\\
+<code php>
+//JobController 
+//Zeile 609
+public function actionViewCount() {return $this->renderPartial('viewCountIFrame');}
+</code>
+Somit wird nun die View mit dem Namen "viewCountIFrame" in den iFrame geladen. In dieser View wird nun auch in der ready Methode auf den key, der als name-Attribut des iFrames dient, zugegriffen. Dort geschieht nun ein einfacher httpRequest, der wieder eine Action im JobController aufruft und den Key des Buttons als parameter mitschickt:\\
+<code javascript>
+// viewCountIFrame
+// Zeile 17ff
+function httpReq(url) {  
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", url, false );
+    xmlHttp.send( null );
+}
+
+$( document ).ready(function() {
+	httpReq("http://hireme.mi.hdm-stuttgart.de/job/view-up?btnKey="+window.name);
+});
+</code>
+In dieser Action kann schlussendlich auf das ApplyButton Objekt zugegriffen werden und das Attribut viewCOunt erhöht werden. 

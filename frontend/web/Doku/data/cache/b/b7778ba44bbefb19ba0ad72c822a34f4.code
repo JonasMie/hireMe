@@ -1,0 +1,3 @@
+<span class="co1">//JobController </span>
+<span class="co1">//Zeile 609</span>
+<span class="kw2">public</span> <span class="kw2">function</span> actionViewCount<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><span class="kw1">return</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">renderPartial</span><span class="br0">&#40;</span><span class="st_h">'viewCountIFrame'</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="br0">&#125;</span>
