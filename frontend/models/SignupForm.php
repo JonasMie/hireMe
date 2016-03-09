@@ -112,23 +112,17 @@ class SignupForm extends Model
      */
     public function signup()
     {
-
         if ($this->validate()) {
-
             $user = new User();
             $user->firstName = $this->firstName;
             $user->lastName = $this->lastName;
             $user->fullName = $this->firstName . " " . $this->lastName;
             $user->username = $this->generateUsername($this->firstName, $this->lastName);
-            
-
             $user->email = $this->email;
             $user->setPassword($this->password);
 
             if ($this->checkCompanySignup):
                 $company = Company::findByName($this->companyName);
-
-
                 if (!$company):
                     $company = new Company();
                     $company->name = $this->companyName;
@@ -138,11 +132,8 @@ class SignupForm extends Model
                     $company->city = $this->companyAddressCity;
                     $company->sector = $this->companySector;
                     $company->employeeAmount = $this->companyEmployees;
-
                     $company->save();
-
                 endif;
-
                 $user->is_recruiter = 1;
                 $user->company_id = $company->id;
             endif;

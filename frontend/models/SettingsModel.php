@@ -140,8 +140,7 @@ class SettingsModel extends Model
         return null;
     }
 
-    private
-    function cropImage($path, $extension, $param)
+    private function cropImage($path, $extension, $param)
     {
         $imagefile = Yii::getAlias('@webroot') . '/uploads/profile/temp' . $path . "." . $extension;
         $imagesize = getimagesize($imagefile);
@@ -176,8 +175,7 @@ class SettingsModel extends Model
         return true;
     }
 
-    private
-    function saveThumbnail($path)
+    private function saveThumbnail($path)
     {
         $imagefile = Yii::getAlias('@webroot') . '/uploads/profile' . $path . ".jpg";
         $imagesize = getimagesize($imagefile);
